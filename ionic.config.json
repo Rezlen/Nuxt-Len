@@ -1,0 +1,7 @@
+{
+  "name": "nuxt-len",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
