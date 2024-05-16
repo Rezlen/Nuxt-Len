@@ -1,0 +1,5 @@
+indext.html (index.html) refers to main.ts => /src/main.ts; it has all the imports from Vue; while connects to a CONST named APP.
+/src/main.ts; => connects to app.vue (src\App.vue) AND Router; src\router\index.ts
+app.vue (src\App.vue) imports IonApp, IonRouterOutlet
+Router/index.ts (Router; src\router\index.ts) sets HomePage to '../views/HomePage.vue' Home page also display (MessageListItem)which is pulling from src\components\MessageListItem.vue which includes styling too. 
+HomePage to '../views/HomePage.vue' pulls/creates header & row collapsing some content.
