@@ -6,6 +6,7 @@
       </ion-toolbar>
     </ion-header>
 
+
     <ion-content :fullscreen="true">
       <ion-refresher slot="fixed" @ionRefresh="refresh($event)">
         <ion-refresher-content></ion-refresher-content>
@@ -13,9 +14,38 @@
 
       <ion-header collapse="condense">
         <ion-toolbar>
-          <ion-title size="large">Inbox</ion-title>
+          <ion-title size="large">Inboxxxx</ion-title>
         </ion-toolbar>
       </ion-header>
+
+<!-- signup button here https://ionicframework.com/docs/api/grid#vertical-alignment -->
+<br/>
+  <ion-grid >
+    <ion-row class="SignupFields">
+      <ion-col class="SignupFields" size="auto">
+        <ion-input label="Type Your Email" label-placement="floating" fill="outline" type="email" ></ion-input>
+      </ion-col>
+
+      <ion-col class="SignupFields" size="auto">
+        <ion-input label="Type Your Password" label-placement="floating" fill="outline" type="password" value="password" ></ion-input>
+      </ion-col>
+
+      <ion-col class="SignupFields" size="auto">
+        <ion-input label="ReType Your Password" label-placement="floating" fill="outline" type="password" value="password"></ion-input>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="SignupFields">
+        <ion-button>SignUp</ion-button>
+      </ion-col>
+    </ion-row>
+ 
+  <ion-item class="OutPut">Displaying the imported conatact list here</ion-item>
+</ion-grid>
+
+<!-- signup button here -->
+
 
       <ion-list>
         <MessageListItem v-for="message in messages" :key="message.id" :message="message" />
@@ -34,6 +64,7 @@ import {
   IonRefresherContent,
   IonTitle,
   IonToolbar,
+  IonButton, IonIcon, IonInput, IonItem,
 } from '@ionic/vue';
 import MessageListItem from '@/components/MessageListItem.vue';
 import { getMessages, Message } from '@/data/messages';
@@ -47,3 +78,23 @@ const refresh = (ev: CustomEvent) => {
   }, 3000);
 };
 </script>
+
+<style>
+
+  ion-input {
+    margin: 5px;
+  }
+  .OutPut {
+    height: 200px;
+    border: solid;
+    margin: 20px;
+    background-color: aqua;
+  }
+
+.SignupFields {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+</style>
