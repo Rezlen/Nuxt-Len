@@ -25,6 +25,8 @@ import {
   IonTitle,
   IonContent
 } from "@ionic/vue";
+const route = useRoute();
+import { useRoute } from 'vue-router';
 
 export default {
   name: "Explorer",
