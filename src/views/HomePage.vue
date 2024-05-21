@@ -40,7 +40,13 @@
         <ion-button>SignUp</ion-button>
       </ion-col>
     </ion-row>
- 
+
+    <ion-row>
+      <ion-col class="SignupFields">
+        <ion-button expand="block" href="/Login"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button> 
+      </ion-col>
+    </ion-row>
+
   <ion-item class="OutPut">Displaying the imported conatact list here</ion-item>
 </ion-grid>
 
@@ -69,6 +75,7 @@ import {
 import MessageListItem from '@/components/MessageListItem.vue';
 import { getMessages, Message } from '@/data/messages';
 import { ref } from 'vue';
+import { logoGoogle } from "ionicons/icons";
 
 const messages = ref<Message[]>(getMessages());
 
