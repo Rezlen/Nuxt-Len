@@ -19,21 +19,21 @@ const routes: Array<RouteRecordRaw> = [
     path: '/message/:id',
     component: () => import('../views/ViewMessagePage.vue')
   },
-    {
+  {
     path: '/Login',
     name: 'Login',
     component: Login
   },
-        {
+  {
     path: '/Profile',
     name: 'Profile',
     component: Profile
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
-})
+});
 
-export default router
+export default router;

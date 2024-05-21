@@ -96,8 +96,7 @@ export default {
     },
     googleAuth() {
       let gapi = window.gapi;
-      let clientId ="IDDDDDDDD";
-      let apiKey ="KEYYYYYY";
+
       let discoveryDocs =["https://www.googleapis.com/discovery/v1/apis/oauth2/v2/rest"];
       let scope ="https://www.googleapis.com/auth/userinfo.profile";
 
@@ -118,7 +117,7 @@ export default {
             this.loginApiCall(this.googleUserProfile);
             console.log("NOT logged in...");
             }).catch(err => {
-              alert(`Google auth error: ${err}`);
+              alert(`Error signing in with Google: ${err.message}`);
             });
           }
         })
