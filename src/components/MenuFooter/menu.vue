@@ -1,80 +1,70 @@
 <template>
-  <ion-grid >
-    <ion-content>
-      <ion-page>
-        
-        <ion-header :translucent="true">
-          <ion-toolbar>
-            <ion-title>Inbox</ion-title>
-          </ion-toolbar>
-        </ion-header>
+  <ion-page>
+    <ion-header :translucent="true">
+      <ion-toolbar>
+        <ion-grid>
+          <ion-row class="MenuRow">
 
-          <!-- signup button here https://ionicframework.com/docs/api/grid#vertical-alignment -->
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>LEN LOGO</ion-title>
+            </ion-col>
 
-        <ion-row class="SignupFields">
-          <ion-col class="SignupFields" size="auto">
-            <ion-input label="Type Your Email" label-placement="floating" fill="outline" type="email" ></ion-input>
-          </ion-col>
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>Home</ion-title>
+            </ion-col>
 
-          <ion-col class="SignupFields" size="auto">
-            <ion-input label="Type Your Password" label-placement="floating" fill="outline" type="password" value="password" ></ion-input>
-          </ion-col>
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>Businesses & Offers</ion-title>
+            </ion-col>
 
-          <ion-col class="SignupFields" size="auto">
-            <ion-input label="ReType Your Password" label-placement="floating" fill="outline" type="password" value="password"></ion-input>
-          </ion-col>
-        </ion-row>
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>Events & Shows</ion-title>
+            </ion-col>
 
-        <ion-row>
-          <ion-col class="SignupFields">
-            <ion-button>SignUp</ion-button>
-          </ion-col>
-        </ion-row>
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>FREE Pitching</ion-title>
+            </ion-col>
 
-        <ion-row>
-          <ion-col class="SignupFields">
-            <ion-button expand="block" href="/Login"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button> 
-          </ion-col>
-        </ion-row>
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>Feeds</ion-title>
+            </ion-col>
 
-        <ion-item class="OutPut">Displaying the imported conatact list here</ion-item>
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>VIP Membership</ion-title>
+            </ion-col>
 
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>More Options</ion-title>
+            </ion-col>
 
-        <!-- signup button here -->
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>Subscription</ion-title>
+            </ion-col>
 
-
-        <ion-list>
-          <MessageListItem v-for="message in messages" :key="message.id" :message="message" />
-        </ion-list>
-      </ion-page>
-    </ion-content>
-  </ion-grid>
+            <ion-col class="MenuCol" size="auto">
+              <ion-title>SignIn</ion-title>
+            </ion-col>
+            
+          </ion-row>
+        </ion-grid>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content></ion-content>
+  </ion-page>
 </template>
 
+
 <script setup lang="ts">
-import {
-  IonContent,
-  IonHeader,
-  IonList,
-  IonPage,
-  IonRefresher,
-  IonRefresherContent,
-  IonTitle,
-  IonToolbar,
-  IonButton, IonIcon, IonInput, IonItem,
-} from '@ionic/vue';
-import MessageListItem from '@/components/MessageListItem.vue';
-import { getMessages, Message } from '@/data/messages';
-import { ref } from 'vue';
-import { logoGoogle } from "ionicons/icons";
-
-const messages = ref<Message[]>(getMessages());
-
-const refresh = (ev: CustomEvent) => {
-  setTimeout(() => {
-    ev.detail.complete();
-  }, 3000);
-};
+  import {
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonTitle,
+    IonToolbar,
+    IonGrid,
+    IonRow,
+    IonCol,
+  } from '@ionic/vue';
 </script>
 
 <style>
@@ -89,10 +79,10 @@ const refresh = (ev: CustomEvent) => {
     background-color: aqua;
   }
 
-.SignupFields {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  .MenuCol {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 
 </style>

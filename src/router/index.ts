@@ -3,6 +3,8 @@ import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import Login from '../views/Login.vue';
 import Profile from '../views/Profile.vue';
+import Menu from '@/components/MenuFooter/Menu.vue';
+
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -20,12 +22,17 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/ViewMessagePage.vue')
   },
   {
-    path: '/Login',
+    path: '/login',
     name: 'Login',
     component: Login
   },
   {
-    path: '/Profile',
+    path: '/menu',
+    name: 'Menu',
+    component: Menu
+  },
+  {
+    path: '/profile',
     name: 'Profile',
     component: Profile
   },
