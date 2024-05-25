@@ -44,7 +44,7 @@
     <ion-row>
       <ion-col class="SignupFields">
         <!-- <ion-button expand="block" href="/Login"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button>  -->
-        <ion-button expand="block" href="../components/MenuFooter/Menu.vue"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button> 
+        <ion-button expand="block" href="/menu"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button> 
       </ion-col>
     </ion-row>
 
