@@ -19,15 +19,18 @@
     <ion-content>
       <!-- Desktop view: horizontal menu using grid layout -->
       <ion-grid class="desktop-menu" v-if="!isMobile">
-        <ion-row class="MenuRow">
-          <!-- Column for LEN Logo -->
-          <ion-col class="LogoCol" size="auto">
-            <router-link to="/home" routerDirection="forward">
-              <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
-            </router-link>
-          </ion-col>
+<ion-row class="MainMenuRow">
+        <!-- Column for LEN Logo -->
+        <ion-col class="LogoCol" >
+          <router-link to="/home" routerDirection="forward">
+            <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
+          </router-link>
+        </ion-col>
+
+        <ion-col class="MainMenuCol" >
+
           <!-- Menu items -->
-          <ion-col class="MenuCol" size="auto" v-for="menu in menus" :key="menu.title">
+          <ion-row class="MenuRow" v-for="menu in menus" :key="menu.title">
             <router-link :to="menu.path">
               <ion-title >{{ menu.title }}</ion-title>
             </router-link>
@@ -36,8 +39,9 @@
                 <ion-label>{{ submenu.title }}</ion-label>
               </ion-item>
             </ion-list>
-          </ion-col>
-        </ion-row>
+          </ion-row>
+        </ion-col>
+</ion-row>
       </ion-grid>
 
       <!-- Mobile view: side menu -->
@@ -192,12 +196,30 @@ function toggleSubmenu(menu: Menu) {
 }
 </script>
 
-
 <style scoped>
-.header_logo {
-  margin: 10px; /* Adjust as needed */
+.desktop-menu {
+  background-color: aqua;
 }
 
+.MainMenuRow {
+}
+
+.LogoCol {
+  text-align: left;
+}
+
+.MainMenuCol {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0; /* Ensure no padding is added here */
+}
+
+.MenuRow {
+  display: flex;
+  align-items: center;
+  margin: 0; /* Remove margin */
+  padding: 5px; /* Remove padding */
+}
 
 .submenu {
   position: absolute;
@@ -206,13 +228,11 @@ function toggleSubmenu(menu: Menu) {
   z-index: 10;
 }
 
-/* Adjust font size, color, and remove underlines for submenu items */
 .submenu ion-label {
   font-size: 14px;
-  color: rgb(0, 0, 0); /* Text color for submenu items */
+  color: rgb(0, 0, 0);
 }
 
-/* Responsive styles */
 @media (min-width: 768px) {
   .desktop-menu {
     display: block;
@@ -223,40 +243,19 @@ function toggleSubmenu(menu: Menu) {
   }
 }
 
-/* Column styles */
-.MenuCol {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-/* ################################################### */
-.MenuRow:hover .submenu {
+.MainMenuCol:hover .submenu {
   display: block;
-  background-color: rgb(15, 18, 226); /*This curretnlt gives the background colur top & button of the submneus */
+  background-color: rgb(15, 18, 226);
   border: 1px solid #ddd;
 }
 
-/* Adjust font size, color, and remove underlines for menu items */
 .MenuRow ion-title {
-  font-size: 14px;
-  color: rgb(0, 0, 0);
-  /* text-decoration: "none";  */
-  padding: 3px;
-}
-/* ################################################### */
-
-router-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-router-link:hover {
-  text-decoration: none;
-}
-
-.LogoCol {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  font-family: sans-serif;
+  font-size: 13px;
+  color: rgb(5, 2, 2);
+  text-decoration: none; /* Corrected syntax from "none" to none */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
 }
 </style>
+

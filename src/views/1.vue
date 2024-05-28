@@ -19,13 +19,16 @@
     <ion-content>
       <!-- Desktop view: horizontal menu using grid layout -->
       <ion-grid class="desktop-menu" v-if="!isMobile">
-        <ion-row class="MenuRow">
-          <!-- Column for LEN Logo -->
-          <ion-col class="LogoCol" size="auto">
-            <router-link to="/home" routerDirection="forward">
-              <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
-            </router-link>
-          </ion-col>
+
+        <!-- Column for LEN Logo -->
+        <ion-row class="LogoCol" size="6">
+          <router-link to="/home" routerDirection="forward">
+            <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
+          </router-link>
+        </ion-row>
+
+        <ion-row class="MenuRow" size=auto>
+
           <!-- Menu items -->
           <ion-col class="MenuCol" size="auto" v-for="menu in menus" :key="menu.title">
             <router-link :to="menu.path">
@@ -194,6 +197,7 @@ function toggleSubmenu(menu: Menu) {
 
 
 <style scoped>
+
 .header_logo {
   margin: 10px; /* Adjust as needed */
 }
@@ -229,12 +233,17 @@ function toggleSubmenu(menu: Menu) {
   flex-direction: column;
   justify-content: center;
 }
+.MenuRow {
+  justify-content: flex-end;
+}
+
 /* ################################################### */
 .MenuRow:hover .submenu {
   display: block;
   background-color: rgb(15, 18, 226); /*This curretnlt gives the background colur top & button of the submneus */
   border: 1px solid #ddd;
 }
+
 
 /* Adjust font size, color, and remove underlines for menu items */
 .MenuRow ion-title {
@@ -254,9 +263,5 @@ router-link:hover {
   text-decoration: none;
 }
 
-.LogoCol {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
+
 </style>
