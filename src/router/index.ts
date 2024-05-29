@@ -3,7 +3,11 @@ import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import Login from '../views/Login.vue';
 import Profile from '../views/Profile.vue';
-import Menu from '@/components/MenuFooter/Menu.vue';
+import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
+import TemplatePage from '../views/TemplatePage.vue';
+import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
+ 
+
 
 
 
@@ -28,13 +32,23 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/menu',
-    name: 'Menu',
-    component: Menu
+    name: 'MenuComponent',
+    component: MenuComponent
+  },
+  {
+    path: '/socialMediaBarComponent',
+    name: 'SocialMediaBarComponent',
+    component: SocialMediaBarComponent
   },
   {
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/templatePage',
+    name: 'TemplatePage',
+    component: TemplatePage
   },
 ];
 

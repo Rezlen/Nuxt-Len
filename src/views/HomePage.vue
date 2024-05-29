@@ -44,9 +44,24 @@
     <ion-row>
       <ion-col class="SignupFields">
         <!-- <ion-button expand="block" href="/Login"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button>  -->
-        <ion-button expand="block" href="/menu"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button> 
+        <ion-button expand="block" href="/menu"><ion-icon slot="start" :icon="logoGoogle" />Menu/Googleee</ion-button> 
       </ion-col>
     </ion-row>
+
+     <ion-row>
+      <ion-col class="SignupFields">
+        <!-- Link to Template page  -->
+        <ion-button expand="block" href="/TemplatePage"><ion-icon slot="start" :icon="logoGoogle" />TemplatePage</ion-button> 
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="SignupFields">
+        <!-- Link to Template page  -->
+        <ion-button expand="block" href="/SocialMediaBarComponent"><ion-icon slot="start" :icon="logoGoogle" />SocialMediaBarComponent</ion-button> 
+      </ion-col>
+    </ion-row>
+
 
   <ion-item class="OutPut">Displaying the imported conatact list here</ion-item>
 </ion-grid>
