@@ -120,16 +120,6 @@ export default defineComponent({
   align-items: flex-end;
 }
 
-.sitemap-wrapper {
-  /* position: relative; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* overflow: hidden;  */
-  /* Ensures the content stays within the footer */
-  /* display: flex; */
-  /* justify-content: center; */
-}
-
 .sitemap {
   list-style-type: none;
   padding: 0;
@@ -148,7 +138,7 @@ export default defineComponent({
   margin: 10px;
   text-align: left;
   padding: 10px;
-  width: 200px; 
+  /* width: 200px;  */
   /* Fixed width for desktop */
 }
 
@@ -156,10 +146,7 @@ export default defineComponent({
   padding-left: 0;
 }
 
-.sitemap strong {
-  display: block;
-  margin-bottom: 10px;
-}
+
 
 @media (max-width: 768px) {
 

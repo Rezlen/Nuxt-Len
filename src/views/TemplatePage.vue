@@ -12,9 +12,7 @@
       <!-- Other content can go here -->
     </IonContent>
 
-
       <IonGrid>
-
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow>
           <!-- Left Advert Section -->
@@ -32,14 +30,12 @@
             <RightAdvertComponent />
           </IonCol>
         </IonRow>
-
-        <!-- Footer Section -->
-        <IonRow>
-          <IonCol class="bordered-section">
-            <FooterComponent />
-          </IonCol>
-        </IonRow>
       </IonGrid>
+        <!-- Footer Section -->
+        <IonFooter >
+          <FooterComponent />
+        </IonFooter>
+      
   </IonPage>
 </template>
 
@@ -68,18 +64,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* .bordered-section {
+.bordered-section {
   border: 1px solid #000;
   background-color: lightgray;
-  padding: 10px;
-  box-sizing: border-box;
-  z-index: 1;
-  display: flex; 
+  /* padding: 10px; */
+  /* box-sizing: border-box; */
+  /* z-index: 1; */
+  /* display: flex;  */
 }
 
 @media (min-width: 768px) {
   .main-content-row ion-col {
     margin-bottom: 0; 
   }
-} */
+}
 </style>
