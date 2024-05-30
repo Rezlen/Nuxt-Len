@@ -61,6 +61,8 @@
 
       <div id="main-content">
         <!-- Your main content here -->
+        <!-- Insert SocialMediaBarComponent below -->
+        <SocialMediaBarComponent />
       </div>
     </IonContent>
   </IonPage>
@@ -85,6 +87,7 @@ import {
 } from '@ionic/vue';
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
+import SocialMediaBarComponent from './SocialMediaBarComponent.vue'; // Import the SocialMediaBarComponent
 
 // Reactive data
 const isMobile = ref(window.innerWidth < 768);
@@ -97,7 +100,7 @@ const menus = ref([
     showSubMenus: false,
   },
   {
-    title: 'Businesses & Offers V',
+    title: 'Businesses & Offers⌄',
     path: '',
     subMenus: [
       { title: 'All Businesses Profile', path: '/AllBusinessesProfile' },
@@ -109,7 +112,7 @@ const menus = ref([
     showSubMenus: false, // Initially hide submenu
   },
   {
-    title: 'Events & Shows V',
+    title: 'Events & Shows⌄',
     path: '',
     subMenus: [
       { title: 'Events & Shows', path: '/EventShows' },
@@ -120,7 +123,7 @@ const menus = ref([
     showSubMenus: false, // Initially hide submenu
   },
   {
-    title: 'FREE Pitching V',
+    title: 'FREE Pitching⌄',
     path: '',
     subMenus: [
       { title: 'FREE Pitch Reservation', path: '/FreePitchReservation' },
@@ -132,7 +135,7 @@ const menus = ref([
     showSubMenus: false, // Initially hide submenu
   },
   {
-    title: 'Investors & Investees V',
+    title: 'Investors & Investees⌄',
     path: '',
     subMenus: [
       { title: 'Apply For Investment', path: '/ApplyForInvestment' },
@@ -155,7 +158,7 @@ const menus = ref([
     showSubMenus: false,
   },
   {
-    title: 'More Options V',
+    title: 'More Options⌄',
     path: '',
     subMenus: [
       { title: 'Rewards & Discounts', path: '/RewardsDiscounts' },
@@ -214,7 +217,7 @@ window.addEventListener('resize', () => {
   margin: 0; /* Remove margin */ 
   padding: 5px; /*  Remove padding */
 }
-.MenuRow a { /* Targets router-link undeline elements within elements- to remove the underline  */
+.MenuRow a { /* Targets router-link underline elements within elements- to remove the underline  */
   text-decoration: none;
 }
 

@@ -62,6 +62,13 @@
       </ion-col>
     </ion-row>
 
+    <ion-row>
+      <ion-col class="SignupFields">
+        <!-- Link to Template page  -->
+        <ion-button expand="block" href="/FooterComponent"><ion-icon slot="start" :icon="logoGoogle" />FooterComponent</ion-button> 
+      </ion-col>
+    </ion-row>
+
 
   <ion-item class="OutPut">Displaying the imported conatact list here</ion-item>
 </ion-grid>

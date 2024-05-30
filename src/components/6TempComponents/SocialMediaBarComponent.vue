@@ -1,5 +1,5 @@
 <template>
-  <IonToolbar class="navbar-toolbar">
+  <div class="navbar-container">
     <IonGrid>
       <IonRow class="navbar-row">
         <!-- First Section -->
@@ -24,11 +24,11 @@
         </IonCol>
         <!-- Search Box Section -->
         <IonCol class="search-section">
-          <IonSearchbar placeholder="Search" showCancelButton="never" />
+          <input type="text" class="custom-searchbox" placeholder="Search" />
         </IonCol>
         <!-- About Button Section -->
         <IonCol class="about-section">
-          <IonButton class="about-button">About Page</IonButton>
+          <IonButton fill="outline" class="about-button">About Page</IonButton>
         </IonCol>
         <!-- Third Section -->
         <IonCol class="social-section">
@@ -52,23 +52,21 @@
         </IonCol>
       </IonRow>
     </IonGrid>
-  </IonToolbar>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonToolbar, IonGrid, IonRow, IonCol, IonIcon, IonSearchbar, IonButton } from '@ionic/vue';
+import { IonGrid, IonRow, IonCol, IonIcon, IonButton } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoInstagram, logoLinkedin } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'SocialMediaNavbar',
   components: {
-    IonToolbar,
     IonGrid,
     IonRow,
     IonCol,
     IonIcon,
-    IonSearchbar,
     IonButton,
   },
   data() {
@@ -83,16 +81,17 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.navbar-toolbar {
+.navbar-container {
   border-bottom: 1px solid #000;
+  /* padding: 10px 0; */
 }
 
 .navbar-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
-  align-content: center;
+  /* gap: 20px;  */
+  /* Space between sections */
 }
 
 .social-section,
@@ -135,19 +134,18 @@ export default defineComponent({
   color: #0077b5; /* LinkedIn blue */
 }
 
-.search-section ion-searchbar {
-  width: 90%; /* Reduce width by 50% */
-  --padding-start: 0;
-  --padding-end: 0;
-  --icon-padding-start: 0;
-  --icon-padding-end: 0;
-  --searchbar-background: transparent;
-  --placeholder-color: currentColor;
-  --color: currentColor;
+.custom-searchbox {
+  width: 80%;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .about-button {
   --padding-start: 5px;
   --padding-end: 5px;
+  font-size: 10px;
+  --font-family: 'Arial, sans-serif'; /* Sleek, readable font */
 }
 </style>

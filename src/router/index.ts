@@ -6,6 +6,9 @@ import Profile from '../views/Profile.vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import TemplatePage from '../views/TemplatePage.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
+import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
+
+
  
 
 
@@ -39,6 +42,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/socialMediaBarComponent',
     name: 'SocialMediaBarComponent',
     component: SocialMediaBarComponent
+  },
+  {
+    path: '/footerComponent',
+    name: 'FooterComponent',
+    component: FooterComponent
   },
   {
     path: '/profile',

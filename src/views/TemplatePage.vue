@@ -1,15 +1,19 @@
 <template>
   <IonPage>
+    <IonHeader>
+      <IonToolbar>
+         <MenuComponent /> <!--for some reson the <MenuComponent /> can not be displayed here -->
+      </IonToolbar>
+    </IonHeader>
+    
+    <!-- Content including the SocialMediaNavbar component -->
     <IonContent>
+      <MenuComponent /><!-- the <SocialMediaBarComponent /> is embeded ine 62-66-->     
+      <!-- Other content can go here -->
+    </IonContent>
+
+
       <IonGrid>
-        <!-- Menu Section -->
-        <IonRow class="bordered-section">
-          <MenuComponent />
-        </IonRow>
-        <!-- Social Media Section -->
-        <IonRow class="bordered-section">
-          <SocialMediaBarComponent />
-        </IonRow>
 
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow>
@@ -36,7 +40,6 @@
           </IonCol>
         </IonRow>
       </IonGrid>
-    </IonContent>
   </IonPage>
 </template>
 
@@ -45,6 +48,8 @@ import { defineComponent } from 'vue';
 import { IonPage, IonContent, IonGrid, IonRow, IonCol } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
+import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
+
 
 
 export default defineComponent({
@@ -57,23 +62,24 @@ export default defineComponent({
     IonCol,
     MenuComponent,
     SocialMediaBarComponent,
+    FooterComponent,
   },
 });
 </script>
 
 <style scoped>
-.bordered-section {
+/* .bordered-section {
   border: 1px solid #000;
   background-color: lightgray;
   padding: 10px;
   box-sizing: border-box;
   z-index: 1;
-  display: flex; /* Explicitly setting display */
+  display: flex; 
 }
 
 @media (min-width: 768px) {
   .main-content-row ion-col {
-    margin-bottom: 0; /* Reset margin for larger screens */
+    margin-bottom: 0; 
   }
-}
+} */
 </style>
