@@ -120,24 +120,23 @@ export default defineComponent({
   align-items: flex-end;
 }
 
-
 .sitemap {
   list-style-type: none;
   padding-left: 5px;
   margin: 0;
   display: flex;
   flex-wrap: wrap; /* Important to have the Lists within the frame */
-  /* justify-content: center; */
   overflow-y: auto; 
-  /* Makes the list scrollable if it overflows */
-  align-items: flex-start;
-  /* align-content: flex-end; */
+  align-items: flex-end; /* Align items to the bottom */
   height: 250px;
 }
 
 .sitemap > li {
   margin: 10px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Ensure items are aligned to the bottom within each column */
 }
 
 .sitemap ul {
@@ -148,13 +147,12 @@ export default defineComponent({
 
   .sitemap {
     flex-direction: row; /* Stack items vertically on mobile */
-    align-items: center;
+    align-items: flex-end; /* Ensure alignment remains on mobile */
     max-height: 250px; /* Adjust this value as needed */
-
   }
 
   .sitemap > li {
-    text-align: left; /* Center text on mobile */
+    text-align: left; /* Align text to the left */
   }
 }
 

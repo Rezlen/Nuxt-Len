@@ -1,169 +1,151 @@
 <template>
-  <IonFooter class="footer">
+  <div class="navbar-container">
     <IonGrid>
-      <IonRow class="footer-content">
-        <IonCol size="12">
-          <ul class="sitemap">
-            <li>
-              <strong>BUSINESSES/OFFERS</strong>
-              <ul>
-                <li>All Businesses Profiles</li>
-                <li>All Offers</li>
-                <li>Best Offers</li>
-                <li>All Needs</li>
-                <li>Advertise For Free</li>
-              </ul>
-            </li>
-            <li>
-              <strong>ABOUT US</strong>
-              <ul>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>FAQ</li>
-                <li>Sitemap</li>
-              </ul>
-            </li>
-            <li>
-              <strong>EVENTS/SHOWS</strong>
-              <ul>
-                <li>Events & Shows</li>
-                <li>Exhibitors</li>
-                <li>Visitors</li>
-                <li>Exhibiting</li>
-              </ul>
-            </li>
-            <li>
-              <strong>OTHERS</strong>
-              <ul>
-                <li>Feed</li>
-                <li>Login</li>
-                <li>VIP Membership</li>
-                <li>Forgot Password</li>
-              </ul>
-            </li>
-            <li>
-              <strong>ADVERTS</strong>
-              <ul>
-                <li>Adverts</li>
-                <li>Adverts Offer & Needs</li>
-                <li>Adverts Feature Profile</li>
-                <li>Adverts Left Right</li>
-              </ul>
-            </li>
-            <li>
-              <strong>MORE OPTIONS</strong>
-              <ul>
-                <li>Rewards & Discounts</li>
-                <li>Apply For Investment</li>
-                <li>Provide Investment</li>
-                <li>Investors</li>
-                <li>Investees</li>
-                <li>Shares</li>
-                <li>Sponsorship/Partnership</li>
-                <li>Sponsors/Partners</li>
-                <li>Services/Products Exchange</li>
-                <li>Gallery</li>
-                <li>Business Advice</li>
-                <li>Blog</li>
-                <li>Groups</li>
-              </ul>
-            </li>
-            <li>
-              <strong>POLICIES</strong>
-              <ul>
-                <li>Terms & Conditions</li>
-                <li>Cancellation Policy</li>
-                <li>Privacy Policy</li>
-              </ul>
-            </li>
-
-            <li>
-              <strong>CONTACT US</strong>
-              <ul>
-                <li>Wework Moorgate</li>
-                <li>1 Fore Street, EC2Y 5EJ, London</li>
-                <li>07591020664</li>
-              </ul>
-            </li>
-          </ul>
+      <IonRow class="navbar-row">
+        <!-- First Section -->
+        <IonCol class="social-section">
+          <div class="section-title">Share This Page In Your:</div>
+          <div class="social-media-icons">
+            <IonIcon :icon="logoFacebook" class="facebook-icon" />
+            <IonIcon :icon="logoTwitter" class="twitter-icon" />
+            <IonIcon :icon="logoInstagram" class="instagram-icon" />
+            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+          </div>
+        </IonCol>
+        <!-- Second Section -->
+        <IonCol class="social-section">
+          <div class="section-title">Invite/Send A Message To Your Friends Or Contacts In:</div>
+          <div class="social-media-icons">
+            <IonIcon :icon="logoFacebook" class="facebook-icon" />
+            <IonIcon :icon="logoTwitter" class="twitter-icon" />
+            <IonIcon :icon="logoInstagram" class="instagram-icon" />
+            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+          </div>
+        </IonCol>
+        <!-- Search Box Section -->
+        <IonCol class="search-section">
+          <input type="text" class="custom-searchbox" placeholder="Search" />
+        </IonCol>
+        <!-- About Button Section -->
+        <IonCol class="about-section">
+          <IonButton fill="outline" class="about-button">About Page</IonButton>
+        </IonCol>
+        <!-- Third Section -->
+        <IonCol class="social-section">
+          <div class="section-title">Connect With Your Friends:</div>
+          <div class="social-media-icons">
+            <IonIcon :icon="logoFacebook" class="facebook-icon" />
+            <IonIcon :icon="logoTwitter" class="twitter-icon" />
+            <IonIcon :icon="logoInstagram" class="instagram-icon" />
+            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+          </div>
+        </IonCol>
+        <!-- Fourth Section -->
+        <IonCol class="social-section">
+          <div class="section-title">Connect With Us In:</div>
+          <div class="social-media-icons">
+            <IonIcon :icon="logoFacebook" class="facebook-icon" />
+            <IonIcon :icon="logoTwitter" class="twitter-icon" />
+            <IonIcon :icon="logoInstagram" class="instagram-icon" />
+            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+          </div>
         </IonCol>
       </IonRow>
     </IonGrid>
-  </IonFooter>
+  </div>
 </template>
 
 <script lang="ts">
-import { IonFooter, IonGrid, IonRow, IonCol } from '@ionic/vue';
 import { defineComponent } from 'vue';
+import { IonGrid, IonRow, IonCol, IonIcon, IonButton } from '@ionic/vue';
+import { logoFacebook, logoTwitter, logoInstagram, logoLinkedin } from 'ionicons/icons';
 
 export default defineComponent({
+  name: 'SocialMediaNavbar',
   components: {
-    IonFooter,
     IonGrid,
     IonRow,
     IonCol,
+    IonIcon,
+    IonButton,
+  },
+  data() {
+    return {
+      logoFacebook,
+      logoTwitter,
+      logoInstagram,
+      logoLinkedin,
+    };
   },
 });
 </script>
 
 <style scoped>
-.footer {
-  color: rgb(3, 2, 2);
-  font-family: Arial, sans-serif;
-  font-size: small;
-  background-size: cover;
-  background-position: top;
-  background-image: url('../../Images/FooterLondonImage.gif');
-  height: 400px;
+.navbar-container {
+  border-bottom: 1px solid #000;
+  /* padding: 10px 0; */
+}
+
+.navbar-row {
   display: flex;
-  /* flex-wrap: wrap; */
-  /* justify-content: center; */
-  align-items: flex-end;
-  /* align-content: flex-end; */
+  align-items: center;
+  justify-content: center;
+  /* gap: 20px;  */
+  /* Space between sections */
 }
 
-.sitemap {
-  list-style-type: none;
-  /* padding: 20px; */
-  margin: 0;
+.social-section,
+.search-section,
+.about-section {
   display: flex;
-  flex-wrap: wrap;
-  /* justify-content: center; */
-  align-items: flex-end;
-  align-content: flex-end;
+  flex-direction: column;
+  align-items: center;
 }
 
-.sitemap > li {
-  margin: 10px;
-  /* text-align: left; */
-  /* padding: 10px; */
-  /* height: 100px;  */
-  /* Set a fixed width to control layout */
+.social-media-icons {
+  display: flex;
+  gap: 3px;
 }
 
-.sitemap ul {
-  padding-left: 0;
+.social-media-icons ion-icon {
+  font-size: 19.2px; /* 20% reduction from 24px */
 }
 
-
-@media (max-width: 768px) {
-
-  .sitemap {
-    flex-direction: column; /* Stack items vertically on mobile */
-    align-items: center;
-    max-height: 300px; /* Adjust this value as needed */
-    overflow-y: auto; /* Scrollable if content exceeds max height */
-  }
-
-  .sitemap > li {
-    text-align: left; /* Center text on mobile */
-    padding: 5px;
-  }
+.section-title {
+  font-size: 11px;
+  font-family: 'Arial, sans-serif'; /* Sleek, readable font */
+  margin-bottom: 5px;
 }
 
-@media (max-width: 480px) {
-  .sitemap {
-    font-size: 14px; /* Smaller font size on very small screens */
-  }
+/* Social media icon colors */
+.facebook-icon {
+  color: #3b5998; /* Facebook blue */
+}
+
+.twitter-icon {
+  color: #1da1f2; /* Twitter blue */
+}
+
+.instagram-icon {
+  color: #e4405f; /* Instagram gradient */
+}
+
+.linkedin-icon {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+.custom-searchbox {
+  width: 80%;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.about-button {
+  --padding-start: 5px;
+  --padding-end: 5px;
+  font-size: 10px;
+  --font-family: 'Arial, sans-serif'; /* Sleek, readable font */
 }
 </style>

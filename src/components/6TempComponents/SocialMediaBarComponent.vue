@@ -14,7 +14,7 @@
         </IonCol>
         <!-- Second Section -->
         <IonCol class="social-section">
-          <div class="section-title">Invite/Send A Message To Your Friends Or Contacts In:</div>
+          <div class="section-title">Connect With Us In:</div>
           <div class="social-media-icons">
             <IonIcon :icon="logoFacebook" class="facebook-icon" />
             <IonIcon :icon="logoTwitter" class="twitter-icon" />
@@ -32,7 +32,7 @@
         </IonCol>
         <!-- Third Section -->
         <IonCol class="social-section">
-          <div class="section-title">Connect With Your Friends:</div>
+          <div class="section-title">Invite/Send A Message To Your Friends Or Contacts In:</div>
           <div class="social-media-icons">
             <IonIcon :icon="logoFacebook" class="facebook-icon" />
             <IonIcon :icon="logoTwitter" class="twitter-icon" />
@@ -42,7 +42,7 @@
         </IonCol>
         <!-- Fourth Section -->
         <IonCol class="social-section">
-          <div class="section-title">Connect With Us In:</div>
+          <div class="section-title">Connect With Your Friends:</div>
           <div class="social-media-icons">
             <IonIcon :icon="logoFacebook" class="facebook-icon" />
             <IonIcon :icon="logoTwitter" class="twitter-icon" />
@@ -89,9 +89,6 @@ export default defineComponent({
 .navbar-row {
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* gap: 20px;  */
-  /* Space between sections */
 }
 
 .social-section,
@@ -148,4 +145,45 @@ export default defineComponent({
   font-size: 10px;
   --font-family: 'Arial, sans-serif'; /* Sleek, readable font */
 }
+
+
+@media (max-width: 768px) {
+  .navbar-row {
+    display:flex;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .column {
+    width: 100%;
+    max-width: 300px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .about-button {
+    /* width: 100%; */
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-media-icons ion-icon {
+    font-size: 18px;
+  }
+
+  .section-title {
+    font-size: 10px;
+  }
+
+  .about-button {
+    font-size: 12px;
+  }
+}
+
+
 </style>
