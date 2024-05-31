@@ -2,69 +2,79 @@
   <div class="navbar-container">
     <IonGrid>
       <IonRow class="navbar-row">
-        <!-- Share This Page In Your Pages (Post in your social media timeline)-->
-        <!-- First Section --> 
-        <IonCol class="social-section">
-          <div class="section-title">Share This Page In Your:</div>
-          <div class="social-media-icons">
-            <IonIcon :icon="logoFacebook" class="facebook-icon" />
-            <IonIcon :icon="logoTwitter" class="twitter-icon" />
-            <IonIcon :icon="logoInstagram" class="instagram-icon" />
-            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+        <!-- Left Column -->
+        <IonCol class="right-column">
+          <IonRow class="social-section">
+            <div class="social-section-inner">
+              <div class="section-title">Connect With Your Friends:</div>
+              <div class="social-media-icons">
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+                <IonButton size="small"fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+              </div>
+            </div>
+          </IonRow>
+          <IonRow class="social-section">
+            <div class="social-section-inner">
+              <div class="section-title">Invite/Send A Message To Your Friends Or Contacts In:</div>
+              <div class="social-media-icons">
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+                <IonButton size="small"fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+              </div>
+            </div>
+          </IonRow>
+        </IonCol>
+
+        <!-- Middle Column -->
+        <IonCol class="middle-column">
+          <div class="middle-content">
+            <input type="text" class="custom-searchbox" placeholder="Search" />
+            <IonButton fill="outline" class="about-button">About Page</IonButton>
           </div>
         </IonCol>
-        <!-- Connect With Us In: (connect/join our social media) -->
-        <!-- Second Section --> 
-        <IonCol class="social-section">
-          <div class="section-title">Connect With Us In:</div>
-          <div class="social-media-icons">
-            <IonIcon :icon="logoFacebook" class="facebook-icon" />
-            <IonIcon :icon="logoTwitter" class="twitter-icon" />
-            <IonIcon :icon="logoInstagram" class="instagram-icon" />
-            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
-          </div>
-        </IonCol>
-        <!-- Search Box (Displaying searche results from this page THEN search results forund on other pages)-->
-        <!-- Search Box Section --> 
-        <IonCol class="search-section">
-          <input type="text" class="custom-searchbox" placeholder="Search" />
-        </IonCol>
-        <!-- About This Page Button (Description about every individual page)-->
-        <!-- About Button Section --> 
-        <IonCol class="about-section">
-          <IonButton fill="outline" class="about-button">About Page</IonButton>
-        </IonCol>
-        <!-- Invite/Send A Message To Your Friends Or Contacts In: (Individual messages that you can send to your Twitter connection, FB friends and so on)-->
-        <!-- Third Section --> 
-        <IonCol class="social-section">
-          <div class="section-title">Invite/Send A Message To Your Friends Or Contacts In:</div>
-          <div class="social-media-icons">
-            <IonIcon :icon="logoFacebook" class="facebook-icon" />
-            <IonIcon :icon="logoTwitter" class="twitter-icon" />
-            <IonIcon :icon="logoInstagram" class="instagram-icon" />
-            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
-          </div>
-        </IonCol>
-        <!-- Connect With Your Social Friends (Displaying your social media who are in our website too)-->
-        <!-- Fourth Section --> 
-        <IonCol class="social-section">
-          <div class="section-title">Connect With Your Friends:</div>
-          <div class="social-media-icons">
-            <IonIcon :icon="logoFacebook" class="facebook-icon" />
-            <IonIcon :icon="logoTwitter" class="twitter-icon" />
-            <IonIcon :icon="logoInstagram" class="instagram-icon" />
-            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
-          </div>
+
+        <!-- Right Column -->
+        <IonCol class="left-column">
+          <IonRow class="social-section">
+            <div class="social-section-inner">
+              <div class="section-title">Share This Page In Your:</div>
+              <div class="social-media-icons">
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+                <IonButton size="small"fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+              </div>
+            </div>
+          </IonRow>
+          <IonRow class="social-section">
+            <div class="social-section-inner">
+              <div class="section-title">Connect With Us In:</div>
+              <div class="social-media-icons">
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+                <IonButton size="small"fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+              </div>
+            </div>
+          </IonRow>
         </IonCol>
       </IonRow>
     </IonGrid>
   </div>
 </template>
 
+
+
+
+
+
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { IonGrid, IonRow, IonCol, IonIcon, IonButton } from '@ionic/vue';
-import { logoFacebook, logoTwitter, logoInstagram, logoLinkedin } from 'ionicons/icons';
+import { logoFacebook, logoTwitter, logoLinkedin, logoGoogle } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'SocialMediaNavbar',
@@ -79,22 +89,60 @@ export default defineComponent({
     return {
       logoFacebook,
       logoTwitter,
-      logoInstagram,
       logoLinkedin,
+      logoGoogle,
     };
   },
 });
 </script>
 
+
+
+
 <style scoped>
+template {
+    margin:0px;
+  padding:0px;
+}
 .navbar-container {
-  border-bottom: 1px solid #000;
-  /* padding: 10px 0; */
+  border: 1px solid #000;
+  margin:0px;
+  padding:0px;
+}
+
+.navbar-container,
+.navbar-row, 
+.left-column,
+.middle-column,
+.right-column,
+.social-section,
+.social-section-inner,
+.section-title, 
+.social-media-icons,
+.social-button,
+.middle-content {
+  margin: 0; /* Remove all margin */
+  padding: 0; /* Remove all padding */
 }
 
 .navbar-row {
   display: flex;
+  justify-content: center;
   align-items: center;
+  align-content: center;
+}
+
+.left-column,
+.middle-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align titles to the left */
+}
+
+.middle-content {
+  display: flex;
+  gap: 3px;  
 }
 
 .social-section,
@@ -102,25 +150,44 @@ export default defineComponent({
 .about-section {
   display: flex;
   flex-direction: column;
+  align-items: flex-start; /* Align titles to the left */
+}
+
+.social-section-inner {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
 }
 
 .social-media-icons {
   display: flex;
   gap: 3px;
+
 }
 
 .social-media-icons ion-icon {
   font-size: 19.2px; /* 20% reduction from 24px */
+  
 }
 
 .section-title {
   font-size: 11px;
   font-family: 'Arial, sans-serif'; /* Sleek, readable font */
-  margin-bottom: 5px;
+  margin-bottom: 0; /* Remove bottom margin */
+  
 }
 
 /* Social media icon colors */
+.linkedin-icon {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+.google-icon {
+  color: #db4437; /* Google red */
+}
+
 .facebook-icon {
   color: #3b5998; /* Facebook blue */
 }
@@ -129,58 +196,56 @@ export default defineComponent({
   color: #1da1f2; /* Twitter blue */
 }
 
-.instagram-icon {
-  color: #e4405f; /* Instagram gradient */
-}
-
-.linkedin-icon {
-  color: #0077b5; /* LinkedIn blue */
-}
-
 .custom-searchbox {
   width: 80%;
-  padding: 5px 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .about-button {
-  --padding-start: 5px;
-  --padding-end: 5px;
+
   font-size: 10px;
   --font-family: 'Arial, sans-serif'; /* Sleek, readable font */
 }
 
-
-@media (max-width: 768px) {
-  .navbar-row {
-    display:flex;
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
-    align-items: flex-start;
-    text-align: center;
-  }
-
-  .about-button {
-    /* width: 100%; */
-    font-size: 14px;
-  }
+.social-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;  
 }
 
-@media (max-width: 480px) {
-  .social-media-icons ion-icon {
-    font-size: 18px;
+@media (max-width: 768px) {
+  .social-section-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  
+
+
+  ion-button {
+    margin: 0px;
+    padding:0px;
+  }
+  
+  .middle-content {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .section-title {
+   .section-title {
     font-size: 10px;
+  }
+
+  .social-media-icons ion-icon {
+    font-size: 18px;
   }
 
   .about-button {
     font-size: 12px;
   }
 }
-
-
 </style>

@@ -1,4 +1,4 @@
-<template>
+<template >
   <IonPage>
     <!-- Mobile view header -->
     <IonHeader :translucent="true" v-if="isMobile">
@@ -203,8 +203,15 @@ window.addEventListener('resize', () => {
 </script>
 
 <style scoped>
+ion-content {
+  margin: 0px;
+  padding:  0px;
+}
 .desktop-menu {
   background-color: aqua;
+  margin: 0px;
+  padding:  0px;
+  border: solid 1px;
 }
 
 .MainMenuCol {
@@ -241,6 +248,7 @@ window.addEventListener('resize', () => {
   .mobile-menu {
     display: none;
   }
+
 }
 
 .MainMenuCol:hover .submenu {

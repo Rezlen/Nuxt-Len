@@ -65,7 +65,7 @@
     <ion-row>
       <ion-col class="SignupFields">
         <!-- Link to Template page  -->
-        <ion-button expand="block" href="/FooterComponent"><ion-icon slot="start" :icon="logoGoogle" />FooterComponent</ion-button> 
+        <ion-button expand="block" href="/Footer"><ion-icon slot="start" :icon="logoGoogle" />FooterComponent</ion-button> 
       </ion-col>
     </ion-row>
 
