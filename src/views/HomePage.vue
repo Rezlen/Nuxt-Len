@@ -44,7 +44,7 @@
     <ion-row>
       <ion-col class="SignupFields">
         <!-- <ion-button expand="block" href="/Login"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button>  -->
-        <ion-button expand="block" href="/menu"><ion-icon slot="start" :icon="logoGoogle" />Menu/Googleee</ion-button> 
+        <ion-button expand="block" href="/menu"><ion-icon slot="start" :icon="logoGoogle" />Menu</ion-button> 
       </ion-col>
     </ion-row>
 
@@ -66,6 +66,14 @@
       <ion-col class="SignupFields">
         <!-- Link to Template page  -->
         <ion-button expand="block" href="/FooterComponent"><ion-icon slot="start" :icon="logoGoogle" />FooterComponent</ion-button> 
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="SignupFields">
+        <!-- Link to Template page  -->
+        <ion-button expand="block" href="/SignInSignUpComponenet"><ion-icon slot="start" :icon="logoGoogle" />
+        SignInSignUpComponenet</ion-button> 
       </ion-col>
     </ion-row>
 

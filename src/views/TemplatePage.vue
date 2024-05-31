@@ -9,7 +9,6 @@
     <!-- Content including the SocialMediaNavbar component -->
     <IonContent>
       <MenuComponent /><!-- the <SocialMediaBarComponent /> is embeded ine 62-66-->     
-      <!-- Other content can go here -->
     </IonContent>
 
       <IonGrid>

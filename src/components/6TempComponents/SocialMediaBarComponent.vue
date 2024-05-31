@@ -2,7 +2,8 @@
   <div class="navbar-container">
     <IonGrid>
       <IonRow class="navbar-row">
-        <!-- First Section -->
+        <!-- Share This Page In Your Pages (Post in your social media timeline)-->
+        <!-- First Section --> 
         <IonCol class="social-section">
           <div class="section-title">Share This Page In Your:</div>
           <div class="social-media-icons">
@@ -12,7 +13,8 @@
             <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
           </div>
         </IonCol>
-        <!-- Second Section -->
+        <!-- Connect With Us In: (connect/join our social media) -->
+        <!-- Second Section --> 
         <IonCol class="social-section">
           <div class="section-title">Connect With Us In:</div>
           <div class="social-media-icons">
@@ -22,15 +24,18 @@
             <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
           </div>
         </IonCol>
-        <!-- Search Box Section -->
+        <!-- Search Box (Displaying searche results from this page THEN search results forund on other pages)-->
+        <!-- Search Box Section --> 
         <IonCol class="search-section">
           <input type="text" class="custom-searchbox" placeholder="Search" />
         </IonCol>
-        <!-- About Button Section -->
+        <!-- About This Page Button (Description about every individual page)-->
+        <!-- About Button Section --> 
         <IonCol class="about-section">
           <IonButton fill="outline" class="about-button">About Page</IonButton>
         </IonCol>
-        <!-- Third Section -->
+        <!-- Invite/Send A Message To Your Friends Or Contacts In: (Individual messages that you can send to your Twitter connection, FB friends and so on)-->
+        <!-- Third Section --> 
         <IonCol class="social-section">
           <div class="section-title">Invite/Send A Message To Your Friends Or Contacts In:</div>
           <div class="social-media-icons">
@@ -40,7 +45,8 @@
             <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
           </div>
         </IonCol>
-        <!-- Fourth Section -->
+        <!-- Connect With Your Social Friends (Displaying your social media who are in our website too)-->
+        <!-- Fourth Section --> 
         <IonCol class="social-section">
           <div class="section-title">Connect With Your Friends:</div>
           <div class="social-media-icons">
@@ -154,15 +160,6 @@ export default defineComponent({
     /* flex-wrap: wrap; */
     align-items: flex-start;
     text-align: center;
-  }
-
-  .column {
-    width: 100%;
-    max-width: 300px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
   }
 
   .about-button {
