@@ -96,18 +96,10 @@ export default defineComponent({
 });
 </script>
 
-
-
-
 <style scoped>
-template {
-    margin:0px;
-  padding:0px;
-}
+
 .navbar-container {
   border: 1px solid #000;
-  margin:0px;
-  padding:0px;
 }
 
 .navbar-container,
@@ -127,9 +119,7 @@ template {
 
 .navbar-row {
   display: flex;
-  justify-content: center;
   align-items: center;
-  align-content: center;
 }
 
 .left-column,
@@ -156,9 +146,6 @@ template {
 .social-section-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-
 }
 
 .social-media-icons {
@@ -204,7 +191,6 @@ template {
 }
 
 .about-button {
-
   font-size: 10px;
   --font-family: 'Arial, sans-serif'; /* Sleek, readable font */
 }
@@ -223,9 +209,6 @@ template {
     align-items: flex-start;
   }
   
-  
-
-
   ion-button {
     margin: 0px;
     padding:0px;

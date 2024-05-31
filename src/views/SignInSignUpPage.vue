@@ -1,13 +1,13 @@
 <template>
   <IonPage>
     <IonCol class="mainCol">
-      <IonCol class="section">
+      <IonCol class="section MenuComponent">
         <MenuComponent />
       </IonCol >
-      <IonCol class="section">
+      <IonCol class="section SignInSignUpComponenet">
           <SignInSignUpComponenet />
       </IonCol >
-      <IonCol class="section">
+      <IonCol class="section FooterComponent">
           <FooterComponent />
       </IonCol >
     </IonCol>
@@ -49,6 +49,11 @@ export default defineComponent({
   overflow-y: auto;
 }
 
+.MenuComponent {
+  height: 300px;
+  /* background-color: blue; */
+}
+
 .section {
   display: flex;
   justify-content: center;
@@ -59,7 +64,7 @@ export default defineComponent({
 .mainCol ion-col {
   width: 100%;
   height: 100%;
-  background-color: aqua;
+  /* background-color: aqua; */
 }
 
 /* @media (min-width: 768px) {

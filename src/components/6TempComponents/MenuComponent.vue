@@ -1,4 +1,4 @@
-<template >
+<template>
   <IonPage>
     <!-- Mobile view header -->
     <IonHeader :translucent="true" v-if="isMobile">
@@ -61,7 +61,6 @@
 
       <div id="main-content">
         <!-- Your main content here -->
-        <!-- Insert SocialMediaBarComponent below -->
         <SocialMediaBarComponent />
       </div>
     </IonContent>
@@ -204,14 +203,25 @@ window.addEventListener('resize', () => {
 
 <style scoped>
 ion-content {
-  margin: 0px;
-  padding:  0px;
+  margin: 0;
+  padding: 0;
 }
+
 .desktop-menu {
   background-color: aqua;
-  margin: 0px;
-  padding:  0px;
+  margin: 0;
+  padding: 0;
   border: solid 1px;
+}
+
+.MainMenuRow,
+.LogoCol,
+.MainMenuCol,
+.MenuRow,
+.submenu,
+.MenuRow ion-title {
+  margin: 0;
+  padding: 0;
 }
 
 .MainMenuCol {
@@ -221,10 +231,10 @@ ion-content {
 .MenuRow {
   display: flex;
   align-items: center;
-  margin: 0; /* Remove margin */ 
-  padding: 5px; /*  Remove padding */
+  padding: 5px;
 }
-.MenuRow a { /* Targets router-link underline elements within elements- to remove the underline  */
+
+.MenuRow a {
   text-decoration: none;
 }
 
@@ -232,7 +242,7 @@ ion-content {
   position: absolute;
   top: 100%;
   display: none;
-  z-index: 1000; /* High z-index to ensure it appears on top */
+  z-index: 1000;
 }
 
 .submenu ion-label {
@@ -248,7 +258,6 @@ ion-content {
   .mobile-menu {
     display: none;
   }
-
 }
 
 .MainMenuCol:hover .submenu {
@@ -261,8 +270,6 @@ ion-content {
   font-family: sans-serif;
   font-size: 13px;
   color: rgb(5, 2, 2);
-  text-decoration: none; /* Corrected syntax from "none" to none */
-  margin: 0; /* Remove margin from the columns */
-  padding: 0; /* Remove padding  from the columns */
+  text-decoration: none;
 }
 </style>
