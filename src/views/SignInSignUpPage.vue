@@ -49,23 +49,9 @@ export default defineComponent({
   overflow-y: auto;
 }
 
-.MenuComponent {
-  height: 100px;
-  background-color: blue;
-}
 
-.section {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 20px;
-}
-.mainCol ion-col {
-  width: 100%;
-  height: 100%;
-  /* background-color: aqua; */
-}
+
+
 
 /* @media (min-width: 768px) {
   .mainCol {

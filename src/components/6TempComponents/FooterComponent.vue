@@ -128,8 +128,6 @@ export default defineComponent({
   /* Important to have the Lists within the frame */
   /* overflow-y: auto;  */
   align-items: flex-start; 
-
-
   background-size: cover;
   background-position: top;
   background-image: url('../../Images/FooterLondonImage.gif');
