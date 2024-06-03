@@ -3,12 +3,15 @@ import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import Login from '../views/Login.vue';
 import Profile from '../views/Profile.vue';
+import SignInSignUpPage from '../views/SignInSignUpPage.vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import TemplatePage from '../views/TemplatePage.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
-import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
-import SignInSignUpPage from '../views/SignInSignUpPage.vue';
 import SignInSignUpComponent from '@/components/6TempComponents/SignInSignUpComponent.vue';
+import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
+
+
+
 
 
 

@@ -1,102 +1,81 @@
 <template>
-  <div class="menu-container" @click.self="closeMobileMenu">
-    <ion-menu side="start" menu-id="main-menu" :content-id="contentId" type="overlay">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ion-list>
-          <ion-item-group v-for="(menu, index) in menus" :key="index">
-            <ion-item button @click="toggleSubMenu(index)">
-              {{ menu.title }}
-            </ion-item>
-            <ion-list v-if="isMobileView && menu.open || !isMobileView">
-              <ion-item v-for="(submenu, subIndex) in menu.submenus" :key="subIndex">
-                {{ submenu }}
-              </ion-item>
-            </ion-list>
-          </ion-item-group>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-button @click="toggleMobileMenu" expand="full" fill="clear" class="menu-toggle">
-      ☰
-    </ion-button>
-    <div :id="contentId" class="menu-content"></div>
-  </div>
+  <IonPage>
+    <IonCol class="mainCol">
+      <IonCol class="section MenuComponent">
+        <MenuComponent />
+      </IonCol >
+      <IonCol class="section SignInSignUpComponent">
+          <SignInSignUpComponent />
+      </IonCol >
+      <IonCol class="section FooterComponent">
+          <FooterComponent />
+      </IonCol >
+    </IonCol>
+  </IonPage>
 </template>
 
+
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
+import { IonPage, IonRow, IonCol } from '@ionic/vue';
+import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
+import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
+import SignInSignUpComponent from '@/components/6TempComponents/SignInSignUpComponent.vue';
+import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
 export default defineComponent({
-  name: 'MenuComponent',
-  setup() {
-    const isMobileView = ref(false);
-    const menus = ref([
-      { title: 'Menu 1', submenus: ['Submenu 1-1', 'Submenu 1-2'], open: false },
-      { title: 'Menu 2', submenus: ['Submenu 2-1', 'Submenu 2-2'], open: false },
-    ]);
-    const contentId = ref('main-content');
-
-    const toggleMobileMenu = () => {
-      const menu = document.querySelector('ion-menu');
-      if (menu) {
-        menu.isOpen().then(isOpen => {
-          menu.setOpen(!isOpen);
-          isMobileView.value = !isOpen;
-        });
-      }
-    };
-
-    const closeMobileMenu = () => {
-      const menu = document.querySelector('ion-menu');
-      if (menu && isMobileView.value) {
-        menu.setOpen(false);
-        isMobileView.value = false;
-      }
-    };
-
-    const toggleSubMenu = (index: number) => {
-      if (isMobileView.value) menus.value[index].open = !menus.value[index].open;
-    };
-
-    return {
-      isMobileView,
-      menus,
-      toggleMobileMenu,
-      closeMobileMenu,
-      toggleSubMenu,
-      contentId,
-    };
+  name: 'TemplatePage',
+  components: {
+    IonPage,
+    IonRow,
+    IonCol,
+    MenuComponent,
+    SocialMediaBarComponent,
+    SignInSignUpComponent,
+    FooterComponent,
   },
 });
 </script>
 
+
 <style scoped>
-.menu-container {
-  position: relative;
+.mainCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  overflow-y: auto;
 }
 
-.menu-toggle {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 24px;
-  cursor: pointer;
+.MenuComponent {
+  height: 100px;
+  background-color: blue;
 }
 
-.menu-content {
-  min-height: 100vh;
-  padding: 0;
+.section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+.mainCol ion-col {
+  width: 100%;
+  height: 100%;
+  /* background-color: aqua; */
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+/* @media (min-width: 768px) {
+  .mainCol {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
-}
+
+  .section {
+    margin-bottom: 40px;
+  }
+} */
 </style>
