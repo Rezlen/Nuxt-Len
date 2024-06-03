@@ -8,6 +8,8 @@ import TemplatePage from '../views/TemplatePage.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 import SignInSignUpPage from '../views/SignInSignUpPage.vue';
+import SignInSignUpComponent from '@/components/6TempComponents/SignInSignUpComponent.vue';
+
 
 
 
@@ -51,6 +53,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'SignInSignUpPage',
     component: SignInSignUpPage
   },
+  {
+    path: '/signInSignUpComponent',
+    name: 'SignInSignUpComponent',
+    component: SignInSignUpComponent
+  },
+
   {
     path: '/profile',
     name: 'Profile',
