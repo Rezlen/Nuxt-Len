@@ -127,16 +127,13 @@ export default defineComponent({
 .login-signup-container {
   background-color: #ec5454;
   font-family: Arial, sans-serif;
-  /* overflow-y: auto; */
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
+/* flex-shrink: inherit; */
 }
 
 .login-signup-row {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .login-section, .signup-section {

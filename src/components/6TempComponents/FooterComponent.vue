@@ -129,6 +129,7 @@ export default defineComponent({
   background-position: top;
   background-image: url('../../Images/FooterLondonImage.gif');
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .sitemap > li {

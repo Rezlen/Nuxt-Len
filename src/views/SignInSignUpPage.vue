@@ -45,8 +45,21 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   align-content: center;
-  height: 100%;
-  overflow-y: auto;
+  overflow: auto; 
+  /* allows scrolling page */
+    /* display: grid; */
+  /* grid-template-columns: auto auto;  */
+  /* Auto-sized columns */
+  /* grid-template-rows: auto;  */
+  /* Auto-sized rows */
+  gap: 10px;
+}
+.SignInSignUpComponent {
+  display: flex;
+  align-items: flex-start; 
+  /* Align items at the start */
+  flex-wrap: wrap; 
+  /* Allow wrapping */
 }
 
 
