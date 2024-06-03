@@ -125,10 +125,13 @@ export default defineComponent({
 
 <style scoped>
 .login-signup-container {
-  background-color: #f5f5f5;
-  padding: 20px;
+  background-color: #ec5454;
   font-family: Arial, sans-serif;
-  overflow-y: auto;
+  /* overflow-y: auto; */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-signup-row {

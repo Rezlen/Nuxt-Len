@@ -115,22 +115,20 @@ export default defineComponent({
   height: auto;
   display: flex;
   flex-direction: column;
-
+  margin: 0;
+  padding: 0;
 }
 
 .sitemap {
   list-style-type: none;
-  padding-left: 5px;
-  margin-left: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; 
-  /* Important to have the Lists within the frame */
-  /* overflow-y: auto;  */
   align-items: flex-start; 
   background-size: cover;
   background-position: top;
   background-image: url('../../Images/FooterLondonImage.gif');
+  padding-top: 20px;
 }
 
 .sitemap > li {
