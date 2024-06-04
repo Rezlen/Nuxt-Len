@@ -13,57 +13,57 @@
       </IonList>
     </IonContent>
   </IonMenu>
-    <IonGrid id="main-content">
-      <!-- Mobile view header -->
-      <IonRow v-if="isMobile">
-        <IonCol>
-          <IonHeader :translucent="true">
-            <IonToolbar>
-              <IonButtons slot="start">
-                <!-- Toggle button for mobile view -->
-                <IonMenuButton :auto-hide="false"></IonMenuButton>
-              </IonButtons>
-              <IonTitle>London Entrepreneurs Network</IonTitle>
-              <IonButtons slot="end">
-                <RouterLink to="/home" routerDirection="forward">
-                  <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
-                </RouterLink>
-              </IonButtons>
-            </IonToolbar>
-          </IonHeader>
-        </IonCol>
-      </IonRow>
+  <IonGrid id="main-content">
+    <!-- Mobile view header -->
+    <IonRow v-if="isMobile">
+      <IonCol>
+        <IonHeader :translucent="true">
+          <IonToolbar>
+            <IonButtons slot="start">
+              <!-- Toggle button for mobile view -->
+              <IonMenuButton :auto-hide="false"></IonMenuButton>
+            </IonButtons>
+            <IonTitle>London Entrepreneurs Network</IonTitle>
+            <IonButtons slot="end">
+              <RouterLink to="/home" routerDirection="forward">
+                <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
+              </RouterLink>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+      </IonCol>
+    </IonRow>
 
-      <!-- Desktop view: horizontal menu using grid layout -->
-      <IonRow v-if="!isMobile">
-        <IonCol>
-          <IonGrid class="desktop-menu">
-            <IonRow class="MainMenuRow">
-              <!-- Column for LEN Logo -->
-              <IonCol class="LogoCol">
-                <RouterLink to="/home" routerDirection="forward">
-                  <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
-                </RouterLink>
-              </IonCol>
+    <!-- Desktop view: horizontal menu using grid layout -->
+    <IonRow v-if="!isMobile">
+      <IonCol>
+        <IonGrid class="desktop-menu">
+          <IonRow class="MainMenuRow">
+            <!-- Column for LEN Logo -->
+            <IonCol class="LogoCol">
+              <RouterLink to="/home" routerDirection="forward">
+                <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
+              </RouterLink>
+            </IonCol>
 
-              <IonCol class="MainMenuCol">
-                <!-- Menu items -->
-                <IonRow class="MenuRow" v-for="menu in menus" :key="menu.title">
-                  <RouterLink :to="menu.path">
-                    <IonTitle>{{ menu.title }}</IonTitle>
-                  </RouterLink>
-                  <IonList class="submenu">
-                    <IonItem v-for="submenu in menu.subMenus" :key="submenu.title" :router-link="submenu.path">
-                      <IonLabel>{{ submenu.title }}</IonLabel>
-                    </IonItem>
-                  </IonList>
-                </IonRow>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-        </IonCol>
-      </IonRow>
-    </IonGrid>
+            <IonCol class="MainMenuCol">
+              <!-- Menu items -->
+              <IonRow class="MenuRow" v-for="menu in menus" :key="menu.title">
+                <RouterLink :to="menu.path">
+                  <IonTitle>{{ menu.title }}</IonTitle>
+                </RouterLink>
+                <IonList class="submenu">
+                  <IonItem v-for="submenu in menu.subMenus" :key="submenu.title" :router-link="submenu.path">
+                    <IonLabel>{{ submenu.title }}</IonLabel>
+                  </IonItem>
+                </IonList>
+              </IonRow>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+      </IonCol>
+    </IonRow>
+  </IonGrid>
 </template>
 
 <script setup lang="ts">

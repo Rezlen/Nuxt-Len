@@ -24,14 +24,14 @@
         </div>
 
         <div class="action-row">
-          <IonButton expand="block" @click="handleLogin" class="action-button">Log In</IonButton>
+          <IonButton expand="block" @click="handleLogin" class="action-button">Sign In</IonButton>
 
           <div class="OrSignInUp" >                  
             <div class="remember-me">
               <ion-checkbox v-model="rememberMe" slot="start"></ion-checkbox>
               <label>Remember Me</label>
             </div>
-            <p>Or SignIn With</p>
+            <p>Or Sign In With</p>
             <div class="social-icons">
               <IonIcon :icon="logoGoogle" class="google-icon" />
               <IonIcon :icon="logoFacebook" class="facebook-icon" />
