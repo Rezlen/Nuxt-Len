@@ -214,7 +214,7 @@ ion-grid {
   background-color: aqua;
   margin: 0;
   padding: 0;
-  border: solid 1px;
+  /* border: solid 1px; */
 }
 
 .MainMenuRow,
@@ -229,6 +229,7 @@ ion-grid {
 
 .MainMenuCol {
   display: flex;
+  flex-direction: row;
 }
 
 .MenuRow {
@@ -246,6 +247,7 @@ ion-grid {
   top: 100%;
   display: none;
   z-index: 1000;
+
 }
 
 .submenu ion-label {
@@ -265,7 +267,6 @@ ion-grid {
 
 .MainMenuCol:hover .submenu {
   display: block;
-  background-color: rgb(15, 18, 226);
   border: 1px solid #ddd;
 }
 

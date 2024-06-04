@@ -1,5 +1,4 @@
 <template>
-  <div class="navbar-container">
     <IonGrid>
       <IonRow class="navbar-row">
         <!-- Left Column -->
@@ -63,7 +62,6 @@
         </IonCol>
       </IonRow>
     </IonGrid>
-  </div>
 </template>
 
 
@@ -102,7 +100,6 @@ export default defineComponent({
   border: 1px solid #000;
 }
 
-.navbar-container,
 .navbar-row, 
 .left-column,
 .middle-column,
@@ -118,8 +115,10 @@ export default defineComponent({
 }
 
 .navbar-row {
-  display: flex;
+  /* display: flex; */
   align-items: center;
+  align-content: space-evenly;
+  justify-content: space-evenly;
 }
 
 .left-column,
@@ -127,7 +126,9 @@ export default defineComponent({
 .right-column {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align titles to the left */
+  align-items: flex-start; 
+  padding: 3px;
+
 }
 
 .middle-content {
