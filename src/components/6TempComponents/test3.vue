@@ -42,21 +42,22 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonPage, IonContent, IonGrid, IonRow, IonCol } from '@ionic/vue';
+import { IonPage, IonRow, IonCol } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
-
+import SignInSignUpComponent from '@/components/6TempComponents/SignInSignUpComponent.vue';
+import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
 export default defineComponent({
   name: 'TemplatePage',
   components: {
     IonPage,
-    IonContent,
-    IonGrid,
     IonRow,
     IonCol,
     MenuComponent,
     SocialMediaBarComponent,
+    SignInSignUpComponent,
+    FooterComponent,
   },
 });
 </script>
@@ -68,7 +69,7 @@ export default defineComponent({
   padding: 10px;
   box-sizing: border-box;
   z-index: 1;
-  display: flex; /* Explicitly setting display */
+  display: grid; /* Explicitly setting display */
 }
 
 @media (min-width: 768px) {

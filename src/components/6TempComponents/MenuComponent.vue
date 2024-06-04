@@ -1,82 +1,85 @@
 <template>
-  <IonPage>
+  <IonGrid>
     <!-- Mobile view header -->
-    <IonHeader :translucent="true" v-if="isMobile">
-      <IonToolbar>
-        <IonButtons slot="start">
-          <!-- Toggle button for mobile view -->
-          <IonMenuButton :auto-hide="false"></IonMenuButton>
-        </IonButtons>
-        <IonTitle>London Entrepreneurs Network</IonTitle>
-        <IonButtons slot="end">
-          <RouterLink to="/home" routerDirection="forward">
-            <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
-          </RouterLink>
-        </IonButtons>
-      </IonToolbar>
-    </IonHeader>
-
-    <IonContent>
-      <!-- Desktop view: horizontal menu using grid layout -->
-      <IonGrid class="desktop-menu" v-if="!isMobile">
-        <IonRow class="MainMenuRow">
-          <!-- Column for LEN Logo -->
-          <IonCol class="LogoCol">
-            <RouterLink to="/home" routerDirection="forward">
-              <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
-            </RouterLink>
-          </IonCol>
-
-          <IonCol class="MainMenuCol">
-            <!-- Menu items -->
-            <IonRow class="MenuRow" v-for="menu in menus" :key="menu.title">
-              <RouterLink :to="menu.path">
-                <IonTitle>{{ menu.title }}</IonTitle>
+    <IonRow v-if="isMobile">
+      <IonCol>
+        <IonHeader :translucent="true">
+          <IonToolbar>
+            <IonButtons slot="start">
+              <!-- Toggle button for mobile view -->
+              <IonMenuButton :auto-hide="false"></IonMenuButton>
+            </IonButtons>
+            <IonTitle>London Entrepreneurs Network</IonTitle>
+            <IonButtons slot="end">
+              <RouterLink to="/home" routerDirection="forward">
+                <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
               </RouterLink>
-              <IonList class="submenu">
-                <IonItem v-for="submenu in menu.subMenus" :key="submenu.title" :router-link="submenu.path">
-                  <IonLabel>{{ submenu.title }}</IonLabel>
-                </IonItem>
-              </IonList>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+      </IonCol>
+    </IonRow>
+
+    <IonRow>
+      <IonCol>
+        <!-- Desktop view: horizontal menu using grid layout -->
+        <IonGrid class="desktop-menu" v-if="!isMobile">
+          <IonRow class="MainMenuRow">
+            <!-- Column for LEN Logo -->
+            <IonCol class="LogoCol">
+              <RouterLink to="/home" routerDirection="forward">
+                <img alt="LEN Logo" class="header_logo" height="40" src="/public/favicon.png" />
+              </RouterLink>
+            </IonCol>
+
+            <IonCol class="MainMenuCol">
+              <!-- Menu items -->
+              <IonRow class="MenuRow" v-for="menu in menus" :key="menu.title">
+                <RouterLink :to="menu.path">
+                  <IonTitle>{{ menu.title }}</IonTitle>
+                </RouterLink>
+                <IonList class="submenu">
+                  <IonItem v-for="submenu in menu.subMenus" :key="submenu.title" :router-link="submenu.path">
+                    <IonLabel>{{ submenu.title }}</IonLabel>
+                  </IonItem>
+                </IonList>
+              </IonRow>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
+
+        <!-- Mobile view: side menu -->
+        <IonMenu content-id="main-content" class="mobile-menu" v-if="isMobile">
+          <IonGrid>
+            <IonRow>
+              <IonCol>
+                <IonList>
+                  <IonItem v-for="(menu, index) in menus" :key="index">
+                    <IonLabel @click="toggleSubMenu(index)">{{ menu.title }}</IonLabel>
+                    <IonList v-if="menu.showSubMenus">
+                      <IonItem v-for="(submenu, subIndex) in menu.subMenus" :key="subIndex" :router-link="submenu.path">
+                        <IonLabel>{{ submenu.title }}</IonLabel>
+                      </IonItem>
+                    </IonList>
+                  </IonItem>
+                </IonList>
+              </IonCol>
             </IonRow>
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-
-      <!-- Mobile view: side menu -->
-      <IonMenu content-id="main-content" class="mobile-menu" v-if="isMobile">
-        <IonContent>
-          <IonList>
-            <IonItem v-for="(menu, index) in menus" :key="index">
-              <IonLabel @click="toggleSubMenu(index)">{{ menu.title }}</IonLabel>
-              <IonList v-if="menu.showSubMenus">
-                <IonItem v-for="(submenu, subIndex) in menu.subMenus" :key="subIndex" :router-link="submenu.path">
-                  <IonLabel>{{ submenu.title }}</IonLabel>
-                </IonItem>
-              </IonList>
-            </IonItem>
-          </IonList>
-        </IonContent>
-      </IonMenu>
-
-      <div id="main-content">
-        <!-- Your main content here -->
-        <SocialMediaBarComponent />
-      </div>
-    </IonContent>
-  </IonPage>
+          </IonGrid>
+        </IonMenu>
+      </IonCol>
+    </IonRow>
+  </IonGrid>
 </template>
 
 <script setup lang="ts">
 import {
-  IonPage,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
   IonGrid,
   IonRow,
   IonCol,
-  IonContent,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
   IonList,
   IonItem,
   IonLabel,
@@ -202,7 +205,7 @@ window.addEventListener('resize', () => {
 </script>
 
 <style scoped>
-ion-content {
+ion-grid {
   margin: 0;
   padding: 0;
 }
