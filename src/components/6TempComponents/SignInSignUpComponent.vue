@@ -22,18 +22,23 @@
             class="input-field"
           ></ion-input>
         </div>
-        <div class="remember-me">
-          <ion-checkbox v-model="rememberMe" slot="start"></ion-checkbox>
-          <label>Remember Me</label>
-        </div>
+
         <div class="action-row">
           <IonButton expand="block" @click="handleLogin" class="action-button">Log In</IonButton>
-          <p>Or SignIn With</p>
-          <div class="social-icons">
-            <IonIcon :icon="logoGoogle" class="google-icon" />
-            <IonIcon :icon="logoFacebook" class="facebook-icon" />
-            <IonIcon :icon="logoTwitter" class="twitter-icon" />
-            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+
+          <div class="OrSignInUp" >                  
+            <div class="remember-me">
+              <ion-checkbox v-model="rememberMe" slot="start"></ion-checkbox>
+              <label>Remember Me</label>
+            </div>
+            <p>Or SignIn With</p>
+            <div class="social-icons">
+              <IonIcon :icon="logoGoogle" class="google-icon" />
+              <IonIcon :icon="logoFacebook" class="facebook-icon" />
+              <IonIcon :icon="logoTwitter" class="twitter-icon" />
+              <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+            </div>
+            <p><a href="/ForgotPassword" class="ForgotPassword">Forgot Passowrd? </a></p>
           </div>
         </div>
       </IonCol>
@@ -60,12 +65,14 @@
         </div>
         <div class="action-row">
           <IonButton expand="block" @click="handleSignUp" class="action-button">Sign Up</IonButton>
-          <p>Or SignUp With</p>
-          <div class="social-icons">
-            <IonIcon :icon="logoGoogle" class="google-icon" />
-            <IonIcon :icon="logoFacebook" class="facebook-icon" />
-            <IonIcon :icon="logoTwitter" class="twitter-icon" />
-            <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+          <div class="OrSignInUp">
+            <p>Or Sign Up With</p>
+            <div class="social-icons">
+              <IonIcon :icon="logoGoogle" class="google-icon" />
+              <IonIcon :icon="logoFacebook" class="facebook-icon" />
+              <IonIcon :icon="logoTwitter" class="twitter-icon" />
+              <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+            </div>
           </div>
           <p class="terms">
             By clicking on Sign Up, you agree to London Entrepreneurs Network's 
@@ -179,6 +186,15 @@ export default defineComponent({
   width: 100%;
 }
 
+.OrSignInUp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
 .social-icons {
   display: flex;
   gap: 10px;
@@ -212,6 +228,10 @@ export default defineComponent({
   text-decoration: none;
 }
 
+.ForgotPassword {
+  text-decoration: none;
+}
+
 .terms-link:hover {
   text-decoration: underline;
 }
@@ -238,6 +258,12 @@ export default defineComponent({
 
   .input-field {
     min-width: 100%;
+  }
+  
+  .OrSignInUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .vip-button {
