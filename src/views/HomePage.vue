@@ -19,8 +19,7 @@
       </ion-header>
 
 <!-- signup button here https://ionicframework.com/docs/api/grid#vertical-alignment -->
-<br/>
-  <ion-grid >
+  <ion-grid class="ion-grid">
     <ion-row class="SignupFields">
       <ion-col class="SignupFields" size="auto">
         <ion-input label="Type Your Email" label-placement="floating" fill="outline" type="email" ></ion-input>
@@ -34,52 +33,41 @@
         <ion-input label="ReType Your Password" label-placement="floating" fill="outline" type="password" value="password"></ion-input>
       </ion-col>
     </ion-row>
-
     <ion-row>
       <ion-col class="SignupFields">
         <ion-button>SignUp</ion-button>
       </ion-col>
-    </ion-row>
-
-    <ion-row>
       <ion-col class="SignupFields">
         <!-- <ion-button expand="block" href="/Login"><ion-icon slot="start" :icon="logoGoogle" />Googleee</ion-button>  -->
         <ion-button expand="block" href="/menu"><ion-icon slot="start" :icon="logoGoogle" />Menu</ion-button> 
       </ion-col>
-    </ion-row>
 
-     <ion-row>
       <ion-col class="SignupFields">
         <!-- Link to Template page  -->
         <ion-button expand="block" href="/TemplatePage"><ion-icon slot="start" :icon="logoGoogle" />TemplatePage</ion-button> 
       </ion-col>
-    </ion-row>
-
-    <ion-row>
       <ion-col class="SignupFields">
         <!-- Link to Template page  -->
         <ion-button expand="block" href="/SocialMediaBarComponent"><ion-icon slot="start" :icon="logoGoogle" />SocialMediaBarComponent</ion-button> 
       </ion-col>
-    </ion-row>
-
-    <ion-row>
       <ion-col class="SignupFields">
         <!-- Link to Template page  -->
         <ion-button expand="block" href="/Footer"><ion-icon slot="start" :icon="logoGoogle" />FooterComponent</ion-button> 
       </ion-col>
-    </ion-row>
-
-    <ion-row>
       <ion-col class="SignupFields">
         <!-- Link to Template page  -->
         <ion-button expand="block" href="/SignInSignUpComponenet"><ion-icon slot="start" :icon="logoGoogle" />
         SignInSignUpComponenet</ion-button> 
       </ion-col>
+      <ion-col class="SignupFields">
+        <!-- Link to Template page  -->
+        <ion-button expand="block" href="/SignInSignUpPage">
+        SignIn SignUp Page</ion-button> 
+      </ion-col>
     </ion-row>
 
-
-  <ion-item class="OutPut">Displaying the imported conatact list here</ion-item>
-</ion-grid>
+    <ion-item class="OutPut">Displaying the imported conatact list here</ion-item>
+  </ion-grid>
 
 <!-- signup button here -->
 
