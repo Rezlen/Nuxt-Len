@@ -97,7 +97,7 @@ import { IonGrid, IonRow, IonCol, IonButton, IonIcon, IonCheckbox } from '@ionic
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'LoginSignUp',
+  name: 'SignInSignUpComponent',
   components: {
     IonGrid,
     IonRow,
@@ -131,12 +131,14 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
 .login-signup-container {
-  background-color: #ec5454;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-/* flex-shrink: inherit; */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #3b5998;
 }
 
 .login-signup-row {

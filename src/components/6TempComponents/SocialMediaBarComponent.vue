@@ -75,7 +75,7 @@ import { IonGrid, IonRow, IonCol, IonIcon, IonButton } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoLinkedin, logoGoogle } from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'SocialMediaNavbar',
+  name: 'SignInSignUpComponent',
   components: {
     IonGrid,
     IonRow,
