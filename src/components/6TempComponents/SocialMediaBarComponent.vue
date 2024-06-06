@@ -1,12 +1,12 @@
-<template>
-    <IonGrid>
-      <IonRow class="navbar-row">
+<template >
+    <IonGrid >
+      <IonRow class="navbar-row" >
         <!-- Left Column -->
-        <IonCol class="right-column">
-          <IonRow class="social-section">
-            <div class="social-section-inner">
+        <IonCol class="right-column" >
+          <IonRow class="social-section" >
+            <div class="social-section-inner" >
               <div class="section-title">Connect With Your Friends:</div>
-              <div class="social-media-icons">
+              <div class="social-media-icons" >
                 <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
                 <IonButton size="small"fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
                 <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
@@ -125,8 +125,10 @@ export default defineComponent({
 .middle-column,
 .right-column {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start; 
+  flex-direction: row;
+  align-items: center; 
+  align-content: center;
+  justify-content: space-around;
   padding: 3px;
 
 }
@@ -146,6 +148,7 @@ export default defineComponent({
 
 .social-section-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -209,6 +212,15 @@ export default defineComponent({
     flex-direction: column;
     align-items: flex-start;
   }
+
+.left-column,
+.middle-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  padding: 3px;
+}
   
   ion-button {
     margin: 0px;

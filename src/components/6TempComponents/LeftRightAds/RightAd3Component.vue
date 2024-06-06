@@ -8,7 +8,7 @@
         <p class="p">
         By clicking on Sign Up, you agree to London Entrepreneurs Network's
         By clicking on Sign Up, you 
-        <img alt="LeftAd1" class="img" src="src/Images/css-flexbox.png" />
+        <img alt="RightAd3" class="img" src="../../../Images/css-flexbox.png" />
         </p>
       </a>
       

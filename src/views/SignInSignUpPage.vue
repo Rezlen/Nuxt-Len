@@ -3,7 +3,7 @@
     <IonContent>
       <IonGrid>
         <!-- Menu Section -->  <!-- Social Media Section -->
-        <IonRow class="bordered-section">
+        <IonRow class="bordered-section MenuComponent">
           <MenuComponent />
         </IonRow>
         <IonRow class="bordered-section">
@@ -64,7 +64,7 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
-
+import _imports_0 from "src/Images/css-flexbox.png";
 
 export default defineComponent({
   name: 'SignInSignUpPage',
@@ -93,7 +93,7 @@ export default defineComponent({
 
 <style scoped>
 ion-grid {
-    padding: 0;
+  padding: 0;
   margin: 0;
 }
 
@@ -104,9 +104,11 @@ ion-grid {
   /* gap: 100px; */
 }
 
-@media (min-width: 768px) {
-  .main-content-row ion-col {
-    margin-bottom: 0; /* Reset margin for larger screens */
+@media (max-width: 768px) {
+  /* if you can try to make the advert disolaywithin componentts in mobile view */
+  .RightAdvertComponent,
+  .LeftAdvertComponent {
+    display: none;
   }
 
 }

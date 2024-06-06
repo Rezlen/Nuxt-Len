@@ -78,18 +78,18 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/RightAd1',
-    name: 'RightAd4Component',
-    component: RightAd4Component
+    name: 'RightAd1Component',
+    component: RightAd1Component
   },
   {
     path: '/RightAd2',
-    name: 'RightAd4Component',
-    component: RightAd4Component
+    name: 'RightAd2Component',
+    component: RightAd2Component
   },
   {
     path: '/RightAd3',
-    name: 'RightAd4Component',
-    component: RightAd4Component
+    name: 'RightAd3Component',
+    component: RightAd3Component
   },
   {
     path: '/RightAd4',
