@@ -1,32 +1,34 @@
 <template>
-  <IonGrid class="login-signup-container">
-    <IonRow class="login-signup-row">
-      <!-- Login Section -->
-      <IonCol size="12" size-md="6" class="login-section">
+  <IonGrid class="signin-signup-container">
+    <IonRow class="signin-signup-row">
+      <!-- signin Section -->
+      <IonCol size="12" size-md="6" class="signin-section">
         <h2>All Members SignIn</h2>
         <div class="input-row">
           <ion-input
-            v-model="loginEmail"
+            v-model="signinEmail"
             label="Type Your Email"
             label-placement="floating"
             fill="outline"
             type="email"
             class="input-field"
+            required
           ></ion-input>
           <ion-input
-            v-model="loginPassword"
+            v-model="signinPassword"
             label="Type Your Password"
             label-placement="floating"
             fill="outline"
             type="password"
             class="input-field"
+            required
           ></ion-input>
         </div>
 
         <div class="action-row">
-          <IonButton expand="block" @click="handleLogin" class="action-button">Sign In</IonButton>
+          <IonButton expand="block" @click="handleSignin" class="action-button">Sign In</IonButton>
 
-          <div class="OrSignInUp" >                  
+          <div class="OrSignInUp">
             <div class="remember-me">
               <ion-checkbox v-model="rememberMe" slot="start"></ion-checkbox>
               <label>Remember Me</label>
@@ -38,7 +40,7 @@
               <IonIcon :icon="logoTwitter" class="twitter-icon" />
               <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
             </div>
-            <p><a href="/ForgotPassword" class="ForgotPassword">Forgot Passowrd? </a></p>
+            <p><a href="/ForgotPassword" class="ForgotPassword">Forgot Password?</a></p>
           </div>
         </div>
       </IonCol>
@@ -53,6 +55,7 @@
             fill="outline"
             type="email"
             class="input-field"
+            required
           ></ion-input>
           <ion-input
             v-model="signupPassword"
@@ -61,6 +64,7 @@
             fill="outline"
             type="password"
             class="input-field"
+            required
           ></ion-input>
         </div>
         <div class="action-row">
@@ -91,10 +95,16 @@
   </IonGrid>
 </template>
 
+
+
+
+
+
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { IonGrid, IonRow, IonCol, IonButton, IonIcon, IonCheckbox } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
+import axios from 'axios';
 
 export default defineComponent({
   name: 'SignInSignUpComponent',
@@ -108,8 +118,8 @@ export default defineComponent({
   },
   data() {
     return {
-      loginEmail: '',
-      loginPassword: '',
+      signinEmail: '',
+      signinPassword: '',
       signupEmail: '',
       signupPassword: '',
       rememberMe: false,
@@ -117,22 +127,79 @@ export default defineComponent({
       logoTwitter,
       logoGoogle,
       logoLinkedin,
+      signinError: '',
+      signupError: '',
     };
   },
   methods: {
-    handleLogin() {
-      console.log('Login:', this.loginEmail, this.loginPassword, this.rememberMe);
+    validateEmail(email: string): boolean {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
     },
-    handleSignUp() {
-      console.log('Sign Up:', this.signupEmail, this.signupPassword);
+    async handleSignin() {
+      if (!this.signinEmail || !this.signinPassword) {
+        this.signinError = 'Email and password are required.';
+        return;
+      }
+      if (!this.validateEmail(this.signinEmail)) {
+        this.signinError = 'Please enter a valid email.';
+        return;
+      }
+
+      try {
+        const response = await axios.post('http://localhost:5000/auth/signin', {
+          email: this.signinEmail,
+          password: this.signinPassword,
+        });
+        console.log('Signin successful:', response.data);
+        if (this.rememberMe) {
+          localStorage.setItem('email', this.signinEmail);
+        } else {
+          localStorage.removeItem('email');
+        }
+        this.$router.push('/home');
+      } catch (error) {
+        this.signinError = 'Invalid credentials or server error.';
+        console.error(error);
+      }
+    },
+    async handleSignUp() {
+      if (!this.signupEmail || !this.signupPassword) {
+        this.signupError = 'Email and password are required.';
+        return;
+      }
+      if (!this.validateEmail(this.signupEmail)) {
+        this.signupError = 'Please enter a valid email.';
+        return;
+      }
+
+      try {
+        const response = await axios.post('http://localhost:5000/auth/signup', {
+          email: this.signupEmail,
+          password: this.signupPassword,
+        });
+        console.log('Sign up successful:', response.data);
+      } catch (error) {
+        this.signupError = 'Server error.';
+        console.error(error);
+      }
     },
   },
+  mounted() {
+    const savedEmail = localStorage.getItem('email');
+    if (savedEmail) {
+      this.signinEmail = savedEmail;
+      this.rememberMe = true;
+    }
+  }
 });
 </script>
 
+
+
 <style scoped>
 
-.login-signup-container {
+.signin-signup-container {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -141,11 +208,11 @@ export default defineComponent({
   border: 1px solid #3b5998;
 }
 
-.login-signup-row {
+.signin-signup-row {
   display: flex;
 }
 
-.login-section, .signup-section {
+.signin-section, .signup-section {
   background-color: #e6f7ff;
   padding: 20px;
   border-radius: 8px;
@@ -153,7 +220,7 @@ export default defineComponent({
   border: 1px solid #3b5998;
 }
 
-.login-section h2, .signup-section h2 {
+.signin-section h2, .signup-section h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
@@ -254,7 +321,7 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
-  .login-signup-row {
+  .signin-signup-row {
     flex-direction: column;
   }
 
@@ -278,7 +345,7 @@ export default defineComponent({
     font-size: 20px;
   }
 
-  .login-section h2, .signup-section h2 {
+  .signin-section h2, .signup-section h2 {
     font-size: 20px;
   }
 }
