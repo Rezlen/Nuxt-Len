@@ -97,7 +97,7 @@ export default defineComponent({
 <style scoped>
 
 .navbar-container {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 .navbar-row, 
@@ -119,6 +119,8 @@ export default defineComponent({
   align-items: center;
   align-content: space-evenly;
   justify-content: space-evenly;
+  border-bottom: 1px solid #000;
+
 }
 
 .left-column,

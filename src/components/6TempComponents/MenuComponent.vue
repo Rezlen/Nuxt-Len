@@ -180,7 +180,7 @@ const menus = ref([
   },
   {
     title: 'SignIn/Up',
-    path: '/SignInUp',
+    path: '/SignInSignUpPage',
     subMenus: [],
     showSubMenus: false,
   },
@@ -275,7 +275,7 @@ ion-grid {
 
 .MenuRow ion-title {
   font-family: sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   color: rgb(5, 2, 2);
   text-decoration: none;
 }

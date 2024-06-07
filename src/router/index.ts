@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import SignInSignUpPage from '../views/SignInSignUpPage.vue';
-import HomePage1 from '../views/HomePage1.vue';
+import TemplatePage from '../views/TemplatePage.vue';
+import ProfilePage from '../views/ProfilePage.vue';
+
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
@@ -16,9 +18,13 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
-HomePage1
+import ProfilePublicSectionComponent from '@/components/ProfileComponents/ProfilePublicSectionComponent.vue';
+
 
 const routes: Array<RouteRecordRaw> = [
+
+  
+  // Pages start here
   {
     path: '/',
     redirect: '/home'
@@ -28,6 +34,31 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: HomePage
   },
+  {
+    path: '/signInSignUpPage',
+    name: 'SignInSignUpPage',
+    component: SignInSignUpPage
+  },
+    {
+    path: '/profilePage',
+    name: 'ProfilePage',
+    component: ProfilePage
+  },
+  {
+    path: '/templatePage',
+    name: 'TemplatePage',
+    component: TemplatePage
+  },
+
+  
+  // pages end here
+
+
+
+
+
+  //Components end here
+
   {
     path: '/message/:id',
     component: () => import('../views/ViewMessagePage.vue')
@@ -47,34 +78,17 @@ const routes: Array<RouteRecordRaw> = [
     name: 'FooterComponent',
     component: FooterComponent
   },
-
-
-
-
-
-  // Pages start here
-  {
-    path: '/homePage1',
-    name: 'HomePage1',
-    component: HomePage1
-  },
-    {
-    path: '/signInSignUpPage',
-    name: 'SignInSignUpPage',
-    component: SignInSignUpPage
-  },
-  // pages end here
-
-
-
-
-  
-
   {
     path: '/signInSignUpComponent',
     name: 'SignInSignUpComponent',
     component: SignInSignUpComponent
   },
+  {
+    path: '/profilePublicSectionComponent',
+    name: 'ProfilePublicSectionComponent',
+    component: ProfilePublicSectionComponent
+  },
+  
   // Left & Right Aderts starts here
   {
     path: '/LeftAd1',
