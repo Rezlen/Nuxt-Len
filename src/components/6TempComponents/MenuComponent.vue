@@ -42,7 +42,7 @@
             <!-- Column for LEN Logo -->
             <IonCol class="LogoCol">
               <RouterLink to="/home" routerDirection="forward">
-                <img alt="LEN Logo" height="40" src="/public/favicon.png" />
+                <img alt="LEN Logo" height="60" src="/public/favicon.png" />
               </RouterLink>
             </IonCol>
 
@@ -216,7 +216,7 @@ ion-grid {
 }
 
 .desktop-menu {
-  background-color: aqua;
+  /* background-color: aqua; */
   margin: 0;
   padding: 0;
 }

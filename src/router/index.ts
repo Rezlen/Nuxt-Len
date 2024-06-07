@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import SignInSignUpPage from '../views/SignInSignUpPage.vue';
+import HomePage1 from '../views/HomePage1.vue';
+
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 import SignInSignUpComponent from '@/components/6TempComponents/SignInSignUpComponent.vue';
@@ -14,7 +16,7 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
-
+HomePage1
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -45,11 +47,29 @@ const routes: Array<RouteRecordRaw> = [
     name: 'FooterComponent',
     component: FooterComponent
   },
+
+
+
+
+
+  // Pages start here
   {
+    path: '/homePage1',
+    name: 'HomePage1',
+    component: HomePage1
+  },
+    {
     path: '/signInSignUpPage',
     name: 'SignInSignUpPage',
     component: SignInSignUpPage
   },
+  // pages end here
+
+
+
+
+  
+
   {
     path: '/signInSignUpComponent',
     name: 'SignInSignUpComponent',
@@ -95,10 +115,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/RightAd4',
     name: 'RightAd4Component',
     component: RightAd4Component
-  },
-      
-  
+  }, 
   // Left & Right Aderts ENDs here
+
+
+
+
 
 ];
 

@@ -64,7 +64,6 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
-import _imports_0 from "src/Images/css-flexbox.png";
 
 export default defineComponent({
   name: 'SignInSignUpPage',
