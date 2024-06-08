@@ -1,16 +1,18 @@
 <template>
   <IonGrid class="#">
     <!-- Profile&StatementRow -->
-    <IonRow class="BorderedSection Profile&StatementRow">
-      <IonRow class="BorderedSection  BusinessRow"></IonRow>
-      <IonRow class="BorderedSection  PersonalRow"></IonRow>
+    <IonRow class=" Profile&StatisticsRow BorderedSection">
+      <IonRow class=" BusinessRow BorderedSection"></IonRow>
+      <IonRow class=" PersonalRow BorderedSection"></IonRow>
 
-      <IonCol class=" BorderedSection WhoWeAreWhatWeDo"></IonCol>
-      <IonCol class="BorderedSection  WhatWeProvide"></IonCol>
-      <IonCol class="BorderedSection  WhatWeAreLookingFor"></IonCol>
+      <IonCol class=" WhoWeAreWhatWeDo BorderedSection"></IonCol>
+      <IonCol class=" WhatWeProvide BorderedSection"></IonCol>
+      <IonCol class=" WhatWeAreLookingFor BorderedSection"></IonCol>
+
+
     </IonRow>
     <!-- OffersNeedsEventsRow -->
-    <IonRow class=" BorderedSection  OffersNeedsEventsRow">
+    <IonRow class=" OffersNeedsEventsRow BorderedSection">
     Make Sure the Tab hoverinf is done in the same way as LEN website
     </IonRow>
   </IonGrid>
