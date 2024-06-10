@@ -1,105 +1,137 @@
 <template>
-  <IonGrid class="#">
+  <IonGrid>
     <!-- 5Rows 1- Business Row 2- Personal row 3- Statistcs row  4-WhatWho row 5- Activities row -->
-    <IonRow class=" Profile&StatisticsRow BorderedSection">
-      <IonRow class=" BusinessName BorderedSection">
-        <IonTitle>Business Name</IonTitle>
+    <IonCol class=" ProfileStatisticsRow ">
+      <IonRow class=" BusinessName ">
+        <IonTitle>Business Name, Business Name, Business Name, Business </IonTitle>
       </IonRow>
 
-      <IonRow class=" BusinessRow BorderedSection">
-        <img/>
-        <IonRow class="BusinessRevenue BorderedSection">Business Revenue: £</IonRow>
-        <IonRow>Business Category:</IonRow>
-        <IonCol class=" BorderedSection" >No. of Employees:</IonCol>
-        <IonCol>Business City:</IonCol>
-        <div class="social-icons">
-          <IonIcon :icon="logoGoogle" class="google-icon" />
-          <IonIcon :icon="logoFacebook" class="facebook-icon" />
-          <IonIcon :icon="logoTwitter" class="twitter-icon" />
-          <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
-        </div>
-      </IonRow>
-      <!-- Personal Row ###################-->
-      <IonRow class=" PersonalRow BorderedSection">
-        <IonCol><img/></IonCol>
-        <IonCol class=" BorderedSection" >Name:</IonCol>
-        <IonCol>Age:</IonCol>
-        <IonCol>Gender:</IonCol>
-        <IonCol class=" BorderedSection" >Job Positions:</IonCol>
-        <IonCol>City:</IonCol>
-        <IonCol>Connections:</IonCol>
-        <IonCol class="social-icons">
-          <IonIcon :icon="logoGoogle" class="google-icon" />
-          <IonIcon :icon="logoFacebook" class="facebook-icon" />
-          <IonIcon :icon="logoTwitter" class="twitter-icon" />
-          <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
+      <IonRow class=" BusinessRow ">
+        <IonCol class="IMG-socialIcons">
+          <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
+          <div class="social-media-icons">
+            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+            <IonButton size="small"fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+          </div>
         </IonCol>
-        <IonRow class="Yearly Salary">Yearly Salary: £</IonRow>
+        <IonCol class=" BusinessDetails ">
+          <IonRow class="BusinessRevenue">Business Revenue: £200000</IonRow>
+          <IonRow>Business Category:</IonRow>
+          <IonRow>
+            <IonCol class="" >No. of Employees:</IonCol>
+            <IonCol>Business City:</IonCol>
+          </IonRow>
+        </IonCol>
+
+      </IonRow>
+
+
+      <!-- Personal Row ###################-->
+      <IonRow class=" PersonalRow ">
+        <IonCol class="IMG-socialIcons">
+          <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
+          <div class="social-media-icons">
+            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+            <IonButton size="small"fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+          </div>
+        </IonCol>
+        <ion-col class="PersonalDetails">
+          <ion-row>
+            <ion-col class="YearlySalary">Yearly Salary: £</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Name:</ion-col>
+            <ion-col>Age:</ion-col>
+            <ion-col>Gender:</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Job Positions:</ion-col>
+            <ion-col>City:</ion-col>
+            <ion-col>Connections:</ion-col>
+          </ion-row>
+        </ion-col>
       </IonRow>
 
       <!-- 3- Statistcs row ##############################-->
-      <IonRow class=" Statistcs Row BorderedSection">
-        <IonCol class=" PostedOffers BorderedSection">Posted Offers</IonCol>
-        <IonCol class=" ProvidedOffers BorderedSection">Provided Offers</IonCol>
-        <IonCol class=" RequestedOffers BorderedSection">Requested Offers</IonCol>
-        <IonCol class=" PostedNeeds BorderedSection">Posted Needs</IonCol>
-        <IonCol class=" SatisfiedNeeds BorderedSection">Satisfied Needs</IonCol>
-        <IonCol class=" PeopleSatisfiedNeeds BorderedSection">People Satisfied Needs</IonCol>
-        <IonCol class=" MiniProfileListed BorderedSection">Mini Profile Listed:</IonCol>
-        <IonCol class=" Exhibited  BorderedSection">Exhibited:</IonCol>
-        <IonCol class=" Visited BorderedSection">Visited:</IonCol>
-        <IonCol class=" Messages BorderedSection">Messages</IonCol>
-        <IonCol class=" Connect BorderedSection">Connect</IonCol>
-        <IonCol class=" QRCode BorderedSection">QR code</IonCol>
-      </IonRow>
+      <ion-row class="StatisticsRow">
+        <!-- Column 1 -->
+        <ion-col class="StatisticsColumn">
+          <ion-row class="PostedOffers">Posted Offers: 86</ion-row>
+          <ion-row class="ProvidedOffers">Provided Offers: 86</ion-row>
+          <ion-row class="RequestedOffers">Requested Offers: 86</ion-row>
+          <ion-row class="Exhibited">Exhibited: 86</ion-row>
+        </ion-col>
+        <!-- Column 2 -->
+        <ion-col class="StatisticsColumn">
+          <ion-row class="PostedNeeds">Posted Needs: 86</ion-row>
+          <ion-row class="SatisfiedNeeds">Satisfied Needs: 86</ion-row>
+          <ion-row class="PeopleSatisfiedNeeds">People Satisfied Needs: 86</ion-row>
+          <ion-row class="Visited">Visited: 86</ion-row>
+        </ion-col>
+        <!-- Column 3 -->
+        <ion-col class="StatisticsColumn">
+          <ion-row class="MiniProfileListed">Mini Profile Listed: 86</ion-row>
+          <ion-row class="Messages">Messages</ion-row>
+          <ion-row class="Connect">Connect</ion-row>
+          <ion-row class="QRCode">QR code</ion-row>
+        </ion-col>
+      </ion-row>
+
 
       <!-- 4- WhoWhat row ##############################-->
-      <IonRow class=" WhoWhatSections BorderedSection" >
-        <IonCol class=" WhoWeAreWhatWeDo BorderedSection">
-            <p>Who We Are, What We Do</p>
-            OUtPUTHERE
+      <IonRow class="WhoWhatSections">
+        <ion-segment v-model="selectedTab" class="TabSegment" color="primary">
+          <ion-segment-button value="who">Who We Are, What We Dooooo</ion-segment-button>
+          <ion-segment-button value="what">What We Provide</ion-segment-button>
+          <ion-segment-button value="looking">What We Are Looking For</ion-segment-button>
+        </ion-segment>
+      </IonRow>
+      <IonRow class="ContentRow">
+        <IonCol v-show="selectedTab === 'who'" class="WhoWeAreWhatWeDo">
+          <p>Who We Are, What We Do</p>
+          <!-- Content for "Who We Are, What We Do" -->
         </IonCol>
-        <IonCol class=" WhatWeProvide BorderedSection">
+        <IonCol v-show="selectedTab === 'what'" class="WhatWeProvide">
           <p>What We Provide</p>
-            OUtPUTHERE
+          <!-- Content for "What We Provide" -->
         </IonCol>
-        <IonCol class=" WhatWeAreLookingFor BorderedSection">
+        <IonCol v-show="selectedTab === 'looking'" class="WhatWeAreLookingFor">
           <p>What We Are Looking For</p>
-            OUtPUTHERE
+          <!-- Content for "What We Are Looking For" -->
         </IonCol>
       </IonRow>
       
       
       <!-- 5 - ActivityRow ListedNeedsOffersVisitedEventsConnectionGalery -->
-      <IonRow class=" ActivityRow BorderedSection" >
-        <IonCol class=" ListedNeeds BorderedSection" ></IonCol>
-        <IonCol class=" SatisfiedNeeds BorderedSection" ></IonCol>
-        <IonCol class=" PeopleSatisfiedNeeds BorderedSection" ></IonCol>
-        <IonCol class=" ProvidedOffers BorderedSection" ></IonCol>
-        <IonCol class=" RequestedOffers BorderedSection" ></IonCol>
-        <IonCol class=" PeopleRequestedOffers BorderedSection" ></IonCol>
-        <IonCol class=" ListedBestOffer BorderedSection" ></IonCol>
-        <IonCol class=" VisitedEvents BorderedSection" ></IonCol>
-        <IonCol class=" ExhibitedEvents BorderedSection" ></IonCol>
-        <IonCol class=" Connections BorderedSection" ></IonCol>
-        <IonCol class=" 4Galleries BorderedSection" ></IonCol>
-        <IonCol class=" 3PitchingVideos BorderedSection" ></IonCol>
+      <IonRow class=" ActivityRow " >
+        <IonCol class=" ListedNeeds " >Listed Needs</IonCol>
+        <IonCol class=" SatisfiedNeeds " >Satisfied Needs</IonCol>
+        <IonCol class=" PeopleSatisfiedNeeds " >People Satisfied Needs</IonCol>
+        <IonCol class=" ProvidedOffers " >Provided Offers</IonCol>
+        <IonCol class=" RequestedOffers " >Requested Offers</IonCol>
+        <IonCol class=" PeopleRequestedOffers " >People Requested Offers</IonCol>
+        <IonCol class=" ListedBestOffer " >Listed Best Offer</IonCol>
+        <IonCol class=" VisitedEvents " >Visited Events</IonCol>
+        <IonCol class=" ExhibitedEvents " >Exhibited Events</IonCol>
+        <IonCol class=" Connections " >Connections</IonCol>
+        <IonCol class=" 4Galleries " >4Galleries</IonCol>
+        <IonCol class=" 3PitchingVideos " >3Pitching Videos</IonCol>
       </IonRow>
 
 
-    </IonRow>
+    </IonCol>
 
   </IonGrid>
 </template>
 
 
-
-
-
-
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { IonGrid, IonRow, IonCol, IonButton, IonIcon, IonCheckbox } from '@ionic/vue';
+import { defineComponent, ref } from 'vue';
+import { IonGrid, IonRow, IonCol, IonButton, IonIcon, IonSegment, IonSegmentButton } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
 
 export default defineComponent({
@@ -110,9 +142,14 @@ export default defineComponent({
     IonCol,
     IonIcon,
     IonButton,
+    IonSegment,
+    IonSegmentButton,
   },
-  data() {
+  setup() {
+    const selectedTab = ref<string>('who'); // Initialize with the default tab
+
     return {
+      selectedTab,
       logoFacebook,
       logoTwitter,
       logoLinkedin,
@@ -125,39 +162,158 @@ export default defineComponent({
 
 
 <style scoped>
+*{
+  border: 1px solid black;
+}
+ion-grid{
+  overflow-y: auto;   /* Enable vertical scrolling */
+    height: 100%;     /* Full height to fit the parent */
 
-.BorderedSection {
-  padding: 20px;
-  border: 1px solid black
+
+}
+
+.BusinessName {
+  font-family:'Arial Narrow Bold', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: yellow;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.BusinessRow {
+  display: flex;
+  flex-wrap: nowrap; /* Prevents wrapping */
+}
+
+.IMG-socialIcons {
+  flex: 0 0 20%; /* Fixed 20% width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.BusinessDetails {
+  flex: 1; /* Takes remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.social-media-icons {
+  display: flex;
+  /* gap: 8px; */
 }
 
 @media (max-width: 768px) {
-  .signin-signup-row {
-    flex-direction: column;
+  .BusinessRow {
+    flex-wrap: wrap;  /* Allows wrapping on smaller screens */
   }
 
-  .input-field {
-    min-width: 100%;
-  }
-  
-  .OrSignInUp {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .vip-button {
-    width: 100%;
+  .IMG-socialIcons, .BusinessDetails {
+    flex: 1 1 100%; /* Take full width on smaller screens */
   }
 }
 
-@media (max-width: 480px) {
-  .social-icons ion-icon {
-    font-size: 20px;
+
+      /* <!-- Personal Row ###################--> */
+
+.PersonalRow {
+  display: flex;
+  flex-wrap: nowrap; /* Prevents wrapping */
+}
+
+.IMG-socialIcons {
+  flex: 0 0 20%; /* Fixed 20% width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.PersonalDetails {
+  flex: 1; /* Takes remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.social-media-icons {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .PersonalRow {
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
   }
 
-  .signin-section h2, .signup-section h2 {
-    font-size: 20px;
+  .IMG-socialIcons, .PersonalDetails {
+    flex: 1 1 100%; /* Take full width on smaller screens */
   }
 }
+
+
+/* <!-- 3-  Statistcs row ##############################--> */
+
+.StatisticsRow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.StatisticsColumn {
+  flex: 0 0 33.3333%;
+  display: flex;
+  flex-direction: column;
+}
+
+.StatisticsColumn .ion-row {
+  margin-bottom: 10px; /* Add spacing between rows if needed */
+}
+
+@media (max-width: 768px) {
+  .StatisticsColumn {
+    flex: 0 0 100%;
+  }
+}
+
+
+      /* <!-- 4- WhoWhat row ##############################--> */
+@media (max-width: 768px) {
+  .WhoWhatSections ion-col {
+    /* display: flex; */
+    flex-direction: column;
+    width: 100%; /* Each column takes 100% width on mobile */
+  }
+}
+
+.TabSegment {
+  width: 100%;
+}
+
+.ContentRow {
+  padding-top: 20px;
+}
+
+/* Adjust styles for each tab's content if needed */
+.WhoWeAreWhatWeDo,
+.WhatWeProvide,
+.WhatWeAreLookingFor {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .WhoWeAreWhatWeDo,
+  .WhatWeProvide,
+  .WhatWeAreLookingFor {
+    display: block;
+  }
+  ion-segment-button {
+  white-space: normal;
+  text-wrap: wrap;
+  }
+}
+
+
+
 </style>
