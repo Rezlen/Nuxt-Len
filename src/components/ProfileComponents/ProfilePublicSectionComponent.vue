@@ -18,10 +18,10 @@
         </IonCol>
         <IonCol class="BusinessDetails">
           <IonRow class="BusinessRevenue">Business Revenue: £200000</IonRow>
-          <IonRow>Business Category:</IonRow>
+          <IonRow class="TextStyle">Business Category:</IonRow>
           <IonRow>
-            <IonCol>No. of Employees:</IonCol>
-            <IonCol>Business City:</IonCol>
+            <IonCol class="TextStyle" >No. of Employees:</IonCol>
+            <IonCol class="TextStyle">Business City:</IonCol>
           </IonRow>
         </IonCol>
       </IonRow>
@@ -42,14 +42,14 @@
             <IonCol class="YearlySalary">Yearly Salary: £</IonCol>
           </IonRow>
           <IonRow>
-            <IonCol>Name:</IonCol>
-            <IonCol>Age:</IonCol>
-            <IonCol>Gender:</IonCol>
+            <IonCol class="TextStyle">Name:</IonCol>
+            <IonCol class="TextStyle">Age:</IonCol>
+            <IonCol class="TextStyle">Gender:</IonCol>
           </IonRow>
           <IonRow>
-            <IonCol>Job Positions:</IonCol>
-            <IonCol>City:</IonCol>
-            <IonCol>Connections:</IonCol>
+            <IonCol class="TextStyle">Job Positions:</IonCol>
+            <IonCol class="TextStyle">City:</IonCol>
+            <IonCol class="TextStyle">Connections:</IonCol>
           </IonRow>
         </IonCol>
       </IonRow>
@@ -58,106 +58,108 @@
       <IonRow class="StatisticsRow">
         <!-- Column 1 -->
         <IonCol class="StatisticsColumn">
-          <IonRow class="PostedOffers">Posted Offers: 86</IonRow>
-          <IonRow class="ProvidedOffers">Provided Offers: 86</IonRow>
-          <IonRow class="RequestedOffers">Requested Offers: 86</IonRow>
-          <IonRow class="Exhibited">Exhibited: 86</IonRow>
+          <IonRow class="TextStyle PostedOffers">Posted Offers: 86</IonRow>
+          <IonRow class="TextStyle ProvidedOffers">Provided Offers: 86</IonRow>
+          <IonRow class="TextStyle RequestedOffers">Requested Offers: 86</IonRow>
+          <IonRow class="TextStyle Exhibited">Exhibited: 86</IonRow>
         </IonCol>
         <!-- Column 2 -->
         <IonCol class="StatisticsColumn">
-          <IonRow class="PostedNeeds">Posted Needs: 86</IonRow>
-          <IonRow class="SatisfiedNeeds">Satisfied Needs: 86</IonRow>
-          <IonRow class="PeopleSatisfiedNeeds">People Satisfied Needs: 86</IonRow>
-          <IonRow class="Visited">Visited: 86</IonRow>
+          <IonRow class="TextStyle PostedNeeds">Posted Needs: 86</IonRow>
+          <IonRow class="TextStyle SatisfiedNeeds">Satisfied Needs: 86</IonRow>
+          <IonRow class="TextStyle PeopleSatisfiedNeeds">People Satisfied Needs: 86</IonRow>
+          <IonRow class="TextStyle Visited">Visited: 86</IonRow>
         </IonCol>
         <!-- Column 3 -->
         <IonCol class="StatisticsColumn">
-          <IonRow class="MiniProfileListed">Mini Profile Listed: 86</IonRow>
-          <IonRow class="Messages">Messages</IonRow>
-          <IonRow class="Connect">Connect</IonRow>
-          <IonRow class="QRCode">QR code</IonRow>
+          <IonRow class="TextStyle MiniProfileListed">Mini Profile Listed: 86</IonRow>
+          <IonRow class="TextStyle Messages">Messages</IonRow>
+          <IonRow class="TextStyle Connect">Connect</IonRow>
+          <IonRow class="TextStyle QRCode">QR code</IonRow>
         </IonCol>
       </IonRow>
 
       <!-- 4- WhoWhat row ##############################-->
-    <IonRow class="ActivityRow">
-      <IonRow class="WhoWhatSections">
-        <IonSegment v-model= "selectedTab" class="TabSegment" color="primary">
-          <IonSegmentButton class="btn" value="who">Who We Are, What We Dooooo</IonSegmentButton>
-          <IonSegmentButton class="btn" value="what">What We Provide</IonSegmentButton>
-          <IonSegmentButton class="btn" value="looking">What We Are Looking For</IonSegmentButton>
+      <div class="borderWhoWhatSections">
+        <IonRow class="WhoWhatSections">
+          <IonSegment v-model= "selectedTab" class="TabSegment" color="primary">
+            <IonSegmentButton class="btn" value="who">Who We Are, What We Dooooo</IonSegmentButton>
+            <IonSegmentButton class="btn" value="what">What We Provide</IonSegmentButton>
+            <IonSegmentButton class="btn" value="looking">What We Are Looking For</IonSegmentButton>
+          </IonSegment>
+        </IonRow>
+        <IonRow class="ContentRow">
+          <IonCol v-show="selectedTab === 'who'" class="WhoWeAreWhatWeDo">
+            <p>Who We Are, What We Do</p>
+            <!-- Content for "Who We Are, What We Do" -->
+          </IonCol>
+          <IonCol v-show="selectedTab === 'what'" class="WhatWeProvide">
+            <p>What We Provide</p>
+            <!-- Content for "What We Provide" -->
+          </IonCol>
+          <IonCol v-show="selectedTab === 'looking'" class="WhatWeAreLookingFor">
+            <p>What We Are Looking For</p>
+            <!-- Content for "What We Are Looking For" -->
+          </IonCol>
+        </IonRow>
+      </div>
+      
+      
+      <!-- 5 - ActivityRow ListedNeedsOffersVisitedEventsConnectionGallery -->
+      <IonRow class="ActivityRow">
+        <IonSegment v-model="selectedTab" class="ActivitySegment" scrollable>
+          <IonSegmentButton class="btn" value="listedNeeds">Listed Needs</IonSegmentButton>
+          <IonSegmentButton class="btn" value="satisfiedNeeds">Satisfied Needs</IonSegmentButton>
+          <IonSegmentButton class="btn" value="peopleSatisfiedNeeds">People Satisfied Needs</IonSegmentButton>
+          <IonSegmentButton class="btn" value="providedOffers">Provided Offers</IonSegmentButton>
+          <IonSegmentButton class="btn" value="requestedOffers">Requested Offers</IonSegmentButton>
+          <IonSegmentButton class="btn" value="peopleRequestedOffers">People Requested Offers</IonSegmentButton>
+          <IonSegmentButton class="btn" value="listedBestOffer">Listed Best Offer</IonSegmentButton>
+          <IonSegmentButton class="btn" value="visitedEvents">Visited Events</IonSegmentButton>
+          <IonSegmentButton class="btn" value="exhibitedEvents">Exhibited Events</IonSegmentButton>
+          <IonSegmentButton class="btn" value="connections">Connections</IonSegmentButton>
+          <IonSegmentButton class="btn" value="galleries">4 Galleries</IonSegmentButton>
+          <IonSegmentButton class="btn" value="pitchingVideos">3 Pitching Videos</IonSegmentButton>
         </IonSegment>
-      </IonRow>
-      <IonRow class="ContentRow">
-        <IonCol v-show="selectedTab === 'who'" class="WhoWeAreWhatWeDo">
-          <p>Who We Are, What We Do</p>
-          <!-- Content for "Who We Are, What We Do" -->
-        </IonCol>
-        <IonCol v-show="selectedTab === 'what'" class="WhatWeProvide">
-          <p>What We Provide</p>
-          <!-- Content for "What We Provide" -->
-        </IonCol>
-        <IonCol v-show="selectedTab === 'looking'" class="WhatWeAreLookingFor">
-          <p>What We Are Looking For</p>
-          <!-- Content for "What We Are Looking For" -->
-        </IonCol>
-      </IonRow>
-      
-      
-    <!-- 5 - ActivityRow ListedNeedsOffersVisitedEventsConnectionGallery -->
-      <IonSegment v-model="selectedTab" class="ActivitySegment" scrollable>
-        <IonSegmentButton class="btn" value="listedNeeds">Listed Needs</IonSegmentButton>
-        <IonSegmentButton class="btn" value="satisfiedNeeds">Satisfied Needs</IonSegmentButton>
-        <IonSegmentButton class="btn" value="peopleSatisfiedNeeds">People Satisfied Needs</IonSegmentButton>
-        <IonSegmentButton class="btn" value="providedOffers">Provided Offers</IonSegmentButton>
-        <IonSegmentButton class="btn" value="requestedOffers">Requested Offers</IonSegmentButton>
-        <IonSegmentButton class="btn" value="peopleRequestedOffers">People Requested Offers</IonSegmentButton>
-        <IonSegmentButton class="btn" value="listedBestOffer">Listed Best Offer</IonSegmentButton>
-        <IonSegmentButton class="btn" value="visitedEvents">Visited Events</IonSegmentButton>
-        <IonSegmentButton class="btn" value="exhibitedEvents">Exhibited Events</IonSegmentButton>
-        <IonSegmentButton class="btn" value="connections">Connections</IonSegmentButton>
-        <IonSegmentButton class="btn" value="galleries">4 Galleries</IonSegmentButton>
-        <IonSegmentButton class="btn" value="pitchingVideos">3 Pitching Videos</IonSegmentButton>
-      </IonSegment>
 
-      <!-- Tab Content -->
-      <IonCol v-if="selectedTab === 'listedNeeds'">
-        <ListedNeedsComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'satisfiedNeeds'">
-        <SatisfiedNeedsComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'peopleSatisfiedNeeds'">
-        <PeopleSatisfiedNeedsComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'providedOffers'">
-        <ProvidedOffersComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'requestedOffers'">
-        <RequestedOffersComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'peopleRequestedOffers'">
-        <PeopleRequestedOffersComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'listedBestOffer'">
-        <ListedBestOfferComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'visitedEvents'">
-        <VisitedEventsComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'exhibitedEvents'">
-        <ExhibitedEventsComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'connections'">
-        <ConnectionsComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'galleries'">
-        <GalleriesComponent />
-      </IonCol>
-      <IonCol v-if="selectedTab === 'pitchingVideos'">
-        <PitchingVideosComponent />
-      </IonCol>
-    </IonRow>
+        <!-- Tab Content -->
+        <IonCol v-if="selectedTab === 'listedNeeds'">
+          <ListedNeedsComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'satisfiedNeeds'">
+          <SatisfiedNeedsComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'peopleSatisfiedNeeds'">
+          <PeopleSatisfiedNeedsComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'providedOffers'">
+          <ProvidedOffersComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'requestedOffers'">
+          <RequestedOffersComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'peopleRequestedOffers'">
+          <PeopleRequestedOffersComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'listedBestOffer'">
+          <ListedBestOfferComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'visitedEvents'">
+          <VisitedEventsComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'exhibitedEvents'">
+          <ExhibitedEventsComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'connections'">
+          <ConnectionsComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'galleries'">
+          <GalleriesComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'pitchingVideos'">
+          <PitchingVideosComponent />
+        </IonCol>
+      </IonRow>
     </IonCol>
   </IonGrid>
 </template>
@@ -223,9 +225,10 @@ export default defineComponent({
 
 <style scoped>
 /* General styles */
-* {
-  border: 1px solid black;
-}
+
+/* * {
+    border: 1px solid black;
+} */
 
 ion-grid {
   overflow-y: auto; /* Enable vertical scrolling */
@@ -240,12 +243,15 @@ ion-grid {
   background-color: yellow;
   justify-content: center;
   text-align: center;
+  padding: 10px;
 }
 
 /* BusinessRow styles */
 .BusinessRow {
   display: flex;
   flex-wrap: nowrap; /* Prevents wrapping */
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .IMG-socialIcons {
@@ -254,6 +260,9 @@ ion-grid {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  
 }
 
 .BusinessDetails {
@@ -266,10 +275,43 @@ ion-grid {
   display: flex;
 }
 
+.BusinessRevenue,
+.YearlySalary {
+  background-color: rgb(10, 216, 10);
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  color:white;
+  text-align: center;
+  justify-content: center;
+}
+
+.TextStyle {
+  padding: 5px;
+}
+
+.Exhibited,
+.Visited,
+.Connect,
+.Messages,
+.QRCode {
+  display: flex;
+  border-radius: 10px;
+  /* padding: 15px; */
+  font-weight: bold;
+  border: 1px solid black;
+  width: 150px;
+  text-align: center;
+  justify-content: center;
+}
+
 /* PersonalRow styles */
 .PersonalRow {
   display: flex;
   flex-wrap: nowrap; /* Prevents wrapping */
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .PersonalDetails {
@@ -315,6 +357,8 @@ ion-grid {
 .StatisticsRow {
   display: flex;
   flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .StatisticsColumn {
@@ -334,18 +378,13 @@ ion-grid {
 }
 
 /* WhoWhatSections styles */
-.WhoWhatSections {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.borderWhoWhatSections {
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .TabSegment {
   width: 100%;
-}
-
-.ContentRow {
-  padding-top: 20px;
-  margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
@@ -360,6 +399,7 @@ ion-grid {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  
 }
 
 .ActivitySegment {
@@ -367,6 +407,8 @@ ion-grid {
   flex-wrap: wrap;
   width: 100%;
   overflow-x: auto;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .ActivitySegment ion-segment-button {
@@ -399,7 +441,7 @@ ion-segment-button {
   border-radius: 20%;
   font-size: 14px; /* Adjust tab font size for mobile */
   font-weight: bold;
-    border: 1px solid black;
+  border: 1px solid rgb(14, 5, 139);
 }
 
 /* Hover effect */
