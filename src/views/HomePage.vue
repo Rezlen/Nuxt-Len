@@ -75,8 +75,6 @@
         </IonRow>
         
 
-
-
         <!-- Middle Content Section with Left/Right Adverts and Middle Content -->
         <IonRow class=" ">
           <!-- Left Advert Section -->
@@ -99,6 +97,11 @@
               <p><a href="/LeftAd1" class="Events-button" >LeftAd1Comp </a> </p>
               <p><a href="/TemplatePage" class="Events-button" >TemplatePage </a> </p>
               <p><a href="/profilePage" class="Events-button" >ProfilePage </a> </p>
+              <p><a href="/MiniProfileCardComponent" class="Events-button" >MiniProfileCardComponent </a> </p>
+              <p><a href="/ProfilePublicSectionComponent" class="Events-button" >ProfilePublicSectionComponent </a> </p>
+              <p><a href="/OfferComponent" class="Events-button" >OfferComponent </a> </p>
+              <p><a href="/BizOfferNeedPage" class="Events-button" >BizOfferNeedPage </a> </p>
+
               
               <!-- MiniProfilesRow ##############################-->
               <IonCol class="MiniProfilesRow">
@@ -117,11 +120,11 @@
                   </IonCol>
                   <IonCol v-show="selectedTab === 'Exhibitors'" class="AllExhibitors">
                     <!-- Component for AllExhibitors #########" -->
-                    <MiniProfileCardComponent />
+                    <MiniProfileCardVIPComponent />
                   </IonCol>
                   <IonCol v-show="selectedTab === 'Visitors'" class="AllVisitors">
                     <!-- Component for AllVisitors #########" -->
-                    <MiniProfileCardComponent />
+                    <MiniProfileCardVVIPComponent />
                   </IonCol>
                   <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
                     <!-- Component for AdvertiseForFree #########" -->
@@ -137,7 +140,8 @@
               <OffersComponent /><p>Offers Needs Best Offers component will be here</p>
             </IonRow>
             <IonRow class=" bordered-section InvestorsSection ">
-              <InvestorsComponent /><p>Investors & investees component will be here</p>
+            <!-- Component for InvestorsSection #########" -->
+              <MiniProfileCardComponent />
             </IonRow>
           </IonCol>
 
@@ -179,6 +183,8 @@ import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
+import MiniProfileCardVIPComponent from '@/components/ProfileComponents/MiniProfileCardVIPComponent.vue';
+import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
 
 export default defineComponent({
   name: 'HomePage',
@@ -193,6 +199,8 @@ export default defineComponent({
     MenuComponent,
     SocialMediaBarComponent,
     MiniProfileCardComponent,
+    MiniProfileCardVVIPComponent,
+    MiniProfileCardVIPComponent,
     FooterComponent,
     LeftAd1Component,
     LeftAd2Component,

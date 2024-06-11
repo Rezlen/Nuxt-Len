@@ -97,13 +97,13 @@ const menus = ref([
   },
   {
     title: 'Businesses & Offers⌄',
-    path: '',
+    path: '/BizOfferNeedPage',
     subMenus: [
-      { title: 'All Businesses Profile', path: '/AllBusinessesProfile' },
-      { title: 'All Offers', path: '/AllOffers' },
-      { title: 'Best Offers', path: '/BestOffers' },
-      { title: 'All Needs', path: '/AllNeeds' },
-      { title: 'Advertise For FREE', path: '/AdvertiseForFree' },
+      { title: 'All Businesses Profile', path: '/BizOfferNeedPage' },
+      { title: 'All Offers', path: '/BizOfferNeedPage' },
+      { title: 'Best Offers', path: '/BizOfferNeedPages' },
+      { title: 'All Needs', path: '/BizOfferNeedPage' },
+      { title: 'Advertise For FREE', path: '/BizOfferNeedPage' },
     ],
     showSubMenus: false, // Initially hide submenu
   },

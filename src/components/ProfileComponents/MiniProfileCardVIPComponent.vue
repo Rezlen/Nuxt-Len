@@ -1,17 +1,54 @@
 <template>
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-    <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header>
-    <!-- ProvideNeedRow ########################## -->
-    <IonRow class="ProvideNeedRow" >
-      <IonRow>Provide: Comp Here</IonRow>
-      <IonRow>Need: Comp Here</IonRow>
+  <IonCard>
+    <IonCardHeader class=" CenterPositions TitelSubTitle">
+      <IonCardTitle>Card Title Company Name</IonCardTitle>
+      <IonCardSubtitle>Card Subtitle Person Name</IonCardSubTitle>
+    </IonCardHeader>
+    <IonRow class=" CenterPositions Star%Img" >
+      <IonCol> <span class="star">★</span> VIP</IonCol>
+      <IonCol>%%%</IonCol>
+      <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
     </IonRow>
 
-  </ion-card>
+    <!-- PositionSalaryVisitedExhibitedRow ########################## -->
+    <IonRow class="PositionSalaryVisitedExhibitedRow" >
+      <IonRow>Position: Comp Here</IonRow>
+      <IonRow class=" SalaryRow"  >Salary: Comp Here</IonRow>
+      <IonRow>Visited: Comp Here</IonRow>
+      <IonRow>Exhibited: Comp Here</IonRow>
+    </IonRow>
+
+    <!-- ProvideNeedRow ########################## -->
+    <IonRow class="ProvideNeedRow" >
+      <IonRow>Provide: Comp Here. Our objective is to help the following groups</IonRow>
+      <IonRow>Need: Comp Here. At our networking events we give our members a 30 second</IonRow>
+    </IonRow>
+
+    <!-- ColoredSection ########################## -->
+    <IonCol class="ColoredSection">
+      <IonRow class=" CenterPositions RevenueRow" >Revenue Comp Here</IonRow>
+      <IonRow class="ColoredSectionLFont" >
+        <IonCol class="ColoredSectionLeftCol">
+          <IonRow>Offers: Comp Here</IonRow>
+          <IonRow>Needs: Comp Here</IonRow>
+          <IonRow>Page Visited Comp Here</IonRow>
+        </IonCol>
+        <IonCol class="ColoredSectionRightCol">
+          <IonRow>Requiested: Comp Here</IonRow>
+          <IonRow>Provided: Comp Here</IonRow>
+          <IonRow>Connections: Comp Here</IonRow>
+        </IonCol>
+      </IonRow>
+      <IonButton size="small" fill="clear" class=" CenterPositions ConnectbtnRow">ConnectBTN</IonButton>
+      <IonRow class=" CenterPositions social-media-icons">
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+      </IonRow>
+    </IonCOl>
+  
+  </IonCard>
 </template>
 
 <script lang="ts">
@@ -36,12 +73,8 @@ export default defineComponent({
     IonCardTitle,
   },
   setup() {
-    const selectedTab = ref<string>('listedNeeds'); // Initialize with the default tab
-    const selectedTabActivity = ref<string>('listedNeeds'); // Initialize with the default tab for ActivityRow
-
+    
     return {
-      selectedTab,
-      selectedTabActivity,
       logoFacebook,
       logoTwitter,
       logoLinkedin,
@@ -54,14 +87,115 @@ export default defineComponent({
 
 
 <style scoped>
-/* General styles */
 
-* {
-  border: 1px solid black;
+
+/* Limiting the size of the card#################### */
+ion-card {
+  max-width: 350px; /* Maximum width of the card */
+  max-height: 700px; /* Maximum height of the card */
+  width: 100%; /* Responsive width */
+  height: auto; /* Responsive height */
+  margin: 0 auto; /* Center the card */
+  border-radius: 6px;
 }
 
- /*  END gives the nice button colur & shape effect to the tab */
+.star{
+  color: rgb(158, 121, 1);
+  font-size: 30px;
+}
+.CenterPositions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 
+/* This section put anything that need to be in a column in a column */
+.PositionSalaryVisitedExhibitedRow,
+.ProvideNeedRow,
+.ColoredSection,
+.ColoredSectionLeftCol,
+.ColoredSectionRightCol {
+ display: flex;
+ flex-direction: column;
+}
+
+.PositionSalaryVisitedExhibitedRow,
+.ProvideNeedRow {
+  padding-left: 15px;
+  font-weight: bold;
+}
+
+.ProvideNeedRow {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.ColoredSection {
+  background-color: rgb(158, 121, 1);
+}
+
+.RevenueRow {
+  font-weight:bold;
+  font-size: 20px;
+  padding: 5px;
+  color: red;
+  background-color: white;
+  border-radius: 8px;
+}
+.SalaryRow {
+  font-weight:bold;
+  font-size: 17px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: red;
+}
+
+.ColoredSectionLFont {
+  color: white;
+}
+
+.ColoredSectionRightCol {
+  /* justify-content: flex-end; */
+  /* align-content: flex-end; */
+  align-items: flex-end;
+  text-align: right;
+}
+
+.ConnectbtnRow {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  padding: 8px;
+  text-align: center;
+  font-weight:bold;
+}
+
+
+/* Social media icon colors */
+.social-media-icons {
+  background-color: white;
+  padding: 4px 0;
+}
+
+.social-button {
+  margin:0;
+  padding:0;
+}
+
+.linkedin-icon {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+.google-icon {
+  color: #db4437; /* Google red */
+}
+
+.facebook-icon {
+  color: #3b5998; /* Facebook blue */
+}
+
+.twitter-icon {
+  color: #1da1f2; /* Twitter blue */
+}
 
 </style>
-

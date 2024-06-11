@@ -4,6 +4,7 @@ import HomePage from '../views/HomePage.vue';
 import SignInSignUpPage from '../views/SignInSignUpPage.vue';
 import TemplatePage from '../views/TemplatePage.vue';
 import ProfilePage from '../views/ProfilePage.vue';
+import BizOfferNeedPage from '../views/BizOfferNeedPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -22,6 +23,7 @@ import ProfilePublicSectionComponent from '@/components/ProfileComponents/Profil
 import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
 import MiniProfileCardVIPComponent from '@/components/ProfileComponents/MiniProfileCardVIPComponent.vue';
 import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
+import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferComponent.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -42,7 +44,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'SignInSignUpPage',
     component: SignInSignUpPage
   },
-    {
+  {
+    path: '/bizOfferNeedPage',
+    name: 'BizOfferNeedPage',
+    component: BizOfferNeedPage
+  },
+  {
     path: '/profilePage',
     name: 'ProfilePage',
     component: ProfilePage
@@ -54,7 +61,7 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   
-  // pages end here
+  // pages end here BizOfferNeedPage
 
 
 
@@ -62,10 +69,6 @@ const routes: Array<RouteRecordRaw> = [
 
   //Components end here
 
-  {
-    path: '/message/:id',
-    component: () => import('../views/ViewMessagePage.vue')
-  },
   {
     path: '/menu',
     name: 'MenuComponent',
@@ -106,6 +109,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MiniProfileCardVVIPComponent',
     component: MiniProfileCardVVIPComponent
   },
+  {
+    path: '/offerComponent',
+    name: 'OfferComponent',
+    component: OfferComponent
+  },
+  
   
   // Left & Right Aderts starts here
   {

@@ -1,15 +1,63 @@
 <template>
-  <IonGrid>
-  </IonGrid>
+  <IonCard>
+    <IonCardHeader class=" CenterPositions TitelSubTitle">
+      <IonCardTitle>Card Title Company Name</IonCardTitle>
+      <IonCardSubtitle>Card Subtitle Person Name</IonCardSubTitle>
+    </IonCardHeader>
+    <IonRow class=" CenterPositions Star%Img" >
+      <IonCol> <span class="star">★</span> VVIP</IonCol>
+      <IonCol>%%%</IonCol>
+      <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
+    </IonRow>
+
+    <!-- PositionSalaryVisitedExhibitedRow ########################## -->
+    <IonRow class="PositionSalaryVisitedExhibitedRow" >
+      <IonRow>Position: Comp Here</IonRow>
+      <IonRow class=" SalaryRow"  >Salary: Comp Here</IonRow>
+      <IonRow>Visited: Comp Here</IonRow>
+      <IonRow>Exhibited: Comp Here</IonRow>
+    </IonRow>
+
+    <!-- ProvideNeedRow ########################## -->
+    <IonRow class="ProvideNeedRow" >
+      <IonRow>Provide: Comp Here. Our objective is to help the following groups</IonRow>
+      <IonRow>Need: Comp Here. At our networking events we give our members a 30 second</IonRow>
+    </IonRow>
+
+    <!-- ColoredSection ########################## -->
+    <IonCol class="ColoredSection">
+      <IonRow class=" CenterPositions RevenueRow" >Revenue Comp Here</IonRow>
+      <IonRow class="ColoredSectionLFont" >
+        <IonCol class="ColoredSectionLeftCol">
+          <IonRow>Offers: Comp Here</IonRow>
+          <IonRow>Needs: Comp Here</IonRow>
+          <IonRow>Page Visited Comp Here</IonRow>
+        </IonCol>
+        <IonCol class="ColoredSectionRightCol">
+          <IonRow>Requiested: Comp Here</IonRow>
+          <IonRow>Provided: Comp Here</IonRow>
+          <IonRow>Connections: Comp Here</IonRow>
+        </IonCol>
+      </IonRow>
+      <IonButton size="small" fill="clear" class=" CenterPositions ConnectbtnRow">ConnectBTN</IonButton>
+      <IonRow class=" CenterPositions social-media-icons">
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+      </IonRow>
+    </IonCOl>
+  
+  </IonCard>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonButton, IonIcon } from '@ionic/vue';
+import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonButton, IonIcon, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'MiniProfileCardComponent',
+  name: 'MiniProfileCardVIPComponent',
   components: {
     IonGrid,
     IonRow,
@@ -18,14 +66,15 @@ export default defineComponent({
     IonSegmentButton,
     IonButton,
     IonIcon,
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonCardTitle,
   },
   setup() {
-    const selectedTab = ref<string>('listedNeeds'); // Initialize with the default tab
-    const selectedTabActivity = ref<string>('listedNeeds'); // Initialize with the default tab for ActivityRow
-
+    
     return {
-      selectedTab,
-      selectedTabActivity,
       logoFacebook,
       logoTwitter,
       logoLinkedin,
@@ -38,99 +87,96 @@ export default defineComponent({
 
 
 <style scoped>
-/* General styles */
 
-/* * {
-    border: 1px solid black;
-} */
 
-ion-grid {
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 100%; /* Full height to fit the parent */
+/* Limiting the size of the card#################### */
+ion-card {
+  max-width: 350px; /* Maximum width of the card */
+  max-height: 700px; /* Maximum height of the card */
+  width: 100%; /* Responsive width */
+  height: auto; /* Responsive height */
+  margin: 0 auto; /* Center the card */
+  border-radius: 6px;
 }
 
-/* BusinessName styles */
-.BusinessName {
-  font-family: 'Arial Narrow Bold', sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-  background-color: yellow;
+.star{
+  color: rgb(158, 0, 197);
+  font-size: 30px;
+}
+.CenterPositions {
+  display: flex;
   justify-content: center;
-  text-align: center;
-  padding: 10px;
-}
-
-/* BusinessRow styles */
-.BusinessRow {
-  display: flex;
-  flex-wrap: nowrap; /* Prevents wrapping */
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.IMG-socialIcons {
-  flex: 0 0 20%; /* Fixed 20% width */
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border: 1px solid gray;
-  border-radius: 10px;
-  
+  align-content: center;
 }
 
-.BusinessDetails {
-  flex: 1; /* Takes remaining space */
-  display: flex;
-  flex-direction: column;
+/* This section put anything that need to be in a column in a column */
+.PositionSalaryVisitedExhibitedRow,
+.ProvideNeedRow,
+.ColoredSection,
+.ColoredSectionLeftCol,
+.ColoredSectionRightCol {
+ display: flex;
+ flex-direction: column;
 }
 
-.BusinessRevenue,
-.YearlySalary {
-  background-color: rgb(10, 216, 10);
-  border-radius: 10px;
-  padding: 15px;
-  font-size: 25px;
+.PositionSalaryVisitedExhibitedRow,
+.ProvideNeedRow {
+  padding-left: 15px;
   font-weight: bold;
-  color:white;
-  text-align: center;
-  justify-content: center;
 }
 
-.TextStyle {
+.ProvideNeedRow {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.ColoredSection {
+  background-color: rgb(153, 0, 133);
+}
+
+.RevenueRow {
+  font-weight:bold;
+  font-size: 20px;
   padding: 5px;
+  color: red;
+  background-color: white;
+  border-radius: 8px;
+}
+.SalaryRow {
+  font-weight:bold;
+  font-size: 17px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: red;
 }
 
-.Exhibited,
-.Visited,
-.Connect,
-.Messages,
-.QRCode {
-  display: flex;
-  border-radius: 10px;
-  /* padding: 15px; */
-  font-weight: bold;
-  border: 1px solid black;
-  width: 150px;
+.ColoredSectionLFont {
+  color: white;
+}
+
+.ColoredSectionRightCol {
+  /* justify-content: flex-end; */
+  /* align-content: flex-end; */
+  align-items: flex-end;
+  text-align: right;
+}
+
+.ConnectbtnRow {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  padding: 8px;
   text-align: center;
-  justify-content: center;
+  font-weight:bold;
 }
 
-/* PersonalRow styles */
-.PersonalRow {
-  display: flex;
-  flex-wrap: nowrap; /* Prevents wrapping */
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.PersonalDetails {
-  flex: 1; /* Takes remaining space */
-  display: flex;
-  flex-direction: column;
-}
 
 /* Social media icon colors */
+.social-media-icons {
+  background-color: white;
+  padding: 4px 0;
+}
+
 .social-button {
   margin:0;
   padding:0;
@@ -152,124 +198,4 @@ ion-grid {
   color: #1da1f2; /* Twitter blue */
 }
 
-/* Responsive styles for smaller screens */
-@media (max-width: 768px) {
-  .BusinessRow, .PersonalRow {
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-  }
-
-  .IMG-socialIcons, .BusinessDetails, .PersonalDetails {
-    flex: 1 1 100%; /* Take full width on smaller screens */
-  }
-}
-
-/* StatisticsRow styles */
-.StatisticsRow {
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.StatisticsColumn {
-  flex: 0 0 33.3333%;
-  display: flex;
-  flex-direction: column;
-}
-
-.StatisticsColumn .ion-row {
-  margin-bottom: 10px; /* Add spacing between rows if needed */
-}
-
-@media (max-width: 768px) {
-  .StatisticsColumn {
-    flex: 0 0 100%;
-  }
-}
-
-/* WhoWhatSections styles */
-.borderWhoWhatSections {
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.TabSegment {
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  .WhoWhatSections ion-col {
-    flex-direction: column;
-    width: 100%;
-  }
-}
-
-/* ActivityRow styles */
-.ActivityRow {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  
-}
-
-.ActivitySegment {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  overflow-x: auto;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-.ActivitySegment ion-segment-button {
-  flex: 1 1 auto;
-  white-space: nowrap;
-  min-width: 100px;
-}
-
-.ActivityRow .ion-col {
-  white-space: normal;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-ion-segment-button {
-  font-size: 14px; /* Adjust tab font size for mobile */
-  font-weight: bold;
-}
-
-@media (max-width: 600px) {
-  .ActivityRow .ion-col {
-    width: 100%;
-  }
-}
- /*  gives the nice button colur & shape effect to the tab */
-.btn {
-  transition: 0.5s;
-  padding: 0;
-  margin: 0;
-  border-radius: 20%;
-  font-size: 14px; /* Adjust tab font size for mobile */
-  font-weight: bold;
-  border: 1px solid rgb(14, 5, 139);
-}
-
-/* Hover effect */
-.btn:hover {
-  background: #ffee10;
-  color: black;
-  box-shadow: 0 0 1rem #ffee10;
-}
-
-/* Clicked effect */
-.btn-clicked {
-  background: #ffee10;
-  color: black;
-  box-shadow: 0 0 1rem #ffee10;
-}
-
- /*  END gives the nice button colur & shape effect to the tab */
-
-
 </style>
-
