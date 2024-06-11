@@ -90,16 +90,46 @@
 
           <!-- Middle Content Section -->
           <IonCol size="12" size-md="9" class="bordered-section SignInSignUpComponent">
-            <!-- 1-Profiles- 2-Offers- 3-Investors section -->
+            <!-- 1-MiniProfilesRow- 2-Offers- 3-Investors section -->
             <IonRow class=" bordered-section ProfilesSection ">
-              <ProfilesComponent /><p>Profile component will be here</p>
-            <p><a href="/menu" class="Events-button" >MenuComp </a> </p>
-            <p><a href="/socialMediaBar" class="Events-button" >socialMediaBarComp </a> </p>
-            <p><a href="/footer" class="Events-button" >footerComp </a> </p>
-            <p><a href="/signInSignUpComponent" class="Events-button" >signInSignUpComponent </a> </p>
-            <p><a href="/LeftAd1" class="Events-button" >LeftAd1Comp </a> </p>
-            <p><a href="/TemplatePage" class="Events-button" >TemplatePage </a> </p>
-            <p><a href="/profilePage" class="Events-button" >ProfilePage </a> </p>
+              <p><a href="/menu" class="Events-button" >MenuComp </a> </p>
+              <p><a href="/socialMediaBar" class="Events-button" >socialMediaBarComp </a> </p>
+              <p><a href="/footer" class="Events-button" >footerComp </a> </p>
+              <p><a href="/signInSignUpComponent" class="Events-button" >signInSignUpComponent </a> </p>
+              <p><a href="/LeftAd1" class="Events-button" >LeftAd1Comp </a> </p>
+              <p><a href="/TemplatePage" class="Events-button" >TemplatePage </a> </p>
+              <p><a href="/profilePage" class="Events-button" >ProfilePage </a> </p>
+              
+              <!-- MiniProfilesRow ##############################-->
+              <IonCol class="MiniProfilesRow">
+                <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
+                  <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+                    <IonSegmentButton class="btn" value="Businesses">All Businesses</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="Exhibitors">All Exhibitors</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="Visitors">All Visitors</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="AdvertiseForFree">Advertise For FREE</IonSegmentButton>
+                  </IonSegment>
+                </IonRow>
+                <IonRow class="DisplayComponentRow">
+                  <IonCol v-show="selectedTab === 'Businesses'" class="AllBusinesses">
+                    <MiniProfileCardComponent />
+                    <MiniProfileCardComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'Exhibitors'" class="AllExhibitors">
+                    <!-- Component for AllExhibitors #########" -->
+                    <MiniProfileCardComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'Visitors'" class="AllVisitors">
+                    <!-- Component for AllVisitors #########" -->
+                    <MiniProfileCardComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
+                    <!-- Component for AdvertiseForFree #########" -->
+                    <MiniProfileCardComponent />
+                  </IonCol>
+                </IonRow>
+              </IonCol>
+
 
 
             </IonRow>
@@ -135,8 +165,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { IonPage, IonGrid, IonRow, IonCol, IonContent } from '@ionic/vue';
+import { defineComponent, ref  } from 'vue';
+import { IonPage, IonGrid, IonRow, IonCol, IonContent,IonSegment, IonSegmentButton } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
@@ -148,17 +178,21 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
+import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
 
 export default defineComponent({
-  name: 'HomePage1',
+  name: 'HomePage',
   components: {
     IonPage,
     IonGrid,
     IonRow,
     IonCol,
     IonContent,
+    IonSegment,
+    IonSegmentButton,
     MenuComponent,
     SocialMediaBarComponent,
+    MiniProfileCardComponent,
     FooterComponent,
     LeftAd1Component,
     LeftAd2Component,
@@ -169,7 +203,15 @@ export default defineComponent({
     RightAd3Component,
     RightAd4Component,
   },
+  setup() {
+    const selectedTab = ref<string>('Businesses'); // Initialize with the default tab
+
+    return {
+      selectedTab,
+    };
+  },
 });
+
 </script>
 
 <style scoped>
@@ -299,5 +341,56 @@ iframe {
     margin: 0;
   }
 
+}
+
+/* Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree   ######## */
+
+.MiniProfilesRow {
+  padding: 10px;
+}
+
+.Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree {
+  display: flex;
+  flex-wrap: wrap; /* Allow tabs to wrap to the next row */
+  margin-bottom: 10px;
+}
+
+.TabSegment {
+  display: flex;
+  flex-wrap: wrap; /* Allow segment buttons to wrap */
+  width: 100%;
+}
+
+.TabSegment .btn {
+  flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
+  min-width: 150px; /* Minimum width for each button to ensure readability */
+}
+
+.DisplayComponentRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.AllBusinesses,
+.AllExhibitors,
+.AllVisitors,
+.AdvertiseForFree {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
+  margin: 10px;
+}
+
+@media (max-width: 600px) {
+  .AllBusinesses,
+  .AllExhibitors,
+  .AllVisitors,
+  .AdvertiseForFree {
+    flex: 1 1 100%; /* Make each tab content full width on small screens */
+  }
 }
 </style>

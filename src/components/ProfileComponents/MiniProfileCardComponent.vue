@@ -91,11 +91,12 @@ export default defineComponent({
 
 /* Limiting the size of the card#################### */
 ion-card {
-  max-width: 400px; /* Maximum width of the card */
+  max-width: 350px; /* Maximum width of the card */
   max-height: 700px; /* Maximum height of the card */
   width: 100%; /* Responsive width */
   height: auto; /* Responsive height */
   margin: 0 auto; /* Center the card */
+  border-radius: 6px;
 }
 
 .star{
@@ -122,6 +123,7 @@ ion-card {
 .PositionSalaryVisitedExhibitedRow,
 .ProvideNeedRow {
   padding-left: 15px;
+  font-weight: bold;
 }
 
 .ProvideNeedRow {
@@ -133,14 +135,20 @@ ion-card {
   background-color: rgb(55, 166, 240)
 }
 
-.RevenueRow,
-.SalaryRow {
+.RevenueRow {
   font-weight:bold;
   font-size: 20px;
   padding: 5px;
   color: red;
   background-color: white;
   border-radius: 8px;
+}
+.SalaryRow {
+  font-weight:bold;
+  font-size: 17px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: red;
 }
 
 .ColoredSectionLFont {
