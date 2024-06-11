@@ -271,10 +271,6 @@ ion-grid {
   flex-direction: column;
 }
 
-.social-media-icons {
-  display: flex;
-}
-
 .BusinessRevenue,
 .YearlySalary {
   background-color: rgb(10, 216, 10);
@@ -321,9 +317,9 @@ ion-grid {
 }
 
 /* Social media icon colors */
-.social-media-icons {
-  display: flex;
-  gap: 8px;
+.social-button {
+  margin:0;
+  padding:0;
 }
 
 .linkedin-icon {

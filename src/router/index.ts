@@ -19,6 +19,9 @@ import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import ProfilePublicSectionComponent from '@/components/ProfileComponents/ProfilePublicSectionComponent.vue';
+import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
+import MiniProfileCardVIPComponent from '@/components/ProfileComponents/MiniProfileCardVIPComponent.vue';
+import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -87,6 +90,21 @@ const routes: Array<RouteRecordRaw> = [
     path: '/profilePublicSectionComponent',
     name: 'ProfilePublicSectionComponent',
     component: ProfilePublicSectionComponent
+  },
+  {
+    path: '/miniProfileCardComponent',
+    name: 'MiniProfileCardComponent',
+    component: MiniProfileCardComponent
+  },
+  {
+    path: '/miniProfileCardVIPComponent',
+    name: 'MiniProfileCardVIPComponent',
+    component: MiniProfileCardVIPComponent
+  },
+  {
+    path: '/miniProfileCardVVIPComponent',
+    name: 'MiniProfileCardVVIPComponent',
+    component: MiniProfileCardVVIPComponent
   },
   
   // Left & Right Aderts starts here
