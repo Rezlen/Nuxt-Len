@@ -5,7 +5,7 @@
       <ion-card-subtitle>Card Subtitle Person Name</ion-card-subtitle>
     </ion-card-header>
     <IonRow class=" CenterPositions Star%Img" >
-      <IonCol>Star Normal</IonCol>
+      <IonCol> <span class="star">★</span> Normal</IonCol>
       <IonCol>%%%</IonCol>
       <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
     </IonRow>
@@ -25,14 +25,20 @@
     </IonRow>
 
     <!-- ColoredSection ########################## -->
-    <IonCOL class="ColoredSection">
+    <IonCol class="ColoredSection">
       <IonRow class=" CenterPositions RevenueRow" >Revenue Comp Here</IonRow>
-      <IonCol>Offers: Comp Here</IonCol>
-      <IonCol>Needs: Comp Here</IonCol>
-      <IonCol>Page Visited Comp Here</IonCol>
-      <IonCol>Requiested: Comp Here</IonCol>
-      <IonCol>Provided: Comp Here</IonCol>
-      <IonCol>Connections: Comp Here</IonCol>
+      <IonRow>
+      <IonCol class="ColoredSectionLeftCol">
+        <IonRow>Offers: Comp Here</IonRow>
+        <IonRow>Needs: Comp Here</IonRow>
+        <IonRow>Page Visited Comp Here</IonRow>
+      </IonCol>
+      <IonCol class="ColoredSectionRightCol">
+        <IonRow>Requiested: Comp Here</IonRow>
+        <IonRow>Provided: Comp Here</IonRow>
+        <IonRow>Connections: Comp Here</IonRow>
+      </IonCol>
+      </IonRow>
       <IonRow class=" CenterPositions ConnectbtnRow">ConnectBTN</IonRow>
         <IonRow class=" CenterPositions social-media-icons">
           <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
@@ -84,7 +90,10 @@ export default defineComponent({
 * {
   border: 1px solid black;
 }
-
+.star{
+  color: rgb(8, 8, 6);
+  font-size: 30px;
+}
 .CenterPositions {
   display: flex;
   justify-content: center;
@@ -92,9 +101,22 @@ export default defineComponent({
   align-content: center;
 }
 
+/* This section put anything that need to be in a column in a column */
+.PositionSalaryVisitedExhibitedRow,
+.ProvideNeedRow,
+.ColoredSection,
+.ColoredSectionLeftCol,
+.ColoredSectionRightCol {
+ display: flex;
+ flex-direction: column;
+}
 
-
-
+.ColoredSectionRightCol {
+  /* justify-content: flex-end; */
+  /* align-content: flex-end; */
+  align-items: flex-end;
+  text-align: right;
+}
 /* Social media icon colors */
 .social-button {
   margin:0;

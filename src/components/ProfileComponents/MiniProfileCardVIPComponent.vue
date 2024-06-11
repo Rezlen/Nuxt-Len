@@ -7,8 +7,8 @@
     </ion-card-header>
     <!-- ProvideNeedRow ########################## -->
     <IonRow class="ProvideNeedRow" >
-      <IonRow>Provide Comp Here</IonRow>
-      <IonRow>Need Comp Here</IonRow>
+      <IonRow>Provide: Comp Here</IonRow>
+      <IonRow>Need: Comp Here</IonRow>
     </IonRow>
 
   </ion-card>
