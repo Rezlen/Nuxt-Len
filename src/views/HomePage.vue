@@ -15,14 +15,12 @@
 
         <!-- First row; 1-LENSection 2-Investors(Angels)Section -->
         <IonRow class=" bordered-section LENSection ">
-          <iframe width="300" height="200" src="https://www.youtube.com/embed/dNjQ_wZBA28" title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <p class="WorldLine" > Worlds Best Businesses & Entrepreneurs Are Here in London! </p>
+          <p class="WorldLine" > Worlds Best Businesses, Entrepreneurs, Investors and Investees Are Here in London! </p>
           <IonCol class=" LENMidSection" >
-            <p class="FREEline" > Wanna Join Both for <a href="/src/views/SignInSignUpPage.vue" class="FREE-link"> FREE</a> ? </p>
+            <p class="FREEline" > Wanna Join for <a href="/src/views/SignInSignUpPage.vue" class="FREE-link"> FREE</a> ? </p>
             <p><a href="/src/views/SignInSignUpPage.vue" class="FREE-button" >Click Here </a> </p>
           </IonCol>
-          <p class="WorldLine" > Worlds Best Investors & Investees Are Here in London!</p>
-          <iframe width="300" height="200" src="https://www.youtube.com/embed/dNjQ_wZBA28" title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="400" height="200" src="https://www.youtube.com/embed/dNjQ_wZBA28" title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </IonRow>
 
 
@@ -118,7 +116,6 @@
                 <IonRow class="DisplayComponentRow">
                   <IonCol v-show="selectedTab === 'Businesses'" class="AllBusinesses">
                     <MiniProfileCardComponent />
-                    <MiniProfileCardComponent />
                   </IonCol>
                   <IonCol v-show="selectedTab === 'Exhibitors'" class="AllExhibitors">
                     <!-- Component for AllExhibitors #########" -->
@@ -139,11 +136,71 @@
 
             </IonRow>
             <IonRow class=" bordered-section OffersSection ">
-              <OffersComponent /><p>Offers Needs Best Offers component will be here</p>
+            <!-- 4Tabs 1- All Offers 2- All Needs 3- Best offers 4- Advertise for FREE ##############################-->
+            <IonCol class="Tab5BiZOfferNeedRow">
+              <IonRow class="Tabs4AllBusinessProfilesAllOffersAllNeedsBestOffersAdvertiseForFree">
+                <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+                  <IonSegmentButton class="btn" value="Offers">All Offers</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="Needs">All Needs</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="BestOffers">Best Offers</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="AdvertiseForFree">Advertise For FREE</IonSegmentButton>
+                </IonSegment>
+              </IonRow>
+              <IonRow class="DisplayComponentRow">
+                <IonCol v-show="selectedTab === 'Offers'" class="AllOffers">
+                  <!-- Component for All Offers #########" -->
+                  <OfferComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'Needs'" class="AllNeeds">
+                  <!-- Component for All Needs #########" -->
+                  <NeedComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
+                  <!-- Carefull !!! This Component is athe 7 tabs only THEN in its tab component the BEST OFFERs are nested #########" -->
+                  <BestOfferTABsComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
+                  <!-- Component for Advertise For FREE #########" -->
+                  <MiniProfileCardComponent />
+                </IonCol>
+              </IonRow>
+            </IonCol>
             </IonRow>
-            <IonRow class=" bordered-section InvestorsSection ">
-            <!-- Component for InvestorsSection #########" -->
-              <MiniProfileCardComponent />
+
+
+
+
+
+            <IonRow class="bordered-section InvestorsSection">
+              <!-- 4Tabs 1- All Investors 2- All Investees 3- Apply For Investment 4- Provide Investment ##############################-->
+              <IonCol class="TabInvestorsSection">
+                <IonRow class="Tabs4AllInvestorsAllInvesteesApplyForInvestmentProvideInvestment">
+                  <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+                    <IonSegmentButton class="btn" value="AllInvestors">All Investors</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="AllInvestees">All Investees</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="ApplyForInvestment">Apply For Investment</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="ProvideInvestment">Provide Investment</IonSegmentButton>
+                  </IonSegment>
+                </IonRow>
+                <IonRow class="DisplayComponentRow">
+                  <IonCol v-show="selectedTab === 'AllInvestors'" class="AllInvestors">
+                    <!-- Component for All Investors #########" -->
+                    <InvestorComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'AllInvestees'" class="AllInvestees">
+                    <!-- Component for All Investees #########" -->
+                    <InvesteeComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'ApplyForInvestment'" class="ApplyForInvestment">
+                    <!-- Component for Apply For Investment #########" -->
+                    <ApplyForInvestmentComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'ProvideInvestment'" class="ProvideInvestment">
+                    <!-- Component for Provide Investment #########" -->
+                    <ProvideInvestmentComponent />
+                  </IonCol>
+                </IonRow>
+              </IonCol>
             </IonRow>
           </IonCol>
 
@@ -187,6 +244,11 @@ import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
 import MiniProfileCardVIPComponent from '@/components/ProfileComponents/MiniProfileCardVIPComponent.vue';
 import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
+import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferComponent.vue';
+import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
+import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
+import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
+
 
 export default defineComponent({
   name: 'HomePage',
@@ -212,6 +274,10 @@ export default defineComponent({
     RightAd2Component,
     RightAd3Component,
     RightAd4Component,
+    BestOfferTABsComponent,
+    BestOfferComponent,
+    OfferComponent,
+    NeedComponent,
   },
   setup() {
     const selectedTab = ref<string>('Businesses'); // Initialize with the default tab
@@ -257,13 +323,13 @@ ion-grid {
 }
 
 .LENSection {
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 16px; /* Add some gap between items */
   justify-content: center;
   align-content: center;
+  flex-wrap: wrap;
+  text-align: center;
 }
+
 .LENMidSection {
   text-align: center;
   display: flex;
@@ -273,7 +339,7 @@ ion-grid {
 }
 
 .LENSection p{
-  max-width: 200px;
+  max-width: 500px;
 }
 
 .FREEline {

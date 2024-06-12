@@ -6,6 +6,7 @@
       </IonCardHeader>
     <IonRow class=" CenterPositions ImgSocialButtonRow" >
       <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
+      <IonButton>I want to Satisfy/Provide this Need</IonButton>
       <IonRow class=" CenterPositions social-media-icons">
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
@@ -13,7 +14,9 @@
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
       </IonRow >
       <p>Want to create a FREE advert like this? <a href="/home" class="Events-button"> Click HERE </a> & fill the form, simple!</p>
-      <IonButton>I want to Satisfy/Provide this Need</IonButton>
+      <IonRow>
+        Category: OFFICE SPACE Wanted: 1 Seen: 1370 List Viewed: 987 Renewed: 1 Like: 2987
+      </IonRow>
     </IonRow>
     <IonCardContent class=" ContentSection" >
       <p>
@@ -60,9 +63,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
-*{
+/* *{
   border: solid 1px black;
-}
+} */
 
 /* tabs CSS */
 

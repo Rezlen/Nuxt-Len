@@ -54,7 +54,7 @@
                   <BestOfferTABsComponent />
                 </IonCol>
                 <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
-                  <!-- Component for Advertise For FREE #########" -->
+                  <IonTitle>Post Your OFFERS or NEEDS for FREE, to be seen by Millions of People </IonTitle>
                   <MiniProfileCardComponent />
                 </IonCol>
               </IonRow>
@@ -88,7 +88,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton } from '@ionic/vue';
+import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton, IonTitle } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
