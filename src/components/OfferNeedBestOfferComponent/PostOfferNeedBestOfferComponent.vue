@@ -13,7 +13,7 @@
       <IonRow class="DisplayComponentRow">
         <IonCol v-show="selectedTab === 'PostOffer'" class="PostOffer">
           <!-- Component for Post an Offer #########" -->
-          <!-- <PostOfferComponent /> -->
+          <PostOfferComponent />
         </IonCol>
         <IonCol v-show="selectedTab === 'PostNeed'" class="PostNeed">
           <!-- Component for Post a Need #########" -->
