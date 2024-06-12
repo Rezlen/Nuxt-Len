@@ -54,8 +54,7 @@
                   <BestOfferTABsComponent />
                 </IonCol>
                 <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
-                  <IonTitle>Post Your OFFERS or NEEDS for FREE, to be seen by Millions of People </IonTitle>
-                  <MiniProfileCardComponent />
+                  <PostOfferNeedBestOfferComponent />
                 </IonCol>
               </IonRow>
             </IonCol>
@@ -107,6 +106,7 @@ import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferCompon
 import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
 import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
 import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
+import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
 
 
 export default defineComponent({
@@ -137,6 +137,7 @@ export default defineComponent({
     BestOfferComponent,
     OfferComponent,
     NeedComponent,
+    PostOfferNeedBestOfferComponent,
   },
   setup() {
     const selectedTab = ref<string>('BusinessProfiles'); // Initialize with the default tab

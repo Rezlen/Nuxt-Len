@@ -100,6 +100,7 @@
               <p><a href="/OfferComponent" class="Events-button" >OfferComponent </a> </p>
               <p><a href="/BizOfferNeedPage" class="Events-button" >BizOfferNeedPage </a> </p>
               <p><a href="/BestofferTABSComponent" class="Events-button" >BestofferTABSComponent </a> </p>
+              <p><a href="/PostOfferNeedBestOfferComponent" class="Events-button" >PostOfferNeedBestOfferComponent </a> </p>
 
 
               
@@ -127,7 +128,7 @@
                   </IonCol>
                   <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
                     <!-- Component for AdvertiseForFree #########" -->
-                    <MiniProfileCardComponent />
+                    <PostOfferNeedBestOfferComponent />
                   </IonCol>
                 </IonRow>
               </IonCol>
@@ -161,7 +162,7 @@
                 </IonCol>
                 <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
                   <!-- Component for Advertise For FREE #########" -->
-                  <MiniProfileCardComponent />
+                  <PostOfferNeedBestOfferComponent />
                 </IonCol>
               </IonRow>
             </IonCol>
@@ -248,6 +249,7 @@ import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferCompon
 import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
 import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
 import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
+import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
 
 
 export default defineComponent({
@@ -278,6 +280,7 @@ export default defineComponent({
     BestOfferComponent,
     OfferComponent,
     NeedComponent,
+    PostOfferNeedBestOfferComponent,
   },
   setup() {
     const selectedTab = ref<string>('Businesses'); // Initialize with the default tab

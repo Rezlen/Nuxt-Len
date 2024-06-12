@@ -27,12 +27,16 @@ import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferCompon
 import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
 import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
 import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
+import PostOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferComponent.vue';
+import PostNeedComponent from '@/components/OfferNeedBestOfferComponent/PostNeedComponent.vue';
+import PostBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostBestOfferComponent.vue';
+import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
 
   
-  // Pages start here
+  // Pages start here PostOfferNeedBestOfferComponent
   {
     path: '/',
     redirect: '/home'
@@ -112,6 +116,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MiniProfileCardVVIPComponent',
     component: MiniProfileCardVVIPComponent
   },
+  // Offer Need BestOffer section
   {
     path: '/offerComponent',
     name: 'OfferComponent',
@@ -131,6 +136,26 @@ const routes: Array<RouteRecordRaw> = [
     path: '/bestOfferTABsComponent',
     name: 'BestOfferTABsComponent',
     component: BestOfferTABsComponent
+  },
+  {
+    path: '/postOfferNeedBestOfferComponent',
+    name: 'PostOfferNeedBestOfferComponent',
+    component: PostOfferNeedBestOfferComponent
+  },
+  {
+    path: '/postOfferComponent',
+    name: 'PostOfferComponent',
+    component: PostOfferComponent
+  },
+  {
+    path: '/postNeedComponent',
+    name: 'PostNeedComponent',
+    component: PostNeedComponent
+  },
+  {
+    path: '/postBestOfferComponent',
+    name: 'PostBestOfferComponent',
+    component: PostBestOfferComponent
   },
   
   
