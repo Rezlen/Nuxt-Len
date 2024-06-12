@@ -101,7 +101,7 @@
               <p><a href="/BizOfferNeedPage" class="Events-button" >BizOfferNeedPage </a> </p>
               <p><a href="/BestofferTABSComponent" class="Events-button" >BestofferTABSComponent </a> </p>
               <p><a href="/PostOfferNeedBestOfferComponent" class="Events-button" >PostOfferNeedBestOfferComponent </a> </p>
-
+              <p><a href="/PostOfferComponent" class="Events-button" >PostOfferComponent </a> </p>
 
               
               <!-- MiniProfilesRow ##############################-->

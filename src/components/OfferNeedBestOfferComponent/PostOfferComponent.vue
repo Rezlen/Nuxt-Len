@@ -1,33 +1,48 @@
 <template>
 
   <IonGrid class="Grid">
-    <IonTextarea  label="Enter Your Offer's Content here" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
+
+    <IonTextarea  label="Enter Your Offer's Title Here" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
     
     <IonRow>  
-      <IonCol>
-        <IonDatetime v-model="selectedDate" display-format="MM/DD/YYYY" placeholder="Select Date"></IonDatetime>
-      </IonCol>
       <IonCol>
         <IonSelect v-model="selectedCategory" placeholder="Choose a Country Offer" fill="outline" >
           <IonSelectOption value="category1">Category 1</IonSelectOption>
           <IonSelectOption value="category2">Category 2</IonSelectOption>
           <IonSelectOption value="category3">Category 3</IonSelectOption>
         </IonSelect>
+      </IonCol>
+      <IonCol>
         <IonSelect v-model="selectedCategory" placeholder="Choose a City Offer" fill="outline" >
           <IonSelectOption value="category1">Category 1</IonSelectOption>
           <IonSelectOption value="category2">Category 2</IonSelectOption>
           <IonSelectOption value="category3">Category 3</IonSelectOption>
         </IonSelect>
-        <IonSelect v-model="selectedCategory" placeholder="Choose a City Category" fill="outline" >
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="selectedCategory" placeholder="Choose Category" fill="outline" >
           <IonSelectOption value="category1">Category 1</IonSelectOption>
           <IonSelectOption value="category2">Category 2</IonSelectOption>
           <IonSelectOption value="category3">Category 3</IonSelectOption>
         </IonSelect>
-        <IonItem>
-          <IonLabel>Upload Image</IonLabel>
-          <input type="file" @change="onFileSelected" />
-        </IonItem>
       </IonCol>
+      <IonCol>
+        <IonSelect v-model="selectedCategory" placeholder="Choose Duration" fill="outline" >
+          <IonSelectOption value="category1">1 Week</IonSelectOption>
+          <IonSelectOption value="category2">2 Weeks</IonSelectOption>
+          <IonSelectOption value="category3">3 Weeks</IonSelectOption>
+          <IonSelectOption value="category4">4 Weeks</IonSelectOption>
+          <IonSelectOption value="category5">2 Months</IonSelectOption>
+          <IonSelectOption value="category6">3 Months</IonSelectOption>
+          <IonSelectOption value="category7">6 Months</IonSelectOption>
+          <IonSelectOption value="category8">1 Year</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+
+      <IonItem>
+        <IonLabel>Upload Image</IonLabel>
+        <input type="file" @change="onFileSelected" />
+      </IonItem>
       <IonCol>
         <IonItem>
           <IonTextarea  label="Enter Your Offer's Content here" label-placement="floating"  :counter="true"  :maxlength="1000" :counter-formatter="customFormatter" ></IonTextarea> 
@@ -38,10 +53,15 @@
 
     <IonRow>
       <IonCol>
-        <IonButton expand="block" @click="submitContent">Submit</IonButton>
+        <IonButton color="success"  expand="block" @click="submitContent">Pin (Advertise) My Offer on TOP of Others</IonButton>
       </IonCol>
     </IonRow>
-    
+    <IonRow>
+      <IonCol>
+        <IonButton size="large" expand="block" @click="submitContent">Post My Offer</IonButton>
+      </IonCol>
+    </IonRow>
+
   </IonGrid>
 
 </template>
@@ -49,7 +69,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonContent, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonSelect, IonSelectOption, IonDatetime, IonButton, IonTextarea } from '@ionic/vue';
+import { IonContent, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonTextarea } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FormPage',
@@ -62,7 +82,6 @@ export default defineComponent({
     IonLabel,
     IonSelect,
     IonSelectOption,
-    IonDatetime,
     IonButton,
     IonTextarea,
   },
@@ -85,12 +104,11 @@ export default defineComponent({
 
     const submitContent = () => {
       console.log('Category:', selectedCategory.value);
-      console.log('Date:', selectedDate.value);
+
     };
 
     return {
       selectedCategory,
-      selectedDate,
       editorContainer,
       onFileSelected,
       submitContent,

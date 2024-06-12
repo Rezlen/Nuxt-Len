@@ -1,118 +1,161 @@
 <template>
-  <IonTitle class="CenterPositions">Post Your OFFERS or NEEDS for FREE, to be seen by Millions of People </IonTitle>
-  <IonRow class="bordered-section ">
-    <!-- 3Tabs 1- Post an Offer 2- Post a Need 3- Post a Best offer ##############################-->
-    <IonCol class="TabPostSection">
-      <IonRow class="Tabs3PostOfferNeedBestOffer">
-        <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-          <IonSegmentButton class="btn" value="PostOffer">Post an Offer</IonSegmentButton>
-          <IonSegmentButton class="btn" value="PostNeed">Post a Need</IonSegmentButton>
-          <IonSegmentButton class="btn" value="PostBestOffer">Post a Best Offer</IonSegmentButton>
-        </IonSegment>
+
+  <IonGrid class="Grid">
+
+    <IonTextarea  label="Enter Your Best Offer's Title Here" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
+    
+    <IonRow>  
+      <IonCol>
+        <IonSelect v-model="selectedCategory" placeholder="Choose a Country Best Offer" fill="outline" >
+          <IonSelectOption value="category1">Category 1</IonSelectOption>
+          <IonSelectOption value="category2">Category 2</IonSelectOption>
+          <IonSelectOption value="category3">Category 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="selectedCategory" placeholder="Choose a City Best Offer" fill="outline" >
+          <IonSelectOption value="category1">Category 1</IonSelectOption>
+          <IonSelectOption value="category2">Category 2</IonSelectOption>
+          <IonSelectOption value="category3">Category 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="selectedCategory" placeholder="Choose Category" fill="outline" >
+          <IonSelectOption value="category1">Category 1</IonSelectOption>
+          <IonSelectOption value="category2">Category 2</IonSelectOption>
+          <IonSelectOption value="category3">Category 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="selectedCategory" placeholder="Choose Duration" fill="outline" >
+          <IonSelectOption value="category1">1 Week</IonSelectOption>
+          <IonSelectOption value="category2">2 Weeks</IonSelectOption>
+          <IonSelectOption value="category3">3 Weeks</IonSelectOption>
+          <IonSelectOption value="category4">4 Weeks</IonSelectOption>
+          <IonSelectOption value="category5">2 Months</IonSelectOption>
+          <IonSelectOption value="category6">3 Months</IonSelectOption>
+          <IonSelectOption value="category7">6 Months</IonSelectOption>
+          <IonSelectOption value="category8">1 Year</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+
+      <IonRow>
+        <p> To feature your offer on our BEST OFFERS page and promote it to our members, a commission percentage will be deducted from your selling price if selected. Please specify the commission percentage you are willing to offer.</p>
+        <IonSelect v-model="selectedCategory" placeholder="Commission %" fill="outline" >
+          <IonSelectOption value="5">5%</IonSelectOption>
+          <IonSelectOption value="10">10%</IonSelectOption>
+          <IonSelectOption value="15">15%</IonSelectOption>
+          <IonSelectOption value="20">20%</IonSelectOption>
+          <IonSelectOption value="25">25%</IonSelectOption>
+          <IonSelectOption value="30">30%</IonSelectOption>
+          <IonSelectOption value="35">35%</IonSelectOption>
+          <IonSelectOption value="40">40%</IonSelectOption>
+          <IonSelectOption value="45">45%</IonSelectOption>
+          <IonSelectOption value="50">50%</IonSelectOption>
+          <IonSelectOption value="55">55%</IonSelectOption>
+          <IonSelectOption value="60">60%</IonSelectOption>
+          <IonSelectOption value="65">65%</IonSelectOption>
+          <IonSelectOption value="70">70%</IonSelectOption>
+          <IonSelectOption value="75">75%</IonSelectOption>
+          <IonSelectOption value="80">80%</IonSelectOption>
+          <IonSelectOption value="85">85%</IonSelectOption>
+          <IonSelectOption value="90">90%</IonSelectOption>
+          <IonSelectOption value="95">95%</IonSelectOption>
+          <IonSelectOption value="100">100%</IonSelectOption>
+        </IonSelect>
       </IonRow>
-      <IonRow class="DisplayComponentRow">
-        <IonCol v-show="selectedTab === 'PostOffer'" class="PostOffer">
-          <!-- Component for Post an Offer #########" -->
-          <PostOfferComponent />
-        </IonCol>
-        <IonCol v-show="selectedTab === 'PostNeed'" class="PostNeed">
-          <!-- Component for Post a Need #########" -->
-          <PostNeedComponent />
-        </IonCol>
-        <IonCol v-show="selectedTab === 'PostBestOffer'" class="PostBestOffer">
-          <!-- Component for Post a Best Offer #########" -->
-          <PostBestOfferComponent />
-        </IonCol>
-      </IonRow>
-    </IonCol>
-  </IonRow>
+
+      <IonItem>
+        <IonLabel>Upload Image</IonLabel>
+        <input type="file" @change="onFileSelected" />
+      </IonItem>
+      <IonCol>
+        <IonItem>
+          <IonTextarea  label="Enter Your Best Offer's Content here" label-placement="floating"  :counter="true"  :maxlength="1000" :counter-formatter="customFormatter" ></IonTextarea> 
+        </IonItem>
+      </IonCol>
+    </IonRow>
+
+    <IonRow>
+      <IonCol>
+        <IonButton size="large" expand="block" @click="submitContent">Submit My Best Offer Proposal to the Admin</IonButton>
+      </IonCol>
+    </IonRow>
+
+  </IonGrid>
+
 </template>
+
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton } from '@ionic/vue';
-// import PostOfferComponent from '@/components/PostOfferComponent.vue';
-// import PostNeedComponent from '@/components/PostNeedComponent.vue';
-// import PostBestOfferComponent from '@/components/PostBestOfferComponent.vue';
+import { IonContent, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonTextarea } from '@ionic/vue';
 
 export default defineComponent({
-  name: 'PostBestOfferComponent',
+  name: 'FormPage',
   components: {
-    IonPage,
+    IonContent,
     IonGrid,
     IonRow,
     IonCol,
-    IonContent,
-    IonSegment,
-    IonSegmentButton,
-    // PostOfferComponent,
-    // PostNeedComponent,
-    // PostBestOfferComponent
+    IonItem,
+    IonLabel,
+    IonSelect,
+    IonSelectOption,
+    IonButton,
+    IonTextarea,
   },
   setup() {
-    const selectedTab = ref<string>('PostOffer'); // Initialize with the default tab
+    const selectedCategory = ref<string | null>(null);
+    const selectedDate = ref<string | null>(null);
+    const editorContainer = ref<HTMLDivElement | null>(null);
+
+    const customFormatter = (inputLength: number, maxLength: number) => {
+      return `${maxLength - inputLength} characters remaining`;
+    };
+
+    const onFileSelected = (event: Event) => {
+      const input = event.target as HTMLInputElement;
+      const file = input.files?.[0];
+      if (file) {
+        console.log(file);
+      }
+    };
+
+    const submitContent = () => {
+      console.log('Category:', selectedCategory.value);
+
+    };
 
     return {
-      selectedTab,
+      selectedCategory,
+      editorContainer,
+      onFileSelected,
+      submitContent,
+      customFormatter
     };
-  },
+  }
 });
 </script>
 
 
 
 <style scoped>
-/* Updated for new tab names and mobile responsiveness */
-
-.Tabs7_MarketingAccountingInvestmentLawBusinessAdviceWebDevelopmentOfficeSpace {
-  display: flex;
-  flex-wrap: wrap; /* Allow tabs to wrap to the next row */
-  margin-bottom: 10px;
+ion-grid {
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100%; /* Full height to fit the parent */
 }
 
-.TabSegment {
-  display: flex;
-  flex-wrap: wrap; /* Allow segment buttons to wrap */
+ion-textarea{
+  border-radius: 7px;
+  border:1px green solid;
+}
+#editor-container {
+  height: 300px;
+  margin: 16px 0;
+}
+
+input[type="file"] {
   width: 100%;
-}
-
-.TabSegment .btn {
-  flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
-  min-width: 150px; /* Minimum width for each button to ensure readability */
-}
-
-.DisplayComponentRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.CenterPositions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  text-align: center;
-}
-
-
-.PostOffer,
-.PostNeed,
-.PostBestOffer {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
-  margin: 10px;
-}
-
-@media (max-width: 600px) {
-  .PostOffer,
-  .PostNeed,
-  .PostBestOffer {
-    flex: 1 1 100%; /* Make each tab content full width on small screens */
-  }
 }
 </style>

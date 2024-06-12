@@ -17,11 +17,11 @@
         </IonCol>
         <IonCol v-show="selectedTab === 'PostNeed'" class="PostNeed">
           <!-- Component for Post a Need #########" -->
-          <!-- <PostNeedComponent /> -->
+          <PostNeedComponent />
         </IonCol>
         <IonCol v-show="selectedTab === 'PostBestOffer'" class="PostBestOffer">
           <!-- Component for Post a Best Offer #########" -->
-          <!-- <PostBestOfferComponent /> -->
+          <PostBestOfferComponent />
         </IonCol>
       </IonRow>
     </IonCol>

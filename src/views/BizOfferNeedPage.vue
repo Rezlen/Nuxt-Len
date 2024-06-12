@@ -196,7 +196,7 @@ export default defineComponent({
   margin: 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .AllBusinessProfiles,
   .AllOffers,
   .AllNeeds,
