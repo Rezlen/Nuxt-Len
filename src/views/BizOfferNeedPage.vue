@@ -43,15 +43,15 @@
                 </IonCol>
                 <IonCol v-show="selectedTab === 'Offers'" class="AllOffers">
                   <!-- Component for All Offers #########" -->
-                  <MiniProfileCardVIPComponent />
+                  <OfferComponent />
                 </IonCol>
                 <IonCol v-show="selectedTab === 'Needs'" class="AllNeeds">
                   <!-- Component for All Needs #########" -->
-                  <MiniProfileCardVVIPComponent />
+                  <NeedComponent />
                 </IonCol>
                 <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
-                  <!-- Component for Best Offers #########" -->
-                  <MiniProfileCardComponent />
+                  <!-- Carefull !!! This Component is athe 7 tabs only THEN in its tab component the BEST OFFERs are nested #########" -->
+                  <BestOfferTABsComponent />
                 </IonCol>
                 <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
                   <!-- Component for Advertise For FREE #########" -->
@@ -103,6 +103,10 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
+import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferComponent.vue';
+import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
+import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
+import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
 
 
 export default defineComponent({
@@ -129,6 +133,10 @@ export default defineComponent({
     MiniProfileCardComponent,
     MiniProfileCardVVIPComponent,
     MiniProfileCardVIPComponent,
+    BestOfferTABsComponent,
+    BestOfferComponent,
+    OfferComponent,
+    NeedComponent,
   },
   setup() {
     const selectedTab = ref<string>('BusinessProfiles'); // Initialize with the default tab
@@ -194,6 +202,12 @@ export default defineComponent({
   .BestOffers,
   .AdvertiseForFree {
     flex: 1 1 100%; /* Make each tab content full width on small screens */
+  }
+
+    /* if you can try to make the advert disolaywithin componentts in mobile view */
+  .RightAdvertComponent,
+  .LeftAdvertComponent {
+    display: none;
   }
 }
 </style>

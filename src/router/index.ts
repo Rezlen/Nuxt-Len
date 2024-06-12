@@ -24,6 +24,9 @@ import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfile
 import MiniProfileCardVIPComponent from '@/components/ProfileComponents/MiniProfileCardVIPComponent.vue';
 import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
 import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferComponent.vue';
+import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
+import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
+import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -114,9 +117,24 @@ const routes: Array<RouteRecordRaw> = [
     name: 'OfferComponent',
     component: OfferComponent
   },
+  {
+    path: '/needComponent',
+    name: 'NeedComponent',
+    component: NeedComponent
+  },
+  {
+    path: '/bestOfferComponent',
+    name: 'BestOfferComponent',
+    component: BestOfferComponent
+  },
+  {
+    path: '/bestOfferTABsComponent',
+    name: 'BestOfferTABsComponent',
+    component: BestOfferTABsComponent
+  },
   
   
-  // Left & Right Aderts starts here
+  // Left & Right Aderts starts here BestOfferTABsComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

@@ -11,11 +11,11 @@
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
-      </IonRow>
+      </IonRow >
       <p>Want to create a FREE advert like this? <a href="/home" class="Events-button"> Click HERE </a> & fill the form, simple!</p>
-      <IonButton>I want This Offer</IonButton>
+      <IonButton>I want to Satisfy/Provide this Need</IonButton>
     </IonRow>
-    <IonCardContent class=" ContentSection">
+    <IonCardContent class=" ContentSection" >
       <p>
         Offer & needs content here. commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
@@ -33,7 +33,7 @@ import { IonGrid, IonRow, IonCol, IonIcon, IonCard, IonButton, IonCardHeader, Io
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'OfferComponent',
+  name: 'NeedComponent',
   components: {
     IonGrid,
     IonRow,
@@ -69,10 +69,6 @@ export default defineComponent({
   align-items: center;
   align-content: center;
   text-align: center;
-}
-.TitelSubTitle {
-  border: solid 1px black;
-
 }
 
 .TitelSubTitle,

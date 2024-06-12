@@ -101,6 +101,8 @@
               <p><a href="/ProfilePublicSectionComponent" class="Events-button" >ProfilePublicSectionComponent </a> </p>
               <p><a href="/OfferComponent" class="Events-button" >OfferComponent </a> </p>
               <p><a href="/BizOfferNeedPage" class="Events-button" >BizOfferNeedPage </a> </p>
+              <p><a href="/BestofferTABSComponent" class="Events-button" >BestofferTABSComponent </a> </p>
+
 
               
               <!-- MiniProfilesRow ##############################-->
