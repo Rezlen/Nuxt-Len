@@ -21,9 +21,13 @@
       </IonCol>
       <IonCol>
         <IonSelect v-model="selectedCategory" placeholder="Choose Category" fill="outline" >
-          <IonSelectOption value="category1">Category 1</IonSelectOption>
-          <IonSelectOption value="category2">Category 2</IonSelectOption>
-          <IonSelectOption value="category3">Category 3</IonSelectOption>
+          <IonSelectOption value="category1">Marketing</IonSelectOption>
+          <IonSelectOption value="category2">Accounting</IonSelectOption>
+          <IonSelectOption value="category3">Investment</IonSelectOption>
+          <IonSelectOption value="category4">Law</IonSelectOption>
+          <IonSelectOption value="category5">Business Advice</IonSelectOption>
+          <IonSelectOption value="category6">Web Development</IonSelectOption>
+          <IonSelectOption value="category7">Office Space</IonSelectOption>
         </IonSelect>
       </IonCol>
       <IonCol>

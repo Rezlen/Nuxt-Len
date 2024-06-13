@@ -1,5 +1,6 @@
 <template>
   <IonGrid>
+    <p class=" CenterPositions ">"We have selected the Best Offers in the sectors below to ensure you benefit the most."</p>
         <IonRow class="Tabs7_MarketingAccountingInvestmentLawBusinessAdviceWebDevelopmentOfficeSpace">
           <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
             <IonSegmentButton class="btn" value="Marketing">Marketing</IonSegmentButton>
@@ -106,6 +107,14 @@ export default defineComponent({
   background-color: #f9f9f9;
   flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
   margin: 10px;
+}
+
+.CenterPositions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
 }
 
 @media (max-width: 600px) {

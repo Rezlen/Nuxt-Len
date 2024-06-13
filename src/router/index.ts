@@ -5,6 +5,7 @@ import SignInSignUpPage from '../views/SignInSignUpPage.vue';
 import TemplatePage from '../views/TemplatePage.vue';
 import ProfilePage from '../views/ProfilePage.vue';
 import BizOfferNeedPage from '../views/BizOfferNeedPage.vue';
+import EventsShowsPage from '../views/EventsShowsPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -36,7 +37,7 @@ import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComp
 const routes: Array<RouteRecordRaw> = [
 
   
-  // Pages start here PostOfferNeedBestOfferComponent
+  // Pages start here EventsShowsPage
   {
     path: '/',
     redirect: '/home'
@@ -55,6 +56,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/bizOfferNeedPage',
     name: 'BizOfferNeedPage',
     component: BizOfferNeedPage
+  },
+  {
+    path: '/eventsShowsPage',
+    name: 'EventsShowsPage',
+    component: EventsShowsPage
   },
   {
     path: '/profilePage',

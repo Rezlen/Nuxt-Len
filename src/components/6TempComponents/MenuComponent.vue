@@ -109,9 +109,9 @@ const menus = ref([
   },
   {
     title: 'Events & Shows⌄',
-    path: '',
+    path: '/EventsShowsPage',
     subMenus: [
-      { title: 'Events & Shows', path: '/EventShows' },
+      { title: 'Events & Shows', path: '/EventsShowsPage' },
       { title: 'Exhibitors', path: '/Exhibitors' },
       { title: 'Visitors', path: '/Visitors' },
       { title: 'Exhibiting', path: '/Exhibiting' },

@@ -102,9 +102,10 @@
               <p><a href="/BestofferTABSComponent" class="Events-button" >BestofferTABSComponent </a> </p>
               <p><a href="/PostOfferNeedBestOfferComponent" class="Events-button" >PostOfferNeedBestOfferComponent </a> </p>
               <p><a href="/PostOfferComponent" class="Events-button" >PostOfferComponent </a> </p>
+              <p><a href="/EventsShowsPage" class="Events-button" >EventsShowsPage </a> </p>
 
               
-              <!-- MiniProfilesRow ##############################-->
+              <!-- MiniProfilesRow ##############################     EventsShowsPage           -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
