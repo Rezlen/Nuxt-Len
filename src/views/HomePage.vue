@@ -15,7 +15,7 @@
 
         <!-- First row; 1-LENSection 2-Investors(Angels)Section -->
         <IonRow class=" bordered-section LENSection ">
-          <p class="WorldLine" > Worlds Best Businesses, Entrepreneurs, Investors and Investees Are Here in London! </p>
+          <p class="WorldLine" > Worlds Best Businesses, Entrepreneurs, Investors and Investees are Here in London! </p>
           <IonCol class=" LENMidSection" >
             <p class="FREEline" > Wanna Join for <a href="/src/views/SignInSignUpPage.vue" class="FREE-link"> FREE</a> ? </p>
             <p><a href="/src/views/SignInSignUpPage.vue" class="FREE-button" >Click Here </a> </p>

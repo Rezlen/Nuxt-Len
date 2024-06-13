@@ -22,37 +22,45 @@
 
 
 
-          <!-- EventsShows 6 tabs 1- Upcoming Events 2- Past Events 3-Events Calender 4- Exhibitors 5- Visitors 6- Exhibiting ##############################     -->
+          <!-- EventsShows 6 tabs 1- The Events 2- Exhibitors 3- Visitors 4- One Minute Pitcher 5- Three Min Pitcher/Presenters 6- Investment Pitcher ##############################     -->
           <IonCol class="MainCol">
-            <IonRow class="Tabs6UpcomingPastCalendarExhibitorsVisitorsExhibiting">
+            <IonRow class="Tabs6TheEventsExhibitorsVisitorsPitchers">
               <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                <IonSegmentButton class="btn" value="UpcomingEvents">Upcoming Events</IonSegmentButton>
-                <IonSegmentButton class="btn" value="PastEvents">Past Events</IonSegmentButton>
-                <IonSegmentButton class="btn" value="EventsCalendar">Events Calendar</IonSegmentButton>
-                <IonSegmentButton class="btn" value="Exhibiting">Exhibiting</IonSegmentButton>
+                <IonSegmentButton class="btn" value="TheEvents">The Events</IonSegmentButton>
+                <IonSegmentButton class="btn" value="Exhibitors">Exhibitors</IonSegmentButton>
+                <IonSegmentButton class="btn" value="Visitors">Visitors</IonSegmentButton>
+                <IonSegmentButton class="btn" value="OneMinutePitcher">One Minute Pitcher</IonSegmentButton>
+                <IonSegmentButton class="btn" value="ThreeMinPitcher">Three Min Pitcher/Presenters</IonSegmentButton>
+                <IonSegmentButton class="btn" value="InvestmentPitcher">Investment Pitcher</IonSegmentButton>
               </IonSegment>
             </IonRow>
             <IonRow class="DisplayComponentRow">
-              <IonCol v-show="selectedTab === 'UpcomingEvents'" class="UpcomingEvents">
-                <!-- Component for Upcoming Events #########" -->
-                <UpcomingEventsComponent />
+              <IonCol v-show="selectedTab === 'TheEvents'" class="TheEvents">
+                <!-- Component for The Events #########" -->
+                <TheEventComponent />
               </IonCol>
-              <IonCol v-show="selectedTab === 'PastEvents'" class="PastEvents">
-                <!-- Component for Past Events #########" -->
-                <PastEventsComponent />
+              <IonCol v-show="selectedTab === 'Exhibitors'" class="Exhibitors">
+                <!-- Component for Exhibitors #########" -->
+                <ExhibitorsComponent />
               </IonCol>
-              <IonCol v-show="selectedTab === 'EventsCalendar'" class="EventsCalendar">
-                <!-- Component for Events Calendar #########" -->
-                <EventsCalendarComponent />
+              <IonCol v-show="selectedTab === 'Visitors'" class="Visitors">
+                <!-- Component for Visitors #########" -->
+                <VisitorsComponent />
               </IonCol>
-              <IonCol v-show="selectedTab === 'Exhibiting'" class="Exhibiting">
-                <!-- Component for Exhibiting #########" -->
-                <ExhibitingComponent />
+              <IonCol v-show="selectedTab === 'OneMinutePitcher'" class="OneMinutePitcher">
+                <!-- Component for One Minute Pitcher #########" -->
+                <OneMinutePitcherComponent />
+              </IonCol>
+              <IonCol v-show="selectedTab === 'ThreeMinPitcher'" class="ThreeMinPitcher">
+                <!-- Component for Three Min Pitcher/Presenters #########" -->
+                <ThreeMinPitcherComponent />
+              </IonCol>
+              <IonCol v-show="selectedTab === 'InvestmentPitcher'" class="InvestmentPitcher">
+                <!-- Component for Investment Pitcher #########" -->
+                <InvestmentPitcherComponent />
               </IonCol>
             </IonRow>
           </IonCol>
-
-
 
 
 
@@ -93,10 +101,14 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
+import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
 
+// import OneMinutePitcherComponent from '@/components/OneMinutePitcherComponent.vue';
+// import ThreeMinPitcherComponent from '@/components/ThreeMinPitcherComponent.vue';
+// import InvestmentPitcherComponent from '@/components/InvestmentPitcherComponent.vue';
 
 export default defineComponent({
-  name: 'EventsShowsPage',
+  name: 'TheEventShowPage',
   components: {
     IonPage,
     IonGrid,
@@ -119,7 +131,10 @@ export default defineComponent({
     MiniProfileCardComponent,
     MiniProfileCardVVIPComponent,
     MiniProfileCardVIPComponent,
-
+    TheEventComponent,
+    // OneMinutePitcherComponent,
+    // ThreeMinPitcherComponent,
+    // InvestmentPitcherComponent
   },
   setup() {
     const selectedTab = ref<string>('BusinessProfiles'); // Initialize with the default tab
@@ -137,11 +152,7 @@ export default defineComponent({
 <style scoped>
 /* Updated for new tab names and mobile responsiveness */
 
-.MiniProfilesRow {
-  padding: 10px;
-}
-
-.Tabs4AllBusinessProfilesAllOffersAllNeedsBestOffersAdvertiseForFree {
+.Tabs6TheEventsExhibitorsVisitorsPitchers {
   display: flex;
   flex-wrap: wrap; /* Allow tabs to wrap to the next row */
   margin-bottom: 10px;
@@ -150,12 +161,16 @@ export default defineComponent({
 .TabSegment {
   display: flex;
   flex-wrap: wrap; /* Allow segment buttons to wrap */
-  width: 100%;
+  gap: 5px; /* Adjust the gap between buttons */
 }
 
-.TabSegment .btn {
-  flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
-  min-width: 150px; /* Minimum width for each button to ensure readability */
+.btn {
+  /* flex: 1 1 auto; */
+  margin: 0;
+  padding:0;
+  border-radius: 4px;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: -0.5px; /* Amazingly reduces the spaces between the letters/charectors */
 }
 
 .DisplayComponentRow {
@@ -165,33 +180,24 @@ export default defineComponent({
   align-items: center;
 }
 
-.AllBusinessProfiles,
-.AllOffers,
-.AllNeeds,
-.BestOffers,
-.AdvertiseForFree {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
-  margin: 10px;
-}
 
-@media (max-width: 768px) {
-  .AllBusinessProfiles,
-  .AllOffers,
-  .AllNeeds,
-  .BestOffers,
-  .AdvertiseForFree {
+
+@media (max-width: 760px) {
+  .TheEvents,
+  .Exhibitors,
+  .Visitors,
+  .OneMinutePitcher,
+  .ThreeMinPitcher,
+  .InvestmentPitcher {
     flex: 1 1 100%; /* Make each tab content full width on small screens */
   }
 
-    /* if you can try to make the advert disolaywithin componentts in mobile view */
+     /* if you can try to make the advert disolaywithin componentts in mobile view */
   .RightAdvertComponent,
   .LeftAdvertComponent {
     display: none;
   }
 }
 </style>
+
 

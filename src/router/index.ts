@@ -6,6 +6,7 @@ import TemplatePage from '../views/TemplatePage.vue';
 import ProfilePage from '../views/ProfilePage.vue';
 import BizOfferNeedPage from '../views/BizOfferNeedPage.vue';
 import EventsShowsPage from '../views/EventsShowsPage.vue';
+import TheEventShowPage from '../views/TheEventShowPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -32,12 +33,14 @@ import PostOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOff
 import PostNeedComponent from '@/components/OfferNeedBestOfferComponent/PostNeedComponent.vue';
 import PostBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostBestOfferComponent.vue';
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
+import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
+import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventComponent.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
 
   
-  // Pages start here EventsShowsPage
+  // Pages start here TicketEventComponent
   {
     path: '/',
     redirect: '/home'
@@ -61,6 +64,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/eventsShowsPage',
     name: 'EventsShowsPage',
     component: EventsShowsPage
+  },
+  {
+    path: '/theEventShowPage',
+    name: 'TheEventShowPage',
+    component: TheEventShowPage
   },
   {
     path: '/profilePage',
@@ -163,9 +171,19 @@ const routes: Array<RouteRecordRaw> = [
     name: 'PostBestOfferComponent',
     component: PostBestOfferComponent
   },
+  {
+    path: '/theEventComponent',
+    name: 'TheEventComponent',
+    component: TheEventComponent
+  },
+  {
+    path: '/ticketEventComponent',
+    name: 'TicketEventComponent',
+    component: TicketEventComponent
+  },
   
   
-  // Left & Right Aderts starts here BestOfferTABsComponent
+  // Left & Right Aderts starts here TheEventComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

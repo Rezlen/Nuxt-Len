@@ -438,6 +438,7 @@ ion-segment-button {
   font-size: 14px; /* Adjust tab font size for mobile */
   font-weight: bold;
   border: 1px solid rgb(14, 5, 139);
+  letter-spacing: -0.5px; /* Amazingly reduces the spaces between the letters/charectors */
 }
 
 /* Hover effect */
