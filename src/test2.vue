@@ -1,35 +1,35 @@
 <template>
   <div class="table-container">
-    <div class="header">
-      <div class="column">Ticket Type</div>
+    <div class="header row-small">
+      <div class="column wide-column left-align">Ticket Type</div>
       <div class="column">Available Ticket</div>
       <div class="column">Spot Number</div>
-      <div class="column">Price Including VAT</div>
-      <div class="column">Select</div>
+      <div class="column small-column">Price Inc VAT</div>
+      <div class="column small-column">Select</div>
     </div>
 
-    <div class="row">
-      <div class="column">Visitors Ticket</div>
+    <div class="row row-small">
+      <div class="column wide-column left-align">Visitors Ticket</div>
       <div class="column">Availability Number Visitor</div>
       <div class="column">Empty Spot Number</div>
-      <div class="column">Price</div>
-      <div class="column">Select Tick/Box</div>
+      <div class="column small-column">Price</div>
+      <div class="column small-column">Select Tick/Box</div>
     </div>
 
     <div class="row">
-      <div class="column">Exhibitions, Workshops, Presentations</div>
+      <div class="column wide-column left-align">Exhibitions, Workshops, Presentations</div>
       <div class="column">Availability Number Exhibitions, Workshops, Presentations</div>
       <div class="column">Spot Number Exhibitions, Workshops, Presentations</div>
-      <div class="column">Price</div>
-      <div class="column">Select Tick/Box</div>
+      <div class="column small-column">Price</div>
+      <div class="column small-column">Select Tick/Box</div>
     </div>
 
     <div class="row">
-      <div class="column">FREE One, Three, Investment PITCHINGS</div>
+      <div class="column wide-column left-align">FREE One, Three, Investment PITCHINGS</div>
       <div class="column">Availability Number FREE One, Three, Investment PITCHINGS</div>
       <div class="column">Spot Number FREE One, Three, Investment PITCHINGS</div>
-      <div class="column">Price</div>
-      <div class="column">Select Tick/Box</div>
+      <div class="column small-column">Price</div>
+      <div class="column small-column">Select Tick/Box</div>
     </div>
 
     <div class="footer">
@@ -69,8 +69,8 @@ export default defineComponent({
 }
 
 .column {
-  flex: 0 0 300px; /* Fixed width for each column */
-  height: 100px; /* Fixed height for each column */
+  flex: 0 0 150px; /* Fixed width for each regular column */
+  height: 100px; /* Default fixed height for each column */
   padding: 10px;
   text-align: center;
   border: 1px solid #ccc;
@@ -80,13 +80,31 @@ export default defineComponent({
   white-space: normal; /* Allow text to wrap */
 }
 
-.header .column {
+.column.wide-column {
+  flex: 0 0 400px; /* Fixed width for the wide column */
+}
+
+.column.small-column {
+  flex: 0 0 100px; /* Fixed width for the small columns */
+}
+
+.column.left-align {
+  text-align: left; /* Align text to the left for specified columns */
+}
+
+.header .column, .header .wide-column {
   font-weight: bold;
-  background-color: #f2f2f2;
+  background-color: #17df10;
+  font-size: 20px;
+  color: white;
+}
+
+.row-small .column, .row-small .wide-column {
+  height: 80px; /* Fixed height for small rows */
 }
 
 .footer {
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -95,16 +113,8 @@ export default defineComponent({
 }
 
 @media (max-width: 768px) {
-  .header, .row, .footer {
-    flex-direction: row;
-  }
-
-  .column {
-    flex: 0 0 300px; /* Fixed width for each column */
-  }
-
-  .footer img {
-    margin-right: 10px;
+  .column, .wide-column {
+    word-wrap: break-word; /* Ensure text wrapping within columns */
   }
 }
 </style>
