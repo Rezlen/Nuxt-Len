@@ -24,9 +24,9 @@
 
           <!-- EventsShows 6 tabs 1- The Events 2- Exhibitors 3- Visitors 4- One Minute Pitcher 5- Three Min Pitcher/Presenters 6- Investment Pitcher ##############################     -->
           <IonCol class="MainCol">
-            <IonRow class="Tabs6TheEventsExhibitorsVisitorsPitchers">
+            <IonRow class="Tabs6TheEventExhibitorsVisitorsPitchers">
               <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                <IonSegmentButton class="btn" value="TheEvents">The Events</IonSegmentButton>
+                <IonSegmentButton class="btn" value="TheEvent">The Event</IonSegmentButton>
                 <IonSegmentButton class="btn" value="Exhibitors">Exhibitors</IonSegmentButton>
                 <IonSegmentButton class="btn" value="Visitors">Visitors</IonSegmentButton>
                 <IonSegmentButton class="btn" value="OneMinutePitcher">One Minute Pitcher</IonSegmentButton>
@@ -35,7 +35,7 @@
               </IonSegment>
             </IonRow>
             <IonRow class="DisplayComponentRow">
-              <IonCol v-show="selectedTab === 'TheEvents'" class="TheEvents">
+              <IonCol v-show="selectedTab === 'TheEvent'" class="TheEvent">
                 <!-- Component for The Events #########" -->
                 <TheEventComponent />
               </IonCol>
@@ -152,7 +152,7 @@ export default defineComponent({
 <style scoped>
 /* Updated for new tab names and mobile responsiveness */
 
-.Tabs6TheEventsExhibitorsVisitorsPitchers {
+.Tabs6TheEventExhibitorsVisitorsPitchers {
   display: flex;
   flex-wrap: wrap; /* Allow tabs to wrap to the next row */
   margin-bottom: 10px;
@@ -183,7 +183,7 @@ export default defineComponent({
 
 
 @media (max-width: 760px) {
-  .TheEvents,
+  .TheEvent,
   .Exhibitors,
   .Visitors,
   .OneMinutePitcher,

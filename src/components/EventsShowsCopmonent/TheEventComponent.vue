@@ -1,5 +1,5 @@
 <template>
-  <IonGrid >
+  <IonGrid class="IonGrid">
     <IonCardHeader class=" CenterPositions EventTitleRow">
       <IonCardTitle class=" EventTitle" >The Event Name</IonCardTitle>
       <IonCardSubtitle class="DateRow" >From January 26, 2022 20:00 TO January 27, 2022 00:00</IonCardSubTitle>
@@ -100,6 +100,7 @@ export default defineComponent({
 /* *{
   border: solid 1px black;
 } */
+
  .ion-content {
   max-height: 800px;
   overflow-y: auto; /* Enable vertical scrolling */
@@ -116,6 +117,7 @@ export default defineComponent({
 .FloorPlanRow,
 .TicketRow {
   border: gray 1px solid;
+  border-radius: 10px;
 }
 ion-grid{
   overflow-y: auto; /* Enable vertical scrolling */
@@ -200,7 +202,13 @@ a {
   .RightAdvertComponent,
   .LeftAdvertComponent {
     display: none;
-  }
+  } 
+  .FloorPlan {
+  max-height: 900px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100%; /* Full height to fit the parent */
+ }
+
 }
 
 
@@ -210,14 +218,6 @@ a {
   overflow-y: auto; /* Enable vertical scrolling */
   height: 100%; /* Full height to fit the parent */
  }
-
-@media (max-width: 760px) {
- .FloorPlan {
-  max-height: 900px;
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 100%; /* Full height to fit the parent */
- }
-}
 
 
 </style>

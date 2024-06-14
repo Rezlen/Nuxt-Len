@@ -1,43 +1,47 @@
 <template>
-  <div class="table-container">
-    <div class="header row-small">
-      <div class="column wide-column left-align">Ticket Type</div>
-      <div class="column">Available Ticket</div>
-      <div class="column">Spot Number</div>
-      <div class="column small-column">Price Inc VAT</div>
-      <div class="column small-column">Select</div>
-    </div>
-
-    <div class="row row-small">
-      <div class="column wide-column left-align">Visitors Ticket</div>
-      <div class="column">Availability Number Visitor</div>
-      <div class="column">Empty Spot Number</div>
-      <div class="column small-column">Price</div>
-      <div class="column small-column">Select Tick/Box</div>
-    </div>
-
-    <div class="row">
-      <div class="column wide-column left-align">Exhibitions, Workshops, Presentations</div>
-      <div class="column">Availability Number Exhibitions, Workshops, Presentations</div>
-      <div class="column">Spot Number Exhibitions, Workshops, Presentations</div>
-      <div class="column small-column">Price</div>
-      <div class="column small-column">Select Tick/Box</div>
-    </div>
-
-    <div class="row">
-      <div class="column wide-column left-align">FREE One, Three, Investment PITCHINGS</div>
-      <div class="column">Availability Number FREE One, Three, Investment PITCHINGS</div>
-      <div class="column">Spot Number FREE One, Three, Investment PITCHINGS</div>
-      <div class="column small-column">Price</div>
-      <div class="column small-column">Select Tick/Box</div>
-    </div>
-
-    <div class="footer">
-      <img alt="LEN Logo" height="160" src="/public/favicon.png" />
-      <div>
-        <ion-input label="Enter Discount Code" label-placement="floating" fill="outline"></ion-input>
+  <div class="page-container">
+    <div class="table-container">
+      <div class="header row-small">
+        <div class="column wide-column left-align">Ticket Type</div>
+        <div class="column">Available Ticket</div>
+        <div class="column">Spot Number</div>
+        <div class="column small-column">Price Including VAT</div>
+        <div class="column small-column">Select</div>
       </div>
-      <IonButton>Book Now</IonButton>
+
+      <div class="row row-small">
+        <div class="column wide-column left-align">Visitors Ticket</div>
+        <div class="column">Availability Number Visitor</div>
+        <div class="column">Empty Spot Number</div>
+        <div class="column small-column">Price</div>
+        <div class="column small-column">Select Tick/Box</div>
+      </div>
+
+      <div class="row">
+        <div class="column wide-column left-align">Exhibitions, Workshops, Presentations</div>
+        <div class="column">Availability Number Exhibitions, Workshops, Presentations</div>
+        <div class="column">Spot Number Exhibitions, Workshops, Presentations</div>
+        <div class="column small-column">Price</div>
+        <div class="column small-column">Select Tick/Box</div>
+      </div>
+
+      <div class="row">
+        <div class="column wide-column left-align">FREE One, Three, Investment PITCHINGS</div>
+        <div class="column">Availability Number FREE One, Three, Investment PITCHINGS</div>
+        <div class="column">Spot Number FREE One, Three, Investment PITCHINGS</div>
+        <div class="column small-column">Price</div>
+        <div class="column small-column">Select Tick/Box</div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-content">
+          <img alt="LEN Logo" height="160" src="/public/favicon.png" />
+          <div>
+            <ion-input label="Enter Discount Code" label-placement="floating" fill="outline"></ion-input>
+          </div>
+          <IonButton>Book Now</IonButton>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -56,6 +60,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.page-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+}
+
 .table-container {
   display: block;
   overflow-x: auto;
@@ -94,18 +105,25 @@ export default defineComponent({
 
 .header .column, .header .wide-column {
   font-weight: bold;
-  background-color: #17df10;
-  font-size: 20px;
-  color: white;
+  background-color: #f2f2f2;
 }
 
 .row-small .column, .row-small .wide-column {
-  height: 80px; /* Fixed height for small rows */
+  height: 50px; /* Fixed height for small rows */
 }
 
 .footer {
-  justify-content: flex-start;
+  display: flex;
+  justify-content: center; /* Center-align items horizontally */
+  align-items: center; /* Center-align items vertically */
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.footer-content {
+  display: flex;
   align-items: center;
+  max-width: 100%; /* Ensure footer content doesn't exceed container width */
 }
 
 .footer img {

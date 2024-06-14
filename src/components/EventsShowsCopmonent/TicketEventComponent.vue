@@ -1,4 +1,5 @@
 <template>
+  <IonGrid class="IonGrid">
   <div class="table-container">
     <div class="header row-small">
       <div class="column wide-column left-align">Ticket Type</div>
@@ -40,11 +41,12 @@
       <IonButton>Book Now</IonButton>
     </div>
   </div>
+  </IonGrid>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { IonButton, IonInput } from '@ionic/vue';
+import { IonButton, IonGrid, IonInput } from '@ionic/vue';
 
 export default defineComponent({
   name: 'TableComponent',
@@ -56,11 +58,22 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+/* .ion-grid{ 
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background-color: aqua;
+} */
 .table-container {
   display: block;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
+  border: black solid 1px;
+  border-radius: 10px;
+
 }
 
 .header, .row, .footer {
@@ -109,12 +122,16 @@ export default defineComponent({
 }
 
 .footer img {
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 @media (max-width: 768px) {
-  .column, .wide-column {
-    word-wrap: break-word; /* Ensure text wrapping within columns */
+  .table-container {
+    width: 350px;
   }
+
 }
+
+
+
 </style>
