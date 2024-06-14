@@ -29,9 +29,9 @@
                 <IonSegmentButton class="btn" value="TheEvent">The Event</IonSegmentButton>
                 <IonSegmentButton class="btn" value="Exhibitors">Exhibitors</IonSegmentButton>
                 <IonSegmentButton class="btn" value="Visitors">Visitors</IonSegmentButton>
-                <IonSegmentButton class="btn" value="OneMinutePitcher">One Minute Pitcher</IonSegmentButton>
-                <IonSegmentButton class="btn" value="ThreeMinPitcher">Three Min Pitcher/Presenters</IonSegmentButton>
-                <IonSegmentButton class="btn" value="InvestmentPitcher">Investment Pitcher</IonSegmentButton>
+                <IonSegmentButton class="btn" value="OneMinutePitchers">One Minute Pitchers</IonSegmentButton>
+                <IonSegmentButton class="btn" value="ThreeMinPitchers">Three Min Pitchers/Presenters</IonSegmentButton>
+                <IonSegmentButton class="btn" value="InvestmentPitchers">Investment Pitchers</IonSegmentButton>
               </IonSegment>
             </IonRow>
             <IonRow class="DisplayComponentRow">
@@ -47,17 +47,17 @@
                 <!-- Component for Visitors #########" -->
                 <VisitorsComponent />
               </IonCol>
-              <IonCol v-show="selectedTab === 'OneMinutePitcher'" class="OneMinutePitcher">
+              <IonCol v-show="selectedTab === 'OneMinutePitchers'" class="OneMinutePitchers">
                 <!-- Component for One Minute Pitcher #########" -->
-                <OneMinutePitcherComponent />
+                <OneMinutePitchersComponent />
               </IonCol>
-              <IonCol v-show="selectedTab === 'ThreeMinPitcher'" class="ThreeMinPitcher">
+              <IonCol v-show="selectedTab === 'ThreeMinPitchers'" class="ThreeMinPitchers">
                 <!-- Component for Three Min Pitcher/Presenters #########" -->
-                <ThreeMinPitcherComponent />
+                <ThreeMinPitchersComponent />
               </IonCol>
-              <IonCol v-show="selectedTab === 'InvestmentPitcher'" class="InvestmentPitcher">
+              <IonCol v-show="selectedTab === 'InvestmentPitchers'" class="InvestmentPitchers">
                 <!-- Component for Investment Pitcher #########" -->
-                <InvestmentPitcherComponent />
+                <InvestmentPitchersComponent />
               </IonCol>
             </IonRow>
           </IonCol>
@@ -103,9 +103,9 @@ import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
 
-// import OneMinutePitcherComponent from '@/components/OneMinutePitcherComponent.vue';
-// import ThreeMinPitcherComponent from '@/components/ThreeMinPitcherComponent.vue';
-// import InvestmentPitcherComponent from '@/components/InvestmentPitcherComponent.vue';
+// import OneMinutePitchersComponent from '@/components/OneMinutePitchersComponent.vue';
+// import ThreeMinPitchersComponent from '@/components/ThreeMinPitchersComponent.vue';
+// import InvestmentPitchersComponent from '@/components/InvestmentPitchersComponent.vue';
 
 export default defineComponent({
   name: 'TheEventShowPage',
@@ -132,9 +132,9 @@ export default defineComponent({
     MiniProfileCardVVIPComponent,
     MiniProfileCardVIPComponent,
     TheEventComponent,
-    // OneMinutePitcherComponent,
-    // ThreeMinPitcherComponent,
-    // InvestmentPitcherComponent
+    // OneMinutePitchersComponent,
+    // ThreeMinPitchersComponent,
+    // InvestmentPitchersComponent
   },
   setup() {
     const selectedTab = ref<string>('BusinessProfiles'); // Initialize with the default tab
@@ -186,9 +186,9 @@ export default defineComponent({
   .TheEvent,
   .Exhibitors,
   .Visitors,
-  .OneMinutePitcher,
-  .ThreeMinPitcher,
-  .InvestmentPitcher {
+  .OneMinutePitchers,
+  .ThreeMinPitchers,
+  .InvestmentPitchers {
     flex: 1 1 100%; /* Make each tab content full width on small screens */
   }
 
