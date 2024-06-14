@@ -22,9 +22,9 @@
 
 
 
-          <!-- EventsShows 6 tabs 1- Upcoming Events 2- Past Events 3-Events Calender 4- Exhibitors 5- Visitors 6- Exhibiting ##############################     -->
+          <!-- EventsShows 6 tabs 1- Upcoming Events 2- Past Events 3-Events Calender 4- Exhibiting ##############################     -->
           <IonCol class="MainCol">
-            <IonRow class="Tabs6UpcomingPastCalendarExhibitorsVisitorsExhibiting">
+            <IonRow class="Tabs4UpcomingPastCalendarExhibiting">
               <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
                 <IonSegmentButton class="btn" value="UpcomingEvents">Upcoming Events</IonSegmentButton>
                 <IonSegmentButton class="btn" value="PastEvents">Past Events</IonSegmentButton>
@@ -35,11 +35,13 @@
             <IonRow class="DisplayComponentRow">
               <IonCol v-show="selectedTab === 'UpcomingEvents'" class="UpcomingEvents">
                 <!-- Component for Upcoming Events #########" -->
-                <UpcomingEventsComponent />
+                <MiniEventComponent />
+                <MiniEventComponent />
+
               </IonCol>
               <IonCol v-show="selectedTab === 'PastEvents'" class="PastEvents">
                 <!-- Component for Past Events #########" -->
-                <PastEventsComponent />
+                <MiniEventComponent />
               </IonCol>
               <IonCol v-show="selectedTab === 'EventsCalendar'" class="EventsCalendar">
                 <!-- Component for Events Calendar #########" -->
@@ -82,9 +84,6 @@ import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentBut
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
-import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
-import MiniProfileCardVIPComponent from '@/components/ProfileComponents/MiniProfileCardVIPComponent.vue';
-import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
 import LeftAd1Component from '@/components/6TempComponents/LeftRightAds/LeftAd1Component.vue';
 import LeftAd2Component from '@/components/6TempComponents/LeftRightAds/LeftAd2Component.vue';
 import LeftAd3Component from '@/components/6TempComponents/LeftRightAds/LeftAd3Component.vue';
@@ -93,7 +92,7 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
-
+import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
 
 export default defineComponent({
   name: 'EventsShowsPage',
@@ -116,9 +115,7 @@ export default defineComponent({
     RightAd4Component,
     IonSegment,
     IonSegmentButton,
-    MiniProfileCardComponent,
-    MiniProfileCardVVIPComponent,
-    MiniProfileCardVIPComponent,
+    MiniEventComponent,
 
   },
   setup() {
@@ -136,16 +133,6 @@ export default defineComponent({
 
 <style scoped>
 /* Updated for new tab names and mobile responsiveness */
-
-.MiniProfilesRow {
-  padding: 10px;
-}
-
-.Tabs4AllBusinessProfilesAllOffersAllNeedsBestOffersAdvertiseForFree {
-  display: flex;
-  flex-wrap: wrap; /* Allow tabs to wrap to the next row */
-  margin-bottom: 10px;
-}
 
 .TabSegment {
   display: flex;
@@ -165,28 +152,7 @@ export default defineComponent({
   align-items: center;
 }
 
-.AllBusinessProfiles,
-.AllOffers,
-.AllNeeds,
-.BestOffers,
-.AdvertiseForFree {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
-  margin: 10px;
-}
-
 @media (max-width: 768px) {
-  .AllBusinessProfiles,
-  .AllOffers,
-  .AllNeeds,
-  .BestOffers,
-  .AdvertiseForFree {
-    flex: 1 1 100%; /* Make each tab content full width on small screens */
-  }
-
     /* if you can try to make the advert disolaywithin componentts in mobile view */
   .RightAdvertComponent,
   .LeftAdvertComponent {

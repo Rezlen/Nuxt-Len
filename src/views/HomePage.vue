@@ -103,6 +103,10 @@
               <p><a href="/PostOfferNeedBestOfferComponent" class="Events-button" >PostOfferNeedBestOfferComponent </a> </p>
               <p><a href="/PostOfferComponent" class="Events-button" >PostOfferComponent </a> </p>
               <p><a href="/EventsShowsPage" class="Events-button" >EventsShowsPage </a> </p>
+              <p><a href="/TheEventShowPage" class="Events-button" >TheEventShowPage </a> </p>
+              <p><a href="/TicketEventComponent" class="Events-button" >TicketEventComponente </a> </p>
+              <p><a href="/TheEventComponent" class="Events-button" >TheEventComponent </a> </p>
+              <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
 
               
               <!-- MiniProfilesRow ##############################     EventsShowsPage           -->

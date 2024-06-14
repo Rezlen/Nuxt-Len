@@ -1,7 +1,7 @@
 <template>
   <IonGrid class="IonGrid">
     <IonCardHeader class="CenterPositions EventTitleRow">
-      <IonCardTitle class="EventTitle">The Event Name</IonCardTitle>
+      <IonCardTitle class="EventTitle"><a href="/TheEventShowPage" class="Events-button" >The Event Name</a></IonCardTitle>
       <IonCardSubtitle class="DateRow">From January 26, 2022 20:00 TO January 27, 2022 00:00</IonCardSubtitle>
     </IonCardHeader>
 
@@ -31,7 +31,7 @@
         </IonRow>
       </IonCol>
       <IonCol class="StateRow">
-        <IonButton color="success">Reservation</IonButton>
+        <IonButton href="/TheEventShowPage" color="success">Reservation</IonButton>
         <IonRow class="Border">
           <IonRow class="CenterPositions TotalAttendeesRevenueRow">Total Attendees Revenue</IonRow>
           <IonRow class="RevenueRow">
@@ -81,10 +81,16 @@ export default defineComponent({
 
 <style scoped>
 .IonGrid {
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: hidden; /* Disable vertical scrolling */
   height: 100%; /* Full height to fit the parent */
   border: 1px solid gray;
   border-radius: 5px;
+  margin-bottom: 5px;
+  box-shadow: 0 4px 8px rgba(142, 15, 226, 0.2); /* X-offset, Y-offset, blur radius, and color */
+}
+
+a {
+  text-decoration: none;
 }
 
 .ContentGoMapSocialState,
@@ -166,7 +172,10 @@ export default defineComponent({
 .VisitorsGoing {
   border-left: 1px solid rgb(62, 11, 204);
 }
-
+ion-button {
+  font-size: large;
+  font-weight: bold;
+}
 /* Social media icon colors */
 .social-media-icons {
   background-color: white;
@@ -206,7 +215,7 @@ export default defineComponent({
   flex: 0 1 auto; /* Allow columns to adjust width based on content */
 }
 
-small-column {
+.small-column {
   flex: 0 1 100px;
 }
 
@@ -218,14 +227,23 @@ small-column {
 }
 
 @media (max-width: 760px) {
-  .IonGrid {
-    overflow-x: auto; /* Enable horizontal scrolling for mobile */
+  .ContentGoMapSocialState {
+    flex-direction: column; /* Stack columns vertically */
   }
-  .column,
-  .wide-column,
-  .small-column {
-    flex: 0 0 auto; /* Prevent flex columns from growing or shrinking */
-    white-space: normal; /* Allow text wrapping */
+
+  .ContentGoMapSocialState > * {
+    width: 100%; /* Full width for each column */
+    margin-bottom: 10px; /* Add some space between columns */
+  }
+
+  .AttendeesProfilePic img {
+    width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+  }
+ 
+  .ContentGoMapSocialState {
+    display: block;
+    /* height: 100%; */
   }
 }
 </style>

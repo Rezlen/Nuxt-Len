@@ -35,6 +35,7 @@ import PostBestOfferComponent from '@/components/OfferNeedBestOfferComponent/Pos
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
 import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
 import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventComponent.vue';
+import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -181,9 +182,14 @@ const routes: Array<RouteRecordRaw> = [
     name: 'TicketEventComponent',
     component: TicketEventComponent
   },
+  {
+    path: '/miniEventComponent',
+    name: 'MiniEventComponent',
+    component: MiniEventComponent
+  },
   
   
-  // Left & Right Aderts starts here TheEventComponent
+  // Left & Right Aderts starts here MiniEventComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

@@ -33,14 +33,17 @@
       <div class="column small-column">Select Tick/Box</div>
     </div>
 
+
+  </div>
     <div class="footer">
       <img alt="LEN Logo" height="160" src="/public/favicon.png" />
-      <div>
+      <!-- later stage we should create the Bonus/Discount functionalities -->
+      <!-- <div>
         <ion-input label="Enter Discount Code" label-placement="floating" fill="outline"></ion-input>
-      </div>
-      <IonButton>Book Now</IonButton>
+      </div> -->
+      <IonButton size="large">Book Now</IonButton>
     </div>
-  </div>
+
   </IonGrid>
 </template>
 
@@ -128,6 +131,10 @@ export default defineComponent({
 @media (max-width: 768px) {
   .table-container {
     width: 350px;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
   }
 
 }
