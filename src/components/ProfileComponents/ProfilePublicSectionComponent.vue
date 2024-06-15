@@ -61,21 +61,28 @@
           <IonRow class="TextStyle PostedOffers">Posted Offers: 86</IonRow>
           <IonRow class="TextStyle ProvidedOffers">Provided Offers: 86</IonRow>
           <IonRow class="TextStyle RequestedOffers">Requested Offers: 86</IonRow>
-          <IonRow class="TextStyle Exhibited">Exhibited: 86</IonRow>
+          <IonRow class="TextStyle MiniProfileListed">Mini Profile Listed: 86</IonRow>
+
         </IonCol>
         <!-- Column 2 -->
         <IonCol class="StatisticsColumn">
           <IonRow class="TextStyle PostedNeeds">Posted Needs: 86</IonRow>
           <IonRow class="TextStyle SatisfiedNeeds">Satisfied Needs: 86</IonRow>
           <IonRow class="TextStyle PeopleSatisfiedNeeds">People Satisfied Needs: 86</IonRow>
-          <IonRow class="TextStyle Visited">Visited: 86</IonRow>
         </IonCol>
         <!-- Column 3 -->
         <IonCol class="StatisticsColumn">
-          <IonRow class="TextStyle MiniProfileListed">Mini Profile Listed: 86</IonRow>
-          <IonRow class="TextStyle Messages">Messages</IonRow>
-          <IonRow class="TextStyle Connect">Connect</IonRow>
-          <IonRow class="TextStyle QRCode">QR code</IonRow>
+          <IonRow class="TextStyle Exhibited">Exhibited: 86</IonRow>
+          <IonRow class="TextStyle Visited">Visited: 86</IonRow>
+          <IonRow class="TextStyle Messages"><a>Messages</a></IonRow>
+          <IonRow class="TextStyle Connect"><a>Connect</a></IonRow>
+        </IonCol>
+        <!-- Column 3 -->
+        <IonCol class="StatisticsColumn">
+          <IonRow class="TextStyle Investor">Investor: 86</IonRow>
+          <IonRow class="TextStyle InvestmentBroker">Investment Broker: 86</IonRow>
+          <IonRow class="TextStyle BusinessMentor">Business Mentor: 86</IonRow>
+          <IonRow class="TextStyle QRCode"><a>QR code</a></IonRow>
         </IonCol>
       </IonRow>
 
@@ -120,6 +127,9 @@
           <IonSegmentButton class="btn" value="connections">Connections</IonSegmentButton>
           <IonSegmentButton class="btn" value="galleries">4 Galleries</IonSegmentButton>
           <IonSegmentButton class="btn" value="pitchingVideos">3 Pitching Videos</IonSegmentButton>
+          <IonSegmentButton class="btn" value="investor">Investor</IonSegmentButton>
+          <IonSegmentButton class="btn" value="investmentBroker">Investment Broker</IonSegmentButton>
+          <IonSegmentButton class="btn" value="businessMentor">Business Mentor</IonSegmentButton>
         </IonSegment>
 
         <!-- Tab Content -->
@@ -158,6 +168,15 @@
         </IonCol>
         <IonCol v-if="selectedTab === 'pitchingVideos'">
           <PitchingVideosComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'investor'">
+          <InvestorComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'investmentBroker'">
+          <InvestmentBrokerComponent />
+        </IonCol>
+        <IonCol v-if="selectedTab === 'businessMentor'">
+          <businessMentorComponent />
         </IonCol>
       </IonRow>
     </IonCol>
@@ -287,8 +306,6 @@ ion-grid {
   padding: 5px;
 }
 
-.Exhibited,
-.Visited,
 .Connect,
 .Messages,
 .QRCode {
@@ -297,10 +314,18 @@ ion-grid {
   /* padding: 15px; */
   font-weight: bold;
   border: 1px solid black;
-  width: 150px;
+  /* width: 250px; */
   text-align: center;
   justify-content: center;
 }
+.Investor,
+.InvestmentBroker,
+.BusinessMentor,
+.Exhibited,
+.Visited {
+  font-weight: bold;
+}
+
 
 /* PersonalRow styles */
 .PersonalRow {
@@ -358,7 +383,6 @@ ion-grid {
 }
 
 .StatisticsColumn {
-  flex: 0 0 33.3333%;
   display: flex;
   flex-direction: column;
 }

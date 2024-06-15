@@ -25,7 +25,7 @@
 
           <!-- Middle Content Section -->
           <IonCol size="12" size-md="9" class="bordered-section SignInSignUpComponent">
-            <PublickProfileComp /> Place PublickProfileComp here
+            <ProfilePublicSectionComponent />
           </IonCol>
 
           <!-- Right Advert Section -->
@@ -65,9 +65,12 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
+import ProfilePublicSectionComponent from '/Ionics/nuxt-len/src/components/ProfileComponents/ProfilePublicSectionComponent.vue';
+
+
 
 export default defineComponent({
-  name: 'SignInSignUpPage',
+  name: 'ProfilePage',
   components: {
     IonPage,
     IonGrid,
@@ -86,7 +89,7 @@ export default defineComponent({
     RightAd2Component,
     RightAd3Component,
     RightAd4Component,
-
+    ProfilePublicSectionComponent,
   },
 });
 </script>

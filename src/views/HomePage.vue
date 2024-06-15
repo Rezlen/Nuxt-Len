@@ -31,7 +31,7 @@
           <IonCol class=" bordered-section LiveEventsExhibitingMap ">
             LiveEventsExhibitingMap Component Must be placed here
             <RouterLink to="/eventsShows" routerDirection="forward">
-              <img alt="LEN Logo" height="160" src="/public/favicon.png" />
+              <img alt="LEN Logo" height="160" src="/favicon.png" />
             </RouterLink>
           </IonCol>
 

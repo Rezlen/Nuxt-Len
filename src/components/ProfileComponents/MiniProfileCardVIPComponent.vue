@@ -16,6 +16,9 @@
       <IonRow class=" SalaryRow"  >Salary: Comp Here</IonRow>
       <IonRow>Visited: Comp Here</IonRow>
       <IonRow>Exhibited: Comp Here</IonRow>
+      <IonRow>Investor: Comp Here</IonRow>
+      <IonRow>Investment Broker: Comp Here</IonRow>
+      <IonRow>Business Mentor: Comp Here</IonRow>
     </IonRow>
 
     <!-- ProvideNeedRow ########################## -->
