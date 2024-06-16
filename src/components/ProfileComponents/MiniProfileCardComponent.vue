@@ -3,6 +3,7 @@
     <IonCardHeader class=" CenterPositions TitelSubTitle">
       <IonCardTitle>Card Title Company Name</IonCardTitle>
       <IonCardSubtitle>Card Subtitle Person Name</IonCardSubTitle>
+      <IonCardSubtitle>Business Category</IonCardSubTitle>
     </IonCardHeader>
     <IonRow class=" CenterPositions Star%Img" >
       <IonCol> <span class="star">★</span> Normal</IonCol>

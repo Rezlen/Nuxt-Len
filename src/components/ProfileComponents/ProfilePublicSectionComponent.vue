@@ -61,7 +61,7 @@
           <IonRow class="TextStyle PostedOffers">Posted Offers: 86</IonRow>
           <IonRow class="TextStyle ProvidedOffers">Provided Offers: 86</IonRow>
           <IonRow class="TextStyle RequestedOffers">Requested Offers: 86</IonRow>
-          <IonRow class="TextStyle MiniProfileListed">Mini Profile Listed: 86</IonRow>
+          <IonRow class="TextStyle MiniProfileListed">Profile Seen: 86</IonRow>
 
         </IonCol>
         <!-- Column 2 -->
@@ -122,14 +122,12 @@
           <IonSegmentButton class="btn" value="requestedOffers">Requested Offers</IonSegmentButton>
           <IonSegmentButton class="btn" value="peopleRequestedOffers">People Requested Offers</IonSegmentButton>
           <IonSegmentButton class="btn" value="listedBestOffer">Listed Best Offer</IonSegmentButton>
-          <IonSegmentButton class="btn" value="visitedEvents">Visited Events</IonSegmentButton>
-          <IonSegmentButton class="btn" value="exhibitedEvents">Exhibited Events</IonSegmentButton>
+          <IonSegmentButton class="btn" value="AttendedEvents">Attended Events</IonSegmentButton>
           <IonSegmentButton class="btn" value="connections">Connections</IonSegmentButton>
           <IonSegmentButton class="btn" value="galleries">4 Galleries</IonSegmentButton>
           <IonSegmentButton class="btn" value="pitchingVideos">3 Pitching Videos</IonSegmentButton>
           <IonSegmentButton class="btn" value="investor">Investor</IonSegmentButton>
           <IonSegmentButton class="btn" value="investmentBroker">Investment Broker</IonSegmentButton>
-          <IonSegmentButton class="btn" value="businessMentor">Business Mentor</IonSegmentButton>
         </IonSegment>
 
         <!-- Tab Content -->
