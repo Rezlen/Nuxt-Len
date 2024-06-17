@@ -38,6 +38,7 @@ import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventCompone
 import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventComponent.vue';
 import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
+import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -199,12 +200,17 @@ const routes: Array<RouteRecordRaw> = [
     name: 'PitchingComponent',
     component: PitchingComponent
   },
+  {
+    path: '/formPitchingComponent',
+    name: 'FormPitchingComponent',
+    component: FormPitchingComponent
+  },
 
 
 
 
   
-  // Left & Right Aderts starts here PitchingTABsComponent
+  // Left & Right Aderts starts here FormPitchingComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

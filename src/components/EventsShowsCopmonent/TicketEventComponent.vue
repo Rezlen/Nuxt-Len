@@ -10,7 +10,7 @@
     </div>
 
     <div class="row row-small">
-      <div class="column wide-column left-align">Visitors Ticket</div>
+      <div class="column wide-column left-align">FREE Tickets (Visitors, Business Mentor, Investor, Investment Broker)</div>
       <div class="column">Availability Number Visitor</div>
       <div class="column">Empty Spot Number</div>
       <div class="column small-column">Price</div>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="row">
-      <div class="column wide-column left-align">FREE One, Three, Investment PITCHINGS</div>
+      <div class="column wide-column left-align">FREE One Minute, Three Minutes, Investment PITCHINGS</div>
       <div class="column">Availability Number FREE One, Three, Investment PITCHINGS</div>
       <div class="column">Spot Number FREE One, Three, Investment PITCHINGS</div>
       <div class="column small-column">Price</div>

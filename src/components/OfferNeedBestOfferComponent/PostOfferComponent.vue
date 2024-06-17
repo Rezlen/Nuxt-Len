@@ -45,7 +45,7 @@
       </IonItem>
       <IonCol>
         <IonItem>
-          <IonTextarea  label="Enter Your Offer's Content here" label-placement="floating"  :counter="true"  :maxlength="1000" :counter-formatter="customFormatter" ></IonTextarea> 
+          <IonTextarea  label="Enter Your Offer's Content here" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="1000" :counter-formatter="customFormatter" ></IonTextarea> 
         </IonItem>
       </IonCol>
     </IonRow>

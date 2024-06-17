@@ -88,31 +88,33 @@
           <IonCol size="12" size-md="9" class="bordered-section SignInSignUpComponent">
             <!-- 1-MiniProfilesRow- 2-Offers- 3-Investors section -->
             <IonRow class=" bordered-section ProfilesSection ">
-              <p><a href="/menu" class="Events-button" >MenuComp </a> </p>
-              <p><a href="/socialMediaBar" class="Events-button" >socialMediaBarComp </a> </p>
-              <p><a href="/footer" class="Events-button" >footerComp </a> </p>
-              <p><a href="/signInSignUpComponent" class="Events-button" >signInSignUpComponent </a> </p>
-              <p><a href="/LeftAd1" class="Events-button" >LeftAd1Comp </a> </p>
-              <p><a href="/TemplatePage" class="Events-button" >TemplatePage </a> </p>
-              <p><a href="/profilePage" class="Events-button" >ProfilePage </a> </p>
-              <p><a href="/MiniProfileCardComponent" class="Events-button" >MiniProfileCardComponent </a> </p>
-              <p><a href="/ProfilePublicSectionComponent" class="Events-button" >ProfilePublicSectionComponent </a> </p>
-              <p><a href="/OfferComponent" class="Events-button" >OfferComponent </a> </p>
-              <p><a href="/BizOfferNeedPage" class="Events-button" >BizOfferNeedPage </a> </p>
-              <p><a href="/BestofferTABSComponent" class="Events-button" >BestofferTABSComponent </a> </p>
-              <p><a href="/PostOfferNeedBestOfferComponent" class="Events-button" >PostOfferNeedBestOfferComponent </a> </p>
-              <p><a href="/PostOfferComponent" class="Events-button" >PostOfferComponent </a> </p>
-              <p><a href="/EventsShowsPage" class="Events-button" >EventsShowsPage </a> </p>
-              <p><a href="/TheEventShowPage" class="Events-button" >TheEventShowPage </a> </p>
-              <p><a href="/TicketEventComponent" class="Events-button" >TicketEventComponente </a> </p>
-              <p><a href="/TheEventComponent" class="Events-button" >TheEventComponent </a> </p>
-              <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
-              <p><a href="/FreePitchingsPage" class="Events-button" >FreePitchingsPage </a> </p>
-              <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
-              <p><a href="/PitchingComponent" class="Events-button" >PitchingComponent </a> </p>
-
+              <IonRow>
+                <p><a href="/menu" class="Events-button" >MenuComp </a> </p>
+                <p><a href="/socialMediaBar" class="Events-button" >socialMediaBarComp </a> </p>
+                <p><a href="/footer" class="Events-button" >footerComp </a> </p>
+                <p><a href="/signInSignUpComponent" class="Events-button" >signInSignUpComponent </a> </p>
+                <p><a href="/LeftAd1" class="Events-button" >LeftAd1Comp </a> </p>
+                <p><a href="/TemplatePage" class="Events-button" >TemplatePage </a> </p>
+                <p><a href="/profilePage" class="Events-button" >ProfilePage </a> </p>
+                <p><a href="/MiniProfileCardComponent" class="Events-button" >MiniProfileCardComponent </a> </p>
+                <p><a href="/ProfilePublicSectionComponent" class="Events-button" >ProfilePublicSectionComponent </a> </p>
+                <p><a href="/OfferComponent" class="Events-button" >OfferComponent </a> </p>
+                <p><a href="/BizOfferNeedPage" class="Events-button" >BizOfferNeedPage </a> </p>
+                <p><a href="/BestofferTABSComponent" class="Events-button" >BestofferTABSComponent </a> </p>
+                <p><a href="/PostOfferNeedBestOfferComponent" class="Events-button" >PostOfferNeedBestOfferComponent </a> </p>
+                <p><a href="/PostOfferComponent" class="Events-button" >PostOfferComponent </a> </p>
+                <p><a href="/EventsShowsPage" class="Events-button" >EventsShowsPage </a> </p>
+                <p><a href="/TheEventShowPage" class="Events-button" >TheEventShowPage </a> </p>
+                <p><a href="/TicketEventComponent" class="Events-button" >TicketEventComponente </a> </p>
+                <p><a href="/TheEventComponent" class="Events-button" >TheEventComponent </a> </p>
+                <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
+                <p><a href="/FreePitchingsPage" class="Events-button" >FreePitchingsPage </a> </p>
+                <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
+                <p><a href="/PitchingComponent" class="Events-button" >PitchingComponent </a> </p>
+                <p><a href="/FormPitchingComponent" class="Events-button" >FormPitchingComponent </a> </p>
+              </IonRow>
               
-              <!-- MiniProfilesRow ##############################     EventsShowsPage           -->
+              <!-- MiniProfilesRow ##############################     FormPitchingComponent          -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

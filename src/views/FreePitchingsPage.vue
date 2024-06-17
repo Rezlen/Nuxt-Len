@@ -90,7 +90,7 @@ import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 
 export default defineComponent({
-  name: 'EventsShowsPage',
+  name: 'FreePitchingsPage',
   components: {
     IonPage,
     IonGrid,

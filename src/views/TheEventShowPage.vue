@@ -49,15 +49,15 @@
               </IonCol>
               <IonCol v-show="selectedTab === 'OneMinutePitchers'" class="OneMinutePitchers">
                 <!-- Component for One Minute Pitcher #########" -->
-                <OneMinutePitchersComponent />
+                <PitchingComponent />
               </IonCol>
               <IonCol v-show="selectedTab === 'ThreeMinPitchers'" class="ThreeMinPitchers">
                 <!-- Component for Three Min Pitcher/Presenters #########" -->
-                <ThreeMinPitchersComponent />
+                <PitchingComponent />
               </IonCol>
               <IonCol v-show="selectedTab === 'InvestmentPitchers'" class="InvestmentPitchers">
                 <!-- Component for Investment Pitcher #########" -->
-                <InvestmentPitchersComponent />
+                <PitchingComponent />
               </IonCol>
             </IonRow>
           </IonCol>
@@ -102,10 +102,8 @@ import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
+import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 
-// import OneMinutePitchersComponent from '@/components/OneMinutePitchersComponent.vue';
-// import ThreeMinPitchersComponent from '@/components/ThreeMinPitchersComponent.vue';
-// import InvestmentPitchersComponent from '@/components/InvestmentPitchersComponent.vue';
 
 export default defineComponent({
   name: 'TheEventShowPage',
@@ -132,9 +130,7 @@ export default defineComponent({
     MiniProfileCardVVIPComponent,
     MiniProfileCardVIPComponent,
     TheEventComponent,
-    // OneMinutePitchersComponent,
-    // ThreeMinPitchersComponent,
-    // InvestmentPitchersComponent
+    PitchingComponent,
   },
   setup() {
     const selectedTab = ref<string>('BusinessProfiles'); // Initialize with the default tab
