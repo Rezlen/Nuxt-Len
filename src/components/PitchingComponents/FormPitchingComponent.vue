@@ -4,9 +4,9 @@
     <IonList>
       <IonRadioGroup value="start">
         <IonRow class="OneThreeInvestmentChoices" >
-          <ion-radio color="success" value="custom" aria-label="Custom checkbox"  justify="start">One Minute Pitching</ion-radio>
-          <ion-radio color="success" value="custom" aria-label="Custom checkbox"  justify="start">3Three Minutes Pitching</ion-radio>
-          <ion-radio color="success" value="custom" aria-label="Custom checkbox"  justify="start">5Five Minutes Presentation</ion-radio>
+          <IonRadio color="success" value="custom" aria-label="Custom checkbox"  justify="start">FREE One Minute Pitching</IonRadio>
+          <IonRadio color="success" value="custom" aria-label="Custom checkbox"  justify="start">3Three Minutes Pitching</IonRadio>
+          <IonRadio color="success" value="custom" aria-label="Custom checkbox"  justify="start">5Five Minutes Presentation</IonRadio>
         </IonRow>
       </IonRadioGroup>
     </ionList>
@@ -41,20 +41,13 @@
         <IonLabel>Upload PowerPoint</IonLabel>
         <input type="file" @change="onFileSelected" />
       </IonItem>
-<IonRow class="Summeries" >
+      <IonRow class="Summeries" >
         <IonTextarea class="Summeries" label="Enter You YouTube EMBEDING Link Here (If you have/wish)" label-placement="floating"  :counter="true"  :maxlength="30" :counter-formatter="customFormatter" ></IonTextarea>
         <IonTextarea  class="Summeries" label="Summerise Your Pitching/Presentation Here" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea>
         <IonTextarea  class="Summeries" label="Summerise What You Are Looking For/Need" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea> 
-</IonRow>
+      </IonRow>
     </IonRow>
 
-
-
-    <IonRow>
-      <IonCol>
-        <IonButton size="large" expand="block" @click="submitContent">Submit My Pitching/Presentaion</IonButton>
-      </IonCol>
-    </IonRow>
 
   </IonGrid>
 
@@ -115,6 +108,11 @@ export default defineComponent({
 
 
 <style scoped>
+ion-radio {
+  border: solid 1px gray;
+  padding: 5px;
+  border-radius: 5px;
+}
 ion-grid {
   overflow-y: auto; /* Enable vertical scrolling */
   height: 100%; /* Full height to fit the parent */
@@ -138,28 +136,20 @@ input[type="file"] {
     display: flex;
     justify-content: center;
     gap: 5px;
+    padding-top:20px;
  }
 
  .Summeries {
   /* display: flex; */
   flex-direction: row;
-  width: fit-content;
+  /* width: fit-content; */
   gap: 5px;
  }
  
-@media (max-width: 760px) {
 
- }
   @media (max-width: 760px) {
  .Summeries {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* overflow:wrap; */
-  /* align-content: center; */
-  /* align-Items: center; */
-  /* justify-content: center; */
-  /* text-overflow: wrap; */
-  width:100%;
+  /* width:100%; */
  }
 
 

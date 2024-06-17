@@ -10,30 +10,45 @@
     </div>
 
     <div class="row row-small">
-      <div class="column wide-column left-align">FREE Tickets (Visitors, Business Mentor, Investor, Investment Broker)</div>
+      <div class="column wide-column left-align" @click="toggleMiniProfileCardVVIP" >FREE Tickets (Visitors, Business Mentor, Investor, Investment Broker)</div>
       <div class="column">Availability Number Visitor</div>
       <div class="column">Empty Spot Number</div>
       <div class="column small-column">Price</div>
       <div class="column small-column">Select Tick/Box</div>
     </div>
 
+    <!-- Conditional Rendering of the FormPitchingComponent -->
+    <div v-if="showMiniProfileCardVVIP">
+      <MiniProfileCardVVIPComponent />
+    </div>
+
     <div class="row">
-      <div class="column wide-column left-align">Exhibitions, Workshops, Presentations</div>
+      <div class="column wide-column left-align" @click="toggleMiniEvent" >Exhibitions, Workshops, Presentations</div>
       <div class="column">Availability Number Exhibitions, Workshops, Presentations</div>
       <div class="column">Spot Number Exhibitions, Workshops, Presentations</div>
       <div class="column small-column">Price</div>
       <div class="column small-column">Select Tick/Box</div>
     </div>
 
+    <!-- Conditional Rendering of the FormPitchingComponent -->
+    <div v-if="showMiniEvent">
+      <MiniEventComponent />
+    </div>
+
     <div class="row">
-      <div class="column wide-column left-align">FREE One Minute, Three Minutes, Investment PITCHINGS</div>
+      <!-- Conditional Rendering of the FormPitchingComponent -->
+      <div class="column wide-column left-align" @click="toggleFormPitching" >FREE One Minute, Three Minutes, Investment PITCHINGS </div>
       <div class="column">Availability Number FREE One, Three, Investment PITCHINGS</div>
       <div class="column">Spot Number FREE One, Three, Investment PITCHINGS</div>
       <div class="column small-column">Price</div>
       <div class="column small-column">Select Tick/Box</div>
     </div>
-
-
+    
+    <!-- Conditional Rendering of the FormPitchingComponent -->
+    <div v-if="showFormPitching">
+      <FormPitchingComponent />
+    </div>
+    
   </div>
     <div class="footer">
       <img alt="LEN Logo" height="160" src="/public/favicon.png" />
@@ -48,27 +63,59 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { IonButton, IonGrid, IonInput } from '@ionic/vue';
+import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
+import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
+import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
 
 export default defineComponent({
-  name: 'TableComponent',
+  name: 'TicketEventComponent',
   components: {
     IonButton,
-    IonInput
-  }
+    IonGrid,
+    IonInput,
+    FormPitchingComponent,
+    MiniEventComponent,
+    MiniProfileCardVVIPComponent,
+  },
+   setup() {
+    // Define refs to track the visibility of each component
+    const showFormPitching = ref(false);
+    const showMiniEvent = ref(false);
+    const showMiniProfileCardVVIP = ref(false);
+
+    // Function to toggle the visibility of each component
+    const toggleFormPitching = () => {
+      showFormPitching.value = !showFormPitching.value;
+    };
+
+    const toggleMiniEvent = () => {
+      showMiniEvent.value = !showMiniEvent.value;
+    };
+
+    const toggleMiniProfileCardVVIP = () => {
+      showMiniProfileCardVVIP.value = !showMiniProfileCardVVIP.value;
+    };
+
+    return {
+      showFormPitching,
+      showMiniEvent,
+      showMiniProfileCardVVIP,
+      toggleFormPitching,
+      toggleMiniEvent,
+      toggleMiniProfileCardVVIP,
+    };
+  },
 });
 </script>
 
+
 <style scoped>
 
-/* .ion-grid{ 
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  background-color: aqua;
-} */
+.wide-column {
+  cursor: pointer;
+}
 .table-container {
   display: block;
   overflow-x: auto;
@@ -76,7 +123,6 @@ export default defineComponent({
   width: 100%;
   border: black solid 1px;
   border-radius: 10px;
-
 }
 
 .header, .row, .footer {
