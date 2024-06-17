@@ -25,7 +25,7 @@
     <!-- ProvideNeedRow ########################## -->
     <IonRow class="ProvideNeedRow" >
       <IonRow>Provide: Comp Here. Our objective is to help the following groups</IonRow>
-      <IonRow>Need: Comp Here. At our networking events we give our members a 30 second</IonRow>
+      <IonRow>Need: Comp Here. At our networking events we give</IonRow>
     </IonRow>
 
     <!-- ColoredSection ########################## -->
@@ -33,14 +33,14 @@
       <IonRow class=" CenterPositions RevenueRow" >Revenue Comp Here</IonRow>
       <IonRow class="ColoredSectionLFont" >
         <IonCol class="ColoredSectionLeftCol">
-          <IonRow>Offers: Comp Here</IonRow>
-          <IonRow>Needs: Comp Here</IonRow>
-          <IonRow>Page Visited Comp Here</IonRow>
+          <IonRow>Offers: 22</IonRow>
+          <IonRow>Needs: 22</IonRow>
+          <IonRow>Page Visited: 22</IonRow>
         </IonCol>
         <IonCol class="ColoredSectionRightCol">
-          <IonRow>Requiested: Comp Here</IonRow>
-          <IonRow>Provided: Comp Here</IonRow>
-          <IonRow>Connections: Comp Here</IonRow>
+          <IonRow>Requiested: 22</IonRow>
+          <IonRow>Provided: 22</IonRow>
+          <IonRow>Connections: 22</IonRow>
         </IonCol>
       </IonRow>
       <IonButton size="small" fill="clear" class=" CenterPositions ConnectbtnRow">ConnectBTN</IonButton>
@@ -95,13 +95,13 @@ export default defineComponent({
 
 /* Limiting the size of the card#################### */
 ion-card {
-  max-width: 350px; /* Maximum width of the card */
+  max-width: 270px; /* Maximum width of the card */
   max-height: 700px; /* Maximum height of the card */
   width: 100%; /* Responsive width */
   height: auto; /* Responsive height */
   margin: 0 auto; /* Center the card */
   border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(142, 15, 226, 0.2); /* X-offset, Y-offset, blur radius, and color */
+  box-shadow: 0 4px 8px rgba(142, 15, 226, 0.2);   /* X-offset, Y-offset, blur radius, and color */
 }
 
 .star{
@@ -158,6 +158,7 @@ ion-card {
 
 .ColoredSectionLFont {
   color: white;
+  font-size: 13px;
 }
 
 .ColoredSectionRightCol {
@@ -181,24 +182,19 @@ ion-card {
   background-color: white;
   padding: 4px 0;
 }
-
 .social-button {
   margin:0;
   padding:0;
 }
-
 .linkedin-icon {
   color: #0077b5; /* LinkedIn blue */
 }
-
 .google-icon {
   color: #db4437; /* Google red */
 }
-
 .facebook-icon {
   color: #3b5998; /* Facebook blue */
 }
-
 .twitter-icon {
   color: #1da1f2; /* Twitter blue */
 }

@@ -174,6 +174,7 @@ export default defineComponent({
 .TabSegment .btn {
   flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
   min-width: 150px; /* Minimum width for each button to ensure readability */
+  letter-spacing: 0.5px;
 }
 
 .DisplayComponentRow {

@@ -120,7 +120,7 @@ const menus = ref([
   },
   {
     title: 'FREE Pitching⌄',
-    path: '',
+    path: '/FreePitchingsPage',
     subMenus: [
       { title: 'FREE Pitch Reservation', path: '/FreePitchReservation' },
       { title: 'All Pitchers', path: '/AllPitchers' },

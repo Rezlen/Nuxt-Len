@@ -7,6 +7,7 @@ import ProfilePage from '../views/ProfilePage.vue';
 import BizOfferNeedPage from '../views/BizOfferNeedPage.vue';
 import EventsShowsPage from '../views/EventsShowsPage.vue';
 import TheEventShowPage from '../views/TheEventShowPage.vue';
+import FreePitchingsPage from '../views/FreePitchingsPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -36,12 +37,13 @@ import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComp
 import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
 import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventComponent.vue';
 import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
+import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 
 
 const routes: Array<RouteRecordRaw> = [
 
   
-  // Pages start here TicketEventComponent
+  // Pages start here FreePitchingsPage
   {
     path: '/',
     redirect: '/home'
@@ -75,6 +77,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/profilePage',
     name: 'ProfilePage',
     component: ProfilePage
+  },
+  {
+    path: '/freePitchingsPage',
+    name: 'FreePitchingsPage',
+    component: FreePitchingsPage
   },
   {
     path: '/templatePage',
@@ -187,9 +194,17 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MiniEventComponent',
     component: MiniEventComponent
   },
+  {
+    path: '/pitchingComponent',
+    name: 'PitchingComponent',
+    component: PitchingComponent
+  },
+
+
+
+
   
-  
-  // Left & Right Aderts starts here MiniEventComponent
+  // Left & Right Aderts starts here PitchingTABsComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

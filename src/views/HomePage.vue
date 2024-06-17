@@ -107,6 +107,9 @@
               <p><a href="/TicketEventComponent" class="Events-button" >TicketEventComponente </a> </p>
               <p><a href="/TheEventComponent" class="Events-button" >TheEventComponent </a> </p>
               <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
+              <p><a href="/FreePitchingsPage" class="Events-button" >FreePitchingsPage </a> </p>
+              <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
+              <p><a href="/PitchingComponent" class="Events-button" >PitchingComponent </a> </p>
 
               
               <!-- MiniProfilesRow ##############################     EventsShowsPage           -->
