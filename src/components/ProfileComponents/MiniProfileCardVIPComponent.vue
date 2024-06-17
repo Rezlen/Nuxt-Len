@@ -101,6 +101,7 @@ ion-card {
   height: auto; /* Responsive height */
   margin: 0 auto; /* Center the card */
   border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(142, 15, 226, 0.2); /* X-offset, Y-offset, blur radius, and color */
 }
 
 .star{

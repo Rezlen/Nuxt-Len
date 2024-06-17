@@ -17,6 +17,7 @@
         </IonRow>
       </IonCol>
       <IonCol class="EventMapCol">
+        <iframe width="100" height="100" src="https://www.youtube.com/embed/dNjQ_wZBA28" title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <iframe width="100px" height="100px">GMap</iframe>
       </IonCol>
       <IonCol class="EventRightSideCol">

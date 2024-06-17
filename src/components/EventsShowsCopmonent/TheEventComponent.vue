@@ -9,17 +9,28 @@
         <IonContent>Event's Content's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt's Content heres. Event's Content heres. Eventt heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. EventEvent's Content heres. Event's Content heres. Event's Content heres. Event's Content heres. Event's Content heres. Event's Content heres. Event's Content heres. Event's Content heres. Event's Content heres. Event's Content heres.</IonContent>
       </IonCol>
       <IonCol class="EventRightSideCol">
-        <iframe width="150px">GMap</iframe>
-        <p>Event's Location Address</p>
-        <p>Full Address</p>
-        <p>Add to The Calender</p>
-        <IonRow class=" social-media-icons">
-          <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
-          <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
-          <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
-          <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
-        </IonRow>
+        <IonRow>
+          <IonCol>
+            <iframe width="150px">GMap</iframe>
+          </IonCol>
+          <IonCol>
+            <iframe width="150" height="150" src="https://www.youtube.com/embed/dNjQ_wZBA28" title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </IonCol>
+            <IonRow  class="AddressRow">
+              <p class="MapP" >Event's Location Address</p>
+              <p class="MapP" >Full Address</p>
+              <p class="MapP">Add to The Calender</p>
+              <IonRow class=" social-media-icons">
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+              </IonRow>
+          </IonRow>   
+          
 
+        </IonRow
+        >
         <IonCol class="StateRow">
           <IonRow class=" Border">
             <IonRow class="CenterPositions TotalAttendeesRevenueRow">Total Attendees Revenue</IonRow>
@@ -113,6 +124,14 @@ export default defineComponent({
   align-content: center;
   text-align: center;
 }
+
+.MapP{
+  margin: 0;
+  padding:0;
+}
+.AddressRow {
+  flex-direction: column;
+}
 .ContentGoMapSocialState,
 .FloorPlanRow,
 .TicketRow {
@@ -122,6 +141,7 @@ export default defineComponent({
 ion-grid{
   overflow-y: auto; /* Enable vertical scrolling */
   height: 100%; /* Full height to fit the parent */
+  box-shadow: 0 4px 8px rgba(142, 15, 226, 0.2); /* X-offset, Y-offset, blur radius, and color */
 }
 
 .Border,
@@ -164,24 +184,19 @@ ion-grid{
   background-color: white;
   padding: 4px 0;
 }
-
 .social-button {
   margin:0;
   padding:0;
 }
-
 .linkedin-icon {
   color: #0077b5; /* LinkedIn blue */
 }
-
 .google-icon {
   color: #db4437; /* Google red */
 }
-
 .facebook-icon {
   color: #3b5998; /* Facebook blue */
 }
-
 .twitter-icon {
   color: #1da1f2; /* Twitter blue */
 }
