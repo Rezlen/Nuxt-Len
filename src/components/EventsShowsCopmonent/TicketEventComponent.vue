@@ -6,49 +6,65 @@
       <div class="column">Available Ticket</div>
       <div class="column">Spot Number</div>
       <div class="column small-column">Price Inc VAT</div>
-      <div class="column small-column">Select</div>
     </div>
 
+
+
+    <!-- ################################################################### -->
     <div class="row row-small">
-      <div class="column wide-column left-align" @click="toggleMiniProfileCardVVIP" >FREE Tickets (Visitors, Business Mentor, Investor, Investment Broker)</div>
-      <div class="column">Availability Number Visitor</div>
-      <div class="column">Empty Spot Number</div>
-      <div class="column small-column">Price</div>
-      <div class="column small-column">Select Tick/Box</div>
+      <div class="column wide-column left-align" >
+        <IonCheckbox justify="start">FREE Visitor</IonCheckbox><br/>
+        <IonCheckbox justify="start">FREE Business Mentor</IonCheckbox><br/>
+        <IonCheckbox justify="start">FREE Investor</IonCheckbox><br/>
+        <IonCheckbox justify="start">FREE Investment Broker</IonCheckbox><br/>
+      </div>
+      <div class="column">Availability Numbers</div>
+      <div class="column"></div>
+      <div class="column small-column">FREE</div>
     </div>
 
-    <!-- Conditional Rendering of the FormPitchingComponent -->
-    <div v-if="showMiniProfileCardVVIP">
-      <MiniProfileCardVVIPComponent />
-    </div>
 
+
+    <!-- ################################################################### -->
     <div class="row">
-      <div class="column wide-column left-align" @click="toggleMiniEvent" >Exhibitions, Workshops, Presentations</div>
-      <div class="column">Availability Number Exhibitions, Workshops, Presentations</div>
-      <div class="column">Spot Number Exhibitions, Workshops, Presentations</div>
+      <div class="column wide-column left-align" >
+
+          <IonCheckbox justify="start">Exhibition number4 Blue Square</IonCheckbox><br/>
+          <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
+          <IonCheckbox justify="start">Exhibitions Black Sqare</IonCheckbox><br/>
+          <IonCheckbox justify="start">Exhibitions Blue Square</IonCheckbox><br/>
+          <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
+      </div>
+
+      <div class="column">Availability Numbers</div>
+      <div class="column">Spot Numbers Exhibitions</div>
       <div class="column small-column">Price</div>
-      <div class="column small-column">Select Tick/Box</div>
     </div>
 
-    <!-- Conditional Rendering of the FormPitchingComponent -->
-    <div v-if="showMiniEvent">
-      <MiniEventComponent />
-    </div>
 
+
+    <!-- ################################################################### -->
     <div class="row">
       <!-- Conditional Rendering of the FormPitchingComponent -->
-      <div class="column wide-column left-align" @click="toggleFormPitching" >FREE One Minute, Three Minutes, Investment PITCHINGS </div>
-      <div class="column">Availability Number FREE One, Three, Investment PITCHINGS</div>
-      <div class="column">Spot Number FREE One, Three, Investment PITCHINGS</div>
+      <div class="column wide-column left-align " @click="toggleFormPitching" >
+        <IonCheckbox justify="start">FREE One Minute Pitching</IonCheckbox>
+        <IonCheckbox justify="start">Three Minutes Pitching</IonCheckbox>
+        <IonCheckbox justify="start">Investment Pitching; 5 Minutes</IonCheckbox>
+        <IonCheckbox justify="start">Workshops Black Sqare; 30 Minutes</IonCheckbox><br/>
+        <IonCheckbox justify="start">Presentation Black Square; 5 Minutes</IonCheckbox><br/>
+      </div>
+      <div class="column">Availability Numbers</div>
+      <div class="column">Spot Numbers</div>
       <div class="column small-column">Price</div>
-      <div class="column small-column">Select Tick/Box</div>
     </div>
     
     <!-- Conditional Rendering of the FormPitchingComponent -->
     <div v-if="showFormPitching">
       <FormPitchingComponent />
     </div>
-    
+
+
+  <!-- ################################################################### -->
   </div>
     <div class="footer">
       <img alt="LEN Logo" height="160" src="/public/favicon.png" />
@@ -64,7 +80,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonButton, IonGrid, IonInput } from '@ionic/vue';
+import { IonButton, IonGrid, IonCheckbox } from '@ionic/vue';
 import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
 import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
 import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
@@ -74,7 +90,7 @@ export default defineComponent({
   components: {
     IonButton,
     IonGrid,
-    IonInput,
+    IonCheckbox,
     FormPitchingComponent,
     MiniEventComponent,
     MiniProfileCardVVIPComponent,
@@ -90,13 +106,15 @@ export default defineComponent({
       showFormPitching.value = !showFormPitching.value;
     };
 
+    // Below two const & their RETURNS (toggleMiniEvent, toggleMiniProfileCardVVIP ) was for two other rows that need expanding. I just kept it as refrnece & learning
     const toggleMiniEvent = () => {
       showMiniEvent.value = !showMiniEvent.value;
     };
-
     const toggleMiniProfileCardVVIP = () => {
       showMiniProfileCardVVIP.value = !showMiniProfileCardVVIP.value;
-    };
+     };
+    // Below two const & their RETURNS (toggleMiniEvent, toggleMiniProfileCardVVIP ) was for two other rows that need expanding. I just kept it as refrnece & learning
+    
 
     return {
       showFormPitching,
@@ -144,10 +162,12 @@ export default defineComponent({
 
 .column.wide-column {
   flex: 0 0 400px; /* Fixed width for the wide column */
+  overflow-y: auto;
+  flex-direction: column;
 }
 
 .column.small-column {
-  flex: 0 0 100px; /* Fixed width for the small columns */
+  flex: 0 0 150px; /* Fixed width for the small columns */
 }
 
 .column.left-align {
@@ -174,6 +194,14 @@ export default defineComponent({
   margin: 0 20px;
 }
 
+.ScrollingDiv {
+  overflow-y: auto;
+}
+
+ion-checkbox {
+  border-bottom: 1px solid gray;
+  margin: 2px 0;
+}
 @media (max-width: 768px) {
   .table-container {
     width: 350px;

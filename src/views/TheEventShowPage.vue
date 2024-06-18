@@ -41,11 +41,11 @@
               </IonCol>
               <IonCol v-show="selectedTab === 'Exhibitors'" class="Exhibitors">
                 <!-- Component for Exhibitors #########" -->
-                <ExhibitorsComponent />
+                <MiniProfileCardVIPComponent />
               </IonCol>
               <IonCol v-show="selectedTab === 'Visitors'" class="Visitors">
                 <!-- Component for Visitors #########" -->
-                <VisitorsComponent />
+                <MiniProfileCardVVIPComponent />
               </IonCol>
               <IonCol v-show="selectedTab === 'OneMinutePitchers'" class="OneMinutePitchers">
                 <!-- Component for One Minute Pitcher #########" -->

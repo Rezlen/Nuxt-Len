@@ -25,6 +25,12 @@
 
           <!-- Middle Content Section -->
           <IonCol size="12" size-md="9" class="bordered-section SignInSignUpComponent">
+            <IonButton @click="toggleMiniEvent">FormProfilePublicSectionComponent</IonButton>
+            <!-- Conditional Rendering of the FormPitchingComponent -->
+            <div v-if="showMiniEvent">
+              <FormProfilePublicSectionComponent/>
+            </div>
+
             <ProfilePublicSectionComponent />
           </IonCol>
 
@@ -51,8 +57,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { IonPage, IonGrid, IonRow, IonCol, IonContent } from '@ionic/vue';
+import { defineComponent, ref } from 'vue';
+import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonButton } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 import SignInSignUpComponent from '@/components/6TempComponents/SignInSignUpComponent.vue';
@@ -66,6 +72,7 @@ import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import ProfilePublicSectionComponent from '/Ionics/nuxt-len/src/components/ProfileComponents/ProfilePublicSectionComponent.vue';
+import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 
 
 
@@ -77,6 +84,7 @@ export default defineComponent({
     IonRow,
     IonCol,
     IonContent,
+    IonButton,
     MenuComponent,
     SocialMediaBarComponent,
     SignInSignUpComponent,
@@ -90,7 +98,20 @@ export default defineComponent({
     RightAd3Component,
     RightAd4Component,
     ProfilePublicSectionComponent,
+    FormProfilePublicSectionComponent,
   },
+  setup() { 
+    const showMiniEvent = ref(false);
+
+    const toggleMiniEvent = () => {
+      showMiniEvent.value = !showMiniEvent.value;
+    };
+    return {
+    showMiniEvent,
+    toggleMiniEvent,
+
+    };
+  }
 });
 </script>
 

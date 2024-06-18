@@ -137,7 +137,7 @@ ion-card {
 }
 
 .ColoredSection {
-  background-color: rgb(158, 121, 1);
+  background: linear-gradient(135deg, #fccd4d 0%, #f8b500 12%, #fad957 25%, #f0af0c 41%, #edac09 53%, #fad957 65%, #f5b40e 70%, #fccd4d 84%, #fbdf93 100%);
 }
 
 .RevenueRow {

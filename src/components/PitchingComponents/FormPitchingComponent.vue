@@ -1,17 +1,9 @@
 <template>
 
   <IonGrid class="Grid">
-    <IonList>
-      <IonRadioGroup value="start">
-        <IonRow class="OneThreeInvestmentChoices" >
-          <IonRadio color="success" value="custom" aria-label="Custom checkbox"  justify="start">FREE One Minute Pitching</IonRadio>
-          <IonRadio color="success" value="custom" aria-label="Custom checkbox"  justify="start">3Three Minutes Pitching</IonRadio>
-          <IonRadio color="success" value="custom" aria-label="Custom checkbox"  justify="start">5Five Minutes Presentation</IonRadio>
-        </IonRow>
-      </IonRadioGroup>
-    </ionList>
+
     <IonTextarea  label="Enter Your Pitching Title Here" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
-    <IonTextarea  label="What You Are Looking For?" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
+    <IonTextarea  label="What You Are Going to Pitch,Present/Workshop for?" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
     
     <IonRow>  
       <IonCol>
@@ -128,18 +120,7 @@ input[type="file"] {
   width: 100%;
 }
 
-/* .OneThreeInvestmentChoices {
-  overflow: wrap;
-} */
-
- .OneThreeInvestmentChoices {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    padding-top:20px;
- }
-
- .Summeries {
+.Summeries {
   /* display: flex; */
   flex-direction: row;
   /* width: fit-content; */
@@ -147,11 +128,5 @@ input[type="file"] {
  }
  
 
-  @media (max-width: 760px) {
- .Summeries {
-  /* width:100%; */
- }
 
-
-}
 </style>

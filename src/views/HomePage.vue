@@ -112,9 +112,10 @@
                 <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
                 <p><a href="/PitchingComponent" class="Events-button" >PitchingComponent </a> </p>
                 <p><a href="/FormPitchingComponent" class="Events-button" >FormPitchingComponent </a> </p>
+                <p><a href="/FormExhibitingWorkshopPresentComponent" class="Events-button" >FormExhibitingWorkshopPresentComponent </a> </p>
               </IonRow>
               
-              <!-- MiniProfilesRow ##############################     FormPitchingComponent          -->
+              <!-- MiniProfilesRow ##############################     FormExhibitingWorkshopPresentComponent         -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

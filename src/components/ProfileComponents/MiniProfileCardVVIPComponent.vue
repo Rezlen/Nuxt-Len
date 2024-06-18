@@ -95,7 +95,7 @@ export default defineComponent({
 
 /* Limiting the size of the card#################### */
 ion-card {
-  max-width: 350px; /* Maximum width of the card */
+  max-width: 270px; /* Maximum width of the card */
   max-height: 700px; /* Maximum height of the card */
   width: 100%; /* Responsive width */
   height: auto; /* Responsive height */
@@ -137,8 +137,9 @@ ion-card {
 }
 
 .ColoredSection {
-  background-color: rgb(153, 0, 133);
+  background: linear-gradient(135deg, #a80077 0%, #cb60b3 12%, #a80077 23%, #e815b3 32%, #a80077 49%, #db36a4 100%);
 }
+
 
 .RevenueRow {
   font-weight:bold;

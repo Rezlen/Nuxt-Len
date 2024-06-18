@@ -39,12 +39,12 @@ import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventC
 import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
+import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 
 
-const routes: Array<RouteRecordRaw> = [
 
-  
-  // Pages start here FreePitchingsPage
+const routes: Array<RouteRecordRaw> = [  
+  // Pages start here FormProfilePublicSectionComponent
   {
     path: '/',
     redirect: '/home'
@@ -205,12 +205,17 @@ const routes: Array<RouteRecordRaw> = [
     name: 'FormPitchingComponent',
     component: FormPitchingComponent
   },
+  {
+    path: '/formProfilePublicSectionComponent',
+    name: 'FormProfilePublicSectionComponent',
+    component: FormProfilePublicSectionComponent
+  },
 
 
 
 
   
-  // Left & Right Aderts starts here FormPitchingComponent
+  // Left & Right Aderts starts here FormExhibitingWorkshopPresentComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

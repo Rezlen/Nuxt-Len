@@ -18,10 +18,13 @@
         </IonCol>
         <IonCol class="BusinessDetails">
           <IonRow class="BusinessRevenue">Business Revenue: £200000</IonRow>
-          <IonRow class="TextStyle">Business Category:</IonRow>
+          <IonRow>
+            <IonCol class="TextStyle">Business Main Category:</IonCol>
+            <IonCol class="TextStyle">Business Main Country:</IonCol>
+          </IonRow>
           <IonRow>
             <IonCol class="TextStyle" >No. of Employees:</IonCol>
-            <IonCol class="TextStyle">Business City:</IonCol>
+            <IonCol class="TextStyle">Business Main City:</IonCol>
           </IonRow>
         </IonCol>
       </IonRow>
