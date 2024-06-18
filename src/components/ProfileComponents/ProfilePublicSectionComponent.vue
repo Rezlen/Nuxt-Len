@@ -259,11 +259,10 @@ ion-grid {
 .BusinessName {
   font-family: 'Arial Narrow Bold', sans-serif;
   font-size: 40px;
-  font-weight: bold;
-  background-color: yellow;
+  /* font-weight: bold; */
   justify-content: center;
   text-align: center;
-  padding: 10px;
+  padding: 20px 0;
 }
 
 /* BusinessRow styles */
@@ -347,19 +346,15 @@ ion-grid {
   margin:0;
   padding:0;
 }
-
 .linkedin-icon {
   color: #0077b5; /* LinkedIn blue */
 }
-
 .google-icon {
   color: #db4437; /* Google red */
 }
-
 .facebook-icon {
   color: #3b5998; /* Facebook blue */
 }
-
 .twitter-icon {
   color: #1da1f2; /* Twitter blue */
 }
@@ -381,6 +376,7 @@ ion-grid {
   flex-wrap: wrap;
   border: 1px solid black;
   border-radius: 10px;
+  padding: 20px 0;
 }
 
 .StatisticsColumn {

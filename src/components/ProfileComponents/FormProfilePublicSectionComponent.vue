@@ -29,7 +29,18 @@
           </IonSelect>
         </IonCol>
         <IonCol>
-          <IonInput :counter="true" :maxlength="99999" type="number" placeholder="Number Of Employees" fill="outline"></IonInput>
+          <IonSelect class="RevenueSalary" v-model="selectedCategory" placeholder="Your Business Revenue" fill="outline" >
+            <IonSelectOption value="category1">Category 1</IonSelectOption>
+            <IonSelectOption value="category2">Category 2</IonSelectOption>
+            <IonSelectOption value="category3">Category 3</IonSelectOption>
+          </IonSelect>
+        </IonCol>
+        <IonCol>
+          <IonSelect v-model="selectedCategory" placeholder="Number Of Employees" fill="outline" >
+            <IonSelectOption value="category1">Category 1</IonSelectOption>
+            <IonSelectOption value="category2">Category 2</IonSelectOption>
+            <IonSelectOption value="category3">Category 3</IonSelectOption>
+          </IonSelect>
         </IonCol>
         
         <IonItem>
@@ -38,7 +49,7 @@
         </IonItem>
 
         <IonCol>
-          <IonInput type="url" label="Business LinkedIn Profile Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
+          <IonInput type="url" label="Business Twitter/X Profile Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
         </IonCol>
         <IonCol>
           <IonInput type="url" label="Business Google Profile Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
@@ -47,7 +58,7 @@
           <IonInput type="url" label="Business Facebook Profile Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
         </IonCol>
         <IonCol>
-          <IonInput type="url" label="Business Twitter/X Profile Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
+          <IonInput type="url" label="Business LinkedIn Profile Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
         </IonCol>
       </IonRow> 
 
@@ -65,6 +76,13 @@
         </IonCol>
         <IonCol>
           <IonSelect v-model="selectedCategory" placeholder="Your Job Position" fill="outline" >
+            <IonSelectOption value="category1">Category 1</IonSelectOption>
+            <IonSelectOption value="category2">Category 2</IonSelectOption>
+            <IonSelectOption value="category3">Category 3</IonSelectOption>
+          </IonSelect>
+        </IonCol>
+        <IonCol>
+          <IonSelect class="RevenueSalary" v-model="selectedCategory" placeholder="Your Yearly Salary" fill="outline" >
             <IonSelectOption value="category1">Category 1</IonSelectOption>
             <IonSelectOption value="category2">Category 2</IonSelectOption>
             <IonSelectOption value="category3">Category 3</IonSelectOption>
@@ -205,6 +223,9 @@ ion-textarea{
 
 input[type="file"] {
   width: 100%;
+}
+.RevenueSalary {
+  box-shadow: 0 4px 8px rgba(75, 16, 214, 0.6); /* X-offset, Y-offset, blur radius, and color */
 }
 
 .Summeries {
