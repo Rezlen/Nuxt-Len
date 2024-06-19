@@ -16,7 +16,7 @@
         <IonRow class="main-content-row ">
           <!-- Left Advert Section -->
           <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
-            <LeftSideBarComp /> Place LeftSideBarComp here
+            <ProfileLeftSideBarComponent /> 
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
@@ -73,6 +73,7 @@ import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import ProfilePublicSectionComponent from '/Ionics/nuxt-len/src/components/ProfileComponents/ProfilePublicSectionComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
+import ProfileLeftSideBarComponent from '@/components/ProfileComponents/ProfileLeftSideBarComponent.vue';
 
 
 
@@ -99,6 +100,7 @@ export default defineComponent({
     RightAd4Component,
     ProfilePublicSectionComponent,
     FormProfilePublicSectionComponent,
+    ProfileLeftSideBarComponent,
   },
   setup() { 
     const showMiniEvent = ref(false);

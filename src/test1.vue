@@ -1,7 +1,8 @@
 <template>
+  <IonGrid>
     <!-- Hamburger Icon, visible only on mobile -->
     <div @click="toggleMenu" class="hamburger-menu">
-      ☰ Side Menu
+      ☰
     </div>
 
     <!-- Sidebar Menu -->
@@ -12,6 +13,7 @@
       <IonItem>Menu4</IonItem>
       <IonItem>Menu5</IonItem>
     </IonGrid>
+  </IonGrid>
 </template>
 <script lang="ts">
 import { defineComponent, ref, onMounted, onBeforeUnmount } from 'vue';
@@ -53,7 +55,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .hamburger-menu {
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
   padding: 10px;
   position: fixed; /* Keep hamburger menu fixed */
@@ -77,7 +79,7 @@ export default defineComponent({
   display: none; /* Hide sidebar by default on mobile */
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .hamburger-menu {
     display: block; /* Show hamburger menu on mobile */
   }

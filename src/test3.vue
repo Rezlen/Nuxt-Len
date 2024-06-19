@@ -1,80 +1,91 @@
 <template>
-  <IonPage>
-    <IonContent>
-      <IonGrid>
-        <!-- Menu Section -->
-        <IonRow class="bordered-section">
-          <MenuComponent />
-        </IonRow>
-        <!-- Social Media Section -->
-        <IonRow class="bordered-section">
-          <SocialMediaBarComponent />
-        </IonRow>
+  <div>
+    <!-- Hamburger Icon, visible only on mobile -->
+    <div @click="toggleMenu" class="hamburger-menu">
+      ☰
+    </div>
 
-        <!-- Main Content Section with Adverts and Middle Content -->
-        <IonRow>
-          <!-- Left Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section">
-            <LeftAdvertComponent />
-          </IonCol>
-
-          <!-- Middle Content Section -->
-          <IonCol size="12" size-md="8" class="bordered-section">
-            <MiddleContentComponent />
-          </IonCol>
-
-          <!-- Right Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section">
-            <RightAdvertComponent />
-          </IonCol>
-        </IonRow>
-
-        <!-- Footer Section -->
-        <IonRow>
-          <IonCol class="bordered-section">
-            <FooterComponent />
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-    </IonContent>
-  </IonPage>
+    <!-- Sidebar Menu -->
+    <IonGrid :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
+      <IonItem>Menu1</IonItem>
+      <IonItem>Menu2</IonItem>
+      <IonItem>Menu3</IonItem>
+      <IonItem>Menu4</IonItem>
+      <IonItem>Menu5</IonItem>
+    </IonGrid>
+  </div>
 </template>
-
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { IonPage, IonRow, IonCol } from '@ionic/vue';
-import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
-import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
-import SignInSignUpComponent from '@/components/6TempComponents/SignInSignUpComponent.vue';
-import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
+import { defineComponent, ref } from 'vue';
+import { IonGrid, IonItem } from '@ionic/vue';
 
 export default defineComponent({
-  name: 'TemplatePage',
+  name: 'ProfileLeftSideBarComponent',
   components: {
-    IonPage,
-    IonRow,
-    IonCol,
-    MenuComponent,
-    SocialMediaBarComponent,
-    SignInSignUpComponent,
-    FooterComponent,
+    IonGrid,
+    IonItem,
+  },
+  setup() {
+    const isMenuOpen = ref(false);
+
+    const toggleMenu = () => {
+      isMenuOpen.value = !isMenuOpen.value;
+    };
+
+    return {
+      isMenuOpen,
+      toggleMenu,
+    };
   },
 });
 </script>
-
 <style scoped>
-.bordered-section {
-  border: 1px solid #000;
-  background-color: lightgray;
+.hamburger-menu {
+  font-size: 30px;
+  cursor: pointer;
   padding: 10px;
-  box-sizing: border-box;
-  z-index: 1;
-  display: grid; /* Explicitly setting display */
+  position: fixed; /* Keep hamburger menu fixed */
+  top: 10px;
+  left: 10px;
+  z-index: 1100; /* Ensure it stays on top of the sidebar */
 }
 
-@media (min-width: 768px) {
-  .main-content-row ion-col {
-    margin-bottom: 0; /* Reset margin for larger screens */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 10px;
+  overflow-y: auto; /* Ensure the content is scrollable */
+  width: fit-content; /* Make width fit-content */
+  height: fit-content; /* Make height fit-content */
+  margin-top: 50px; /* Add margin to avoid overlapping with the hamburger menu */
+}
+
+.sidebar-menu-hidden {
+  display: none; /* Hide sidebar by default on mobile */
+}
+
+@media (max-width: 600px) {
+  .hamburger-menu {
+    display: block; /* Show hamburger menu on mobile */
+  }
+
+  .sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: none; /* Hide sidebar on mobile */
+  }
+
+  .sidebar-menu.sidebar-menu-hidden {
+    display: flex; /* Show sidebar when menu is open */
+  }
+
+  .ion-item {
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word;
   }
 }
 </style>

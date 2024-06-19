@@ -8,6 +8,7 @@ import BizOfferNeedPage from '../views/BizOfferNeedPage.vue';
 import EventsShowsPage from '../views/EventsShowsPage.vue';
 import TheEventShowPage from '../views/TheEventShowPage.vue';
 import FreePitchingsPage from '../views/FreePitchingsPage.vue';
+import AboutUsPage from '../views/AboutUsPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -40,6 +41,7 @@ import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventCompo
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
+import ProfileLeftSideBarComponent from '@/components/ProfileComponents/ProfileLeftSideBarComponent.vue';
 
 
 
@@ -85,6 +87,11 @@ const routes: Array<RouteRecordRaw> = [
     component: FreePitchingsPage
   },
   {
+    path: '/aboutUsPage',
+    name: 'AboutUsPage',
+    component: AboutUsPage
+  },
+  {
     path: '/templatePage',
     name: 'TemplatePage',
     component: TemplatePage
@@ -123,6 +130,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/profilePublicSectionComponent',
     name: 'ProfilePublicSectionComponent',
     component: ProfilePublicSectionComponent
+  },
+  {
+    path: '/profileLeftSideBarComponent',
+    name: 'ProfileLeftSideBarComponent',
+    component: ProfileLeftSideBarComponent
   },
   {
     path: '/miniProfileCardComponent',

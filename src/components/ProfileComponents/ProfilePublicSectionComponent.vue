@@ -64,7 +64,7 @@
           <IonRow class="TextStyle PostedOffers">Posted Offers: 86</IonRow>
           <IonRow class="TextStyle ProvidedOffers">Provided Offers: 86</IonRow>
           <IonRow class="TextStyle RequestedOffers">Requested Offers: 86</IonRow>
-          <IonRow class="TextStyle MiniProfileListed">Profile Seen: 86</IonRow>
+          <IonRow class="TextStyle MiniProfileListed">Full Profile Seen: 86</IonRow>
 
         </IonCol>
         <!-- Column 2 -->
@@ -72,6 +72,7 @@
           <IonRow class="TextStyle PostedNeeds">Posted Needs: 86</IonRow>
           <IonRow class="TextStyle SatisfiedNeeds">Satisfied Needs: 86</IonRow>
           <IonRow class="TextStyle PeopleSatisfiedNeeds">People Satisfied Needs: 86</IonRow>
+          <IonRow class="TextStyle MiniProfileListed">Mini Profile Listed: 86</IonRow>
         </IonCol>
         <!-- Column 3 -->
         <IonCol class="StatisticsColumn">
@@ -368,6 +369,13 @@ ion-grid {
   .IMG-socialIcons, .BusinessDetails, .PersonalDetails {
     flex: 1 1 100%; /* Take full width on smaller screens */
   }
+  .BusinessName {
+  font-family: 'Arial Narrow Bold', sans-serif;
+  font-size: 25px;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
 }
 
 /* StatisticsRow styles */

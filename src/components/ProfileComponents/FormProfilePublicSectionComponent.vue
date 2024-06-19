@@ -225,7 +225,8 @@ input[type="file"] {
   width: 100%;
 }
 .RevenueSalary {
-  box-shadow: 0 4px 8px rgba(75, 16, 214, 0.6); /* X-offset, Y-offset, blur radius, and color */
+box-shadow: 0 4px 8px rgba(34, 139, 34, 0.8);
+ /* X-offset, Y-offset, blur radius, and color */
 }
 
 .Summeries {
@@ -235,7 +236,8 @@ input[type="file"] {
 
 .PersonalProfileSection,
 .BusinessProfileSection {
-  margin-bottom: 10px;
+  margin: 10px 0;
+  padding: 20px 0;
   border: 3px solid gray;
   box-shadow: 0 4px 8px rgba(75, 16, 214, 1.2); /* X-offset, Y-offset, blur radius, and color */
   border-radius: 7px;
