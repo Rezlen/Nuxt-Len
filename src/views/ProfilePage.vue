@@ -14,9 +14,9 @@
 
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row ">
+          <ProfileLeftSideBarComponent />  <!--I placed the menu here so NOT hidden in mobile version -->
           <!-- Left Advert Section -->
           <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
-            <ProfileLeftSideBarComponent /> 
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
