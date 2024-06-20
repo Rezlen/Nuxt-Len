@@ -42,7 +42,14 @@
             <IonSelectOption value="category3">Category 3</IonSelectOption>
           </IonSelect>
         </IonCol>
-        
+        <IonCol>
+          <IonSelect v-model="selectedCategory" placeholder="Business Established Year" fill="outline" >
+            <IonSelectOption value="category1">Category 1</IonSelectOption>
+            <IonSelectOption value="category2">Category 2</IonSelectOption>
+            <IonSelectOption value="category3">Category 3</IonSelectOption>
+          </IonSelect>
+        </IonCol>
+
         <IonItem>
           <IonLabel>Upload Business Logo</IonLabel>
           <input type="file" @change="onFileSelected" />

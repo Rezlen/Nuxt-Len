@@ -26,6 +26,10 @@
             <IonCol class="TextStyle" >No. of Employees:</IonCol>
             <IonCol class="TextStyle">Business Main City:</IonCol>
           </IonRow>
+          <IonRow>
+            <IonCol class="TextStyle" >Business Established Year:</IonCol>
+            <IonCol class="TextStyle">Membership Type:</IonCol>
+          </IonRow>
         </IonCol>
       </IonRow>
 

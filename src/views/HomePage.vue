@@ -115,6 +115,7 @@
                 <p><a href="/FormExhibitingWorkshopPresentComponent" class="Events-button" >FormExhibitingWorkshopPresentComponent </a> </p>
                 <p><a href="/AboutUsPage" class="Events-button" >AboutUsPage </a> </p>
                 <p><a href="/ProfileLeftSideBarComponent" class="Events-button" >ProfileLeftSideBarComponent </a> </p>
+                <p><a href="/FilterByComponent" class="Events-button" >FilterByComponent </a> </p>
               
               </IonRow>
               

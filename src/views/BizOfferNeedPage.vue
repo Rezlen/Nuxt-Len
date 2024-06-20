@@ -12,8 +12,9 @@
       
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row ">
+          <FilterByComponent />  <!--I placed the Left filter/menu here so it is NOT hidden in mobile view -->
           <!-- Left Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section LeftAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
@@ -23,7 +24,7 @@
 
 
           <!-- Middle Content Section -->
-          <IonCol size="12" size-md="8" class="bordered-section SignInSignUpComponent">
+          <IonCol size="12" size-md="9" class="bordered-section SignInSignUpComponent">
             
             <!-- 4Tabs 1- All Business profiles 2- All Offers 3- All Needs 4- Best offers 5- Advertise for FREE ##############################-->
             <IonCol class="Tab5BiZOfferNeedRow">
@@ -66,7 +67,7 @@
 
 
           <!-- Right Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section RightAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section RightAdvertComponent">
             <RightAd1Component />
             <RightAd2Component />
             <RightAd3Component />
@@ -107,6 +108,7 @@ import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponen
 import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
 import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
+import FilterByComponent from '@/components/OfferNeedBestOfferComponent/FilterByComponent.vue';
 
 
 export default defineComponent({
@@ -138,6 +140,7 @@ export default defineComponent({
     OfferComponent,
     NeedComponent,
     PostOfferNeedBestOfferComponent,
+    FilterByComponent,
   },
   setup() {
     const selectedTab = ref<string>('BusinessProfiles'); // Initialize with the default tab
@@ -153,6 +156,19 @@ export default defineComponent({
 
 
 <style scoped>
+
+ion-grid {
+  padding: 0;
+  margin: 0;
+}
+
+.bordered-section {
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  /* gap: 100px; */
+}
+
 /* Updated for new tab names and mobile responsiveness */
 
 .MiniProfilesRow {
@@ -196,6 +212,7 @@ export default defineComponent({
   flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
   margin: 10px;
 }
+
 
 @media (max-width: 768px) {
   .AllBusinessProfiles,

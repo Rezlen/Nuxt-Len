@@ -42,11 +42,12 @@ import PitchingComponent from '@/components/PitchingComponents/PitchingComponent
 import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 import ProfileLeftSideBarComponent from '@/components/ProfileComponents/ProfileLeftSideBarComponent.vue';
+import FilterByComponent from '@/components/OfferNeedBestOfferComponent/FilterByComponent.vue';
 
 
 
 const routes: Array<RouteRecordRaw> = [  
-  // Pages start here FormProfilePublicSectionComponent
+  // Pages start here MainLeftSideBarComponent
   {
     path: '/',
     redirect: '/home'
@@ -192,6 +193,13 @@ const routes: Array<RouteRecordRaw> = [
     name: 'PostBestOfferComponent',
     component: PostBestOfferComponent
   },
+  {
+    path: '/filterByComponent',
+    name: 'FilterByComponent',
+    component: FilterByComponent
+  },
+  // Offer Need BestOffer section
+
   {
     path: '/theEventComponent',
     name: 'TheEventComponent',

@@ -13,7 +13,7 @@
         <IonRow class="PaddingBorder MainOptions">Reward/Discount: 0%</IonRow>
         <IonRow class="PaddingBorder UpgradeVIP" >{Profile Pic}+Upgrade to VIP</IonRow>
         <IonRow class="PaddingBorder MessageRemaining">
-          <IonButton size="small" >Buy More</IonButton> {11}of 20 of your monthly messages remaining
+          <IonButton size="small" >Buy More</IonButton> {11} of 20 of your monthly messages remaining
         </IonRow>
         <IonRow class="PaddingBorder " >Edit Profile</IonRow>
         <IonRow class="PaddingBorder " >My Connections</IonRow>
@@ -122,15 +122,12 @@ ion-button{
   .hamburger-menu {
     display: block; /* Show hamburger menu on mobile */
   }
-
   .sidebar-menu {
     display: none; /* Hide sidebar on mobile */
   }
-
   .sidebar-menu.sidebar-menu-hidden {
     display: flex; /* Show sidebar when menu is open */
   }
-
   .ion-item {
     white-space: normal; /* Allow text to wrap */
     word-wrap: break-word;
