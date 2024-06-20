@@ -29,7 +29,7 @@
           </IonSelect>
         </IonCol>
         <IonCol>
-          <IonSelect class="RevenueSalary" v-model="selectedCategory" placeholder="Your Business Revenue" fill="outline" >
+          <IonSelect class="RevenueSalary" v-model="selectedCategory" placeholder="Business Revenue Yearly" fill="outline" >
             <IonSelectOption value="category1">Category 1</IonSelectOption>
             <IonSelectOption value="category2">Category 2</IonSelectOption>
             <IonSelectOption value="category3">Category 3</IonSelectOption>

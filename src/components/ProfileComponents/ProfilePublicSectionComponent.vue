@@ -17,7 +17,7 @@
           </div>
         </IonCol>
         <IonCol class="BusinessDetails">
-          <IonRow class="BusinessRevenue">Business Revenue: £200000</IonRow>
+          <IonRow class="BusinessRevenue">Business Revenue Yearly: £20,0000</IonRow>
           <IonRow>
             <IonCol class="TextStyle">Business Main Category:</IonCol>
             <IonCol class="TextStyle">Business Main Country:</IonCol>
