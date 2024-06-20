@@ -182,26 +182,20 @@ ion-card {
   background-color: white;
   padding: 4px 0;
 }
-
 .social-button {
   margin:0;
   padding:0;
 }
-
 .linkedin-icon {
   color: #0077b5; /* LinkedIn blue */
 }
-
 .google-icon {
   color: #db4437; /* Google red */
 }
-
 .facebook-icon {
   color: #3b5998; /* Facebook blue */
 }
-
 .twitter-icon {
   color: #1da1f2; /* Twitter blue */
 }
-
 </style>
