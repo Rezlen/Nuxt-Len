@@ -13,7 +13,7 @@
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row ">
           <!-- Left Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section LeftAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
@@ -21,51 +21,53 @@
           </IonCol>
 
 
+          <IonCol size="12" size-md="9" class="bordered-section TheEventShowPage">
 
-          <!-- EventsShows 6 tabs 1- The Events 2- Exhibitors 3- Visitors 4- One Minute Pitcher 5- Three Min Pitcher/Presenters 6- Investment Pitcher ##############################     -->
-          <IonCol class="MainCol">
-            <IonRow class="Tabs6TheEventExhibitorsVisitorsPitchers">
-              <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                <IonSegmentButton class="btn" value="TheEvent">The Event</IonSegmentButton>
-                <IonSegmentButton class="btn" value="Exhibitors">Exhibitors</IonSegmentButton>
-                <IonSegmentButton class="btn" value="Visitors">Visitors</IonSegmentButton>
-                <IonSegmentButton class="btn" value="OneMinutePitchers">One Minute Pitchers</IonSegmentButton>
-                <IonSegmentButton class="btn" value="ThreeMinPitchers">Three Min Pitchers/Presenters</IonSegmentButton>
-                <IonSegmentButton class="btn" value="InvestmentPitchers">Investment Pitchers</IonSegmentButton>
-              </IonSegment>
-            </IonRow>
-            <IonRow class="DisplayComponentRow">
-              <IonCol v-show="selectedTab === 'TheEvent'" class="TheEvent">
-                <!-- Component for The Events #########" -->
-                <TheEventComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'Exhibitors'" class="Exhibitors">
-                <!-- Component for Exhibitors #########" -->
-                <MiniProfileCardVIPComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'Visitors'" class="Visitors">
-                <!-- Component for Visitors #########" -->
-                <MiniProfileCardVVIPComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'OneMinutePitchers'" class="OneMinutePitchers">
-                <!-- Component for One Minute Pitcher #########" -->
-                <PitchingComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'ThreeMinPitchers'" class="ThreeMinPitchers">
-                <!-- Component for Three Min Pitcher/Presenters #########" -->
-                <PitchingComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'InvestmentPitchers'" class="InvestmentPitchers">
-                <!-- Component for Investment Pitcher #########" -->
-                <PitchingComponent />
-              </IonCol>
-            </IonRow>
+            <!-- EventsShows 6 tabs 1- The Events 2- Exhibitors 3- Visitors 4- One Minute Pitcher 5- Three Min Pitcher/Presenters 6- Investment Pitcher ##############################     -->
+            <IonCol class="MainCol">
+              <IonRow class="Tabs6TheEventExhibitorsVisitorsPitchers">
+                <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+                  <IonSegmentButton class="btn" value="TheEvent">The Event</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="Exhibitors">Exhibitors</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="Visitors">Visitors</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="OneMinutePitchers">One Minute Pitchers</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="ThreeMinPitchers">Three Min Pitchers/Presenters</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="InvestmentPitchers">Investment Pitchers</IonSegmentButton>
+                </IonSegment>
+              </IonRow>
+              <IonRow class="DisplayComponentRow">
+                <IonCol v-show="selectedTab === 'TheEvent'" class="TheEvent">
+                  <!-- Component for The Events #########" -->
+                  <TheEventComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'Exhibitors'" class="Exhibitors">
+                  <!-- Component for Exhibitors #########" -->
+                  <MiniProfileCardVIPComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'Visitors'" class="Visitors">
+                  <!-- Component for Visitors #########" -->
+                  <MiniProfileCardVVIPComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'OneMinutePitchers'" class="OneMinutePitchers">
+                  <!-- Component for One Minute Pitcher #########" -->
+                  <PitchingComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'ThreeMinPitchers'" class="ThreeMinPitchers">
+                  <!-- Component for Three Min Pitcher/Presenters #########" -->
+                  <PitchingComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'InvestmentPitchers'" class="InvestmentPitchers">
+                  <!-- Component for Investment Pitcher #########" -->
+                  <PitchingComponent />
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
           </IonCol>
 
 
-
           <!-- Right Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section RightAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section RightAdvertComponent">
             <RightAd1Component />
             <RightAd2Component />
             <RightAd3Component />
@@ -146,6 +148,18 @@ export default defineComponent({
 
 
 <style scoped>
+
+ion-grid {
+  padding: 0;
+  margin: 0;
+}
+
+.bordered-section {
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  /* gap: 100px; */
+}
 /* Updated for new tab names and mobile responsiveness */
 
 .Tabs6TheEventExhibitorsVisitorsPitchers {

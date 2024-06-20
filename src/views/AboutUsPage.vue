@@ -16,7 +16,7 @@
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row ">
           <!-- Left Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section LeftAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
@@ -24,7 +24,7 @@
           </IonCol>
 
           <!-- Middle Content Section -->
-          <IonCol size="12" size-md="8" class="bordered-section SignInSignUpComponent">
+          <IonCol size="12" size-md="9" class="bordered-section SignInSignUpComponent">
             <IonTitle>
               LEN's Vision:
             </IonTitle>
@@ -70,7 +70,7 @@
           </IonCol>
 
           <!-- Right Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section RightAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section RightAdvertComponent">
             <RightAd1Component />
             <RightAd2Component />
             <RightAd3Component />

@@ -13,7 +13,7 @@
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row ">
           <!-- Left Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section LeftAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
@@ -21,45 +21,47 @@
           </IonCol>
 
 
+          <IonCol size="12" size-md="9" class="bordered-section EventsShowsPage">
 
-          <!-- EventsShows 6 tabs 1- Upcoming Events 2- Past Events 3-Events Calender 4- Exhibiting ##############################     -->
-          <IonCol class="MainCol">
-            <IonRow class="Tabs4UpcomingPastCalendarExhibiting">
-              <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                <IonSegmentButton class="btn" value="UpcomingEvents">Upcoming Events</IonSegmentButton>
-                <IonSegmentButton class="btn" value="PastEvents">Past Events</IonSegmentButton>
-                <IonSegmentButton class="btn" value="EventsCalendar">Events Calendar</IonSegmentButton>
-                <IonSegmentButton class="btn" value="Exhibiting">Exhibiting</IonSegmentButton>
-              </IonSegment>
-            </IonRow>
-            <IonRow class="DisplayComponentRow">
-              <IonCol v-show="selectedTab === 'UpcomingEvents'" class="UpcomingEvents">
-                <!-- Component for Upcoming Events #########" -->
-                <MiniEventComponent />
-                <MiniEventComponent />
+            <!-- EventsShows 6 tabs 1- Upcoming Events 2- Past Events 3-Events Calender 4- Exhibiting ##############################     -->
+            <IonCol class="MainCol">
+              <IonRow class="Tabs4UpcomingPastCalendarExhibiting">
+                <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+                  <IonSegmentButton class="btn" value="UpcomingEvents">Upcoming Events</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="PastEvents">Past Events</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="EventsCalendar">Events Calendar</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="Exhibiting">Exhibiting</IonSegmentButton>
+                </IonSegment>
+              </IonRow>
+              <IonRow class="DisplayComponentRow">
+                <IonCol v-show="selectedTab === 'UpcomingEvents'" class="UpcomingEvents">
+                  <!-- Component for Upcoming Events #########" -->
+                  <MiniEventComponent />
+                  <MiniEventComponent />
 
-              </IonCol>
-              <IonCol v-show="selectedTab === 'PastEvents'" class="PastEvents">
-                <!-- Component for Past Events #########" -->
-                <MiniEventComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'EventsCalendar'" class="EventsCalendar">
-                <!-- Component for Events Calendar #########" -->
-                <EventsCalendarComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'Exhibiting'" class="Exhibiting">
-                <!-- Component for Exhibiting #########" -->
-                <ExhibitingComponent />
-              </IonCol>
-            </IonRow>
+                </IonCol>
+                <IonCol v-show="selectedTab === 'PastEvents'" class="PastEvents">
+                  <!-- Component for Past Events #########" -->
+                  <MiniEventComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'EventsCalendar'" class="EventsCalendar">
+                  <!-- Component for Events Calendar #########" -->
+                  <EventsCalendarComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'Exhibiting'" class="Exhibiting">
+                  <!-- Component for Exhibiting #########" -->
+                  <ExhibitingComponent />
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+
           </IonCol>
 
 
 
-
-
           <!-- Right Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section RightAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section RightAdvertComponent">
             <RightAd1Component />
             <RightAd2Component />
             <RightAd3Component />
@@ -132,8 +134,20 @@ export default defineComponent({
 
 
 <style scoped>
-/* Updated for new tab names and mobile responsiveness */
 
+ion-grid {
+  padding: 0;
+  margin: 0;
+}
+
+.bordered-section {
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  /* gap: 100px; */
+}
+
+/* Updated for new tab names and mobile responsiveness */
 .TabSegment {
   display: flex;
   flex-wrap: wrap; /* Allow segment buttons to wrap */

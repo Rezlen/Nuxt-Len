@@ -13,48 +13,49 @@
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row ">
           <!-- Left Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section LeftAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
             <LeftAd4Component />
           </IonCol>
 
+          <IonCol size="12" size-md="9" class="bordered-section FreePitchingsPage">
 
+            <IonGrid>
+              <!-- Tabs5_ 1- All Pitchers 2- One Min Pitchers 3- Three Min Pitchers/Presenters 4- Investment Pitchers 5- FREE Pitching Reservation -->
+              <IonRow class="Tabs5_AllPitchersOneMinPitchersThreeMinPitchersInvestmentPitchersFreePitchingReservation">
+                <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+                  <IonSegmentButton class="btn" value="AllPitchers">All Pitchers</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="OneMinPitchers">One Min Pitchers</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="ThreeMinPitchers">Three Min Pitchers/Presenters</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="InvestmentPitchers">Investment Pitchers</IonSegmentButton>
+                </IonSegment>
+                <IonRow class="FreePitching" >For FREE pitching/presenting, book a ticket from the ticket section in an event's page. <a href="/EventsShowsPage" >Click HERE</a></IonRow>
 
-          <IonGrid>
-            <!-- Tabs5_ 1- All Pitchers 2- One Min Pitchers 3- Three Min Pitchers/Presenters 4- Investment Pitchers 5- FREE Pitching Reservation -->
-            <IonRow class="Tabs5_AllPitchersOneMinPitchersThreeMinPitchersInvestmentPitchersFreePitchingReservation">
-              <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                <IonSegmentButton class="btn" value="AllPitchers">All Pitchers</IonSegmentButton>
-                <IonSegmentButton class="btn" value="OneMinPitchers">One Min Pitchers</IonSegmentButton>
-                <IonSegmentButton class="btn" value="ThreeMinPitchers">Three Min Pitchers/Presenters</IonSegmentButton>
-                <IonSegmentButton class="btn" value="InvestmentPitchers">Investment Pitchers</IonSegmentButton>
-              </IonSegment>
-              <IonRow class="FreePitching" >For FREE pitching/presenting, book a ticket from the ticket section in an event's page. <a href="/EventsShowsPage" >Click HERE</a></IonRow>
+              </IonRow>
+              <IonRow class="DisplayComponentRow">
+                <IonCol v-show="selectedTab === 'AllPitchers'" class="AllPitchers">
+                  <PitchingComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'OneMinPitchers'" class="OneMinPitchers">
+                  <PitchingComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'ThreeMinPitchers'" class="ThreeMinPitchers">
+                  <PitchingComponent />
+                </IonCol>
+                <IonCol v-show="selectedTab === 'InvestmentPitchers'" class="InvestmentPitchers">
+                  <PitchingComponent />
+                </IonCol>
+              </IonRow>
+            </IonGrid>
 
-            </IonRow>
-            <IonRow class="DisplayComponentRow">
-              <IonCol v-show="selectedTab === 'AllPitchers'" class="AllPitchers">
-                <PitchingComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'OneMinPitchers'" class="OneMinPitchers">
-                <PitchingComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'ThreeMinPitchers'" class="ThreeMinPitchers">
-                <PitchingComponent />
-              </IonCol>
-              <IonCol v-show="selectedTab === 'InvestmentPitchers'" class="InvestmentPitchers">
-                <PitchingComponent />
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-
+          </IonCol>
 
 
 
           <!-- Right Advert Section -->
-          <IonCol size="12" size-md="2" class="bordered-section RightAdvertComponent">
+          <IonCol size="12" size-md="1.5" class="bordered-section RightAdvertComponent">
             <RightAd1Component />
             <RightAd2Component />
             <RightAd3Component />
@@ -127,6 +128,18 @@ export default defineComponent({
 
 
 <style scoped>
+
+ion-grid {
+  padding: 0;
+  margin: 0;
+}
+
+.bordered-section {
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  /* gap: 100px; */
+}
 /* Updated for new tab names and mobile responsiveness */
 .FreePitching {
   padding-top: 5px;

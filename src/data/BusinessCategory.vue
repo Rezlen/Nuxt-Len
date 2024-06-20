@@ -125,8 +125,7 @@ export default defineComponent({
         { id: 98, name: 'Virtual Assistant' },
         { id: 99, name: 'E-sports' },
         { id: 100, name: 'Podcasting' }
-      ]
-      as BusinessCategory[],
+      ] as BusinessCategory[],
       test: 'toto'
     };
   }

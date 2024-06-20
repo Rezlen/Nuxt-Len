@@ -1,5 +1,6 @@
 <template>
   <IonGrid>
+    
     <IonCol class="WholeDiv">
       <!-- Hamburger Icon, visible only on mobile -->
       <IonRow @click="toggleMenu" class="hamburger-menu">
@@ -8,8 +9,6 @@
 
       <!-- Sidebar Menu -->
       <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': isMenuOpen }">
-        
-        
         <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Business Revenue Yearly(33B)">
           <IonSelectOption value="Highest">Highest</IonSelectOption>
           <IonSelectOption value="Lowest">Lowest</IonSelectOption>
@@ -114,26 +113,23 @@
           <IonSelectOption value="Lowest">£1,000,000+ (3)</IonSelectOption>
         </IonSelect>
         <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Business Category(12K)">
-          <IonSelectOption value="Highest">Highest</IonSelectOption>
-          <IonSelectOption value="Lowest">Lowest</IonSelectOption>
+          <IonSelectOption value="Highest">Category list</IonSelectOption>
         </IonSelect>
         <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Cities(12K)">
-          <IonSelectOption value="Highest">Highest</IonSelectOption>
-          <IonSelectOption value="Lowest">Lowest</IonSelectOption>
+          <IonSelectOption value="Highest">List Of Cities</IonSelectOption>
         </IonSelect>
         <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Countries(72)">
-          <IonSelectOption value="Highest">Highest</IonSelectOption>
-          <IonSelectOption value="Lowest">Lowest</IonSelectOption>
+          <IonSelectOption value="Highest">List Of Countries</IonSelectOption>
         </IonSelect>
         <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Job Position(14K)">
-          <IonSelectOption value="Highest">Highest</IonSelectOption>
-          <IonSelectOption value="Lowest">Lowest</IonSelectOption>
+          <IonSelectOption value="Highest">Positions List</IonSelectOption>
         </IonSelect>
         <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Membership Type(33)">
-          <IonSelectOption value="Highest">Highest</IonSelectOption>
-          <IonSelectOption value="Lowest">Lowest</IonSelectOption>
+          <IonSelectOption value="Highest">Normal (33)</IonSelectOption>
+          <IonSelectOption value="Lowest">VIP (33)</IonSelectOption>
+          <IonSelectOption value="Lowest">VVIP (33)</IonSelectOption>
         </IonSelect>        
-        <IonSelect class="Filter" aria-label="Filter" interface="popover" placeholder="Needs">
+        <IonSelect class="Filter" aria-label="Filter" interface="popover" placeholder="Needs(33)">
           <IonSelectOption class="Filter"  value="Highest">Most Popular Needs</IonSelectOption>
           <IonSelectOption class="Filter"  value="Lowest">Least Popular Needs</IonSelectOption>
           <IonSelectOption class="Filter"  value="Highest">Most Seen Needs</IonSelectOption>
@@ -145,7 +141,7 @@
           <IonSelectOption class="Filter"  value="Highest">Whom Requested Most Needs</IonSelectOption>
           <IonSelectOption class="Filter"  value="Lowest">Whom Requested Least Needs</IonSelectOption>
         </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Offers">
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Offers(33)">
           <IonSelectOption value="Highest">Most Popular Offers</IonSelectOption>
           <IonSelectOption value="Lowest">Least Popular Offers</IonSelectOption>
           <IonSelectOption value="Highest">Most Seen Offers</IonSelectOption>
@@ -157,39 +153,39 @@
           <IonSelectOption value="Highest">Whom Requested Most Offers</IonSelectOption>
           <IonSelectOption value="Lowest">Whom Requested Least Offers</IonSelectOption>
         </IonSelect>
-        <IonSelect class="Filter" aria-label="Filter" interface="popover" placeholder="Exhibits In Business Shows">
+        <IonSelect class="Filter" aria-label="Filter" interface="popover" placeholder="Exhibits In Business Shows(33)">
           <IonSelectOption value="Highest">Highest</IonSelectOption>
           <IonSelectOption value="Lowest">Lowest</IonSelectOption>
         </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Visits In Business Shows">
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Visits In Business Shows(33)">
           <IonSelectOption value="Highest">Highest</IonSelectOption>
           <IonSelectOption value="Lowest">Lowest</IonSelectOption>
         </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Profile Visites">
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Profile Visits(33)">
           <IonSelectOption value="Highest">Highest</IonSelectOption>
           <IonSelectOption value="Lowest">Lowest</IonSelectOption>
         </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Age">
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Age(33)">
           <IonSelectOption value="Highest">Highest</IonSelectOption>
           <IonSelectOption value="Lowest">Lowest</IonSelectOption>
         </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Gender">
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Gender(33)">
+          <IonSelectOption value="Highest">Male(33)</IonSelectOption>
+          <IonSelectOption value="Lowest">Female(33)</IonSelectOption>
+        </IonSelect>
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Business Age(33)">
           <IonSelectOption value="Highest">Highest</IonSelectOption>
           <IonSelectOption value="Lowest">Lowest</IonSelectOption>
         </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Business Age">
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Joining Date(33)">
+          <IonSelectOption value="Highest">Newest</IonSelectOption>
+          <IonSelectOption value="Lowest">Oldest</IonSelectOption>
+        </IonSelect>
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Connections(33)">
           <IonSelectOption value="Highest">Highest</IonSelectOption>
           <IonSelectOption value="Lowest">Lowest</IonSelectOption>
         </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Joining Date">
-          <IonSelectOption value="Highest">Highest</IonSelectOption>
-          <IonSelectOption value="Lowest">Lowest</IonSelectOption>
-        </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="Connections">
-          <IonSelectOption value="Highest">Highest</IonSelectOption>
-          <IonSelectOption value="Lowest">Lowest</IonSelectOption>
-        </IonSelect>
-        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="No. of Employees">
+        <IonSelect class="Filter"  aria-label="Filter" interface="popover" placeholder="No. of Employees(33)">
           <IonSelectOption value="Highest">Highest</IonSelectOption>
           <IonSelectOption value="Lowest">Lowest</IonSelectOption>
         </IonSelect>

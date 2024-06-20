@@ -36,6 +36,7 @@ import PostNeedComponent from '@/components/OfferNeedBestOfferComponent/PostNeed
 import PostBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostBestOfferComponent.vue';
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
 import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
+import FormTheEventComponent from '@/components/EventsShowsCopmonent/FormTheEventComponent.vue';
 import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventComponent.vue';
 import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
@@ -47,7 +48,7 @@ import FilterByComponent from '@/components/OfferNeedBestOfferComponent/FilterBy
 
 
 const routes: Array<RouteRecordRaw> = [  
-  // Pages start here MainLeftSideBarComponent
+  // Pages start here FormTheEventComponent
   {
     path: '/',
     redirect: '/home'
@@ -133,6 +134,11 @@ const routes: Array<RouteRecordRaw> = [
     component: ProfilePublicSectionComponent
   },
   {
+    path: '/formProfilePublicSectionComponent',
+    name: 'FormProfilePublicSectionComponent',
+    component: FormProfilePublicSectionComponent
+  },
+  {
     path: '/profileLeftSideBarComponent',
     name: 'ProfileLeftSideBarComponent',
     component: ProfileLeftSideBarComponent
@@ -198,12 +204,17 @@ const routes: Array<RouteRecordRaw> = [
     name: 'FilterByComponent',
     component: FilterByComponent
   },
-  // Offer Need BestOffer section
+  // Event, Ticket, Pitching section
 
   {
     path: '/theEventComponent',
     name: 'TheEventComponent',
     component: TheEventComponent
+  },
+  {
+    path: '/formTheEventComponent',
+    name: 'FormTheEventComponent',
+    component: FormTheEventComponent
   },
   {
     path: '/ticketEventComponent',
@@ -225,11 +236,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'FormPitchingComponent',
     component: FormPitchingComponent
   },
-  {
-    path: '/formProfilePublicSectionComponent',
-    name: 'FormProfilePublicSectionComponent',
-    component: FormProfilePublicSectionComponent
-  },
+
 
 
 
