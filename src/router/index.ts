@@ -9,6 +9,7 @@ import EventsShowsPage from '../views/EventsShowsPage.vue';
 import TheEventShowPage from '../views/TheEventShowPage.vue';
 import FreePitchingsPage from '../views/FreePitchingsPage.vue';
 import AboutUsPage from '../views/AboutUsPage.vue';
+import AdminPage from '../views/AdminPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -36,7 +37,6 @@ import PostNeedComponent from '@/components/OfferNeedBestOfferComponent/PostNeed
 import PostBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostBestOfferComponent.vue';
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
 import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
-import FormTheEventComponent from '@/components/EventsShowsCopmonent/FormTheEventComponent.vue';
 import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventComponent.vue';
 import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
@@ -44,6 +44,12 @@ import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingC
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 import ProfileLeftSideBarComponent from '@/components/ProfileComponents/ProfileLeftSideBarComponent.vue';
 import FilterByComponent from '@/components/OfferNeedBestOfferComponent/FilterByComponent.vue';
+// Admin events comp
+import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
+import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventComponent.vue';
+import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsBookingsComponent.vue';
+import AdminEventsListComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsListComponent.vue';
+import AdminLeftSideBarComponent from '@/components/AdminComponents/AdminEventsComponents/AdminLeftSideBarComponent.vue';
 
 
 
@@ -92,6 +98,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/aboutUsPage',
     name: 'AboutUsPage',
     component: AboutUsPage
+  },
+  {
+    path: '/adminPage',
+    name: 'AdminPage',
+    component: AdminPage
   },
   {
     path: '/templatePage',
@@ -211,11 +222,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'TheEventComponent',
     component: TheEventComponent
   },
-  {
-    path: '/formTheEventComponent',
-    name: 'FormTheEventComponent',
-    component: FormTheEventComponent
-  },
+
   {
     path: '/ticketEventComponent',
     name: 'TicketEventComponent',
@@ -236,7 +243,32 @@ const routes: Array<RouteRecordRaw> = [
     name: 'FormPitchingComponent',
     component: FormPitchingComponent
   },
-
+  // Admin EVENTs Components AdminCreateEventTABsComponent
+  {
+    path: '/adminCreateEventTABsComponent',
+    name: 'AdminCreateEventTABsComponent',
+    component: AdminCreateEventTABsComponent
+  },
+  {
+    path: '/adminCreateEventComponent',
+    name: 'AdminCreateEventComponent',
+    component: AdminCreateEventComponent
+  },
+  {
+    path: '/adminEventsBookingsComponent',
+    name: 'AdminEventsBookingsComponent',
+    component: AdminEventsBookingsComponent
+  },
+  {
+    path: '/adminEventsListComponent',
+    name: 'AdminEventsListComponent',
+    component: AdminEventsListComponent
+  },
+  {
+    path: '/adminLeftSideBarComponent',
+    name: 'AdminLeftSideBarComponent',
+    component: AdminLeftSideBarComponent
+  },
 
 
 

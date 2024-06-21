@@ -116,11 +116,16 @@
                 <p><a href="/AboutUsPage" class="Events-button" >AboutUsPage </a> </p>
                 <p><a href="/ProfileLeftSideBarComponent" class="Events-button" >ProfileLeftSideBarComponent </a> </p>
                 <p><a href="/FilterByComponent" class="Events-button" >FilterByComponent </a> </p>
-                <p><a href="/FormTheEventComponent" class="Events-button" >FormTheEventComponent </a> </p>
+                <p><a href="/AdminPage" class="Events-button" >AdminPage </a> </p>
+                <p><a href="/AdminCreateEventTABsComponent" class="Events-button" >AdminCreateEventTABsComponent</a> </p>
+                <p><a href="/AdminCreateEventComponent" class="Events-button" >AdminCreateEventComponent</a> </p>
+                <p><a href="/AdminEventsBookingsComponent" class="Events-button" >AdminEventsBookingsComponent </a> </p>
+                <p><a href="/AdminEventsListComponent" class="Events-button" >AdminEventsListComponent </a> </p>
+                <p><a href="/AdminLeftSideBarComponent" class="Events-button" >AdminLeftSideBarComponent </a> </p>
               
               </IonRow>
               
-              <!-- MiniProfilesRow ##############################     FormExhibitingWorkshopPresentComponent         -->
+              <!-- MiniProfilesRow ##############################     AdminPage         -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
