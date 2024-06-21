@@ -1,104 +1,187 @@
 <template>
-    <!-- Hamburger Icon, visible only on mobile -->
-    <div @click="toggleMenu" class="hamburger-menu">
-      ☰ Side Menu
-    </div>
+  <IonGrid>
+    <IonRow>
+      <IonCol>
+        <!-- Create Floorplan Section -->
+        <IonRow class="BorderedSection">
+          <IonCol>
+            <IonLabel>Upload Floorplan</IonLabel>
+            <input type="file" @change="onFileSelected" />
+          </IonCol>
+          <IonCol>
+            <IonSelect v-model="selectedCategory" placeholder="Display Floorplan on" fill="outline">
+              <IonSelectOption value="homePage">Home Page</IonSelectOption>
+              <IonSelectOption value="exhibitingTab">Exhibiting Tab in EventsShowsPage</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonButton fill="outline">Hide Floorplan</IonButton>
+          </IonCol>
+        </IonRow>
+        <img alt="LEN Logo" src="/public/WeworkMoorgateGroundfloor.jpg" />
+      </IonCol>
 
-    <!-- Sidebar Menu -->
-    <IonGrid :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen && isMobileView }">
-      <IonItem>Menu1</IonItem>
-      <IonItem>Menu2</IonItem>
-      <IonItem>Menu3</IonItem>
-      <IonItem>Menu4</IonItem>
-      <IonItem>Menu5</IonItem>
-    </IonGrid>
+      <IonCol>
+        <IonRow class="BorderedSection">
+          <IonCol>
+            <IonTextarea class="Summeries" label="AddressLocationName" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+          </IonCol>
+          <IonCol>
+            <IonTextarea outline="fill" class="Summeries" label="FullAddress" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+          </IonCol>
+          <IonCol><iframe width="150px">GMap</iframe></IonCol>
+          <IonCol>
+            <iframe width="150" height="150" src="https://www.youtube.com/embed/dNjQ_wZBA28" title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching | London Entrepreneurs 🚀" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </IonCol>
+          <IonCol>
+            <IonTextarea class="Summeries" label="EventDetails" label-placement="floating" :counter="true" :maxlength="1000" :counter-formatter="customFormatter"></IonTextarea>
+          </IonCol>
+          <IonCol>
+            <IonTextarea :auto-grow="true" label="EventTitle" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+          </IonCol>
+        </IonRow>
+
+        <!-- Create Tickets Section -->
+        <IonRow class="BorderedSection">
+          <IonCol>
+            <IonSelect v-model="selectedCategory" placeholder="Ticket Type" fill="outline">
+              <IonSelectOption value="freeVisitor">FREE Visitor</IonSelectOption>
+              <IonSelectOption value="freeBusinessMentor">FREE Business Mentor</IonSelectOption>
+              <IonSelectOption value="freeInvestor">FREE Investor</IonSelectOption>
+              <IonSelectOption value="free1MinutePitching">FREE 1 Minute Pitching</IonSelectOption>
+              <IonSelectOption value="threeMinPitching">3 Min Pitching</IonSelectOption>
+              <IonSelectOption value="fiveMinInvestmentPitching">5 Min Investment Pitching</IonSelectOption>
+              <IonSelectOption value="fiveMinPresentation">5 Min Presentation</IonSelectOption>
+              <IonSelectOption value="thirtyMinWorkshop">30 Min Workshop</IonSelectOption>
+              <IonSelectOption value="exhibitionSpotTickets">Exhibition Spot Tickets</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonSelect :disabled="isFreeTicket" v-model="selectedCategory" placeholder="Exhibition Spot Color" fill="outline">
+              <IonSelectOption value="blue">Blue</IonSelectOption>
+              <IonSelectOption value="yellow">Yellow</IonSelectOption>
+              <IonSelectOption value="red">Red</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonSelect :disabled="isFreeTicket" v-model="selectedCategory" placeholder="Exhibition Spot Shape" fill="outline">
+              <IonSelectOption value="square">Square</IonSelectOption>
+              <IonSelectOption value="circle">Circle</IonSelectOption>
+              <IonSelectOption value="rectangle">Rectangle</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonSelect :disabled="isFreeTicket" v-model="selectedCategory" placeholder="Display Exhibition Quantity" fill="outline">
+              <IonSelectOption value="yes">Yes</IonSelectOption>
+              <IonSelectOption value="no">No</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonSelect v-model="selectedCategory" placeholder="Display Visitors Quantity" fill="outline">
+              <IonSelectOption value="yes">Yes</IonSelectOption>
+              <IonSelectOption value="no">No</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonInput :disabled="isFreeTicket" :auto-grow="true" type="number" label="Price" label-placement="floating" :counter="true" :maxlength="5" :counter-formatter="customFormatter" fill="outline"></IonInput>
+          </IonCol>
+          <IonCol>
+            <IonInput :auto-grow="true" type="number" label="Ticket Quantity" label-placement="floating" :counter="true" :maxlength="10" :counter-formatter="customFormatter" fill="outline"></IonInput>
+          </IonCol>
+          <IonCol>
+            <IonTextarea :auto-grow="true" type="text" label="Ticket Title" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+          </IonCol>
+          <IonCol>
+            <IonTextarea :auto-grow="true" type="text" label="Ticket Description" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+          </IonCol>
+          <IonCol>
+            <IonInput :disabled="isFreeTicket" :auto-grow="true" type="number" label="Discount Code" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+          </IonCol>
+          <IonCol>
+            <IonInput :disabled="isFreeTicket" :auto-grow="true" type="number" label="Discount % of Tickets Price" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+          </IonCol>
+          <IonCol>
+            <IonInput :auto-grow="true" type="number" label="Display Green Notification HOURS Before Event" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+          </IonCol>
+          <IonCol>
+            <IonInput :auto-grow="true" type="number" label="Display Blue Notification HOURS Before Event" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+          </IonCol>
+          <IonCol>
+            <IonButton fill="outline">Submit</IonButton>
+            <IonButton fill="outline">Reset</IonButton>
+          </IonCol>
+        </IonRow>
+
+        <IonDatetime></IonDatetime>
+      </IonCol>
+    </IonRow>
+  </IonGrid>
 </template>
+
 <script lang="ts">
-import { defineComponent, ref, onMounted, onBeforeUnmount } from 'vue';
-import { IonGrid, IonItem } from '@ionic/vue';
+import { defineComponent, ref, computed } from 'vue';
+import { IonSelectOption, IonInput, IonIcon, IonDatetime, IonGrid, IonRow, IonCol, IonButton, IonTextarea, IonLabel, IonSelect } from '@ionic/vue';
 
 export default defineComponent({
-  name: 'ProfileLeftSideBarComponent',
+  name: 'AdminCreateEventComponent',
   components: {
+    IonSelectOption,
+    IonInput,
+    IonDatetime,
     IonGrid,
-    IonItem,
+    IonRow,
+    IonCol,
+    IonButton,
+    IonTextarea,
+    IonLabel,
+    IonSelect,
   },
   setup() {
-    const isMenuOpen = ref(false);
-    const isMobileView = ref(window.innerWidth <= 600);
+    const selectedCategory = ref<string | null>(null);
 
-    const toggleMenu = () => {
-      isMenuOpen.value = !isMenuOpen.value;
+    const customFormatter = (inputLength: number, maxLength: number) => {
+      return `${maxLength - inputLength} characters remaining`;
     };
 
-    const handleResize = () => {
-      isMobileView.value = window.innerWidth <= 600;
+    const onFileSelected = (event: Event) => {
+      const input = event.target as HTMLInputElement;
+      const file = input.files?.[0];
+      if (file) {
+        console.log(file);
+      }
     };
 
-    onMounted(() => {
-      window.addEventListener('resize', handleResize);
-    });
-
-    onBeforeUnmount(() => {
-      window.removeEventListener('resize', handleResize);
+    const isFreeTicket = computed(() => {
+      return selectedCategory.value === 'freeVisitor' || selectedCategory.value === 'freeBusinessMentor' || selectedCategory.value === 'freeInvestor' || selectedCategory.value === 'free1MinutePitching';
     });
 
     return {
-      isMenuOpen,
-      isMobileView,
-      toggleMenu,
+      selectedCategory,
+      onFileSelected,
+      customFormatter,
+      isFreeTicket,
     };
-  },
+  }
 });
 </script>
+
+
 <style scoped>
-.hamburger-menu {
-  font-size: 20px;
-  cursor: pointer;
-  padding: 10px;
-  position: fixed; /* Keep hamburger menu fixed */
-  top: 10px;
-  left: 10px;
-  z-index: 1100; /* Ensure it stays on top of the sidebar */
-  display: none; /* Hide hamburger menu by default */
+.BorderedSection {
+  border: 4px solid rgb(21, 223, 14);
+  border-radius: 5px;
 }
 
-.sidebar-menu {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  padding: 10px;
-  overflow-y: auto; /* Ensure the content is scrollable */
-  width: fit-content; /* Make width fit-content */
-  height: fit-content; /* Make height fit-content */
+ion-grid {
+  height: 100%;
+  overflow-y: auto;
 }
 
-.sidebar-menu-hidden {
-  display: none; /* Hide sidebar by default on mobile */
-}
-
-@media (max-width: 900px) {
-  .hamburger-menu {
-    display: block; /* Show hamburger menu on mobile */
-  }
-
-  .sidebar-menu {
-    position: fixed;
-    top: 50px; /* Adjust top to avoid overlap with hamburger menu */
-    left: 0;
-    bottom: 0;
-    z-index: 1000;
-    width: fit-content; /* Ensure sidebar width is fit-content */
-    height: fit-content; /* Ensure sidebar height is fit-content */
-  }
-
-  .sidebar-menu.sidebar-menu-hidden {
-    display: none; /* Hide sidebar when menu is closed */
-  }
-
-  .ion-item {
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word;
-  }
+ion-textarea {
+  border-radius: 7px;
+  border: 1px green solid;
 }
 </style>
+
+
+
