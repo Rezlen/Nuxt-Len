@@ -24,6 +24,13 @@
       </p>
     </IonCardContent>
 
+    <IonRow class="ButtonsSection">
+      <IonButton>Duplicate This Need</IonButton>
+      <IonButton  fill="outline">Edit <ion-icon slot="end" :icon="create"></ion-icon></IonButton>
+      <IonButton>Hide This Need</IonButton>
+      <IonButton fill="outline"> Delete </IonButton>
+      <IonButton>Renew This Need</IonButton>
+    </IonRow>
 
   </IonCard>
 
@@ -34,6 +41,7 @@
 import { defineComponent, ref } from 'vue';
 import { IonGrid, IonRow, IonCol, IonIcon, IonCard, IonButton, IonCardHeader, IonCardContent, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
+import { create } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'NeedComponent',
@@ -56,6 +64,7 @@ export default defineComponent({
       logoTwitter,
       logoLinkedin,
       logoGoogle,
+      create,
     };
   },
 });
@@ -65,7 +74,10 @@ export default defineComponent({
 /* *{
   border: solid 1px black;
 } */
-
+ion-card{
+  height: 100%;
+  overflow-y: auto;
+}
 .CenterPositions {
   display: flex;
   justify-content: center;

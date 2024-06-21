@@ -23,7 +23,14 @@
         Offer & needs content here. commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
     </IonCardContent>
+    <IonRow class="ButtonsSection">
+      <IonButton>Duplicate This Offer</IonButton>
+      <IonButton  fill="outline">Edit <ion-icon slot="end" :icon="create"></ion-icon></IonButton>
+      <IonButton>Hide This Offer</IonButton>
+      <IonButton fill="outline"> Delete </IonButton>
+      <IonButton>Renew This Offer</IonButton>
 
+    </IonRow>
 
   </IonCard>
 
@@ -32,8 +39,9 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonGrid, IonRow, IonCol, IonIcon, IonCard, IonButton, IonCardHeader, IonCardContent, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
+import { IonGrid, IonRow, IonCol, IonIcon, IonCard, IonButton, IonButtons, IonCardHeader, IonCardContent, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
+import { create } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'OfferComponent',
@@ -44,6 +52,7 @@ export default defineComponent({
     IonIcon,
     IonCard,
     IonButton,
+    IonButtons,
     IonCardContent,
     IonCardHeader,
     IonCardSubtitle,
@@ -56,6 +65,7 @@ export default defineComponent({
       logoTwitter,
       logoLinkedin,
       logoGoogle,
+      create,
     };
   },
 });
@@ -65,6 +75,10 @@ export default defineComponent({
 /* *{
   border: solid 1px black;
 } */
+ion-card{
+  height: 100%;
+  overflow-y: auto;
+}
 
 .CenterPositions {
   display: flex;
