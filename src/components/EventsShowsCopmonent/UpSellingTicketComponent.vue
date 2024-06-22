@@ -47,7 +47,7 @@
     <div class="row">
       <!-- Conditional Rendering of the FormPitchingComponent -->
       <div class="column wide-column left-align " @click="toggleFormPitching" >
-        <IonCheckbox justify="start" class="FREEOneMinute">FREE One Minute Pitching</IonCheckbox>
+        <IonCheckbox justify="start">FREE One Minute Pitching</IonCheckbox>
         <IonCheckbox justify="start">Three Minutes Pitching</IonCheckbox>
         <IonCheckbox justify="start">Investment Pitching; 5 Minutes</IonCheckbox>
         <IonCheckbox justify="start">Workshops Black Sqare; 30 Minutes</IonCheckbox><br/>
@@ -183,9 +183,6 @@ export default defineComponent({
 
 .row-small .column, .row-small .wide-column {
   height: 80px; /* Fixed height for small rows */
-}
-.FREEOneMinute{
-  color:red;
 }
 
 .footer {

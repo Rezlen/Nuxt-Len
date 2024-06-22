@@ -18,7 +18,7 @@
             <IonButton fill="outline">Hide Floorplan</IonButton>
           </IonCol>
         </IonRow>
-        <img alt="LEN Logo" src="/public/WeworkMoorgateGroundfloor.jpg" />
+        <img alt="LEN Logo" src="/WeworkMoorgateGroundfloor.jpg" />
       </IonCol>
 
       <IonCol>
@@ -44,7 +44,7 @@
         <!-- Create Tickets Section -->
         <IonRow class="BorderedSection">
           <IonCol>
-            <IonSelect v-model="selectedCategory" placeholder="Ticket Type" fill="outline">
+            <IonSelect v-model="selectedCategory" placeholder="Ticket Type" fill="outline" class="TicketType">
               <IonSelectOption value="freeVisitor">FREE Visitor</IonSelectOption>
               <IonSelectOption value="freeBusinessMentor">FREE Business Mentor</IonSelectOption>
               <IonSelectOption value="freeInvestor">FREE Investor</IonSelectOption>
@@ -150,7 +150,7 @@ export default defineComponent({
         console.log(file);
       }
     };
-
+    // this disables features that are only needed for FREE tickets
     const isFreeTicket = computed(() => {
       return selectedCategory.value === 'freeVisitor' || selectedCategory.value === 'freeBusinessMentor' || selectedCategory.value === 'freeInvestor' || selectedCategory.value === 'free1MinutePitching';
     });
@@ -167,6 +167,10 @@ export default defineComponent({
 
 
 <style scoped>
+.TicketType {
+  border: 4px solid rgb(221, 9, 9);
+  border-radius: 5px;
+}
 .BorderedSection {
   border: 4px solid rgb(21, 223, 14);
   border-radius: 5px;
