@@ -2,7 +2,7 @@
   <IonGrid>
     <IonRow>
       <IonCol>
-        <!-- Create Floorplan Section -->
+        <!-- FloorPlan section details -->
         <IonRow class="BorderedSection">
           <IonCol>
             <IonLabel>Upload Floorplan</IonLabel>
@@ -21,8 +21,10 @@
         <img alt="LEN Logo" src="/WeworkMoorgateGroundfloor.jpg" />
       </IonCol>
 
+        <!-- Event Details Section -->
       <IonCol>
         <IonRow class="BorderedSection">
+            <P>This section is to create Titele Of the event, address & details etc..</P>
           <IonCol>
             <IonTextarea class="Summeries" label="AddressLocationName" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
           </IonCol>
@@ -43,6 +45,7 @@
 
         <!-- Create Tickets Section -->
         <IonRow class="BorderedSection">
+            <P>This section is to create actual tickets for Exhibiting, Pitching, Presenting etc..</P>
           <IonCol>
             <IonSelect v-model="selectedCategory" placeholder="Ticket Type" fill="outline" class="TicketType">
               <IonSelectOption value="freeVisitor">FREE Visitor</IonSelectOption>
@@ -112,7 +115,52 @@
           </IonCol>
         </IonRow>
 
-        <IonDatetime></IonDatetime>
+        <!-- Create Upselling Section -->
+          <IonRow class="BorderedSection ">
+            <p>This section is to create Upselling tickets for Exhibitors, Pitchers, Presenters etc..</p>
+            <IonCol class="UpSellingService1">
+              <IonTextarea class="TicketQ" label="Type the quiestion 1 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- Do You Need Presentation or Pitching Training ? -->
+              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- I want 1 hour presentation/pitching training, for my presentation or pitching in this event; £100 x 1 = £100 -->
+            </IonCol>
+
+            <IonCol class="UpSellingService2">
+              <IonTextarea class="TicketQ" label="Type the quiestion 2 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- Do You Need Business/Funding/Investment Advice ? -->
+              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- I want 1 hour FUNDING, INVESTMENT ADVICE on how/where-from to source funding/investment for my business/idea; £75 x 1 = £75 -->
+              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- I want 1 hour BUSINESS ADVICE about my business/idea; in-person, phone or online e.g Skype; £75 x 1 = £75 -->
+            </IonCol>
+
+            <IonCol class="UpSellingService3">
+              <IonTextarea class="TicketQ" label="Type the quiestion 3 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- Do You Need FREE Business/Funding/Investment Advice ?-->
+              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- I want HALF an HOUR <span class="ADVICEforFREE">FUNDING, INVESTMENT ADVICE for FREE</span>, on how/where-from to source funding/investment for my business/idea. -->
+              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- I want HALF an HOUR <span class="ADVICEforFREE">BUSINESS ADVICE for FREE</span>, about my business/idea; in-person, phone or online e.g Skype. -->
+            </IonCol>
+
+            <IonCol class="UpSellingService4">
+              <IonTextarea class="TicketQ" label="Type the quiestion 4 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- Tick Below if You Like to Receive a Video of Your Pitching!-->
+              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- My pitching be professionally filmed, receive a RAW (UN-Edited) professional footage; £20 x 1 = £20 -->
+              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <!-- My pitching be filmed, receive professionally EDITED 5 minutes footage; £250 x 1 = £250 -->
+            </IonCol>
+
+          
+          
+          </IonRow>
+          <IonDatetime></IonDatetime>
+
+          <IonButton>Submit</IonButton>
+
+
+        
       </IonCol>
     </IonRow>
   </IonGrid>
@@ -167,6 +215,10 @@ export default defineComponent({
 
 
 <style scoped>
+p{
+  font-weight: bold;
+  text-align: center;
+}
 .TicketType {
   border: 4px solid rgb(221, 9, 9);
   border-radius: 5px;
@@ -175,15 +227,25 @@ export default defineComponent({
   border: 4px solid rgb(21, 223, 14);
   border-radius: 5px;
 }
-
 ion-grid {
   height: 100%;
   overflow-y: auto;
 }
-
 ion-textarea {
   border-radius: 7px;
   border: 1px green solid;
+}
+.UpSellingService2,
+.UpSellingService4 {
+  margin: 4px;
+  background-color: rgb(245, 229, 253);
+  border-radius: 7px;
+}
+.UpSellingService1,
+.UpSellingService3 {
+  margin: 4px;
+  background-color: rgb(177, 247, 206);
+  border-radius: 7px;
 }
 </style>
 

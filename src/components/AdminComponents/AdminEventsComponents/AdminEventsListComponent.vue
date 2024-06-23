@@ -1,13 +1,31 @@
 <template>
   <IonGrid >
+    <IonRow class="BorderedSection">
+      <IonCol>EventTitle</IonCol>
+      <IonCol>EventDate</IonCol>
+      <IonCol>EventLocation</IonCol>
+      <IonCol>Paid Reservations</IonCol>
+      <IonCol>Free Reservations</IonCol>
 
-        <IonRow class="BorderedSection">
-          <IonButton>Submit</IonButton>
-          <IonButton>Duplicate This Event</IonButton>
-          <IonButton  fill="outline">Edit <ion-icon slot="end" :icon="create"></ion-icon></IonButton>
-          <IonButton>Hide This Event</IonButton>
-          <IonButton fill="outline"> Delete </IonButton>
-        </IonRow>
+      <IonCol>CreatedAt</IonCol>
+      <IonCol>LastEdited</IonCol>
+      <IonRow >
+        <IonButton fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="small" :icon="duplicate"></IonIcon></IonButton>
+        <IonButton fill="clear" title="Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
+        <IonButton fill="clear" title="Hide This Event" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+        <IonButton fill="clear" title="Delete This Event" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+      </IonRow>
+    </IonRow>
+    <IonRow class="TotalRow BorderedSection">
+      <IonCol>TotalEventsNumber</IonCol>
+      <IonCol></IonCol>
+      <IonCol></IonCol>
+      <IonCol>TotalAmount Here</IonCol>
+      <IonCol></IonCol>
+      <IonCol></IonCol>
+      <IonCol></IonCol>
+      <IonCol></IonCol>
+    </IonRow>
       
   </IonGrid>
 </template>
@@ -16,7 +34,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { IonIcon, IonDatetime, IonContent, IonGrid, IonRow, IonCol, IonButton,IonButtons, IonTextarea, IonCardHeader, IonCardTitle, IonCardSubtitle, IonItem, IonLabel, IonSelect, IonSegment, IonSegmentButton } from '@ionic/vue';
-import { create } from 'ionicons/icons';
+import { create, trash, duplicate, ban } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'AdminEventsListComponent',
@@ -42,7 +60,6 @@ export default defineComponent({
   setup() {
     const selectedTab = ref<string>('Marketing'); // Initialize with the default tab
 
-
     const customFormatter = (inputLength: number, maxLength: number) => {
       return `${maxLength - inputLength} characters remaining`;
     };
@@ -60,6 +77,9 @@ export default defineComponent({
       onFileSelected,
       customFormatter,
       create,
+      trash,
+      duplicate,
+      ban,
     };
   }
 });

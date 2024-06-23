@@ -7,7 +7,7 @@
       </IonRow>
 
       <!-- Sidebar Menu -->
-      <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': isMenuOpen }">
+      <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
         
         <IonRow class="PaddingBorder " >My Account</IonRow>
         <IonRow class="PaddingBorder MainOptions">Reward/Discount: 0%</IonRow>

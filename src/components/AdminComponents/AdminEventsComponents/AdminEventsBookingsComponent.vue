@@ -1,13 +1,36 @@
 <template>
   <IonGrid >
+    <IonRow class="BorderedSection">
+      <IonCol>TicketID</IonCol>
+      <IonCol>TicketTitle</IonCol>
+      <IonCol>Price</IonCol>
+      <IonCol>TotalSameTicket Spent</IonCol>
+      <IonCol>Total Spent</IonCol>
+      <IonCol>Salary</IonCol>
+      <IonCol>Company Revenue</IonCol>
+      <IonCol title="GPS Was TurnedOn Total">GPS on-time</IonCol>
+      <IonCol>BizName</IonCol>
+      <IonCol>FullName</IonCol>
+      <IonCol>SpotNo</IonCol>
+      <IonCol>Color</IonCol>
 
-        <IonRow class="BorderedSection">
-          <IonButton>Submit</IonButton>
-          <IonButton>Duplicate This Event</IonButton>
-          <IonButton  fill="outline">Edit <ion-icon slot="end" :icon="create"></ion-icon></IonButton>
-          <IonButton>Hide This Event</IonButton>
-          <IonButton fill="outline"> Delete </IonButton>
-        </IonRow>
+      <IonCol>Barcode CheckedIn</IonCol>
+      <IonCol>CreatedAt</IonCol>
+      <IonRow >
+        <IonButton fill="clear" title="Refund This Ticket" > <IonIcon slot="icon-only" size="large" :icon="close"></IonIcon></IonButton>
+      </IonRow>
+    </IonRow>
+
+    <IonRow class="TotalRow BorderedSection">
+      <IonCol>TotalTicketNumber</IonCol>
+      <IonCol></IonCol>
+      <IonCol></IonCol>
+      <IonCol>TotalAmount Here</IonCol>
+      <IonCol></IonCol>
+      <IonCol></IonCol>
+      <IonCol></IonCol>
+      <IonCol></IonCol>
+    </IonRow>
       
   </IonGrid>
 </template>
@@ -16,10 +39,10 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { IonIcon, IonDatetime, IonContent, IonGrid, IonRow, IonCol, IonButton,IonButtons, IonTextarea, IonCardHeader, IonCardTitle, IonCardSubtitle, IonItem, IonLabel, IonSelect, IonSegment, IonSegmentButton } from '@ionic/vue';
-import { create } from 'ionicons/icons';
+import { create, close } from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'AdminEventsBookingsComponent',
+  name: 'AdminEventsListComponent',
   components: {
     IonIcon,
     IonDatetime,
@@ -42,7 +65,6 @@ export default defineComponent({
   setup() {
     const selectedTab = ref<string>('Marketing'); // Initialize with the default tab
 
-
     const customFormatter = (inputLength: number, maxLength: number) => {
       return `${maxLength - inputLength} characters remaining`;
     };
@@ -60,6 +82,7 @@ export default defineComponent({
       onFileSelected,
       customFormatter,
       create,
+      close,
     };
   }
 });

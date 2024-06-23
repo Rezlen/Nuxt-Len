@@ -26,7 +26,7 @@
             <IonTitle>London Entrepreneurs Network</IonTitle>
             <IonButtons slot="end">
               <RouterLink to="/home" routerDirection="forward">
-                <img alt="LEN Logo" height="40" src="/public/favicon.png" />
+                <img alt="LEN Logo" height="40" src="/favicon.png" />
               </RouterLink>
             </IonButtons>
           </IonToolbar>
@@ -42,7 +42,7 @@
             <!-- Column for LEN Logo -->
             <IonCol class="LogoCol">
               <RouterLink to="/home" routerDirection="forward">
-                <img alt="LEN Logo" height="60" src="/public/favicon.png" />
+                <img alt="LEN Logo" height="60" src="/favicon.png" />
               </RouterLink>
             </IonCol>
 
