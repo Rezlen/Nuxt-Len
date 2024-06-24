@@ -18,7 +18,7 @@
           <!-- Sidebar Menu -->
           <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
             <IonRow class="PaddingBorder">AllMembers</IonRow>
-            <IonRow class="PaddingBorder MainOptions"@click="showComponent('account')" >Events</IonRow>
+            <IonRow class="PaddingBorder MainOptions"@click="showComponent('events')" >Events</IonRow>
             <IonRow class="PaddingBorder UpgradeVIP"> to VIP</IonRow>
             <IonRow class="PaddingBorder MessageRemaining">remaining</IonRow>
             <IonRow class="PaddingBorder">Edit Profile</IonRow>
@@ -85,7 +85,7 @@ export default defineComponent({
     };
 
     const showComponent = (componentName: string) => {
-      if (componentName === 'account') {
+      if (componentName === 'events') {
         currentComponent.value = AdminCreateEventTABsComponent;
       }
       // Add other cases as needed for other menu items

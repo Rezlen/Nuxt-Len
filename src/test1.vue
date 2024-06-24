@@ -1,103 +1,286 @@
 <template>
-  <IonPage>
-    <IonContent>
-      <IonGrid>
-        <!-- Menu Section -->  <!-- Social Media Section -->
-        <IonRow class="bordered-section">
-          <MenuComponent />
-        </IonRow>
+  <IonGrid>
+    <!-- ButtonRow -->
+    <IonRow class="ButtonRow" justify-content-end>
+      <IonCol class="ButtonCol">
+        <IonButton @click="resetSorting">RESET</IonButton>
+      </IonCol>
+      <IonCol class="ButtonCol">
+        <IonButton @click="exportTable">EXPORT</IonButton>
+      </IonCol>
+      <IonCol class="ButtonCol">
+        <IonButton @click="printTable">PRINT</IonButton>
+      </IonCol>
+    </IonRow>
 
-        <!-- /* Floating sidebar starts here ##################################################### */ -->
-        <!-- There is an exportable component here as well; D:\Ionics\nuxt-len\src\components\AdminComponents\AdminEventsComponents\AdminLeftSideBarComponent.vue -->
-        <IonCol class="WholeDiv">
-          <!-- Hamburger Icon, visible only on mobile -->
-          <IonRow @click="toggleMenu" class="hamburger-menu">
-            ☰ Sidebar
-          </IonRow>
+    <!-- TitleRow with sorting functionality and icons -->
+    <IonRow class="TitleRow">
+      <IonCol class="TicketIDCol" @click="sortTickets('id')">
+        TicketID
+        <IonIcon :icon="sortIcon('id')" class="sort-icon" />
+      </IonCol>
+      <IonCol class="TicketTitleCol" @click="sortTickets('title')">
+        TicketTitle
+        <IonIcon :icon="sortIcon('title')" class="sort-icon" />
+      </IonCol>
+      <IonCol class="TicketPriceCol" @click="sortTickets('price')">
+        Price
+        <IonIcon :icon="sortIcon('price')" class="sort-icon" />
+      </IonCol>
+      <IonCol>
+        <IonButton fill="clear" title="Refund This Ticket">
+          <IonIcon slot="icon-only" size="large" :icon="close"></IonIcon>
+        </IonButton>
+      </IonCol>
+    </IonRow>
 
-          <!-- Sidebar Menu -->
-          <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
-            <IonRow class="PaddingBorder" >AllMembers</IonRow>
-            <IonRow class="PaddingBorder MainOptions"@click="showComponent('account')" >Events</IonRow>
-            <IonRow class="PaddingBorder UpgradeVIP">{Profile Pic}+Upgrade to VIP</IonRow>
-            <IonRow class="PaddingBorder MessageRemaining">
-              <IonButton size="small">Buy More</IonButton> {11} of 20 of your monthly messages remaining
-            </IonRow>
-            <IonRow class="PaddingBorder">Edit Profile</IonRow>
-            <IonRow class="PaddingBorder">My Connections</IonRow>
-            <IonRow class="PaddingBorder">Messages</IonRow>
-            <IonRow class="PaddingBorder">My Offer</IonRow>
-            <IonRow class="PaddingBorder">My Best Offers</IonRow>
-            <IonRow class="PaddingBorder">My Need</IonRow>
-            <IonRow class="PaddingBorder">My Pitches</IonRow>
-            <IonRow class="PaddingBorder">My Orders</IonRow>
-            <IonRow class="PaddingBorder">My Blogs</IonRow>
-            <IonRow class="PaddingBorder">My Comments Posts</IonRow>
-            <IonRow class="PaddingBorder">My Gallery</IonRow>
-            <IonRow class="PaddingBorder">Change Password</IonRow>
-            <IonRow class="PaddingBorder">Delete Account</IonRow>
-            <IonRow class="PaddingBorder">Notification Setting</IonRow>
-            <IonRow class="PaddingBorder">My Groups</IonRow>
-            <IonRow class="PaddingBorder">Log Out</IonRow>
-          </IonRow>
-        </IonCol>
+    <!-- Data rows -->
+    <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow">
+      <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
+      <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
+      <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
+      <IonCol>
+        <IonButton fill="clear" title="Close">
+          <IonIcon slot="icon-only" size="large" :icon="close"></IonIcon>
+        </IonButton>
+      </IonCol>
+    </IonRow>
 
-        <IonRow class="bordered-section PageMainContent">
-          <component :is="currentComponent" />
-        </IonRow>
-        
-        <!-- /* Floating sidebar ends here ##################################################### */ -->
+    <!-- Total row -->
+    <IonRow class="TotalRow">
+      <IonCol>TotalTicketIDs</IonCol>
+      <IonCol></IonCol>
+      <IonCol>{{ total }}</IonCol>
+    </IonRow>
 
-        <!-- Footer Section -->
-        <IonRow>
-          <IonCol class="bordered-section FooterComponent">
-            <FooterComponent />
-          </IonCol>
-        </IonRow>
-      </IonGrid>
-    </IonContent>
-  </IonPage>
-</template>
-
-<script lang="ts">
-import { defineComponent, ref, Ref } from 'vue';
-import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonButton } from '@ionic/vue';
-import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
-import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
-import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
+    <!-- Pagination -->
+    <IonRow class="PaginationRow">
+      <IonButton @click="prevPage" :disabled="currentPage === 1">Previous</IonButton>
+      <IonCol class="PageInfo">Page {{ currentPage }} of {{ totalPages }}</IonCol>
+      <IonButton @click="nextPage" :disabled="currentPage === totalPages">Next</IonButton>
+    </IonRow>
+  </IonGrid>
+</template><script lang="ts">
+import { defineComponent, ref, computed } from 'vue';
+import { IonIcon, IonGrid, IonRow, IonCol, IonButton } from '@ionic/vue';
+import { close, arrowDownOutline, arrowUpOutline } from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'AdminPage',
+  name: 'AdminEventsListComponent',
   components: {
-    IonPage,
+    IonIcon,
     IonGrid,
     IonRow,
     IonCol,
-    IonContent,
-    MenuComponent,
-    AdminCreateEventTABsComponent,
-    FooterComponent,
+    IonButton,
   },
   setup() {
-    const isMenuOpen = ref(false);
-    const currentComponent: Ref<null | any> = ref(null); // To store the current component to display
+    const tickets = ref([
+      { id: 3, title: 'Another Title', price: 450 },
+      { id: 2, title: 'Example Title', price: 150 },
+      { id: 1, title: 'Titles', price: 300 },
+      // Add more dummy data as needed to test pagination
+    ]);
 
-    const toggleMenu = () => {
-      isMenuOpen.value = !isMenuOpen.value;
+    const sortKey = ref<string | null>(null);
+    const sortAsc = ref(true);
+
+    /**
+     * Sorts the tickets based on the provided key. 
+     * If the key is the same as the current sortKey, it toggles the sort order.
+     * Otherwise, it sets the new key and sorts in ascending order.
+     * 
+     * @param key - The key to sort by (e.g., 'id', 'title', 'price')
+     */
+    const sortTickets = (key: string) => {
+      if (sortKey.value === key) {
+        sortAsc.value = !sortAsc.value;
+      } else {
+        sortKey.value = key;
+        sortAsc.value = true;
+      }
     };
 
-    const showComponent = (componentName: string) => {
-      if (componentName === 'account') {
-        currentComponent.value = AdminCreateEventTABsComponent;
+    /**
+     * Returns the appropriate sorting icon based on the current sortKey and sort order.
+     * 
+     * @param key - The key to check against the current sortKey
+     * @returns The icon to display (up or down arrow)
+     */
+    const sortIcon = (key: string) => {
+      if (sortKey.value !== key) return arrowDownOutline;
+      return sortAsc.value ? arrowUpOutline : arrowDownOutline;
+    };
+
+    /**
+     * Resets the sorting to the original state (default order).
+     */
+    const resetSorting = () => {
+      sortKey.value = null;
+      sortAsc.value = true;
+    };
+
+    /**
+     * Computes the sorted tickets based on the current sortKey and sort order.
+     */
+    const sortedTickets = computed(() => {
+      if (!sortKey.value) return tickets.value;
+      return [...tickets.value].sort((a, b) => {
+        if (a[sortKey.value as keyof typeof a] < b[sortKey.value as keyof typeof a]) return sortAsc.value ? -1 : 1;
+        if (a[sortKey.value as keyof typeof a] > b[sortKey.value as keyof typeof a]) return sortAsc.value ? 1 : -1;
+        return 0;
+      });
+    });
+
+    const itemsPerPage = 20;
+    const currentPage = ref(1);
+
+    /**
+     * Computes the paginated tickets for the current page.
+     */
+    const paginatedTickets = computed(() => {
+      const start = (currentPage.value - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      return sortedTickets.value.slice(start, end);
+    });
+
+    /**
+     * Computes the total number of pages based on the number of tickets and items per page.
+     */
+    const totalPages = computed(() => {
+      return Math.ceil(sortedTickets.value.length / itemsPerPage);
+    });
+
+    /**
+     * Computes the total price of all tickets.
+     */
+    const total = computed(() => {
+      return tickets.value.reduce((sum, ticket) => sum + ticket.price, 0);
+    });
+
+    /**
+     * Navigates to the previous page, if possible.
+     */
+    const prevPage = () => {
+      if (currentPage.value > 1) {
+        currentPage.value--;
       }
-      // Add other cases as needed for other menu items
+    };
+
+    /**
+     * Navigates to the next page, if possible.
+     */
+    const nextPage = () => {
+      if (currentPage.value < totalPages.value) {
+        currentPage.value++;
+      }
+    };
+
+    /**
+     * Exports the table data to a CSV file.
+     */
+    const exportTable = () => {
+      const csvContent = [
+        ['TicketID', 'TicketTitle', 'Price'],
+        ...paginatedTickets.value.map(ticket => [ticket.id, ticket.title, ticket.price]),
+        ['TotalTicketIDs', '', total.value]
+      ].map(e => e.join(",")).join("\n");
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "tickets.csv");
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
+    /**
+     * Prints the current page of the table.
+     */
+    const printTable = () => {
+      const printContent = `
+        <html>
+          <head>
+            <style>
+              table {
+                width: 100%;
+                border-collapse: collapse;
+              }
+              th, td {
+                border: 1px solid gray;
+                padding: 10px;
+                text-align: left;
+              }
+              th {
+                background-color: #f1f1f1;
+                font-weight: bold;
+              }
+              .odd-row {
+                background-color: #f5efef;
+              }
+              .even-row {
+                background-color: #bceea5;
+              }
+              .even-row .TicketTitleCol {
+                background-color: aquamarine;
+              }
+              .TotalRow {
+                font-weight: bold;
+              }
+            </style>
+          </head>
+          <body>
+            <table>
+              <thead>
+                <tr>
+                  <th>TicketID</th>
+                  <th>TicketTitle</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${paginatedTickets.value.map((ticket, index) => `
+                  <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
+                    <td>${ticket.id}</td>
+                    <td>${ticket.title}</td>
+                    <td>${ticket.price}</td>
+                  </tr>
+                `).join('')}
+                <tr class="TotalRow">
+                  <td>TotalTicketIDs</td>
+                  <td></td>
+                  <td>${total.value}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div>Page ${currentPage.value} of ${totalPages.value}</div>
+          </body>
+        </html>
+      `;
+      const printWindow = window.open('', '', 'height=600,width=800');
+      if (printWindow) {
+        printWindow.document.write(printContent);
+        printWindow.document.close();
+        printWindow.print();
+      }
     };
 
     return {
-      isMenuOpen,
-      toggleMenu,
-      currentComponent,
-      showComponent,
+      close,
+      paginatedTickets,
+      sortTickets,
+      sortIcon,
+      resetSorting,
+      exportTable,
+      printTable,
+      total,
+      currentPage,
+      totalPages,
+      prevPage,
+      nextPage,
     };
   },
 });
@@ -106,97 +289,100 @@ export default defineComponent({
 
 <style scoped>
 ion-grid {
-  padding: 0;
-  margin: 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 
-.bordered-section {
-  border: 1px solid #000;
-  background-color: lightgray;
-  padding: 0;
-  margin: 0;
-  z-index: 1;
-  /* gap: 100px; */
-}
-
-@media (min-width: 768px) {
-  .main-content-row ion-col {
-    margin-bottom: 0; /* Reset margin for larger screens */
-  }
-}
-
-/* Floating sidebar starts here ##################################################### */
-
-.hamburger-menu {
-  font-size: 20px;
-  cursor: pointer;
-  padding: 10px;
-  position: fixed; /* Keep hamburger menu fixed floating */
-  z-index: 1100; /* Ensure it stays on top of the sidebar */
-  background-color: yellow;
-  top: 10px; /* Adjust positioning as needed */
-  left: 10px; /* Adjust positioning as needed */
-  margin-top: 40px;
-}
-
-.MainOptions, 
-.UpgradeVIP {
+.TitleRow {
   font-weight: bold;
-  /* padding: 5px; */
-}
-.MessageRemaining {
-  font-size: 13px;;
-}
-ion-button{
-  font-size: 12px;
-  padding: 0;
-  margin: 0;
-}
-.PaddingBorder{
-  border-bottom: 1px gray solid;
-  padding: 3px 0;
   cursor: pointer;
 }
 
-.sidebar-menu {
-  display: flex;
-  flex-direction: column;
+.ButtonRow {
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ButtonCol {
+  flex: 0 0 auto;
+}
+
+.DataRow:nth-child(odd) .TicketIDCol,
+.DataRow:nth-child(odd) .TicketTitleCol,
+.DataRow:nth-child(odd) .TicketPriceCol {
+  background-color: #f5efef;
+}
+
+.DataRow:nth-child(even) .TicketIDCol,
+.DataRow:nth-child(even) .TicketTitleCol,
+.DataRow:nth-child(even) .TicketPriceCol {
+  background-color: #bceea5;
+}
+
+.DataRow:nth-child(even) .TicketTitleCol {
+  background-color: aquamarine;
+}
+
+.TotalRow {
+  font-weight: bold;
+}
+
+.PaginationRow {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.BorderedSection,
+.TitleRow,
+.DataRow,
+.TotalRow,
+.PaginationRow {
+  border: 1px solid gray;
+}
+
+.TicketIDCol {
+  white-space: nowrap;
+  border-right: 1px solid gray;
+}
+
+.TicketTitleCol {
+  width: 200px;
+  border-right: 1px solid gray;
+  background-color: aquamarine;
+  overflow-x: scroll;
+}
+
+.TicketPriceCol {
+  white-space: nowrap;
+  border-right: 1px solid gray;
+}
+
+ion-col {
   padding: 10px;
-  overflow-y: auto; /* Ensure the content is scrollable */
-  width: 180px; /* Make width fit-content */
-  height: fit-content; /* Make height fit-content */
-  position: fixed; 
-  z-index: 1099; /* Ensure it stays below the hamburger menu */
-  background-color: white;
-  top: 60px; /* Adjust top position to be below the hamburger menu */
-  left: 10px;
-  margin-top: 40px;
-  box-shadow: 0 4px 8px rgba(142, 15, 226, 1.2); /* X-offset, Y-offset, blur radius, and color */
-  font-size: 14px;
 }
 
-.sidebar-menu-hidden {
-  display: none; /* Hide sidebar by default on mobile */
+ion-button {
+  padding: 0;
+  margin: 0;
 }
 
-@media (max-width: 600px) {
-  .hamburger-menu {
-    display: block; /* Show hamburger menu on mobile */
-  }
-  .sidebar-menu {
-    display: none; /* Hide sidebar on mobile */
-  }
-  .sidebar-menu.sidebar-menu-hidden {
-    display: flex; /* Show sidebar when menu is open */
-  }
-  .ion-item {
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word;
-  }
+.PageInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 0 10px;
 }
 
-/* Floating SideBar end here ##################################################### */
+.sort-icon {
+  margin-left: 5px;
+}
 </style>
+
 
 
 
