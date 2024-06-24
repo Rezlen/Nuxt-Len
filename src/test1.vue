@@ -1,57 +1,51 @@
 <template>
   <IonGrid>
-    <!-- ButtonRow -->
-    <IonRow class="ButtonRow" justify-content-end>
-      <IonCol class="ButtonCol">
-        <IonButton @click="resetSorting">RESET</IonButton>
-      </IonCol>
-      <IonCol class="ButtonCol">
-        <IonButton @click="exportTable">EXPORT</IonButton>
-      </IonCol>
-      <IonCol class="ButtonCol">
-        <IonButton @click="printTable">PRINT</IonButton>
-      </IonCol>
+    <IonRow class="ButtonRow">
+      <IonButton @click="resetSorting">RESET</IonButton>
+      <IonButton @click="exportTable">EXPORT</IonButton>
+      <IonButton @click="printTable">PRINT</IonButton>
     </IonRow>
 
-    <!-- TitleRow with sorting functionality and icons -->
-    <IonRow class="TitleRow">
-      <IonCol class="TicketIDCol" @click="sortTickets('id')">
-        TicketID
-        <IonIcon :icon="sortIcon('id')" class="sort-icon" />
-      </IonCol>
-      <IonCol class="TicketTitleCol" @click="sortTickets('title')">
-        TicketTitle
-        <IonIcon :icon="sortIcon('title')" class="sort-icon" />
-      </IonCol>
-      <IonCol class="TicketPriceCol" @click="sortTickets('price')">
-        Price
-        <IonIcon :icon="sortIcon('price')" class="sort-icon" />
-      </IonCol>
-      <IonCol>
-        <IonButton fill="clear" title="Refund This Ticket">
-          <IonIcon slot="icon-only" size="large" :icon="close"></IonIcon>
-        </IonButton>
-      </IonCol>
-    </IonRow>
+    <div class="TableContainer">
+      <!-- TitleRow with sorting functionality and icons -->
+      <IonRow class="TitleRow">
+        <IonCol class="TicketIDCol" @click="sortTickets('id')">
+          TicketID
+          <IonIcon :icon="sortIcon('id')" class="sort-icon" />
+        </IonCol>
+        <IonCol class="TicketTitleCol" @click="sortTickets('title')">
+          TicketTitle
+          <IonIcon :icon="sortIcon('title')" class="sort-icon" />
+        </IonCol>
+        <IonCol class="TicketPriceCol" @click="sortTickets('price')">
+          Price
+          <IonIcon :icon="sortIcon('price')" class="sort-icon" />
+        </IonCol>
+        <IonCol class="ActionCol">
+          Actions
+        </IonCol>
+      </IonRow>
 
-    <!-- Data rows -->
-    <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow">
-      <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
-      <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
-      <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
-      <IonCol>
-        <IonButton fill="clear" title="Close">
-          <IonIcon slot="icon-only" size="large" :icon="close"></IonIcon>
-        </IonButton>
-      </IonCol>
-    </IonRow>
+      <!-- Data rows -->
+      <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow">
+        <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
+        <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
+        <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
+        <IonCol class="ActionCol">
+          <IonButton fill="clear" title="Close">
+            <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+          </IonButton>
+        </IonCol>
+      </IonRow>
 
-    <!-- Total row -->
-    <IonRow class="TotalRow">
-      <IonCol>TotalTicketIDs</IonCol>
-      <IonCol></IonCol>
-      <IonCol>{{ total }}</IonCol>
-    </IonRow>
+      <!-- Total row -->
+      <IonRow class="TotalRow">
+        <IonCol class="TicketIDCol">Totals:</IonCol>
+        <IonCol class="TicketTitleCol" ></IonCol>
+        <IonCol class="TicketPriceCol">{{ total }}</IonCol>
+        <IonCol class="ActionCol"></IonCol>
+      </IonRow>
+    </div>
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
@@ -60,7 +54,15 @@
       <IonButton @click="nextPage" :disabled="currentPage === totalPages">Next</IonButton>
     </IonRow>
   </IonGrid>
-</template><script lang="ts">
+</template>
+
+
+
+
+
+
+
+<script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 import { IonIcon, IonGrid, IonRow, IonCol, IonButton } from '@ionic/vue';
 import { close, arrowDownOutline, arrowUpOutline } from 'ionicons/icons';
@@ -183,7 +185,7 @@ export default defineComponent({
       const csvContent = [
         ['TicketID', 'TicketTitle', 'Price'],
         ...paginatedTickets.value.map(ticket => [ticket.id, ticket.title, ticket.price]),
-        ['TotalTicketIDs', '', total.value]
+        ['Totals:', '', total.value]
       ].map(e => e.join(",")).join("\n");
 
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -250,7 +252,7 @@ export default defineComponent({
                   </tr>
                 `).join('')}
                 <tr class="TotalRow">
-                  <td>TotalTicketIDs</td>
+                  <td>Totals:</td>
                   <td></td>
                   <td>${total.value}</td>
                 </tr>
@@ -287,17 +289,11 @@ export default defineComponent({
 </script>
 
 
+
 <style scoped>
 ion-grid {
   height: 100%;
   overflow-y: auto;
-  overflow-x: scroll;
-  white-space: nowrap;
-}
-
-.TitleRow {
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .ButtonRow {
@@ -306,9 +302,17 @@ ion-grid {
   margin-bottom: 10px;
 }
 
-.ButtonCol {
-  flex: 0 0 auto;
+.TableContainer {
+  overflow-x: auto;
 }
+
+.TitleRow {
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 
 .DataRow:nth-child(odd) .TicketIDCol,
 .DataRow:nth-child(odd) .TicketTitleCol,
@@ -344,21 +348,17 @@ ion-grid {
   border: 1px solid gray;
 }
 
-.TicketIDCol {
+.TicketIDCol,
+.TicketPriceCol,
+.ActionCol {
   white-space: nowrap;
   border-right: 1px solid gray;
 }
 
 .TicketTitleCol {
-  width: 200px;
+  min-width: 200px;
   border-right: 1px solid gray;
   background-color: aquamarine;
-  overflow-x: scroll;
-}
-
-.TicketPriceCol {
-  white-space: nowrap;
-  border-right: 1px solid gray;
 }
 
 ion-col {
@@ -381,8 +381,19 @@ ion-button {
 .sort-icon {
   margin-left: 5px;
 }
+
+@media (max-width: 600px) {
+  .ButtonRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .TableContainer {
+    overflow-x: auto;
+  }
+
+  .TicketTitleCol {
+    min-width: 150px;
+  }
+}
 </style>
-
-
-
-

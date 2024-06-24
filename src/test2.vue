@@ -1,51 +1,50 @@
 <template>
   <IonGrid>
-    <!-- ButtonRow -->
     <IonRow class="ButtonRow">
-        <IonButton @click="resetSorting">RESET</IonButton>
-        <IonButton @click="exportTable">EXPORT</IonButton>
-        <IonButton @click="printTable">PRINT</IonButton>
+      <IonButton @click="resetSorting">RESET</IonButton>
+      <IonButton @click="exportTable">EXPORT</IonButton>
+      <IonButton @click="printTable">PRINT</IonButton>
     </IonRow>
 
-    <!-- TitleRow with sorting functionality and icons -->
-    <IonRow class="TitleRow">
-      <IonCol class="TicketIDCol" @click="sortTickets('id')">
-        TicketID
-        <IonIcon :icon="sortIcon('id')" class="sort-icon" />
-      </IonCol>
-      <IonCol class="TicketTitleCol" @click="sortTickets('title')">
-        TicketTitle
-        <IonIcon :icon="sortIcon('title')" class="sort-icon" />
-      </IonCol>
-      <IonCol class="TicketPriceCol" @click="sortTickets('price')">
-        Price
-        <IonIcon :icon="sortIcon('price')" class="sort-icon" />
-      </IonCol>
-      <IonCol>
-        <IonButton fill="clear" title="Refund This Ticket">
-          <IonIcon slot="icon-only" size="large" :icon="close"></IonIcon>
-        </IonButton>
-      </IonCol>
-    </IonRow>
+    <div class="TableContainer">
+      <!-- TitleRow with sorting functionality and icons -->
+      <IonRow class="TitleRow">
+        <IonCol class="TicketIDCol" @click="sortTickets('id')">
+          TicketID
+          <IonIcon :icon="sortIcon('id')" class="sort-icon" />
+        </IonCol>
+        <IonCol class="TicketTitleCol" @click="sortTickets('title')">
+          TicketTitle
+          <IonIcon :icon="sortIcon('title')" class="sort-icon" />
+        </IonCol>
+        <IonCol class="TicketPriceCol" @click="sortTickets('price')">
+          Price
+          <IonIcon :icon="sortIcon('price')" class="sort-icon" />
+        </IonCol>
+        <IonCol class="ActionCol">
+          Actions
+        </IonCol>
+      </IonRow>
 
-    <!-- Data rows -->
-    <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow">
-      <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
-      <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
-      <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
-      <IonCol>
-        <IonButton fill="clear" title="Close">
-          <IonIcon slot="icon-only" size="large" :icon="close"></IonIcon>
-        </IonButton>
-      </IonCol>
-    </IonRow>
+      <!-- Data rows -->
+      <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow">
+        <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
+        <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
+        <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
+        <IonCol class="ActionCol">
+          <IonButton class="ActionCol" fill="clear" title="Close">
+            <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+          </IonButton>
+        </IonCol>
+      </IonRow>
 
-    <!-- Total row -->
-    <IonRow class="TotalRow">
-      <IonCol>TotalTicketIDs</IonCol>
-      <IonCol></IonCol>
-      <IonCol>{{ total }}</IonCol>
-    </IonRow>
+      <!-- Total row -->
+      <IonRow class="TotalRow">
+        <IonCol>Totals:</IonCol>
+        <IonCol></IonCol>
+        <IonCol>{{ total }}</IonCol>
+      </IonRow>
+    </div>
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
@@ -55,6 +54,7 @@
     </IonRow>
   </IonGrid>
 </template>
+
 
 
 <script lang="ts">
@@ -180,7 +180,7 @@ export default defineComponent({
       const csvContent = [
         ['TicketID', 'TicketTitle', 'Price'],
         ...paginatedTickets.value.map(ticket => [ticket.id, ticket.title, ticket.price]),
-        ['TotalTicketIDs', '', total.value]
+        ['Totals:', '', total.value]
       ].map(e => e.join(",")).join("\n");
 
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -247,7 +247,7 @@ export default defineComponent({
                   </tr>
                 `).join('')}
                 <tr class="TotalRow">
-                  <td>TotalTicketIDs</td>
+                  <td>Totals:</td>
                   <td></td>
                   <td>${total.value}</td>
                 </tr>
@@ -258,7 +258,7 @@ export default defineComponent({
         </html>
       `;
       const printWindow = window.open('', '', 'height=600,width=800');
-     if (printWindow) {
+      if (printWindow) {
         printWindow.document.write(printContent);
         printWindow.document.close();
         printWindow.print();
@@ -283,23 +283,28 @@ export default defineComponent({
 });
 </script>
 
+
+
 <style scoped>
 ion-grid {
   height: 100%;
   overflow-y: auto;
-  overflow-x: scroll;
   white-space: nowrap;
+}
+
+.ButtonRow {
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.TableContainer {
+  overflow-x: auto;
 }
 
 .TitleRow {
   font-weight: bold;
   cursor: pointer;
-}
-
-.ButtonRow {
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10px;
 }
 
 .DataRow:nth-child(odd) .TicketIDCol,
@@ -336,23 +341,17 @@ ion-grid {
   border: 1px solid gray;
 }
 
-.TicketIDCol {
-  width: fit-content;
+.TicketIDCol,
+.TicketPriceCol,
+.ActionCol {
+  white-space: nowrap;
   border-right: 1px solid gray;
 }
 
 .TicketTitleCol {
-  width: 200px;
+  min-width: 200px;
   border-right: 1px solid gray;
   background-color: aquamarine;
-  white-space: nowrap;
-  overflow-x: auto
-
-}
-
-.TicketPriceCol {
-  width: fit-content;
-  border-right: 1px solid gray;
 }
 
 ion-col {
@@ -375,8 +374,19 @@ ion-button {
 .sort-icon {
   margin-left: 5px;
 }
+
+@media (max-width: 600px) {
+  .ButtonRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .TableContainer {
+    overflow-x: auto;
+  }
+
+  .TicketTitleCol {
+    min-width: 150px;
+  }
+}
 </style>
-
-
-
-

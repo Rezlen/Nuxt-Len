@@ -1,3 +1,8 @@
+<!-- For ease of use, I included the left sidebar in to the AdminPage her
+D:\Ionics\nuxt-len\src\views\AdminPage.vue, So this exportable component is not used anymore 
+-->
+
+
 <template>
   <IonGrid>
     <IonCol class="WholeDiv">

@@ -17,26 +17,12 @@
 
           <!-- Sidebar Menu -->
           <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
-            <IonRow class="PaddingBorder">AllMembers</IonRow>
             <IonRow class="PaddingBorder MainOptions"@click="showComponent('events')" >Events</IonRow>
             <IonRow class="PaddingBorder UpgradeVIP"> to VIP</IonRow>
             <IonRow class="PaddingBorder MessageRemaining">remaining</IonRow>
             <IonRow class="PaddingBorder">Edit Profile</IonRow>
             <IonRow class="PaddingBorder">My Connections</IonRow>
             <IonRow class="PaddingBorder">Messages</IonRow>
-            <IonRow class="PaddingBorder">My Offer</IonRow>
-            <IonRow class="PaddingBorder">My Best Offers</IonRow>
-            <IonRow class="PaddingBorder">My Need</IonRow>
-            <IonRow class="PaddingBorder">My Pitches</IonRow>
-            <IonRow class="PaddingBorder">My Orders</IonRow>
-            <IonRow class="PaddingBorder">My Blogs</IonRow>
-            <IonRow class="PaddingBorder">My Comments Posts</IonRow>
-            <IonRow class="PaddingBorder">My Gallery</IonRow>
-            <IonRow class="PaddingBorder">Change Password</IonRow>
-            <IonRow class="PaddingBorder">Delete Account</IonRow>
-            <IonRow class="PaddingBorder">Notification Setting</IonRow>
-            <IonRow class="PaddingBorder">My Groups</IonRow>
-            <IonRow class="PaddingBorder">Log Out</IonRow>
           </IonRow>
         </IonCol>
 
