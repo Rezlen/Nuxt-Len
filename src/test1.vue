@@ -1,69 +1,132 @@
 <template>
-  <IonGrid>
-    <IonCol class="WholeDiv">
-      <!-- Hamburger Icon, visible only on mobile -->
-      <IonRow @click="toggleMenu" class="hamburger-menu">
-        ☰ FilterBy
-      </IonRow>
+  <IonPage>
+    <IonContent>
+      <IonGrid>
+        <!-- Menu Section -->  <!-- Social Media Section -->
+        <IonRow class="bordered-section">
+          <MenuComponent />
+        </IonRow>
 
-      <!-- Sidebar Menu -->
-      <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': isMenuOpen }">
+        <!-- /* Floating sidebar starts here ##################################################### */ -->
+        <!-- There is an exportable component here as well; D:\Ionics\nuxt-len\src\components\AdminComponents\AdminEventsComponents\AdminLeftSideBarComponent.vue -->
+        <IonCol class="WholeDiv">
+          <!-- Hamburger Icon, visible only on mobile -->
+          <IonRow @click="toggleMenu" class="hamburger-menu">
+            ☰ Sidebar
+          </IonRow>
+
+          <!-- Sidebar Menu -->
+          <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
+            <IonRow class="PaddingBorder" >AllMembers</IonRow>
+            <IonRow class="PaddingBorder MainOptions"@click="showComponent('account')" >Events</IonRow>
+            <IonRow class="PaddingBorder UpgradeVIP">{Profile Pic}+Upgrade to VIP</IonRow>
+            <IonRow class="PaddingBorder MessageRemaining">
+              <IonButton size="small">Buy More</IonButton> {11} of 20 of your monthly messages remaining
+            </IonRow>
+            <IonRow class="PaddingBorder">Edit Profile</IonRow>
+            <IonRow class="PaddingBorder">My Connections</IonRow>
+            <IonRow class="PaddingBorder">Messages</IonRow>
+            <IonRow class="PaddingBorder">My Offer</IonRow>
+            <IonRow class="PaddingBorder">My Best Offers</IonRow>
+            <IonRow class="PaddingBorder">My Need</IonRow>
+            <IonRow class="PaddingBorder">My Pitches</IonRow>
+            <IonRow class="PaddingBorder">My Orders</IonRow>
+            <IonRow class="PaddingBorder">My Blogs</IonRow>
+            <IonRow class="PaddingBorder">My Comments Posts</IonRow>
+            <IonRow class="PaddingBorder">My Gallery</IonRow>
+            <IonRow class="PaddingBorder">Change Password</IonRow>
+            <IonRow class="PaddingBorder">Delete Account</IonRow>
+            <IonRow class="PaddingBorder">Notification Setting</IonRow>
+            <IonRow class="PaddingBorder">My Groups</IonRow>
+            <IonRow class="PaddingBorder">Log Out</IonRow>
+          </IonRow>
+        </IonCol>
+
+        <IonRow class="bordered-section PageMainContent">
+          <component :is="currentComponent" />
+        </IonRow>
         
-        <IonRow class="PaddingBorder " >My Account</IonRow>
-        <IonRow class="PaddingBorder MainOptions">Reward/Discount: 0%</IonRow>
-        <IonRow class="PaddingBorder MainOptions" >{Profile Pic}+Upgrade to VIP</IonRow>
-        <IonRow class="PaddingBorder "></IonRow>
-        <IonRow class="PaddingBorder " >Edit Profile</IonRow>
-        <IonRow class="PaddingBorder " >My Connections</IonRow>
-        <IonRow class="PaddingBorder " >Messages</IonRow>
-        <IonRow class="PaddingBorder " >My Offer</IonRow>
-        <IonRow class="PaddingBorder " >My Best Offers</IonRow>
-        <IonRow class="PaddingBorder " >My Need</IonRow>
-        <IonRow class="PaddingBorder " >My Pitches</IonRow>
-        <IonRow class="PaddingBorder " >My Orders</IonRow>
-        <IonRow class="PaddingBorder " >My Blogs</IonRow>
-        <IonRow class="PaddingBorder " >My Comments Posts</IonRow>
-        <IonRow class="PaddingBorder " >My Galery</IonRow>
-        <IonRow class="PaddingBorder " >Change Password</IonRow>
-        <IonRow class="PaddingBorder " >Delete Account</IonRow>
-        <IonRow class="PaddingBorder " >Notification Setting</IonRow>
-        <IonRow class="PaddingBorder " >My Groups</IonRow>
-        <IonRow class="PaddingBorder " >Log Out</IonRow>
-       
+        <!-- /* Floating sidebar ends here ##################################################### */ -->
 
-
-      </IonRow>
-    </IonCol>
-  </IonGrid>
+        <!-- Footer Section -->
+        <IonRow>
+          <IonCol class="bordered-section FooterComponent">
+            <FooterComponent />
+          </IonCol>
+        </IonRow>
+      </IonGrid>
+    </IonContent>
+  </IonPage>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { IonButton, IonGrid, IonItem} from '@ionic/vue';
+import { defineComponent, ref, Ref } from 'vue';
+import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonButton } from '@ionic/vue';
+import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
+import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
+import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
 export default defineComponent({
-  name: 'FilterByComponent',
+  name: 'AdminPage',
   components: {
+    IonPage,
     IonGrid,
-    IonItem,
-    IonButton,
+    IonRow,
+    IonCol,
+    IonContent,
+    MenuComponent,
+    AdminCreateEventTABsComponent,
+    FooterComponent,
   },
   setup() {
     const isMenuOpen = ref(false);
+    const currentComponent: Ref<null | any> = ref(null); // To store the current component to display
 
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value;
     };
 
+    const showComponent = (componentName: string) => {
+      if (componentName === 'account') {
+        currentComponent.value = AdminCreateEventTABsComponent;
+      }
+      // Add other cases as needed for other menu items
+    };
+
     return {
       isMenuOpen,
       toggleMenu,
+      currentComponent,
+      showComponent,
     };
   },
 });
 </script>
 
+
 <style scoped>
+ion-grid {
+  padding: 0;
+  margin: 0;
+}
+
+.bordered-section {
+  border: 1px solid #000;
+  background-color: lightgray;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+  /* gap: 100px; */
+}
+
+@media (min-width: 768px) {
+  .main-content-row ion-col {
+    margin-bottom: 0; /* Reset margin for larger screens */
+  }
+}
+
+/* Floating sidebar starts here ##################################################### */
+
 .hamburger-menu {
   font-size: 20px;
   cursor: pointer;
@@ -131,4 +194,9 @@ ion-button{
     word-wrap: break-word;
   }
 }
+
+/* Floating SideBar end here ##################################################### */
 </style>
+
+
+

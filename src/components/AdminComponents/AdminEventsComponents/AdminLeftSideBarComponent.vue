@@ -41,13 +41,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonButton, IonGrid, IonItem} from '@ionic/vue';
+import { IonButton, IonGrid} from '@ionic/vue';
 
 export default defineComponent({
   name: 'AdminLeftSideBarComponent',
   components: {
     IonGrid,
-    IonItem,
     IonButton,
   },
   setup() {

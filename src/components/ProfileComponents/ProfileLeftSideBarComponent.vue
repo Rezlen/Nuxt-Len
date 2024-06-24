@@ -1,3 +1,20 @@
+
+
+
+
+
+
+
+
+<!-- transferred this to the admin page directly,
+  so no need to use it as a component 
+  
+  D:\Ionics\nuxt-len\src\views\AdminPage.vue
+  
+  -->
+
+
+
 <template>
   <IonGrid>
     <IonCol class="WholeDiv">
