@@ -349,7 +349,6 @@ ion-grid {
 .TicketTitleCol,
 .TicketPriceCol,
 .ActionCol {
-  max-width: 100px;
   white-space: nowrap;
   overflow-x: auto;
   
@@ -361,7 +360,9 @@ ion-grid {
 }
 
 ion-col {
-  padding: 10px;
+  max-width: 100px;
+  padding: 0;
+  margin: 0;
 }
 
 ion-button {

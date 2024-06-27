@@ -40,9 +40,10 @@
 
       <!-- Total row -->
       <IonRow class="TotalRow">
-        <IonCol>Totals:</IonCol>
-        <IonCol></IonCol>
-        <IonCol>{{ total }}</IonCol>
+        <IonCol class="TicketIDCol">Totals:</IonCol>
+        <IonCol class="TicketTitleCol"></IonCol>
+        <IonCol class="TicketPriceCol">{{ total }}</IonCol>
+        <IonCol class="ActionCol"></IonCol>
       </IonRow>
     </div>
 
@@ -307,20 +308,13 @@ ion-grid {
   cursor: pointer;
 }
 
-.DataRow:nth-child(odd) .TicketIDCol,
-.DataRow:nth-child(odd) .TicketTitleCol,
-.DataRow:nth-child(odd) .TicketPriceCol {
+/* General alternating background colors for DataRow */
+.DataRow:nth-child(odd) ion-col {
   background-color: #f5efef;
 }
 
-.DataRow:nth-child(even) .TicketIDCol,
-.DataRow:nth-child(even) .TicketTitleCol,
-.DataRow:nth-child(even) .TicketPriceCol {
+.DataRow:nth-child(even) ion-col {
   background-color: #bceea5;
-}
-
-.DataRow:nth-child(even) .TicketTitleCol {
-  background-color: aquamarine;
 }
 
 .TotalRow {
@@ -345,26 +339,38 @@ ion-grid {
 .TotalRow {
   white-space: nowrap;
 }
-.TicketIDCol,
+/* .TicketIDCol,
 .TicketTitleCol,
 .TicketPriceCol,
 .ActionCol {
-  max-width: 100px;
-  white-space: nowrap;
-  overflow-x: auto;
+
   
-}
+} */
 
 .TicketTitleCol {
   border-right: 1px solid gray;
   background-color: aquamarine;
 }
-
+.TicketIDCol{
+  width: 50px;
+  background-color: red;
+}
 ion-col {
-  padding: 10px;
+  max-width: 100px;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  align-content: center;
+  height:30px;
+  font-size:12px;
+}
+.ActionCol{
+  overflow-x:visible;
 }
 
-ion-button {
+ion-button,
+ion-icon {
   padding: 0;
   margin: 0;
 }
@@ -390,6 +396,8 @@ ion-button {
   .TableContainer {
     overflow-x: auto;
   }
-
+  .TableContainer {
+    width: 800px;
+  }
 }
 </style>
