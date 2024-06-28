@@ -122,10 +122,13 @@
                 <p><a href="/AdminEventsBookingsComponent" class="Events-button" >AdminEventsBookingsComponent </a> </p>
                 <p><a href="/AdminEventsListComponent" class="Events-button" >AdminEventsListComponent </a> </p>
                 <p><a href="/AdminLeftSideBarComponent" class="Events-button" >AdminLeftSideBarComponent </a> </p>
+                <p><a href="/FormProfilePublicSectionComponent " class="Events-button" >FormProfilePublicSectionComponent  </a> </p>
+                <p><a href="/PrivasyPolicyPage" class="Events-button" >PrivasyPolicyPage  </a> </p>
+                <p><a href="/TermsConditionsPage" class="Events-button" >TermsConditionsPage  </a> </p>
               
               </IonRow>
               
-              <!-- MiniProfilesRow ##############################     AdminPage         -->
+              <!-- MiniProfilesRow ##############################     FormProfilePublicSectionComponent         -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

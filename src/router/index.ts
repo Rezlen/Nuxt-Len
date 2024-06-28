@@ -10,6 +10,8 @@ import TheEventShowPage from '../views/TheEventShowPage.vue';
 import FreePitchingsPage from '../views/FreePitchingsPage.vue';
 import AboutUsPage from '../views/AboutUsPage.vue';
 import AdminPage from '../views/AdminPage.vue';
+import PrivasyPolicyPage from '../views/AdminPage.vue';
+import TermsConditionsPage from '../views/AdminPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -108,6 +110,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/templatePage',
     name: 'TemplatePage',
     component: TemplatePage
+  },
+  {
+    path: '/privasyPolicyPage',
+    name: 'PrivasyPolicyPage',
+    component: PrivasyPolicyPage
+  },
+  {
+    path: '/termsConditionsPage',
+    name: 'TermsConditionsPage',
+    component: TermsConditionsPage
   },
 
   

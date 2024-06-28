@@ -163,7 +163,7 @@ const menus = ref([
       { title: 'Sponsorship/Partnership Options', path: '/SponsorshipPartnershipOptions' },
       { title: 'Sponsors/Partners', path: '/SponsorsPartners' },
       { title: 'Services/Products Exchange', path: '/ServicesProductsExchange' },
-      { title: 'About Us', path: '/AboutUs' },
+      { title: 'About Us', path: '/AboutUsPage' },
       { title: 'Gallery', path: '/Gallery' },
       { title: 'Business Advice', path: '/BusinessAdvice' },
       { title: 'Contact Us', path: '/ContactUs' },
@@ -251,6 +251,7 @@ ion-grid {
   top: 100%;
   display: none;
   z-index: 1000;
+  cursor: pointer;
 }
 
 .submenu ion-label {
