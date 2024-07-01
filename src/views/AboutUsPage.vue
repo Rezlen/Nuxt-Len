@@ -130,10 +130,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-ion-grid {
-  padding: 0;
-  margin: 0;
-}
+
 ion-title {
   font-family: Arial, Helvetica, sans-serif;
   margin: 20px 0;;

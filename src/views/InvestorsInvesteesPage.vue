@@ -20,35 +20,39 @@
             <LeftAd4Component />
           </IonCol>
 
-          <IonCol size="12" size-md="9" class="bordered-section FreePitchingsPage">
 
-            <IonGrid>
-              <!-- Tabs5_ 1- All Pitchers 2- One Min Pitchers 3- Three Min Pitchers/Presenters 4- Investment Pitchers 5- FREE Pitching Reservation -->
-              <IonRow class="Tabs5_AllPitchersOneMinPitchersThreeMinPitchersInvestmentPitchersFreePitchingReservation">
+          <IonCol size="12" size-md="9" class="bordered-section">
+
+            <!-- EventsShows 6 tabs 1- Upcoming Events 2- Past Events 3-Events Calender 4- Investees ##############################     -->
+            <IonCol class="MainCol">
+              <IonRow class="Tabs4InvestorsInvesteesApplyForInvestment">
                 <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                  <IonSegmentButton class="btn" value="AllPitchers">All Pitchers</IonSegmentButton>
-                  <IonSegmentButton class="btn" value="OneMinPitchers">One Min Pitchers</IonSegmentButton>
-                  <IonSegmentButton class="btn" value="ThreeMinPitchers">Three Min Pitchers/Presenters</IonSegmentButton>
-                  <IonSegmentButton class="btn" value="InvestmentPitchers">Investment Pitchers</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="ApplyForInvestment">Apply For Investment</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="ProvideInvestment">Provide Investment</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="Investors">Investors</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="Investees">Investees</IonSegmentButton>
                 </IonSegment>
-                <IonRow class="FreePitching" >For FREE pitching/presenting, book a ticket from the ticket section in an event's page. <a href="/EventsShowsPage" >Click HERE</a></IonRow>
-
               </IonRow>
               <IonRow class="DisplayComponentRow">
-                <IonCol v-show="selectedTab === 'AllPitchers'" class="AllPitchers">
-                  <PitchingComponent />
+                <IonCol v-show="selectedTab === 'ApplyForInvestment'" class="ApplyForInvestment">
+                  <!-- Component for Investment Seekers #########" -->
+                  <FormApplyForInvestmentComponent />
+
                 </IonCol>
-                <IonCol v-show="selectedTab === 'OneMinPitchers'" class="OneMinPitchers">
-                  <PitchingComponent />
+                <IonCol v-show="selectedTab === 'ProvideInvestment'" class="ProvideInvestment">
+                  <!-- Component for Investment Providers #########" -->
+                  <MiniEventComponent />
                 </IonCol>
-                <IonCol v-show="selectedTab === 'ThreeMinPitchers'" class="ThreeMinPitchers">
-                  <PitchingComponent />
+                <IonCol v-show="selectedTab === 'Investors'" class="Investors">
+                  <!-- Component for Investees #########" -->
+                  <EventsCalendarComponent />
                 </IonCol>
-                <IonCol v-show="selectedTab === 'InvestmentPitchers'" class="InvestmentPitchers">
-                  <PitchingComponent />
+                <IonCol v-show="selectedTab === 'Investees'" class="Investees">
+                  <!-- Component for Investees #########" -->
                 </IonCol>
               </IonRow>
-            </IonGrid>
+            </IonCol>
+
 
           </IonCol>
 
@@ -88,10 +92,10 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
-import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
+import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
 
 export default defineComponent({
-  name: 'FreePitchingsPage',
+  name: 'InvestorsInvesteesPage',
   components: {
     IonPage,
     IonGrid,
@@ -111,7 +115,7 @@ export default defineComponent({
     RightAd4Component,
     IonSegment,
     IonSegmentButton,
-    PitchingComponent,
+    FormApplyForInvestmentComponent,
 
   },
   setup() {
@@ -129,28 +133,20 @@ export default defineComponent({
 
 <style scoped>
 
+
+
 .bordered-section {
   padding: 0;
   margin: 0;
   z-index: 1;
   /* gap: 100px; */
 }
+
 /* Updated for new tab names and mobile responsiveness */
-.FreePitching {
-  padding-top: 5px;
-  color: gray;
-  font-size: 14px;
-  text-align: center;
-  justify-content: center;
-  width: 100%;
-}
 .TabSegment {
   display: flex;
   flex-wrap: wrap; /* Allow segment buttons to wrap */
   width: 100%;
-}
-.btn {
-    letter-spacing: 0.5px;
 }
 
 .TabSegment .btn {

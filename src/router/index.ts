@@ -12,6 +12,7 @@ import AboutUsPage from '../views/AboutUsPage.vue';
 import AdminPage from '../views/AdminPage.vue';
 import PrivacyPolicyPage from '../views/PrivacyPolicyPage.vue';
 import TermsConditionsPage from '../views/TermsConditionsPage.vue';
+import InvestorsInvesteesPage from '../views/InvestorsInvesteesPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -38,9 +39,9 @@ import PostOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOff
 import PostNeedComponent from '@/components/OfferNeedBestOfferComponent/PostNeedComponent.vue';
 import PostBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostBestOfferComponent.vue';
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
-import TheEventComponent from '@/components/EventsShowsCopmonent/TheEventComponent.vue';
-import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventComponent.vue';
-import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
+import TheEventComponent from '@/components/EventsShowsComponent/TheEventComponent.vue';
+import TicketEventComponent from '@/components/EventsShowsComponent/TicketEventComponent.vue';
+import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
@@ -52,9 +53,11 @@ import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsC
 import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsBookingsComponent.vue';
 import AdminEventsListComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsListComponent.vue';
 import AdminLeftSideBarComponent from '@/components/AdminComponents/AdminEventsComponents/AdminLeftSideBarComponent.vue';
+// Investment comp
+import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
 
 
-
+// /FormApplyForInvestmentComponent
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
   {
@@ -121,9 +124,14 @@ const routes: Array<RouteRecordRaw> = [
     name: 'TermsConditionsPage',
     component: TermsConditionsPage
   },
+  {
+    path: '/investorsInvesteesPage',
+    name: 'InvestorsInvesteesPage',
+    component: InvestorsInvesteesPage
+  },
 
   
-  // pages end here BizOfferNeedPage
+  // pages end here InvestorsInvesteesPage
 
 
 
@@ -281,12 +289,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'AdminLeftSideBarComponent',
     component: AdminLeftSideBarComponent
   },
+  {
+    path: '/formApplyForInvestmentComponent',
+    name: 'FormApplyForInvestmentComponent',
+    component: FormApplyForInvestmentComponent
+  },
 
-
-
-
-  
-  // Left & Right Aderts starts here FormExhibitingWorkshopPresentComponent
+  // Investment comp
+ 
+  // Left & Right Aderts starts here  FormExhibitingWorkshopPresentComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

@@ -91,10 +91,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-ion-grid {
-  padding: 0;
-  margin: 0;
-}
 
 .bordered-section {
   padding: 0;

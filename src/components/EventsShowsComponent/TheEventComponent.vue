@@ -78,7 +78,7 @@
 import { defineComponent, ref } from 'vue';
 import { IonGrid, IonRow, IonCol, IonIcon, IonCard, IonButton, IonCardHeader, IonCardContent, IonCardSubtitle, IonCardTitle, IonContent } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
-import TicketEventComponent from '@/components/EventsShowsCopmonent/TicketEventComponent.vue';
+import TicketEventComponent from '@/components/EventsShowsComponent/TicketEventComponent.vue';
 
 export default defineComponent({
   name: 'TheEventComponent',

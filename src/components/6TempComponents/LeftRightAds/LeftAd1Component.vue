@@ -31,7 +31,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-/* just for certaity, we have added the same atteribute for IonCol & its class */
+/* just for certainty, we have added the same attribute for IonCol & its class */
 ion-col {
   display: flex;
   flex-direction: column;
@@ -40,44 +40,29 @@ ion-col {
   flex: 1;
   border: solid 1px gray;
   border-radius: 5px;
-  margin: 3px 0;
   max-width: 210px;
   max-height: 350px;
-}
-/* Remember to add charector linit of 100 for the Ad's text */
-.LeftAd1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-  flex: 1;
-  border: solid 1px gray;
-  border-radius: 5px;
-  margin: 3px 0;
-  max-width: 210px;
-  max-height: 350px;
+  box-sizing: border-box; /* Ensure padding and borders are included in total width and height */
 }
 
-.LeftAd1 > * {
-  flex: 1;
-  min-height: 0; /* Ensures that the children shrink properly */
-}
-
-/* Set max charector to display */
-.p{
+/* Set max character to display */
+p {
   text-align: center;
   color: black;
+  white-space: normal; /* Ensure normal white-space handling */
+  padding: 0 5px;
+  margin: 0; /* Reset margin to avoid extra spacing */
+  box-sizing: border-box; /* Ensure padding is included in total width */
 }
 a {
   text-decoration: none;
 }
 
 img {
-  max-width: 200px;
-  max-height: 250px;
+  max-width: 100%;
+  max-height: 245px;
+  display: block; /* Ensure proper layout inside the paragraph */
+  margin: 0 auto; /* Center the image */
 }
 
-@media (min-width: 768px) {
-
-}
 </style>

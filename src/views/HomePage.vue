@@ -125,10 +125,12 @@
                 <p><a href="/FormProfilePublicSectionComponent " class="Events-button" >FormProfilePublicSectionComponent  </a> </p>
                 <p><a href="/PrivacyPolicyPage" class="Events-button" >PrivacyPolicyPage  </a> </p>
                 <p><a href="/TermsConditionsPage" class="Events-button" >TermsConditionsPage  </a> </p>
+                <p><a href="/InvestorsInvesteesPage" class="Events-button" >InvestorsInvesteesPage  </a> </p>
+                <p><a href="/FormApplyForInvestmentComponent" class="Events-button" >FormApplyForInvestmentComponent  </a> </p>
               
               </IonRow>
               
-              <!-- MiniProfilesRow ##############################     FormProfilePublicSectionComponent         -->
+              <!-- MiniProfilesRow ##############################     FormApplyForInvestmentComponent         -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
@@ -318,10 +320,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-ion-grid {
-  padding: 0;
-  margin: 0;
-}
+
 
 .bordered-section {
   border: 1px solid;

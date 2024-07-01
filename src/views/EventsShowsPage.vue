@@ -94,7 +94,7 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
-import MiniEventComponent from '@/components/EventsShowsCopmonent/MiniEventComponent.vue';
+import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
 
 export default defineComponent({
   name: 'EventsShowsPage',
@@ -135,10 +135,7 @@ export default defineComponent({
 
 <style scoped>
 
-ion-grid {
-  padding: 0;
-  margin: 0;
-}
+
 
 .bordered-section {
   padding: 0;
