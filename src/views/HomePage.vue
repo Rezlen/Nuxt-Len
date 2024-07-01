@@ -123,7 +123,7 @@
                 <p><a href="/AdminEventsListComponent" class="Events-button" >AdminEventsListComponent </a> </p>
                 <p><a href="/AdminLeftSideBarComponent" class="Events-button" >AdminLeftSideBarComponent </a> </p>
                 <p><a href="/FormProfilePublicSectionComponent " class="Events-button" >FormProfilePublicSectionComponent  </a> </p>
-                <p><a href="/PrivasyPolicyPage" class="Events-button" >PrivasyPolicyPage  </a> </p>
+                <p><a href="/PrivacyPolicyPage" class="Events-button" >PrivacyPolicyPage  </a> </p>
                 <p><a href="/TermsConditionsPage" class="Events-button" >TermsConditionsPage  </a> </p>
               
               </IonRow>

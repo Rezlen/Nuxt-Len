@@ -10,8 +10,8 @@ import TheEventShowPage from '../views/TheEventShowPage.vue';
 import FreePitchingsPage from '../views/FreePitchingsPage.vue';
 import AboutUsPage from '../views/AboutUsPage.vue';
 import AdminPage from '../views/AdminPage.vue';
-import PrivasyPolicyPage from '../views/AdminPage.vue';
-import TermsConditionsPage from '../views/AdminPage.vue';
+import PrivacyPolicyPage from '../views/PrivacyPolicyPage.vue';
+import TermsConditionsPage from '../views/TermsConditionsPage.vue';
 
 
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -112,9 +112,9 @@ const routes: Array<RouteRecordRaw> = [
     component: TemplatePage
   },
   {
-    path: '/privasyPolicyPage',
-    name: 'PrivasyPolicyPage',
-    component: PrivasyPolicyPage
+    path: '/privacyPolicyPage',
+    name: 'PrivacyPolicyPage',
+    component: PrivacyPolicyPage
   },
   {
     path: '/termsConditionsPage',

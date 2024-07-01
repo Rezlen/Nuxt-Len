@@ -63,6 +63,7 @@
 
       <!-- 3- Statistics row ##############################-->
       <IonRow class="StatisticsRow">
+        <IonRow class="MembershipState">VVIP Member</IonRow>
         <!-- Column 1 -->
         <IonCol class="StatisticsColumn">
           <IonRow class="TextStyle PostedOffers">Posted Offers: 86</IonRow>
@@ -390,7 +391,16 @@ ion-grid {
   border-radius: 10px;
   padding: 20px 0;
 }
-
+.MembershipState {
+  width: 100%;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px; 
+  color: white;
+  background-color: rgb(213, 86, 245);
+  padding: 10px 0;
+  border-radius: 10px;
+}
 .StatisticsColumn {
   display: flex;
   flex-direction: column;
