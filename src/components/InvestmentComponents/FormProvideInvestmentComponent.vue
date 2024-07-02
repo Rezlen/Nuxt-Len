@@ -7,32 +7,30 @@
         <IonRow class="SectionTitle">
           <IonTitle>Provide Investment</IonTitle>
         </IonRow>
+
+
         <p>
-          Opportunities for Investors:
+          <h4>Opportunities for Investors:</h4>
 
           We invite you to provide investment opportunities to promising ventures through our platform. By partnering with us, you can connect with potential projects and entrepreneurs that align with your investment goals. Here’s how it works:
 
-          How It Works for Investors:
+          <h1>How It Works for Investors:</h1>
           
-          1- Submit Your Information:
+          <h4>1- Submit Your Information:</h4>
 
-          Provide detailed information about your investment criteria and preferences.
-          This information helps us match you with suitable investment opportunities.
+          <li>Provide detailed information about your investment criteria and preferences.</li>
+          <li>This information helps us match you with suitable investment opportunities.</li>
           
-          2- No Upfront Costs:
+          <h4>2- No Upfront Costs:</h4>
 
-          There are no costs or fees for reviewing potential investments or for the matching process.
-          A Success Fee, typically around 6%, is applied only when you finalize an investment.
+          <li>There are no costs or fees for investors.</li>
+          <li>There is a Success Fee, typically around 6%, is applied to investees only when they receive an investment.</li>
           
-          3- Success Fee:
+          <h4>3- Connecting with Opportunities:</h4>
 
-          The Success Fee is a percentage of the total investment amount and is agreed upon with our broker.
-          This fee is only applicable upon successful investment.
-          
-          4- Connecting with Opportunities:
-
-          Your information will be shared with our network of brokers who will identify and introduce you to potential investment opportunities.
-          Engage in conversations with entrepreneurs and evaluate their proposals to find the best fit for your investment strategy.
+          <li>Your information will be shared with our network and introduce you to potential investment opportunities.</li>
+          <li>Engage in conversations with entrepreneurs and evaluate their proposals to find the best fit for your investment strategy.</li>
+          <br/>
           
           If you have any questions or need further clarification, please feel free to contact us. We are here to support you in finding the right investment opportunities and ensuring a smooth investment process.
         </p>
@@ -49,13 +47,14 @@
         
         <IonCol>
           <IonCol>
-            <IonInput type="number" label="What % Yearly ROI? " title="What percentage of return on your investment are you looking for yearly?" label-placement="floating"  :counter="true"  :maxlength="2" :counter-formatter="customFormatter" fill="outline"></IonInput> 
-          </IonCol>
-          <IonCol>
             <IonInput  type="number" label="Length of Investing Years?" label-placement="floating"  :counter="true"  :maxlength="1" :counter-formatter="customFormatter" fill="outline" title="For how many years do you want to invest in an idea/business roughly?"></IonInput> 
           </IonCol>
           <IonCol>
-            <IonInput  type="number" label="Required Equity" label-placement="floating"  :counter="true"  :maxlength="2" :counter-formatter="customFormatter" fill="outline" title="What percentage of equity would you like to receive in return for your investment?"></IonInput> 
+            <IonInput type="number" label="What % ROI Do You Want Roughly? " title="What percentage of return on your investment are you looking for?" label-placement="floating"  :counter="true"  :maxlength="2" :counter-formatter="customFormatter" fill="outline"></IonInput> 
+          </IonCol>
+          
+          <IonCol>
+            <IonInput  type="number" label="Required Equity %" label-placement="floating"  :counter="true"  :maxlength="2" :counter-formatter="customFormatter" fill="outline" title="What percentage of equity would you like to receive in return for your investment?"></IonInput> 
           </IonCol>
 
           <IonCol>
@@ -105,13 +104,13 @@
 
         <IonCol>
           <IonCol>
+            <IonInput type="url" label="Website Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
+          </IonCol>
+          <IonCol>
             <IonInput type="url" label="YouTube VideoClip Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
           </IonCol>
             <IonCol>
             <IonInput type="url" label="YouTube/Channel Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
-          </IonCol>
-          <IonCol>
-            <IonInput type="url" label="Website Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
           </IonCol>
           <IonCol>
             <IonInput type="url" label="Twitter/X Profile Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 

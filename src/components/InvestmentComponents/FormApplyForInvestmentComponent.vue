@@ -8,8 +8,13 @@
             <IonTitle>Apply For Investment</IonTitle>
           </IonRow>
           <p>
-            The more information you provide the more likely you receive investment. We send your application to our investment brokers & will find you an interested investor so you can have your conversation and receive the investment hopefully. To receive an investment, fill below form as much as possible. Where you do not have a required information; either fill a same info or put 0 or N/A. 
-            There is no cost or fee for assessing you application or for finding an investment for you. There will be just an average 6% Success Fee & that is ONLY IF you receive the investment. Again if you do not receive the investment there is no fee, cost or charge for you. The actual amount of Success Fee is what you agree with the broker which will contact you. Success Fee is the percentage which the Broker will take from your investment which you will receive from an investor. If still anything is unclear, feel free to Contact Us.
+            The more information you provide the more likely you receive investment. 
+            We send your application to our investment brokers & will find you an interested investor so you can have your conversation and receive the investment hopefully. 
+            To receive an investment, fill below form as much as possible. 
+            Where you do not have a required information; either fill a same info or put 0 or N/A. 
+            <br/><br/>
+            There is no cost or fee for assessing you application or for finding an investment for you. 
+            There will be just an average 6% Success Fee & that is ONLY IF you receive the investment. Again if you do not receive the investment there is no fee, cost or charge for you. The actual amount of Success Fee is what you agree with the broker which will contact you. Success Fee is the percentage which the Broker will take from your investment which you will receive from an investor. If still anything is unclear, feel free to Contact Us.
           </p>
         </IonRow>
 
@@ -124,10 +129,16 @@
             <IonInput  type="number" label="Your Current OwnerShip Size % of the Idea/Business" label-placement="floating"  :counter="true"  :maxlength="3" :counter-formatter="customFormatter" fill="outline" title="What percentage of the Idea/Business do you actually own?"></IonInput> 
           </IonCol>
           <IonCol>
+            <IonInput type="number" label="Current Business Revenue?" label-placement="floating"  :counter="true"  :maxlength="40" :counter-formatter="customFormatter" fill="outline" title="How much is the current business revenue ?"></IonInput> 
+          </IonCol>
+          <IonCol>
             <IonInput type="number" label="Estimated Revenue Return in 3 Years?" label-placement="floating"  :counter="true"  :maxlength="40" :counter-formatter="customFormatter" fill="outline" title="How much do you think will be the revenue of your idea/business by the end of year 3, after receiving the investment ?"></IonInput> 
           </IonCol>
           <IonCol>
-            <IonInput type="number" label="Net Profit If Idea/Business Running" label-placement="floating"  :counter="true"  :maxlength="40" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
+            <IonInput type="number" label="Current Net Profit If Idea/Business Running" label-placement="floating"  :counter="true"  :maxlength="40" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
+          </IonCol>
+          <IonCol>
+            <IonInput type="number" label="Estimated Net Profit after 3 years" label-placement="floating"  :counter="true"  :maxlength="40" :counter-formatter="customFormatter" fill="outline" title="What will be net profit after 3 years of the investment"></IonInput> 
           </IonCol>
           <IonCol>
             <IonInput type="text" label="Job Position in the Idea/Business" label-placement="floating"  :counter="true"  :maxlength="40" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
@@ -146,13 +157,7 @@
             </IonSelect>
           </IonCol>
           
-          <IonCol>
-            <IonSelect v-model="selectedCategory" placeholder="Business Revenue Yearly" fill="outline" >
-              <IonSelectOption value="category1">Category 1</IonSelectOption>
-              <IonSelectOption value="category2">Category 2</IonSelectOption>
-              <IonSelectOption value="category3">Category 3</IonSelectOption>
-            </IonSelect>
-          </IonCol>
+
           <IonCol>
             <IonSelect v-model="selectedCategory" placeholder="Number Of Employees" fill="outline" >
               <IonSelectOption value="category1">Category 1</IonSelectOption>
