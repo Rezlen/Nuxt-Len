@@ -80,8 +80,8 @@
           </div>
           <p class="terms">
             By clicking on Sign Up, you agree to London Entrepreneurs Network's 
-            <a href="/terms" class="terms-link">TERMS & CONDITIONS</a> and 
-            <a href="/privacy" class="terms-link">PRIVACY POLICY</a>.
+            <a href="/TermsConditionsPage" class="terms-link">TERMS & CONDITIONS</a> and 
+            <a href="/PrivacyPolicypage" class="terms-link">PRIVACY POLICY</a>.
           </p>
         </div>
       </IonCol>
@@ -296,14 +296,14 @@ export default defineComponent({
   color: blue;
   text-decoration: none;
 }
-
+.terms-link:hover {
+  text-decoration: underline;
+}
 .ForgotPassword {
   text-decoration: none;
 }
 
-.terms-link:hover {
-  text-decoration: underline;
-}
+
 
 .vip-signup-options {
   text-align: center;

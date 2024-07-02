@@ -132,12 +132,12 @@ const menus = ref([
   },
   {
     title: 'Investors & Investees⌄',
-    path: '',
+    path: 'InvestorsInvesteesPage',
     subMenus: [
-      { title: 'Apply For Investment', path: '/ApplyForInvestment' },
-      { title: 'Provide Investment', path: '/ProvideInvestment' },
-      { title: 'Investors', path: '/Investors' },
-      { title: 'Investees', path: '/Investees' },
+      { title: 'Apply For Investment', path: '/InvestorsInvesteesPage' },
+      { title: 'Provide Investment', path: '/InvestorsInvesteesPage' },
+      { title: 'Investors', path: '/InvestorsInvesteesPage' },
+      { title: 'Investees', path: '/InvestorsInvesteesPage' },
     ],
     showSubMenus: false, // Initially hide submenu
   },

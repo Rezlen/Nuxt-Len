@@ -262,7 +262,7 @@
         <IonRow class="CheckBoxes">
           <div>
             <IonCheckbox slot="start"></IonCheckbox>
-            <label> I agree with the TERMS & CONDITIONS and PRIVACY POLICY.</label>
+            <label> I agree with the <a href="/TermsConditionsPage" class="terms-link">TERMS & CONDITIONS</a> and <a href="/PrivacyPolicypage" class="terms-link">PRIVACY POLICY</a>.</label>
           </div>
         </IonRow>
         <IonRow class="button">
@@ -394,13 +394,20 @@ box-shadow: 0 4px 8px rgba(34, 139, 34, 0.8);
 .CheckBoxes {
   width: 100%;
   display: flex;
-  align-items: center;
+  justify-content: center;
   padding: 10px;
 }
 .button{
   width: 98%;
   justify-content: center;
   font-weight: bold;
+}
+.terms-link {
+  color: blue;
+  text-decoration: none;
+}
+.terms-link:hover {
+  text-decoration: underline;
 }
 
 </style>

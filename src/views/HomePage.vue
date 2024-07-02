@@ -127,6 +127,7 @@
                 <p><a href="/TermsConditionsPage" class="Events-button" >TermsConditionsPage  </a> </p>
                 <p><a href="/InvestorsInvesteesPage" class="Events-button" >InvestorsInvesteesPage  </a> </p>
                 <p><a href="/FormApplyForInvestmentComponent" class="Events-button" >FormApplyForInvestmentComponent  </a> </p>
+                <p><a href="/FormProvideForInvestmentComponent" class="Events-button" >FormProvideForInvestmentComponent  </a> </p>
               
               </IonRow>
               
@@ -220,11 +221,11 @@
                   </IonCol>
                   <IonCol v-show="selectedTab === 'ApplyForInvestment'" class="ApplyForInvestment">
                     <!-- Component for Apply For Investment #########" -->
-                    <ApplyForInvestmentComponent />
+                    <FormApplyForInvestmentComponent />
                   </IonCol>
                   <IonCol v-show="selectedTab === 'ProvideInvestment'" class="ProvideInvestment">
                     <!-- Component for Provide Investment #########" -->
-                    <ProvideInvestmentComponent />
+                    <FormProvideInvestmentComponent />
                   </IonCol>
                 </IonRow>
               </IonCol>
@@ -276,6 +277,8 @@ import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponen
 import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
 import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
+import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
+import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
 
 
 export default defineComponent({
@@ -307,6 +310,8 @@ export default defineComponent({
     OfferComponent,
     NeedComponent,
     PostOfferNeedBestOfferComponent,
+    FormApplyForInvestmentComponent,
+    FormProvideInvestmentComponent,
   },
   setup() {
     const selectedTab = ref<string>('Businesses'); // Initialize with the default tab

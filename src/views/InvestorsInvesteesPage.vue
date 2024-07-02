@@ -41,7 +41,7 @@
                 </IonCol>
                 <IonCol v-show="selectedTab === 'ProvideInvestment'" class="ProvideInvestment">
                   <!-- Component for Investment Providers #########" -->
-                  <MiniEventComponent />
+                  <FormProvideForInvestmentComponent />
                 </IonCol>
                 <IonCol v-show="selectedTab === 'Investors'" class="Investors">
                   <!-- Component for Investees #########" -->
@@ -93,6 +93,7 @@ import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
+import FormProvideForInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
 
 export default defineComponent({
   name: 'InvestorsInvesteesPage',
@@ -116,6 +117,7 @@ export default defineComponent({
     IonSegment,
     IonSegmentButton,
     FormApplyForInvestmentComponent,
+    FormProvideForInvestmentComponent,
 
   },
   setup() {

@@ -55,6 +55,7 @@ import AdminEventsListComponent from '@/components/AdminComponents/AdminEventsCo
 import AdminLeftSideBarComponent from '@/components/AdminComponents/AdminEventsComponents/AdminLeftSideBarComponent.vue';
 // Investment comp
 import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
+import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
 
 
 // /FormApplyForInvestmentComponent
@@ -289,15 +290,24 @@ const routes: Array<RouteRecordRaw> = [
     name: 'AdminLeftSideBarComponent',
     component: AdminLeftSideBarComponent
   },
+  // Investment comp
   {
     path: '/formApplyForInvestmentComponent',
     name: 'FormApplyForInvestmentComponent',
     component: FormApplyForInvestmentComponent
   },
+  {
+    path: '/formProvideInvestmentComponent',
+    name: 'FormProvideInvestmentComponent',
+    component: FormProvideInvestmentComponent
+  },
 
-  // Investment comp
  
-  // Left & Right Aderts starts here  FormExhibitingWorkshopPresentComponent
+
+
+
+
+  // Left & Right Adverts starts here  FormProvideForInvestmentComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',
