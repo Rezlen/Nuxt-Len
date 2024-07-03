@@ -47,6 +47,14 @@
         
         <IonCol>
           <IonCol>
+            <IonSelect v-model="selectedCategory" placeholder="Equity or Loan Investment?" fill="outline" title="Would you like to receive Equity or Interest or Any, in return of the investment?">
+              <IonSelectOption value="categoryEquity">Equity</IonSelectOption>
+              <IonSelectOption value="categoryLoan">Loan</IonSelectOption>
+              <IonSelectOption value="categoryLoan">Open to provide Equity or/& Loan offers</IonSelectOption>
+
+            </IonSelect>
+          </IonCol>
+          <IonCol>
             <IonInput  type="number" label="Length of Investing Years?" label-placement="floating"  :counter="true"  :maxlength="1" :counter-formatter="customFormatter" fill="outline" title="For how many years do you want to invest in an idea/business roughly?"></IonInput> 
           </IonCol>
           <IonCol>
@@ -54,7 +62,7 @@
           </IonCol>
           
           <IonCol>
-            <IonInput  type="number" label="Required Equity %" label-placement="floating"  :counter="true"  :maxlength="2" :counter-formatter="customFormatter" fill="outline" title="What percentage of equity would you like to receive in return for your investment?"></IonInput> 
+            <IonInput  type="number" label="Required Equity/Interest %" label-placement="floating"  :counter="true"  :maxlength="2" :counter-formatter="customFormatter" fill="outline" title="What percentage of equity would you like to receive in return for your investment?"></IonInput> 
           </IonCol>
 
           <IonCol>

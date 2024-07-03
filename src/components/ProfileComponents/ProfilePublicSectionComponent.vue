@@ -472,7 +472,7 @@ ion-segment-button {
     width: 100%;
   }
 }
- /*  gives the nice button colur & shape effect to the tab */
+ /*  gives the nice button color & shape effect to the tab */
 .btn {
   transition: 0.5s;
   padding: 0;
@@ -481,7 +481,7 @@ ion-segment-button {
   font-size: 14px; /* Adjust tab font size for mobile */
   font-weight: bold;
   border: 1px solid rgb(14, 5, 139);
-  letter-spacing: -0.5px; /* Amazingly reduces the spaces between the letters/charectors */
+  letter-spacing: -0.5px; /* Amazingly reduces the spaces between the letters/characters */
 }
 
 /* Hover effect */
@@ -498,7 +498,7 @@ ion-segment-button {
   box-shadow: 0 0 1rem #ffee10;
 }
 
- /*  END gives the nice button colur & shape effect to the tab */
+ /*  END gives the nice button color & shape effect to the tab */
 
 
 </style>

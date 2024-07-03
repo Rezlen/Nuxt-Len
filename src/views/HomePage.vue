@@ -128,6 +128,8 @@
                 <p><a href="/InvestorsInvesteesPage" class="Events-button" >InvestorsInvesteesPage  </a> </p>
                 <p><a href="/FormApplyForInvestmentComponent" class="Events-button" >FormApplyForInvestmentComponent  </a> </p>
                 <p><a href="/FormProvideForInvestmentComponent" class="Events-button" >FormProvideForInvestmentComponent  </a> </p>
+                <p><a href="/MiniInvestorsProfileComponent" class="Events-button" >MiniInvestorsProfileComponent  </a> </p>
+                <p><a href="/MiniInvesteesProfileComponent" class="Events-button" >MiniInvesteesProfileComponent  </a> </p>
               
               </IonRow>
               
@@ -311,7 +313,7 @@ export default defineComponent({
     NeedComponent,
     PostOfferNeedBestOfferComponent,
     FormApplyForInvestmentComponent,
-    FormProvideInvestmentComponent,
+    FormProvideInvestmentComponent
   },
   setup() {
     const selectedTab = ref<string>('Businesses'); // Initialize with the default tab

@@ -135,15 +135,15 @@
           <IonInput type="url" label="Personal Twitter/X Profile Link" label-placement="floating"  :counter="true"  :maxlength="70" :counter-formatter="customFormatter" fill="outline" ></IonInput> 
         </IonCol>
 
-        <IonRow class="Summeries" >
+        <IonRow class="Summaries" >
           <IonCol>
-            <IonTextarea class="Summeries" label="Who We Are, What We do" label-placement="floating"  :counter="true"  :maxlength="30" :counter-formatter="customFormatter" ></IonTextarea>
+            <IonTextarea class="Summaries" label="Who We Are, What We do" label-placement="floating"  :counter="true"  :maxlength="30" :counter-formatter="customFormatter" ></IonTextarea>
           </IonCol>
           <IonCol>
-            <IonTextarea class="Summeries" label="What We Provide" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea>
+            <IonTextarea class="Summaries" label="What We Provide" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea>
           </IonCol>
           <IonCol>
-            <IonTextarea class="Summeries" label="What We Are Looking For" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea> 
+            <IonTextarea class="Summaries" label="What We Are Looking For" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea> 
           </IonCol>
         </IonRow>
       </IonRow>
@@ -236,7 +236,7 @@ box-shadow: 0 4px 8px rgba(34, 139, 34, 0.8);
  /* X-offset, Y-offset, blur radius, and color */
 }
 
-.Summeries {
+.Summaries {
   width: 100%;
   gap: 5px;
 }

@@ -123,7 +123,14 @@
             <IonInput type="number" label="Investment Amount?" label-placement="floating"  :counter="true"  :maxlength="40" :counter-formatter="customFormatter" fill="outline" title="How much investment are you looking for ?"></IonInput> 
           </IonCol>
           <IonCol>
-            <IonInput  type="number" label="Equity % Offering in Return of the Investment" label-placement="floating"  :counter="true"  :maxlength="3" :counter-formatter="customFormatter" fill="outline" title="What percentage of the Idea/Business do you actually own?"></IonInput> 
+            <IonSelect v-model="selectedCategory" placeholder="Equity or Loan Investment?" fill="outline" title="Would you provide Equity or Interest; or open to provide any of them, in return of the investment?">
+              <IonSelectOption value="categoryEquity">Equity</IonSelectOption>
+              <IonSelectOption value="categoryLoan">Loan</IonSelectOption>
+              <IonSelectOption value="categoryLoan">Open to receive Equity or/& Loan</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonInput  type="number" label="Equity/Interest % Offering in Return of the Investment" label-placement="floating"  :counter="true"  :maxlength="3" :counter-formatter="customFormatter" fill="outline" title="What percentage of the Idea/Business do you actually own?"></IonInput> 
           </IonCol>
           <IonCol>
             <IonInput  type="number" label="Your Current OwnerShip Size % of the Idea/Business" label-placement="floating"  :counter="true"  :maxlength="3" :counter-formatter="customFormatter" fill="outline" title="What percentage of the Idea/Business do you actually own?"></IonInput> 

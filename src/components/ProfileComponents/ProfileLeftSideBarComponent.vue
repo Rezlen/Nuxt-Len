@@ -42,7 +42,7 @@
         <IonRow class="PaddingBorder " >My Orders</IonRow>
         <IonRow class="PaddingBorder " >My Blogs</IonRow>
         <IonRow class="PaddingBorder " >My Comments Posts</IonRow>
-        <IonRow class="PaddingBorder " >My Galery</IonRow>
+        <IonRow class="PaddingBorder " >My Gallery</IonRow>
         <IonRow class="PaddingBorder " >Change Password</IonRow>
         <IonRow class="PaddingBorder " >Delete Account</IonRow>
         <IonRow class="PaddingBorder " >Notification Setting</IonRow>

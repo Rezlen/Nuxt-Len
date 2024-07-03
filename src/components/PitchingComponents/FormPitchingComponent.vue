@@ -47,10 +47,10 @@
             <IonLabel>Upload PowerPoint</IonLabel>
             <input type="file" @change="onFileSelected" />
           </IonItem>
-          <IonRow class="Summeries" >
-            <IonTextarea class="Summeries" label="Enter You YouTube EMBEDING Link Here (If you have/wish)" label-placement="floating"  :counter="true"  :maxlength="30" :counter-formatter="customFormatter" ></IonTextarea>
-            <IonTextarea  class="Summeries" label="Summerise Your Pitching/Presentation Here" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea>
-            <IonTextarea  class="Summeries" label="Summerise What You Are Looking For/Need" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea> 
+          <IonRow class="Summaries" >
+            <IonTextarea class="Summaries" label="Enter You YouTube EMBEDING Link Here (If you have/wish)" label-placement="floating"  :counter="true"  :maxlength="30" :counter-formatter="customFormatter" ></IonTextarea>
+            <IonTextarea  class="Summaries" label="Summerise Your Pitching/Presentation Here" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea>
+            <IonTextarea  class="Summaries" label="Summerise What You Are Looking For/Need" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea> 
           </IonRow>
         </IonRow>
 
@@ -236,7 +236,7 @@ input[type="file"] {
   width: 100%;
 }
 
-.Summeries {
+.Summaries {
   /* display: flex; */
   flex-direction: row;
   /* width: fit-content; */

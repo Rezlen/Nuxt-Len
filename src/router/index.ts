@@ -56,9 +56,11 @@ import AdminLeftSideBarComponent from '@/components/AdminComponents/AdminEventsC
 // Investment comp
 import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
 import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
+import MiniInvestorsProfileComponent from '@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue';
+import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue';
 
 
-// /FormApplyForInvestmentComponent
+// /MiniInvesteesProfileComponent.vue
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
   {
@@ -301,13 +303,22 @@ const routes: Array<RouteRecordRaw> = [
     name: 'FormProvideInvestmentComponent',
     component: FormProvideInvestmentComponent
   },
-
+  {
+    path: '/miniInvestorsProfileComponent',
+    name: 'MiniInvestorsProfileComponent',
+    component: MiniInvestorsProfileComponent
+  },
+  {
+    path: '/miniInvesteesProfileComponent',
+    name: 'MiniInvesteesProfileComponent',
+    component: MiniInvesteesProfileComponent
+  },
  
 
 
 
 
-  // Left & Right Adverts starts here  FormProvideForInvestmentComponent
+  // Left & Right Adverts starts here  MiniInvesteesProfileComponent copy.vue
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

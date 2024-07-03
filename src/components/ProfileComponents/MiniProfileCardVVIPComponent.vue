@@ -38,7 +38,7 @@
           <IonRow>Page Visited: 22</IonRow>
         </IonCol>
         <IonCol class="ColoredSectionRightCol">
-          <IonRow>Requiested: 22</IonRow>
+          <IonRow>Requested: 22</IonRow>
           <IonRow>Provided: 22</IonRow>
           <IonRow>Connections: 22</IonRow>
         </IonCol>

@@ -45,10 +45,18 @@
                 </IonCol>
                 <IonCol v-show="selectedTab === 'Investors'" class="Investors">
                   <!-- Component for Investees #########" -->
-                  <EventsCalendarComponent />
+                  <IonRow>
+                  <!-- Putting in Column then in Row attaches two mini profile together #########" -->
+                    <IonCol ><IonRow class="TwoMiniProfile"><MiniInvestorsProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                    <IonCol ><IonRow class="TwoMiniProfile"><MiniInvestorsProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                  </IonRow>
                 </IonCol>
                 <IonCol v-show="selectedTab === 'Investees'" class="Investees">
                   <!-- Component for Investees #########" -->
+                  <IonRow>
+                    <IonCol ><IonRow class="TwoMiniProfile"><MiniInvesteesProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                    <IonCol ><IonRow class="TwoMiniProfile"><MiniInvesteesProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                  </IonRow>
                 </IonCol>
               </IonRow>
             </IonCol>
@@ -94,6 +102,9 @@ import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
 import FormProvideForInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
+import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
+import MiniInvestorsProfileComponent from '@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue';
+import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue';
 
 export default defineComponent({
   name: 'InvestorsInvesteesPage',
@@ -118,6 +129,9 @@ export default defineComponent({
     IonSegmentButton,
     FormApplyForInvestmentComponent,
     FormProvideForInvestmentComponent,
+    MiniProfileCardComponent,
+    MiniInvestorsProfileComponent,
+    MiniInvesteesProfileComponent,
 
   },
   setup() {
@@ -134,8 +148,6 @@ export default defineComponent({
 
 
 <style scoped>
-
-
 
 .bordered-section {
   padding: 0;
@@ -162,9 +174,12 @@ export default defineComponent({
   justify-content: space-around;
   align-items: center;
 }
+.TwoMiniProfile {
+  box-shadow: 0 4px 8px rgba(75, 16, 214, 1.2); /* X-offset, Y-offset, blur radius, and color */
+}
 
 @media (max-width: 768px) {
-    /* if you can try to make the advert disolaywithin componentts in mobile view */
+    /* if you can try to make the advert display within components in mobile view */
   .RightAdvertComponent,
   .LeftAdvertComponent {
     display: none;
