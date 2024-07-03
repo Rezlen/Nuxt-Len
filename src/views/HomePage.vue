@@ -166,67 +166,75 @@
 
             </IonRow>
             <IonRow class=" bordered-section OffersSection ">
-            <!-- 4Tabs 1- All Offers 2- All Needs 3- Best offers 4- Advertise for FREE ##############################-->
-            <IonCol class="Tab5BiZOfferNeedRow">
-              <IonRow class="Tabs4AllBusinessProfilesAllOffersAllNeedsBestOffersAdvertiseForFree">
-                <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                  <IonSegmentButton class="btn" value="Offers">All Offers</IonSegmentButton>
-                  <IonSegmentButton class="btn" value="Needs">All Needs</IonSegmentButton>
-                  <IonSegmentButton class="btn" value="BestOffers">Best Offers</IonSegmentButton>
-                  <IonSegmentButton class="btn" value="AdvertiseForFree">Advertise For FREE</IonSegmentButton>
-                </IonSegment>
-              </IonRow>
-              <IonRow class="DisplayComponentRow">
-                <IonCol v-show="selectedTab === 'Offers'" class="AllOffers">
-                  <!-- Component for All Offers #########" -->
-                  <OfferComponent />
-                </IonCol>
-                <IonCol v-show="selectedTab === 'Needs'" class="AllNeeds">
-                  <!-- Component for All Needs #########" -->
-                  <NeedComponent />
-                </IonCol>
-                <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
-                  <!-- Carefull !!! This Component is athe 7 tabs only THEN in its tab component the BEST OFFERs are nested #########" -->
-                  <BestOfferTABsComponent />
-                </IonCol>
-                <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
-                  <!-- Component for Advertise For FREE #########" -->
-                  <PostOfferNeedBestOfferComponent />
-                </IonCol>
-              </IonRow>
-            </IonCol>
+              <!-- 4Tabs 1- All Offers 2- All Needs 3- Best offers 4- Advertise for FREE ##############################-->
+              <IonCol class="Tab5BiZOfferNeedRow">
+                <IonRow class="Tabs4AllBusinessProfilesAllOffersAllNeedsBestOffersAdvertiseForFree">
+                  <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+                    <IonSegmentButton class="btn" value="Offers">All Offers</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="Needs">All Needs</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="BestOffers">Best Offers</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="AdvertiseForFree">Advertise For FREE</IonSegmentButton>
+                  </IonSegment>
+                </IonRow>
+                <IonRow class="DisplayComponentRow">
+                  <IonCol v-show="selectedTab === 'Offers'" class="AllOffers">
+                    <!-- Component for All Offers #########" -->
+                    <OfferComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'Needs'" class="AllNeeds">
+                    <!-- Component for All Needs #########" -->
+                    <NeedComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
+                    <!-- Careful !!! This Component is the 7 tabs only THEN in its tab component the BEST OFFERs are nested #########" -->
+                    <BestOfferTABsComponent />
+                  </IonCol>
+                  <IonCol v-show="selectedTab === 'AdvertiseForFree'" class="AdvertiseForFree">
+                    <!-- Component for Advertise For FREE #########" -->
+                    <PostOfferNeedBestOfferComponent />
+                  </IonCol>
+                </IonRow>
+              </IonCol>
             </IonRow>
 
 
 
 
 
-            <IonRow class="bordered-section InvestorsSection">
               <!-- 4Tabs 1- All Investors 2- All Investees 3- Apply For Investment 4- Provide Investment ##############################-->
-              <IonCol class="TabInvestorsSection">
-                <IonRow class="Tabs4AllInvestorsAllInvesteesApplyForInvestmentProvideInvestment">
+            <IonRow class=" bordered-section ">
+              <IonCol>
+                <IonRow class=" Tabs4InvestorsInvesteesApplyForInvestment">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                    <IonSegmentButton class="btn" value="AllInvestors">All Investors</IonSegmentButton>
-                    <IonSegmentButton class="btn" value="AllInvestees">All Investees</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="Investors">Investors</IonSegmentButton>
+                    <IonSegmentButton class="btn" value="Investees">Investees</IonSegmentButton>
                     <IonSegmentButton class="btn" value="ApplyForInvestment">Apply For Investment</IonSegmentButton>
                     <IonSegmentButton class="btn" value="ProvideInvestment">Provide Investment</IonSegmentButton>
                   </IonSegment>
                 </IonRow>
                 <IonRow class="DisplayComponentRow">
-                  <IonCol v-show="selectedTab === 'AllInvestors'" class="AllInvestors">
-                    <!-- Component for All Investors #########" -->
-                    <InvestorComponent />
+                  <IonCol v-show="selectedTab === 'Investors'" class="Investors">
+                    <!-- Component for Investees #########" -->
+                    <IonRow>
+                    <!-- Putting in Column then in Row attaches two mini profile together #########" -->
+                      <IonCol ><IonRow class="TwoMiniProfile"><MiniInvestorsProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                      <IonCol ><IonRow class="TwoMiniProfile"><MiniInvestorsProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                    </IonRow>
                   </IonCol>
-                  <IonCol v-show="selectedTab === 'AllInvestees'" class="AllInvestees">
-                    <!-- Component for All Investees #########" -->
-                    <InvesteeComponent />
+                  <IonCol v-show="selectedTab === 'Investees'" class="Investees">
+                    <!-- Component for Investees #########" -->
+                    <IonRow>
+                      <IonCol ><IonRow class="TwoMiniProfile"><MiniInvesteesProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                      <IonCol ><IonRow class="TwoMiniProfile"><MiniInvesteesProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                    </IonRow>
                   </IonCol>
                   <IonCol v-show="selectedTab === 'ApplyForInvestment'" class="ApplyForInvestment">
-                    <!-- Component for Apply For Investment #########" -->
+                    <!-- Component for Investment Seekers #########" -->
                     <FormApplyForInvestmentComponent />
+
                   </IonCol>
                   <IonCol v-show="selectedTab === 'ProvideInvestment'" class="ProvideInvestment">
-                    <!-- Component for Provide Investment #########" -->
+                    <!-- Component for Investment Providers #########" -->
                     <FormProvideInvestmentComponent />
                   </IonCol>
                 </IonRow>
@@ -281,6 +289,8 @@ import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/Bes
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
 import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
 import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
+import MiniInvestorsProfileComponent from '@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue';
+import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue';
 
 
 export default defineComponent({
@@ -313,7 +323,9 @@ export default defineComponent({
     NeedComponent,
     PostOfferNeedBestOfferComponent,
     FormApplyForInvestmentComponent,
-    FormProvideInvestmentComponent
+    FormProvideInvestmentComponent,
+    MiniInvestorsProfileComponent,
+    MiniInvesteesProfileComponent,
   },
   setup() {
     const selectedTab = ref<string>('Businesses'); // Initialize with the default tab

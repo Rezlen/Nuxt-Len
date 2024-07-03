@@ -23,26 +23,17 @@
 
           <IonCol size="12" size-md="9" class="bordered-section">
 
-            <!-- EventsShows 6 tabs 1- Upcoming Events 2- Past Events 3-Events Calender 4- Investees ##############################     -->
+              <!-- 4Tabs 1- All Investors 2- All Investees 3- Apply For Investment 4- Provide Investment ##############################-->
             <IonCol class="MainCol">
               <IonRow class="Tabs4InvestorsInvesteesApplyForInvestment">
                 <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-                  <IonSegmentButton class="btn" value="ApplyForInvestment">Apply For Investment</IonSegmentButton>
-                  <IonSegmentButton class="btn" value="ProvideInvestment">Provide Investment</IonSegmentButton>
                   <IonSegmentButton class="btn" value="Investors">Investors</IonSegmentButton>
                   <IonSegmentButton class="btn" value="Investees">Investees</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="ApplyForInvestment">Apply For Investment</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="ProvideInvestment">Provide Investment</IonSegmentButton>
                 </IonSegment>
               </IonRow>
               <IonRow class="DisplayComponentRow">
-                <IonCol v-show="selectedTab === 'ApplyForInvestment'" class="ApplyForInvestment">
-                  <!-- Component for Investment Seekers #########" -->
-                  <FormApplyForInvestmentComponent />
-
-                </IonCol>
-                <IonCol v-show="selectedTab === 'ProvideInvestment'" class="ProvideInvestment">
-                  <!-- Component for Investment Providers #########" -->
-                  <FormProvideForInvestmentComponent />
-                </IonCol>
                 <IonCol v-show="selectedTab === 'Investors'" class="Investors">
                   <!-- Component for Investees #########" -->
                   <IonRow>
@@ -58,10 +49,17 @@
                     <IonCol ><IonRow class="TwoMiniProfile"><MiniInvesteesProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
                   </IonRow>
                 </IonCol>
+                <IonCol v-show="selectedTab === 'ApplyForInvestment'" class="ApplyForInvestment">
+                  <!-- Component for Investment Seekers #########" -->
+                  <FormApplyForInvestmentComponent />
+
+                </IonCol>
+                <IonCol v-show="selectedTab === 'ProvideInvestment'" class="ProvideInvestment">
+                  <!-- Component for Investment Providers #########" -->
+                  <FormProvideInvestmentComponent />
+                </IonCol>
               </IonRow>
             </IonCol>
-
-
           </IonCol>
 
 
@@ -101,7 +99,7 @@ import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
-import FormProvideForInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
+import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
 import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
 import MiniInvestorsProfileComponent from '@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue';
 import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue';
@@ -128,7 +126,7 @@ export default defineComponent({
     IonSegment,
     IonSegmentButton,
     FormApplyForInvestmentComponent,
-    FormProvideForInvestmentComponent,
+    FormProvideInvestmentComponent,
     MiniProfileCardComponent,
     MiniInvestorsProfileComponent,
     MiniInvesteesProfileComponent,
