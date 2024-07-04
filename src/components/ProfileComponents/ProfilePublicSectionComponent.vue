@@ -96,7 +96,7 @@
       </IonRow>
 
       <!-- 4- WhoWhat row ##############################-->
-      <div class="borderWhoWhatSections">
+      <div class="borderedSections">
         <IonRow class="WhoWhatSections">
           <IonSegment v-model= "selectedTab" class="TabSegment" color="primary">
             <IonSegmentButton class="btn" value="who">Who We Are, What We Dooooo</IonSegmentButton>
@@ -106,21 +106,23 @@
         </IonRow>
         <IonRow class="ContentRow">
           <IonCol v-show="selectedTab === 'who'" class="WhoWeAreWhatWeDo">
-            <p>Who We Are, What We Do</p>
+          <NeedComponent />
             <!-- Content for "Who We Are, What We Do" -->
           </IonCol>
           <IonCol v-show="selectedTab === 'what'" class="WhatWeProvide">
             <p>What We Provide</p>
+          <NeedComponent />
             <!-- Content for "What We Provide" -->
           </IonCol>
           <IonCol v-show="selectedTab === 'looking'" class="WhatWeAreLookingFor">
             <p>What We Are Looking For</p>
+          <NeedComponent />
             <!-- Content for "What We Are Looking For" -->
           </IonCol>
         </IonRow>
       </div>
       
-      
+      <div class="borderedSections">
       <!-- 5 - ActivityRow ListedNeedsOffersVisitedEventsConnectionGallery -->
       <IonRow class="ActivityRow">
         <IonSegment v-model="selectedTab" class="ActivitySegment" scrollable>
@@ -131,61 +133,71 @@
           <IonSegmentButton class="btn" value="requestedOffers">Requested Offers</IonSegmentButton>
           <IonSegmentButton class="btn" value="peopleRequestedOffers">People Requested Offers</IonSegmentButton>
           <IonSegmentButton class="btn" value="listedBestOffer">Listed Best Offer</IonSegmentButton>
-          <IonSegmentButton class="btn" value="AttendedEvents">Attended Events</IonSegmentButton>
+          <IonSegmentButton class="btn" value="visitedEvents">Visited Events</IonSegmentButton>
+          <IonSegmentButton class="btn" value="exhibitedEvents">Exhibited Events</IonSegmentButton>
           <IonSegmentButton class="btn" value="connections">Connections</IonSegmentButton>
           <IonSegmentButton class="btn" value="galleries">4 Galleries</IonSegmentButton>
-          <IonSegmentButton class="btn" value="pitchingVideos">3 Pitching Videos</IonSegmentButton>
+          <IonSegmentButton class="btn" value="pitchings">3 Pitchings</IonSegmentButton>
           <IonSegmentButton class="btn" value="investor">Investor</IonSegmentButton>
-          <IonSegmentButton class="btn" value="investmentBroker">Investment Broker</IonSegmentButton>
+          <IonSegmentButton class="btn" value="investments">Investments</IonSegmentButton>
+          <IonSegmentButton class="btn" value="businessMentor">Business Mentor</IonSegmentButton>
         </IonSegment>
 
+        <IonRow class="ContentRow">
+
         <!-- Tab Content -->
-        <IonCol v-if="selectedTab === 'listedNeeds'">
-          <ListedNeedsComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'satisfiedNeeds'">
-          <SatisfiedNeedsComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'peopleSatisfiedNeeds'">
-          <PeopleSatisfiedNeedsComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'providedOffers'">
-          <ProvidedOffersComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'requestedOffers'">
-          <RequestedOffersComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'peopleRequestedOffers'">
-          <PeopleRequestedOffersComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'listedBestOffer'">
-          <ListedBestOfferComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'visitedEvents'">
-          <VisitedEventsComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'exhibitedEvents'">
-          <ExhibitedEventsComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'connections'">
-          <ConnectionsComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'galleries'">
-          <GalleriesComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'pitchingVideos'">
-          <PitchingVideosComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'investor'">
-          <InvestorComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'investmentBroker'">
-          <InvestmentBrokerComponent />
-        </IonCol>
-        <IonCol v-if="selectedTab === 'businessMentor'">
-          <businessMentorComponent />
-        </IonCol>
+            <IonCol v-show="selectedTab === 'listedNeeds'" class="ListedNeeds">
+              <NeedComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'satisfiedNeeds'" class="SatisfiedNeeds">
+              <SatisfiedNeedsComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'peopleSatisfiedNeeds'" class="PeopleSatisfiedNeeds">
+              <PeopleSatisfiedNeedsComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'providedOffers'" class="ProvidedOffers">
+              <ProvidedOffersComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'requestedOffers'" class="RequestedOffers">
+              <RequestedOffersComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'peopleRequestedOffers'" class="PeopleRequestedOffers">
+              <PeopleRequestedOffersComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'listedBestOffer'" class="ListedBestOffer">
+              <ListedBestOfferComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'visitedEvents'" class="VisitedEvents">
+              <VisitedEventsComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'exhibitedEvents'" class="ExhibitedEvents">
+              <ExhibitedEventsComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'connections'" class="Connections">
+              <ConnectionsComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'galleries'" class="Galleries">
+              <GalleriesComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'pitchings'" class="Pitchings">
+              <PitchingVideosComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'investor'" class="Investor">
+              <InvestorComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'investments'" class="Investments">
+              <InvestmentBrokerComponent />
+            </IonCol>
+            <IonCol v-show="selectedTab === 'businessMentor'" class="BusinessMentor">
+              <BusinessMentorComponent />
+            </IonCol>
+        </IonRow>
+      
+
+
+
       </IonRow>
+    </div>
     </IonCol>
   </IonGrid>
 </template>
@@ -195,18 +207,7 @@
 import { defineComponent, ref } from 'vue';
 import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonButton, IonIcon } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
-// import ListedNeedsComponent from '@/components/ListedNeedsComponent.vue';
-// import SatisfiedNeedsComponent from '@/components/SatisfiedNeedsComponent.vue';
-// import PeopleSatisfiedNeedsComponent from '@/components/PeopleSatisfiedNeedsComponent.vue';
-// import ProvidedOffersComponent from '@/components/ProvidedOffersComponent.vue';
-// import RequestedOffersComponent from '@/components/RequestedOffersComponent.vue';
-// import PeopleRequestedOffersComponent from '@/components/PeopleRequestedOffersComponent.vue';
-// import ListedBestOfferComponent from '@/components/ListedBestOfferComponent.vue';
-// import VisitedEventsComponent from '@/components/VisitedEventsComponent.vue';
-// import ExhibitedEventsComponent from '@/components/ExhibitedEventsComponent.vue';
-// import ConnectionsComponent from '@/components/ConnectionsComponent.vue';
-// import GalleriesComponent from '@/components/GalleriesComponent.vue';
-// import PitchingVideosComponent from '@/components/PitchingVideosComponent.vue';
+import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
 
 export default defineComponent({
   name: 'ProfilePublicSectionComponent',
@@ -218,26 +219,13 @@ export default defineComponent({
     IonSegmentButton,
     IonButton,
     IonIcon,
-        // ListedNeedsComponent,
-    // SatisfiedNeedsComponent,
-    // PeopleSatisfiedNeedsComponent,
-    // ProvidedOffersComponent,
-    // RequestedOffersComponent,
-    // PeopleRequestedOffersComponent,
-    // ListedBestOfferComponent,
-    // VisitedEventsComponent,
-    // ExhibitedEventsComponent,
-    // ConnectionsComponent,
-    // GalleriesComponent,
-    // PitchingVideosComponent,
+    NeedComponent,
   },
   setup() {
-    const selectedTab = ref<string>('listedNeeds'); // Initialize with the default tab
-    const selectedTabActivity = ref<string>('listedNeeds'); // Initialize with the default tab for ActivityRow
+    const selectedTab = ref<string>('#'); // Initialize with the default tab
 
     return {
       selectedTab,
-      selectedTabActivity,
       logoFacebook,
       logoTwitter,
       logoLinkedin,
@@ -417,9 +405,15 @@ ion-grid {
 }
 
 /* WhoWhatSections styles */
-.borderWhoWhatSections {
+.borderedSections {
   border: 1px solid black;
   border-radius: 10px;
+  margin: 10px 0;
+}
+.ContentRow {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background-color: rgb(113, 245, 95);
 }
 
 .TabSegment {
@@ -446,25 +440,11 @@ ion-grid {
   flex-wrap: wrap;
   width: 100%;
   overflow-x: auto;
-  border: 1px solid black;
   border-radius: 10px;
 }
 
 .ActivitySegment ion-segment-button {
   flex: 1 1 auto;
-  white-space: nowrap;
-  min-width: 100px;
-}
-
-.ActivityRow .ion-col {
-  white-space: normal;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
-ion-segment-button {
-  font-size: 14px; /* Adjust tab font size for mobile */
-  font-weight: bold;
 }
 
 @media (max-width: 600px) {
@@ -477,10 +457,8 @@ ion-segment-button {
   transition: 0.5s;
   padding: 0;
   margin: 0;
-  border-radius: 20%;
   font-size: 14px; /* Adjust tab font size for mobile */
-  font-weight: bold;
-  border: 1px solid rgb(14, 5, 139);
+  /* font-weight: bold; */
   letter-spacing: -0.5px; /* Amazingly reduces the spaces between the letters/characters */
 }
 
@@ -490,15 +468,6 @@ ion-segment-button {
   color: black;
   box-shadow: 0 0 1rem #ffee10;
 }
-
-/* Clicked effect */
-.btn-clicked {
-  background: #ffee10;
-  color: black;
-  box-shadow: 0 0 1rem #ffee10;
-}
-
- /*  END gives the nice button color & shape effect to the tab */
 
 
 </style>

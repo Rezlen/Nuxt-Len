@@ -39,6 +39,7 @@
         <IonRow class="PaddingBorder " >My Best Offers</IonRow>
         <IonRow class="PaddingBorder " >My Need</IonRow>
         <IonRow class="PaddingBorder " >My Pitches</IonRow>
+        <IonRow class="PaddingBorder " >My Investments</IonRow>
         <IonRow class="PaddingBorder " >My Orders</IonRow>
         <IonRow class="PaddingBorder " >My Blogs</IonRow>
         <IonRow class="PaddingBorder " >My Comments Posts</IonRow>
