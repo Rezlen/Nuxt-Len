@@ -17,12 +17,15 @@
 
           <!-- Sidebar Menu -->
           <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
-            <IonRow class="PaddingBorder MainOptions"@click="showComponent('events')" >Events</IonRow>
-            <IonRow class="PaddingBorder UpgradeVIP"> to VIP</IonRow>
-            <IonRow class="PaddingBorder MessageRemaining">remaining</IonRow>
-            <IonRow class="PaddingBorder">Edit Profile</IonRow>
-            <IonRow class="PaddingBorder">My Connections</IonRow>
-            <IonRow class="PaddingBorder">Messages</IonRow>
+            <IonRow class="PaddingBorder AllProfiles">All Profiles</IonRow>
+            <IonRow class="PaddingBorder Events"@click="showComponent('events')" >Events</IonRow>
+            <IonRow class="PaddingBorder Investments">Investments</IonRow>
+            <IonRow class="PaddingBorder OffersNeeds">Offers Needs</IonRow>
+            <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
+            <IonRow class="PaddingBorder Messages">Messages</IonRow>
+            <IonRow class="PaddingBorder RewardsDiscounts">Rewards Discounts</IonRow>
+            <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
+
           </IonRow>
         </IonCol>
 
@@ -123,8 +126,8 @@ ion-grid {
   margin-top: 40px;
 }
 
-.MainOptions, 
-.UpgradeVIP {
+.Events, 
+.AllProfiles {
   font-weight: bold;
   /* padding: 5px; */
 }

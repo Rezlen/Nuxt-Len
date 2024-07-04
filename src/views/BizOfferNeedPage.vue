@@ -12,7 +12,8 @@
       
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row ">
-          <FilterByComponent />  <!--I placed the Left filter/menu here so it is NOT hidden in mobile view -->
+          <!-- Floating Left Sidebar -->
+          <FilterByComponent class="floating-sidebar" />  <!--I placed the Left filter/menu here so it is NOT hidden in mobile view -->
           <!-- Left Advert Section -->
           <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
             <LeftAd1Component />
@@ -157,10 +158,10 @@ export default defineComponent({
 
 <style scoped>
 
-ion-grid {
+/* ion-grid {
   padding: 0;
   margin: 0;
-}
+} */
 
 .bordered-section {
   padding: 0;
@@ -213,6 +214,11 @@ ion-grid {
   margin: 10px;
 }
 
+/* This makes the sidebar floating beautifully */
+.floating-sidebar {
+  position: absolute;
+  /* z-index: 1000; */    /* Ensure it is above other content */
+}
 
 @media (max-width: 768px) {
   .AllBusinessProfiles,

@@ -14,7 +14,8 @@
 
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row ">
-          <ProfileLeftSideBarComponent />  <!--I placed the Left SideBar/menu here so it is NOT hidden in mobile view -->
+          <!-- Floating Profile Left Sidebar -->
+          <ProfileLeftSideBarComponent class="floating-sidebar" />  <!--I placed the Left SideBar/menu here so it is NOT hidden in mobile view -->
           <!-- Left Advert Section -->
           <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
             <LeftAd1Component />
@@ -111,16 +112,19 @@ export default defineComponent({
     return {
     showMiniEvent,
     toggleMiniEvent,
-
     };
   }
 });
 </script>
 
 <style scoped>
-ion-grid {
-  padding: 0;
+/* ion-grid {
   margin: 0;
+  padding:0;
+} */
+.main-content-row {
+  margin: 0;
+  padding: 0;
 }
 
 .bordered-section {
@@ -128,6 +132,11 @@ ion-grid {
   margin: 0;
   z-index: 1;
   /* gap: 100px; */
+}
+/* This makes the sidebar floating beautifully */
+.floating-sidebar {
+  position: absolute;
+  /* z-index: 1000; */    /* Ensure it is above other content */
 }
 
 @media (max-width: 768px) {
