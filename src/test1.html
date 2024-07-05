@@ -1,0 +1,3677 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>All Profiles | Dashboard</title>
+<title>Dashboard</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://kharejkala.com/image/logo.png" type="image/gif" sizes="16x16">
+<meta name="csrf-token" content="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/flatpickr.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/toaster.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/sweet-alert2.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/select2.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/select2-bootstrap4.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/ionicons.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/tempusdominus-bootstrap-4.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/icheck-bootstrap.min.css">
+<link rel="stylesheet" href="https://kharejkala.com/css/bootstrap-select.min.css">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://kharejkala.com/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://kharejkala.com/css/responsive.bootstrap4.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/adminlte.min.css?v=1.2.1">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/OverlayScrollbars.min.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/style.css?v=1.0.3">
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/summernote-bs4.css">
+
+<link rel="stylesheet" href="https://kharejkala.com/css/lightbox.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fa fa-bars"></i></a>
+</li>
+<li class="nav-item"><a class="nav-link" href="/admin/user" role="button">All Profiles</a></li>
+</ul>
+
+<ul class="navbar-nav ml-auto">
+
+<li class="nav-item dropdown">
+<a class="nav-link" data-toggle="dropdown" href="#">
+<i class="fa fa-bell"></i>
+<span class="badge badge-danger navbar-badge" id="notificationBadge"></span>
+</a>
+<div id="notifications" class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="height: 500px;overflow: scroll;text-align: left">
+</div>
+</li>
+<li class="nav-item">
+<div class="dropdown">
+<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+<i class="fa fa-user"></i>
+</a>
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="https://kharejkala.com/admin/account">
+My Account
+</a>
+<a class="dropdown-item" href="https://kharejkala.com/logout" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+Logout
+</a>
+<form id="logout-form" action="https://kharejkala.com/admin/logout" method="POST" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</div>
+</div>
+</li>
+</ul>
+</nav>
+
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+<a href="/admin/home" class="brand-link">
+<span class="brand-text font-weight-light">
+Administrator
+Panel</span>
+</a>
+
+<div class="sidebar">
+
+<nav class="mt-2">
+<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+<li class="nav-item ">
+<a href="/admin/home" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-dashboard"></i>
+<p>
+Dashboard
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/user" class="nav-link pl-0 active">
+<i class="nav-icon fa fa-users"></i>
+<p>
+All Profile
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/advert/thing-to-send" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-archive"></i>
+<p>
+Things To Send
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/advert/luggage-space" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-archive"></i>
+<p>
+Luggage Space
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/advert/sell" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-shopping-cart"></i>
+<p>
+Sell
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/advert/buy" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-shopping-cart"></i>
+<p>
+Buy
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/agreement_chat/things_lug" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-phone"></i>
+<p>
+Agreement Chat
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/transaction" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-gbp"></i>
+<p>
+Transaction
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/withdrawal" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-money"></i>
+<p>
+Withdrawal
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/post" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-podcast"></i>
+<p>
+Related Post
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/userAdmin" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-users"></i>
+<p>
+Admin Users
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/delivery_volunteers/users" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-plane"></i>
+<p>
+Delivery Volunteers
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/user/document" class="nav-link pl-0 ">
+<i class="nav-icon fa  fa-file-text"></i>
+<p>
+Documents
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/contact-us" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-phone"></i>
+<p>
+Contact Us
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/sent_mail" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-envelope"></i>
+<p>
+Sent Mail
+</p>
+</a>
+</li>
+<li class="nav-item has-treeview
+                     
+                    ">
+<a href="#" class="nav-link pl-0
+                        
+                        ">
+<i class="nav-icon fa fa-cogs"></i>
+Site Setting
+</a>
+<ul class="nav nav-treeview ">
+<li class="nav-item">
+<a href="/admin/blog" class="nav-link ">
+<i class="nav-icon fa fa-book"></i>
+<p>
+Blog
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/subscribe" class="nav-link ">
+<i class="nav-icon fa fa-paste"></i>
+<p>
+Subscribers
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/userSharedContacts" class="nav-link ">
+<i class="nav-icon fa fa-users"></i>
+<p>
+User Shared Contacts
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/site-setting/how-it-work" class="nav-link ">
+<i class="nav-icon fa fa-question"></i>
+<p>
+How It Works
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/site-setting/about-us" class="nav-link ">
+<i class="nav-icon fa fa-copy"></i>
+<p>
+About Us
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/site-setting/privacy-policy" class="nav-link ">
+<i class="nav-icon fa fa-user-secret"></i>
+<p>
+Privacy Policy
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/site-setting/terms-&-conditions" class="nav-link ">
+<i class="nav-icon fa fa-flash"></i>
+<p>
+Terms & Conditions
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/faq" class="nav-link ">
+<i class="nav-icon fa fa-bell-o"></i>
+<p>
+FAQ
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/site-setting/site-map" class="nav-link ">
+<i class="nav-icon fa fa-map-o"></i>
+<p>
+Site Map
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/general-setting" class="nav-link ">
+<i class="nav-icon fa fa-cog"></i>
+<p>
+General Setting
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/admin/change-password" class="nav-link ">
+<i class="nav-icon fa fa-lock"></i>
+<p>
+Change Password
+</p>
+</a>
+</li>
+</ul>
+</li>
+<li class="nav-item">
+<a href="/admin/error_logs" class="nav-link pl-0 ">
+<i class="nav-icon fa fa-exclamation-triangle"></i>
+<p>
+Error Logs
+</p>
+</a>
+</li>
+<li class="nav-item">
+<a href="/" target="_blank" class="nav-link pl-0">
+<i class="nav-icon fa  fa-home"></i>
+<p>
+Main page
+</p>
+</a>
+</li>
+</ul>
+</nav>
+
+</div>
+
+</aside>
+
+<div class="content-wrapper">
+
+<div class="card">
+<div class="card-body">
+<div class="filter_sort">
+<form method="get" action="https://kharejkala.com/admin/user">
+<div class="form-group col-md-4">
+<input type="text" name="keyword" class="form-control form-control-sm" autocomplete="off" value placeholder="Enter keyword & press enter">
+</div>
+</form>
+</div>
+<div class="table-responsive">
+<table id="sticky-table" class="display compact table-bordered table " style="width:100%">
+<thead>
+<tr>
+<th colspan="10"></th>
+<th colspan="5" class="back-cyan-color">All Activities</th>
+<th colspan="6" class="back-light-color">All Luggage Space</th>
+<th colspan="6" class="back-lime-color">All Things to Send</th>
+<th colspan="20"></th>
+</tr>
+<tr class="thead-dark">
+<th class="sticky-img-col bg-dark">#</th>
+<th class="sticky-img-col bg-dark">Image</th>
+<th class="sticky-firstname-col bg-dark">First Name</th>
+<th class="sticky-lastname-col bg-dark">Last Name</th>
+<th>Approved</th>
+<th>Emails Confirmed; Green Not; Black Deleted; Red</th>
+<th>MobileNo.</th>
+<th>Country</th>
+<th>City</th>
+<th>About Me</th>
+<th class="back-purple-color text-dark">Total Commission</th>
+<th class="back-red-color text-dark">Total Paid + Total Received + Total Commission</th>
+<th class="back-cyan-color text-dark">Total Transaction</th>
+<th class="back-cyan-color text-dark">Average Price</th>
+<th class="back-cyan-color text-dark">Total Weight</th>
+<th class="back-purple-color text-dark">Total Luggage space Commission</th>
+<th class="back-red-color text-dark">Total Received + Total Commission</th>
+<th class="back-light-color text-dark">Total Travel</th>
+<th class="back-light-color text-dark">Total Weight Delivered</th>
+<th class="back-light-color text-dark">Total Earned</th>
+<th class="back-light-color text-dark">Average Delivered Price</th>
+<th class="back-purple-color text-dark">Total Things Sent Commission</th>
+<th class="back-red-color text-dark">Total Paid + Total Commission</th>
+<th class="back-lime-color text-dark">Total Things Sent</th>
+<th class="back-lime-color text-dark">Total Weight Sent</th>
+<th class="back-lime-color text-dark">Total Paid</th>
+<th class="back-lime-color text-dark">Average Sent Price</th>
+<th>Sent Comments</th>
+<th>Received Comments</th>
+<th>Rating</th>
+<th>Instaram Link</th>
+<th>Telegram Link</th>
+<th>Linkedin Link</th>
+<th>Twitter Link</th>
+<th>Facebook Link</th>
+<th>Admin Chat</th>
+<th>Date Joined</th>
+<th>Last Logged In</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+4329
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6IisydmVwYmFodUlod0kvTXFGZ0ozMmc9PSIsInZhbHVlIjoiYUkxdHR4ZkxEb0ZQRU11WlUzN0pQUT09IiwibWFjIjoiYTJmMDgzNzg5NDU2NDZlOWVmMTRhMTkwOTUyNjhkNTUzOTNmODA1OTg0Y2EwYTRiNTA3MjBkMzRhOGMxYzY3MSJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Maryam
+</td>
+<td class="sticky-lastname-col">
+Mokhtari
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8332">
+maryammokh...
+</a>
+
+<div class="modal fade" id="emailModal8332" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>maryammokhtari1373@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8332" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8332" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8332">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-05 00:45:51</small></td>
+<td><small>2024-07-05 00:45:51</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6ImJQM0xtUE9nR1JGRERxQ1VBQzNJVkE9PSIsInZhbHVlIjoiT3h2MVhZMUpVMDhVanZGTGtPSEVoZz09IiwibWFjIjoiNTYzMDEwNjhiNTAxNWU1ZTYxYjc0MWU0N2UyZWVlZDg1YjQ2MzgwMTQ1ZGJhOGJhYTM3MTI3ZmFiY2JmZTk5MCJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8332)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8332" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IktnOE43NHlBMFdGNkp2VlYzVFBXRXc9PSIsInZhbHVlIjoib2NjMHc5bzNiSGx1cmlScHlmMnJOUT09IiwibWFjIjoiMWM2NGI5ZDZhMmQ4ODQyZmIxMjhjNjczYTRmMjBiODllMmFhNWM1MjE4NGM4YTkzYTg5YWM2OGJkMGVlZWFlOSJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4328
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6ImNQQzlCekhXTFRqZTVzM0VmSjUxclE9PSIsInZhbHVlIjoiYzNMRXJWQldjamllM3FMVkxZSzNwQT09IiwibWFjIjoiYzIwNTQ1NGMyMTY2ZGVlMmI4MzY2MDdlNWI2YTljNDYyMmU5ZjgyM2FkZTJlOWE0MTFhMDBhNDU1ZWM2MjA3YSJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+David
+</td>
+<td class="sticky-lastname-col">
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8331">
+david.ahma...
+</a>
+
+<div class="modal fade" id="emailModal8331" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>david.ahmadi6386@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8331" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8331" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8331">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-04 18:55:46</small></td>
+<td><small>2024-07-04 18:55:46</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IkZtczcreldMbExYeTRyWjROUmlhd3c9PSIsInZhbHVlIjoicEd4NHJoTVBLQld4alkwdU05ZzRJUT09IiwibWFjIjoiNTJmYzE1MGVkOTEyZjViMzQ2NmY4YjcwZDk5OGQxMWE2OWE3MTYwM2IyOTAxNzJkOGQwMGYxN2NiMTA3NGU5YiJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8331)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8331" action="https://kharejkala.com/admin/user/delete/eyJpdiI6Ii9HNHNObXpzUENHZ08vNm1xekJDdFE9PSIsInZhbHVlIjoiWnR1SlBJOE5lNTIyUURMd1VralZ1dz09IiwibWFjIjoiNjgxOWZjMjUwYWM0YmY5YjBhMWViYjdhM2Y4MmI0OWMwMzgzZWQ5YzI2NTQ5Yjk1YWE3Mjg1NDUwMTdjMDBjMiJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4327
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6IitwWDRRVlNNQzJSaWVOd1l5M1Myc2c9PSIsInZhbHVlIjoiU3VhbjJWeXJPSzIyRkhjNlJqNmt0dz09IiwibWFjIjoiNTc3YmVkY2RhYmI2OGQ1MWU3NGUxNzA3Y2JmNGRmYjdhNDE1MTE1NTY0NzQyMzRiMWJlZTE5YmIwY2YwMDI2NiJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Nafis
+</td>
+<td class="sticky-lastname-col">
+Tabatabayi
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       green
+                                        " data-toggle="modal" data-target="#emailModal8330">
+nafisehala...
+</a>
+
+<div class="modal fade" id="emailModal8330" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>nafisehalavi67@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8330" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8330" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8330">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-04 13:45:39</small></td>
+<td><small>2024-07-04 13:47:37</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IjN1ZFpnSmFIbFZEMFR1NlNTMGcyZlE9PSIsInZhbHVlIjoiOUFtQkRIQjNnaG1UV1NQWXFWMTZIdz09IiwibWFjIjoiYTk4ZTQ1ZjFmNWQ0NjEzZDUxNzhkZDExNDBiYjIyMjEyYThmNDY5YmVmYjYyMjI1MjYzMzY5MzE4ZWVmMDRlYiJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8330)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8330" action="https://kharejkala.com/admin/user/delete/eyJpdiI6InBFbUp6Mzk3Q3A4czJVanQ4Z0lqdWc9PSIsInZhbHVlIjoiU0JPME9jTEZRRGhBQjA4d0kvQ0lDdz09IiwibWFjIjoiYzNiMzZhY2U0OWY4ZDIzYjBjYTVjMjE0YTQ1MDNlZGEwNTUwZDY3MzA4ODE2MTE1YjZkMjBhNWVkYjcyODhjOCJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4326
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6ImhldVN5TUFQZXcweWVkeWszbjJNOHc9PSIsInZhbHVlIjoiYWNyK3d5SnlydG1JT3A1WFFQdHhIQT09IiwibWFjIjoiZDk2ZjNhNjlkY2Q3ZDI2MjFhZGIwZTkzMDJkNDY5OTQ2ZGY1ZDhkZWNiNmE5YjNjMWRiZTAwZGEwOGU2NmFjMCJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Cov
+</td>
+<td class="sticky-lastname-col">
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8329">
+nikraftar2...
+</a>
+
+<div class="modal fade" id="emailModal8329" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>nikraftar2002@hotmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8329" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8329" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8329">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-04 09:55:45</small></td>
+<td><small>2024-07-04 09:55:45</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IlBxczhJaUdhSUEyOUt1b0hZTUdtbHc9PSIsInZhbHVlIjoianQyem5GcWZOUXVpNEM1enlySkpYQT09IiwibWFjIjoiYTZmNmU5MGE5MGUxYjRmZmY3MDBjZDBlMDFlZjFjYzQ2NzBhZTAzY2IwMzUwNDU2ZjJlMzAxYzYzN2QxY2RkNiJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8329)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8329" action="https://kharejkala.com/admin/user/delete/eyJpdiI6ImpPRWNJQzJ6U0U2b3h3ek1FVEJxTnc9PSIsInZhbHVlIjoiR1NpZFhrNWY3NytRYXdkSHVUZTgrZz09IiwibWFjIjoiNzZhZDhhYmY3NTM5ZmNhZjE0YTNkM2QzYWIxMTllZGU1MDBlYmM3M2E0NTkzNjExODJiMWMyNTI5MGI4YWVlZiJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4325
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6IjFaemNrQ1p5S2t3OVNXYUVWZWdBZEE9PSIsInZhbHVlIjoiN3ZVOFNnb1ZrMXhUdFpOYWwvVXhhZz09IiwibWFjIjoiNTkxYmNjYjJlMDMxMWQzNzQzOGY2Yzk3MjY2ZDk4YWIzMTliODYwOWE2ZWNjYzg5NDEzOTBiNjY1YTBlZjMxOCJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Empty
+</td>
+<td class="sticky-lastname-col">
+Empty
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       green
+                                        " data-toggle="modal" data-target="#emailModal8328">
+may86@3mti...
+</a>
+
+<div class="modal fade" id="emailModal8328" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>may86@3mtintchicago.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8328" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8328" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8328">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-03 22:54:32</small></td>
+<td><small>2024-07-03 22:55:16</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6InU1RHNaL0YyWjhzNTFLRkg5QkxFVEE9PSIsInZhbHVlIjoidEhHU2hweWN4R1QycnJhZk5RNUNRUT09IiwibWFjIjoiNDY5MmIwZTRhOTNhNWJmM2M4MTU1YmVjMDRhM2Q5ZDQ1ZTM0NzlkNjkwOWRlOWY0MTUwZDNjZjM1MjdhODA0ZCJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8328)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8328" action="https://kharejkala.com/admin/user/delete/eyJpdiI6ImZPd0xGTHhkbzV3Uko1cWVWNUM2Smc9PSIsInZhbHVlIjoiSEJoMUZiWks3dFNYaE04aVhnL1c1QT09IiwibWFjIjoiNGY4OTg4MzI2OWZlMDBmYmIxOThmMWZjMDlhZjY1NmE1NTAyMDg2ZDQxYTUxYjQyMjRhYzY4MzI3ODA0N2NjOSJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4324
+</td>
+<td class="sticky-img-col"> <img class="img img-avatar-admin-size avatar" data-value="eyJpdiI6Ilp4d2dYTm9ZSi9LTWFiYm1JSXU1WUE9PSIsInZhbHVlIjoickNFTDI2T09GODRoWU1hUjdRN2J4Zz09IiwibWFjIjoiNjNhMzkzZjYyMjZkMzVlMmIxZGIzZTBjODFlYjY3ZmQxN2IwNjcyODJmYThlYTE0Y2FjOTUzYWVhMTk0NmI2MCJ9" src="https://kharejkala.com/image/UserFiles/Avatars/2024-07-03-20-25-58-8327.png">
+</td>
+<td class="sticky-firstname-col">
+Mahdi
+</td>
+<td class="sticky-lastname-col">
+Haghighat
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       green
+                                        " data-toggle="modal" data-target="#emailModal8327">
+mehdi.hagh...
+</a>
+
+<div class="modal fade" id="emailModal8327" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>mehdi.haghighat7@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+<a href="#" class="card-link" data-toggle="modal" data-target="#mobileNoModal8327">
++4477072074...
+</a>
+
+<div class="modal fade" id="mobileNoModal8327" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Mobile No:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>+447707207474</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>United Kingdom</td>
+<td>Manchester</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8327" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8327" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8327">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-03 19:01:30</small></td>
+<td><small>2024-07-04 10:56:14</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IjZndC9aczZWeFdSNGF2VlcvMHhkZXc9PSIsInZhbHVlIjoiVTBRYmRUdXgwcHhORDN5ZzVRd1RrZz09IiwibWFjIjoiMzZmNTNhMjgyMjNmZWMyNjcxZDM3N2Q4OTBjZTRiZTk0NDMyMDRjNjMzM2Y2NmJjZTNhZDUwZWI3ZWM4MDBmNiJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8327)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8327" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IktWN3MvRW4ySWN2aTZtQWlWK3p1ZUE9PSIsInZhbHVlIjoiTmJCMEZkUDVFODVSU0ZxRlcwN05sUT09IiwibWFjIjoiY2EyY2VlZTU2NmZiODQzZTU5NjMwZmQ5NzgzZGVlYzM3MTFmNzY4M2MyZWFlMzFiM2YzMzUxNjdjZDVjMDQ3MCJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4323
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6IkFTU2FuSEp1VXA3UE9VbXU0bmFselE9PSIsInZhbHVlIjoiSGs2SHMyN3I3RTBQZnpGYWtKZmhHQT09IiwibWFjIjoiOTU1ZGE4N2UyYTdlNTFlMzI1MjJlYjM1YjEzY2YzZDQ4YTMwMmQxOTgwNjdkYTFmMTdmYmMxNmZmNDYyZGE1OCJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Shahreza
+</td>
+<td class="sticky-lastname-col">
+<a href="#" class="card-link" data-toggle="modal" data-target="#lastNameModal8326">
+Rowshanzam...
+</a>
+
+<div class="modal fade" id="lastNameModal8326" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Last Name:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>Rowshanzamir</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8326">
+shahrezaro...
+</a>
+
+<div class="modal fade" id="emailModal8326" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>shahrezarowshanzamir@yahoo.co.uk</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8326" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8326" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8326">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-03 17:33:29</small></td>
+<td><small>2024-07-03 17:33:29</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6ImJGVnhSMVFxdWtPN3FXZC9CdEVCUmc9PSIsInZhbHVlIjoiM3NncW9udDF1TndoT3RhR1hoVWo4UT09IiwibWFjIjoiY2U1MjFjMWNkZDNmNzQyOTJlZTA3Y2NmMzFkNjdiZThhNDU5NzE3NWI0ZTA1OGQwM2Y4NGY4OTVjYjljYjc1MiJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8326)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8326" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IisweVZtQ3NNWHZPbExvQm1CN2RzZ0E9PSIsInZhbHVlIjoiT3htZXVGYWFwQk5GcHI5UEo5N3JMQT09IiwibWFjIjoiNjRhNTE4OTEzNjIwYmU2OTQ0MzI4MDVkOWNhZGE3OWU0Nzk0OTY0ZjkwZjU2NTI4NTM0ZmIyYWI0NGY3YzE2ZCJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4322
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6Imh5bnhLU1VuZnc5U2xQTjFiaHRlY3c9PSIsInZhbHVlIjoicVVHK2pZVWlxd0FEblpaSHRaaURWdz09IiwibWFjIjoiYmMxYmNlNDdiNDQ3MTdhY2VhODA2ZDUyNjExNTExODlhOTM0MTAwOTNmNTdhYjFiMmJjOTI0MjIyYTZlMWM3YyJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+<a href="#" class="card-link" data-toggle="modal" data-target="#firstNameModal8325">
+مهرنوش
+</a>
+
+<div class="modal fade" id="firstNameModal8325" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">First Name:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>مهرنوش</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td class="sticky-lastname-col">
+سلیمی
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8325">
+anjoman.sa...
+</a>
+
+<div class="modal fade" id="emailModal8325" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>anjoman.salimi89@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8325" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8325" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8325">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-03 10:56:15</small></td>
+<td><small>2024-07-03 10:56:15</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IjljZ3c2U0s5dUZ1TVZwcFkzcEVLYUE9PSIsInZhbHVlIjoiejAwaEhJQjhTTm82dnBFVTNiY0VCZz09IiwibWFjIjoiYjgwZGQzNmE3MjQ5ODk1MTM1ZDljZGNiNGRjYzQ1ZWFiMzBiYWEyOTYzMjEyNTA1OGFjYmMzNTVjYzhlOWZkMiJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8325)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8325" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IldmWWRqL1JyNjZ0MGV0VUxoNkdEWnc9PSIsInZhbHVlIjoiVDVuOWNmU3ZQOE02cEFERWU3RFNyUT09IiwibWFjIjoiZjE5NTIxMjZmZDA4NDM5ZThmY2U0ZTRhNmU3NGJhMDQ1YWI2YzJlMzRlOGE3N2ZlNDIxZTI0MWQ3MWQ4ZWVmZSJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4321
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6ImIySUpmZlNFTEhjaExxN216bVZaUkE9PSIsInZhbHVlIjoiSFB2SUJwaC8vVlBjQnd2d2ZQL2RxQT09IiwibWFjIjoiYzVhYTViY2NjZDZiNGY0MzQ1NzVjNjM3NGFiOGJmY2M2MDFhYWJiZDFjYjVjMjY5YjFmYWYxNDU3NTcyOGFjMCJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Empty
+</td>
+<td class="sticky-lastname-col">
+Empty
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8324">
+iddqdice@y...
+</a>
+
+<div class="modal fade" id="emailModal8324" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>iddqdice@yandex.ru</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8324" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8324" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8324">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-02 12:32:03</small></td>
+<td><small>2024-07-02 12:32:03</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6Im9LRkp1OUhLUmw3UXVDRW5GSlNUQlE9PSIsInZhbHVlIjoiZlM0VnZoQTVnZTJySVRFbmVRejFkZz09IiwibWFjIjoiOGVhM2Q3NjE4MTg5ZWE5YTA5MGUyZDA0ZjZlNTZlZDk4M2MzY2Y1NTUxZmMxZmQ4ODY4NzM1ZGVjODk2ZWNlYSJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8324)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8324" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IngxOHhKVXRtK3ZGeURGMlRkalNoZ1E9PSIsInZhbHVlIjoiWWMrcEw2dUNpcG5Xd0tFd1RVQzgzdz09IiwibWFjIjoiYjI1NzZhMjllNmU1ZjA5NmU5ZGJhNzYxYzUwY2ViODEyMDdiNjFmYzI1MGRiZmY0ZjJkZTEzMGJiMzlmOWVmNiJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4320
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6IlJZSVJicE1xUnFFSC9CWnVuMFZtYXc9PSIsInZhbHVlIjoiQjU1V3I2TU40Wm9jUzRYdThHdzlTUT09IiwibWFjIjoiMjVlZDQwOTQ4N2RlYjk2YzRjYWI1MTgxODA5YTg3OTY5NjFlM2M5Zjg1MGU2ZjU3NDljMGRmZDAzOTAwZmU4ZiJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+~
+</td>
+<td class="sticky-lastname-col">
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8323">
+afsaneh_10...
+</a>
+
+<div class="modal fade" id="emailModal8323" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>afsaneh_1010@yahoo.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8323" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8323" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8323">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-02 11:14:46</small></td>
+<td><small>2024-07-02 11:14:46</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IlB4ZnFPVUNxT1RDMGpKQVZWdVF1TUE9PSIsInZhbHVlIjoibnJINXZwR2QyMDRlNWhCSzFGQjZMZz09IiwibWFjIjoiNzVkOWQzMzAxNDA0ZmJlMjRkNDdmNDgwOWUzZmE1NThlNTdhZmJjOTY0ZDY1YTBmYzIzNzg0ZWY1OTk3YzMxNyJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8323)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8323" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IjVGVVhyTDk3azdDMnV2NTRDbVF2Ymc9PSIsInZhbHVlIjoiUUhDOHMrcnZFTE5IZi9VbVp3eUZxdz09IiwibWFjIjoiM2E3MDczZWRmM2E5N2NhNGI4YWJjNGE4ZmJlMmYzODQzZWZjMGM4ZjQ1NzczOTM5MWM2NjQ3YjYyN2Q1MmZiNCJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4319
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6Im9odWJoczkrbzZ0UFhFWmxiY29JRnc9PSIsInZhbHVlIjoidEQxNWVMYmZsUHpWVFY2V3FaTjdhUT09IiwibWFjIjoiZTZkZDJhYTllZmU4MTJiMjdkYjVmYTlmNDQ1NjA3MmFmMTcwZWNjMjUwZDlhYmJhNmUwNzgxNTRmOWQyNDM1NSJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+M
+</td>
+<td class="sticky-lastname-col">
+Ak
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8322">
+m.kordesta...
+</a>
+
+<div class="modal fade" id="emailModal8322" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>m.kordestani@icloud.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8322" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8322" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8322">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-02 08:32:29</small></td>
+<td><small>2024-07-02 08:32:30</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IlZCYm1sc1FwZnNTaDFRT0xCM2NZM3c9PSIsInZhbHVlIjoiZWZZSS9JcmNvQWR5MHdtRDFzQW1EZz09IiwibWFjIjoiOTk0MTM5MWRjYTU1MjI4NzQxOWYzZTNhZGI3MDVmYWRlOWUwMjBjNjhhZmQ0YmJjOWJkOWI3Y2E1ZmUzOTExYyJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8322)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8322" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IlFsOGJibkRVcVJSeXUyeENONEhCc2c9PSIsInZhbHVlIjoiU25pNm95eGdTT0pMNi9TQ0EyeFhqUT09IiwibWFjIjoiYjcxZGI1YmJkNmE0ZGEwZjg5YTRhNTM5OTc2Njc3NTcwN2M3OWQxNjczNWQzZWJkY2U1M2ZhZDI1NDAyMjBjNiJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4318
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6InRCcTU3MlZFSVNwSUxVa00wY1NLd3c9PSIsInZhbHVlIjoiZmZiOWs5WkpZZHFUbGYvVnY0SGdydz09IiwibWFjIjoiMGJjOWUxYTYzNjIyNDZjMDU3Yzk1MGU0NWU3ZTUzN2I4NGE3MTFmMjA1MzlhNWJlMWU0YjkwYWViMGMyNzg3ZiJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+V.koln
+</td>
+<td class="sticky-lastname-col">
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8321">
+vahid.ogha...
+</a>
+
+<div class="modal fade" id="emailModal8321" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>vahid.oghab11@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8321" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8321" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8321">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-01 19:36:41</small></td>
+<td><small>2024-07-01 19:36:41</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6InUvci94YTczL0hGdDgwVGM4VGJydFE9PSIsInZhbHVlIjoiaDg3Tm5lUFRTTUhqNlhweTlDdExXdz09IiwibWFjIjoiZDI3ZDg1ZWE1OTk2ZjlhYTQyMzQwZWQ0ZTRjZjBlNjRlNDRlODhkZWFjOTBlOTc3MWJmMWQxNmIxNjExOWIzYSJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8321)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8321" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IndlbUJaeXZvM3g1b09JTDFDYUZyZWc9PSIsInZhbHVlIjoiUFU0ckI4ZHBvVWZqN1QrYUtDUGFnQT09IiwibWFjIjoiZTAzNjllN2ZlOGY2NzJiNjkxYWNmMGEzNjMxMGE2NDFmYmE3ODJiNWJkNWI0MTVhZjRjZmQyNzc3YmI3NzgyOSJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4317
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6IkdIc2FPUXBGOWwwaml4enhhd1NFUHc9PSIsInZhbHVlIjoicTVUVTVxVElnTFBzaEkwOXNYeENrQT09IiwibWFjIjoiMDJmYWNmYzE3MmM1MDViYmM3ZjcxMGM5OTdhMjI5MjQwMTg1ZDllYzk0YTk1MTVhMTMxZDFiZTg0MzJiNjYxMiJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Maziar
+</td>
+<td class="sticky-lastname-col">
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8320">
+maziarasra...
+</a>
+
+<div class="modal fade" id="emailModal8320" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>maziarasrari@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8320" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8320" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8320">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-01 12:02:56</small></td>
+<td><small>2024-07-01 12:02:56</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6Iis3L24xdERPM0ZXVWZIYXg1bWg2YkE9PSIsInZhbHVlIjoiYm5xTk5TOWpHLzNHd3ZhRG4vK1d0UT09IiwibWFjIjoiNzhhOGY1MDMwZjNjZDA1YTBjNGYxMDlkZjBkOGFlMDhhOWIxYzgyZjFmYjNiNGVlNGE4NzRlOGRlMjM3NTcxZSJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8320)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8320" action="https://kharejkala.com/admin/user/delete/eyJpdiI6InduazVzQ2lBemRMYS9WbnVNRDhIZWc9PSIsInZhbHVlIjoidm83RFk3WlpvMUI0ZU5BdmFKRWEydz09IiwibWFjIjoiMjI3MDEwZGJiMTIzYmNmYTg5MDdjOTljNTU3NWVkNGRjNWVlMTVlOTk5YzYyZjRiZjg1MzEyMjc4YWYxNjI3NCJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4316
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6Ilg4TzJUc0hkbDdNcTRKakkxbmZrZFE9PSIsInZhbHVlIjoiWUlSNE1PRVhHU3ZVbzZQSGZINlM2UT09IiwibWFjIjoiOTU1NDJjNzYzZDFhOWE2NWYzYTNmMjExODkxZDkwMDZmNmEzZWM5MGNlYmNhN2NiNTYwODhjZWM5YTkxMDIxMyJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Empty
+</td>
+<td class="sticky-lastname-col">
+Empty
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8319">
+whomorib@m...
+</a>
+
+<div class="modal fade" id="emailModal8319" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>whomorib@mail.ru</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8319" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8319" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8319">
+Admin Chat
+</span>
+</td>
+<td><small>2024-07-01 09:38:40</small></td>
+<td><small>2024-07-01 09:38:40</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6ImFFQ1JzMzlVVGtKM2dwRHBKV05FSFE9PSIsInZhbHVlIjoiMk44cjM0aUhlVTFPOXZUbERkUEM4UT09IiwibWFjIjoiMmE1MjNmYjQzYjkyMGYyOTE2ZDYwMGUxZWRkNjU5YjZiYTA0ZDBlZGE1YjE2NGI4MjAxM2NiZGM3ZjQxZDhhNyJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8319)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8319" action="https://kharejkala.com/admin/user/delete/eyJpdiI6InhibjI4N1BvWHZKZm9IZ3p2R0J3NUE9PSIsInZhbHVlIjoiOSt4clBwT3gzY2tQRFR5MGFhbDhIdz09IiwibWFjIjoiM2ZhMzBlMjlkMzUyOTIwNWQyOWMxZmRlODZmMTE4ZTk4ZjkwYzIyMGRjODQ2ZDk4MDBkZjdkMTU1NjU2MDI4YyJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4315
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6Im9mckh5VFBwWTdFWUp6cy9CMytHSnc9PSIsInZhbHVlIjoiMjFrNkpJendIZmFJK2pqUWRNTlMxQT09IiwibWFjIjoiODgzNmMwNWE3NzY3ZjQ1NTgzMGRhNGM1YTdkN2EyNzIyMTQyY2JhMzU3YThhZmRjYjM5ZGU1NTg1ZWIyNDBlNSJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+kamran
+</td>
+<td class="sticky-lastname-col">
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8318">
+kamranraso...
+</a>
+
+<div class="modal fade" id="emailModal8318" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>kamranrasoolzadeh58@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8318" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8318" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8318">
+Admin Chat
+</span>
+</td>
+<td><small>2024-06-30 16:59:42</small></td>
+<td><small>2024-06-30 16:59:42</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6ImhlUXkzWFhmT215dWM2a2F3aHZxMHc9PSIsInZhbHVlIjoiWE5mdlNsMktKZGNBS2E3ZWlWbHQwdz09IiwibWFjIjoiYzM5ZjI1NGE1MDI5ODE3ZDg0MDZlMDg0ZTk4OTRkMjQzZjVlOWMzZTRjMWU0NWExZTA3ZGY3OWVhOGQwODkzNSJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8318)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8318" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IjhhODBEMHdtN2xNblR3SFdtMmtWUkE9PSIsInZhbHVlIjoiaFIxUFR1Qkt6bm1Qd3ZuUWg2dHNidz09IiwibWFjIjoiOTI4ZTUyYzVkMDVmZjRkNWVhMDliNWM0OTBkZjM2MzBiYmZlNzEwOTFlMzc4MGMzOTE0MGIwYjhmMmI4Mjk3YiJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4314
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6Ii9talZJQ1BKWjRHSlpKb0wrdm5zSXc9PSIsInZhbHVlIjoiZGFsQzBYZndLL25YSFAyc0llbzcxUT09IiwibWFjIjoiODNjY2FlODU5MjQwZWI5YmM5ZTY4MTI5M2E2Y2VkMzlhMmIxZGQ1YWEzNzhkNDA1NWRlN2Y3ZmIwMGNhNDE1MiJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Empty
+</td>
+<td class="sticky-lastname-col">
+Empty
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8317">
+crurconcno...
+</a>
+
+<div class="modal fade" id="emailModal8317" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>crurconcnont1984@mail.ru</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8317" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8317" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8317">
+Admin Chat
+</span>
+</td>
+<td><small>2024-06-30 14:01:40</small></td>
+<td><small>2024-06-30 14:01:40</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IlVnSUh5RGZHYUFoMTJoekpncmo1VXc9PSIsInZhbHVlIjoiZlFCYjlKWE1mSDJLQ0RWN2d6KzRXdz09IiwibWFjIjoiOGFhYWY3NzNkMGEzZDMzMTA1NzMwZjE5MGNhYjBkN2Q0NTA0OTUyN2QzOGUxMTBjYTAwMjQ3MWI4MWQyYzkwZSJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8317)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8317" action="https://kharejkala.com/admin/user/delete/eyJpdiI6InpuK1JLdGEydTh0R2svWWJIZ3ZwbXc9PSIsInZhbHVlIjoiclZVK3JvR0hwaXArMlZyaC9KSHJZUT09IiwibWFjIjoiNmNjMGU5NGNlYjI1ZGEwNDQ0ODIwNTZiMzc1MTlmZmRmZDRiYjJjODc2ZWRkYWE2ZjBmOGVlNzlhNzVhNGE3NCJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4313
+</td>
+<td class="sticky-img-col"> <img class="img img-avatar-admin-size avatar" data-value="eyJpdiI6IlorUmMzTVU4NzhDQUM5YUREMWxmMFE9PSIsInZhbHVlIjoibVVGZCtqQU1NaE55K0JrNk5BWFlzUT09IiwibWFjIjoiYjViZjM0YWM4OTcyMTM0N2RiOGZlMjdlNzA3NDY0OGFhMmFkZGQ3OGVhMDRkOTgzZWYzNTg0MTZjMTRkMDcxMyJ9" src="https://kharejkala.com/image/UserFiles/Avatars/2024-06-30-13-51-25-8316.png">
+</td>
+<td class="sticky-firstname-col">
+Azin
+</td>
+<td class="sticky-lastname-col">
+Mo
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8316">
+azinmo98@g...
+</a>
+
+<div class="modal fade" id="emailModal8316" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>azinmo98@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+07943262600
+</td>
+<td>United Kingdom</td>
+<td>London</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8316" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8316" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8316">
+Admin Chat
+</span>
+</td>
+<td><small>2024-06-30 13:34:05</small></td>
+<td><small>2024-07-04 12:39:32</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IlhNVURteE1ST2ZzdWJlcDUzcnp2Smc9PSIsInZhbHVlIjoiQlA2NE9YQlZoVWgwTk5LcHU5WHAvdz09IiwibWFjIjoiOTgwMjI3Y2QwODU2NjBjMGZmMmY0NTk0NzZjYzQ0OGQxOThmM2E3NzhiNzNkODQxOGY0MmZiNzE3ZTRkMjk1NyJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8316)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8316" action="https://kharejkala.com/admin/user/delete/eyJpdiI6IjJpbm42UEkycGFuQ3lPY3cyYW5MS2c9PSIsInZhbHVlIjoiS0Fmd2psV1dkaFRxaU03aEJSVDNWUT09IiwibWFjIjoiYTBlNDRiNmMzMTg2YjAwZGEwMzVhOWRlODM0ZGJhYjQ3ZDNkNTQyODdmNDQ4OGUyYzExNTkyNzE0NzkxYmExMCJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4312
+</td>
+<td class="sticky-img-col"> <i class="fa fa-user-circle fa-user-circle-admin avatar" data-value="eyJpdiI6InhEcS9JcW5lTGtvd2ZMVGFOYzdHcGc9PSIsInZhbHVlIjoiRkU1NGNIbGhWU2hkWmg3TkJ3alYwUT09IiwibWFjIjoiYWRkYTRjYTVmNzI4YjRjMzg1NWJhY2Q1ZjUyZDU4M2I3NzNhYWU5YzNkOTg0YjA5OWE4ZTM4NzFjOTUzYTJhOCJ9"></i>
+</td>
+<td class="sticky-firstname-col">
+Empty
+</td>
+<td class="sticky-lastname-col">
+Empty
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       black
+                                        " data-toggle="modal" data-target="#emailModal8315">
+artemkudry...
+</a>
+
+<div class="modal fade" id="emailModal8315" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>artemkudryashov19828958@inbox.ru</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+Empty
+</td>
+<td>Empty</td>
+<td>Empty</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8315" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8315" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8315">
+Admin Chat
+</span>
+</td>
+<td><small>2024-06-30 09:50:26</small></td>
+<td><small>2024-06-30 09:50:26</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6InZ4VzJicC92SSs3M1h5REtwL2gya1E9PSIsInZhbHVlIjoiVFRkd3dIUm9QbUtMVk5mREhtditxdz09IiwibWFjIjoiNzNiMGJjYzI0YWE3NDhmMDc4MDRjN2FlOTU2NWYwNDkyYTdkNDNjMzZhNGY2ZmEyNDFlMzU2NTA5MzZhYWZkNCJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8315)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8315" action="https://kharejkala.com/admin/user/delete/eyJpdiI6InhUWGhaZGNMbVg1Ui9mYjNuUWl3T2c9PSIsInZhbHVlIjoiY0Z0VWk2c3pyRFN6RTJJbU05MmliUT09IiwibWFjIjoiZDg2YzU2MGFlMmM5NTM4YzNkN2MwMWFiZjlmYmMzYTc4ZmJjM2ViZmMyMWQ3MDBhM2M0NTAwMmE4ZmI0MzRlZiJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4311
+</td>
+<td class="sticky-img-col"> <img class="img img-avatar-admin-size avatar" data-value="eyJpdiI6ImZTQ0thYUcwZjVEZUY2TDhHZmhuUlE9PSIsInZhbHVlIjoiS1l6dWRJUi9uU2lTM3l6RFJiaUZTdz09IiwibWFjIjoiNTg2NzVmYWZlMTQyMjZiODJmN2IxOWQzN2YxMzQ2NmQzOWFkNzViMzU2OGY4MGNhN2VjYTEwMjU4ZTdhMjA3ZSJ9" src="https://kharejkala.com/image/UserFiles/Avatars/2024-06-29-22-18-11-8314.png">
+</td>
+<td class="sticky-firstname-col">
+Amin
+</td>
+<td class="sticky-lastname-col">
+Landaran
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       green
+                                        " data-toggle="modal" data-target="#emailModal8314">
+amin.landa...
+</a>
+
+<div class="modal fade" id="emailModal8314" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>amin.landaran1360@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+<a href="#" class="card-link" data-toggle="modal" data-target="#mobileNoModal8314">
++4407399298...
+</a>
+
+<div class="modal fade" id="mobileNoModal8314" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Mobile No:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>+4407399298775</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>United Kingdom</td>
+<td>Birmingham</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8314" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8314" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8314">
+Admin Chat
+</span>
+</td>
+<td><small>2024-06-29 22:08:03</small></td>
+<td><small>2024-07-05 00:07:40</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6Imk5SGl5akJTbnBhdGZ0OFc2VEU4d0E9PSIsInZhbHVlIjoiWHhVYXhrVHZQdGNqTVlGYjJYNDdUQT09IiwibWFjIjoiMDg4ZjlkNGQyZjY3ZWI3MTUzNWQ4ZDFlOTkzZjZjNDVjMDJiOWQ3YjkxODMxNzRlMDE2Yzk5YmNjYzUzN2U1NSJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8314)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8314" action="https://kharejkala.com/admin/user/delete/eyJpdiI6InQrdElrdG1MSmlOaitXU3dJczhSMVE9PSIsInZhbHVlIjoiam9CTUlDbDZyZmFmVnlvenJpT2s2UT09IiwibWFjIjoiYTc0N2Y4ZjQzYzVkODY0OTkyNzU2Yjg5YThhZTZmOGRlMDA4OGRlNmZlMDhhODVmMTdkM2Y0MmFiZmQ2OWM4MSJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+4310
+</td>
+<td class="sticky-img-col"> <img class="img img-avatar-admin-size avatar" data-value="eyJpdiI6IkYvQ0JLRitTWWJTYzFMdk5FM05Kemc9PSIsInZhbHVlIjoialpKQ3dxUjJ1Qk83K09WaHcvaHl1dz09IiwibWFjIjoiNjRkOGZhZjk1NjI5MjZmMzRmNzM3NzY5MjQ0ZjBiYmQwZGFhMDVmNjQ3NDZhMDJjZDEzNjRkMjA3YjBmOGQxOSJ9" src="https://kharejkala.com/image/UserFiles/Avatars/2024-06-29-22-05-31-8313.png">
+</td>
+<td class="sticky-firstname-col">
+Amin
+</td>
+<td class="sticky-lastname-col">
+Landaran
+</td>
+<td>No</td>
+<td>
+<a href="#" class="card-link" style="color:
+                                                                                       green
+                                        " data-toggle="modal" data-target="#emailModal8313">
+aminla8181...
+</a>
+
+<div class="modal fade" id="emailModal8313" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Email:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>aminla8181@gmail.com</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>
+<a href="#" class="card-link" data-toggle="modal" data-target="#mobileNoModal8313">
++4473992987...
+</a>
+
+<div class="modal fade" id="mobileNoModal8313" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h6 class="modal-title">Mobile No:</h6>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<textarea class="form-control form-control-sm" rows="10" disabled>+447399298775</textarea>
+</div>
+</div>
+</div>
+</div>
+
+</td>
+<td>United Kingdom</td>
+<td>Birmingham</td>
+<td>
+Empty
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+£0.00
+</td>
+<td class="back-cyan-color">
+0
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+0
+</td>
+<td class="back-light-color text-dark">
+0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-light-color text-dark">
+£0.00
+</td>
+<td class="back-purple-color">
+£0.00
+</td>
+<td class="back-red-color">
+£0.00
+</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">0</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td class="back-lime-color">
+£0.00
+</td>
+<td>
+<span class="show_comments" data-value="8313" data-type="sent">
+show comment
+</span>
+</td>
+<td>
+<span class="show_comments" data-value="8313" data-type="received">
+show comment
+</span>
+</td>
+<td>0</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+</td>
+<td>
+Empty
+<td>
+<span class="admin_chat" data-value="8313">
+Admin Chat
+</span>
+</td>
+<td><small>2024-06-29 20:38:04</small></td>
+<td><small>2024-06-29 21:57:53</small></td>
+<td>
+<div class="input-group-btn">
+<button type="button" class="btn btn-xs bg-gradient-primary btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Edit/Delete
+</button>
+<ul class="dropdown-menu dropdown-menu-left">
+<li><a class="btn btn-sm" href="https://kharejkala.com/admin/user/edit/eyJpdiI6IkgwVEt2VThXMnJJZE9LaENPcnl6Y0E9PSIsInZhbHVlIjoiL1YrZnVmRDBXcFNEdnhJc3pzM0Jodz09IiwibWFjIjoiNDc3MTNhYzNlODIzOWZiZjY2MWIyNGRkZDZhOWRkZTdmOWNhZTE0MTc0ZmE2M2Y3MWY2YzMzMjRmNjczYmM3ZiJ9">Edit</a>
+</li>
+<li>
+<a onclick="event.preventDefault(); deleteItem(8313)" class="btn btn-sm text-decoration-none text-dark">
+Delete
+</a>
+<form id="deleteItem8313" action="https://kharejkala.com/admin/user/delete/eyJpdiI6InBrUjRha1BoQzQyYWl5YUFIOGdncEE9PSIsInZhbHVlIjoiQlMzcm8xbGNZUG92Smx5ZnowY1B5dz09IiwibWFjIjoiOGE5MjJlODI1NDgyZDhhYWRiMDE1ZDUwZWZjZTA2NDBlZWQ5YjU0MGM5ZmUyNTQyYzk2ZDExNzU2MjUyOTc2NSJ9" method="GET" class="d-none">
+<input type="hidden" name="_token" value="hqRAotEuu8gFuqt4TiZyxoDWXfzsfaxc0dGyKZz6"> </form>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody>
+<tfoot class="thead-light">
+<tr>
+<td colspan="10" class="text-left">Total</td>
+<td class="back-purple-color text-dark">£2,014.64</td>
+<td class="back-red-color">
+£26,190.22
+</td>
+<td class="back-cyan-color text-dark">£19,129.37</td>
+<td class="back-cyan-color text-dark">£11,962.85</td>
+<td class="back-cyan-color text-dark">218</td>
+<td class="back-purple-color">
+£1,007.32
+</td>
+<td class="back-red-color text-dark">
+£12,591.45
+</td>
+<td class="back-light-color text-dark">72</td>
+<td class="back-light-color text-dark">109</td>
+<td class="back-light-color text-dark">
+£11,584.13
+</td>
+<td class="back-light-color text-dark">
+£8,255.83
+</td>
+<td class="back-purple-color">
+£1,007.32
+</td>
+<td class="back-red-color">
+£13,598.77
+</td>
+<td class="back-lime-color">72</td>
+<td class="back-lime-color">109</td>
+<td class="back-lime-color">
+£12,591.45
+</td>
+<td class="back-lime-color">
+£3,821.79
+</td>
+<td colspan="12"></td>
+</tr>
+</tfoot>
+</table>
+</div>
+<div class="d-flex pagination">
+<div class="mx-auto">
+<nav>
+<ul class="pagination">
+<li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+<span class="page-link" aria-hidden="true">&lsaquo;</span>
+</li>
+<li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=2">2</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=3">3</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=4">4</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=5">5</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=6">6</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=7">7</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=8">8</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=9">9</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=10">10</a></li>
+<li class="page-item disabled" aria-disabled="true"><span class="page-link">...</span></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=216">216</a></li>
+<li class="page-item"><a class="page-link" href="https://kharejkala.com/admin/user?page=217">217</a></li>
+<li class="page-item">
+<a class="page-link" href="https://kharejkala.com/admin/user?page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+
+<aside class="control-sidebar control-sidebar-dark">
+
+</aside>
+
+</div>
+
+
+<script src="https://kharejkala.com/js/jquery-3.6.0.min.js"></script>
+<script>
+    $('.we_paid_for').change(function () {
+        var advert_id=$(this).val();
+        var csrf = document.querySelector('meta[name="csrf-token"]').content;
+        if ($(this).is(':checked'))
+            var we_paid_for=1;
+        else
+            var we_paid_for=0;
+        $.post('/admin/delivery_volunteers/update_we_paid_for',{_token:csrf,advert_id:advert_id,we_paid_for:we_paid_for},function (response){
+            $('#resultModal .modal-body h6').html(response);
+            $('#resultModal').modal('toggle');
+        })
+    });
+
+
+    $(document).ready(function (){
+        if (localStorage.scrollPosition) {
+            $(".table-responsive").scrollLeft(localStorage.getItem("scrollPosition"));
+        }
+    });
+
+    window.addEventListener('beforeunload', function(event) {
+        var scrollPosition = $(".table-responsive").scrollLeft();
+        localStorage.setItem("scrollPosition", scrollPosition);
+    });
+</script>
+
+<div class="modal fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="userInfoModal" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-body" style="padding:0!important; ">
+</div>
+</div>
+</div>
+</div>
+<script>
+    $('.avatar').click(function (){
+        var id=$(this).attr('data-value');
+        $.get('/admin/user_info_popup/'+id,function (response){
+            $('#userInfoModal .modal-body').html(response);
+            $('#userInfoModal').modal('toggle');
+
+        })
+
+
+    });
+</script>
+;
+
+<div class="modal fade" id="userCommentModal" tabindex="-1" role="dialog" aria-labelledby="userCommentModal" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-body" style="padding:0!important; ">
+</div>
+</div>
+</div>
+</div>
+<script>
+    $('.show_comments').click(function (){
+        var id=$(this).attr('data-value');
+        var type=$(this).attr('data-type');
+        $.get('/admin/user_comments/'+type+'/'+id,function (response){
+            $('#userCommentModal .modal-body').html(response);
+            $('#userCommentModal').modal('toggle');
+
+        })
+
+
+    });
+</script>
+
+<div class="modal fade" id="adminChatModal" tabindex="-1" role="dialog" aria-labelledby="adminChatModal" aria-hidden="true">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content ">
+<div class="modal-body" style="padding:0!important; height :90vh;overflow-y:auto;">
+</div>
+</div>
+</div>
+</div>
+<script>
+    $('.admin_chat').click(function (){
+        var id=$(this).attr('data-value');
+        $.get('/admin/user_admin_chat/'+id,function (response){
+            $('#adminChatModal .modal-body').html(response);
+            $('#adminChatModal').modal('toggle');
+
+        })
+
+
+    });
+</script>
+
+<div class="modal fade" id="contractsBeneficiariesModal" tabindex="-1" role="dialog" aria-labelledby="contractsBeneficiariesModal" aria-hidden="true">
+<div class="modal-dialog modal-lg  modal-dialog-centered" role="document">
+<div class="modal-content  ">
+<div class="modal-body" style="padding:0!important; ">
+</div>
+</div>
+</div>
+</div>
+<script>
+    $('.show_contract').click(function (){
+        var id=$(this).attr('data-value');
+        $.get('/admin/advert/beneficiaries/'+id,function (response){
+            $('#contractsBeneficiariesModal .modal-body').html(response);
+            $('#contractsBeneficiariesModal').modal('toggle');
+
+        })
+
+
+    });
+</script>
+
+<script src="https://kharejkala.com/js/jquery-ui.min.js"></script>
+
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+
+<script src="https://kharejkala.com/js/bootstrap.bundle.min.js"></script>
+<script src="https://kharejkala.com/js/bootstrap-select.min.js"></script>
+
+<script src="https://kharejkala.com/js/Chart.min.js"></script>
+
+<script src="https://kharejkala.com/js/sparkline.js"></script>
+
+<script src="https://kharejkala.com/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
+<script src="https://kharejkala.com/js/jquery.overlayScrollbars.min.js"></script>
+
+<script src="https://kharejkala.com/js/adminlte.min.js"></script>
+
+<script src="https://kharejkala.com/js/dashboard.js?v=2.1"></script>
+
+<script src="https://kharejkala.com/js/toaster.min.js"></script>
+
+<script src="https://kharejkala.com/js/sweet-alert2.min.js"></script>
+
+<script src="https://kharejkala.com/js/select2.full.min.js"></script>
+
+<script type="text/javascript" src="https://kharejkala.com/js/initial.js"></script>
+
+<script type="text/javascript">
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-full-width",
+        "showDuration": "400",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    </script>
+<script type="text/javascript" src="https://kharejkala.com/js/custom.js?v=1.0.2"></script>
+
+<script src="https://kharejkala.com/js/demo.js"></script>
+<script src="https://kharejkala.com/js/dataTables.buttons.min.js"></script>
+<script src="https://kharejkala.com/js/buttons.flash.min.js"></script>
+<script src="https://kharejkala.com/js/jszip.min.js"></script>
+<script src="https://kharejkala.com/js/pdfmake.min.js"></script>
+<script src="https://kharejkala.com/js/vfs_fonts.js"></script>
+<script src="https://kharejkala.com/js/buttons.html5.min.js"></script>
+<script src="https://kharejkala.com/js/buttons.print.min.js"></script>
+<script src="https://kharejkala.com/js/summernote-bs4.js"></script>
+<script src="https://kharejkala.com/js/lightbox.js"></script>
+<script>
+    $("table").DataTable({
+        "scrollX": true,
+        columnDefs: [
+            {width: 0, targets: 0}
+        ],
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf', 'print'
+        ],
+        "order": [],
+    });
+</script>
+
+<script type="text/javascript" src="https://kharejkala.com/js/flatpickr.js"></script>
+<script>
+    $("#expiredDate").flatpickr({
+        enableTime: false,
+        dateFormat: "Y-m-d"
+    });
+
+    $('#answer').summernote({
+        dialogsInBody: true,
+        dialogsFade: true  // Add fade effect on dialogs
+    });
+
+    if ($('input[name="faqTable"]').length) {
+        $('tbody').sortable({
+            placeholder: "ui-state-highlight",
+            update: function (event, id) {
+                let faq_id_array = new Array();
+                $('tbody tr').each(function () {
+                    faq_id_array.push($(this).attr('id'));
+                    $.ajax({
+                        url: '/admin/faq/order',
+                        type: "POST",
+                        data: {
+                            faqId: faq_id_array,
+                            _token: $('meta[name="csrf-token"]').attr('content')
+                        },
+                        dataType: 'json',
+                        success: function (result) {
+
+                        }
+                    });
+                });
+            }
+        });
+    }
+
+    let delay = 15000;
+
+    fetchNotificationData();
+
+    function fetchNotificationData() {
+        $.ajax({
+            type: "POST",
+            url: "/admin/notification",
+            datatype: "json",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (data) {
+                $('#notificationBadge').html('');
+                $('#notificationBadge').html(data['count']);
+                $('#notifications').html('');
+                $('#notifications').html(data['messages']);
+                setTimeout(function () {
+                    fetchNotificationData();
+                }, delay);
+            }
+        });
+    }
+
+
+</script>
+</body>
+</html>

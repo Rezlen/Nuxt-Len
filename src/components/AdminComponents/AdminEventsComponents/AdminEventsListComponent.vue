@@ -27,7 +27,7 @@
       </IonRow>
 
       <!-- Data rows -->
-      <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow">
+      <IonRow  v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)" >        
         <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
         <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
         <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
@@ -89,6 +89,9 @@ export default defineComponent({
 
     const sortKey = ref<string | null>(null);
     const sortAsc = ref(true);
+       // making the selected row distinguishable
+    const selectedRow = ref<number | null>(null);
+
 
     /**
      * Sorts the tickets based on the provided key. 
@@ -273,6 +276,10 @@ export default defineComponent({
       }
     };
 
+       // making the selected row distinguishable
+    const selectRow = (id: number) => {
+      selectedRow.value = id;
+    };
     return {
       close,
       paginatedTickets,
@@ -286,6 +293,8 @@ export default defineComponent({
       totalPages,
       prevPage,
       nextPage,
+      selectedRow,
+      selectRow,
       create,
       trash,
       duplicate,
@@ -317,6 +326,15 @@ ion-grid {
 .TitleRow {
   font-weight: bold;
   cursor: pointer;
+}
+
+ /* making the selected row distinguishable */
+.DataRow {
+  cursor: pointer;
+}
+.DataRow.selected {
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
 }
 
 /* General alternating background colors for DataRow */

@@ -4,6 +4,7 @@
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
+      <IonInput v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
     </IonRow>
 
     <div class="TableContainer">
@@ -27,16 +28,19 @@
       </IonRow>
 
       <!-- Data rows -->
-      <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow">
+      <IonRow
+        v-for="ticket in paginatedTickets"
+        :key="ticket.id"
+        class="DataRow"
+        :class="{ selected: selectedRow === ticket.id }"
+        @click="selectRow(ticket.id)"
+      >
         <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
         <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
         <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
         <IonCol class="ActionCol">
           <IonButton class="ActionCol" fill="clear" title="Close">
-            <IonButton class="test" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="small" :icon="duplicate"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Hide This Event" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Delete This Event" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+            <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
           </IonButton>
         </IonCol>
       </IonRow>
@@ -61,42 +65,34 @@
 
 
 
-      
-
-
-
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
-import { IonIcon, IonGrid, IonRow, IonCol, IonButton } from '@ionic/vue';
-import { close, arrowDownOutline, arrowUpOutline, create, trash, duplicate, ban} from 'ionicons/icons';
+import { defineComponent, ref, computed, watch } from 'vue';
+import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
+import { close, arrowDownOutline, arrowUpOutline } from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'AdminEventsListComponent',
+  name: 'AdminEventsBookingsComponent',
   components: {
     IonIcon,
     IonGrid,
     IonRow,
     IonCol,
     IonButton,
+    IonInput,
   },
   setup() {
     const tickets = ref([
       { id: 3, title: 'Another Title', price: 4500000000 },
       { id: 2, title: 'Example Title', price: 150 },
       { id: 1, title: 'Titles', price: 300 },
-      // Add more dummy data as needed to test pagination
     ]);
 
     const sortKey = ref<string | null>(null);
     const sortAsc = ref(true);
+    const selectedRow = ref<number | null>(null);
+    const searchQuery = ref<string>('');
+    const filteredTickets = ref(tickets.value);
 
-    /**
-     * Sorts the tickets based on the provided key. 
-     * If the key is the same as the current sortKey, it toggles the sort order.
-     * Otherwise, it sets the new key and sorts in ascending order.
-     * 
-     * @param key - The key to sort by (e.g., 'id', 'title', 'price')
-     */
     const sortTickets = (key: string) => {
       if (sortKey.value === key) {
         sortAsc.value = !sortAsc.value;
@@ -106,31 +102,19 @@ export default defineComponent({
       }
     };
 
-    /**
-     * Returns the appropriate sorting icon based on the current sortKey and sort order.
-     * 
-     * @param key - The key to check against the current sortKey
-     * @returns The icon to display (up or down arrow)
-     */
     const sortIcon = (key: string) => {
       if (sortKey.value !== key) return arrowDownOutline;
       return sortAsc.value ? arrowUpOutline : arrowDownOutline;
     };
 
-    /**
-     * Resets the sorting to the original state (default order).
-     */
     const resetSorting = () => {
       sortKey.value = null;
       sortAsc.value = true;
     };
 
-    /**
-     * Computes the sorted tickets based on the current sortKey and sort order.
-     */
     const sortedTickets = computed(() => {
-      if (!sortKey.value) return tickets.value;
-      return [...tickets.value].sort((a, b) => {
+      if (!sortKey.value) return filteredTickets.value;
+      return [...filteredTickets.value].sort((a, b) => {
         if (a[sortKey.value as keyof typeof a] < b[sortKey.value as keyof typeof a]) return sortAsc.value ? -1 : 1;
         if (a[sortKey.value as keyof typeof a] > b[sortKey.value as keyof typeof a]) return sortAsc.value ? 1 : -1;
         return 0;
@@ -140,50 +124,32 @@ export default defineComponent({
     const itemsPerPage = 20;
     const currentPage = ref(1);
 
-    /**
-     * Computes the paginated tickets for the current page.
-     */
     const paginatedTickets = computed(() => {
       const start = (currentPage.value - 1) * itemsPerPage;
       const end = start + itemsPerPage;
       return sortedTickets.value.slice(start, end);
     });
 
-    /**
-     * Computes the total number of pages based on the number of tickets and items per page.
-     */
     const totalPages = computed(() => {
       return Math.ceil(sortedTickets.value.length / itemsPerPage);
     });
 
-    /**
-     * Computes the total price of all tickets.
-     */
     const total = computed(() => {
       return tickets.value.reduce((sum, ticket) => sum + ticket.price, 0);
     });
 
-    /**
-     * Navigates to the previous page, if possible.
-     */
     const prevPage = () => {
       if (currentPage.value > 1) {
         currentPage.value--;
       }
     };
 
-    /**
-     * Navigates to the next page, if possible.
-     */
     const nextPage = () => {
       if (currentPage.value < totalPages.value) {
         currentPage.value++;
       }
     };
 
-    /**
-     * Exports the table data to a CSV file.
-     */
     const exportTable = () => {
       const csvContent = [
         ['TicketID', 'TicketTitle', 'Price'],
@@ -202,68 +168,31 @@ export default defineComponent({
       document.body.removeChild(link);
     };
 
-    /**
-     * Prints the current page of the table.
-     */
     const printTable = () => {
       const printContent = `
-        <html>
-          <head>
-            <style>
-              table {
-                width: 100%;
-                border-collapse: collapse;
-              }
-              th, td {
-                border: 1px solid gray;
-                padding: 10px;
-                text-align: left;
-              }
-              th {
-                background-color: #f1f1f1;
-                font-weight: bold;
-              }
-              .odd-row {
-                background-color: #f5efef;
-              }
-              .even-row {
-                background-color: #bceea5;
-              }
-              .even-row .TicketTitleCol {
-                background-color: aquamarine;
-              }
-              .TotalRow {
-                font-weight: bold;
-              }
-            </style>
-          </head>
-          <body>
-            <table>
-              <thead>
-                <tr>
-                  <th>TicketID</th>
-                  <th>TicketTitle</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${paginatedTickets.value.map((ticket, index) => `
-                  <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
-                    <td>${ticket.id}</td>
-                    <td>${ticket.title}</td>
-                    <td>${ticket.price}</td>
-                  </tr>
-                `).join('')}
-                <tr class="TotalRow">
-                  <td>Totals:</td>
-                  <td></td>
-                  <td>${total.value}</td>
-                </tr>
-              </tbody>
-            </table>
-            <div>Page ${currentPage.value} of ${totalPages.value}</div>
-          </body>
-        </html>
+        <table>
+          <thead>
+            <tr>
+              <th>TicketID</th>
+              <th>TicketTitle</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${paginatedTickets.value.map(ticket => `
+              <tr>
+                <td>${ticket.id}</td>
+                <td>${ticket.title}</td>
+                <td>${ticket.price}</td>
+              </tr>
+            `).join('')}
+            <tr>
+              <td>Totals:</td>
+              <td></td>
+              <td>${total.value}</td>
+            </tr>
+          </tbody>
+        </table>
       `;
       const printWindow = window.open('', '', 'height=600,width=800');
       if (printWindow) {
@@ -272,6 +201,25 @@ export default defineComponent({
         printWindow.print();
       }
     };
+
+    const selectRow = (id: number) => {
+      selectedRow.value = id;
+    };
+
+    const searchTickets = () => {
+      if (searchQuery.value.trim() === '') {
+        filteredTickets.value = tickets.value;
+      } else {
+        const query = searchQuery.value.trim().toLowerCase();
+        filteredTickets.value = tickets.value.filter(ticket => 
+          Object.values(ticket).some(val => 
+            val.toString().toLowerCase().includes(query)
+          )
+        );
+      }
+    };
+
+    watch(searchQuery, searchTickets);
 
     return {
       close,
@@ -286,10 +234,10 @@ export default defineComponent({
       totalPages,
       prevPage,
       nextPage,
-      create,
-      trash,
-      duplicate,
-      ban,
+      selectedRow,
+      selectRow,
+      searchQuery,
+      searchTickets,
     };
   },
 });
@@ -297,111 +245,51 @@ export default defineComponent({
 
 
 
+
+
+
+
+
+
+
+
+
 <style scoped>
-ion-grid {
-  height: 100%;
-  overflow-y: auto;
-  white-space: nowrap;
+.ButtonRow {
+  margin-bottom: 1em;
 }
 
-.ButtonRow {
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10px;
+.ButtonRow IonInput {
+  margin-left: 1em;
+  max-width: 200px;
 }
 
 .TableContainer {
   overflow-x: auto;
 }
 
-.TitleRow {
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* General alternating background colors for DataRow */
-.DataRow:nth-child(odd) ion-col {
-  background-color: #f5efef;
-}
-
-.DataRow:nth-child(even) ion-col {
-  background-color: #bceea5;
-}
-
-.TotalRow {
-  font-weight: bold;
-}
-
-.PaginationRow {
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.BorderedSection,
 .TitleRow,
 .DataRow,
 .TotalRow,
 .PaginationRow {
-  border: 1px solid gray;
-}
-.TitleRow,
-.DataRow,
-.TotalRow {
-  white-space: nowrap;
+  align-items: center;
 }
 
-.TicketTitleCol {
-  border-right: 1px solid gray;
-  background-color: aquamarine;
-}
-.TicketIDCol{
-  width: 50px;
-  background-color: red;
-}
-ion-col {
-  max-width: 100px;
-  padding: 0;
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: auto;
-  align-content: center;
-  height:30px;
-  font-size:12px;
-}
-.ActionCol{
-  overflow-x:visible;
+.DataRow {
+  cursor: pointer;
 }
 
-ion-button,
-ion-icon {
-  padding: 0;
-  margin: 0;
+.DataRow.selected {
+  background-color: #e0f7fa; /* Highlight color */
+}
+
+.sort-icon {
+  margin-left: 0.5em;
 }
 
 .PageInfo {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-weight: bold;
-  margin: 0 10px;
-}
-
-.sort-icon {
-  margin-left: 5px;
-}
-
-@media (max-width: 600px) {
-  .ButtonRow {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .TableContainer {
-    overflow-x: auto;
-  }
-  .TableContainer {
-    width: 800px;
-  }
+  justify-content: center;
 }
 </style>
