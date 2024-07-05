@@ -12,6 +12,7 @@
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
         <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="linkOutline" class="link-outline" /></IonButton>
       </IonRow >
       <p>Want to create a FREE advert like this? <a href="/home" class="Events-button"> Click HERE </a> & fill the form, simple!</p>
       <IonRow>
@@ -31,7 +32,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { IonGrid, IonRow, IonCol, IonIcon, IonCard, IonButton, IonCardHeader, IonCardContent, IonCardSubtitle, IonCardTitle, IonSegment, IonSegmentButton } from '@ionic/vue';
-import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
+import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin, linkOutline } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'BestOfferComponent',
@@ -57,6 +58,7 @@ export default defineComponent({
       logoTwitter,
       logoLinkedin,
       logoGoogle,
+      linkOutline,
       selectedTab,
     };
   },

@@ -58,7 +58,7 @@
     </IonRow>
     <IonRow>
       <IonCol>
-        <IonButton size="large" expand="block" @click="submitContent">Post My Need</IonButton>
+        <IonButton size="large" expand="block" @click="submitContent">List My Need</IonButton>
       </IonCol>
     </IonRow>
 

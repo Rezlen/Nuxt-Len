@@ -14,7 +14,7 @@ import PrivacyPolicyPage from '../views/PrivacyPolicyPage.vue';
 import TermsConditionsPage from '../views/TermsConditionsPage.vue';
 import InvestorsInvesteesPage from '../views/InvestorsInvesteesPage.vue';
 
-
+// Comp Stats here
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 import SignInSignUpComponent from '@/components/6TempComponents/SignInSignUpComponent.vue';
@@ -27,10 +27,15 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
+// Profile comp
 import ProfilePublicSectionComponent from '@/components/ProfileComponents/ProfilePublicSectionComponent.vue';
+import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
 import MiniProfileCardVIPComponent from '@/components/ProfileComponents/MiniProfileCardVIPComponent.vue';
 import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
+import ProfileLeftSideBarComponent from '@/components/ProfileComponents/ProfileLeftSideBarComponent.vue';
+import FilterByComponent from '@/components/OfferNeedBestOfferComponent/FilterByComponent.vue';
+// Offer comp
 import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferComponent.vue';
 import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
 import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
@@ -39,14 +44,12 @@ import PostOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOff
 import PostNeedComponent from '@/components/OfferNeedBestOfferComponent/PostNeedComponent.vue';
 import PostBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostBestOfferComponent.vue';
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
+// Events comp
 import TheEventComponent from '@/components/EventsShowsComponent/TheEventComponent.vue';
 import TicketEventComponent from '@/components/EventsShowsComponent/TicketEventComponent.vue';
 import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
-import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
-import ProfileLeftSideBarComponent from '@/components/ProfileComponents/ProfileLeftSideBarComponent.vue';
-import FilterByComponent from '@/components/OfferNeedBestOfferComponent/FilterByComponent.vue';
 // Admin events comp
 import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
 import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventComponent.vue';

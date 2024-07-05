@@ -66,7 +66,7 @@
         <IonRow class="MembershipState">VVIP Member</IonRow>
         <!-- Column 1 -->
         <IonCol class="StatisticsColumn">
-          <IonRow class="TextStyle PostedOffers">Posted Offers: 86</IonRow>
+          <IonRow class="TextStyle ListedOffers">Listed Offers: 86</IonRow>
           <IonRow class="TextStyle ProvidedOffers">Provided Offers: 86</IonRow>
           <IonRow class="TextStyle RequestedOffers">Requested Offers: 86</IonRow>
           <IonRow class="TextStyle MiniProfileListed">Full Profile Seen: 86</IonRow>
@@ -74,7 +74,7 @@
         </IonCol>
         <!-- Column 2 -->
         <IonCol class="StatisticsColumn">
-          <IonRow class="TextStyle PostedNeeds">Posted Needs: 86</IonRow>
+          <IonRow class="TextStyle ListedNeeds">Listed Needs: 86</IonRow>
           <IonRow class="TextStyle SatisfiedNeeds">Satisfied Needs: 86</IonRow>
           <IonRow class="TextStyle PeopleSatisfiedNeeds">People Satisfied Needs: 86</IonRow>
           <IonRow class="TextStyle MiniProfileListed">Mini Profile Listed: 86</IonRow>
@@ -129,7 +129,7 @@
           <IonSegmentButton class="btn" value="listedNeeds">Listed Needs</IonSegmentButton>
           <IonSegmentButton class="btn" value="satisfiedNeeds">Satisfied Needs</IonSegmentButton>
           <IonSegmentButton class="btn" value="peopleSatisfiedNeeds">People Satisfied Needs</IonSegmentButton>
-          <IonSegmentButton class="btn" value="providedOffers">Provided Offers</IonSegmentButton>
+          <IonSegmentButton class="btn" value="listedOffers">Listed Offers</IonSegmentButton>
           <IonSegmentButton class="btn" value="requestedOffers">Requested Offers</IonSegmentButton>
           <IonSegmentButton class="btn" value="peopleRequestedOffers">People Requested Offers</IonSegmentButton>
           <IonSegmentButton class="btn" value="listedBestOffer">Listed Best Offer</IonSegmentButton>
@@ -139,7 +139,7 @@
           <IonSegmentButton class="btn" value="galleries">4 Galleries</IonSegmentButton>
           <IonSegmentButton class="btn" value="pitchings">3 Pitchings</IonSegmentButton>
           <IonSegmentButton class="btn" value="investor">Investor</IonSegmentButton>
-          <IonSegmentButton class="btn" value="investments">Investments</IonSegmentButton>
+          <IonSegmentButton class="btn" value="investees">Investees</IonSegmentButton>
           <IonSegmentButton class="btn" value="businessMentor">Business Mentor</IonSegmentButton>
         </IonSegment>
 
@@ -150,28 +150,28 @@
               <NeedComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'satisfiedNeeds'" class="SatisfiedNeeds">
-              <SatisfiedNeedsComponent />
+              <NeedComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'peopleSatisfiedNeeds'" class="PeopleSatisfiedNeeds">
-              <PeopleSatisfiedNeedsComponent />
+              <NeedComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'providedOffers'" class="ProvidedOffers">
-              <ProvidedOffersComponent />
+            <IonCol v-show="selectedTab === 'listedOffers'" class="listedOffers">
+              <OfferComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'requestedOffers'" class="RequestedOffers">
-              <RequestedOffersComponent />
+              <OfferComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'peopleRequestedOffers'" class="PeopleRequestedOffers">
-              <PeopleRequestedOffersComponent />
+              <OfferComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'listedBestOffer'" class="ListedBestOffer">
-              <ListedBestOfferComponent />
+              <BestOfferComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'visitedEvents'" class="VisitedEvents">
-              <VisitedEventsComponent />
+              <MiniEventComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'exhibitedEvents'" class="ExhibitedEvents">
-              <ExhibitedEventsComponent />
+              <MiniEventComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'connections'" class="Connections">
               <ConnectionsComponent />
@@ -180,13 +180,13 @@
               <GalleriesComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'pitchings'" class="Pitchings">
-              <PitchingVideosComponent />
+              <PitchingComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'investor'" class="Investor">
-              <InvestorComponent />
+              <MiniInvestorsProfileComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'investments'" class="Investments">
-              <InvestmentBrokerComponent />
+            <IonCol v-show="selectedTab === 'investees'" class="Investees">
+              <MiniInvesteesProfileComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'businessMentor'" class="BusinessMentor">
               <BusinessMentorComponent />
@@ -208,6 +208,12 @@ import { defineComponent, ref } from 'vue';
 import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonButton, IonIcon } from '@ionic/vue';
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
 import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
+import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferComponent.vue';
+import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
+import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
+import MiniInvestorsProfileComponent from '@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue';
+import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue';
+import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
 
 export default defineComponent({
   name: 'ProfilePublicSectionComponent',
@@ -220,6 +226,12 @@ export default defineComponent({
     IonButton,
     IonIcon,
     NeedComponent,
+    OfferComponent,
+    BestOfferComponent,
+    PitchingComponent,
+    MiniInvestorsProfileComponent,
+    MiniInvesteesProfileComponent,
+    MiniEventComponent,
   },
   setup() {
     const selectedTab = ref<string>('#'); // Initialize with the default tab

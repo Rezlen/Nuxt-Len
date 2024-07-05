@@ -3,18 +3,18 @@
     <IonContent>
       <IonGrid>
         <!-- Menu Section -->  
-        <IonRow class="bordered-section">
+        <IonRow class="#">
           <MenuComponent />
         </IonRow>
         <!-- Social Media Section -->
-        <IonRow class="bordered-section">
+        <IonRow class="#">
           <SocialMediaBarComponent />
         </IonRow>
       
 
 
         <!-- First row; 1-LENSection 2-Investors(Angels)Section -->
-        <IonRow class=" bordered-section LENSection ">
+        <IonRow class=" # LENSection ">
           <p class="WorldLine" > Worlds Best Businesses, Entrepreneurs, Investors and Investees are Here in London! </p>
           <IonCol class=" LENMidSection" >
             <p class="FREEline" > Wanna Join for <a href="/src/views/SignInSignUpPage.vue" class="FREE-link"> FREE</a> ? </p>
@@ -28,7 +28,7 @@
         <!-- 2nd row; 1-LiveMapSection 2-MembersNumberSection 3-EventsButtonSection -->
         <IonRow class=" bordered-section MapExhibitingSection ">
 
-          <IonCol class=" bordered-section LiveEventsExhibitingMap ">
+          <IonCol class=" # LiveEventsExhibitingMap ">
             LiveEventsExhibitingMap Component Must be placed here
             <RouterLink to="/eventsShows" routerDirection="forward">
               <img alt="LEN Logo" height="160" src="/favicon.png" />
@@ -64,7 +64,7 @@
           </IonCol>
 
           <!-- 3-EventsButtonSection -->
-          <IonCol class=" bordered-section EventsButtonSection ">
+          <IonCol class=" # EventsButtonSection ">
             <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button" >Exhibiting </a> </p>
             <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button" >FREE Visiting </a> </p>
             <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button" >More Events </a> </p>
@@ -76,7 +76,7 @@
         <!-- Middle Content Section with Left/Right Adverts and Middle Content -->
         <IonRow class=" ">
           <!-- Left Advert Section -->
-          <IonCol size="12" size-md="1.5" class="bordered-section LeftAdvertComponent">
+          <IonCol size="12" size-md="1.5" class=" LeftAdvertComponent">
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
@@ -85,7 +85,7 @@
 
 
           <!-- Middle Content Section -->
-          <IonCol size="12" size-md="9" class="bordered-section SignInSignUpComponent">
+          <IonCol size="12" size-md="9" class=" SignInSignUpComponent">
             <!-- 1-MiniProfilesRow- 2-Offers- 3-Investors section -->
             <IonRow class=" bordered-section ProfilesSection ">
               <IonRow>
@@ -244,7 +244,7 @@
 
 
           <!-- Right Advert Section -->
-          <IonCol size="12" size-md="1.5" class="bordered-section RightAdvertComponent">
+          <IonCol size="12" size-md="1.5" class=" RightAdvertComponent">
             <RightAd1Component />
             <RightAd2Component />
             <RightAd3Component />
@@ -344,6 +344,8 @@ export default defineComponent({
 .bordered-section {
   border: 1px solid;
   border-radius: 8px;
+  padding: 0;
+  margin: 0;
 }
 .WorldLine{
   font-size: 30px;
@@ -492,6 +494,9 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+.TwoMiniProfile {
+  box-shadow: 0 4px 8px rgba(75, 16, 214, 1.2); /* X-offset, Y-offset, blur radius, and color */
 }
 
 .AllBusinesses,

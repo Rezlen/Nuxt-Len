@@ -26,6 +26,7 @@
                 <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
                 <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
                 <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+                <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="linkOutline" class="link-outline" /></IonButton>
               </IonRow>
           </IonCol>
         </IonRow>
@@ -42,7 +43,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { IonPage, IonGrid, IonRow, IonIcon, IonCol, IonContent, IonSegment, IonSegmentButton, IonCardHeader, IonCardContent, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
-import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
+import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin, linkOutline } from 'ionicons/icons';
 import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
 
 export default defineComponent({
@@ -71,6 +72,7 @@ export default defineComponent({
       logoTwitter,
       logoLinkedin,
       logoGoogle,
+      linkOutline,
     };
   },
 });
