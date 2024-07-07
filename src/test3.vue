@@ -28,7 +28,7 @@
 
       <!-- Data rows -->
       <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow">
-        <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
+        <IonCol class="TicketIDCol">Totals:{{ ticket.id }}</IonCol>
         <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
         <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
         <IonCol class="ActionCol">

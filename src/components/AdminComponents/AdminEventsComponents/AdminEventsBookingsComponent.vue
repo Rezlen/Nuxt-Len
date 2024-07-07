@@ -72,7 +72,7 @@
 
         <!-- Total row -->
         <IonRow class="TotalRow">
-          <IonCol class="TicketIDCol"></IonCol>
+          <IonCol class="TicketIDCol">Totals:</IonCol>
           <IonCol class="TicketTitleCol"></IonCol>
           <IonCol class="PersonPicCol"></IonCol>
           <IonCol class="FirstNameCol"></IonCol>
@@ -120,15 +120,43 @@ import { defineComponent, ref, computed, watch } from 'vue';
 import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
 import { close, arrowDownOutline, arrowUpOutline } from 'ionicons/icons';
 
+interface Ticket {
+  id: number;
+  title: string;
+  price: number; // Added price field
+  personPic: string;
+  firstName: string;
+  lastName: string;
+  membershipType: string;
+  age: number;
+  gender: string;
+  businessName: string;
+  bizCategory: string;
+  exhibited: boolean;
+  visited: boolean;
+  peopleSatisfiedNeeds: number;
+  peopleRequestedOffers: number;
+  investorsAdverts: number;
+  bizMentor: string;
+  totalSpent: number;
+  mobileNo: string;
+  email: string;
+  bizCountry: string;
+  bizCity: string;
+  joined: string;
+  lastLoggedIn: string;
+}
+
 export default defineComponent({
   name: 'AdminEventsBookingsComponent',
   components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
   setup() {
-    const tickets = ref([
+    const tickets = ref<Ticket[]>([
       {
-        id: 1,
+        id: 3,
         title: 'Event A',
-        personPic: 'pic_url',
+        price: 100, // Added price value
+        personPic: 'pic_url_a',
         firstName: 'John',
         lastName: 'Doe',
         membershipType: 'Gold',
@@ -150,16 +178,67 @@ export default defineComponent({
         joined: '2023-01-01',
         lastLoggedIn: '2023-06-01'
       },
-      // Add more ticket objects here
+      {
+        id: 2,
+        title: 'Event B',
+        price: 120, // Added price value
+        personPic: 'pic_url_b',
+        firstName: 'Alice',
+        lastName: 'Smith',
+        membershipType: 'Silver',
+        age: 28,
+        gender: 'Female',
+        businessName: 'AliceBusiness',
+        bizCategory: 'Marketing',
+        exhibited: false,
+        visited: true,
+        peopleSatisfiedNeeds: 4,
+        peopleRequestedOffers: 5,
+        investorsAdverts: 1,
+        bizMentor: 'John Doe',
+        totalSpent: 200,
+        mobileNo: '9876543210',
+        email: 'alice.smith@example.com',
+        bizCountry: 'Canada',
+        bizCity: 'Toronto',
+        joined: '2023-02-01',
+        lastLoggedIn: '2023-07-01'
+      },
+      {
+        id: 1,
+        title: 'Event C',
+        price: 150, // Added price value
+        personPic: 'pic_url_c',
+        firstName: 'Bob',
+        lastName: 'Brown',
+        membershipType: 'Platinum',
+        age: 35,
+        gender: 'Male',
+        businessName: 'BobBusiness',
+        bizCategory: 'Finance',
+        exhibited: true,
+        visited: false,
+        peopleSatisfiedNeeds: 6,
+        peopleRequestedOffers: 4,
+        investorsAdverts: 3,
+        bizMentor: 'Alice Smith',
+        totalSpent: 250,
+        mobileNo: '1122334455',
+        email: 'bob.brown@example.com',
+        bizCountry: 'UK',
+        bizCity: 'London',
+        joined: '2023-03-01',
+        lastLoggedIn: '2023-08-01'
+      }
     ]);
 
-    const sortKey = ref<string | null>(null);
+    const sortKey = ref<keyof Ticket | null>(null);
     const sortAsc = ref(true);
     const selectedRow = ref<number | null>(null);
     const searchQuery = ref<string>('');
     const filteredTickets = ref(tickets.value);
 
-    const sortTickets = (key: string) => {
+    const sortTickets = (key: keyof Ticket) => {
       if (sortKey.value === key) {
         sortAsc.value = !sortAsc.value;
       } else {
@@ -168,7 +247,7 @@ export default defineComponent({
       }
     };
 
-    const sortIcon = (key: string) => {
+    const sortIcon = (key: keyof Ticket) => {
       if (sortKey.value === key) {
         return sortAsc.value ? arrowUpOutline : arrowDownOutline;
       }
@@ -217,12 +296,12 @@ export default defineComponent({
     const exportTable = () => {
       const csvContent = [
         [
-          'Ticket ID', 'Ticket Title', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'Age', 'Gender', 'BusinessName', 
+          'Ticket ID', 'Ticket Title', 'Ticket Price', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'Age', 'Gender', 'BusinessName', 
           'BizCategory', 'Exhibited', 'Visited', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'BizMentor',
           'TotalSpent', 'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Joined', 'LastLoggedIn'
         ],
         ...filteredTickets.value.map(ticket => [
-          ticket.id, ticket.title, ticket.personPic, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.age, ticket.gender,
+          ticket.id, ticket.title, ticket.price, ticket.personPic, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.age, ticket.gender,
           ticket.businessName, ticket.bizCategory, ticket.exhibited, ticket.visited, ticket.peopleSatisfiedNeeds, ticket.peopleRequestedOffers,
           ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.mobileNo, ticket.email, ticket.bizCountry, ticket.bizCity,
           ticket.joined, ticket.lastLoggedIn
@@ -243,14 +322,20 @@ export default defineComponent({
         <html>
           <head>
             <style>
+              @page {
+                size: landscape;
+                margin: 1cm;
+              }
               table {
                 width: 100%;
                 border-collapse: collapse;
+                table-layout: fixed;
               }
               th, td {
                 border: 1px solid gray;
-                padding: 10px;
+                padding: 5px;
                 text-align: left;
+                font-size: 8px;
               }
               th {
                 background-color: #f1f1f1;
@@ -274,9 +359,30 @@ export default defineComponent({
             <table>
               <thead>
                 <tr>
-                  <th>TicketID</th>
-                  <th>TicketTitle</th>
-                  <th>Price</th>
+                  <th>Ticket ID</th>
+                  <th>Ticket Title</th>
+                  <th>Ticket Price</th>
+                  <th>Person Pic</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Membership Type</th>
+                  <th>Age</th>
+                  <th>Gender</th>
+                  <th>Business Name</th>
+                  <th>Biz Category</th>
+                  <th>Exhibited</th>
+                  <th>Visited</th>
+                  <th>People Satisfied Needs</th>
+                  <th>People Requested Offers</th>
+                  <th>Investors Adverts</th>
+                  <th>Biz Mentor</th>
+                  <th>Total Spent</th>
+                  <th>Mobile No</th>
+                  <th>Email</th>
+                  <th>Biz Country</th>
+                  <th>Biz City</th>
+                  <th>Joined</th>
+                  <th>Last Logged In</th>
                 </tr>
               </thead>
               <tbody>
@@ -284,17 +390,39 @@ export default defineComponent({
                   <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                     <td>${ticket.id}</td>
                     <td>${ticket.title}</td>
+                    <td>${ticket.price}</td>
+                    <td>${ticket.personPic}</td>
+                    <td>${ticket.firstName}</td>
+                    <td>${ticket.lastName}</td>
+                    <td>${ticket.membershipType}</td>
+                    <td>${ticket.age}</td>
+                    <td>${ticket.gender}</td>
+                    <td>${ticket.businessName}</td>
+                    <td>${ticket.bizCategory}</td>
+                    <td>${ticket.exhibited}</td>
+                    <td>${ticket.visited}</td>
+                    <td>${ticket.peopleSatisfiedNeeds}</td>
+                    <td>${ticket.peopleRequestedOffers}</td>
+                    <td>${ticket.investorsAdverts}</td>
+                    <td>${ticket.bizMentor}</td>
                     <td>${ticket.totalSpent}</td>
+                    <td>${ticket.mobileNo}</td>
+                    <td>${ticket.email}</td>
+                    <td>${ticket.bizCountry}</td>
+                    <td>${ticket.bizCity}</td>
+                    <td>${ticket.joined}</td>
+                    <td>${ticket.lastLoggedIn}</td>
                   </tr>
                 `).join('')}
                 <tr class="TotalRow">
                   <td>Totals:</td>
-                  <td></td>
+                  <td colspan="17"></td>
                   <td>${total.value}</td>
+                  <td colspan="6"></td>
                 </tr>
               </tbody>
             </table>
-            <div>Page ${currentPage.value} of ${totalPages.value}</div>
+            <div style="font-size: 8px;">Page ${currentPage.value} of ${totalPages.value}</div>
           </body>
         </html>
       `;
@@ -306,27 +434,42 @@ export default defineComponent({
       }
     };
 
-    const selectRow = (id: number) => {
-      selectedRow.value = selectedRow.value === id ? null : id;
-    };
-
-    const searchTickets = () => {
-      const query = searchQuery.value.toLowerCase();
+    watch(searchQuery, (newQuery) => {
       filteredTickets.value = tickets.value.filter(ticket =>
         Object.values(ticket).some(value =>
-          String(value).toLowerCase().includes(query)
+          value.toString().toLowerCase().includes(newQuery.toLowerCase())
         )
       );
-    };
-
-    watch(searchQuery, searchTickets);
+      currentPage.value = 1;
+    });
 
     return {
-      close, paginatedTickets, sortTickets, sortIcon, resetSorting, exportTable, printTable, total, currentPage, totalPages, prevPage, nextPage, selectedRow, selectRow, searchQuery, searchTickets,
+      tickets,
+      sortKey,
+      sortAsc,
+      sortTickets,
+      sortIcon,
+      resetSorting,
+      selectedRow,
+      searchQuery,
+      paginatedTickets,
+      currentPage,
+      totalPages,
+      prevPage,
+      nextPage,
+      exportTable,
+      printTable,
+      total,
+      close
     };
-  },
+  }
 });
 </script>
+
+
+
+
+
 
 
 <style scoped>
