@@ -434,14 +434,26 @@ export default defineComponent({
       }
     };
 
-    watch(searchQuery, (newQuery) => {
-      filteredTickets.value = tickets.value.filter(ticket =>
-        Object.values(ticket).some(value =>
-          value.toString().toLowerCase().includes(newQuery.toLowerCase())
-        )
-      );
-      currentPage.value = 1;
-    });
+       // making the selected row distinguishable
+    const selectRow = (id: number) => {
+      selectedRow.value = id;
+    };
+
+        // Search Function
+    const searchTickets = () => {
+      if (searchQuery.value.trim() === '') {
+        filteredTickets.value = tickets.value;
+      } else {
+        const query = searchQuery.value.trim().toLowerCase();
+        filteredTickets.value = tickets.value.filter(ticket => 
+          Object.values(ticket).some(val => 
+            val.toString().toLowerCase().includes(query)
+          )
+        );
+      }
+    };
+
+    watch(searchQuery, searchTickets);
 
     return {
       tickets,
@@ -450,8 +462,10 @@ export default defineComponent({
       sortTickets,
       sortIcon,
       resetSorting,
+      selectRow,
       selectedRow,
       searchQuery,
+      searchTickets,
       paginatedTickets,
       currentPage,
       totalPages,
