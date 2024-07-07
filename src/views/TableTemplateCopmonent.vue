@@ -4,6 +4,7 @@
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
+      <IonInput v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
     </IonRow>
 
     <div class="TableContainer">
@@ -33,10 +34,7 @@
         <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
         <IonCol class="ActionCol">
           <IonButton class="ActionCol" fill="clear" title="Close">
-            <IonButton class="test" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="small" :icon="duplicate"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Hide This Event" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Delete This Event" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+            <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
           </IonButton>
         </IonCol>
       </IonRow>
@@ -61,23 +59,20 @@
 
 
 
-      
-
-
-
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
-import { IonIcon, IonGrid, IonRow, IonCol, IonButton } from '@ionic/vue';
-import { close, arrowDownOutline, arrowUpOutline, create, trash, duplicate, ban} from 'ionicons/icons';
+import { defineComponent, ref, computed, watch } from 'vue';
+import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
+import { close, arrowDownOutline, arrowUpOutline } from 'ionicons/icons';
 
 export default defineComponent({
-  name: 'AdminEventsListComponent',
+  name: 'AdminEventsBookingsComponent',
   components: {
     IonIcon,
     IonGrid,
     IonRow,
     IonCol,
     IonButton,
+    IonInput,
   },
   setup() {
     const tickets = ref([
@@ -91,7 +86,9 @@ export default defineComponent({
     const sortAsc = ref(true);
        // making the selected row distinguishable
     const selectedRow = ref<number | null>(null);
-
+    // Search Filed
+    const searchQuery = ref<string>('');
+    const filteredTickets = ref(tickets.value);
 
     /**
      * Sorts the tickets based on the provided key. 
@@ -132,8 +129,8 @@ export default defineComponent({
      * Computes the sorted tickets based on the current sortKey and sort order.
      */
     const sortedTickets = computed(() => {
-      if (!sortKey.value) return tickets.value;
-      return [...tickets.value].sort((a, b) => {
+      if (!sortKey.value) return filteredTickets.value;
+      return [...filteredTickets.value].sort((a, b) => {
         if (a[sortKey.value as keyof typeof a] < b[sortKey.value as keyof typeof a]) return sortAsc.value ? -1 : 1;
         if (a[sortKey.value as keyof typeof a] > b[sortKey.value as keyof typeof a]) return sortAsc.value ? 1 : -1;
         return 0;
@@ -275,11 +272,27 @@ export default defineComponent({
         printWindow.print();
       }
     };
-
-       // making the selected row distinguishable
+    // making the selected row distinguishable
     const selectRow = (id: number) => {
       selectedRow.value = id;
     };
+
+    // Search Function
+    const searchTickets = () => {
+      if (searchQuery.value.trim() === '') {
+        filteredTickets.value = tickets.value;
+      } else {
+        const query = searchQuery.value.trim().toLowerCase();
+        filteredTickets.value = tickets.value.filter(ticket => 
+          Object.values(ticket).some(val => 
+            val.toString().toLowerCase().includes(query)
+          )
+        );
+      }
+    };
+
+    watch(searchQuery, searchTickets);
+
     return {
       close,
       paginatedTickets,
@@ -295,10 +308,8 @@ export default defineComponent({
       nextPage,
       selectedRow,
       selectRow,
-      create,
-      trash,
-      duplicate,
-      ban,
+      searchQuery,
+      searchTickets,
     };
   },
 });
@@ -317,6 +328,10 @@ ion-grid {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
+}
+.ButtonRow ion-input {
+  margin-left: 1em;
+  max-width: 300px;
 }
 
 .TableContainer {
@@ -368,6 +383,13 @@ ion-grid {
 .TotalRow {
   white-space: nowrap;
 }
+/* .TicketIDCol,
+.TicketTitleCol,
+.TicketPriceCol,
+.ActionCol {
+
+  
+} */
 
 .TicketTitleCol {
   border-right: 1px solid gray;

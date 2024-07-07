@@ -1,61 +1,117 @@
 <template>
   <IonGrid>
+
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
       <IonInput v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
     </IonRow>
+    <IonRow class="ContainerRow">
 
-    <div class="TableContainer">
-      <!-- TitleRow with sorting functionality and icons -->
-      <IonRow class="TitleRow">
-        <IonCol class="TicketIDCol" @click="sortTickets('id')">
-          TicketID
-          <IonIcon :icon="sortIcon('id')" class="sort-icon" />
-        </IonCol>
-        <IonCol class="TicketTitleCol" @click="sortTickets('title')">
-          TicketTitle
-          <IonIcon :icon="sortIcon('title')" class="sort-icon" />
-        </IonCol>
-        <IonCol class="TicketPriceCol" @click="sortTickets('price')">
-          Price
-          <IonIcon :icon="sortIcon('price')" class="sort-icon" />
-        </IonCol>
-        <IonCol class="ActionCol">
-          Actions
-        </IonCol>
-      </IonRow>
+      <div class="TableContainer">
+        <!-- TitleRow with sorting functionality and icons -->
+        <IonRow class="TitleRow">
+          <IonCol class="TicketIDCol" @click="sortTickets('id')">Ticket ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+          <IonCol class="TicketTitleCol" @click="sortTickets('title')">Ticket Title <IonIcon :icon="sortIcon('title')" class="sort-icon" /></IonCol>
+          <IonCol class="PersonPicCol" @click="sortTickets('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+          <IonCol class="FirstNameCol" @click="sortTickets('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+          <IonCol class="LastNameCol" @click="sortTickets('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+          <IonCol class="MembershipTypeCol" @click="sortTickets('membershipType')">MembershipType <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="AgeCol" @click="sortTickets('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
+          <IonCol class="GenderCol" @click="sortTickets('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
+          <IonCol class="BusinessNameCol" @click="sortTickets('businessName')">BusinessName <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+          <IonCol class="BizCategoryCol" @click="sortTickets('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="ExhibitedCol" @click="sortTickets('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+          <IonCol class="VisitedCol" @click="sortTickets('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+          <IonCol class="PeopleSatisfiedNeedsCol" @click="sortTickets('peopleSatisfiedNeeds')">PeopleSatisfiedNeeds <IonIcon :icon="sortIcon('peopleSatisfiedNeeds')" class="sort-icon" /></IonCol>
+          <IonCol class="PeopleRequestedOffersCol" @click="sortTickets('peopleRequestedOffers')">PeopleRequestedOffers <IonIcon :icon="sortIcon('peopleRequestedOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorsAdvertsCol" @click="sortTickets('investorsAdverts')">InvestorsAdverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
+          <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="MobileNoCol" @click="sortTickets('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
+          <IonCol class="EmailCol" @click="sortTickets('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
+          <IonCol class="BizCountryCol" @click="sortTickets('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="BizCityCol" @click="sortTickets('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
+          <IonCol class="JoinedCol" @click="sortTickets('joined')">Joined <IonIcon :icon="sortIcon('joined')" class="sort-icon" /></IonCol>
+          <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+          <IonCol class="ActionCol">Actions</IonCol>
+        </IonRow>
 
-      <!-- Data rows -->
-      <IonRow  v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)" >        
-        <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
-        <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
-        <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
-        <IonCol class="ActionCol">
-          <IonButton class="ActionCol" fill="clear" title="Close">
-            <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
-          </IonButton>
-        </IonCol>
-      </IonRow>
+        <!-- Data rows -->
+        <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)">
+          <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
+          <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
+          <IonCol class="PersonPicCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="FirstNameCol">{{ ticket.firstName }}</IonCol>
+          <IonCol class="LastNameCol">{{ ticket.lastName }}</IonCol>
+          <IonCol class="MembershipTypeCol">{{ ticket.membershipType }}</IonCol>
+          <IonCol class="AgeCol">{{ ticket.age }}</IonCol>
+          <IonCol class="GenderCol">{{ ticket.gender }}</IonCol>
+          <IonCol class="BusinessNameCol">{{ ticket.businessName }}</IonCol>
+          <IonCol class="BizCategoryCol">{{ ticket.bizCategory }}</IonCol>
+          <IonCol class="ExhibitedCol">{{ ticket.exhibited }}</IonCol>
+          <IonCol class="VisitedCol">{{ ticket.visited }}</IonCol>
+          <IonCol class="PeopleSatisfiedNeedsCol">{{ ticket.peopleSatisfiedNeeds }}</IonCol>
+          <IonCol class="PeopleRequestedOffersCol">{{ ticket.peopleRequestedOffers }}</IonCol>
+          <IonCol class="InvestorsAdvertsCol">{{ ticket.investorsAdverts }}</IonCol>
+          <IonCol class="BizMentorCol">{{ ticket.bizMentor }}</IonCol>
+          <IonCol class="TotalSpentCol">{{ ticket.totalSpent }}</IonCol>
+          <IonCol class="MobileNoCol">{{ ticket.mobileNo }}</IonCol>
+          <IonCol class="EmailCol">{{ ticket.email }}</IonCol>
+          <IonCol class="BizCountryCol">{{ ticket.bizCountry }}</IonCol>
+          <IonCol class="BizCityCol">{{ ticket.bizCity }}</IonCol>
+          <IonCol class="JoinedCol">{{ ticket.joined }}</IonCol>
+          <IonCol class="LastLoggedInCol">{{ ticket.lastLoggedIn }}</IonCol>
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+            </IonButton>
+          </IonCol>
+        </IonRow>
 
-      <!-- Total row -->
-      <IonRow class="TotalRow">
-        <IonCol class="TicketIDCol">Totals:</IonCol>
-        <IonCol class="TicketTitleCol"></IonCol>
-        <IonCol class="TicketPriceCol">{{ total }}</IonCol>
-        <IonCol class="ActionCol"></IonCol>
-      </IonRow>
-    </div>
+        <!-- Total row -->
+        <IonRow class="TotalRow">
+          <IonCol class="TicketIDCol"></IonCol>
+          <IonCol class="TicketTitleCol"></IonCol>
+          <IonCol class="PersonPicCol"></IonCol>
+          <IonCol class="FirstNameCol"></IonCol>
+          <IonCol class="LastNameCol"></IonCol>
+          <IonCol class="MembershipTypeCol"></IonCol>
+          <IonCol class="AgeCol"></IonCol>
+          <IonCol class="GenderCol"></IonCol>
+          <IonCol class="BusinessNameCol"></IonCol>
+          <IonCol class="BizCategoryCol"></IonCol>
+          <IonCol class="ExhibitedCol"></IonCol>
+          <IonCol class="VisitedCol"></IonCol>
+          <IonCol class="PeopleSatisfiedNeedsCol"></IonCol>
+          <IonCol class="PeopleRequestedOffersCol"></IonCol>
+          <IonCol class="InvestorsAdvertsCol"></IonCol>
+          <IonCol class="BizMentorCol"></IonCol>
+          <IonCol class="TotalSpentCol">{{ total }}</IonCol>
+          <IonCol class="MobileNoCol"></IonCol>
+          <IonCol class="EmailCol"></IonCol>
+          <IonCol class="BizCountryCol"></IonCol>
+          <IonCol class="BizCityCol"></IonCol>
+          <IonCol class="JoinedCol"></IonCol>
+          <IonCol class="LastLoggedInCol"></IonCol>
+          <IonCol class="ActionCol"></IonCol>
+        </IonRow>
+      </div>
+    </IonRow>
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
-      <IonButton @click="prevPage" :disabled="currentPage === 1">Previous</IonButton>
-      <IonCol class="PageInfo">Page {{ currentPage }} of {{ totalPages }}</IonCol>
-      <IonButton @click="nextPage" :disabled="currentPage === totalPages">Next</IonButton>
+      <IonButton @click="prevPage">Prev</IonButton>
+      <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
+      <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
+
   </IonGrid>
 </template>
+
+
+
 
 
 
@@ -66,37 +122,43 @@ import { close, arrowDownOutline, arrowUpOutline } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'AdminEventsBookingsComponent',
-  components: {
-    IonIcon,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonButton,
-    IonInput,
-  },
+  components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
   setup() {
     const tickets = ref([
-      { id: 3, title: 'Another Title', price: 4500000000 },
-      { id: 2, title: 'Example Title', price: 150 },
-      { id: 1, title: 'Titles', price: 300 },
-      // Add more dummy data as needed to test pagination
+      {
+        id: 1,
+        title: 'Event A',
+        personPic: 'pic_url',
+        firstName: 'John',
+        lastName: 'Doe',
+        membershipType: 'Gold',
+        age: 30,
+        gender: 'Male',
+        businessName: 'JohnBusiness',
+        bizCategory: 'IT',
+        exhibited: true,
+        visited: true,
+        peopleSatisfiedNeeds: 5,
+        peopleRequestedOffers: 3,
+        investorsAdverts: 2,
+        bizMentor: 'Jane Smith',
+        totalSpent: 150,
+        mobileNo: '1234567890',
+        email: 'john.doe@example.com',
+        bizCountry: 'USA',
+        bizCity: 'New York',
+        joined: '2023-01-01',
+        lastLoggedIn: '2023-06-01'
+      },
+      // Add more ticket objects here
     ]);
 
     const sortKey = ref<string | null>(null);
     const sortAsc = ref(true);
-       // making the selected row distinguishable
     const selectedRow = ref<number | null>(null);
-    // Search Filed
     const searchQuery = ref<string>('');
     const filteredTickets = ref(tickets.value);
 
-    /**
-     * Sorts the tickets based on the provided key. 
-     * If the key is the same as the current sortKey, it toggles the sort order.
-     * Otherwise, it sets the new key and sorts in ascending order.
-     * 
-     * @param key - The key to sort by (e.g., 'id', 'title', 'price')
-     */
     const sortTickets = (key: string) => {
       if (sortKey.value === key) {
         sortAsc.value = !sortAsc.value;
@@ -106,33 +168,24 @@ export default defineComponent({
       }
     };
 
-    /**
-     * Returns the appropriate sorting icon based on the current sortKey and sort order.
-     * 
-     * @param key - The key to check against the current sortKey
-     * @returns The icon to display (up or down arrow)
-     */
     const sortIcon = (key: string) => {
-      if (sortKey.value !== key) return arrowDownOutline;
-      return sortAsc.value ? arrowUpOutline : arrowDownOutline;
+      if (sortKey.value === key) {
+        return sortAsc.value ? arrowUpOutline : arrowDownOutline;
+      }
+      return null;
     };
 
-    /**
-     * Resets the sorting to the original state (default order).
-     */
     const resetSorting = () => {
       sortKey.value = null;
       sortAsc.value = true;
     };
 
-    /**
-     * Computes the sorted tickets based on the current sortKey and sort order.
-     */
     const sortedTickets = computed(() => {
       if (!sortKey.value) return filteredTickets.value;
+
       return [...filteredTickets.value].sort((a, b) => {
-        if (a[sortKey.value as keyof typeof a] < b[sortKey.value as keyof typeof a]) return sortAsc.value ? -1 : 1;
-        if (a[sortKey.value as keyof typeof a] > b[sortKey.value as keyof typeof a]) return sortAsc.value ? 1 : -1;
+        if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
+        if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
         return 0;
       });
     });
@@ -140,71 +193,51 @@ export default defineComponent({
     const itemsPerPage = 20;
     const currentPage = ref(1);
 
-    /**
-     * Computes the paginated tickets for the current page.
-     */
     const paginatedTickets = computed(() => {
       const start = (currentPage.value - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
-      return sortedTickets.value.slice(start, end);
+      return sortedTickets.value.slice(start, start + itemsPerPage);
     });
 
-    /**
-     * Computes the total number of pages based on the number of tickets and items per page.
-     */
-    const totalPages = computed(() => {
-      return Math.ceil(sortedTickets.value.length / itemsPerPage);
-    });
+    const totalPages = computed(() => Math.ceil(filteredTickets.value.length / itemsPerPage));
 
-    /**
-     * Computes the total price of all tickets.
-     */
-    const total = computed(() => {
-      return tickets.value.reduce((sum, ticket) => sum + ticket.price, 0);
-    });
+    const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
 
-    /**
-     * Navigates to the previous page, if possible.
-     */
     const prevPage = () => {
       if (currentPage.value > 1) {
-        currentPage.value--;
+        currentPage.value -= 1;
       }
     };
 
-    /**
-     * Navigates to the next page, if possible.
-     */
     const nextPage = () => {
       if (currentPage.value < totalPages.value) {
-        currentPage.value++;
+        currentPage.value += 1;
       }
     };
 
-    /**
-     * Exports the table data to a CSV file.
-     */
     const exportTable = () => {
       const csvContent = [
-        ['TicketID', 'TicketTitle', 'Price'],
-        ...paginatedTickets.value.map(ticket => [ticket.id, ticket.title, ticket.price]),
-        ['Totals:', '', total.value]
-      ].map(e => e.join(",")).join("\n");
+        [
+          'Ticket ID', 'Ticket Title', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'Age', 'Gender', 'BusinessName', 
+          'BizCategory', 'Exhibited', 'Visited', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'BizMentor',
+          'TotalSpent', 'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Joined', 'LastLoggedIn'
+        ],
+        ...filteredTickets.value.map(ticket => [
+          ticket.id, ticket.title, ticket.personPic, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.age, ticket.gender,
+          ticket.businessName, ticket.bizCategory, ticket.exhibited, ticket.visited, ticket.peopleSatisfiedNeeds, ticket.peopleRequestedOffers,
+          ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.mobileNo, ticket.email, ticket.bizCountry, ticket.bizCity,
+          ticket.joined, ticket.lastLoggedIn
+        ])
+      ]
+        .map(e => e.join(","))
+        .join("\n");
 
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.setAttribute("href", url);
-      link.setAttribute("download", "tickets.csv");
-      link.style.visibility = 'hidden';
-      document.body.appendChild(link);
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'bookings.csv';
       link.click();
-      document.body.removeChild(link);
     };
 
-    /**
-     * Prints the current page of the table.
-     */
     const printTable = () => {
       const printContent = `
         <html>
@@ -251,7 +284,7 @@ export default defineComponent({
                   <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                     <td>${ticket.id}</td>
                     <td>${ticket.title}</td>
-                    <td>${ticket.price}</td>
+                    <td>${ticket.totalSpent}</td>
                   </tr>
                 `).join('')}
                 <tr class="TotalRow">
@@ -272,56 +305,39 @@ export default defineComponent({
         printWindow.print();
       }
     };
-    // making the selected row distinguishable
+
     const selectRow = (id: number) => {
-      selectedRow.value = id;
+      selectedRow.value = selectedRow.value === id ? null : id;
     };
 
-    // Search Function
-      const searchTickets = () => {
-      if (searchQuery.value.trim() === '') {
-        filteredTickets.value = tickets.value;
-      } else {
-        const query = searchQuery.value.trim().toLowerCase();
-        filteredTickets.value = tickets.value.filter(ticket => 
-          Object.values(ticket).some(val => 
-            val.toString().toLowerCase().includes(query)
-          )
-        );
-      }
+    const searchTickets = () => {
+      const query = searchQuery.value.toLowerCase();
+      filteredTickets.value = tickets.value.filter(ticket =>
+        Object.values(ticket).some(value =>
+          String(value).toLowerCase().includes(query)
+        )
+      );
     };
 
     watch(searchQuery, searchTickets);
 
     return {
-      close,
-      paginatedTickets,
-      sortTickets,
-      sortIcon,
-      resetSorting,
-      exportTable,
-      printTable,
-      total,
-      currentPage,
-      totalPages,
-      prevPage,
-      nextPage,
-      selectedRow,
-      selectRow,
-      searchQuery,
-      searchTickets,
+      close, paginatedTickets, sortTickets, sortIcon, resetSorting, exportTable, printTable, total, currentPage, totalPages, prevPage, nextPage, selectedRow, selectRow, searchQuery, searchTickets,
     };
   },
 });
 </script>
 
 
-
 <style scoped>
+/* Adjusting the length of the table here: http://localhost:8100/adminpage */
 ion-grid {
   height: 100%;
+}
+.ContainerRow {
+  width:3000px;
   overflow-y: auto;
-  white-space: nowrap;
+  flex-direction:column;
 }
 
 .ButtonRow {
@@ -329,6 +345,7 @@ ion-grid {
   align-items: center;
   margin-bottom: 10px;
 }
+
 .ButtonRow ion-input {
   margin-left: 1em;
   max-width: 300px;
@@ -343,16 +360,15 @@ ion-grid {
   cursor: pointer;
 }
 
- /* making the selected row distinguishable */
 .DataRow {
   cursor: pointer;
 }
+
 .DataRow.selected {
   border-top: 3px solid red;
   border-bottom: 3px solid red;
 }
 
-/* General alternating background colors for DataRow */
 .DataRow:nth-child(odd) ion-col {
   background-color: #f5efef;
 }
@@ -366,39 +382,34 @@ ion-grid {
 }
 
 .PaginationRow {
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   margin-top: 10px;
 }
 
-.BorderedSection,
-.TitleRow,
-.DataRow,
-.TotalRow,
-.PaginationRow {
+.BorderedSection, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
   border: 1px solid gray;
 }
-.TitleRow,
-.DataRow,
-.TotalRow {
+
+.DataRow, .TotalRow {
   white-space: nowrap;
 }
-/* .TicketIDCol,
-.TicketTitleCol,
-.TicketPriceCol,
-.ActionCol {
-
-  
-} */
-
-.TicketTitleCol {
-  border-right: 1px solid gray;
-  background-color: aquamarine;
+.TitleRow ion-col {
+  overflow: visible; /* Ensure the content is fully visible */
+  word-wrap: break-word; /* Break long words */
+  white-space: normal; /* Allow text to wrap */
+  text-align: center; /* Center align for better presentation */
 }
-.TicketIDCol{
+
+.TicketTitleCol, .PersonPicCol, .FirstNameCol, .LastNameCol, .MembershipTypeCol, .AgeCol, .GenderCol, .BusinessNameCol, .BizCategoryCol, .ExhibitedCol, .VisitedCol, .PeopleSatisfiedNeedsCol, .PeopleRequestedOffersCol, .InvestorsAdvertsCol, .BizMentorCol, .TotalSpentCol, .MobileNoCol, .EmailCol, .BizCountryCol, .BizCityCol, .JoinedCol, .LastLoggedInCol, .ActionCol {
+  border-right: 1px solid gray;
+}
+
+.TicketIDCol {
   width: 50px;
   background-color: red;
 }
+
 ion-col {
   max-width: 100px;
   padding: 0;
@@ -406,15 +417,15 @@ ion-col {
   white-space: nowrap;
   overflow-x: auto;
   align-content: center;
-  height:30px;
-  font-size:12px;
-}
-.ActionCol{
-  overflow-x:visible;
+  height: 30px;
+  font-size: 12px;
 }
 
-ion-button,
-ion-icon {
+.ActionCol {
+  overflow-x: visible;
+}
+
+ion-button, ion-icon {
   padding: 0;
   margin: 0;
 }
@@ -431,6 +442,12 @@ ion-icon {
   margin-left: 5px;
 }
 
+.person-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 @media (max-width: 600px) {
   .ButtonRow {
     flex-direction: row;
@@ -440,8 +457,16 @@ ion-icon {
   .TableContainer {
     overflow-x: auto;
   }
+
   .TableContainer {
     width: 800px;
   }
 }
+
+
+
+
+
 </style>
+
+
