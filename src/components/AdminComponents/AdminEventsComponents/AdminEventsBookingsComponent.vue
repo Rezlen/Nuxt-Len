@@ -5,11 +5,13 @@
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
-      <IonInput v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
-      <IonButton class="arrowBackCircle" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon></IonButton>
+      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
+      <IonButton class="arrowBackCircle" fill="clear" title="Duplicate" @click="scrollToLeft"> 
+        <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
+      </IonButton>
     </IonRow>
     
-    <IonRow class="ContainerRow">
+    <IonRow class="ContainerRow" ref="scrollableContainer">
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="TicketIDCol" @click="sortTickets('id')">Ticket ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
@@ -250,9 +252,25 @@
 
       const sortKey = ref<keyof Ticket | null>(null);
       const sortAsc = ref(true);
+      // making the selected row distinguishable
+
       const selectedRow = ref<number | null>(null);
+      // Search Filed
+
       const searchQuery = ref<string>('');
       const filteredTickets = ref(tickets.value);
+
+// back button does not wor, fix itk
+      const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
+
+   const scrollToLeft = () => {
+      if (scrollableContainer.value) {
+        scrollableContainer.value.scrollLeft = 0;
+      }
+    };
+
+// back button does not work
+
 
       const sortTickets = (key: keyof Ticket) => {
         if (sortKey.value === key) {
@@ -270,11 +288,15 @@
         return null;
       };
 
+      
+    //  * Resets the sorting to the original state (default order).
       const resetSorting = () => {
         sortKey.value = null;
         sortAsc.value = true;
       };
 
+      
+    //  * Computes the sorted tickets based on the current sortKey and sort order.
       const sortedTickets = computed(() => {
         if (!sortKey.value) return filteredTickets.value;
 
@@ -288,27 +310,33 @@
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
+    //  * Computes the paginated tickets for the current page.
       const paginatedTickets = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
         return sortedTickets.value.slice(start, start + itemsPerPage);
       });
 
+    //  * Computes the total number of pages based on the number of tickets and items per page.
       const totalPages = computed(() => Math.ceil(filteredTickets.value.length / itemsPerPage));
 
+    //  * Computes the total price of all tickets.
       const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
 
+    //  * Navigates to the previous page, if possible.
       const prevPage = () => {
         if (currentPage.value > 1) {
           currentPage.value -= 1;
         }
       };
 
+    //  * Navigates to the next page, if possible.
       const nextPage = () => {
         if (currentPage.value < totalPages.value) {
           currentPage.value += 1;
         }
       };
 
+    //  * Exports the table data to a CSV file.
       const exportTable = () => {
         const csvContent = [
           [
@@ -495,7 +523,9 @@
         printTable,
         total,
         close,
-        arrowBackCircle
+        arrowBackCircle,
+        scrollToLeft,
+        scrollableContainer,
       };
     }
   });
@@ -509,21 +539,29 @@
 
 <style scoped>
   /* Adjusting the length of the table here: http://localhost:8100/adminpage */
-  ion-grid {
-    height: 100%;
-  }
-
+.search{
+  width: 100px;
+}
+.arrowBackCircle {
+  position: fixed;
+  top: 55;
+  left: 90;
+  right: 0;
+  z-index: 1;
+}
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
     height: 50px;
     align-items: center;
   }
-.ContainerRow, .TitleRow, .DataRow, .TotalRow{
+  .ContainerRow {
     width: 3000px;
+    flex-direction: column;
     overflow-y: scroll;
+    overflow-x: scroll;
 
-}
+  }
   .DataRow {
     cursor: pointer;
   }

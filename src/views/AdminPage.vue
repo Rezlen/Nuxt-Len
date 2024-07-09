@@ -48,7 +48,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue';
-import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonButton } from '@ionic/vue';
+import { IonPage, IonGrid, IonRow, IonCol, IonContent } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
 import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
@@ -135,14 +135,6 @@ ion-grid {
 .Profiles {
   font-weight: bold;
   /* padding: 5px; */
-}
-.MessageRemaining {
-  font-size: 13px;;
-}
-ion-button{
-  font-size: 12px;
-  padding: 0;
-  margin: 0;
 }
 .PaddingBorder{
   border-bottom: 1px gray solid;

@@ -1,17 +1,20 @@
 <template>
   <IonGrid>
 
-    <IonCol class="ButtonRow">
+    <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
-      <IonInput v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
-      <IonButton class="arrowBackCircle" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon></IonButton>
-    </IonCol>
+      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
+      <IonButton class="arrowBackCircle" fill="clear" title="Duplicate" @click="scrollToLeft"> 
+        <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
+      </IonButton>    
+    </IonRow>
 
-    <div class="TableContainer">
       <!-- TitleRow with sorting functionality and icons -->
-      <IonRow class="TitleRow">
+    <IonRow class="ContainerRow" ref="scrollableContainer">
+
+      <IonRow class="TitleRow"  >
         <IonCol class="TicketIDCol" @click="sortTickets('id')">
           TicketID
           <IonIcon :icon="sortIcon('id')" class="sort-icon" />
@@ -51,13 +54,14 @@
         <IonCol class="TicketPriceCol">{{ total }}</IonCol>
         <IonCol class="ActionCol"></IonCol>
       </IonRow>
-    </div>
+    </IonRow>
+
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
-      <IonButton @click="prevPage" :disabled="currentPage === 1">Previous</IonButton>
-      <IonCol class="PageInfo">Page {{ currentPage }} of {{ totalPages }}</IonCol>
-      <IonButton @click="nextPage" :disabled="currentPage === totalPages">Next</IonButton>
+      <IonButton @click="prevPage">Prev</IonButton>
+      <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
+      <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
   </IonGrid>
 </template>
@@ -91,7 +95,7 @@ export default defineComponent({
       // Add more dummy data as needed to test pagination
     ]);
 
-    const sortKey = ref<string | null>(null);
+    const sortKey = ref<keyof Ticket | null>(null);
     const sortAsc = ref(true);
        // making the selected row distinguishable
     const selectedRow = ref<number | null>(null);
@@ -106,93 +110,83 @@ export default defineComponent({
      * 
      * @param key - The key to sort by (e.g., 'id', 'title', 'price')
      */
-    const sortTickets = (key: string) => {
-      if (sortKey.value === key) {
-        sortAsc.value = !sortAsc.value;
-      } else {
-        sortKey.value = key;
-        sortAsc.value = true;
+
+     // back button does not wor, fix itk
+      const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
+
+   const scrollToLeft = () => {
+      if (scrollableContainer.value) {
+        scrollableContainer.value.scrollLeft = 0;
       }
     };
 
-    /**
-     * Returns the appropriate sorting icon based on the current sortKey and sort order.
-     * 
-     * @param key - The key to check against the current sortKey
-     * @returns The icon to display (up or down arrow)
-     */
-    const sortIcon = (key: string) => {
-      if (sortKey.value !== key) return arrowDownOutline;
-      return sortAsc.value ? arrowUpOutline : arrowDownOutline;
-    };
+// back button does not work
 
-    /**
-     * Resets the sorting to the original state (default order).
-     */
+
+      const sortTickets = (key: keyof Ticket) => {
+        if (sortKey.value === key) {
+          sortAsc.value = !sortAsc.value;
+        } else {
+          sortKey.value = key;
+          sortAsc.value = true;
+        }
+      };
+
+      const sortIcon = (key: keyof Ticket) => {
+        if (sortKey.value === key) {
+          return sortAsc.value ? arrowUpOutline : arrowDownOutline;
+        }
+        return null;
+      };
+
+
+    //  * Resets the sorting to the original state (default order).
     const resetSorting = () => {
       sortKey.value = null;
       sortAsc.value = true;
     };
 
-    /**
-     * Computes the sorted tickets based on the current sortKey and sort order.
-     */
-    const sortedTickets = computed(() => {
-      if (!sortKey.value) return filteredTickets.value;
-      return [...filteredTickets.value].sort((a, b) => {
-        if (a[sortKey.value as keyof typeof a] < b[sortKey.value as keyof typeof a]) return sortAsc.value ? -1 : 1;
-        if (a[sortKey.value as keyof typeof a] > b[sortKey.value as keyof typeof a]) return sortAsc.value ? 1 : -1;
-        return 0;
+    //  * Computes the sorted tickets based on the current sortKey and sort order.
+      const sortedTickets = computed(() => {
+        if (!sortKey.value) return filteredTickets.value;
+
+        return [...filteredTickets.value].sort((a, b) => {
+          if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
+          if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
+          return 0;
+        });
       });
-    });
 
     const itemsPerPage = 20;
     const currentPage = ref(1);
 
-    /**
-     * Computes the paginated tickets for the current page.
-     */
-    const paginatedTickets = computed(() => {
-      const start = (currentPage.value - 1) * itemsPerPage;
-      const end = start + itemsPerPage;
-      return sortedTickets.value.slice(start, end);
-    });
+    //  * Computes the paginated tickets for the current page.
+      const paginatedTickets = computed(() => {
+        const start = (currentPage.value - 1) * itemsPerPage;
+        return sortedTickets.value.slice(start, start + itemsPerPage);
+      });
 
-    /**
-     * Computes the total number of pages based on the number of tickets and items per page.
-     */
-    const totalPages = computed(() => {
-      return Math.ceil(sortedTickets.value.length / itemsPerPage);
-    });
+    //  * Computes the total number of pages based on the number of tickets and items per page.
+    const totalPages = computed(() => Math.ceil(filteredTickets.value.length / itemsPerPage));
 
-    /**
-     * Computes the total price of all tickets.
-     */
-    const total = computed(() => {
-      return tickets.value.reduce((sum, ticket) => sum + ticket.price, 0);
-    });
+    //  * Computes the total price of all tickets.
+    const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
 
-    /**
-     * Navigates to the previous page, if possible.
-     */
-    const prevPage = () => {
-      if (currentPage.value > 1) {
-        currentPage.value--;
-      }
-    };
+    //  * Navigates to the previous page, if possible.
+      const prevPage = () => {
+        if (currentPage.value > 1) {
+          currentPage.value -= 1;
+        }
+      };
 
-    /**
-     * Navigates to the next page, if possible.
-     */
-    const nextPage = () => {
-      if (currentPage.value < totalPages.value) {
-        currentPage.value++;
-      }
-    };
+    //  * Navigates to the next page, if possible.
+      const nextPage = () => {
+        if (currentPage.value < totalPages.value) {
+          currentPage.value += 1;
+        }
+      };
 
-    /**
-     * Exports the table data to a CSV file.
-     */
+    //  * Exports the table data to a CSV file.
     const exportTable = () => {
       const csvContent = [
         ['TicketID', 'TicketTitle', 'Price'],
@@ -200,33 +194,33 @@ export default defineComponent({
         ['Totals:', '', total.value]
       ].map(e => e.join(",")).join("\n");
 
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.setAttribute("href", url);
-      link.setAttribute("download", "tickets.csv");
-      link.style.visibility = 'hidden';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    };
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'bookings.csv';
+        link.click();
+      };
 
-    /**
-     * Prints the current page of the table.
-     */
+    //  * Prints the current page of the table.
     const printTable = () => {
       const printContent = `
         <html>
           <head>
             <style>
+              @page {
+                size: landscape;
+                margin: 1cm;
+              }
               table {
                 width: 100%;
                 border-collapse: collapse;
+                table-layout: fixed;
               }
               th, td {
                 border: 1px solid gray;
-                padding: 10px;
+                padding: 5px;
                 text-align: left;
+                font-size: 8px;
               }
               th {
                 background-color: #f1f1f1;
@@ -263,16 +257,17 @@ export default defineComponent({
                     <td>${ticket.price}</td>
                   </tr>
                 `).join('')}
-                <tr class="TotalRow">
-                  <td>Totals:</td>
-                  <td></td>
-                  <td>${total.value}</td>
-                </tr>
-              </tbody>
-            </table>
-            <div>Page ${currentPage.value} of ${totalPages.value}</div>
-          </body>
-        </html>
+                  <tr class="TotalRow">
+                    <td>Totals:</td>
+                    <td colspan="17"></td>
+                    <td>${total.value}</td>
+                    <td colspan="6"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="font-size: 8px;">Page ${currentPage.value} of ${totalPages.value}</div>
+            </body>
+          </html>
       `;
       const printWindow = window.open('', '', 'height=600,width=800');
       if (printWindow) {
@@ -304,6 +299,9 @@ export default defineComponent({
     watch(searchQuery, searchTickets);
 
     return {
+      tickets,
+      sortKey,
+      sortAsc,
       close,
       paginatedTickets,
       sortTickets,
@@ -325,6 +323,8 @@ export default defineComponent({
       duplicate,
       ban,
       arrowBackCircle,
+      scrollToLeft,
+      scrollableContainer,
     };
   },
 });
@@ -333,131 +333,116 @@ export default defineComponent({
 
 
 <style scoped>
-ion-grid {
-  height: 100%;
-  overflow-y: auto;
-  white-space: nowrap;
+  /* Adjusting the length of the table here: http://localhost:8100/adminpage */
+.search{
+  width: 100px;
 }
 .arrowBackCircle {
-  justify-content: flex-end;
-  align-items: flex-end;
-  align-content: flex-end;
+  position: fixed;
+  top: 55;
+  left: 90;
+  right: 0;
+  z-index: 1;
 }
-.ButtonRow {
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.ButtonRow ion-input {
-  margin-left: 1em;
-  max-width: 300px;
-}
+  .TitleRow {
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    align-items: center;
+  }
+  .ContainerRow {
+    width: 3000px;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: scroll;
 
-.TableContainer {
-  overflow-x: auto;
-}
-
-.TitleRow {
-  font-weight: bold;
-  cursor: pointer;
-}
-
- /* making the selected row distinguishable */
-.DataRow {
-  cursor: pointer;
-}
-.DataRow.selected {
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-}
-
-/* General alternating background colors for DataRow */
-.DataRow:nth-child(odd) ion-col {
-  background-color: #f5efef;
-}
-
-.DataRow:nth-child(even) ion-col {
-  background-color: #bceea5;
-}
-
-.TotalRow {
-  font-weight: bold;
-}
-
-.PaginationRow {
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.BorderedSection,
-.TitleRow,
-.DataRow,
-.TotalRow,
-.PaginationRow {
-  border: 1px solid gray;
-}
-.TitleRow,
-.DataRow,
-.TotalRow {
-  white-space: nowrap;
-}
-
-.TicketTitleCol {
-  border-right: 1px solid gray;
-  background-color: aquamarine;
-}
-.TicketIDCol{
-  width: 50px;
-  background-color: red;
-}
-ion-col {
-  max-width: 100px;
-  padding: 0;
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: auto;
-  align-content: center;
-  height:30px;
-  font-size:12px;
-}
-.ActionCol{
-  overflow-x:visible;
-}
-
-ion-button,
-ion-icon {
-  padding: 0;
-  margin: 0;
-}
-
-.PageInfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  margin: 0 10px;
-}
-
-.sort-icon {
-  margin-left: 5px;
-}
-
-@media (max-width: 600px) {
-  .ButtonRow {
-    flex-direction: row;
-    align-items: flex-start;
-    z-index: 1100; /* Ensure it stays on top of the sidebar */
-    position: fixed; /* Keep hamburger menu fixed floating */
-    top: 200px; /* Adjust positioning as needed */
-    left: 10px; /* Adjust positioning as needed */
-    margin-top: 40px;
+  }
+  .DataRow {
+    cursor: pointer;
+  }
+  .DataRow.selected {
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+  }
+  .DataRow:nth-child(odd) ion-col {
+    background-color: #f5efef;
+  }
+  .DataRow:nth-child(even) ion-col {
+    background-color: #bceea5;
   }
 
-  .TableContainer {
+  .TotalRow {
+    font-weight: bold;
+  }
+
+  .ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
+    border: 1px solid gray;
+  }
+
+  .DataRow, .TotalRow {
+    white-space: nowrap;
+  }
+  .TitleRow ion-col {
+    overflow: visible; /* Ensure the content is fully visible */
+    word-wrap: break-word; /* Break long words */
+    white-space: normal; /* Allow text to wrap */
+    text-align: center; /* Center align for better presentation */
+  }
+
+  .TicketIDCol, .TicketTitleCol, .TicketPriceCol, .ExhibitionSpotNoCol, .ExhibitionSpotColorCol, .PersonPicCol, .FirstNameCol, .LastNameCol, .MembershipTypeCol, .AgeCol, .GenderCol, .BusinessNameCol, .BizCategoryCol, .ExhibitedCol, .VisitedCol, .PeopleSatisfiedNeedsCol, .PeopleRequestedOffersCol, .InvestorsAdvertsCol, .BizMentorCol, .TotalSpentCol, .MobileNoCol, .EmailCol, .BizCountryCol, .BizCityCol, .JoinedCol, .LastLoggedInCol, .ActionCol {
+    border-right: 1px solid lightgray;
+  }
+
+  .TicketIDCol {
+    /* width: 50px; */
+    background-color: red;
+  }
+
+  ion-col {
+    max-width: 100px;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
     overflow-x: auto;
-    width: 800px;
+    align-content: center;
+    height: 30px;
+    font-size: 12px;
   }
 
-}
+  .ActionCol {
+    overflow-x: visible;
+    margin:0;
+    padding:0;
+  }
+  .test{
+    margin:0;
+    padding:0;
+  }
+
+  .PageInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+
+  .sort-icon {
+    margin-left: 5px;
+  }
+
+  .person-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 600px) {
+
+  }
+
+
+
+
+
 </style>
