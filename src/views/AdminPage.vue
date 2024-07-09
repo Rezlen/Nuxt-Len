@@ -17,7 +17,7 @@
 
           <!-- Sidebar Menu -->
           <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
-            <IonRow class="PaddingBorder AllProfiles">All Profiles</IonRow>
+            <IonRow class="PaddingBorder Profiles"@click="showComponent('profiles')">Profiles</IonRow>
             <IonRow class="PaddingBorder Events"@click="showComponent('events')" >Events</IonRow>
             <IonRow class="PaddingBorder Investments">Investments</IonRow>
             <IonRow class="PaddingBorder OffersNeeds">Offers Needs</IonRow>
@@ -51,6 +51,7 @@ import { defineComponent, ref, Ref } from 'vue';
 import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonButton } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
+import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
 export default defineComponent({
@@ -63,6 +64,7 @@ export default defineComponent({
     IonContent,
     MenuComponent,
     AdminCreateEventTABsComponent,
+    MembersProfileDetailTABsAdminComponent,
     FooterComponent,
   },
   setup() {
@@ -76,6 +78,9 @@ export default defineComponent({
     const showComponent = (componentName: string) => {
       if (componentName === 'events') {
         currentComponent.value = AdminCreateEventTABsComponent;
+      }
+      if (componentName === 'profiles') {
+        currentComponent.value = MembersProfileDetailTABsAdminComponent;
       }
       // Add other cases as needed for other menu items
     };
@@ -127,7 +132,7 @@ ion-grid {
 }
 
 .Events, 
-.AllProfiles {
+.Profiles {
   font-weight: bold;
   /* padding: 5px; */
 }

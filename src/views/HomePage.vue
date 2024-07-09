@@ -130,10 +130,12 @@
                 <p><a href="/FormProvideForInvestmentComponent" class="Events-button" >FormProvideForInvestmentComponent  </a> </p>
                 <p><a href="/MiniInvestorsProfileComponent" class="Events-button" >MiniInvestorsProfileComponent  </a> </p>
                 <p><a href="/MiniInvesteesProfileComponent" class="Events-button" >MiniInvesteesProfileComponent  </a> </p>
+                <p><a href="/MembersProfileDetailAdminComponent" class="Events-button" >MembersProfileDetailAdminComponent  </a> </p>
+                <p><a href="/MembersProfileDetailTABsAdminComponent" class="Events-button" >MembersProfileDetailTABsAdminComponent  </a> </p>
               
               </IonRow>
               
-              <!-- MiniProfilesRow ##############################     FormApplyForInvestmentComponent         -->
+              <!-- MiniProfilesRow #####MembersProfileDetailTABsAdminComponent       -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

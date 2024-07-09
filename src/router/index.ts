@@ -61,7 +61,9 @@ import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/F
 import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
 import MiniInvestorsProfileComponent from '@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue';
 import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue';
-
+// Investment comp
+import MembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailAdminComponent.vue';
+import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
 
 // /MiniInvesteesProfileComponent.vue
 const routes: Array<RouteRecordRaw> = [  
@@ -269,7 +271,29 @@ const routes: Array<RouteRecordRaw> = [
     name: 'FormPitchingComponent',
     component: FormPitchingComponent
   },
-  // Admin EVENTs Components AdminCreateEventTABsComponent
+
+  // Investment comp
+  {
+    path: '/formApplyForInvestmentComponent',
+    name: 'FormApplyForInvestmentComponent',
+    component: FormApplyForInvestmentComponent
+  },
+  {
+    path: '/formProvideInvestmentComponent',
+    name: 'FormProvideInvestmentComponent',
+    component: FormProvideInvestmentComponent
+  },
+  {
+    path: '/miniInvestorsProfileComponent',
+    name: 'MiniInvestorsProfileComponent',
+    component: MiniInvestorsProfileComponent
+  },
+  {
+    path: '/miniInvesteesProfileComponent',
+    name: 'MiniInvesteesProfileComponent',
+    component: MiniInvesteesProfileComponent
+  },
+   // Admin EVENTs Components 
   {
     path: '/adminCreateEventTABsComponent',
     name: 'AdminCreateEventTABsComponent',
@@ -295,33 +319,21 @@ const routes: Array<RouteRecordRaw> = [
     name: 'AdminLeftSideBarComponent',
     component: AdminLeftSideBarComponent
   },
-  // Investment comp
+   // Admin EVENTs Components 
   {
-    path: '/formApplyForInvestmentComponent',
-    name: 'FormApplyForInvestmentComponent',
-    component: FormApplyForInvestmentComponent
+    path: '/membersProfileDetailAdminComponent',
+    name: 'MembersProfileDetailAdminComponent',
+    component: MembersProfileDetailAdminComponent
   },
   {
-    path: '/formProvideInvestmentComponent',
-    name: 'FormProvideInvestmentComponent',
-    component: FormProvideInvestmentComponent
+    path: '/membersProfileDetailTABsAdminComponent',
+    name: 'MembersProfileDetailTABsAdminComponent',
+    component: MembersProfileDetailTABsAdminComponent
   },
-  {
-    path: '/miniInvestorsProfileComponent',
-    name: 'MiniInvestorsProfileComponent',
-    component: MiniInvestorsProfileComponent
-  },
-  {
-    path: '/miniInvesteesProfileComponent',
-    name: 'MiniInvesteesProfileComponent',
-    component: MiniInvesteesProfileComponent
-  },
- 
 
 
 
-
-  // Left & Right Adverts starts here  MiniInvesteesProfileComponent copy.vue
+  // Left & Right Adverts starts here  MembersProfileDetailTABsAdminComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

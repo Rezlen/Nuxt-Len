@@ -1,54 +1,57 @@
 <template>
   <IonGrid>
-    <p class="CenterPositions">
-      Here all bookings or profiles are specific to their events only.
-      <br />
-      For a list of all pitching, investors, investments or pitchers, check
-      the SideBar & click on "Profiles"
-    </p>
-    <IonRow class="Tabs4_Events-Creats-Edit-Floorplan-Ticketing-Bookings">
+    <p class="CenterPositions">All Profiles: Edit, Delete, Export</p>
+    <IonRow class="Tabs">
       <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
-        <IonSegmentButton class="btn" value="EventsList">Events List</IonSegmentButton>
-        <IonSegmentButton class="btn" value="CreateEvent">Create Event</IonSegmentButton>
-        <IonSegmentButton class="btn" value="Bookings">Bookings</IonSegmentButton>
+        <IonSegmentButton class="btn" value="Profiles">Profiles</IonSegmentButton>
         <IonSegmentButton class="btn" value="PitchingsProfile">Pitchings Profile</IonSegmentButton>
         <IonSegmentButton class="btn" value="InvestmentApplications">Investment Applications</IonSegmentButton>
         <IonSegmentButton class="btn" value="InvestorsProfile">Investors Profile</IonSegmentButton>
         <IonSegmentButton class="btn" value="InvesteesProfile">Investees Profile</IonSegmentButton>
+        <IonSegmentButton class="btn" value="Offers">Offers</IonSegmentButton>
+        <IonSegmentButton class="btn" value="Needs">Needs</IonSegmentButton>
+        <IonSegmentButton class="btn" value="BestOffers">BestOffers</IonSegmentButton>
       </IonSegment>
     </IonRow>
     <IonRow class="DisplayComponentRow">
       <!-- List of events here -->
-      <IonCol v-show="selectedTab === 'EventsList'" class="EventsList">
-        <AdminEventsListComponent />
+      <IonCol v-show="selectedTab === 'Profiles'" class="Profiles">
+        <AdminEventsListComponent/>
       </IonCol>
-      <!-- Create Event Tab here -->
-      <IonCol v-show="selectedTab === 'CreateEvent'" class="CreateEvent">
-        <AdminCreateEventComponent />
-      </IonCol>
-      <!-- Booking/Reserved Tickets Tab here -->
-      <IonCol v-show="selectedTab === 'Bookings'" class="Bookings">
-        <AdminEventsBookingsComponent />
-      </IonCol>
-      <!-- Pitchings Profile Tab here -->
+      <!-- Create Event Tab here ############################################# -->
       <IonCol v-show="selectedTab === 'PitchingsProfile'" class="PitchingsProfile">
-        <AdminEventsBookingsComponent />
+        <AdminCreateEventComponent/>
       </IonCol>
-      <!-- Investment Applications Tab here -->
+      <!-- InvestmentApplications Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvestmentApplications'" class="InvestmentApplications">
-        <AdminEventsBookingsComponent />
+        <AdminEventsBookingsComponent/>
       </IonCol>
-      <!-- Investors Profile Tab here -->
+
+      <!-- Investors Profile Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvestorsProfile'" class="InvestorsProfile">
-        <AdminEventsBookingsComponent />
+        <AdminEventsBookingsComponent/>
       </IonCol>
-      <!-- Investees Profile Tab here -->
+      <!-- InvesteesProfile Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvesteesProfile'" class="InvesteesProfile">
-        <AdminEventsBookingsComponent />
+        <AdminEventsBookingsComponent/>
+      </IonCol>
+      <!-- Offers Tab here ####################################-->
+      <IonCol v-show="selectedTab === 'Offers'" class="Offers">
+        <AdminEventsBookingsComponent/>
+      </IonCol>
+      <!-- Needs Tab here ####################################-->
+      <IonCol v-show="selectedTab === 'Needs'" class="Needs">
+        <AdminEventsBookingsComponent/>
+      </IonCol>
+      <!-- BestOffers ####################################-->
+      <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
+        <AdminEventsBookingsComponent/>
       </IonCol>
     </IonRow>
   </IonGrid>
 </template>
+
+
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
@@ -58,7 +61,7 @@ import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEven
 import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventComponent.vue';
 
 export default defineComponent({
-  name: 'AdminCreateTABsEventComponent',
+  name: 'MembersProfileDetailTABsAdminComponent',
   components: {
     IonGrid,
     IonRow,
@@ -70,16 +73,22 @@ export default defineComponent({
     AdminCreateEventComponent,
   },
   setup() {
-    const selectedTab = ref<string>('EventsList'); // Initialize with the default tab
+    const selectedTab = ref<string>('Marketing'); // Initialize with the default tab
+
     return {
       selectedTab,
     };
   },
 });
+
+
 </script>
 
+
+
 <style scoped>
-/* Tabs style */
+
+/* <!-- tabs style --> */
 .TabSegment {
   display: flex;
   flex-wrap: wrap; /* Allow segment buttons to wrap */
@@ -89,15 +98,15 @@ export default defineComponent({
   flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
 }
 
-.EventsList,
-.CreateEvent,
-.Bookings {
+.Profiles,
+.PitchingsProfile,
+.InvestmentApplications {
   background-color: #f9f9f9;
   width: auto;
 }
+/* <!--  tabs style ends --> */
 
-/* Tabs style ends */
-ion-grid {
+ion-grid{
   height: 100%;
   overflow-y: auto;
   width: 100%;

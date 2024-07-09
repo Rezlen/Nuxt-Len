@@ -1,11 +1,13 @@
 <template>
   <IonGrid>
-    <IonRow class="ButtonRow">
+
+    <IonCol class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
       <IonInput v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
-    </IonRow>
+      <IonButton class="arrowBackCircle" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon></IonButton>
+    </IonCol>
 
     <div class="TableContainer">
       <!-- TitleRow with sorting functionality and icons -->
@@ -69,7 +71,7 @@
 <script lang="ts">
 import { defineComponent, ref, computed, watch  } from 'vue';
 import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
-import { close, arrowDownOutline, arrowUpOutline, create, trash, duplicate, ban} from 'ionicons/icons';
+import { close, arrowDownOutline, arrowUpOutline, create, trash, duplicate, ban, arrowBackCircle } from 'ionicons/icons';
 
 export default defineComponent({
   name: 'AdminEventsListComponent',
@@ -322,6 +324,7 @@ export default defineComponent({
       trash,
       duplicate,
       ban,
+      arrowBackCircle,
     };
   },
 });
@@ -335,7 +338,11 @@ ion-grid {
   overflow-y: auto;
   white-space: nowrap;
 }
-
+.arrowBackCircle {
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+}
 .ButtonRow {
   justify-content: flex-start;
   align-items: center;
