@@ -135,7 +135,7 @@
               
               </IonRow>
               
-              <!-- MiniProfilesRow #####MembersProfileDetailTABsAdminComponent       -->
+              <!-- MiniProfilesRow #####  MembersProfileDetailAdminComponent     -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

@@ -39,10 +39,10 @@
         <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
         <IonCol class="ActionCol">
           <IonButton class="ActionCol" fill="clear" title="Close">
-            <IonButton class="test" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="small" :icon="duplicate"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Hide This Event" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
-            <IonButton class="test" fill="clear" title="Delete This Event" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+            <IonButton class="icons" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="small" :icon="duplicate"></IonIcon></IonButton>
+            <IonButton class="icons" fill="clear" title="Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
+            <IonButton class="icons" fill="clear" title="Hide This Event" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+            <IonButton class="icons" fill="clear" title="Delete This Event" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
           </IonButton>
         </IonCol>
       </IonRow>
@@ -92,7 +92,7 @@ export default defineComponent({
       { id: 3, title: 'Another Title', price: 4500000000 },
       { id: 2, title: 'Example Title', price: 150 },
       { id: 1, title: 'Titles', price: 300 },
-      // Add more dummy data as needed to test pagination
+      // Add more dummy data as needed to pagination
     ]);
 
     const sortKey = ref<keyof Ticket | null>(null);
@@ -409,12 +409,10 @@ export default defineComponent({
     font-size: 12px;
   }
 
-  .ActionCol {
+  .ActionCol{
     overflow-x: visible;
-    margin:0;
-    padding:0;
   }
-  .test{
+  .ActionCol ion-button  {
     margin:0;
     padding:0;
   }

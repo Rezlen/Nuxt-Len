@@ -149,7 +149,7 @@
     peopleSatisfiedNeeds: number;
     peopleRequestedOffers: number;
     investorsAdverts: number;
-    bizMentor: string;
+    bizMentor: number;
     totalSpent: number;
     mobileNo: string;
     email: string;
@@ -183,7 +183,7 @@
           peopleSatisfiedNeeds: 5,
           peopleRequestedOffers: 3,
           investorsAdverts: 2,
-          bizMentor: 'Jane Smith',
+          bizMentor: 30,
           totalSpent: 150,
           mobileNo: '1234567890',
           email: 'john.doe@example.com',
@@ -211,7 +211,7 @@
           peopleSatisfiedNeeds: 4,
           peopleRequestedOffers: 5,
           investorsAdverts: 1,
-          bizMentor: 'John Doe',
+          bizMentor: 30,
           totalSpent: 200,
           mobileNo: '9876543210',
           email: 'alice.smith@example.com',
@@ -239,7 +239,7 @@
           peopleSatisfiedNeeds: 6,
           peopleRequestedOffers: 4,
           investorsAdverts: 3,
-          bizMentor: 'Alice Smith',
+          bizMentor: 30,
           totalSpent: 250,
           mobileNo: '1122334455',
           email: 'bob.brown@example.com',
@@ -357,7 +357,7 @@
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = 'bookings.csv';
+        link.download = 'LENeventBookings.csv';
         link.click();
       };
 
@@ -613,9 +613,12 @@
     height: 30px;
     font-size: 12px;
   }
-
-  .ActionCol {
+  .ActionCol{
     overflow-x: visible;
+  }
+  .ActionCol ion-button  {
+    margin:0;
+    padding:0;
   }
 
   .PageInfo {

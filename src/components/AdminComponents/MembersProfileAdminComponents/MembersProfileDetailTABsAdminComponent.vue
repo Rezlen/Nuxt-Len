@@ -16,36 +16,36 @@
     <IonRow class="DisplayComponentRow">
       <!-- List of events here -->
       <IonCol v-show="selectedTab === 'Profiles'" class="Profiles">
-        <AdminEventsListComponent/>
+        <MembersProfileDetailAdminComponent />
       </IonCol>
       <!-- Create Event Tab here ############################################# -->
       <IonCol v-show="selectedTab === 'PitchingsProfile'" class="PitchingsProfile">
-        <AdminCreateEventComponent/>
+        <MembersProfileDetailAdminComponent />
       </IonCol>
       <!-- InvestmentApplications Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvestmentApplications'" class="InvestmentApplications">
-        <AdminEventsBookingsComponent/>
+        <MembersProfileDetailAdminComponent />
       </IonCol>
 
       <!-- Investors Profile Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvestorsProfile'" class="InvestorsProfile">
-        <AdminEventsBookingsComponent/>
+        <MembersProfileDetailAdminComponent />
       </IonCol>
       <!-- InvesteesProfile Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvesteesProfile'" class="InvesteesProfile">
-        <AdminEventsBookingsComponent/>
+        <MembersProfileDetailAdminComponent />
       </IonCol>
       <!-- Offers Tab here ####################################-->
       <IonCol v-show="selectedTab === 'Offers'" class="Offers">
-        <AdminEventsBookingsComponent/>
+        <MembersProfileDetailAdminComponent />
       </IonCol>
       <!-- Needs Tab here ####################################-->
       <IonCol v-show="selectedTab === 'Needs'" class="Needs">
-        <AdminEventsBookingsComponent/>
+        <MembersProfileDetailAdminComponent />
       </IonCol>
       <!-- BestOffers ####################################-->
       <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
-        <AdminEventsBookingsComponent/>
+        <MembersProfileDetailAdminComponent />
       </IonCol>
     </IonRow>
   </IonGrid>
@@ -56,9 +56,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton } from '@ionic/vue';
-import AdminEventsListComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsListComponent.vue';
-import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsBookingsComponent.vue';
-import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventComponent.vue';
+import MembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailAdminComponent.vue';
 
 export default defineComponent({
   name: 'MembersProfileDetailTABsAdminComponent',
@@ -68,12 +66,11 @@ export default defineComponent({
     IonCol,
     IonSegment,
     IonSegmentButton,
-    AdminEventsListComponent,
-    AdminEventsBookingsComponent,
-    AdminCreateEventComponent,
+    MembersProfileDetailAdminComponent,
+
   },
   setup() {
-    const selectedTab = ref<string>('Marketing'); // Initialize with the default tab
+    const selectedTab = ref<string>(''); // Initialize with the default tab
 
     return {
       selectedTab,
@@ -100,7 +97,12 @@ export default defineComponent({
 
 .Profiles,
 .PitchingsProfile,
-.InvestmentApplications {
+.InvestmentApplications,
+.InvestorsProfile,
+.InvesteesProfile,
+.Offers,
+.Needs,
+.BestOffers {
   background-color: #f9f9f9;
   width: auto;
 }
