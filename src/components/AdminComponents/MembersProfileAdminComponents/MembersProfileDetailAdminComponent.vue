@@ -44,7 +44,7 @@
           <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
 
           <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">TotalSpent <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
           <IonCol class="MobileNoCol" @click="sortMembers('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
           <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
           <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
@@ -57,7 +57,6 @@
           <IonCol class="NoLoggedInCol" @click="sortMembers('noLoggedIn')">NoOf LoggedIn <IonIcon :icon="sortIcon('noLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="FullProfileSeenCol" @click="sortMembers('fullProfileSeen')">FullProfile Seen <IonIcon :icon="sortIcon('fullProfileSeen')" class="sort-icon" /></IonCol>
 
-          <IonCol class="ActionCol">Actions</IonCol>
         </IonRow>
 
         <!-- Data rows -->
@@ -92,7 +91,7 @@
           <IonCol class="PitchingsCol">{{ member.pitchings }}</IonCol>
 
           <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
-          <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+          <IonCol class="BizMentorSpentCol">{{ member.bizMentorSpent }}</IonCol>
           <IonCol class="MobileNoCol">{{ member.mobileNo }}</IonCol>
           <IonCol class="EmailCol">{{ member.email }}</IonCol>
           <IonCol class="BizCountryCol">{{ member.bizCountry }}</IonCol>
@@ -105,13 +104,6 @@
           <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
           <IonCol class="FullProfileSeenCol">{{ member.fullProfileSeen }}</IonCol>
 
-          <IonCol class="ActionCol">
-            <IonButton class="ActionCol" fill="clear" title="Close">
-              <IonButton @click="openModal(member.id)" class="test" fill="clear" title="Edit This Profile"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-              <IonButton class="test" fill="clear" title="Deactivate/Hide This Profile From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
-              <IonButton class="test" fill="clear" title="Delete This Profile After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
-            </IonButton>
-          </IonCol>
         </IonRow>
 
         <!-- Total row -->
@@ -146,7 +138,7 @@
           <IonCol class="PitchingsCol"></IonCol>
 
           <IonCol class="BizMentorCol"></IonCol>
-          <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
+          <IonCol class="BizMentorSpentCol">{{ bizMentorSpent }}</IonCol>
           <IonCol class="MobileNoCol"></IonCol>
           <IonCol class="EmailCol"></IonCol>
           <IonCol class="BizCountryCol"></IonCol>
@@ -159,7 +151,6 @@
           <IonCol class="NoLoggedInCol"></IonCol>
           <IonCol class="FullProfileSeenCol"></IonCol>
 
-          <IonCol class="ActionCol"></IonCol>
         </IonRow>
     </IonRow>
 
@@ -169,12 +160,6 @@
       <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
-
-        <!-- Modal for displaying component in a popup -->
-    <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
-      <FormProfilePublicSectionComponent />
-      <IonButton @click="closeModal">Close</IonButton>
-    </IonModal>
 
   </IonGrid>
 </template>
@@ -187,8 +172,8 @@
 
 <script lang="ts">
   import { defineComponent, ref, computed, watch } from 'vue';
-  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal } from '@ionic/vue';
-  import { create, trash, ban, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
+  import { arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
   import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 
   interface Member {
@@ -198,6 +183,7 @@
     lastName: string;
     membershipType: string;
     totalMembershipSpent: number;
+    totalSpent: number;
     age: number;
     gender: string;
     businessName: string;
@@ -216,7 +202,7 @@
     investorsAdverts: number;
     pitchings: number;
     bizMentor: number;
-    totalSpent: number;
+    bizMentorSpent: number;
     mobileNo: string;
     email: string;
     bizCountry: string;
@@ -231,7 +217,7 @@
 
   export default defineComponent({
     name: 'MembersProfileDetailAdminComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal, FormProfilePublicSectionComponent, },
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormProfilePublicSectionComponent, },
     setup() {
       const members = ref<Member[]>([
         {
@@ -241,6 +227,7 @@
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
+          totalSpent: 150,
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -259,7 +246,7 @@
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          totalSpent: 150,
+          bizMentorSpent: 150,
           mobileNo: '1234567890',
           email: 'john.doe@example.com',
           bizCountry: 'USA',
@@ -278,6 +265,7 @@
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
+          totalSpent: 150,
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -296,7 +284,7 @@
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          totalSpent: 150,
+          bizMentorSpent: 150,
           mobileNo: '1234567890',
           email: 'john.doe@example.com',
           bizCountry: 'USA',
@@ -315,6 +303,7 @@
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
+          totalSpent: 150,
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -333,7 +322,7 @@
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          totalSpent: 150,
+          bizMentorSpent: 150,
           mobileNo: '1234567890',
           email: 'john.doe@example.com',
           bizCountry: 'USA',
@@ -424,6 +413,7 @@
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
       const totalAdvertSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.advertSpent, 0));
+      const bizMentorSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bizMentorSpent, 0));
       const totalEmployees = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.noEmployees, 0));
 
       const prevPage = () => {
@@ -443,16 +433,16 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'Age', 'Gender', 'BusinessName', 
+            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent','Age', 'Gender', 'BusinessName', 
             'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
-            'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'TotalSpent',
+            'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen'
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.age, member.gender,
+            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, member.age, member.gender,
             member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedOffers,
-            member.investorsAdverts, member.pitchings, member.bizMentor, member.totalSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
+            member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
           ])
         ]
@@ -514,6 +504,7 @@
                     <th>Last Name</th>
                     <th>Membership Type</th>
                     <th>Total Membership Spent</th>
+                    <th>Total Spent</th>
                     <th>Age</th>
                     <th>Gender</th>
                     <th>Business Name</th>
@@ -532,7 +523,7 @@
                     <th>Investors Adverts</th>
                     <th>Pitchings</th>
                     <th>Biz Mentor</th>
-                    <th>Total Spent</th>
+                    <th>BizMentor Spent</th>
                     <th>Mobile No</th>
                     <th>Email</th>
                     <th>Biz Country</th>
@@ -554,6 +545,7 @@
                       <td>${member.lastName}</td>
                       <td>${member.membershipType}</td>
                       <td>${member.totalMembershipSpent}</td>
+                      <td>${member.totalSpent}</td>
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
                       <td>${member.businessName}</td>
@@ -572,7 +564,7 @@
                       <td>${member.investorsAdverts}</td>
                       <td>${member.pitchings}</td>
                       <td>${member.bizMentor}</td>
-                      <td>${member.totalSpent}</td>
+                      <td>${member.bizMentorSpent}</td>
                       <td>${member.mobileNo}</td>
                       <td>${member.email}</td>
                       <td>${member.bizCountry}</td>
@@ -589,6 +581,7 @@
                     <td>Totals:</td>
                     <td colspan="5"></td>
                     <td>${totalMembershipSpent.value}</td>
+                    <td>${totalSpent.value}</td>
                     <td colspan="3"></td>
                     <td>${totalBusinessRevenue.value}</td>
                     <td colspan="1"></td>
@@ -599,8 +592,8 @@
                     <td colspan="1"></td>
                     <td colspan="7"></td>
                     <td>${totalAdvertSpent.value}</td>
-                    <td colspan="2"></td>
-                    <td>${totalSpent.value}</td>
+                    <td colspan="5"></td>
+                    <td>${bizMentorSpent.value}</td>
                     <td colspan="7"></td>
                     <td>${totalEmployees.value}</td>
                     <td colspan="5"></td>
@@ -639,19 +632,6 @@
       };
 
       watch(searchQuery, searchMembers);
-      // Clicking popup function here
-      const showMiniEvent = ref<boolean>(false);
-      const activeMemberId = ref<number | null>(null);
-      const isModalOpen = ref<boolean>(false);
-
-      const openModal = (memberId: number) => {
-          activeMemberId.value = memberId;
-        isModalOpen.value = true;
-      };
-
-      const closeModal = () => {
-        isModalOpen.value = false;
-      };
 
       return {
         members,
@@ -677,17 +657,11 @@
         totalSalary,
         totalEventSpent,
         totalAdvertSpent,
+        bizMentorSpent,
         totalEmployees,
-        create, trash, ban,
         arrowBackCircle,
         scrollToLeft,
         scrollableContainer,
-        showMiniEvent,
-        activeMemberId,
-        isModalOpen,
-        openModal,
-        closeModal,
-        
       };
     }
   });
@@ -778,21 +752,6 @@
     font-size: 12px;
     border-right: 1px solid lightgray;
   }
-ion-modal {
-  --width: 90%; /* Adjust width as needed */
-  --height: 90%; /* Adjust height as needed */
-  --max-width: 90vw; /* Adjust max-width as needed */
-  --max-height: 90vh; /* Adjust max-height as needed */
-}
-  .ActionCol {
-    overflow-x: visible;
-  }
-
-  .ActionCol ion-button {
-    margin: 0;
-    padding: 0;
-  }
-
   .PageInfo {
     display: flex;
     justify-content: center;
