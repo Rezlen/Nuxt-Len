@@ -147,7 +147,7 @@
           </IonCol>
         </IonRow>
       </IonRow>
-
+      <IonButton class="UpdateBTN" expand="block" title="SubmitBTN">Update</IonButton>
 
     </IonRow>
   </IonGrid>
@@ -260,6 +260,10 @@ box-shadow: 0 4px 8px rgba(34, 139, 34, 0.8);
   font-weight: bold;
   width: 100%;
   padding: 20px;
+}
+
+.UpdateBTN {
+  width: 100%;
 }
 
 </style>

@@ -49,12 +49,14 @@
 
     <!-- Modal for displaying component in a popup -->
     <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
-      <FormProfilePublicSectionComponent />
-      <IonButton @click="closeModal">Close</IonButton>
+      <div class="modal-content">
+        <FormProfilePublicSectionComponent :member-id="activeMemberId" />
+        <IonButton @click="closeModal">Close</IonButton>
+      </div>
     </IonModal>
-    
   </IonGrid>
 </template>
+
 
 
 
@@ -112,6 +114,7 @@ export default {
   },
 };
 </script>
+
 
 
 

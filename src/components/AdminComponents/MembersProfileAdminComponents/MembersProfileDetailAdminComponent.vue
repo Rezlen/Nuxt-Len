@@ -778,7 +778,12 @@
     font-size: 12px;
     border-right: 1px solid lightgray;
   }
-
+ion-modal {
+  --width: 90%; /* Adjust width as needed */
+  --height: 90%; /* Adjust height as needed */
+  --max-width: 90vw; /* Adjust max-width as needed */
+  --max-height: 90vh; /* Adjust max-height as needed */
+}
   .ActionCol {
     overflow-x: visible;
   }
