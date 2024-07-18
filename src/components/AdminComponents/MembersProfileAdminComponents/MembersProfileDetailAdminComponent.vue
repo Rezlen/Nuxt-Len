@@ -19,14 +19,14 @@
           <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
           <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
           <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalMembershipSpentCol" @click="sortMembers('TotalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('TotalMembershipSpent')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalSpentCol" @click="sortMembers('TotalSpent')">Total Spent<IonIcon :icon="sortIcon('TotalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
           <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
           <IonCol class="BusinessRevenueCol" @click="sortMembers('businessRevenue')">Business Revenue <IonIcon :icon="sortIcon('businessRevenue')" class="sort-icon" /></IonCol>
-          <IonCol class="JobPositionCol" @click="sortMembers('jobPosition')">Job Position<IonIcon :icon="sortIcon('JobPosition')" class="sort-icon" /></IonCol>
+          <IonCol class="JobPositionCol" @click="sortMembers('jobPosition')">Job Position<IonIcon :icon="sortIcon('jobPosition')" class="sort-icon" /></IonCol>
           <IonCol class="SalaryCol" @click="sortMembers('salary')">Salary<IonIcon :icon="sortIcon('salary')" class="sort-icon" /></IonCol>
 
           <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
@@ -107,9 +107,9 @@
 
           <IonCol class="ActionCol">
             <IonButton class="ActionCol" fill="clear" title="Close">
-              <IonButton class="test" fill="clear" title="Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-              <IonButton class="test" fill="clear" title="Hide This Event" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
-              <IonButton class="test" fill="clear" title="Delete This Event" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+              <IonButton @click="openModal(member.id)" class="test" fill="clear" title="Edit This Profile"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Deactivate/Hide This Profile From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Delete This Profile After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
             </IonButton>
           </IonCol>
         </IonRow>
@@ -170,6 +170,12 @@
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
 
+        <!-- Modal for displaying component in a popup -->
+    <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
+      <FormProfilePublicSectionComponent />
+      <IonButton @click="closeModal">Close</IonButton>
+    </IonModal>
+
   </IonGrid>
 </template>
 
@@ -181,8 +187,9 @@
 
 <script lang="ts">
   import { defineComponent, ref, computed, watch } from 'vue';
-  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
+  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal } from '@ionic/vue';
   import { create, trash, ban, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 
   interface Member {
     id: number;
@@ -224,7 +231,7 @@
 
   export default defineComponent({
     name: 'AdminEventsBookingsComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal, FormProfilePublicSectionComponent, },
     setup() {
       const members = ref<Member[]>([
         {
@@ -339,6 +346,7 @@
           fullProfileSeen: 100
         },
         // Add more members as necessary
+        
 
       ]);
 
@@ -631,6 +639,19 @@
       };
 
       watch(searchQuery, searchMembers);
+      // Clicking popup function here
+      const showMiniEvent = ref<boolean>(false);
+      const activeMemberId = ref<number | null>(null);
+      const isModalOpen = ref<boolean>(false);
+
+      const openModal = (memberId: number) => {
+          activeMemberId.value = memberId;
+        isModalOpen.value = true;
+      };
+
+      const closeModal = () => {
+        isModalOpen.value = false;
+      };
 
       return {
         members,
@@ -661,6 +682,12 @@
         arrowBackCircle,
         scrollToLeft,
         scrollableContainer,
+        showMiniEvent,
+        activeMemberId,
+        isModalOpen,
+        openModal,
+        closeModal,
+        
       };
     }
   });
@@ -696,6 +723,7 @@
   .ContainerRow {
     width: 4000px;
     flex-direction: column;
+    overflow-y: scroll;
     overflow-x: scroll;
   }
   
@@ -780,7 +808,7 @@
 
   @media (max-width: 600px) {
     .ContainerRow {
-      width: auto;
+      width: 4000px;
     }
     .TitleRow, .DataRow, .TotalRow {
       display: flex;

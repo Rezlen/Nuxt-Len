@@ -560,7 +560,6 @@
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: scroll;
-
   }
   .DataRow {
     cursor: pointer;
@@ -594,10 +593,6 @@
     text-align: center; /* Center align for better presentation */
   }
 
-  .TicketIDCol, .TicketTitleCol, .TicketPriceCol, .ExhibitionSpotNoCol, .ExhibitionSpotColorCol, .PersonPicCol, .FirstNameCol, .LastNameCol, .MembershipTypeCol, .AgeCol, .GenderCol, .BusinessNameCol, .BizCategoryCol, .ExhibitedCol, .VisitedCol, .PeopleSatisfiedNeedsCol, .PeopleRequestedOffersCol, .InvestorsAdvertsCol, .BizMentorCol, .TotalSpentCol, .MobileNoCol, .EmailCol, .BizCountryCol, .BizCityCol, .JoinedCol, .LastLoggedInCol, .ActionCol {
-    border-right: 1px solid lightgray;
-  }
-
   .TicketIDCol {
     /* width: 50px; */
     background-color: red;
@@ -612,6 +607,7 @@
     align-content: center;
     height: 30px;
     font-size: 12px;
+    border-right: 1px solid lightgray;
   }
   .ActionCol{
     overflow-x: visible;
@@ -640,11 +636,18 @@
   }
 
   @media (max-width: 600px) {
-
+    .ContainerRow {
+      width: auto;
+    }
+    .TitleRow, .DataRow, .TotalRow {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    ion-col {
+      max-width: 100px;
+    }
   }
-
-
-
+  
 
 
 </style>
