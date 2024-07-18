@@ -122,11 +122,11 @@ const menus = ref([
     title: 'FREE Pitching⌄',
     path: '/FreePitchingsPage',
     subMenus: [
-      { title: 'FREE Pitch Reservation', path: '/FreePitchReservation' },
-      { title: 'All Pitchers', path: '/AllPitchers' },
-      { title: 'One Minute Pitchers', path: '/OneMinutePitchers' },
-      { title: 'Three Minutes Pitchers', path: '/ThreeMinutesPitchers' },
-      { title: 'Investment Pitchers', path: '/InvestmentPitchers' },
+      { title: 'FREE Pitch Reservation', path: '/FreePitchingsPage' },
+      { title: 'All Pitchers', path:'/FreePitchingsPage'},
+      { title: 'One Minute Pitchers', path: '/FreePitchingsPage' },
+      { title: 'Three Minutes Pitchers', path: '/FreePitchingsPage' },
+      { title: 'Investment Pitchers', path: '/FreePitchingsPage' },
     ],
     showSubMenus: false, // Initially hide submenu
   },

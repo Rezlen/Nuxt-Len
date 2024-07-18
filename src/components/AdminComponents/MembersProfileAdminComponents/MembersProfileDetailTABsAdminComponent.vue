@@ -4,10 +4,8 @@
     <IonRow class="Tabs">
       <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
         <IonSegmentButton class="btn" value="Profiles">Profiles</IonSegmentButton>
-        <IonSegmentButton class="btn" value="PitchingsProfile">Pitchings Profile</IonSegmentButton>
-        <IonSegmentButton class="btn" value="InvestmentApplications">Investment Applications</IonSegmentButton>
+        <IonSegmentButton class="btn" value="Pitchings">Pitchings</IonSegmentButton>
         <IonSegmentButton class="btn" value="InvestorsProfile">Investors Profile</IonSegmentButton>
-        <IonSegmentButton class="btn" value="InvesteesProfile">Investees Profile</IonSegmentButton>
         <IonSegmentButton class="btn" value="Offers">Offers</IonSegmentButton>
         <IonSegmentButton class="btn" value="Needs">Needs</IonSegmentButton>
         <IonSegmentButton class="btn" value="BestOffers">BestOffers</IonSegmentButton>
@@ -19,20 +17,11 @@
         <MembersProfileDetailAdminComponent />
       </IonCol>
       <!-- Create Event Tab here ############################################# -->
-      <IonCol v-show="selectedTab === 'PitchingsProfile'" class="PitchingsProfile">
-        <MembersProfileDetailAdminComponent />
+      <IonCol v-show="selectedTab === 'Pitchings'" class="Pitchings">
+        <MembersPitchingProfileDetailAdminComponent />
       </IonCol>
-      <!-- InvestmentApplications Tab here ####################################-->
-      <IonCol v-show="selectedTab === 'InvestmentApplications'" class="InvestmentApplications">
-        <MembersProfileDetailAdminComponent />
-      </IonCol>
-
-      <!-- Investors Profile Tab here ####################################-->
+      <!-- InvestorsProfile Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvestorsProfile'" class="InvestorsProfile">
-        <MembersProfileDetailAdminComponent />
-      </IonCol>
-      <!-- InvesteesProfile Tab here ####################################-->
-      <IonCol v-show="selectedTab === 'InvesteesProfile'" class="InvesteesProfile">
         <MembersProfileDetailAdminComponent />
       </IonCol>
       <!-- Offers Tab here ####################################-->
@@ -57,6 +46,7 @@
 import { defineComponent, ref } from 'vue';
 import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton } from '@ionic/vue';
 import MembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailAdminComponent.vue';
+import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
 
 export default defineComponent({
   name: 'MembersProfileDetailTABsAdminComponent',
@@ -67,6 +57,7 @@ export default defineComponent({
     IonSegment,
     IonSegmentButton,
     MembersProfileDetailAdminComponent,
+    MembersPitchingProfileDetailAdminComponent,
 
   },
   setup() {
@@ -96,10 +87,8 @@ export default defineComponent({
 }
 
 .Profiles,
-.PitchingsProfile,
-.InvestmentApplications,
+.Pitchings,
 .InvestorsProfile,
-.InvesteesProfile,
 .Offers,
 .Needs,
 .BestOffers {

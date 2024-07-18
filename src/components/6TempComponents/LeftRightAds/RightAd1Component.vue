@@ -38,7 +38,7 @@ ion-col {
   align-items: center;
   overflow: hidden;
   flex: 1;
-  border: solid 1px gray;
+  border: solid 1px rgb(235, 232, 232);
   border-radius: 5px;
   max-width: 210px;
   max-height: 350px;
