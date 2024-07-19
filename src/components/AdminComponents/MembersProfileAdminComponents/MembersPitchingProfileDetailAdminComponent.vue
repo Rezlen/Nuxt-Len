@@ -22,7 +22,19 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-
+          <!-- <IonRow class="PitchingSection"> -->
+          <IonCol class="PitchingKindCol" @click="sortMembers('pitchingKind')">Pitching Kind <IonIcon :icon="sortIcon('pitchingKind')" class="sort-icon" /></IonCol>
+          <IonCol class="LikedNoCol" @click="sortMembers('likedNo')">LikedNo <IonIcon :icon="sortIcon('likedNo')" class="sort-icon" /></IonCol>
+          <IonCol class="SeenNoCol" @click="sortMembers('seenNo')">SeenNo <IonIcon :icon="sortIcon('seenNo')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingTitleCol" @click="sortMembers('pitchingTitle')">Pitching Title <IonIcon :icon="sortIcon('pitchingTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingForCol" @click="sortMembers('pitchingFor')">PitchingFor <IonIcon :icon="sortIcon('pitchingFor')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingCountryCol" @click="sortMembers('pitchingCountry')">Pitching Country <IonIcon :icon="sortIcon('pitchingCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingCityCol" @click="sortMembers('pitchingCity')">Pitching City <IonIcon :icon="sortIcon('pitchingCity')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingCategoryCol" @click="sortMembers('pitchingCategory')">Pitching Category<IonIcon :icon="sortIcon('pitchingCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="YouTubeLinkCol" @click="sortMembers('youTubeLink')">YouTube Link<IonIcon :icon="sortIcon('youTubeLink')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingSummeryCol" @click="sortMembers('pitchingSummery')">PitchingSummery <IonIcon :icon="sortIcon('pitchingSummery')" class="sort-icon" /></IonCol>
+          <IonCol class="LookingForSummeryCol" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
+          <!-- </IonRow> -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -46,13 +58,15 @@
           <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
 
           <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-          <IonCol class="BizMentorCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorSpentCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
           <IonCol class="MobileNoCol" @click="sortMembers('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
           <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
           <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
           <IonCol class="BizCityCol" @click="sortMembers('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
           <IonCol class="ConnectionsCol" @click="sortMembers('connections')">Connections <IonIcon :icon="sortIcon('connections')" class="sort-icon" /></IonCol>
           <IonCol class="NoEmployeesCol" @click="sortMembers('noEmployees')">No.Employees <IonIcon :icon="sortIcon('noEmployees')" class="sort-icon" /></IonCol>
+
+          <IonCol class="BookingDateCol" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
 
           <IonCol class="JoinedCol" @click="sortMembers('joined')">Joined <IonIcon :icon="sortIcon('joined')" class="sort-icon" /></IonCol>
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
@@ -69,6 +83,20 @@
           <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+
+          <!-- PitchingSection Data -->
+          <IonCol class="PitchingKindCol">{{ member.pitchingKind }}</IonCol>
+          <IonCol class="LikedNoCol">{{ member.likedNo }}</IonCol>
+          <IonCol class="SeenNoCol">{{ member.seenNo }}</IonCol>
+          <IonCol class="PitchingTitleCol">{{ member.pitchingTitle }}</IonCol>
+          <IonCol class="PitchingForCol">{{ member.pitchingFor }}</IonCol>
+          <IonCol class="PitchingCountryCol">{{ member.pitchingCountry }}</IonCol>
+          <IonCol class="PitchingCityCol">{{ member.pitchingCity }}</IonCol>
+          <IonCol class="PitchingCategoryCol">{{ member.pitchingCategory }}</IonCol>
+          <IonCol class="YouTubeLinkCol"><a :href="member.youTubeLink" target="_blank">YouTube Link</a></IonCol>
+          <IonCol class="PitchingSummeryCol">{{ member.pitchingSummery }}</IonCol>
+          <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
+
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
           <IonCol class="GenderCol">{{ member.gender }}</IonCol>
@@ -100,6 +128,8 @@
           <IonCol class="ConnectionsCol">{{ member.connections }}</IonCol>
           <IonCol class="NoEmployeesCol">{{ member.noEmployees }}</IonCol>
 
+          <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
+
           <IonCol class="JoinedCol">{{ member.joined }}</IonCol>
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
           <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
@@ -116,6 +146,19 @@
           <IonCol class="MembershipTypeCol"></IonCol>
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
+
+          <!-- Pitching section -->
+          <IonCol class="PitchingKindCol"></IonCol>
+          <IonCol class="LikedNoCol">{{ totalLikedNo }}</IonCol>
+          <IonCol class="SeenNoCol">{{ totalSeenNo }}</IonCol>
+          <IonCol class="PitchingTitleCol"></IonCol>
+          <IonCol class="PitchingForCol"></IonCol>
+          <IonCol class="PitchingCountryCol"></IonCol>
+          <IonCol class="PitchingCityCol"></IonCol>
+          <IonCol class="PitchingCategoryCol"></IonCol>
+          <IonCol class="YouTubeLinkCol"></IonCol>
+          <IonCol class="PitchingSummeryCol"></IonCol>
+          <IonCol class="LookingForSummeryCol"></IonCol>
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -146,6 +189,8 @@
           <IonCol class="BizCityCol"></IonCol>
           <IonCol class="ConnectionsCol"></IonCol>
           <IonCol class="NoEmployeesCol">{{ totalEmployees }}</IonCol>
+
+          <IonCol class="BookingDateCol"></IonCol>
 
           <IonCol class="JoinedCol"></IonCol>
           <IonCol class="LastLoggedInCol"></IonCol>
@@ -185,6 +230,17 @@
     membershipType: string;
     totalMembershipSpent: number;
     totalSpent: number;
+    pitchingKind: '1MinPitching' | '3MinPitching' | 'InvestmentPitching';
+    likedNo: number;
+    seenNo: number;
+    pitchingTitle: string;
+    pitchingFor: string;
+    pitchingCountry: string;
+    pitchingCity: string;
+    pitchingCategory: string;
+    youTubeLink: string;
+    pitchingSummery: string;
+    lookingForSummery: string;
     age: number;
     gender: string;
     businessName: string;
@@ -210,6 +266,7 @@
     bizCity: string;
     connections: number;
     noEmployees: number;
+    bookingDate: string;
     joined: string;
     lastLoggedIn: string;
     noLoggedIn: number;
@@ -224,11 +281,22 @@
         {
           id: 3,
           personPic: 'pic_url_a',
-          firstName: 'John',
+          firstName: 'Johneee',
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
+          pitchingKind: '1MinPitching',
+          likedNo: 10,
+          seenNo: 100,
+          pitchingTitle: 'New Tech Pitch',
+          pitchingFor: 'Funding',
+          pitchingCountry: 'USA',
+          pitchingCity: 'New York',
+          pitchingCategory: 'Technology',
+          youTubeLink: 'youtube_link',
+          pitchingSummery: 'Tech pitch summary',
+          lookingForSummery: 'Looking for funding',
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -254,6 +322,7 @@
           bizCity: 'New York',
           connections: 100,
           noEmployees: 50,
+          bookingDate: '2023-01-01',
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
@@ -262,11 +331,22 @@
         {
           id: 2,
           personPic: 'pic_url_a',
-          firstName: 'John',
+          firstName: 'res',
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
+          pitchingKind: '3MinPitching',
+          likedNo: 10,
+          seenNo: 100,
+          pitchingTitle: 'New Tech Pitch',
+          pitchingFor: 'Funding',
+          pitchingCountry: 'USA',
+          pitchingCity: 'New York',
+          pitchingCategory: 'Technology',
+          youTubeLink: 'youtube_link',
+          pitchingSummery: 'Tech pitch summary',
+          lookingForSummery: 'Looking for funding',
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -292,6 +372,7 @@
           bizCity: 'New York',
           connections: 100,
           noEmployees: 50,
+          bookingDate: '2023-01-01',
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
@@ -305,6 +386,17 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
+          pitchingKind: 'InvestmentPitching',
+          likedNo: 10,
+          seenNo: 100,
+          pitchingTitle: 'New Tech Pitch',
+          pitchingFor: 'Funding',
+          pitchingCountry: 'USA',
+          pitchingCity: 'New York',
+          pitchingCategory: 'Technology',
+          youTubeLink: 'youtube_link',
+          pitchingSummery: 'Tech pitch summary',
+          lookingForSummery: 'Looking for funding',
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -330,6 +422,7 @@
           bizCity: 'New York',
           connections: 100,
           noEmployees: 50,
+          bookingDate: '2023-01-01',
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
@@ -388,6 +481,7 @@
       const sortedMembers = computed(() => {
         if (!sortKey.value) return filteredMembers.value;
 
+        // Default sorting logic for other fields
         return [...filteredMembers.value].sort((a, b) => {
           if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
           if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
@@ -410,6 +504,9 @@
     //  * Computes the total price of all members.
       const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
       const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
+      const totalLikedNo = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.likedNo, 0));
+      const totalSeenNo = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.seenNo, 0));
+
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
@@ -434,17 +531,22 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent','Age', 'Gender', 'BusinessName', 
+            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent','Pitching Kind', 'LikedNo', 'SeenNo', 'Pitching Title', 'PitchingFor', 'Pitching Country', 'Pitching City', 'Pitching Category', 
+            'YouTube Link', 'PitchingSummery', 'LookingFor Summery','Age', 'Gender', 'BusinessName', 
             'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen'
+            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
+            
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, member.age, member.gender,
+            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
+            , member.pitchingKind, 
+            member.likedNo, member.seenNo, member.pitchingTitle, member.pitchingFor, member.pitchingCountry, member.pitchingCity, member.pitchingCategory, 
+            member.youTubeLink, member.pitchingSummery, member.lookingForSummery, member.age, member.gender,
             member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedOffers,
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
-            member.connections, member.noEmployees, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
+            member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
           ])
         ]
           .map(e => e.join(","))
@@ -506,6 +608,17 @@
                     <th>Membership Type</th>
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
+                    <th>Pitching Kind</th>
+                    <th>LikedNo</th>
+                    <th>SeenNo</th>
+                    <th>Pitching Title</th>
+                    <th>PitchingFor</th>
+                    <th>Pitching Country</th>
+                    <th>Pitching City</th>
+                    <th>Pitching Category</th>
+                    <th>YouTube Link</th>
+                    <th>PitchingSummery</th>
+                    <th>LookingFor Summery</th>
                     <th>Age</th>
                     <th>Gender</th>
                     <th>Business Name</th>
@@ -531,6 +644,7 @@
                     <th>Biz City</th>
                     <th>Connections</th>
                     <th>No Employees</th>
+                    <th>BookingDate</th>
                     <th>Joined</th>
                     <th>Last Logged In</th>
                     <th>No Logged In</th>
@@ -547,6 +661,17 @@
                       <td>${member.membershipType}</td>
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
+                      <td>${member.pitchingKind}</td>
+                      <td>${member.likedNo}</td>
+                      <td>${member.seenNo}</td>
+                      <td>${member.pitchingTitle}</td>
+                      <td>${member.pitchingFor}</td>
+                      <td>${member.pitchingCountry}</td>
+                      <td>${member.pitchingCity}</td>
+                      <td>${member.pitchingCategory}</td>
+                      <td>${member.youTubeLink}</td>
+                      <td>${member.pitchingSummery}</td>
+                      <td>${member.lookingForSummery}</td>
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
                       <td>${member.businessName}</td>
@@ -572,6 +697,7 @@
                       <td>${member.bizCity}</td>
                       <td>${member.connections}</td>
                       <td>${member.noEmployees}</td>
+                      <td>${member.bookingDate}</td>
                       <td>${member.joined}</td>
                       <td>${member.lastLoggedIn}</td>
                       <td>${member.noLoggedIn}</td>
@@ -579,25 +705,49 @@
                     </tr>
                   `).join('')}
                   <tr class="TotalRow">
-                    <td>Totals:</td>
-                    <td colspan="5"></td>
+                    <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
-                    <td colspan="3"></td>
+                    <td></td>
+                    <td>${totalLikedNo.value}</td>
+                    <td>${totalSeenNo.value}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>${totalBusinessRevenue.value}</td>
-                    <td colspan="1"></td>
+                    <td></td>
                     <td>${totalSalary.value}</td>
-                    <td colspan="1"></td>
-                    <td colspan="1"></td>
+                    <td></td>
+                    <td></td>
                     <td>${totalEventSpent.value}</td>
-                    <td colspan="1"></td>
-                    <td colspan="7"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>${totalAdvertSpent.value}</td>
-                    <td colspan="5"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>${bizMentorSpent.value}</td>
-                    <td colspan="7"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>${totalEmployees.value}</td>
-                    <td colspan="5"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
@@ -654,6 +804,8 @@
         printTable,
         totalMembershipSpent,
         totalSpent,
+        totalLikedNo,
+        totalSeenNo,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -680,114 +832,118 @@
   text-align: center;
   font-weight: bold;
 } 
-  /* Adjusting the length of the table here: http://localhost:8100/adminpage */
-  .search {
-    width: 100px;
-  }
-  
-  .arrowBackCircle {
-    position: fixed;
-    top: 55;
-    left: 90;
-    right: 0;
-    z-index: 1;
-  }
-  
-  .TitleRow {
-    font-weight: bold;
-    cursor: pointer;
-    height: 50px;
-    align-items: center;
-  }
-  
+/* Adjusting the length of the table here: http://localhost:8100/adminpage */
+.search {
+  width: 100px;
+}
+/* .PitchingSection {
+  Border-top: 2px red solid;
+  Border-left: 2px red solid;
+  Border-right: 2px red solid;
+} */
+.arrowBackCircle {
+  position: fixed;
+  top: 55;
+  left: 90;
+  right: 0;
+  z-index: 1;
+}
+
+.TitleRow {
+  font-weight: bold;
+  cursor: pointer;
+  height: 50px;
+  align-items: center;
+}
+
+.ContainerRow {
+  width: 5500px;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: scroll;
+}
+
+.DataRow {
+  cursor: pointer;
+}
+
+.DataRow.selected {
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+}
+
+.DataRow:nth-child(odd) ion-col {
+  background-color: #f5efef;
+}
+
+.DataRow:nth-child(even) ion-col {
+  background-color: #bceea5;
+}
+
+.TotalRow {
+  font-weight: bold;
+}
+
+.ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
+  border: 1px solid gray;
+}
+
+.DataRow, .TotalRow {
+  white-space: nowrap;
+}
+
+.TitleRow ion-col {
+  overflow: visible; /* Ensure the content is fully visible */
+  word-wrap: break-word; /* Break long words */
+  white-space: normal; /* Allow text to wrap */
+  text-align: center; /* Center align for better presentation */
+}
+
+.MemberIDCol {
+  background-color: red;
+}
+
+ion-col {
+  max-width: 100px; /* Increase the max width for better visibility */
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  align-content: center;
+  height: 30px;
+  font-size: 12px;
+  border-right: 1px solid lightgray;
+}
+.PageInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.sort-icon {
+  margin-left: 5px;
+}
+
+.person-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+@media (max-width: 600px) {
   .ContainerRow {
     width: 4000px;
-    flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: scroll;
   }
-  
-  .DataRow {
-    cursor: pointer;
-  }
-  
-  .DataRow.selected {
-    border-top: 3px solid red;
-    border-bottom: 3px solid red;
-  }
-  
-  .DataRow:nth-child(odd) ion-col {
-    background-color: #f5efef;
-  }
-  
-  .DataRow:nth-child(even) ion-col {
-    background-color: #bceea5;
-  }
-  
-  .TotalRow {
-    font-weight: bold;
-  }
-  
-  .ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
-    border: 1px solid gray;
-  }
-  
-  .DataRow, .TotalRow {
-    white-space: nowrap;
-  }
-  
-  .TitleRow ion-col {
-    overflow: visible; /* Ensure the content is fully visible */
-    word-wrap: break-word; /* Break long words */
-    white-space: normal; /* Allow text to wrap */
-    text-align: center; /* Center align for better presentation */
-  }
-
-  .MemberIDCol {
-    background-color: red;
-  }
-
-  ion-col {
-    max-width: 100px; /* Increase the max width for better visibility */
-    padding: 0;
-    margin: 0;
-    white-space: nowrap;
-    overflow-x: auto;
-    align-content: center;
-    height: 30px;
-    font-size: 12px;
-    border-right: 1px solid lightgray;
-  }
-  .PageInfo {
+  .TitleRow, .DataRow, .TotalRow {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    margin: 0 10px;
+    flex-wrap: wrap;
   }
-
-  .sort-icon {
-    margin-left: 5px;
+  ion-col {
+    max-width: 100px;
   }
-
-  .person-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-
-  @media (max-width: 600px) {
-    .ContainerRow {
-      width: 4000px;
-    }
-    .TitleRow, .DataRow, .TotalRow {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    ion-col {
-      max-width: 100px;
-    }
-  }
+}
 </style>
 
 
