@@ -133,6 +133,7 @@
                 <p><a href="/MembersProfileDetailAdminComponent" class="Events-button" >MembersProfileDetailAdminComponent  </a> </p>
                 <p><a href="/MembersProfileDetailTABsAdminComponent" class="Events-button" >MembersProfileDetailTABsAdminComponent  </a> </p>
                 <p><a href="/MembersPitchingProfileDetailAdminComponent" class="Events-button" >MembersPitchingProfileDetailAdminComponent  </a> </p>
+                <p><a href="/InvestorsProfileDetailAdminComponent" class="Events-button" >InvestorsProfileDetailAdminComponent   </a> </p>
               
               </IonRow>
               

@@ -65,8 +65,9 @@ import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/Min
 import MembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailAdminComponent.vue';
 import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
 import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
+import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
 
-// MembersPitchingProfileDetailAdminComponent
+// InvestorsProfileDetailAdminComponent
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
   {
@@ -336,10 +337,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MembersPitchingProfileDetailAdminComponent',
     component: MembersPitchingProfileDetailAdminComponent
   },
+  {
+    path: '/investorsProfileDetailAdminComponent',
+    name: 'InvestorsProfileDetailAdminComponent',
+    component: InvestorsProfileDetailAdminComponent
+  },
 
 
 
-  // Left & Right Adverts starts here  MembersPitchingProfileDetailAdminComponent
+  // Left & Right Adverts starts here  InvestorsProfileDetailAdminComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

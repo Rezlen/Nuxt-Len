@@ -33,6 +33,7 @@
           <IonCol class="RequiredEquityInterestCol" @click="sortMembers('requiredEquityInterest')">Required EquityInterest <IonIcon :icon="sortIcon('requiredEquityInterest')" class="sort-icon" /></IonCol>
           <IonCol class="ProductServiceCol" @click="sortMembers('productService')">Product/Service <IonIcon :icon="sortIcon('productService')" class="sort-icon" /></IonCol>
           <IonCol class="InvestingCategoryCol" @click="sortMembers('investingCategory')">Investing Category <IonIcon :icon="sortIcon('investingCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="LookingForSummeryCol" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
           <!-- Investors Profile Data -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
@@ -94,6 +95,8 @@
           <IonCol class="RequiredEquityInterestCol">{{ member.requiredEquityInterest }}</IonCol>
           <IonCol class="ProductServiceCol">{{ member.productService }}</IonCol>
           <IonCol class="InvestingCategoryCol">{{ member.investingCategory }}</IonCol>
+          <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
+
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
           <IonCol class="GenderCol">{{ member.gender }}</IonCol>
@@ -155,6 +158,8 @@
           <IonCol class="RequiredEquityCol"></IonCol>
           <IonCol class="ProductServiceCol"></IonCol>
           <IonCol class="InvestingCategoryCol"></IonCol>
+          <IonCol class="LookingForSummeryCol"></IonCol>
+
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -236,6 +241,8 @@
     requiredEquity: number;
     productService: string;
     investingCategory: string;
+    lookingForSummery: string;
+
 // ################################## Updated Investors Profile table untill here
     age: number;
     gender: string;
@@ -270,7 +277,7 @@
   }
 
   export default defineComponent({
-    name: 'MembersPitchingProfileDetailAdminComponent',
+    name: 'InvestorsProfileDetailAdminComponent',
     components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
     setup() {
       const members = ref<Member[]>([
@@ -844,10 +851,10 @@
 .search {
   width: 100px;
 }
-.PitchingKindCol {
+.InvestmentAmountCol {
   Border-left: 4px red solid;
 }
-.LookingForSummeryCol {
+.InvestingCategoryCol {
   Border-right: 4px red solid;
 }
 .arrowBackCircle {

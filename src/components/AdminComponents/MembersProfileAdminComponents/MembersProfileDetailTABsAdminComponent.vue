@@ -22,7 +22,7 @@
       </IonCol>
       <!-- InvestorsProfile Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvestorsProfile'" class="InvestorsProfile">
-        <MembersProfileDetailAdminComponent />
+        <InvestorsProfileDetailAdminComponent />
       </IonCol>
       <!-- Offers Tab here ####################################-->
       <IonCol v-show="selectedTab === 'Offers'" class="Offers">
@@ -47,6 +47,7 @@ import { defineComponent, ref } from 'vue';
 import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton } from '@ionic/vue';
 import MembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailAdminComponent.vue';
 import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
+import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
 
 export default defineComponent({
   name: 'MembersProfileDetailTABsAdminComponent',
@@ -58,6 +59,7 @@ export default defineComponent({
     IonSegmentButton,
     MembersProfileDetailAdminComponent,
     MembersPitchingProfileDetailAdminComponent,
+    InvestorsProfileDetailAdminComponent,
 
   },
   setup() {
