@@ -449,53 +449,49 @@
       };
 // back button does not work
 
-      // Custom order for pitchingKind
-      const pitchingKindOrder: Record<Member['pitchingKind'], number> = {
-        'InvestmentPitching': 1,
-        '1MinPitching': 2,
-        '3MinPitching': 3
-      };
+      // Remove the custom order for pitchingKind
+// const pitchingKindOrder: Record<Member['pitchingKind'], number> = {
+//   'InvestmentPitching': 1,
+//   '1MinPitching': 2,
+//   '3MinPitching': 3
+// };
 
+const sortIcon = (key: keyof Member) => {
+  if (sortKey.value === key) {
+    return sortAsc.value ? arrowUpOutline : arrowDownOutline;
+  }
+  return null;
+};
 
-      const sortIcon = (key: keyof Member) => {
-        if (sortKey.value === key) {
-          return sortAsc.value ? arrowUpOutline : arrowDownOutline;
-        }
-        return null;
-      };
-      
+// Resets the sorting to the original state (default order).
+const resetSorting = () => {
+  sortKey.value = 'bookingDate';
+  sortAsc.value = true;
+};
 
-    //  * Resets the sorting to the original state (default order).
-      const resetSorting = () => {
-        sortKey.value = 'bookingDate';
-        sortAsc.value = true;
-      };
+// Computes the sorted members based on the current sortKey and sort order.
+const sortMembers = (key: keyof Member) => {
+  if (sortKey.value === key) {
+    sortAsc.value = !sortAsc.value;
+  } else {
+    sortKey.value = key;
+    sortAsc.value = true;
+  }
+  searchMembers();
+};
 
+const sortedMembers = computed(() => {
+  return [...filteredMembers.value].sort((a, b) => {
+    if (sortKey.value) {
+      if (a[sortKey.value] < b[sortKey.value]) return sortAsc.value ? -1 : 1;
+      if (a[sortKey.value] > b[sortKey.value]) return sortAsc.value ? 1 : -1;
+    }
+    return 0;
+  });
+});
 
-      //  * Computes the sorted members based on the current sortKey and sort order.      const sortMembers = (key: keyof Member) => {
-      const sortMembers = (key: keyof Member) => {
-      if (sortKey.value === key) {
-        sortAsc.value = !sortAsc.value;
-      } else {
-        sortKey.value = key;
-        sortAsc.value = true;
-      }
-      searchMembers();
-    };
-
-    const sortedMembers = computed(() => {
-      return [...filteredMembers.value].sort((a, b) => {
-        if (sortKey.value === 'pitchingKind') {
-          return sortAsc.value
-            ? pitchingKindOrder[a.pitchingKind] - pitchingKindOrder[b.pitchingKind]
-            : pitchingKindOrder[b.pitchingKind] - pitchingKindOrder[a.pitchingKind];
-        } else if (sortKey.value) {
-          if (a[sortKey.value] < b[sortKey.value]) return sortAsc.value ? -1 : 1;
-          if (a[sortKey.value] > b[sortKey.value]) return sortAsc.value ? 1 : -1;
-        }
-        return 0;
-      });
-    });
+// Set default sorting by bookingDate
+resetSorting();
 
       const itemsPerPage = 20;
       const currentPage = ref(1);

@@ -238,7 +238,7 @@
     investingLength: string;
     wantedROI: number;
     mobNo: string;
-    requiredEquity: number;
+    requiredEquityInterest: number;
     productService: string;
     investingCategory: string;
     lookingForSummery: string;
@@ -289,17 +289,19 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
-          pitchingKind: '1MinPitching',
-          likedNo: 10,
-          seenNo: 100,
-          pitchingTitle: 'New Tech Pitch',
-          pitchingFor: 'Funding',
-          pitchingCountry: 'USA',
-          pitchingCity: 'New York',
-          pitchingCategory: 'Technology',
-          youTubeLink: 'youtube_link',
-          pitchingSummery: 'Tech pitch summary',
-          lookingForSummery: 'Looking for funding',
+
+          investmentAmount: 100,
+          equityLoan: 'Equity',
+          investingCountry: 'USA',
+          investingCity: 'New York',
+          investingLength: '5 years',
+          wantedROI: 15,
+          mobNo: '123-456-7890',
+          requiredEquityInterest: 20,
+          productService: 'Tech Solutions',
+          investingCategory: 'Technology',
+          lookingForSummery: 'Looking for investment in tech startups',
+
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -339,17 +341,19 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
-          pitchingKind: '3MinPitching',
-          likedNo: 10,
-          seenNo: 100,
-          pitchingTitle: 'New Tech Pitch',
-          pitchingFor: 'Funding',
-          pitchingCountry: 'USA',
-          pitchingCity: 'New York',
-          pitchingCategory: 'Technology',
-          youTubeLink: 'youtube_link',
-          pitchingSummery: 'Tech pitch summary',
-          lookingForSummery: 'Looking for funding',
+
+          investmentAmount: 2000,
+          equityLoan: 'Equity',
+          investingCountry: 'USA',
+          investingCity: 'New York',
+          investingLength: '5 years',
+          wantedROI: 15,
+          mobNo: '123-456-7890',
+          requiredEquityInterest: 20,
+          productService: 'Tech Solutions',
+          investingCategory: 'Technology',
+          lookingForSummery: 'Looking for investment in tech startups',
+
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -389,17 +393,20 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
-          pitchingKind: 'InvestmentPitching',
-          likedNo: 10,
-          seenNo: 100,
-          pitchingTitle: 'New Tech Pitch',
-          pitchingFor: 'Funding',
-          pitchingCountry: 'USA',
-          pitchingCity: 'New York',
-          pitchingCategory: 'Technology',
-          youTubeLink: 'youtube_link',
-          pitchingSummery: 'Tech pitch summary',
-          lookingForSummery: 'Looking for funding',
+
+          investmentAmount: 300,
+          equityLoan: 'Equity',
+          investingCountry: 'USA',
+          investingCity: 'New York',
+          investingLength: '5 years',
+          wantedROI: 15,
+          mobNo: '123-456-7890',
+          requiredEquityInterest: 20,
+          productService: 'Tech Solutions',
+          investingCategory: 'Technology',
+          lookingForSummery: 'Looking for investment in tech startups',
+
+
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -456,13 +463,6 @@
       };
 // back button does not work
 
-      // Custom order for pitchingKind
-      const pitchingKindOrder: Record<Member['pitchingKind'], number> = {
-        'InvestmentPitching': 1,
-        '1MinPitching': 2,
-        '3MinPitching': 3
-      };
-
 
       const sortIcon = (key: keyof Member) => {
         if (sortKey.value === key) {
@@ -492,17 +492,16 @@
 
     const sortedMembers = computed(() => {
       return [...filteredMembers.value].sort((a, b) => {
-        if (sortKey.value === 'pitchingKind') {
-          return sortAsc.value
-            ? pitchingKindOrder[a.pitchingKind] - pitchingKindOrder[b.pitchingKind]
-            : pitchingKindOrder[b.pitchingKind] - pitchingKindOrder[a.pitchingKind];
-        } else if (sortKey.value) {
+        if (sortKey.value) {
           if (a[sortKey.value] < b[sortKey.value]) return sortAsc.value ? -1 : 1;
           if (a[sortKey.value] > b[sortKey.value]) return sortAsc.value ? 1 : -1;
         }
         return 0;
       });
     });
+
+    // Set default sorting by bookingDate
+resetSorting();
 
       const itemsPerPage = 20;
       const currentPage = ref(1);
@@ -519,8 +518,7 @@
     //  * Computes the total price of all members.
       const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
       const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
-      const totalLikedNo = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.likedNo, 0));
-      const totalSeenNo = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.seenNo, 0));
+      const totalInvestmentAmount = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.investmentAmount, 0));
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
@@ -546,23 +544,20 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent','Pitching Kind', 'LikedNo', 'SeenNo', 'Pitching Title', 'PitchingFor', 'Pitching Country', 'Pitching City', 'Pitching Category', 
-            'YouTube Link', 'PitchingSummery', 'LookingFor Summery','Age', 'Gender', 'BusinessName', 
-            'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
+            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
+            'Investment Amount', 'Equity Loan', 'Investing Country', 'Investing City', 'Investing Length', 'Wanted ROI', 'Mob No', 'Required Equity', 'Product Service', 'Investing Category', 'LookingFor Summery',
+            'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
-            
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
-            , member.pitchingKind, 
-            member.likedNo, member.seenNo, member.pitchingTitle, member.pitchingFor, member.pitchingCountry, member.pitchingCity, member.pitchingCategory, 
-            member.youTubeLink, member.pitchingSummery, member.lookingForSummery, member.age, member.gender,
-            member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
+            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.totalSpent,
+            member.investmentAmount, member.equityLoan, member.investingCountry, member.investingCity, member.investingLength, member.wantedROI, member.mobNo, member.requiredEquityInterest, member.productService, member.investingCategory, member.lookingForSummery,
+            member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent,
             member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedOffers,
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
-          ])
+            ])
         ]
           .map(e => e.join(","))
           .join("\n");
@@ -623,17 +618,19 @@
                     <th>Membership Type</th>
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
-                    <th>Pitching Kind</th>
-                    <th>LikedNo</th>
-                    <th>SeenNo</th>
-                    <th>Pitching Title</th>
-                    <th>PitchingFor</th>
-                    <th>Pitching Country</th>
-                    <th>Pitching City</th>
-                    <th>Pitching Category</th>
-                    <th>YouTube Link</th>
-                    <th>PitchingSummery</th>
+
+                    <th>Investment Amount</th>
+                    <th>Equity Loan</th>
+                    <th>Investing Country</th>
+                    <th>Investing City</th>
+                    <th>Investing Length</th>
+                    <th>Wanted ROI</th>
+                    <th>Mob No</th>
+                    <th>Required Equity</th>
+                    <th>Product Service</th>
+                    <th>Investing Category</th>
                     <th>LookingFor Summery</th>
+
                     <th>Age</th>
                     <th>Gender</th>
                     <th>Business Name</th>
@@ -676,17 +673,19 @@
                       <td>${member.membershipType}</td>
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
-                      <td>${member.pitchingKind}</td>
-                      <td>${member.likedNo}</td>
-                      <td>${member.seenNo}</td>
-                      <td>${member.pitchingTitle}</td>
-                      <td>${member.pitchingFor}</td>
-                      <td>${member.pitchingCountry}</td>
-                      <td>${member.pitchingCity}</td>
-                      <td>${member.pitchingCategory}</td>
-                      <td>${member.youTubeLink}</td>
-                      <td>${member.pitchingSummery}</td>
+
+                      <td>${member.investmentAmount}</td>
+                      <td>${member.equityLoan}</td>
+                      <td>${member.investingCountry}</td>
+                      <td>${member.investingCity}</td>
+                      <td>${member.investingLength}</td>
+                      <td>${member.wantedROI}</td>
+                      <td>${member.mobNo}</td>
+                      <td>${member.requiredEquityInterest}</td>
+                      <td>${member.productService}</td>
+                      <td>${member.investingCategory}</td>
                       <td>${member.lookingForSummery}</td>
+
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
                       <td>${member.businessName}</td>
@@ -724,8 +723,8 @@
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
                     <td></td>
-                    <td>${totalLikedNo.value}</td>
-                    <td>${totalSeenNo.value}</td>
+                    <td>${totalInvestmentAmount.value}</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -819,8 +818,7 @@
         printTable,
         totalMembershipSpent,
         totalSpent,
-        totalLikedNo,
-        totalSeenNo,
+        totalInvestmentAmount,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -854,7 +852,7 @@
 .InvestmentAmountCol {
   Border-left: 4px red solid;
 }
-.InvestingCategoryCol {
+.LookingForSummeryCol {
   Border-right: 4px red solid;
 }
 .arrowBackCircle {
