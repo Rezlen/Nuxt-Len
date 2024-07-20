@@ -147,7 +147,7 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Pitching section -->
+          <!-- Investor section -->
           <IonCol class="InvestmentAmountCol">{{ totalInvestmentAmount }}</IonCol>
           <IonCol class="EquityLoanCol"></IonCol>
           <IonCol class="InvestingCountryCol"></IonCol>
@@ -159,7 +159,7 @@
           <IonCol class="ProductServiceCol"></IonCol>
           <IonCol class="InvestingCategoryCol"></IonCol>
           <IonCol class="LookingForSummeryCol"></IonCol>
-
+          <!-- Investor section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -231,6 +231,7 @@
     totalMembershipSpent: number;
     totalSpent: number;
 
+    // Investor section 
     investmentAmount: number;
     equityLoan: 'Equity' | 'Loan';
     investingCountry: string;
@@ -242,8 +243,8 @@
     productService: string;
     investingCategory: string;
     lookingForSummery: string;
+    // Investor section 
 
-// ################################## Updated Investors Profile table untill here
     age: number;
     gender: string;
     businessName: string;
@@ -290,6 +291,7 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
+          // Investor section 
           investmentAmount: 100,
           equityLoan: 'Equity',
           investingCountry: 'USA',
@@ -301,7 +303,8 @@
           productService: 'Tech Solutions',
           investingCategory: 'Technology',
           lookingForSummery: 'Looking for investment in tech startups',
-
+          // Investor section 
+          
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -342,6 +345,7 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
+          // Investor section 
           investmentAmount: 2000,
           equityLoan: 'Equity',
           investingCountry: 'USA',
@@ -353,6 +357,7 @@
           productService: 'Tech Solutions',
           investingCategory: 'Technology',
           lookingForSummery: 'Looking for investment in tech startups',
+          // Investor section 
 
           age: 30,
           gender: 'Male',
@@ -394,6 +399,7 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
+           // Investor section 
           investmentAmount: 300,
           equityLoan: 'Equity',
           investingCountry: 'USA',
@@ -405,7 +411,7 @@
           productService: 'Tech Solutions',
           investingCategory: 'Technology',
           lookingForSummery: 'Looking for investment in tech startups',
-
+          // Investor section 
 
           age: 30,
           gender: 'Male',
@@ -619,6 +625,7 @@ resetSorting();
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
 
+                    // Investor section 
                     <th>Investment Amount</th>
                     <th>Equity Loan</th>
                     <th>Investing Country</th>
@@ -630,6 +637,7 @@ resetSorting();
                     <th>Product Service</th>
                     <th>Investing Category</th>
                     <th>LookingFor Summery</th>
+                    // Investor section 
 
                     <th>Age</th>
                     <th>Gender</th>
@@ -674,6 +682,7 @@ resetSorting();
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
+                      // Investor section 
                       <td>${member.investmentAmount}</td>
                       <td>${member.equityLoan}</td>
                       <td>${member.investingCountry}</td>
@@ -685,6 +694,7 @@ resetSorting();
                       <td>${member.productService}</td>
                       <td>${member.investingCategory}</td>
                       <td>${member.lookingForSummery}</td>
+                    // Investor section 
 
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -723,6 +733,8 @@ resetSorting();
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
                     <td></td>
+
+                    // Investor section 
                     <td>${totalInvestmentAmount.value}</td>
                     <td></td>
                     <td></td>
@@ -734,6 +746,8 @@ resetSorting();
                     <td></td>
                     <td></td>
                     <td></td>
+                    // Investor section 
+
                     <td></td>
                     <td></td>
                     <td>${totalBusinessRevenue.value}</td>
