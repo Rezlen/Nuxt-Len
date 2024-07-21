@@ -30,7 +30,7 @@
       </IonCol>
       <!-- Needs Tab here ####################################-->
       <IonCol v-show="selectedTab === 'Needs'" class="Needs">
-        <MembersProfileDetailAdminComponent />
+        <MembersNeedDetailProfileDetailAdminComponent />
       </IonCol>
       <!-- BestOffers ####################################-->
       <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
@@ -49,6 +49,7 @@ import MembersProfileDetailAdminComponent from '@/components/AdminComponents/Mem
 import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
 import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
+import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 
 export default defineComponent({
   name: 'MembersProfileDetailTABsAdminComponent',
@@ -62,6 +63,7 @@ export default defineComponent({
     MembersPitchingProfileDetailAdminComponent,
     InvestorsProfileDetailAdminComponent,
     MembersOfferDetailProfileDetailAdminComponent,
+    MembersNeedDetailProfileDetailAdminComponent,
 
   },
   setup() {
