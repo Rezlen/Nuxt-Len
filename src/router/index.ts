@@ -68,6 +68,7 @@ import MembersPitchingProfileDetailAdminComponent from '@/components/AdminCompon
 import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
+import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 
 // MembersNeedDetailProfileDetailAdminComponent
 const routes: Array<RouteRecordRaw> = [  
@@ -353,6 +354,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/membersNeedDetailProfileDetailAdminComponent',
     name: 'MembersNeedDetailProfileDetailAdminComponent',
     component: MembersNeedDetailProfileDetailAdminComponent
+  },
+  {
+    path: '/membersBestOfferDetailProfileDetailAdminComponent',
+    name: 'MembersBestOfferDetailProfileDetailAdminComponent',
+    component: MembersBestOfferDetailProfileDetailAdminComponent
   },
 
 

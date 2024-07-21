@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all NEEDS and members details </p>
+    <p class="TitleP">List of all OFFERS and members details </p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -12,7 +12,7 @@
     </IonRow>
     
     <IonRow class="ContainerRow" ref="scrollableContainer">
-        <!-- TitleRow with sorting functionality and icons    BestOfferCommissionCol   -->
+        <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
           <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
@@ -22,22 +22,22 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-          <!-- Need Data -->
-          <IonCol class="NeedImageCol" @click="sortMembers('needImage')">NeedImage <IonIcon :icon="sortIcon('needImage')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedWantedCol" @click="sortMembers('needWanted')">NeedWanted<IonIcon :icon="sortIcon('needWanted')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedSeenCol" @click="sortMembers('needSeen')">NeedSeen <IonIcon :icon="sortIcon('needSeen')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedListViewCol" @click="sortMembers('needListView')">NeedListView <IonIcon :icon="sortIcon('needListView')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedRenewedCol" @click="sortMembers('needRenewed')">NeedRenewed <IonIcon :icon="sortIcon('needRenewed')" class="sort-icon" /></IonCol>
+          <!-- BestOffers Data -->
+          <IonCol class="BestOfferImageCol" @click="sortMembers('bestOfferImage')">BestOffer Image <IonIcon :icon="sortIcon('bestOfferImage')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferWantedCol" @click="sortMembers('bestOfferWanted')">BestOffer Wanted<IonIcon :icon="sortIcon('bestOfferWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCommissionCol" @click="sortMembers('bestOfferCommission')">BestOffer Commission<IonIcon :icon="sortIcon('bestOfferCommission')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferSeenCol" @click="sortMembers('bestOfferSeen')">BestOffer Seen <IonIcon :icon="sortIcon('bestOfferSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferListViewCol" @click="sortMembers('bestOfferListView')">BestOffer ListView <IonIcon :icon="sortIcon('bestOfferListView')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferRenewedCol" @click="sortMembers('bestOfferRenewed')">BestOfferRenewed <IonIcon :icon="sortIcon('bestOfferRenewed')" class="sort-icon" /></IonCol>
           <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedLinkCol" @click="sortMembers('needLink')">NeedLink <IonIcon :icon="sortIcon('needLink')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedTitleCol" @click="sortMembers('needTitle')">NeedTitle <IonIcon :icon="sortIcon('needTitle')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCategoryCol" @click="sortMembers('needCategory')">NeedCategory <IonIcon :icon="sortIcon('needCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCountryCol" @click="sortMembers('needCountry')">NeedCountry <IonIcon :icon="sortIcon('needCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCityCol" @click="sortMembers('needCity')">NeedCity <IonIcon :icon="sortIcon('needCity')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedDurationCol" @click="sortMembers('needDuration')">NeedDuration <IonIcon :icon="sortIcon('needDuration')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedContentCol" @click="sortMembers('needContent')">NeedContent <IonIcon :icon="sortIcon('needContent')" class="sort-icon" /></IonCol>
-
-          <!-- Need Data -->
+          <IonCol class="BestOfferLinkCol" @click="sortMembers('bestOfferLink')">BestOffer Link <IonIcon :icon="sortIcon('bestOfferLink')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferTitleCol" @click="sortMembers('bestOfferTitle')">BestOffer Title <IonIcon :icon="sortIcon('bestOfferTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCategoryCol" @click="sortMembers('bestOfferCategory')">BestOffer Category <IonIcon :icon="sortIcon('bestOfferCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCountryCol" @click="sortMembers('bestOfferCountry')">BestOffer Country <IonIcon :icon="sortIcon('bestOfferCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCityCol" @click="sortMembers('bestOfferCity')">BestOffer City <IonIcon :icon="sortIcon('bestOfferCity')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferDurationCol" @click="sortMembers('bestOfferDuration')">BestOffe rDuration <IonIcon :icon="sortIcon('bestOfferDuration')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferContentCol" @click="sortMembers('bestOfferContent')">BestOffer Content <IonIcon :icon="sortIcon('bestOfferContent')" class="sort-icon" /></IonCol>
+          <!-- BestOffers Data -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -52,11 +52,11 @@
 
           <IonCol class="VisitedCol" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
           <IonCol class="ListedNeedsCol" @click="sortMembers('listedNeeds')">Listed Needs <IonIcon :icon="sortIcon('listedNeeds')" class="sort-icon" /></IonCol>
-          <IonCol class="ListedNeedsCol" @click="sortMembers('listedNeeds')">Listed Needs <IonIcon :icon="sortIcon('listedNeeds')" class="sort-icon" /></IonCol>
+          <IonCol class="ListedBestOffersCol" @click="sortMembers('listedBestOffers')">Listed BestOffers <IonIcon :icon="sortIcon('listedBestOffers')" class="sort-icon" /></IonCol>
           <IonCol class="AdvertSpentCol" @click="sortMembers('advertSpent')">Advert Spent <IonIcon :icon="sortIcon('advertSpent')" class="sort-icon" /></IonCol>
 
           <IonCol class="PeopleSatisfiedNeedsCol" @click="sortMembers('peopleSatisfiedNeeds')">People SatisfiedNeeds <IonIcon :icon="sortIcon('peopleSatisfiedNeeds')" class="sort-icon" /></IonCol>
-          <IonCol class="PeopleRequestedNeedsCol" @click="sortMembers('peopleRequestedNeeds')">People RequestedNeeds <IonIcon :icon="sortIcon('peopleRequestedNeeds')" class="sort-icon" /></IonCol>
+          <IonCol class="PeopleRequestedBestOffersCol" @click="sortMembers('peopleRequestedBestOffers')">People RequestedBestOffers <IonIcon :icon="sortIcon('peopleRequestedBestOffers')" class="sort-icon" /></IonCol>
           <IonCol class="InvestorsAdvertsCol" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
           <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
 
@@ -87,21 +87,22 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!-- Need &  Profile Data -->
-          <IonCol class="NeedImageCol">{{ member.needImage }}</IonCol>
-          <IonCol class="NeedWantedCol">{{ member.needWanted }}</IonCol>
-          <IonCol class="NeedSeenCol">{{ member.needSeen }}</IonCol>
-          <IonCol class="NeedListViewCol">{{ member.needListView }}</IonCol>
-          <IonCol class="NeedRenewedCol">{{ member.needRenewed }}</IonCol>
+          <!-- BestOffers &  Profile Data -->
+          <IonCol class="BestOfferImageCol">{{ member.bestOfferImage }}</IonCol>
+          <IonCol class="BestOfferWantedCol">{{ member.bestOfferWanted }}</IonCol>
+          <IonCol class="BestOfferCommissionCol">{{ member.bestOfferCommission }}</IonCol>
+          <IonCol class="BestOfferSeenCol">{{ member.bestOfferSeen }}</IonCol>
+          <IonCol class="BestOfferListViewCol">{{ member.bestOfferListView }}</IonCol>
+          <IonCol class="BestOfferRenewedCol">{{ member.bestOfferRenewed }}</IonCol>
           <IonCol class="LikedCol">{{ member.liked }}</IonCol>
-          <IonCol class="NeedLinkCol">{{ member.needLink }}</IonCol>
-          <IonCol class="NeedTitleCol">{{ member.needTitle }}</IonCol>
-          <IonCol class="NeedCategoryCol">{{ member.needCategory }}</IonCol>
-          <IonCol class="NeedCountryCol">{{ member.needCountry }}</IonCol>
-          <IonCol class="NeedCityCol">{{ member.needCity }}</IonCol>
-          <IonCol class="NeedDurationCol">{{ member.needDuration }}</IonCol>
-          <IonCol class="NeedContentCol">{{ member.needContent }}</IonCol>
-          <!-- Need &  Profile Data -->
+          <IonCol class="BestOfferLinkCol">{{ member.bestOfferLink }}</IonCol>
+          <IonCol class="BestOfferTitleCol">{{ member.bestOfferTitle }}</IonCol>
+          <IonCol class="BestOfferCategoryCol">{{ member.bestOfferCategory }}</IonCol>
+          <IonCol class="BestOfferCountryCol">{{ member.bestOfferCountry }}</IonCol>
+          <IonCol class="BestOfferCityCol">{{ member.bestOfferCity }}</IonCol>
+          <IonCol class="BestOfferDurationCol">{{ member.bestOfferDuration }}</IonCol>
+          <IonCol class="BestOfferContentCol">{{ member.bestOfferContent }}</IonCol>
+          <!-- BestOffers &  Profile Data -->
 
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -117,11 +118,11 @@
 
           <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
           <IonCol class="ListedNeedsCol">{{ member.listedNeeds }}</IonCol>
-          <IonCol class="ListedNeedsCol">{{ member.listedNeeds }}</IonCol>
+          <IonCol class="ListedBestOffersCol">{{ member.listedBestOffers }}</IonCol>
           <IonCol class="AdvertSpentCol">{{ member.advertSpent }}</IonCol>
 
           <IonCol class="PeopleSatisfiedNeedsCol">{{ member.peopleSatisfiedNeeds }}</IonCol>
-          <IonCol class="PeopleRequestedNeedsCol">{{ member.peopleRequestedNeeds }}</IonCol>
+          <IonCol class="PeopleRequestedBestOffersCol">{{ member.peopleRequestedBestOffers }}</IonCol>
           <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
           <IonCol class="PitchingsCol">{{ member.pitchings }}</IonCol>
 
@@ -153,20 +154,21 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Need &  Profile Data -->
-          <IonCol class="NeedImageCol"></IonCol>
-          <IonCol class="NeedWantedCol">{{ totalNeedWanted }}</IonCol>
-          <IonCol class="NeedSeenCol">{{ totalNeedSeen }}</IonCol>
-          <IonCol class="NeedListViewCol">{{ totalNeedListView }}</IonCol>
-          <IonCol class="NeedRenewedCol">{{ totalNeedRenewed }}</IonCol>
+          <!-- BestOffers &  Profile Data -->
+          <IonCol class="BestOfferImageCol"></IonCol>
+          <IonCol class="BestOfferWantedCol">{{ totalBestOfferWanted }}</IonCol>
+          <IonCol class="BestOfferCommissionCol"></IonCol>
+          <IonCol class="BestOfferSeenCol">{{ totalBestOfferSeen }}</IonCol>
+          <IonCol class="BestOfferListViewCol">{{ totalBestOfferListView }}</IonCol>
+          <IonCol class="BestOfferRenewedCol">{{ totalBestOfferRenewed }}</IonCol>
           <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
-          <IonCol class="NeedLinkCol"></IonCol>
-          <IonCol class="NeedTitleCol"></IonCol>
-          <IonCol class="NeedCategoryCol"></IonCol>
-          <IonCol class="NeedCountryCol"></IonCol>
-          <IonCol class="NeedCityCol"></IonCol>
-          <IonCol class="NeedDurationCol"></IonCol>
-          <IonCol class="NeedContentCol"></IonCol>
+          <IonCol class="BestOfferLinkCol"></IonCol>
+          <IonCol class="BestOfferTitleCol"></IonCol>
+          <IonCol class="BestOfferCategoryCol"></IonCol>
+          <IonCol class="BestOfferCountryCol"></IonCol>
+          <IonCol class="BestOfferCityCol"></IonCol>
+          <IonCol class="BestOfferDurationCol"></IonCol>
+          <IonCol class="BestOfferContentCol"></IonCol>
 
 
 
@@ -183,11 +185,11 @@
 
           <IonCol class="VisitedCol"></IonCol>
           <IonCol class="ListedNeedsCol"></IonCol>
-          <IonCol class="ListedNeedsCol"></IonCol>
+          <IonCol class="ListedBestOffersCol"></IonCol>
           <IonCol class="AdvertSpentCol">{{ totalAdvertSpent }}</IonCol>
 
           <IonCol class="PeopleSatisfiedNeedsCol"></IonCol>
-          <IonCol class="PeopleRequestedNeedsCol"></IonCol>
+          <IonCol class="PeopleRequestedBestOffersCol"></IonCol>
           <IonCol class="InvestorsAdvertsCol"></IonCol>
           <IonCol class="PitchingsCol"></IonCol>
 
@@ -240,20 +242,21 @@
     totalMembershipSpent: number;
     totalSpent: number;
 
-    // NeedDetails section
-    needImage: string; // URL or path to the image
-    needWanted: number;
-    needSeen: number;
-    needListView: number;
-    needRenewed: number;
+    // BestOfferDetails section
+    bestOfferImage: string; // URL or path to the image
+    bestOfferWanted: number;
+    bestOfferCommission: number;
+    bestOfferSeen: number;
+    bestOfferListView: number;
+    bestOfferRenewed: number;
     liked: number;
-    needLink: string;
-    needTitle: string;
-    needCategory: string;
-    needCountry: string;
-    needCity: string;
-    needDuration: string;
-    needContent: string;
+    bestOfferLink: string;
+    bestOfferTitle: string;
+    bestOfferCategory: string;
+    bestOfferCountry: string;
+    bestOfferCity: string;
+    bestOfferDuration: string;
+    bestOfferContent: string;
 
 
     age: number;
@@ -267,10 +270,10 @@
     eventSpent: number;
     visited: number;
     listedNeeds: number;
-    listedOffers: number;
+    listedBestOffers: number;
     advertSpent: number;
     peopleSatisfiedNeeds: number;
-    peopleRequestedNeeds: number;
+    peopleRequestedBestOffers: number;
     investorsAdverts: number;
     pitchings: number;
     bizMentor: number;
@@ -289,7 +292,7 @@
   }
 
   export default defineComponent({
-    name: 'MembersNeedDetailProfileDetailAdminComponent',
+    name: 'MembersBestOfferDetailProfileDetailAdminComponent',
     components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
     setup() {
       const members = ref<Member[]>([
@@ -302,20 +305,21 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // NeedDetails section
-          needImage: 'https://example.com/image.jpg',
-          needWanted: 100,
-          needSeen: 200,
-          needListView: 300,
-          needRenewed: 400,
+          // BestOfferDetails section
+          bestOfferImage: 'https://example.com/image.jpg',
+          bestOfferWanted: 100,
+          bestOfferCommission: 100,
+          bestOfferSeen: 200,
+          bestOfferListView: 300,
+          bestOfferRenewed: 400,
           liked: 500,
-          needLink: 'https://example.com/need',
-          needTitle: 'Amazing Need',
-          needCategory: 'Real Estate',
-          needCountry: 'USA',
-          needCity: 'New York',
-          needDuration: '1 Year',
-          needContent: 'This is a great need that you do not want to miss.',
+          bestOfferLink: 'https://example.com/bestOffer',
+          bestOfferTitle: 'Amazing BestOffer',
+          bestOfferCategory: 'Real Estate',
+          bestOfferCountry: 'USA',
+          bestOfferCity: 'New York',
+          bestOfferDuration: '1 Year',
+          bestOfferContent: 'This is a great bestOffer that you do not want to miss.',
 
           age: 30,
           gender: 'Male',
@@ -328,10 +332,10 @@
           eventSpent: 1000,
           visited: 30,
           listedNeeds: 5,
-          listedOffers: 3,
+          listedBestOffers: 3,
           advertSpent: 500,
           peopleSatisfiedNeeds: 5,
-          peopleRequestedNeeds: 3,
+          peopleRequestedBestOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
@@ -358,20 +362,21 @@
           totalSpent: 150,
 
 
-          // NeedDetails section
-          needImage: 'https://example.com/image1.jpg',
-          needWanted: 150,
-          needSeen: 250,
-          needListView: 350,
-          needRenewed: 450,
+          // BestOfferDetails section
+          bestOfferImage: 'https://example.com/image1.jpg',
+          bestOfferWanted: 150,
+          bestOfferCommission: 100,
+          bestOfferSeen: 250,
+          bestOfferListView: 350,
+          bestOfferRenewed: 450,
           liked: 550,
-          needLink: 'https://example.com/need1',
-          needTitle: 'Exclusive Need',
-          needCategory: 'Technology',
-          needCountry: 'Canada',
-          needCity: 'Toronto',
-          needDuration: '6 Months',
-          needContent: 'An exclusive need for tech enthusiasts looking to invest in cutting-edge startups.',
+          bestOfferLink: 'https://example.com/bestOffer1',
+          bestOfferTitle: 'Exclusive BestOffer',
+          bestOfferCategory: 'Technology',
+          bestOfferCountry: 'Canada',
+          bestOfferCity: 'Toronto',
+          bestOfferDuration: '6 Months',
+          bestOfferContent: 'An exclusive bestOffer for tech enthusiasts looking to invest in cutting-edge startups.',
 
 
           age: 30,
@@ -385,10 +390,10 @@
           eventSpent: 1000,
           visited: 30,
           listedNeeds: 5,
-          listedOffers: 3,
+          listedBestOffers: 3,
           advertSpent: 500,
           peopleSatisfiedNeeds: 5,
-          peopleRequestedNeeds: 3,
+          peopleRequestedBestOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
@@ -415,20 +420,21 @@
           totalSpent: 150,
 
 
-          // NeedDetails section
-          needImage: 'https://example.com/image2.jpg',
-          needWanted: 200,
-          needSeen: 300,
-          needListView: 400,
-          needRenewed: 500,
+          // BestOfferDetails section
+          bestOfferImage: 'https://example.com/image2.jpg',
+          bestOfferWanted: 200,
+          bestOfferCommission: 600,
+          bestOfferSeen: 300,
+          bestOfferListView: 400,
+          bestOfferRenewed: 500,
           liked: 600,
-          needLink: 'https://example.com/need2',
-          needTitle: 'Premium Need',
-          needCategory: 'Healthcare',
-          needCountry: 'UK',
-          needCity: 'London',
-          needDuration: '2 Years',
-          needContent: 'A premium need in the healthcare sector, perfect for investors looking to support innovative health solutions.',
+          bestOfferLink: 'https://example.com/bestOffer2',
+          bestOfferTitle: 'Premium BestOffer',
+          bestOfferCategory: 'Healthcare',
+          bestOfferCountry: 'UK',
+          bestOfferCity: 'London',
+          bestOfferDuration: '2 Years',
+          bestOfferContent: 'A premium bestOffer in the healthcare sector, perfect for investors looking to support innovative health solutions.',
 
 
           age: 30,
@@ -442,10 +448,10 @@
           eventSpent: 1000,
           visited: 30,
           listedNeeds: 5,
-          listedOffers: 3,
+          listedBestOffers: 3,
           advertSpent: 500,
           peopleSatisfiedNeeds: 5,
-          peopleRequestedNeeds: 3,
+          peopleRequestedBestOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
@@ -543,11 +549,11 @@ resetSorting();
       const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
       const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
 
-      // Need Totals
-      const totalNeedWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needWanted, 0));
-      const totalNeedSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needSeen, 0));
-      const totalNeedListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needListView, 0));
-      const totalNeedRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needRenewed, 0));
+      // bestOffer Totals
+      const totalBestOfferWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferWanted, 0));
+      const totalBestOfferSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferSeen, 0));
+      const totalBestOfferListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferListView, 0));
+      const totalBestOfferRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferRenewed, 0));
       const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
@@ -575,23 +581,23 @@ resetSorting();
         const csvContent = [
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
-            // Need section
-            'NeedImage', 'NeedWanted', 'NeedSeen', 'NeedListView', 'NeedRenewed', 'Liked', 'NeedLink', 'NeedTitle', 'NeedCategory', 'NeedCountry', 'NeedCity', 'NeedDuration', 'NeedContent',
-            // Need section
+            // bestOffer section
+            'BestOfferImage', 'BestOfferWanted', 'BestOfferCommission', 'BestOfferSeen', 'BestOfferListView', 'BestOfferRenewed', 'Liked', 'BestOfferLink', 'BestOfferTitle', 'BestOfferCategory', 'BestOfferCountry', 'BestOfferCity', 'BestOfferDuration', 'BestOfferContent',
+            // bestOffer section
 
-            'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'listedOffers',
-            'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedNeeds', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
+            'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedBestOffers',
+            'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedBestOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.totalSpent,
-            // Need section
-            member.needImage, member.needWanted, member.needSeen, member.needListView, member.needRenewed, member.liked, member.needLink, member.needTitle, member.needCategory, member.needCountry, member.needCity, member.needDuration, member.needContent,
-            // Need section
+            // bestOffer section
+            member.bestOfferImage, member.bestOfferWanted, member.bestOfferCommission, member.bestOfferSeen, member.bestOfferListView, member.bestOfferRenewed, member.liked, member.bestOfferLink, member.bestOfferTitle, member.bestOfferCategory, member.bestOfferCountry, member.bestOfferCity, member.bestOfferDuration, member.bestOfferContent,
+            // bestOffer section
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent,
-            member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedNeeds,
+            member.visited, member.listedNeeds, member.listedBestOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedBestOffers,
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
           ])
@@ -656,21 +662,22 @@ resetSorting();
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
                     
-                    // Need section
+                    // BestOffer section
 
-                    <th>Need Image</th>
-                    <th>Need Wanted</th>
-                    <th>Need Seen</th>
-                    <th>Need ListView</th>
-                    <th>Need Renewed</th>
+                    <th>BestOffer Image</th>
+                    <th>BestOffer Wanted</th>
+                    <th>BestOffer Commission</th>
+                    <th>BestOffer Seen</th>
+                    <th>BestOffer ListView</th>
+                    <th>BestOffer Renewed</th>
                     <th>Liked</th>
-                    <th>Need Link</th>
-                    <th>Need Title</th>
-                    <th>Need Category</th>
-                    <th>Need Country</th>
-                    <th>Need City</th>
-                    <th>Need Duration</th>
-                    <th>Need Content</th>
+                    <th>BestOffer Link</th>
+                    <th>BestOffer Title</th>
+                    <th>BestOffer Category</th>
+                    <th>BestOffer Country</th>
+                    <th>BestOffer City</th>
+                    <th>BestOffer Duration</th>
+                    <th>BestOffer Content</th>
 
 
                     <th>Age</th>
@@ -684,10 +691,10 @@ resetSorting();
                     <th>Event Spent</th>
                     <th>Visited</th>
                     <th>Listed Needs</th>
-                    <th>Listed Offers</th>
+                    <th>Listed BestOffers</th>
                     <th>Advert Spent</th>
                     <th>People Satisfied Needs</th>
-                    <th>People Requested Needs</th>
+                    <th>People Requested BestOffers</th>
                     <th>Investors Adverts</th>
                     <th>Pitchings</th>
                     <th>Biz Mentor</th>
@@ -716,20 +723,21 @@ resetSorting();
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
-                      // Need Section
-                      <td>${member.needImage}</td>
-                      <td>${member.needWanted}</td>
-                      <td>${member.needSeen}</td>
-                      <td>${member.needListView}</td>
-                      <td>${member.needRenewed}</td>
+                      // BestOffer Section
+                      <td>${member.bestOfferImage}</td>
+                      <td>${member.bestOfferWanted}</td>
+                      <td>${member.bestOfferCommission}</td>
+                      <td>${member.bestOfferSeen}</td>
+                      <td>${member.bestOfferListView}</td>
+                      <td>${member.bestOfferRenewed}</td>
                       <td>${member.liked}</td>
-                      <td>${member.needLink}</td>
-                      <td>${member.needTitle}</td>
-                      <td>${member.needCategory}</td>
-                      <td>${member.needCountry}</td>
-                      <td>${member.needCity}</td>
-                      <td>${member.needDuration}</td>
-                      <td>${member.needContent}</td>
+                      <td>${member.bestOfferLink}</td>
+                      <td>${member.bestOfferTitle}</td>
+                      <td>${member.bestOfferCategory}</td>
+                      <td>${member.bestOfferCountry}</td>
+                      <td>${member.bestOfferCity}</td>
+                      <td>${member.bestOfferDuration}</td>
+                      <td>${member.bestOfferContent}</td>
 
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -742,10 +750,10 @@ resetSorting();
                       <td>${member.eventSpent}</td>
                       <td>${member.visited}</td>
                       <td>${member.listedNeeds}</td>
-                      <td>${member.listedOffers}</td>
+                      <td>${member.listedBestOffers}</td>
                       <td>${member.advertSpent}</td>
                       <td>${member.peopleSatisfiedNeeds}</td>
-                      <td>${member.peopleRequestedNeeds}</td>
+                      <td>${member.peopleRequestedBestOffers}</td>
                       <td>${member.investorsAdverts}</td>
                       <td>${member.pitchings}</td>
                       <td>${member.bizMentor}</td>
@@ -768,12 +776,13 @@ resetSorting();
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
 
-                    // Need section
+                    // BestOffer section
                     <td></td>
-                    <td>${totalNeedWanted.value}</td>
-                    <td>${totalNeedSeen.value}</td>
-                    <td>${totalNeedListView.value}</td>
-                    <td>${totalNeedRenewed.value}</td>
+                    <td>${totalBestOfferWanted.value}</td>
+                    <td></td>
+                    <td>${totalBestOfferSeen.value}</td>
+                    <td>${totalBestOfferListView.value}</td>
+                    <td>${totalBestOfferRenewed.value}</td>
                     <td>${totalLiked.value}</td>
                     <td></td>
                     <td></td>
@@ -869,11 +878,11 @@ resetSorting();
         totalMembershipSpent,
         totalSpent,
 
-        // Need section
-        totalNeedWanted,
-        totalNeedSeen,
-        totalNeedListView,
-        totalNeedRenewed,
+        // BestOffer section
+        totalBestOfferWanted,
+        totalBestOfferSeen,
+        totalBestOfferListView,
+        totalBestOfferRenewed,
         totalLiked,
 
         totalBusinessRevenue,
@@ -906,25 +915,26 @@ resetSorting();
 .search {
   width: 100px;
 }
-.NeedImageCol {
+.BestOfferImageCol {
   Border-left: 2px red solid;
 }
-.NeedContentCol {
+.BestOfferContentCol {
   Border-right: 2px red solid;
 }
-.TitleRow .NeedImageCol,
-.TitleRow .NeedWantedCol,
-.TitleRow .NeedSeenCol,
-.TitleRow .NeedListViewCol,
-.TitleRow .NeedRenewedCol,
+.TitleRow .BestOfferImageCol,
+.TitleRow .BestOfferWantedCol,
+.TitleRow .BestOfferCommissionCol,
+.TitleRow .BestOfferSeenCol,
+.TitleRow .BestOfferListViewCol,
+.TitleRow .BestOfferRenewedCol,
 .TitleRow .LikedCol,
-.TitleRow .NeedLinkCol,
-.TitleRow .NeedTitleCol,
-.TitleRow .NeedCategoryCol,
-.TitleRow .NeedCountryCol,
-.TitleRow .NeedCityCol,
-.TitleRow .NeedDurationCol,
-.TitleRow .NeedContentCol {
+.TitleRow .BestOfferLinkCol,
+.TitleRow .BestOfferTitleCol,
+.TitleRow .BestOfferCategoryCol,
+.TitleRow .BestOfferCountryCol,
+.TitleRow .BestOfferCityCol,
+.TitleRow .BestOfferDurationCol,
+.TitleRow .BestOfferContentCol {
   border-top: 3px solid red;
 }
 .arrowBackCircle {

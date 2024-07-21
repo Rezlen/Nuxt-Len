@@ -34,7 +34,7 @@
       </IonCol>
       <!-- BestOffers ####################################-->
       <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
-        <MembersProfileDetailAdminComponent />
+        <MembersBestOfferDetailProfileDetailAdminComponent />
       </IonCol>
     </IonRow>
   </IonGrid>
@@ -50,6 +50,7 @@ import MembersPitchingProfileDetailAdminComponent from '@/components/AdminCompon
 import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
+import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 
 export default defineComponent({
   name: 'MembersProfileDetailTABsAdminComponent',
@@ -64,6 +65,7 @@ export default defineComponent({
     InvestorsProfileDetailAdminComponent,
     MembersOfferDetailProfileDetailAdminComponent,
     MembersNeedDetailProfileDetailAdminComponent,
+    MembersBestOfferDetailProfileDetailAdminComponent,
 
   },
   setup() {
