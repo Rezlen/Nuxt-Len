@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all members who have booked a 1Minute, 3Minute &/or Investment Pitching</p>
+    <p class="TitleP">List of all OFFERS and members details </p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -22,19 +22,22 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-          <!-- Investors Profile Data -->
-          <IonCol class="InvestmentAmountCol" @click="sortMembers('investmentAmount')">Investment Amount<IonIcon :icon="sortIcon('investmentAmount')" class="sort-icon" /></IonCol>
-          <IonCol class="EquityLoanCol" @click="sortMembers('equityLoan')">EquityLoan <IonIcon :icon="sortIcon('equityLoan')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCountryCol" @click="sortMembers('investingCountry')">Investing Country <IonIcon :icon="sortIcon('investingCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCityCol" @click="sortMembers('investingCity')">Investing City <IonIcon :icon="sortIcon('investingCity')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingLengthCol" @click="sortMembers('investingLength')">Investing Length <IonIcon :icon="sortIcon('investingLength')" class="sort-icon" /></IonCol>
-          <IonCol class="WantedROICol" @click="sortMembers('wantedROI')">Wanted ROI <IonIcon :icon="sortIcon('wantedROI')" class="sort-icon" /></IonCol>
-          <IonCol class="MobNoCol" @click="sortMembers('mobNo')">Mob No <IonIcon :icon="sortIcon('mobNo')" class="sort-icon" /></IonCol>
-          <IonCol class="RequiredEquityInterestCol" @click="sortMembers('requiredEquityInterest')">Required EquityInterest <IonIcon :icon="sortIcon('requiredEquityInterest')" class="sort-icon" /></IonCol>
-          <IonCol class="ProductServiceCol" @click="sortMembers('productService')">Product/Service <IonIcon :icon="sortIcon('productService')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCategoryCol" @click="sortMembers('investingCategory')">Investing Category <IonIcon :icon="sortIcon('investingCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="LookingForSummeryCol" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
-          <!-- Investors Profile Data -->
+          <!-- Offers Data -->
+          <IonCol class="OfferImageCol" @click="sortMembers('offerImage')">OfferImage <IonIcon :icon="sortIcon('offerImage')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferWantedCol" @click="sortMembers('offerWanted')">OfferWanted<IonIcon :icon="sortIcon('offerWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferSeenCol" @click="sortMembers('offerSeen')">OfferSeen <IonIcon :icon="sortIcon('offerSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferListViewCol" @click="sortMembers('offerListView')">OfferListView <IonIcon :icon="sortIcon('offerListView')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferRenewedCol" @click="sortMembers('offerRenewed')">OfferRenewed <IonIcon :icon="sortIcon('offerRenewed')" class="sort-icon" /></IonCol>
+          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferLinkCol" @click="sortMembers('offerLink')">OfferLink <IonIcon :icon="sortIcon('offerLink')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferTitleCol" @click="sortMembers('offerTitle')">OfferTitle <IonIcon :icon="sortIcon('offerTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferCategoryCol" @click="sortMembers('offerCategory')">OfferCategory <IonIcon :icon="sortIcon('offerCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferCountryCol" @click="sortMembers('offerCountry')">OfferCountry <IonIcon :icon="sortIcon('offerCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferCityCol" @click="sortMembers('offerCity')">OfferCity <IonIcon :icon="sortIcon('OfferCity')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferDurationCol" @click="sortMembers('offerDuration')">OfferDuration <IonIcon :icon="sortIcon('offerDuration')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferContentCol" @click="sortMembers('offerContent')">OfferContent <IonIcon :icon="sortIcon('offerContent')" class="sort-icon" /></IonCol>
+
+          <!-- Offers Data -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -84,18 +87,21 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!-- Investors Profile Data -->
-          <IonCol class="InvestmentAmountCol">{{ member.investmentAmount }}</IonCol>
-          <IonCol class="EquityLoanCol">{{ member.equityLoan }}</IonCol>
-          <IonCol class="InvestingCountryCol">{{ member.investingCountry }}</IonCol>
-          <IonCol class="InvestingCityCol">{{ member.investingCity }}</IonCol>
-          <IonCol class="InvestingLengthCol">{{ member.investingLength }}</IonCol>
-          <IonCol class="WantedROICol">{{ member.wantedROI }}</IonCol>
-          <IonCol class="MobNoCol">{{ member.mobNo }}</IonCol>
-          <IonCol class="RequiredEquityInterestCol">{{ member.requiredEquityInterest }}</IonCol>
-          <IonCol class="ProductServiceCol">{{ member.productService }}</IonCol>
-          <IonCol class="InvestingCategoryCol">{{ member.investingCategory }}</IonCol>
-          <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
+          <!-- Offers &  Profile Data -->
+          <IonCol class="OfferImageCol">{{ member.offerImage }}</IonCol>
+          <IonCol class="OfferWantedCol">{{ member.offerWanted }}</IonCol>
+          <IonCol class="OfferSeenCol">{{ member.offerSeen }}</IonCol>
+          <IonCol class="OfferListViewCol">{{ member.offerListView }}</IonCol>
+          <IonCol class="OfferRenewedCol">{{ member.offerRenewed }}</IonCol>
+          <IonCol class="LikedCol">{{ member.liked }}</IonCol>
+          <IonCol class="OfferLinkCol">{{ member.offerLink }}</IonCol>
+          <IonCol class="OfferTitleCol">{{ member.offerTitle }}</IonCol>
+          <IonCol class="OfferCategoryCol">{{ member.offerCategory }}</IonCol>
+          <IonCol class="OfferCountryCol">{{ member.offerCountry }}</IonCol>
+          <IonCol class="OfferCityCol">{{ member.offerCity }}</IonCol>
+          <IonCol class="OfferDurationCol">{{ member.offerDuration }}</IonCol>
+          <IonCol class="OfferContentCol">{{ member.offerContent }}</IonCol>
+          <!-- Offers &  Profile Data -->
 
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -147,18 +153,21 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Pitching section -->
-          <IonCol class="InvestmentAmountCol">{{ totalInvestmentAmount }}</IonCol>
-          <IonCol class="EquityLoanCol"></IonCol>
-          <IonCol class="InvestingCountryCol"></IonCol>
-          <IonCol class="InvestingCityCol"></IonCol>
-          <IonCol class="InvestingLengthCol"></IonCol>
-          <IonCol class="WantedROICol"></IonCol>
-          <IonCol class="MobNoCol"></IonCol>
-          <IonCol class="RequiredEquityCol"></IonCol>
-          <IonCol class="ProductServiceCol"></IonCol>
-          <IonCol class="InvestingCategoryCol"></IonCol>
-          <IonCol class="LookingForSummeryCol"></IonCol>
+          <!-- Offers &  Profile Data -->
+          <IonCol class="OfferImageCol"></IonCol>
+          <IonCol class="OfferWantedCol">{{ totalOfferWanted }}</IonCol>
+          <IonCol class="OfferSeenCol">{{ totalOfferSeen }}</IonCol>
+          <IonCol class="OfferListViewCol">{{ totalOfferListView }}</IonCol>
+          <IonCol class="OfferRenewedCol">{{ totalOfferRenewed }}</IonCol>
+          <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
+          <IonCol class="OfferLinkCol"></IonCol>
+          <IonCol class="OfferTitleCol"></IonCol>
+          <IonCol class="OfferCategoryCol"></IonCol>
+          <IonCol class="OfferCountryCol"></IonCol>
+          <IonCol class="OfferCityCol"></IonCol>
+          <IonCol class="OfferDurationCol"></IonCol>
+          <IonCol class="OfferContentCol"></IonCol>
+
 
 
           <IonCol class="AgeCol"></IonCol>
@@ -231,17 +240,21 @@
     totalMembershipSpent: number;
     totalSpent: number;
 
-    investmentAmount: number;
-    equityLoan: 'Equity' | 'Loan';
-    investingCountry: string;
-    investingCity: string;
-    investingLength: string;
-    wantedROI: number;
-    mobNo: string;
-    requiredEquityInterest: number;
-    productService: string;
-    investingCategory: string;
-    lookingForSummery: string;
+    // OfferDetails section
+    offerImage: string; // URL or path to the image
+    offerWanted: number;
+    offerSeen: number;
+    offerListView: number;
+    offerRenewed: number;
+    liked: number;
+    offerLink: string;
+    offerTitle: string;
+    offerCategory: string;
+    offerCountry: string;
+    offerCity: string;
+    offerDuration: string;
+    offerContent: string;
+
 
     age: number;
     gender: string;
@@ -289,17 +302,20 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          investmentAmount: 100,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
+          // OfferDetails section
+          offerImage: 'https://example.com/image.jpg',
+          offerWanted: 100,
+          offerSeen: 200,
+          offerListView: 300,
+          offerRenewed: 400,
+          liked: 500,
+          offerLink: 'https://example.com/offer',
+          offerTitle: 'Amazing Offer',
+          offerCategory: 'Real Estate',
+          offerCountry: 'USA',
+          offerCity: 'New York',
+          offerDuration: '1 Year',
+          offerContent: 'This is a great offer that you do not want to miss.',
 
           age: 30,
           gender: 'Male',
@@ -341,17 +357,22 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          investmentAmount: 2000,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
+
+          // OfferDetails section
+          offerImage: 'https://example.com/image1.jpg',
+          offerWanted: 150,
+          offerSeen: 250,
+          offerListView: 350,
+          offerRenewed: 450,
+          liked: 550,
+          offerLink: 'https://example.com/offer1',
+          offerTitle: 'Exclusive Offer',
+          offerCategory: 'Technology',
+          offerCountry: 'Canada',
+          offerCity: 'Toronto',
+          offerDuration: '6 Months',
+          offerContent: 'An exclusive offer for tech enthusiasts looking to invest in cutting-edge startups.',
+
 
           age: 30,
           gender: 'Male',
@@ -393,17 +414,21 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          investmentAmount: 300,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
+
+          // OfferDetails section
+          offerImage: 'https://example.com/image2.jpg',
+          offerWanted: 200,
+          offerSeen: 300,
+          offerListView: 400,
+          offerRenewed: 500,
+          liked: 600,
+          offerLink: 'https://example.com/offer2',
+          offerTitle: 'Premium Offer',
+          offerCategory: 'Healthcare',
+          offerCountry: 'UK',
+          offerCity: 'London',
+          offerDuration: '2 Years',
+          offerContent: 'A premium offer in the healthcare sector, perfect for investors looking to support innovative health solutions.',
 
 
           age: 30,
@@ -505,19 +530,25 @@ resetSorting();
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-    //  * Computes the paginated members for the current page.
+      //  Computes the paginated members for the current page.
       const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
         return sortedMembers.value.slice(start, start + itemsPerPage);
       });
 
-    //  * Computes the total number of pages based on the number of members and items per page.
+      //  * Computes the total number of pages based on the number of members and items per page.
       const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
-    //  * Computes the total price of all members.
+      //  * Computes the total price of all members.
       const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
       const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
-      const totalInvestmentAmount = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.investmentAmount, 0));
+
+      // offer Totals
+      const totalOfferWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerWanted, 0));
+      const totalOfferSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerSeen, 0));
+      const totalOfferListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerListView, 0));
+      const totalOfferRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerRenewed, 0));
+      const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
@@ -544,19 +575,26 @@ resetSorting();
         const csvContent = [
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
-            'Investment Amount', 'Equity Loan', 'Investing Country', 'Investing City', 'Investing Length', 'Wanted ROI', 'Mob No', 'Required Equity', 'Product Service', 'Investing Category', 'LookingFor Summery',
+            // offer section
+            'OfferImage', 'OfferWanted', 'OfferSeen', 'OfferListView', 'OfferRenewed', 'Liked', 'OfferLink', 'OfferTitle', 'OfferCategory', 'OfferCountry', 'OfferCity', 'OfferDuration', 'OfferContent',
+            // offer section
+
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
+            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.totalSpent,
-            member.investmentAmount, member.equityLoan, member.investingCountry, member.investingCity, member.investingLength, member.wantedROI, member.mobNo, member.requiredEquityInterest, member.productService, member.investingCategory, member.lookingForSummery,
+            // offer section
+            member.offerImage, member.offerWanted, member.offerSeen, member.offerListView, member.offerRenewed, member.liked, member.offerLink, member.offerTitle, member.offerCategory, member.offerCountry, member.offerCity, member.offerDuration, member.offerContent,
+            // offer section
+
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent,
             member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedOffers,
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
-            ])
+          ])
         ]
           .map(e => e.join(","))
           .join("\n");
@@ -617,18 +655,23 @@ resetSorting();
                     <th>Membership Type</th>
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
+                    
+                    // Offer section
 
-                    <th>Investment Amount</th>
-                    <th>Equity Loan</th>
-                    <th>Investing Country</th>
-                    <th>Investing City</th>
-                    <th>Investing Length</th>
-                    <th>Wanted ROI</th>
-                    <th>Mob No</th>
-                    <th>Required Equity</th>
-                    <th>Product Service</th>
-                    <th>Investing Category</th>
-                    <th>LookingFor Summery</th>
+                    <th>Offer Image</th>
+                    <th>Offer Wanted</th>
+                    <th>Offer Seen</th>
+                    <th>Offer ListView</th>
+                    <th>Offer Renewed</th>
+                    <th>Liked</th>
+                    <th>Offer Link</th>
+                    <th>Offer Title</th>
+                    <th>Offer Category</th>
+                    <th>Offer Country</th>
+                    <th>Offer City</th>
+                    <th>Offer Duration</th>
+                    <th>Offer Content</th>
+
 
                     <th>Age</th>
                     <th>Gender</th>
@@ -673,17 +716,20 @@ resetSorting();
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
-                      <td>${member.investmentAmount}</td>
-                      <td>${member.equityLoan}</td>
-                      <td>${member.investingCountry}</td>
-                      <td>${member.investingCity}</td>
-                      <td>${member.investingLength}</td>
-                      <td>${member.wantedROI}</td>
-                      <td>${member.mobNo}</td>
-                      <td>${member.requiredEquityInterest}</td>
-                      <td>${member.productService}</td>
-                      <td>${member.investingCategory}</td>
-                      <td>${member.lookingForSummery}</td>
+                      // Offer Section
+                      <td>${member.offerImage}</td>
+                      <td>${member.offerWanted}</td>
+                      <td>${member.offerSeen}</td>
+                      <td>${member.offerListView}</td>
+                      <td>${member.offerRenewed}</td>
+                      <td>${member.liked}</td>
+                      <td>${member.offerLink}</td>
+                      <td>${member.offerTitle}</td>
+                      <td>${member.offerCategory}</td>
+                      <td>${member.offerCountry}</td>
+                      <td>${member.offerCity}</td>
+                      <td>${member.offerDuration}</td>
+                      <td>${member.offerContent}</td>
 
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -721,17 +767,22 @@ resetSorting();
                     <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
+
+                    // Offer section
                     <td></td>
-                    <td>${totalInvestmentAmount.value}</td>
+                    <td>${totalOfferWanted.value}</td>
+                    <td>${totalOfferSeen.value}</td>
+                    <td>${totalOfferListView.value}</td>
+                    <td>${totalOfferRenewed.value}</td>
+                    <td>${totalLiked.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    
+
                     <td></td>
                     <td></td>
                     <td></td>
@@ -817,7 +868,14 @@ resetSorting();
         printTable,
         totalMembershipSpent,
         totalSpent,
-        totalInvestmentAmount,
+
+        // Offer section
+        totalOfferWanted,
+        totalOfferSeen,
+        totalOfferListView,
+        totalOfferRenewed,
+        totalLiked,
+
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -848,10 +906,10 @@ resetSorting();
 .search {
   width: 100px;
 }
-.InvestmentAmountCol {
+.OfferImageCol {
   Border-left: 4px red solid;
 }
-.LookingForSummeryCol {
+.OfferContentCol {
   Border-right: 4px red solid;
 }
 .arrowBackCircle {

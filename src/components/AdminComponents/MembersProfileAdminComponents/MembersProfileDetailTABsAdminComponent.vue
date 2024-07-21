@@ -26,7 +26,7 @@
       </IonCol>
       <!-- Offers Tab here ####################################-->
       <IonCol v-show="selectedTab === 'Offers'" class="Offers">
-        <MembersProfileDetailAdminComponent />
+        <MembersOfferDetailProfileDetailAdminComponent />
       </IonCol>
       <!-- Needs Tab here ####################################-->
       <IonCol v-show="selectedTab === 'Needs'" class="Needs">
@@ -48,6 +48,7 @@ import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton } from '@ionic/vu
 import MembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailAdminComponent.vue';
 import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
 import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
+import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 
 export default defineComponent({
   name: 'MembersProfileDetailTABsAdminComponent',
@@ -60,10 +61,11 @@ export default defineComponent({
     MembersProfileDetailAdminComponent,
     MembersPitchingProfileDetailAdminComponent,
     InvestorsProfileDetailAdminComponent,
+    MembersOfferDetailProfileDetailAdminComponent,
 
   },
   setup() {
-    const selectedTab = ref<string>(''); // Initialize with the default tab
+    const selectedTab = ref<string>(''); // MembersOfferDetailProfileDetailAdminComponent
 
     return {
       selectedTab,

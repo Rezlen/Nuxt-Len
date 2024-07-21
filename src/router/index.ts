@@ -66,8 +66,9 @@ import MembersProfileDetailAdminComponent from '@/components/AdminComponents/Mem
 import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
 import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
 import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
+import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 
-// InvestorsProfileDetailAdminComponent
+// MembersOfferDetailProfileDetailAdminComponent
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
   {
@@ -321,7 +322,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'AdminLeftSideBarComponent',
     component: AdminLeftSideBarComponent
   },
-   // Admin EVENTs Components 
+   // Admin Profiles Components 
   {
     path: '/membersProfileDetailAdminComponent',
     name: 'MembersProfileDetailAdminComponent',
@@ -342,10 +343,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'InvestorsProfileDetailAdminComponent',
     component: InvestorsProfileDetailAdminComponent
   },
+  {
+    path: '/membersOfferDetailProfileDetailAdminComponent',
+    name: 'MembersOfferDetailProfileDetailAdminComponent',
+    component: MembersOfferDetailProfileDetailAdminComponent
+  },
 
 
 
-  // Left & Right Adverts starts here  InvestorsProfileDetailAdminComponent
+  // Left & Right Adverts starts here  MembersOfferDetailProfileDetailAdminComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',
