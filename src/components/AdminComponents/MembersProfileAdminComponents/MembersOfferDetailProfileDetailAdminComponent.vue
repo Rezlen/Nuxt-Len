@@ -907,10 +907,25 @@ resetSorting();
   width: 100px;
 }
 .OfferImageCol {
-  Border-left: 4px red solid;
+  Border-left: 2px red solid;
 }
 .OfferContentCol {
-  Border-right: 4px red solid;
+  Border-right: 2px red solid;
+}
+.TitleRow .OfferImageCol,
+.TitleRow .OfferWantedCol,
+.TitleRow .OfferSeenCol,
+.TitleRow .OfferListViewCol,
+.TitleRow .OfferRenewedCol,
+.TitleRow .LikedCol,
+.TitleRow .OfferLinkCol,
+.TitleRow .OfferTitleCol,
+.TitleRow .OfferCategoryCol,
+.TitleRow .OfferCountryCol,
+.TitleRow .OfferCityCol,
+.TitleRow .OfferDurationCol,
+.TitleRow .OfferContentCol {
+  border-top: 3px solid red;
 }
 .arrowBackCircle {
   position: fixed;
@@ -942,6 +957,7 @@ resetSorting();
   border-top: 3px solid red;
   border-bottom: 3px solid red;
 }
+
 
 .DataRow:nth-child(odd) ion-col {
   background-color: #f5efef;

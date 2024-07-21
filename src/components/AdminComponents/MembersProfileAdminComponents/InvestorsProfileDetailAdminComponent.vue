@@ -864,10 +864,23 @@ resetSorting();
   width: 100px;
 }
 .InvestmentAmountCol {
-  Border-left: 4px red solid;
+  Border-left: 2px red solid;
 }
 .LookingForSummeryCol {
-  Border-right: 4px red solid;
+  Border-right: 2px red solid;
+}
+.TitleRow .InvestmentAmountCol,
+.TitleRow .EquityLoanCol,
+.TitleRow .InvestingCountryCol,
+.TitleRow .InvestingCityCol,
+.TitleRow .InvestingLengthCol,
+.TitleRow .WantedROICol,
+.TitleRow .MobNoCol,
+.TitleRow .RequiredEquityInterestCol,
+.TitleRow .ProductServiceCol,
+.TitleRow .InvestingCategoryCol,
+.TitleRow .LookingForSummeryCol {
+    border-top: 3px solid red;
 }
 .arrowBackCircle {
   position: fixed;

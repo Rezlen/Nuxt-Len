@@ -23,9 +23,9 @@
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
           <!-- Offers Data -->
-          <IonCol class="OfferImageCol" @click="sortMembers('offerImage')">OfferImage <IonIcon :icon="sortIcon('offerImage')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferWantedCol" @click="sortMembers('offerWanted')">OfferWanted<IonIcon :icon="sortIcon('offerWanted')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferSeenCol" @click="sortMembers('offerSeen')">OfferSeen <IonIcon :icon="sortIcon('offerSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferImageCol TopRedBorder" @click="sortMembers('offerImage')">OfferImage <IonIcon :icon="sortIcon('offerImage')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferWantedCol TopRedBorder" @click="sortMembers('offerWanted')">OfferWanted<IonIcon :icon="sortIcon('offerWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferSeenCol TopRedBorder" @click="sortMembers('offerSeen')">OfferSeen <IonIcon :icon="sortIcon('offerSeen')" class="sort-icon" /></IonCol>
           <IonCol class="OfferListViewCol" @click="sortMembers('offerListView')">OfferListView <IonIcon :icon="sortIcon('offerListView')" class="sort-icon" /></IonCol>
           <IonCol class="OfferRenewedCol" @click="sortMembers('offerRenewed')">OfferRenewed <IonIcon :icon="sortIcon('offerRenewed')" class="sort-icon" /></IonCol>
           <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>

@@ -848,10 +848,23 @@
   width: 100px;
 }
 .PitchingKindCol {
-  Border-left: 4px red solid;
+  Border-left: 2px red solid;
 }
 .LookingForSummeryCol {
-  Border-right: 4px red solid;
+  Border-right: 2px red solid;
+}
+.TitleRow .PitchingKindCol,
+.TitleRow .LikedNoCol,
+.TitleRow .SeenNoCol,
+.TitleRow .PitchingTitleCol,
+.TitleRow .PitchingForCol,
+.TitleRow .PitchingCountryCol,
+.TitleRow .PitchingCityCol,
+.TitleRow .PitchingCategoryCol,
+.TitleRow .YouTubeLinkCol,
+.TitleRow .PitchingSummeryCol,
+.TitleRow .LookingForSummeryCol {
+  border-top: 2px solid red;
 }
 .arrowBackCircle {
   position: fixed;
