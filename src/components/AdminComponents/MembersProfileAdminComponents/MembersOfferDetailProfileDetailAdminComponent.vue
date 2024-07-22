@@ -75,6 +75,8 @@
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="NoLoggedInCol" @click="sortMembers('noLoggedIn')">NoOf LoggedIn <IonIcon :icon="sortIcon('noLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="FullProfileSeenCol" @click="sortMembers('fullProfileSeen')">FullProfile Seen <IonIcon :icon="sortIcon('fullProfileSeen')" class="sort-icon" /></IonCol>
+
+          <IonCol class="ActionCol">Actions</IonCol>
         </IonRow>
 
         <!-- Data rows -->
@@ -140,7 +142,13 @@
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
           <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
           <IonCol class="FullProfileSeenCol">{{ member.fullProfileSeen }}</IonCol>
-
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonButton @click="openModal(member.id)" class="test" fill="clear" title="Edit This Profile"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Deactivate/Hide This Offer From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Delete This Offer After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+            </IonButton>
+          </IonCol>
         </IonRow>
 
         <!-- Total row -->
@@ -207,6 +215,8 @@
           <IonCol class="NoLoggedInCol"></IonCol>
           <IonCol class="FullProfileSeenCol"></IonCol>
 
+
+          <IonCol class="ActionCol"></IonCol>
         </IonRow>
     </IonRow>
 
@@ -216,6 +226,12 @@
       <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
+
+    <!-- Modal for displaying component in a popup -->
+    <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
+      <PostOfferComponent />
+      <IonButton @click="closeModal">Close</IonButton>
+    </IonModal>
 
   </IonGrid>
 </template>
@@ -228,8 +244,9 @@
 
 <script lang="ts">
   import { defineComponent, ref, computed, watch } from 'vue';
-  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
-  import { arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal } from '@ionic/vue';
+  import { create, trash, ban, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import PostOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferComponent.vue';
 
   interface Member {
     id: number;
@@ -290,7 +307,7 @@
 
   export default defineComponent({
     name: 'MembersOfferDetailProfileDetailAdminComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
+    components: { IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, PostOfferComponent, },
     setup() {
       const members = ref<Member[]>([
         {
@@ -300,7 +317,7 @@
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
-          totalSpent: 150,
+          totalSpent: 450,
 
           // OfferDetails section
           offerImage: 'https://example.com/image.jpg',
@@ -355,7 +372,7 @@
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
-          totalSpent: 150,
+          totalSpent: 350,
 
 
           // OfferDetails section
@@ -578,11 +595,9 @@ resetSorting();
             // offer section
             'OfferImage', 'OfferWanted', 'OfferSeen', 'OfferListView', 'OfferRenewed', 'Liked', 'OfferLink', 'OfferTitle', 'OfferCategory', 'OfferCountry', 'OfferCity', 'OfferDuration', 'OfferContent',
             // offer section
-
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
+            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen'
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.totalSpent,
@@ -847,6 +862,18 @@ resetSorting();
       };
 
       watch(searchQuery, searchMembers);
+      
+      // Clicking popup function here
+      const showMiniEvent = ref<boolean>(false);
+      const activeMemberId = ref<number | null>(null);
+      const isModalOpen = ref<boolean>(false);
+      const openModal = (memberId: number) => {
+          activeMemberId.value = memberId;
+        isModalOpen.value = true;
+      };
+      const closeModal = () => {
+        isModalOpen.value = false;
+      };
 
       return {
         members,
@@ -882,9 +909,15 @@ resetSorting();
         totalAdvertSpent,
         bizMentorSpent,
         totalEmployees,
+        create, trash, ban,
         arrowBackCircle,
         scrollToLeft,
         scrollableContainer,
+        showMiniEvent,
+        activeMemberId,
+        isModalOpen,
+        openModal,
+        closeModal,
       };
     }
   });
@@ -958,7 +991,6 @@ resetSorting();
   border-bottom: 3px solid red;
 }
 
-
 .DataRow:nth-child(odd) ion-col {
   background-color: #f5efef;
 }
@@ -1001,6 +1033,20 @@ ion-col {
   font-size: 12px;
   border-right: 1px solid lightgray;
 }
+/* popup section */
+  ion-modal {
+  --width: 90%; /* Adjust width as needed */
+  --height: 90%; /* Adjust height as needed */
+  --max-width: 90vw; /* Adjust max-width as needed */
+  --max-height: 90vh; /* Adjust max-height as needed */
+}
+  .ActionCol {
+    overflow-x: visible;
+  }
+  .ActionCol ion-button {
+    margin: 0;
+    padding: 0;
+  }
 .PageInfo {
   display: flex;
   justify-content: center;

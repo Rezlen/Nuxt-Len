@@ -242,7 +242,7 @@
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
-          totalSpent: 150,
+          totalSpent: 450,
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -280,7 +280,7 @@
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
-          totalSpent: 150,
+          totalSpent: 350,
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -374,14 +374,7 @@
 // back button does not work
 
 
-      const sortMembers = (key: keyof Member) => {
-        if (sortKey.value === key) {
-          sortAsc.value = !sortAsc.value;
-        } else {
-          sortKey.value = key;
-          sortAsc.value = true;
-        }
-      };
+
 
       const sortIcon = (key: keyof Member) => {
         if (sortKey.value === key) {
@@ -399,6 +392,16 @@
 
 
     //  * Computes the sorted members based on the current sortKey and sort order.
+          const sortMembers = (key: keyof Member) => {
+        if (sortKey.value === key) {
+          sortAsc.value = !sortAsc.value;
+        } else {
+          sortKey.value = key;
+          sortAsc.value = true;
+        }
+      searchMembers();
+    };
+
       const sortedMembers = computed(() => {
         if (!sortKey.value) return filteredMembers.value;
 
@@ -412,7 +415,7 @@
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-    //  * Computes the paginated members for the current page.
+    //  Computes the paginated members for the current page.
       const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
         return sortedMembers.value.slice(start, start + itemsPerPage);
@@ -448,14 +451,21 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent','Age', 'Gender', 'BusinessName', 
-            'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
+            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
+            // section
+
+            // section
+            'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen'
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, member.age, member.gender,
-            member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
+            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.totalSpent,
+            // section
+            
+            // section
+            
+            member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedOffers,
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
@@ -785,6 +795,7 @@
     font-size: 12px;
     border-right: 1px solid lightgray;
   }
+/* popup section */
   ion-modal {
   --width: 90%; /* Adjust width as needed */
   --height: 90%; /* Adjust height as needed */
