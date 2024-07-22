@@ -1,6 +1,8 @@
+<!--  This page is an exact copy of src\components\AdminComponents\MembersProfileAdminComponents\MembersPitchingProfileDetailAdminComponent.vue -->
+
 <template>
   <IonGrid>
-    <p class="TitleP">List of all investors/members who filled an Investor Form</p>
+    <p class="TitleP">List of all members who have booked a 1Minute, 3Minute &/or Investment Pitching</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -22,19 +24,19 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-          <!-- Investors Profile Data -->
-          <IonCol class="InvestmentAmountCol" @click="sortMembers('investmentAmount')">Investment Amount<IonIcon :icon="sortIcon('investmentAmount')" class="sort-icon" /></IonCol>
-          <IonCol class="EquityLoanCol" @click="sortMembers('equityLoan')">EquityLoan <IonIcon :icon="sortIcon('equityLoan')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCountryCol" @click="sortMembers('investingCountry')">Investing Country <IonIcon :icon="sortIcon('investingCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCityCol" @click="sortMembers('investingCity')">Investing City <IonIcon :icon="sortIcon('investingCity')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingLengthCol" @click="sortMembers('investingLength')">Investing Length <IonIcon :icon="sortIcon('investingLength')" class="sort-icon" /></IonCol>
-          <IonCol class="WantedROICol" @click="sortMembers('wantedROI')">Wanted ROI <IonIcon :icon="sortIcon('wantedROI')" class="sort-icon" /></IonCol>
-          <IonCol class="MobNoCol" @click="sortMembers('mobNo')">Mob No <IonIcon :icon="sortIcon('mobNo')" class="sort-icon" /></IonCol>
-          <IonCol class="RequiredEquityInterestCol" @click="sortMembers('requiredEquityInterest')">Required EquityInterest <IonIcon :icon="sortIcon('requiredEquityInterest')" class="sort-icon" /></IonCol>
-          <IonCol class="ProductServiceCol" @click="sortMembers('productService')">Product/Service <IonIcon :icon="sortIcon('productService')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCategoryCol" @click="sortMembers('investingCategory')">Investing Category <IonIcon :icon="sortIcon('investingCategory')" class="sort-icon" /></IonCol>
+          <!-- <IonRow class="PitchingSection"> -->
+          <IonCol class="PitchingKindCol" @click="sortMembers('pitchingKind')">Pitching Kind <IonIcon :icon="sortIcon('pitchingKind')" class="sort-icon" /></IonCol>
+          <IonCol class="LikedNoCol" @click="sortMembers('likedNo')">LikedNo <IonIcon :icon="sortIcon('likedNo')" class="sort-icon" /></IonCol>
+          <IonCol class="SeenNoCol" @click="sortMembers('seenNo')">SeenNo <IonIcon :icon="sortIcon('seenNo')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingTitleCol" @click="sortMembers('pitchingTitle')">Pitching Title <IonIcon :icon="sortIcon('pitchingTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingForCol" @click="sortMembers('pitchingFor')">PitchingFor <IonIcon :icon="sortIcon('pitchingFor')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingCountryCol" @click="sortMembers('pitchingCountry')">Pitching Country <IonIcon :icon="sortIcon('pitchingCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingCityCol" @click="sortMembers('pitchingCity')">Pitching City <IonIcon :icon="sortIcon('pitchingCity')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingCategoryCol" @click="sortMembers('pitchingCategory')">Pitching Category<IonIcon :icon="sortIcon('pitchingCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="YouTubeLinkCol" @click="sortMembers('youTubeLink')">YouTube Link<IonIcon :icon="sortIcon('youTubeLink')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchingSummeryCol" @click="sortMembers('pitchingSummery')">PitchingSummery <IonIcon :icon="sortIcon('pitchingSummery')" class="sort-icon" /></IonCol>
           <IonCol class="LookingForSummeryCol" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
-          <!-- Investors Profile Data -->
+          <!-- </IonRow> -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -86,17 +88,17 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!-- Investors Profile Data -->
-          <IonCol class="InvestmentAmountCol">{{ member.investmentAmount }}</IonCol>
-          <IonCol class="EquityLoanCol">{{ member.equityLoan }}</IonCol>
-          <IonCol class="InvestingCountryCol">{{ member.investingCountry }}</IonCol>
-          <IonCol class="InvestingCityCol">{{ member.investingCity }}</IonCol>
-          <IonCol class="InvestingLengthCol">{{ member.investingLength }}</IonCol>
-          <IonCol class="WantedROICol">{{ member.wantedROI }}</IonCol>
-          <IonCol class="MobNoCol">{{ member.mobNo }}</IonCol>
-          <IonCol class="RequiredEquityInterestCol">{{ member.requiredEquityInterest }}</IonCol>
-          <IonCol class="ProductServiceCol">{{ member.productService }}</IonCol>
-          <IonCol class="InvestingCategoryCol">{{ member.investingCategory }}</IonCol>
+          <!-- PitchingSection Data -->
+          <IonCol class="PitchingKindCol">{{ member.pitchingKind }}</IonCol>
+          <IonCol class="LikedNoCol">{{ member.likedNo }}</IonCol>
+          <IonCol class="SeenNoCol">{{ member.seenNo }}</IonCol>
+          <IonCol class="PitchingTitleCol">{{ member.pitchingTitle }}</IonCol>
+          <IonCol class="PitchingForCol">{{ member.pitchingFor }}</IonCol>
+          <IonCol class="PitchingCountryCol">{{ member.pitchingCountry }}</IonCol>
+          <IonCol class="PitchingCityCol">{{ member.pitchingCity }}</IonCol>
+          <IonCol class="PitchingCategoryCol">{{ member.pitchingCategory }}</IonCol>
+          <IonCol class="YouTubeLinkCol"><a :href="member.youTubeLink" target="_blank">YouTube Link</a></IonCol>
+          <IonCol class="PitchingSummeryCol">{{ member.pitchingSummery }}</IonCol>
           <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
 
 
@@ -155,19 +157,18 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Investor section -->
-          <IonCol class="InvestmentAmountCol">{{ totalInvestmentAmount }}</IonCol>
-          <IonCol class="EquityLoanCol"></IonCol>
-          <IonCol class="InvestingCountryCol"></IonCol>
-          <IonCol class="InvestingCityCol"></IonCol>
-          <IonCol class="InvestingLengthCol"></IonCol>
-          <IonCol class="WantedROICol"></IonCol>
-          <IonCol class="MobNoCol"></IonCol>
-          <IonCol class="RequiredEquityCol"></IonCol>
-          <IonCol class="ProductServiceCol"></IonCol>
-          <IonCol class="InvestingCategoryCol"></IonCol>
+          <!-- Pitching section -->
+          <IonCol class="PitchingKindCol"></IonCol>
+          <IonCol class="LikedNoCol">{{ totalLikedNo }}</IonCol>
+          <IonCol class="SeenNoCol">{{ totalSeenNo }}</IonCol>
+          <IonCol class="PitchingTitleCol"></IonCol>
+          <IonCol class="PitchingForCol"></IonCol>
+          <IonCol class="PitchingCountryCol"></IonCol>
+          <IonCol class="PitchingCityCol"></IonCol>
+          <IonCol class="PitchingCategoryCol"></IonCol>
+          <IonCol class="YouTubeLinkCol"></IonCol>
+          <IonCol class="PitchingSummeryCol"></IonCol>
           <IonCol class="LookingForSummeryCol"></IonCol>
-          <!-- Investor section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -220,7 +221,7 @@
 
     <!-- Modal for displaying component in a popup -->
     <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
-      <FormProvideInvestmentComponent />
+      <FormPitchingComponent />
       <IonButton @click="closeModal">Close</IonButton>
     </IonModal>
 
@@ -237,7 +238,7 @@
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal } from '@ionic/vue';
   import { create, trash, ban, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
-  import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
+  import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
 
   interface Member {
     id: number;
@@ -248,20 +249,18 @@
     totalMembershipSpent: number;
     totalSpent: number;
 
-    // Investor section 
-    investmentAmount: number;
-    equityLoan: 'Equity' | 'Loan';
-    investingCountry: string;
-    investingCity: string;
-    investingLength: string;
-    wantedROI: number;
-    mobNo: string;
-    requiredEquityInterest: number;
-    productService: string;
-    investingCategory: string;
+    // Pitching section
+    pitchingKind: '1MinPitching' | '3MinPitching' | 'InvestmentPitching';
+    likedNo: number;
+    seenNo: number;
+    pitchingTitle: string;
+    pitchingFor: string;
+    pitchingCountry: string;
+    pitchingCity: string;
+    pitchingCategory: string;
+    youTubeLink: string;
+    pitchingSummery: string;
     lookingForSummery: string;
-    // Investor section 
-
     age: number;
     gender: string;
     businessName: string;
@@ -295,8 +294,8 @@
   }
 
   export default defineComponent({
-    name: 'InvestorsProfileDetailAdminComponent',
-    components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormProvideInvestmentComponent, },
+    name: 'AdminEventSpecificMembersPitchingProfileDetailAdminComponent',
+    components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormPitchingComponent, },
     setup() {
       const members = ref<Member[]>([
         {
@@ -308,20 +307,18 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Investor section 
-          investmentAmount: 100,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
-          // Investor section 
-          
+          // Pitching Section
+          pitchingKind: '1MinPitching',
+          likedNo: 10,
+          seenNo: 100,
+          pitchingTitle: 'New Tech Pitch',
+          pitchingFor: 'Funding',
+          pitchingCountry: 'USA',
+          pitchingCity: 'New York',
+          pitchingCategory: 'Technology',
+          youTubeLink: 'youtube_link',
+          pitchingSummery: 'Tech pitch summary',
+          lookingForSummery: 'Looking for funding',
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -362,20 +359,18 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Investor section 
-          investmentAmount: 2000,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
-          // Investor section 
-
+          // Pitching section
+          pitchingKind: '3MinPitching',
+          likedNo: 10,
+          seenNo: 100,
+          pitchingTitle: 'New Tech Pitch',
+          pitchingFor: 'Funding',
+          pitchingCountry: 'USA',
+          pitchingCity: 'New York',
+          pitchingCategory: 'Technology',
+          youTubeLink: 'youtube_link',
+          pitchingSummery: 'Tech pitch summary',
+          lookingForSummery: 'Looking for funding',
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -416,20 +411,18 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-           // Investor section 
-          investmentAmount: 300,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
-          // Investor section 
-
+          // Pitching section
+          pitchingKind: 'InvestmentPitching',
+          likedNo: 10,
+          seenNo: 100,
+          pitchingTitle: 'New Tech Pitch',
+          pitchingFor: 'Funding',
+          pitchingCountry: 'USA',
+          pitchingCity: 'New York',
+          pitchingCategory: 'Technology',
+          youTubeLink: 'youtube_link',
+          pitchingSummery: 'Tech pitch summary',
+          lookingForSummery: 'Looking for funding',
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -479,12 +472,21 @@
 
 // back button does not wor, fix itk
       const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
+
       const scrollToLeft = () => {
         if (scrollableContainer.value) {
           scrollableContainer.value.scrollLeft = 0;
         }
       };
+
 // back button does not work
+
+      // Custom order for pitchingKind
+      const pitchingKindOrder: Record<Member['pitchingKind'], number> = {
+        'InvestmentPitching': 1,
+        '1MinPitching': 2,
+        '3MinPitching': 3
+      };
 
 
       const sortIcon = (key: keyof Member) => {
@@ -515,7 +517,11 @@
 
     const sortedMembers = computed(() => {
       return [...filteredMembers.value].sort((a, b) => {
-        if (sortKey.value) {
+        if (sortKey.value === 'pitchingKind') {
+          return sortAsc.value
+            ? pitchingKindOrder[a.pitchingKind] - pitchingKindOrder[b.pitchingKind]
+            : pitchingKindOrder[b.pitchingKind] - pitchingKindOrder[a.pitchingKind];
+        } else if (sortKey.value) {
           if (a[sortKey.value] < b[sortKey.value]) return sortAsc.value ? -1 : 1;
           if (a[sortKey.value] > b[sortKey.value]) return sortAsc.value ? 1 : -1;
         }
@@ -524,12 +530,12 @@
     });
 
     // Set default sorting by bookingDate
-resetSorting();
+      resetSorting();
 
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-    //  * Computes the paginated members for the current page.
+    //  Computes the paginated members for the current page.
       const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
         return sortedMembers.value.slice(start, start + itemsPerPage);
@@ -541,7 +547,8 @@ resetSorting();
     //  * Computes the total price of all members.
       const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
       const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
-      const totalInvestmentAmount = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.investmentAmount, 0));
+      const totalLikedNo = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.likedNo, 0));
+      const totalSeenNo = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.seenNo, 0));
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
@@ -567,20 +574,23 @@ resetSorting();
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
-            'Investment Amount', 'Equity Loan', 'Investing Country', 'Investing City', 'Investing Length', 'Wanted ROI', 'Mob No', 'Required Equity', 'Product Service', 'Investing Category', 'LookingFor Summery',
-            'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
+            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent','Pitching Kind', 'LikedNo', 'SeenNo', 'Pitching Title', 'PitchingFor', 'Pitching Country', 'Pitching City', 'Pitching Category', 
+            'YouTube Link', 'PitchingSummery', 'LookingFor Summery','Age', 'Gender', 'BusinessName', 
+            'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
+            
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.totalSpent,
-            member.investmentAmount, member.equityLoan, member.investingCountry, member.investingCity, member.investingLength, member.wantedROI, member.mobNo, member.requiredEquityInterest, member.productService, member.investingCategory, member.lookingForSummery,
-            member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent,
+            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
+            , member.pitchingKind, 
+            member.likedNo, member.seenNo, member.pitchingTitle, member.pitchingFor, member.pitchingCountry, member.pitchingCity, member.pitchingCategory, 
+            member.youTubeLink, member.pitchingSummery, member.lookingForSummery, member.age, member.gender,
+            member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedOffers,
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
-            ])
+          ])
         ]
           .map(e => e.join(","))
           .join("\n");
@@ -642,19 +652,20 @@ resetSorting();
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
 
-                    // Investor section 
-                    <th>Investment Amount</th>
-                    <th>Equity Loan</th>
-                    <th>Investing Country</th>
-                    <th>Investing City</th>
-                    <th>Investing Length</th>
-                    <th>Wanted ROI</th>
-                    <th>Mob No</th>
-                    <th>Required Equity</th>
-                    <th>Product Service</th>
-                    <th>Investing Category</th>
+                    // Pitching section
+
+                    <th>Pitching Kind</th>
+                    <th>LikedNo</th>
+                    <th>SeenNo</th>
+                    <th>Pitching Title</th>
+                    <th>PitchingFor</th>
+                    <th>Pitching Country</th>
+                    <th>Pitching City</th>
+                    <th>Pitching Category</th>
+                    <th>YouTube Link</th>
+                    <th>PitchingSummery</th>
                     <th>LookingFor Summery</th>
-                    // Investor section 
+
 
                     <th>Age</th>
                     <th>Gender</th>
@@ -699,20 +710,19 @@ resetSorting();
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
-                      // Investor section 
-                      <td>${member.investmentAmount}</td>
-                      <td>${member.equityLoan}</td>
-                      <td>${member.investingCountry}</td>
-                      <td>${member.investingCity}</td>
-                      <td>${member.investingLength}</td>
-                      <td>${member.wantedROI}</td>
-                      <td>${member.mobNo}</td>
-                      <td>${member.requiredEquityInterest}</td>
-                      <td>${member.productService}</td>
-                      <td>${member.investingCategory}</td>
+                      // Pitching section
+                      <td>${member.pitchingKind}</td>
+                      <td>${member.likedNo}</td>
+                      <td>${member.seenNo}</td>
+                      <td>${member.pitchingTitle}</td>
+                      <td>${member.pitchingFor}</td>
+                      <td>${member.pitchingCountry}</td>
+                      <td>${member.pitchingCity}</td>
+                      <td>${member.pitchingCategory}</td>
+                      <td>${member.youTubeLink}</td>
+                      <td>${member.pitchingSummery}</td>
                       <td>${member.lookingForSummery}</td>
-                    // Investor section 
-
+                      
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
                       <td>${member.businessName}</td>
@@ -749,22 +759,21 @@ resetSorting();
                     <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
+                    // Pitching section
+                    <td></td>
+                    <td>${totalLikedNo.value}</td>
+                    <td>${totalSeenNo.value}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
 
-                    // Investor section 
-                    <td>${totalInvestmentAmount.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    // Investor section 
 
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>${totalBusinessRevenue.value}</td>
@@ -788,6 +797,7 @@ resetSorting();
                     <td></td>
                     <td></td>
                     <td>${totalEmployees.value}</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -828,7 +838,7 @@ resetSorting();
       };
 
       watch(searchQuery, searchMembers);
-            
+      
       // Clicking popup function here
       const showMiniEvent = ref<boolean>(false);
       const activeMemberId = ref<number | null>(null);
@@ -861,7 +871,8 @@ resetSorting();
         printTable,
         totalMembershipSpent,
         totalSpent,
-        totalInvestmentAmount,
+        totalLikedNo,
+        totalSeenNo,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -898,24 +909,24 @@ resetSorting();
 .search {
   width: 100px;
 }
-.InvestmentAmountCol {
+.PitchingKindCol {
   Border-left: 2px red solid;
 }
 .LookingForSummeryCol {
   Border-right: 2px red solid;
 }
-.TitleRow .InvestmentAmountCol,
-.TitleRow .EquityLoanCol,
-.TitleRow .InvestingCountryCol,
-.TitleRow .InvestingCityCol,
-.TitleRow .InvestingLengthCol,
-.TitleRow .WantedROICol,
-.TitleRow .MobNoCol,
-.TitleRow .RequiredEquityInterestCol,
-.TitleRow .ProductServiceCol,
-.TitleRow .InvestingCategoryCol,
+.TitleRow .PitchingKindCol,
+.TitleRow .LikedNoCol,
+.TitleRow .SeenNoCol,
+.TitleRow .PitchingTitleCol,
+.TitleRow .PitchingForCol,
+.TitleRow .PitchingCountryCol,
+.TitleRow .PitchingCityCol,
+.TitleRow .PitchingCategoryCol,
+.TitleRow .YouTubeLinkCol,
+.TitleRow .PitchingSummeryCol,
 .TitleRow .LookingForSummeryCol {
-    border-top: 3px solid red;
+  border-top: 2px solid red;
 }
 .arrowBackCircle {
   position: fixed;

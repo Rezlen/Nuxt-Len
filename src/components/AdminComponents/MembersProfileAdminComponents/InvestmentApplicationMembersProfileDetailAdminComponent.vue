@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all investors/members who filled an Investor Form</p>
+
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -21,20 +21,6 @@
           <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
-
-          <!-- Investors Profile Data -->
-          <IonCol class="InvestmentAmountCol" @click="sortMembers('investmentAmount')">Investment Amount<IonIcon :icon="sortIcon('investmentAmount')" class="sort-icon" /></IonCol>
-          <IonCol class="EquityLoanCol" @click="sortMembers('equityLoan')">EquityLoan <IonIcon :icon="sortIcon('equityLoan')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCountryCol" @click="sortMembers('investingCountry')">Investing Country <IonIcon :icon="sortIcon('investingCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCityCol" @click="sortMembers('investingCity')">Investing City <IonIcon :icon="sortIcon('investingCity')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingLengthCol" @click="sortMembers('investingLength')">Investing Length <IonIcon :icon="sortIcon('investingLength')" class="sort-icon" /></IonCol>
-          <IonCol class="WantedROICol" @click="sortMembers('wantedROI')">Wanted ROI <IonIcon :icon="sortIcon('wantedROI')" class="sort-icon" /></IonCol>
-          <IonCol class="MobNoCol" @click="sortMembers('mobNo')">Mob No <IonIcon :icon="sortIcon('mobNo')" class="sort-icon" /></IonCol>
-          <IonCol class="RequiredEquityInterestCol" @click="sortMembers('requiredEquityInterest')">Required EquityInterest <IonIcon :icon="sortIcon('requiredEquityInterest')" class="sort-icon" /></IonCol>
-          <IonCol class="ProductServiceCol" @click="sortMembers('productService')">Product/Service <IonIcon :icon="sortIcon('productService')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestingCategoryCol" @click="sortMembers('investingCategory')">Investing Category <IonIcon :icon="sortIcon('investingCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="LookingForSummeryCol" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
-          <!-- Investors Profile Data -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -58,7 +44,7 @@
           <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
 
           <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-          <IonCol class="BizMentorSpentCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
           <IonCol class="MobileNoCol" @click="sortMembers('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
           <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
           <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
@@ -85,20 +71,6 @@
           <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
-
-          <!-- Investors Profile Data -->
-          <IonCol class="InvestmentAmountCol">{{ member.investmentAmount }}</IonCol>
-          <IonCol class="EquityLoanCol">{{ member.equityLoan }}</IonCol>
-          <IonCol class="InvestingCountryCol">{{ member.investingCountry }}</IonCol>
-          <IonCol class="InvestingCityCol">{{ member.investingCity }}</IonCol>
-          <IonCol class="InvestingLengthCol">{{ member.investingLength }}</IonCol>
-          <IonCol class="WantedROICol">{{ member.wantedROI }}</IonCol>
-          <IonCol class="MobNoCol">{{ member.mobNo }}</IonCol>
-          <IonCol class="RequiredEquityInterestCol">{{ member.requiredEquityInterest }}</IonCol>
-          <IonCol class="ProductServiceCol">{{ member.productService }}</IonCol>
-          <IonCol class="InvestingCategoryCol">{{ member.investingCategory }}</IonCol>
-          <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
-
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
           <IonCol class="GenderCol">{{ member.gender }}</IonCol>
@@ -139,8 +111,8 @@
           <IonCol class="ActionCol">
             <IonButton class="ActionCol" fill="clear" title="Close">
               <IonButton @click="openModal(member.id)" class="test" fill="clear" title="Edit This Profile"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-              <IonButton class="test" fill="clear" title="Deactivate/Hide This Offer From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
-              <IonButton class="test" fill="clear" title="Delete This Offer After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Deactivate/Hide This Profile From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Delete This Profile After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
             </IonButton>
           </IonCol>
         </IonRow>
@@ -154,20 +126,6 @@
           <IonCol class="MembershipTypeCol"></IonCol>
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
-
-          <!-- Investor section -->
-          <IonCol class="InvestmentAmountCol">{{ totalInvestmentAmount }}</IonCol>
-          <IonCol class="EquityLoanCol"></IonCol>
-          <IonCol class="InvestingCountryCol"></IonCol>
-          <IonCol class="InvestingCityCol"></IonCol>
-          <IonCol class="InvestingLengthCol"></IonCol>
-          <IonCol class="WantedROICol"></IonCol>
-          <IonCol class="MobNoCol"></IonCol>
-          <IonCol class="RequiredEquityCol"></IonCol>
-          <IonCol class="ProductServiceCol"></IonCol>
-          <IonCol class="InvestingCategoryCol"></IonCol>
-          <IonCol class="LookingForSummeryCol"></IonCol>
-          <!-- Investor section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -220,7 +178,7 @@
 
     <!-- Modal for displaying component in a popup -->
     <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
-      <FormProvideInvestmentComponent />
+      <FormApplyForInvestmentComponent />
       <IonButton @click="closeModal">Close</IonButton>
     </IonModal>
 
@@ -237,7 +195,7 @@
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal } from '@ionic/vue';
   import { create, trash, ban, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
-  import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
+  import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
 
   interface Member {
     id: number;
@@ -247,21 +205,6 @@
     membershipType: string;
     totalMembershipSpent: number;
     totalSpent: number;
-
-    // Investor section 
-    investmentAmount: number;
-    equityLoan: 'Equity' | 'Loan';
-    investingCountry: string;
-    investingCity: string;
-    investingLength: string;
-    wantedROI: number;
-    mobNo: string;
-    requiredEquityInterest: number;
-    productService: string;
-    investingCategory: string;
-    lookingForSummery: string;
-    // Investor section 
-
     age: number;
     gender: string;
     businessName: string;
@@ -295,33 +238,18 @@
   }
 
   export default defineComponent({
-    name: 'InvestorsProfileDetailAdminComponent',
-    components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormProvideInvestmentComponent, },
+    name: 'InvestmentApplicationMembersProfileDetailAdminComponent',
+    components: { IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormApplyForInvestmentComponent, },
     setup() {
       const members = ref<Member[]>([
         {
           id: 3,
           personPic: 'pic_url_a',
-          firstName: 'Johneee',
+          firstName: 'John',
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
-          totalSpent: 150,
-
-          // Investor section 
-          investmentAmount: 100,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
-          // Investor section 
-          
+          totalSpent: 450,
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -356,26 +284,11 @@
         {
           id: 2,
           personPic: 'pic_url_a',
-          firstName: 'res',
+          firstName: 'John',
           lastName: 'Doe',
           membershipType: 'Gold',
           totalMembershipSpent: 500,
-          totalSpent: 150,
-
-          // Investor section 
-          investmentAmount: 2000,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
-          // Investor section 
-
+          totalSpent: 350,
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -415,21 +328,6 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
-
-           // Investor section 
-          investmentAmount: 300,
-          equityLoan: 'Equity',
-          investingCountry: 'USA',
-          investingCity: 'New York',
-          investingLength: '5 years',
-          wantedROI: 15,
-          mobNo: '123-456-7890',
-          requiredEquityInterest: 20,
-          productService: 'Tech Solutions',
-          investingCategory: 'Technology',
-          lookingForSummery: 'Looking for investment in tech startups',
-          // Investor section 
-
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -484,7 +382,10 @@
           scrollableContainer.value.scrollLeft = 0;
         }
       };
+
 // back button does not work
+
+
 
 
       const sortIcon = (key: keyof Member) => {
@@ -502,34 +403,31 @@
       };
 
 
-      //  * Computes the sorted members based on the current sortKey and sort order.      const sortMembers = (key: keyof Member) => {
-      const sortMembers = (key: keyof Member) => {
-      if (sortKey.value === key) {
-        sortAsc.value = !sortAsc.value;
-      } else {
-        sortKey.value = key;
-        sortAsc.value = true;
-      }
+    //  * Computes the sorted members based on the current sortKey and sort order.
+          const sortMembers = (key: keyof Member) => {
+        if (sortKey.value === key) {
+          sortAsc.value = !sortAsc.value;
+        } else {
+          sortKey.value = key;
+          sortAsc.value = true;
+        }
       searchMembers();
     };
 
-    const sortedMembers = computed(() => {
-      return [...filteredMembers.value].sort((a, b) => {
-        if (sortKey.value) {
-          if (a[sortKey.value] < b[sortKey.value]) return sortAsc.value ? -1 : 1;
-          if (a[sortKey.value] > b[sortKey.value]) return sortAsc.value ? 1 : -1;
-        }
-        return 0;
-      });
-    });
+      const sortedMembers = computed(() => {
+        if (!sortKey.value) return filteredMembers.value;
 
-    // Set default sorting by bookingDate
-resetSorting();
+        return [...filteredMembers.value].sort((a, b) => {
+          if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
+          if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
+          return 0;
+        });
+      });
 
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-    //  * Computes the paginated members for the current page.
+    //  Computes the paginated members for the current page.
       const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
         return sortedMembers.value.slice(start, start + itemsPerPage);
@@ -541,8 +439,6 @@ resetSorting();
     //  * Computes the total price of all members.
       const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
       const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
-      const totalInvestmentAmount = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.investmentAmount, 0));
-
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
@@ -568,19 +464,24 @@ resetSorting();
         const csvContent = [
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
-            'Investment Amount', 'Equity Loan', 'Investing Country', 'Investing City', 'Investing Length', 'Wanted ROI', 'Mob No', 'Required Equity', 'Product Service', 'Investing Category', 'LookingFor Summery',
+            // section
+
+            // section
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
+            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees','Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen'
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.totalSpent,
-            member.investmentAmount, member.equityLoan, member.investingCountry, member.investingCity, member.investingLength, member.wantedROI, member.mobNo, member.requiredEquityInterest, member.productService, member.investingCategory, member.lookingForSummery,
-            member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent,
+            // section
+            
+            // section
+            
+            member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedOffers,
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
-            ])
+          ])
         ]
           .map(e => e.join(","))
           .join("\n");
@@ -641,21 +542,6 @@ resetSorting();
                     <th>Membership Type</th>
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
-
-                    // Investor section 
-                    <th>Investment Amount</th>
-                    <th>Equity Loan</th>
-                    <th>Investing Country</th>
-                    <th>Investing City</th>
-                    <th>Investing Length</th>
-                    <th>Wanted ROI</th>
-                    <th>Mob No</th>
-                    <th>Required Equity</th>
-                    <th>Product Service</th>
-                    <th>Investing Category</th>
-                    <th>LookingFor Summery</th>
-                    // Investor section 
-
                     <th>Age</th>
                     <th>Gender</th>
                     <th>Business Name</th>
@@ -698,21 +584,6 @@ resetSorting();
                       <td>${member.membershipType}</td>
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
-
-                      // Investor section 
-                      <td>${member.investmentAmount}</td>
-                      <td>${member.equityLoan}</td>
-                      <td>${member.investingCountry}</td>
-                      <td>${member.investingCity}</td>
-                      <td>${member.investingLength}</td>
-                      <td>${member.wantedROI}</td>
-                      <td>${member.mobNo}</td>
-                      <td>${member.requiredEquityInterest}</td>
-                      <td>${member.productService}</td>
-                      <td>${member.investingCategory}</td>
-                      <td>${member.lookingForSummery}</td>
-                    // Investor section 
-
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
                       <td>${member.businessName}</td>
@@ -746,53 +617,25 @@ resetSorting();
                     </tr>
                   `).join('')}
                   <tr class="TotalRow">
-                    <td colspan="5">Totals</td>
+                    <td>Totals:</td>
+                    <td colspan="5"></td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
-                    <td></td>
-
-                    // Investor section 
-                    <td>${totalInvestmentAmount.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    // Investor section 
-
-                    <td></td>
-                    <td></td>
+                    <td colspan="3"></td>
                     <td>${totalBusinessRevenue.value}</td>
-                    <td></td>
+                    <td colspan="1"></td>
                     <td>${totalSalary.value}</td>
-                    <td></td>
-                    <td></td>
+                    <td colspan="1"></td>
+                    <td colspan="1"></td>
                     <td>${totalEventSpent.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td colspan="1"></td>
+                    <td colspan="7"></td>
                     <td>${totalAdvertSpent.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td colspan="5"></td>
                     <td>${bizMentorSpent.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td colspan="7"></td>
                     <td>${totalEmployees.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td colspan="6"></td>
                   </tr>
                 </tbody>
               </table>
@@ -828,7 +671,7 @@ resetSorting();
       };
 
       watch(searchQuery, searchMembers);
-            
+
       // Clicking popup function here
       const showMiniEvent = ref<boolean>(false);
       const activeMemberId = ref<number | null>(null);
@@ -861,7 +704,6 @@ resetSorting();
         printTable,
         totalMembershipSpent,
         totalSpent,
-        totalInvestmentAmount,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -889,107 +731,84 @@ resetSorting();
 
 
 <style scoped>
-.TitleP{
-  display: center;
-  text-align: center;
-  font-weight: bold;
-} 
-/* Adjusting the length of the table here: http://localhost:8100/adminpage */
-.search {
-  width: 100px;
-}
-.InvestmentAmountCol {
-  Border-left: 2px red solid;
-}
-.LookingForSummeryCol {
-  Border-right: 2px red solid;
-}
-.TitleRow .InvestmentAmountCol,
-.TitleRow .EquityLoanCol,
-.TitleRow .InvestingCountryCol,
-.TitleRow .InvestingCityCol,
-.TitleRow .InvestingLengthCol,
-.TitleRow .WantedROICol,
-.TitleRow .MobNoCol,
-.TitleRow .RequiredEquityInterestCol,
-.TitleRow .ProductServiceCol,
-.TitleRow .InvestingCategoryCol,
-.TitleRow .LookingForSummeryCol {
+  /* Adjusting the length of the table here: http://localhost:8100/adminpage */
+  .search {
+    width: 100px;
+  }
+  
+  .arrowBackCircle {
+    position: fixed;
+    top: 55;
+    left: 90;
+    right: 0;
+    z-index: 1;
+  }
+  
+  .TitleRow {
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    align-items: center;
+  }
+  
+  .ContainerRow {
+    width: 4000px;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: scroll;
+  }
+  
+  .DataRow {
+    cursor: pointer;
+  }
+  
+  .DataRow.selected {
     border-top: 3px solid red;
-}
-.arrowBackCircle {
-  position: fixed;
-  top: 55;
-  left: 90;
-  right: 0;
-  z-index: 1;
-}
+    border-bottom: 3px solid red;
+  }
+  
+  .DataRow:nth-child(odd) ion-col {
+    background-color: #f5efef;
+  }
+  
+  .DataRow:nth-child(even) ion-col {
+    background-color: #bceea5;
+  }
+  
+  .TotalRow {
+    font-weight: bold;
+  }
+  
+  .ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
+    border: 1px solid gray;
+  }
+  
+  .DataRow, .TotalRow {
+    white-space: nowrap;
+  }
+  
+  .TitleRow ion-col {
+    overflow: visible; /* Ensure the content is fully visible */
+    word-wrap: break-word; /* Break long words */
+    white-space: normal; /* Allow text to wrap */
+    text-align: center; /* Center align for better presentation */
+  }
 
-.TitleRow {
-  font-weight: bold;
-  cursor: pointer;
-  height: 50px;
-  align-items: center;
-}
+  .MemberIDCol {
+    background-color: red;
+  }
 
-.ContainerRow {
-  width: 5500px;
-  flex-direction: column;
-  overflow-y: scroll;
-  overflow-x: scroll;
-}
-
-.DataRow {
-  cursor: pointer;
-}
-
-.DataRow.selected {
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-}
-
-.DataRow:nth-child(odd) ion-col {
-  background-color: #f5efef;
-}
-
-.DataRow:nth-child(even) ion-col {
-  background-color: #bceea5;
-}
-
-.TotalRow {
-  font-weight: bold;
-}
-
-.ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
-  border: 1px solid gray;
-}
-
-.DataRow, .TotalRow {
-  white-space: nowrap;
-}
-
-.TitleRow ion-col {
-  overflow: visible; /* Ensure the content is fully visible */
-  word-wrap: break-word; /* Break long words */
-  white-space: normal; /* Allow text to wrap */
-  text-align: center; /* Center align for better presentation */
-}
-
-.MemberIDCol {
-  background-color: red;
-}
-
-ion-col {
-  max-width: 100px; /* Increase the max width for better visibility */
-  padding: 0;
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: auto;
-  align-content: center;
-  height: 30px;
-  font-size: 12px;
-  border-right: 1px solid lightgray;
-}
+  ion-col {
+    max-width: 100px; /* Increase the max width for better visibility */
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    align-content: center;
+    height: 30px;
+    font-size: 12px;
+    border-right: 1px solid lightgray;
+  }
 /* popup section */
   ion-modal {
   --width: 90%; /* Adjust width as needed */
@@ -1004,36 +823,36 @@ ion-col {
     margin: 0;
     padding: 0;
   }
-.PageInfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  margin: 0 10px;
-}
-
-.sort-icon {
-  margin-left: 5px;
-}
-
-.person-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-@media (max-width: 600px) {
-  .ContainerRow {
-    width: 4000px;
-  }
-  .TitleRow, .DataRow, .TotalRow {
+  .PageInfo {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 10px;
   }
-  ion-col {
-    max-width: 100px;
+
+  .sort-icon {
+    margin-left: 5px;
   }
-}
+
+  .person-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 600px) {
+    .ContainerRow {
+      width: 4000px;
+    }
+    .TitleRow, .DataRow, .TotalRow {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    ion-col {
+      max-width: 100px;
+    }
+  }
 </style>
 
 

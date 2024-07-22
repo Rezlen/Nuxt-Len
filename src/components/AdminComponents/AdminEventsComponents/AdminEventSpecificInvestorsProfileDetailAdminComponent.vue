@@ -1,6 +1,8 @@
+<!--  This page is an exact copy of src\components\AdminComponents\MembersProfileAdminComponents\InvestorsProfileDetailAdminComponent.vue -->
+
 <template>
   <IonGrid>
-    <p class="TitleP">List of all investors/members who filled an Investor Form</p>
+    <p class="TitleP">List of all investors/members who filled an Investors Form</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -295,7 +297,7 @@
   }
 
   export default defineComponent({
-    name: 'InvestorsProfileDetailAdminComponent',
+    name: 'AdminEventSpecificInvestorsProfileDetailAdminComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormProvideInvestmentComponent, },
     setup() {
       const members = ref<Member[]>([

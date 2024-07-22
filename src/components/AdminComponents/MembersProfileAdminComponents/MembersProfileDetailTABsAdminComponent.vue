@@ -6,6 +6,7 @@
         <IonSegmentButton class="btn" value="Profiles">Profiles</IonSegmentButton>
         <IonSegmentButton class="btn" value="Pitchings">Pitchings</IonSegmentButton>
         <IonSegmentButton class="btn" value="InvestorsProfile">Investors Profile</IonSegmentButton>
+        <IonSegmentButton class="btn" value="InvestmentApplication">Investment Application</IonSegmentButton>
         <IonSegmentButton class="btn" value="Offers">Offers</IonSegmentButton>
         <IonSegmentButton class="btn" value="Needs">Needs</IonSegmentButton>
         <IonSegmentButton class="btn" value="BestOffers">BestOffers</IonSegmentButton>
@@ -23,6 +24,10 @@
       <!-- InvestorsProfile Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvestorsProfile'" class="InvestorsProfile">
         <InvestorsProfileDetailAdminComponent />
+      </IonCol>
+      <!-- IInvestment Application  Tab here ####################################-->
+      <IonCol v-show="selectedTab === 'InvestmentApplication'" class="InvestmentApplication">
+        <InvestmentApplicationMembersProfileDetailAdminComponent  />
       </IonCol>
       <!-- Offers Tab here ####################################-->
       <IonCol v-show="selectedTab === 'Offers'" class="Offers">
@@ -48,6 +53,7 @@ import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton } from '@ionic/vu
 import MembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailAdminComponent.vue';
 import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
 import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
+import InvestmentApplicationMembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestmentApplicationMembersProfileDetailAdminComponent.vue';
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
@@ -63,6 +69,7 @@ export default defineComponent({
     MembersProfileDetailAdminComponent,
     MembersPitchingProfileDetailAdminComponent,
     InvestorsProfileDetailAdminComponent,
+    InvestmentApplicationMembersProfileDetailAdminComponent,
     MembersOfferDetailProfileDetailAdminComponent,
     MembersNeedDetailProfileDetailAdminComponent,
     MembersBestOfferDetailProfileDetailAdminComponent,

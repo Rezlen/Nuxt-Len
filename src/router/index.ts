@@ -51,26 +51,30 @@ import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventCompo
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
 // Admin events comp
+import AdminLeftSideBarComponent from '@/components/AdminComponents/AdminEventsComponents/AdminLeftSideBarComponent.vue';
 import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
+import AdminEventsListComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsListComponent.vue';
 import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventComponent.vue';
 import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsBookingsComponent.vue';
-import AdminEventsListComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsListComponent.vue';
-import AdminLeftSideBarComponent from '@/components/AdminComponents/AdminEventsComponents/AdminLeftSideBarComponent.vue';
+import AdminEventSpecificMembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificMembersPitchingProfileDetailAdminComponent.vue';
+import AdminEventSpecificInvestorsProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificInvestorsProfileDetailAdminComponent.vue';
+
 // Investment comp
 import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
 import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
 import MiniInvestorsProfileComponent from '@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue';
 import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue';
-// Investment comp
+// Admin Profile comp
 import MembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailAdminComponent.vue';
 import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
 import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
 import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
+import InvestmentApplicationMembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestmentApplicationMembersProfileDetailAdminComponent.vue';
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 
-// MembersNeedDetailProfileDetailAdminComponent
+// AdminEventSpecificMembersPitchingProfileDetailAdminComponent
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
   {
@@ -298,7 +302,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MiniInvesteesProfileComponent',
     component: MiniInvesteesProfileComponent
   },
-   // Admin EVENTs Components 
+  // Admin EVENTs Components 
+  {
+    path: '/adminLeftSideBarComponent',
+    name: 'AdminLeftSideBarComponent',
+    component: AdminLeftSideBarComponent
+  },
   {
     path: '/adminCreateEventTABsComponent',
     name: 'AdminCreateEventTABsComponent',
@@ -310,21 +319,28 @@ const routes: Array<RouteRecordRaw> = [
     component: AdminCreateEventComponent
   },
   {
-    path: '/adminEventsBookingsComponent',
-    name: 'AdminEventsBookingsComponent',
-    component: AdminEventsBookingsComponent
-  },
-  {
     path: '/adminEventsListComponent',
     name: 'AdminEventsListComponent',
     component: AdminEventsListComponent
   },
   {
-    path: '/adminLeftSideBarComponent',
-    name: 'AdminLeftSideBarComponent',
-    component: AdminLeftSideBarComponent
+    path: '/adminEventsBookingsComponent',
+    name: 'AdminEventsBookingsComponent',
+    component: AdminEventsBookingsComponent
   },
-   // Admin Profiles Components 
+  {
+    path: '/adminEventSpecificMembersPitchingProfileDetailAdminComponent',
+    name: 'AdminEventSpecificMembersPitchingProfileDetailAdminComponent',
+    component: AdminEventSpecificMembersPitchingProfileDetailAdminComponent
+  },
+  {
+    path: '/adminEventSpecificInvestorsProfileDetailAdminComponent',
+    name: 'AdminEventSpecificInvestorsProfileDetailAdminComponent',
+    component: AdminEventSpecificInvestorsProfileDetailAdminComponent
+  },
+
+
+   // Admin Profiles Components     AdminEventSpecificMembersPitchingProfileDetailAdminComponent
   {
     path: '/membersProfileDetailAdminComponent',
     name: 'MembersProfileDetailAdminComponent',
@@ -344,6 +360,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/investorsProfileDetailAdminComponent',
     name: 'InvestorsProfileDetailAdminComponent',
     component: InvestorsProfileDetailAdminComponent
+  },
+  {
+    path: '/investmentApplicationMembersProfileDetailAdminComponent',
+    name: 'InvestmentApplicationMembersProfileDetailAdminComponent',
+    component: InvestmentApplicationMembersProfileDetailAdminComponent
   },
   {
     path: '/membersOfferDetailProfileDetailAdminComponent',

@@ -137,10 +137,11 @@
                 <p><a href="/MembersOfferDetailProfileDetailAdminComponent" class="Events-button" >MembersOfferDetailProfileDetailAdminComponent   </a> </p>
                 <p><a href="/MembersNeedDetailProfileDetailAdminComponent" class="Events-button" >MembersNeedDetailProfileDetailAdminComponent   </a> </p>
                 <p><a href="/MembersBestOfferDetailProfileDetailAdminComponent" class="Events-button" >MembersBestOfferDetailProfileDetailAdminComponent   </a> </p>
+                <p><a href="/InvestmentApplicationMembersProfileDetailAdminComponent " class="Events-button" >InvestmentApplicationMembersProfileDetailAdminComponent    </a> </p>
               
               </IonRow>
               
-              <!-- MiniProfilesRow #####  MembersOfferDetailProfileDetailAdminComponent     -->
+              <!-- MiniProfilesRow #####  InvestmentApplicationMembersProfileDetailAdminComponent     -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

@@ -14,7 +14,6 @@
         <IonSegmentButton class="btn" value="PitchingsProfile">Pitchings Profile</IonSegmentButton>
         <IonSegmentButton class="btn" value="InvestmentApplications">Investment Applications</IonSegmentButton>
         <IonSegmentButton class="btn" value="InvestorsProfile">Investors Profile</IonSegmentButton>
-        <IonSegmentButton class="btn" value="InvesteesProfile">Investees Profile</IonSegmentButton>
       </IonSegment>
     </IonRow>
     <IonRow class="DisplayComponentRow">
@@ -32,7 +31,7 @@
       </IonCol>
       <!-- Pitchings Profile Tab here -->
       <IonCol v-show="selectedTab === 'PitchingsProfile'" class="PitchingsProfile">
-        <AdminEventsBookingsComponent />
+        <AdminEventSpecificMembersPitchingProfileDetailAdminComponent />
       </IonCol>
       <!-- Investment Applications Tab here -->
       <IonCol v-show="selectedTab === 'InvestmentApplications'" class="InvestmentApplications">
@@ -40,11 +39,7 @@
       </IonCol>
       <!-- Investors Profile Tab here -->
       <IonCol v-show="selectedTab === 'InvestorsProfile'" class="InvestorsProfile">
-        <AdminEventsBookingsComponent />
-      </IonCol>
-      <!-- Investees Profile Tab here -->
-      <IonCol v-show="selectedTab === 'InvesteesProfile'" class="InvesteesProfile">
-        <AdminEventsBookingsComponent />
+        <AdminEventSpecificInvestorsProfileDetailAdminComponent />
       </IonCol>
     </IonRow>
   </IonGrid>
@@ -56,6 +51,8 @@ import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton } from '@ionic/vu
 import AdminEventsListComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsListComponent.vue';
 import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsBookingsComponent.vue';
 import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventComponent.vue';
+import AdminEventSpecificMembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificMembersPitchingProfileDetailAdminComponent.vue';
+import AdminEventSpecificInvestorsProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificInvestorsProfileDetailAdminComponent.vue';
 
 export default defineComponent({
   name: 'AdminCreateTABsEventComponent',
@@ -68,6 +65,8 @@ export default defineComponent({
     AdminEventsListComponent,
     AdminEventsBookingsComponent,
     AdminCreateEventComponent,
+    AdminEventSpecificMembersPitchingProfileDetailAdminComponent,
+    AdminEventSpecificInvestorsProfileDetailAdminComponent,
   },
   setup() {
     const selectedTab = ref<string>('EventsList'); // Initialize with the default tab
