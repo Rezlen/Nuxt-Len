@@ -72,6 +72,8 @@
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="NoLoggedInCol" @click="sortMembers('noLoggedIn')">NoOf LoggedIn <IonIcon :icon="sortIcon('noLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="FullProfileSeenCol" @click="sortMembers('fullProfileSeen')">FullProfile Seen <IonIcon :icon="sortIcon('fullProfileSeen')" class="sort-icon" /></IonCol>
+
+          <IonCol class="ActionCol">Actions</IonCol>
         </IonRow>
 
         <!-- Data rows -->
@@ -134,7 +136,13 @@
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
           <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
           <IonCol class="FullProfileSeenCol">{{ member.fullProfileSeen }}</IonCol>
-
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonButton @click="openModal(member.id)" class="test" fill="clear" title="Edit This Profile"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Deactivate/Hide This Offer From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Delete This Offer After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+            </IonButton>
+          </IonCol>
         </IonRow>
 
         <!-- Total row -->
@@ -197,6 +205,8 @@
           <IonCol class="NoLoggedInCol"></IonCol>
           <IonCol class="FullProfileSeenCol"></IonCol>
 
+
+          <IonCol class="ActionCol"></IonCol>
         </IonRow>
     </IonRow>
 
@@ -206,6 +216,12 @@
       <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
+
+    <!-- Modal for displaying component in a popup -->
+    <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
+      <FormPitchingComponent />
+      <IonButton @click="closeModal">Close</IonButton>
+    </IonModal>
 
   </IonGrid>
 </template>
@@ -218,8 +234,9 @@
 
 <script lang="ts">
   import { defineComponent, ref, computed, watch } from 'vue';
-  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
-  import { arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal } from '@ionic/vue';
+  import { create, trash, ban, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
 
   interface Member {
     id: number;
@@ -229,6 +246,8 @@
     membershipType: string;
     totalMembershipSpent: number;
     totalSpent: number;
+
+    // Pitching section
     pitchingKind: '1MinPitching' | '3MinPitching' | 'InvestmentPitching';
     likedNo: number;
     seenNo: number;
@@ -274,7 +293,7 @@
 
   export default defineComponent({
     name: 'MembersPitchingProfileDetailAdminComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
+    components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormPitchingComponent, },
     setup() {
       const members = ref<Member[]>([
         {
@@ -285,6 +304,8 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
+
+          // Pitching Section
           pitchingKind: '1MinPitching',
           likedNo: 10,
           seenNo: 100,
@@ -321,7 +342,7 @@
           bizCity: 'New York',
           connections: 100,
           noEmployees: 50,
-          bookingDate: '2023-01-01',
+          bookingDate: '2023-01-01T12:00:00',
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
@@ -335,6 +356,8 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
+
+          // Pitching section
           pitchingKind: '3MinPitching',
           likedNo: 10,
           seenNo: 100,
@@ -371,7 +394,7 @@
           bizCity: 'New York',
           connections: 100,
           noEmployees: 50,
-          bookingDate: '2023-01-01',
+          bookingDate: '2023-01-01T12:00:00',
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
@@ -385,6 +408,8 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
+
+          // Pitching section
           pitchingKind: 'InvestmentPitching',
           likedNo: 10,
           seenNo: 100,
@@ -421,7 +446,7 @@
           bizCity: 'New York',
           connections: 100,
           noEmployees: 50,
-          bookingDate: '2023-01-01',
+          bookingDate: '2023-01-01T12:00:00',
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
@@ -445,11 +470,13 @@
 
 // back button does not wor, fix itk
       const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
+
       const scrollToLeft = () => {
         if (scrollableContainer.value) {
           scrollableContainer.value.scrollLeft = 0;
         }
       };
+
 // back button does not work
 
       // Custom order for pitchingKind
@@ -500,10 +527,13 @@
       });
     });
 
+    // Set default sorting by bookingDate
+      resetSorting();
+
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-    //  * Computes the paginated members for the current page.
+    //  Computes the paginated members for the current page.
       const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
         return sortedMembers.value.slice(start, start + itemsPerPage);
@@ -619,6 +649,9 @@
                     <th>Membership Type</th>
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
+
+                    // Pitching section
+
                     <th>Pitching Kind</th>
                     <th>LikedNo</th>
                     <th>SeenNo</th>
@@ -630,6 +663,8 @@
                     <th>YouTube Link</th>
                     <th>PitchingSummery</th>
                     <th>LookingFor Summery</th>
+
+
                     <th>Age</th>
                     <th>Gender</th>
                     <th>Business Name</th>
@@ -672,6 +707,8 @@
                       <td>${member.membershipType}</td>
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
+
+                      // Pitching section
                       <td>${member.pitchingKind}</td>
                       <td>${member.likedNo}</td>
                       <td>${member.seenNo}</td>
@@ -683,6 +720,7 @@
                       <td>${member.youTubeLink}</td>
                       <td>${member.pitchingSummery}</td>
                       <td>${member.lookingForSummery}</td>
+                      
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
                       <td>${member.businessName}</td>
@@ -719,6 +757,7 @@
                     <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
+                    // Pitching section
                     <td></td>
                     <td>${totalLikedNo.value}</td>
                     <td>${totalSeenNo.value}</td>
@@ -728,6 +767,8 @@
                     <td></td>
                     <td></td>
                     <td></td>
+
+
                     <td></td>
                     <td></td>
                     <td></td>
@@ -754,6 +795,7 @@
                     <td></td>
                     <td></td>
                     <td>${totalEmployees.value}</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -794,6 +836,18 @@
       };
 
       watch(searchQuery, searchMembers);
+      
+      // Clicking popup function here
+      const showMiniEvent = ref<boolean>(false);
+      const activeMemberId = ref<number | null>(null);
+      const isModalOpen = ref<boolean>(false);
+      const openModal = (memberId: number) => {
+          activeMemberId.value = memberId;
+        isModalOpen.value = true;
+      };
+      const closeModal = () => {
+        isModalOpen.value = false;
+      };
 
       return {
         members,
@@ -823,9 +877,15 @@
         totalAdvertSpent,
         bizMentorSpent,
         totalEmployees,
+        create, trash, ban,
         arrowBackCircle,
         scrollToLeft,
         scrollableContainer,
+        showMiniEvent,
+        activeMemberId,
+        isModalOpen,
+        openModal,
+        closeModal,
       };
     }
   });
@@ -939,6 +999,20 @@ ion-col {
   font-size: 12px;
   border-right: 1px solid lightgray;
 }
+/* popup section */
+  ion-modal {
+  --width: 90%; /* Adjust width as needed */
+  --height: 90%; /* Adjust height as needed */
+  --max-width: 90vw; /* Adjust max-width as needed */
+  --max-height: 90vh; /* Adjust max-height as needed */
+}
+  .ActionCol {
+    overflow-x: visible;
+  }
+  .ActionCol ion-button {
+    margin: 0;
+    padding: 0;
+  }
 .PageInfo {
   display: flex;
   justify-content: center;

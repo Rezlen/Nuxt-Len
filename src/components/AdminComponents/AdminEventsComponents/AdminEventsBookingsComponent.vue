@@ -38,6 +38,9 @@
           <IonCol class="EmailCol" @click="sortTickets('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
           <IonCol class="BizCountryCol" @click="sortTickets('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
           <IonCol class="BizCityCol" @click="sortTickets('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
+          
+          <IonCol class="BookingDateCol" @click="sortTickets('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+          
           <IonCol class="JoinedCol" @click="sortTickets('joined')">Joined <IonIcon :icon="sortIcon('joined')" class="sort-icon" /></IonCol>
           <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="ActionCol">Actions</IonCol>
@@ -69,6 +72,9 @@
           <IonCol class="EmailCol">{{ ticket.email }}</IonCol>
           <IonCol class="BizCountryCol">{{ ticket.bizCountry }}</IonCol>
           <IonCol class="BizCityCol">{{ ticket.bizCity }}</IonCol>
+
+          <IonCol class="BookingDateCol">{{ ticket.bookingDate }}</IonCol>
+
           <IonCol class="JoinedCol">{{ ticket.joined }}</IonCol>
           <IonCol class="LastLoggedInCol">{{ ticket.lastLoggedIn }}</IonCol>
           <IonCol class="ActionCol">
@@ -104,6 +110,9 @@
           <IonCol class="EmailCol"></IonCol>
           <IonCol class="BizCountryCol"></IonCol>
           <IonCol class="BizCityCol"></IonCol>
+
+          <IonCol class="BookingDateCol"></IonCol>
+          
           <IonCol class="JoinedCol"></IonCol>
           <IonCol class="LastLoggedInCol"></IonCol>
           <IonCol class="ActionCol"></IonCol>
@@ -155,6 +164,7 @@
     email: string;
     bizCountry: string;
     bizCity: string;
+    bookingDate: string;
     joined: string;
     lastLoggedIn: string;
   }
@@ -189,6 +199,7 @@
           email: 'john.doe@example.com',
           bizCountry: 'USA',
           bizCity: 'New York',
+          bookingDate: '2023-01-01T12:00:00',
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01'
         },
@@ -217,6 +228,7 @@
           email: 'alice.smith@example.com',
           bizCountry: 'Canada',
           bizCity: 'Toronto',
+          bookingDate: '2023-01-01T12:00:00',
           joined: '2023-02-01',
           lastLoggedIn: '2023-07-01'
         },
@@ -245,6 +257,7 @@
           email: 'bob.brown@example.com',
           bizCountry: 'UK',
           bizCity: 'London',
+          bookingDate: '2023-01-01T12:00:00',
           joined: '2023-03-01',
           lastLoggedIn: '2023-08-01'
         }
@@ -291,7 +304,7 @@
       
     //  * Resets the sorting to the original state (default order).
       const resetSorting = () => {
-        sortKey.value = null;
+        sortKey.value = 'bookingDate';
         sortAsc.value = true;
       };
 
@@ -342,13 +355,12 @@
           [
             'Ticket ID', 'Ticket Title', 'Ticket Price', 'Exhibition SpotNo', 'Exhibition SpotColor', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'Age', 'Gender', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'BizMentor',
-            'TotalSpent', 'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Joined', 'LastLoggedIn'
+            'TotalSpent', 'MobileNo', 'Email', 'BizCountry', 'BizCity',, 'Booking Date', 'Joined', 'LastLoggedIn'
           ],
           ...filteredTickets.value.map(ticket => [
             ticket.id, ticket.title, ticket.price, ticket.spotNo, ticket.spotColor, ticket.personPic, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.age, ticket.gender,
             ticket.businessName, ticket.bizCategory, ticket.exhibited, ticket.visited, ticket.peopleSatisfiedNeeds, ticket.peopleRequestedOffers,
-            ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.mobileNo, ticket.email, ticket.bizCountry, ticket.bizCity,
-            ticket.joined, ticket.lastLoggedIn
+            ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.mobileNo, ticket.email, ticket.bizCountry, ticket.bizCity, ticket.bookingDate, ticket.joined, ticket.lastLoggedIn
           ])
         ]
           .map(e => e.join(","))
@@ -427,6 +439,7 @@
                     <th>Email</th>
                     <th>Biz Country</th>
                     <th>Biz City</th>
+                    <th>BookingDate</th>
                     <th>Joined</th>
                     <th>Last Logged In</th>
                   </tr>
@@ -458,6 +471,7 @@
                       <td>${ticket.email}</td>
                       <td>${ticket.bizCountry}</td>
                       <td>${ticket.bizCity}</td>
+                      <td>${ticket.bookingDate}</td>
                       <td>${ticket.joined}</td>
                       <td>${ticket.lastLoggedIn}</td>
                     </tr>
