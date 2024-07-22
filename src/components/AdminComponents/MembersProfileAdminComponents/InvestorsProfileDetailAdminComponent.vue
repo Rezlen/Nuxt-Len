@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all members who have booked a 1Minute, 3Minute &/or Investment Pitching</p>
+    <p class="TitleP">List of all investors/members who filled an Investment Form</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>

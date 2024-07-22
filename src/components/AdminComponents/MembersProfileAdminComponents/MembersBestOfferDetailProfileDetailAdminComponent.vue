@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all OFFERS and members details </p>
+    <p class="TitleP">List of all Best OFFERS and members details </p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
