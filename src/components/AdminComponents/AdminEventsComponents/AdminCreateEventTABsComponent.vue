@@ -35,7 +35,7 @@
       </IonCol>
       <!-- Investment Applications Tab here -->
       <IonCol v-show="selectedTab === 'InvestmentApplications'" class="InvestmentApplications">
-        <AdminEventsBookingsComponent />
+        <AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent />
       </IonCol>
       <!-- Investors Profile Tab here -->
       <IonCol v-show="selectedTab === 'InvestorsProfile'" class="InvestorsProfile">
@@ -52,6 +52,8 @@ import AdminEventsListComponent from '@/components/AdminComponents/AdminEventsCo
 import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsBookingsComponent.vue';
 import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventComponent.vue';
 import AdminEventSpecificMembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificMembersPitchingProfileDetailAdminComponent.vue';
+import AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent.vue';
+
 import AdminEventSpecificInvestorsProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificInvestorsProfileDetailAdminComponent.vue';
 
 export default defineComponent({
@@ -66,6 +68,7 @@ export default defineComponent({
     AdminEventsBookingsComponent,
     AdminCreateEventComponent,
     AdminEventSpecificMembersPitchingProfileDetailAdminComponent,
+    AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent,
     AdminEventSpecificInvestorsProfileDetailAdminComponent,
   },
   setup() {

@@ -58,6 +58,7 @@ import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsC
 import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventsBookingsComponent.vue';
 import AdminEventSpecificMembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificMembersPitchingProfileDetailAdminComponent.vue';
 import AdminEventSpecificInvestorsProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificInvestorsProfileDetailAdminComponent.vue';
+import AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent.vue';
 
 // Investment comp
 import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
@@ -337,6 +338,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/adminEventSpecificInvestorsProfileDetailAdminComponent',
     name: 'AdminEventSpecificInvestorsProfileDetailAdminComponent',
     component: AdminEventSpecificInvestorsProfileDetailAdminComponent
+  },
+  {
+    path: '/adminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent',
+    name: 'AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent',
+    component: AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent
   },
 
 
