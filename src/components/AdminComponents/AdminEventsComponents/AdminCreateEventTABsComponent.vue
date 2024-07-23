@@ -53,7 +53,6 @@ import AdminEventsBookingsComponent from '@/components/AdminComponents/AdminEven
 import AdminCreateEventComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventComponent.vue';
 import AdminEventSpecificMembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificMembersPitchingProfileDetailAdminComponent.vue';
 import AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent.vue';
-
 import AdminEventSpecificInvestorsProfileDetailAdminComponent from '@/components/AdminComponents/AdminEventsComponents/AdminEventSpecificInvestorsProfileDetailAdminComponent.vue';
 
 export default defineComponent({

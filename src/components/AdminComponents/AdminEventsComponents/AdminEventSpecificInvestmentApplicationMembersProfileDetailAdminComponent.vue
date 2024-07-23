@@ -403,16 +403,16 @@
       };
 
 
-    //  * Computes the sorted members based on the current sortKey and sort order.
-          const sortMembers = (key: keyof Member) => {
+    // Computes the sorted members based on the current sortKey and sort order.
+      const sortMembers = (key: keyof Member) => {
         if (sortKey.value === key) {
           sortAsc.value = !sortAsc.value;
         } else {
           sortKey.value = key;
           sortAsc.value = true;
         }
-      searchMembers();
-    };
+        searchMembers();
+      };
 
       const sortedMembers = computed(() => {
         if (!sortKey.value) return filteredMembers.value;
