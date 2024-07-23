@@ -504,7 +504,7 @@ export default defineComponent({
     align-items: center;
   }
   .ContainerRow {
-    width: 3000px;
+    width: 2000px;
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: scroll;
@@ -543,7 +543,6 @@ export default defineComponent({
   }
 
   .EventIDCol {
-    /* width: 50px; */
     background-color: red;
   }
 
@@ -556,6 +555,7 @@ export default defineComponent({
     align-content: center;
     height: 30px;
     font-size: 12px;
+    border-right: 1px solid lightgray;
   }
 
   .ActionCol{

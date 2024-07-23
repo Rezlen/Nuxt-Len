@@ -6,17 +6,17 @@
             <li>
               <strong>BUSINESSES/OFFERS</strong>
               <ul>
-                <li>All Businesses Profiles</li>
-                <li>All Offers</li>
-                <li>Best Offers</li>
-                <li>All Needs</li>
-                <li>Advertise For Free</li>
+                <li><a href='/BizOfferNeedPage' class="Items" >All Businesses Profiles</a></li>
+                <li><a href='/BizOfferNeedPage' class="Items" >All Offers</a></li>
+                <li><a href='/BizOfferNeedPage' class="Items" >Best Offers</a></li>
+                <li><a href='/BizOfferNeedPage' class="Items" >All Needs</a></li>
+                <li><a href='/BizOfferNeedPage' class="Items" >Advertise For Free</a></li>
               </ul>
             </li>
             <li>
               <strong>ABOUT US</strong>
               <ul>
-                <li>About Us</li>
+                <li><a href='/AboutUsPage' class="Items" >About Us</a></li>
                 <li>Contact Us</li>
                 <li>FAQ</li>
                 <li>Sitemap</li>
@@ -25,28 +25,28 @@
             <li>
               <strong>EVENTS/SHOWS</strong>
               <ul>
-                <li>Events & Shows</li>
-                <li>Exhibitors</li>
-                <li>Visitors</li>
-                <li>Exhibiting</li>
+                <li><a href='/TheEventShowPage' class="Items" >Events & Shows</a></li>
+                <li><a href='/TheEventShowPage' class="Items" >Exhibitors</a></li>
+                <li><a href='/TheEventShowPage' class="Items" >Visitors</a></li>
+                <li><a href='/TheEventShowPage' class="Items" >Exhibiting</a></li>
               </ul>
             </li>
             <li>
               <strong>OTHERS</strong>
               <ul>
                 <li>Feed</li>
-                <li>Login</li>
+                <li><a href='/SignInSignUpPage' class="Items" >Login</a></li>
                 <li>VIP Membership</li>
-                <li>Forgot Password</li>
+                <li><a href='/SignInSignUpPage' class="Items" >Forgot Password</a></li>
               </ul>
             </li>
             <li>
               <strong>Investors & Investees</strong>
               <ul>
-                <li>Apply For Investment</li>
-                <li>Provide Investment</li>
-                <li>Investors</li>
-                <li>Investees</li>
+                <li><a href='/InvestorsInvesteesPage' class="Items" >Apply For Investment</a></li>
+                <li><a href='/InvestorsInvesteesPage' class="Items" >Provide Investment</a></li>
+                <li><a href='/InvestorsInvesteesPage' class="Items" >Investors</a></li>
+                <li><a href='/InvestorsInvesteesPage' class="Items" >Investees</a></li>
               </ul>
             </li>
             <li>
@@ -61,9 +61,9 @@
             <li>
               <strong>POLICIES</strong>
               <ul>
-                <li>Terms & Conditions</li>
+                <li><a href='/TermsConditionsPage' class="Items" >Terms & Conditions</a></li>
                 <li>Cancellation Policy</li>
-                <li>Privacy Policy</li>
+                <li><a href='/PrivacyPolicyPage' class="Items" >Privacy Policy</a></li>
               </ul>
             </li>
             <li>
@@ -142,6 +142,10 @@ export default defineComponent({
 
 .sitemap ul {
   padding-left: 0;
+}
+a {
+  /* text-decoration: none; */
+  color: black;
 }
 
 @media (max-width: 768px) {

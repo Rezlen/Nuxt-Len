@@ -1,5 +1,6 @@
 <template>
   <IonGrid>
+    <p class="TitleP">List of all booked tickets</p>
 
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
@@ -273,16 +274,16 @@
       const searchQuery = ref<string>('');
       const filteredTickets = ref(tickets.value);
 
-// back button does not wor, fix itk
+      // back button does not wor, fix itk
       const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
 
-   const scrollToLeft = () => {
-      if (scrollableContainer.value) {
-        scrollableContainer.value.scrollLeft = 0;
-      }
-    };
+      const scrollToLeft = () => {
+          if (scrollableContainer.value) {
+            scrollableContainer.value.scrollLeft = 0;
+          }
+        };
 
-// back button does not work
+      // back button does not work
 
 
       const sortTickets = (key: keyof Ticket) => {
@@ -302,14 +303,14 @@
       };
 
       
-    //  * Resets the sorting to the original state (default order).
+      //  * Resets the sorting to the original state (default order).
       const resetSorting = () => {
         sortKey.value = 'bookingDate';
         sortAsc.value = true;
       };
 
       
-    //  * Computes the sorted tickets based on the current sortKey and sort order.
+      //  * Computes the sorted tickets based on the current sortKey and sort order.
       const sortedTickets = computed(() => {
         if (!sortKey.value) return filteredTickets.value;
 
@@ -323,33 +324,33 @@
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-    //  * Computes the paginated tickets for the current page.
+      //  * Computes the paginated tickets for the current page.
       const paginatedTickets = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
         return sortedTickets.value.slice(start, start + itemsPerPage);
       });
 
-    //  * Computes the total number of pages based on the number of tickets and items per page.
+      //  * Computes the total number of pages based on the number of tickets and items per page.
       const totalPages = computed(() => Math.ceil(filteredTickets.value.length / itemsPerPage));
 
-    //  * Computes the total price of all tickets.
+      //  * Computes the total price of all tickets.
       const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
 
-    //  * Navigates to the previous page, if possible.
+      //  * Navigates to the previous page, if possible.
       const prevPage = () => {
         if (currentPage.value > 1) {
           currentPage.value -= 1;
         }
       };
 
-    //  * Navigates to the next page, if possible.
+      //  * Navigates to the next page, if possible.
       const nextPage = () => {
         if (currentPage.value < totalPages.value) {
           currentPage.value += 1;
         }
       };
 
-    //  * Exports the table data to a CSV file.
+      //  * Exports the table data to a CSV file.
       const exportTable = () => {
         const csvContent = [
           [
@@ -496,12 +497,12 @@
         }
       };
 
-        // making the selected row distinguishable
+      // making the selected row distinguishable
       const selectRow = (id: number) => {
         selectedRow.value = id;
       };
 
-          // Search Function
+      // Search Function
       const searchTickets = () => {
         if (searchQuery.value.trim() === '') {
           filteredTickets.value = tickets.value;
@@ -647,6 +648,10 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+  }
+  .TitleP {
+    text-align: center;
+    font-weight: bold;
   }
 
   @media (max-width: 600px) {
