@@ -1,21 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { BusinessProfile } from './BusinessProfile';
-import { PersonalProfile } from './PersonalProfile';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne } from 'typeorm';
+import { Profile } from './Profile';
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  email: string;
-
-  @Column()
-  password: string;
-
-  @OneToMany(() => BusinessProfile, profile => profile.user)
-  businessProfiles: BusinessProfile[];
-
-  @OneToMany(() => PersonalProfile, profile => profile.user)
-  personalProfiles: PersonalProfile[];
+  @PrimaryGeneratedColumn() id: number;
+  @Column() email: string;
+  @Column() password: string;
+  @OneToOne(() => Profile, profile => profile.user) profile: Profile;
 }

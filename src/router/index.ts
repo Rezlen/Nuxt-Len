@@ -1,3 +1,5 @@
+
+
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
@@ -74,10 +76,6 @@ import InvestmentApplicationMembersProfileDetailAdminComponent from '@/component
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
-
-// Backend folder
-// import  BusinessProfile  from '/backend/models/BusinessProfile.ts';
-// import  PersonalProfile  from '/backend/models/PersonalProfile';
 
 
 

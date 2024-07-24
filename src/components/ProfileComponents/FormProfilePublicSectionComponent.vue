@@ -52,7 +52,7 @@
 
       <IonItem>
         <IonLabel>Upload Business Logo</IonLabel>
-        <input type="file" @change="onFileSelected" />
+        <input type="file" name="businessLogo" @change="onBusinessLogoSelected" />
       </IonItem>
 
       <IonCol>
@@ -127,7 +127,7 @@
 
       <IonItem>
         <IonLabel>Upload Face Photo</IonLabel>
-        <input type="file" @change="onFileSelected" />
+        <input type="file" name="facePhoto" @change="onFacePhotoSelected" />
       </IonItem>
 
       <IonCol>
@@ -152,7 +152,7 @@
 
       <IonRow class="Summaries">
         <IonCol>
-          <IonTextarea v-model="summaryWhoWeAre" class="Summaries" label="Who We Are, What We do"
+          <IonTextarea v-model="summaryWhoWeAreWhatWeDo" class="Summaries" label="Who We Are, What We do"
             label-placement="floating" :counter="true" :maxlength="300" :counter-formatter="customFormatter">
           </IonTextarea>
         </IonCol>
@@ -168,6 +168,8 @@
         </IonCol>
       </IonRow>
     </IonRow>
+
+    <!-- Submit Button -->
     <IonButton class="UpdateBTN" expand="block" title="SubmitBTN" @click="submitContent">Update</IonButton>
   </IonGrid>
 </template>
@@ -185,11 +187,23 @@ import {
   IonSelectOption,
   IonButton,
   IonTextarea,
-  IonRadio,
-  IonRadioGroup,
-  IonList,
   IonInput,
 } from '@ionic/vue';
+
+// Function to sanitize input
+const sanitizeInput = (input: string): string => {
+  return input
+    .replace(/<script.*?>.*?<\/script>/gi, '')  // Remove script tags
+    .replace(/<[\/\!]*?[^<>]*?>/gi, '')       // Remove HTML tags
+    .replace(/&(?:lt|gt|amp|quot|#39);/g, '') // Remove HTML entities
+    .replace(/[<>\/\\'";]/g, '');              // Remove potentially harmful characters
+};
+
+// Function to validate URLs
+function isValidUrl(url: string): boolean {
+  const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/i;
+  return urlPattern.test(url);
+}
 
 export default defineComponent({
   name: 'FormProfilePublicSectionComponent',
@@ -204,29 +218,29 @@ export default defineComponent({
     IonSelectOption,
     IonButton,
     IonTextarea,
-    IonRadio,
-    IonRadioGroup,
-    IonList,
     IonInput,
   },
   setup() {
+    // Business Section
     const businessName = ref<string>('');
     const businessCategory = ref<string | null>(null);
     const businessCountry = ref<string | null>(null);
     const businessCity = ref<string | null>(null);
-    const businessRevenue = ref<string | null>(null);
-    const businessEmployees = ref<string | null>(null);
-    const businessEstablished = ref<string | null>(null);
+    const businessRevenue = ref<number | null>(null);
+    const businessEmployees = ref<number | null>(null);
+    const businessEstablished = ref<number | null>(null);
     const businessLogo = ref<string | null>(null);
     const businessTwitter = ref<string>('');
     const businessGoogle = ref<string>('');
     const businessFacebook = ref<string>('');
     const businessLinkedIn = ref<string>('');
+
+    // Personal Section
     const firstName = ref<string>('');
     const lastName = ref<string>('');
     const jobPosition = ref<string | null>(null);
-    const yearlySalary = ref<string | null>(null);
-    const age = ref<string | null>(null);
+    const yearlySalary = ref<number | null>(null);
+    const age = ref<number | null>(null);
     const country = ref<string | null>(null);
     const city = ref<string | null>(null);
     const facePhoto = ref<string | null>(null);
@@ -234,7 +248,7 @@ export default defineComponent({
     const personalGoogle = ref<string>('');
     const personalFacebook = ref<string>('');
     const personalTwitter = ref<string>('');
-    const summaryWhoWeAre = ref<string>('');
+    const summaryWhoWeAreWhatWeDo = ref<string>('');
     const summaryWhatWeProvide = ref<string>('');
     const summaryWhatWeLookingFor = ref<string>('');
 
@@ -242,60 +256,75 @@ export default defineComponent({
       return `${maxLength - inputLength} characters remaining`;
     };
 
-    const onFileSelected = (event: Event) => {
+    const onBusinessLogoSelected = (event: Event) => {
       const input = event.target as HTMLInputElement;
       const file = input.files?.[0];
       if (file) {
         const reader = new FileReader();
-        reader.readAsDataURL(file);
         reader.onload = () => {
-          if (input.name === 'businessLogo') {
-            businessLogo.value = reader.result as string;
-          } else if (input.name === 'facePhoto') {
-            facePhoto.value = reader.result as string;
-          }
+          businessLogo.value = reader.result as string;
         };
+        reader.readAsDataURL(file);
+      }
+    };
+
+    const onFacePhotoSelected = (event: Event) => {
+      const input = event.target as HTMLInputElement;
+      const file = input.files?.[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          facePhoto.value = reader.result as string;
+        };
+        reader.readAsDataURL(file);
       }
     };
 
     const submitContent = () => {
-      const formData = {
-        email: '', // You should add email input handling here
-        password: '', // You should add password input handling here
-        businessName: businessName.value,
-        businessCategory: businessCategory.value,
-        businessCountry: businessCountry.value,
-        businessCity: businessCity.value,
-        businessRevenue: businessRevenue.value,
-        businessEmployees: businessEmployees.value,
-        businessEstablished: businessEstablished.value,
-        businessLogo: businessLogo.value,
-        businessTwitter: businessTwitter.value,
-        businessGoogle: businessGoogle.value,
-        businessFacebook: businessFacebook.value,
-        businessLinkedIn: businessLinkedIn.value,
-        firstName: firstName.value,
-        lastName: lastName.value,
-        jobPosition: jobPosition.value,
-        yearlySalary: yearlySalary.value,
-        age: age.value,
-        country: country.value,
-        city: city.value,
-        facePhoto: facePhoto.value,
-        personalLinkedIn: personalLinkedIn.value,
-        personalGoogle: personalGoogle.value,
-        personalFacebook: personalFacebook.value,
-        personalTwitter: personalTwitter.value,
-        summaryWhoWeAre: summaryWhoWeAre.value,
-        summaryWhatWeProvide: summaryWhatWeProvide.value,
-        summaryWhatWeLookingFor: summaryWhatWeLookingFor.value,
+      // Sanitize all text fields
+      const sanitizedData = {
+        // For demonstration, email and password fields are not included here
+        email: sanitizeInput(''), // Add email input handling
+        password: sanitizeInput(''), // Add password input handling
+
+        // Business Section
+        businessName: sanitizeInput(businessName.value),
+        businessCategory: sanitizeInput(businessCategory.value ?? ''),
+        businessCountry: sanitizeInput(businessCountry.value ?? ''),
+        businessCity: sanitizeInput(businessCity.value ?? ''),
+        businessRevenue: businessRevenue.value, // Number fields don't need sanitization
+        businessEmployees: businessEmployees.value, // Number fields don't need sanitization
+        businessEstablished: businessEstablished.value, // Number fields don't need sanitization
+        businessLogo: businessLogo.value, // URL fields don't need sanitization
+        businessTwitter: isValidUrl(businessTwitter.value) ? businessTwitter.value : '',
+        businessGoogle: isValidUrl(businessGoogle.value) ? businessGoogle.value : '',
+        businessFacebook: isValidUrl(businessFacebook.value) ? businessFacebook.value : '',
+        businessLinkedIn: isValidUrl(businessLinkedIn.value) ? businessLinkedIn.value : '',
+
+        // Personal Section
+        firstName: sanitizeInput(firstName.value),
+        lastName: sanitizeInput(lastName.value),
+        jobPosition: sanitizeInput(jobPosition.value ?? ''),
+        yearlySalary: yearlySalary.value, // Number fields don't need sanitization
+        age: age.value, // Number fields don't need sanitization
+        country: sanitizeInput(country.value ?? ''),
+        city: sanitizeInput(city.value ?? ''),
+        facePhoto: facePhoto.value, // URL fields don't need sanitization
+        personalLinkedIn: isValidUrl(personalLinkedIn.value) ? personalLinkedIn.value : '',
+        personalGoogle: isValidUrl(personalGoogle.value) ? personalGoogle.value : '',
+        personalFacebook: isValidUrl(personalFacebook.value) ? personalFacebook.value : '',
+        personalTwitter: isValidUrl(personalTwitter.value) ? personalTwitter.value : '',
+        summaryWhoWeAreWhatWeDo: sanitizeInput(summaryWhoWeAreWhatWeDo.value).substring(0, 10000),
+        summaryWhatWeProvide: sanitizeInput(summaryWhatWeProvide.value).substring(0, 10000),
+        summaryWhatWeLookingFor: sanitizeInput(summaryWhatWeLookingFor.value).substring(0, 10000),
       };
 
-      console.log('Form Data:', formData);
-      // Here you should send formData to your API endpoint
+      console.log('Form Data:', sanitizedData);
+      // Here you should send sanitizedData to your API endpoint
     };
 
     return {
+      // Business Section
       businessName,
       businessCategory,
       businessCountry,
@@ -308,6 +337,8 @@ export default defineComponent({
       businessGoogle,
       businessFacebook,
       businessLinkedIn,
+
+      // Personal section
       firstName,
       lastName,
       jobPosition,
@@ -320,10 +351,11 @@ export default defineComponent({
       personalGoogle,
       personalFacebook,
       personalTwitter,
-      summaryWhoWeAre,
+      summaryWhoWeAreWhatWeDo,
       summaryWhatWeProvide,
       summaryWhatWeLookingFor,
-      onFileSelected,
+      onBusinessLogoSelected,
+      onFacePhotoSelected,
       submitContent,
       customFormatter,
     };
@@ -335,59 +367,59 @@ export default defineComponent({
 
 
 <style scoped>
-ion-radio {
-  border: solid 1px gray;
-  padding: 5px;
-  border-radius: 5px;
-}
-ion-grid {
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: 100%; /* Full height to fit the parent */
-  margin-top: 20px;
-}
+  ion-radio {
+    border: solid 1px gray;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  ion-grid {
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 100%; /* Full height to fit the parent */
+    margin-top: 20px;
+  }
 
-ion-textarea{
-  border-radius: 7px;
-  border:1px gray solid;
-  margin-bottom: 10px;
-}
+  ion-textarea{
+    border-radius: 7px;
+    border:1px gray solid;
+    margin-bottom: 10px;
+  }
 
-input[type="file"] {
-  width: 100%;
-}
-.RevenueSalary {
-box-shadow: 0 4px 8px rgba(34, 139, 34, 0.8);
- /* X-offset, Y-offset, blur radius, and color */
-}
+  input[type="file"] {
+    width: 100%;
+  }
+  .RevenueSalary {
+  box-shadow: 0 4px 8px rgba(34, 139, 34, 0.8);
+  /* X-offset, Y-offset, blur radius, and color */
+  }
 
-.Summaries {
-  width: 100%;
-  gap: 5px;
-}
+  .Summaries {
+    width: 100%;
+    gap: 5px;
+  }
 
-.PersonalProfileSection,
-.BusinessProfileSection {
-  margin: 10px 0;
-  padding: 20px 0;
-  border: 3px solid gray;
-  box-shadow: 0 4px 8px rgba(75, 16, 214, 1.2); /* X-offset, Y-offset, blur radius, and color */
-  border-radius: 7px;
-}
- 
-.SectionTitle {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  /* align-items: center; */
-  /* align-content: center; */
-  font-size: 30px;
-  font-weight: bold;
-  width: 100%;
-  padding: 20px;
-}
+  .PersonalProfileSection,
+  .BusinessProfileSection {
+    margin: 10px 0;
+    padding: 20px 0;
+    border: 3px solid gray;
+    box-shadow: 0 4px 8px rgba(75, 16, 214, 1.2); /* X-offset, Y-offset, blur radius, and color */
+    border-radius: 7px;
+  }
+  
+  .SectionTitle {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    /* align-items: center; */
+    /* align-content: center; */
+    font-size: 30px;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;
+  }
 
-.UpdateBTN {
-  width: 100%;
-}
+  .UpdateBTN {
+    width: 100%;
+  }
 
 </style>

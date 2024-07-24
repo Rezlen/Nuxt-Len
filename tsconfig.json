@@ -17,6 +17,6 @@
     },
     "allowJs": true,
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "backend/models/User.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
