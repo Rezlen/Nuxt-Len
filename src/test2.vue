@@ -1,1036 +1,309 @@
 <template>
-  <IonGrid>
-    <p class="TitleP">List of all NEEDS and members details </p>
-    <IonRow class="ButtonRow">
-      <IonButton @click="resetSorting">RESET</IonButton>
-      <IonButton @click="exportTable">EXPORT</IonButton>
-      <IonButton @click="printTable">PRINT</IonButton>
-      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchMembers"></IonInput>
-      <IonButton class="arrowBackCircle" fill="clear" title="Duplicate" @click="scrollToLeft"> 
-        <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
-      </IonButton>
-    </IonRow>
-    
-    <IonRow class="ContainerRow" ref="scrollableContainer">
-        <!-- TitleRow with sorting functionality and icons    BestOfferCommissionCol   -->
-        <IonRow class="TitleRow">
-          <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-          <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
-          <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
-          <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
-          <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+  <IonGrid class="Grid">
+    <!-- Business Profile Section -->
+    <IonRow class="BusinessProfileSection">
+      <IonRow class="SectionTitle">
+        <IonTitle>Business Section</IonTitle>
+      </IonRow>
+      <IonInput v-model="businessName" label="Enter Your Business Name" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      <IonCol>
+        <IonSelect v-model="businessCategory" placeholder="Business Main Category" fill="outline">
+          <IonSelectOption value="category1">Category 1</IonSelectOption>
+          <IonSelectOption value="category2">Category 2</IonSelectOption>
+          <IonSelectOption value="category3">Category 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="businessCountry" placeholder="Business Main Country" fill="outline">
+          <IonSelectOption value="country1">Country 1</IonSelectOption>
+          <IonSelectOption value="country2">Country 2</IonSelectOption>
+          <IonSelectOption value="country3">Country 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="businessCity" placeholder="Business Main City" fill="outline">
+          <IonSelectOption value="city1">City 1</IonSelectOption>
+          <IonSelectOption value="city2">City 2</IonSelectOption>
+          <IonSelectOption value="city3">City 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="businessRevenue" placeholder="Business Revenue Yearly" fill="outline">
+          <IonSelectOption value="revenue1">Revenue 1</IonSelectOption>
+          <IonSelectOption value="revenue2">Revenue 2</IonSelectOption>
+          <IonSelectOption value="revenue3">Revenue 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="businessEmployees" placeholder="Number Of Employees" fill="outline">
+          <IonSelectOption value="employees1">Employees 1</IonSelectOption>
+          <IonSelectOption value="employees2">Employees 2</IonSelectOption>
+          <IonSelectOption value="employees3">Employees 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="businessEstablished" placeholder="Business Established Year" fill="outline">
+          <IonSelectOption value="year1">Year 1</IonSelectOption>
+          <IonSelectOption value="year2">Year 2</IonSelectOption>
+          <IonSelectOption value="year3">Year 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
 
-          <!-- Need Data -->
-          <IonCol class="NeedImageCol" @click="sortMembers('needImage')">NeedImage <IonIcon :icon="sortIcon('needImage')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedWantedCol" @click="sortMembers('needWanted')">NeedWanted<IonIcon :icon="sortIcon('needWanted')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedSeenCol" @click="sortMembers('needSeen')">NeedSeen <IonIcon :icon="sortIcon('needSeen')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedListViewCol" @click="sortMembers('needListView')">NeedListView <IonIcon :icon="sortIcon('needListView')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedRenewedCol" @click="sortMembers('needRenewed')">NeedRenewed <IonIcon :icon="sortIcon('needRenewed')" class="sort-icon" /></IonCol>
-          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedLinkCol" @click="sortMembers('needLink')">NeedLink <IonIcon :icon="sortIcon('needLink')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedTitleCol" @click="sortMembers('needTitle')">NeedTitle <IonIcon :icon="sortIcon('needTitle')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCategoryCol" @click="sortMembers('needCategory')">NeedCategory <IonIcon :icon="sortIcon('needCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCountryCol" @click="sortMembers('needCountry')">NeedCountry <IonIcon :icon="sortIcon('needCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCityCol" @click="sortMembers('needCity')">NeedCity <IonIcon :icon="sortIcon('needCity')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedDurationCol" @click="sortMembers('needDuration')">NeedDuration <IonIcon :icon="sortIcon('needDuration')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedContentCol" @click="sortMembers('needContent')">NeedContent <IonIcon :icon="sortIcon('needContent')" class="sort-icon" /></IonCol>
+      <IonItem>
+        <IonLabel>Upload Business Logo</IonLabel>
+        <input type="file" @change="onFileSelected" />
+      </IonItem>
 
-          <!-- Need Data -->
-
-          <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
-          <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
-          <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
-          <IonCol class="BusinessRevenueCol" @click="sortMembers('businessRevenue')">Business Revenue <IonIcon :icon="sortIcon('businessRevenue')" class="sort-icon" /></IonCol>
-          <IonCol class="JobPositionCol" @click="sortMembers('jobPosition')">Job Position<IonIcon :icon="sortIcon('jobPosition')" class="sort-icon" /></IonCol>
-          <IonCol class="SalaryCol" @click="sortMembers('salary')">Salary<IonIcon :icon="sortIcon('salary')" class="sort-icon" /></IonCol>
-
-          <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="ExhibitedCol" @click="sortMembers('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
-          <IonCol class="EventSpentCol" @click="sortMembers('eventSpent')">Event Spent <IonIcon :icon="sortIcon('eventSpent')" class="sort-icon" /></IonCol>
-
-          <IonCol class="VisitedCol" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
-          <IonCol class="ListedNeedsCol" @click="sortMembers('listedNeeds')">Listed Needs <IonIcon :icon="sortIcon('listedNeeds')" class="sort-icon" /></IonCol>
-          <IonCol class="ListedNeedsCol" @click="sortMembers('listedNeeds')">Listed Needs <IonIcon :icon="sortIcon('listedNeeds')" class="sort-icon" /></IonCol>
-          <IonCol class="AdvertSpentCol" @click="sortMembers('advertSpent')">Advert Spent <IonIcon :icon="sortIcon('advertSpent')" class="sort-icon" /></IonCol>
-
-          <IonCol class="PeopleSatisfiedNeedsCol" @click="sortMembers('peopleSatisfiedNeeds')">People SatisfiedNeeds <IonIcon :icon="sortIcon('peopleSatisfiedNeeds')" class="sort-icon" /></IonCol>
-          <IonCol class="PeopleRequestedNeedsCol" @click="sortMembers('peopleRequestedNeeds')">People RequestedNeeds <IonIcon :icon="sortIcon('peopleRequestedNeeds')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestorsAdvertsCol" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
-          <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
-
-          <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-          <IonCol class="BizMentorSpentCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
-          <IonCol class="MobileNoCol" @click="sortMembers('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
-          <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
-          <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="BizCityCol" @click="sortMembers('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
-          <IonCol class="ConnectionsCol" @click="sortMembers('connections')">Connections <IonIcon :icon="sortIcon('connections')" class="sort-icon" /></IonCol>
-          <IonCol class="NoEmployeesCol" @click="sortMembers('noEmployees')">No.Employees <IonIcon :icon="sortIcon('noEmployees')" class="sort-icon" /></IonCol>
-
-          <IonCol class="BookingDateCol" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
-
-          <IonCol class="JoinedCol" @click="sortMembers('joined')">Joined <IonIcon :icon="sortIcon('joined')" class="sort-icon" /></IonCol>
-          <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-          <IonCol class="NoLoggedInCol" @click="sortMembers('noLoggedIn')">NoOf LoggedIn <IonIcon :icon="sortIcon('noLoggedIn')" class="sort-icon" /></IonCol>
-          <IonCol class="FullProfileSeenCol" @click="sortMembers('fullProfileSeen')">FullProfile Seen <IonIcon :icon="sortIcon('fullProfileSeen')" class="sort-icon" /></IonCol>
-        </IonRow>
-
-        <!-- Data rows -->
-        <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
-          <IonCol class="MemberIDCol">{{ member.id }}</IonCol>
-          <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-          <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
-          <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
-          <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
-          <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
-          <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
-
-          <!-- Need &  Profile Data -->
-          <IonCol class="NeedImageCol">{{ member.needImage }}</IonCol>
-          <IonCol class="NeedWantedCol">{{ member.needWanted }}</IonCol>
-          <IonCol class="NeedSeenCol">{{ member.needSeen }}</IonCol>
-          <IonCol class="NeedListViewCol">{{ member.needListView }}</IonCol>
-          <IonCol class="NeedRenewedCol">{{ member.needRenewed }}</IonCol>
-          <IonCol class="LikedCol">{{ member.liked }}</IonCol>
-          <IonCol class="NeedLinkCol">{{ member.needLink }}</IonCol>
-          <IonCol class="NeedTitleCol">{{ member.needTitle }}</IonCol>
-          <IonCol class="NeedCategoryCol">{{ member.needCategory }}</IonCol>
-          <IonCol class="NeedCountryCol">{{ member.needCountry }}</IonCol>
-          <IonCol class="NeedCityCol">{{ member.needCity }}</IonCol>
-          <IonCol class="NeedDurationCol">{{ member.needDuration }}</IonCol>
-          <IonCol class="NeedContentCol">{{ member.needContent }}</IonCol>
-          <!-- Need &  Profile Data -->
-
-
-          <IonCol class="AgeCol">{{ member.age }}</IonCol>
-          <IonCol class="GenderCol">{{ member.gender }}</IonCol>
-          <IonCol class="BusinessNameCol">{{ member.businessName }}</IonCol>
-          <IonCol class="BusinessRevenueCol">{{ member.businessRevenue }}</IonCol>
-          <IonCol class="JobPositionCol">{{ member.jobPosition }}</IonCol>
-          <IonCol class="SalaryCol">{{ member.salary }}</IonCol>
-
-          <IonCol class="BizCategoryCol">{{ member.bizCategory }}</IonCol>
-          <IonCol class="ExhibitedCol">{{ member.exhibited }}</IonCol>
-          <IonCol class="EventSpentCol">{{ member.eventSpent }}</IonCol>
-
-          <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
-          <IonCol class="ListedNeedsCol">{{ member.listedNeeds }}</IonCol>
-          <IonCol class="ListedNeedsCol">{{ member.listedNeeds }}</IonCol>
-          <IonCol class="AdvertSpentCol">{{ member.advertSpent }}</IonCol>
-
-          <IonCol class="PeopleSatisfiedNeedsCol">{{ member.peopleSatisfiedNeeds }}</IonCol>
-          <IonCol class="PeopleRequestedNeedsCol">{{ member.peopleRequestedNeeds }}</IonCol>
-          <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
-          <IonCol class="PitchingsCol">{{ member.pitchings }}</IonCol>
-
-          <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
-          <IonCol class="BizMentorSpentCol">{{ member.bizMentorSpent }}</IonCol>
-          <IonCol class="MobileNoCol">{{ member.mobileNo }}</IonCol>
-          <IonCol class="EmailCol">{{ member.email }}</IonCol>
-          <IonCol class="BizCountryCol">{{ member.bizCountry }}</IonCol>
-          <IonCol class="BizCityCol">{{ member.bizCity }}</IonCol>
-          <IonCol class="ConnectionsCol">{{ member.connections }}</IonCol>
-          <IonCol class="NoEmployeesCol">{{ member.noEmployees }}</IonCol>
-
-          <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
-
-          <IonCol class="JoinedCol">{{ member.joined }}</IonCol>
-          <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
-          <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
-          <IonCol class="FullProfileSeenCol">{{ member.fullProfileSeen }}</IonCol>
-
-        </IonRow>
-
-        <!-- Total row -->
-        <IonRow class="TotalRow">
-          <IonCol class="MemberIDCol">Totals:</IonCol>
-          <IonCol class="PersonPicCol"></IonCol>
-          <IonCol class="FirstNameCol"></IonCol>
-          <IonCol class="LastNameCol"></IonCol>
-          <IonCol class="MembershipTypeCol"></IonCol>
-          <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
-          <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
-
-          <!-- Need &  Profile Data -->
-          <IonCol class="NeedImageCol"></IonCol>
-          <IonCol class="NeedWantedCol">{{ totalNeedWanted }}</IonCol>
-          <IonCol class="NeedSeenCol">{{ totalNeedSeen }}</IonCol>
-          <IonCol class="NeedListViewCol">{{ totalNeedListView }}</IonCol>
-          <IonCol class="NeedRenewedCol">{{ totalNeedRenewed }}</IonCol>
-          <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
-          <IonCol class="NeedLinkCol"></IonCol>
-          <IonCol class="NeedTitleCol"></IonCol>
-          <IonCol class="NeedCategoryCol"></IonCol>
-          <IonCol class="NeedCountryCol"></IonCol>
-          <IonCol class="NeedCityCol"></IonCol>
-          <IonCol class="NeedDurationCol"></IonCol>
-          <IonCol class="NeedContentCol"></IonCol>
-
-
-
-          <IonCol class="AgeCol"></IonCol>
-          <IonCol class="GenderCol"></IonCol>
-          <IonCol class="BusinessNameCol"></IonCol>
-          <IonCol class="BusinessRevenueCol">{{ totalBusinessRevenue }}</IonCol>
-          <IonCol class="JobPositionCol"></IonCol>
-          <IonCol class="SalaryCol">{{ totalSalary }}</IonCol>
-
-          <IonCol class="BizCategoryCol"></IonCol>
-          <IonCol class="ExhibitedCol"></IonCol>
-          <IonCol class="EventSpentCol">{{ totalEventSpent }}</IonCol>
-
-          <IonCol class="VisitedCol"></IonCol>
-          <IonCol class="ListedNeedsCol"></IonCol>
-          <IonCol class="ListedNeedsCol"></IonCol>
-          <IonCol class="AdvertSpentCol">{{ totalAdvertSpent }}</IonCol>
-
-          <IonCol class="PeopleSatisfiedNeedsCol"></IonCol>
-          <IonCol class="PeopleRequestedNeedsCol"></IonCol>
-          <IonCol class="InvestorsAdvertsCol"></IonCol>
-          <IonCol class="PitchingsCol"></IonCol>
-
-          <IonCol class="BizMentorCol"></IonCol>
-          <IonCol class="BizMentorSpentCol">{{ bizMentorSpent }}</IonCol>
-          <IonCol class="MobileNoCol"></IonCol>
-          <IonCol class="EmailCol"></IonCol>
-          <IonCol class="BizCountryCol"></IonCol>
-          <IonCol class="BizCityCol"></IonCol>
-          <IonCol class="ConnectionsCol"></IonCol>
-          <IonCol class="NoEmployeesCol">{{ totalEmployees }}</IonCol>
-
-          <IonCol class="BookingDateCol"></IonCol>
-
-          <IonCol class="JoinedCol"></IonCol>
-          <IonCol class="LastLoggedInCol"></IonCol>
-          <IonCol class="NoLoggedInCol"></IonCol>
-          <IonCol class="FullProfileSeenCol"></IonCol>
-
-        </IonRow>
+      <IonCol>
+        <IonInput v-model="businessTwitter" type="url" label="Business Twitter/X Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="businessGoogle" type="url" label="Business Google Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="businessFacebook" type="url" label="Business Facebook Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="businessLinkedIn" type="url" label="Business LinkedIn Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
     </IonRow>
 
-    <!-- Pagination -->
-    <IonRow class="PaginationRow">
-      <IonButton @click="prevPage">Prev</IonButton>
-      <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
-      <IonButton @click="nextPage">Next</IonButton>
-    </IonRow>
+    <!-- Personal Profile Section -->
+    <IonRow class="PersonalProfileSection">
+      <IonRow class="SectionTitle">
+        <IonTitle>Personal Section</IonTitle>
+      </IonRow>
+      <IonCol>
+        <IonInput v-model="firstName" label="Your First Name" label-placement="floating" :counter="true" :maxlength="40" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="lastName" label="Your Last Name" label-placement="floating" :counter="true" :maxlength="40" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="jobPosition" placeholder="Your Job Position" fill="outline">
+          <IonSelectOption value="position1">Position 1</IonSelectOption>
+          <IonSelectOption value="position2">Position 2</IonSelectOption>
+          <IonSelectOption value="position3">Position 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="yearlySalary" placeholder="Your Yearly Salary" fill="outline">
+          <IonSelectOption value="salary1">Salary 1</IonSelectOption>
+          <IonSelectOption value="salary2">Salary 2</IonSelectOption>
+          <IonSelectOption value="salary3">Salary 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="age" placeholder="Your Age" fill="outline">
+          <IonSelectOption value="age1">Age 1</IonSelectOption>
+          <IonSelectOption value="age2">Age 2</IonSelectOption>
+          <IonSelectOption value="age3">Age 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="country" placeholder="Your Country" fill="outline">
+          <IonSelectOption value="country1">Country 1</IonSelectOption>
+          <IonSelectOption value="country2">Country 2</IonSelectOption>
+          <IonSelectOption value="country3">Country 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonCol>
+        <IonSelect v-model="city" placeholder="Your City" fill="outline">
+          <IonSelectOption value="city1">City 1</IonSelectOption>
+          <IonSelectOption value="city2">City 2</IonSelectOption>
+          <IonSelectOption value="city3">City 3</IonSelectOption>
+        </IonSelect>
+      </IonCol>
 
+      <IonItem>
+        <IonLabel>Upload Face Photo</IonLabel>
+        <input type="file" @change="onFileSelected" />
+      </IonItem>
+
+      <IonCol>
+        <IonInput v-model="personalLinkedIn" type="url" label="Personal LinkedIn Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="personalGoogle" type="url" label="Personal Google Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="personalFacebook" type="url" label="Personal Facebook Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="personalTwitter" type="url" label="Personal Twitter/X Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+
+      <IonRow class="Summaries">
+        <IonCol>
+          <IonTextarea v-model="summaryWhoWeAre" class="Summaries" label="Who We Are, What We do" label-placement="floating" :counter="true" :maxlength="300" :counter-formatter="customFormatter"></IonTextarea>
+        </IonCol>
+        <IonCol>
+          <IonTextarea v-model="summaryWhatWeProvide" class="Summaries" label="What We Provide" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter"></IonTextarea>
+        </IonCol>
+        <IonCol>
+          <IonTextarea v-model="summaryWhatWeLookingFor" class="Summaries" label="What We Are Looking For" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter"></IonTextarea>
+        </IonCol>
+      </IonRow>
+    </IonRow>
+    <IonButton class="UpdateBTN" expand="block" title="SubmitBTN" @click="submitContent">Update</IonButton>
   </IonGrid>
 </template>
 
-
-
-
-
-
-
 <script lang="ts">
-  import { defineComponent, ref, computed, watch } from 'vue';
-  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
-  import { arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+import { defineComponent, ref } from 'vue';
+import {
+  IonContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonItem,
+  IonLabel,
+  IonSelect,
+  IonSelectOption,
+  IonButton,
+  IonTextarea,
+  IonRadio,
+  IonRadioGroup,
+  IonList,
+  IonInput,
+} from '@ionic/vue';
 
-  interface Member {
-    id: number;
-    personPic: string;
-    firstName: string;
-    lastName: string;
-    membershipType: string;
-    totalMembershipSpent: number;
-    totalSpent: number;
+export default defineComponent({
+  name: 'FormProfilePublicSectionComponent',
+  components: {
+    IonContent,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonItem,
+    IonLabel,
+    IonSelect,
+    IonSelectOption,
+    IonButton,
+    IonTextarea,
+    IonRadio,
+    IonRadioGroup,
+    IonList,
+    IonInput,
+  },
+  setup() {
+    const businessName = ref<string>('');
+    const businessCategory = ref<string | null>(null);
+    const businessCountry = ref<string | null>(null);
+    const businessCity = ref<string | null>(null);
+    const businessRevenue = ref<string | null>(null);
+    const businessEmployees = ref<string | null>(null);
+    const businessEstablished = ref<string | null>(null);
+    const businessLogo = ref<string | null>(null);
+    const businessTwitter = ref<string>('');
+    const businessGoogle = ref<string>('');
+    const businessFacebook = ref<string>('');
+    const businessLinkedIn = ref<string>('');
+    const firstName = ref<string>('');
+    const lastName = ref<string>('');
+    const jobPosition = ref<string | null>(null);
+    const yearlySalary = ref<string | null>(null);
+    const age = ref<string | null>(null);
+    const country = ref<string | null>(null);
+    const city = ref<string | null>(null);
+    const facePhoto = ref<string | null>(null);
+    const personalLinkedIn = ref<string>('');
+    const personalGoogle = ref<string>('');
+    const personalFacebook = ref<string>('');
+    const personalTwitter = ref<string>('');
+    const summaryWhoWeAre = ref<string>('');
+    const summaryWhatWeProvide = ref<string>('');
+    const summaryWhatWeLookingFor = ref<string>('');
 
-    // NeedDetails section
-    needImage: string; // URL or path to the image
-    needWanted: number;
-    needSeen: number;
-    needListView: number;
-    needRenewed: number;
-    liked: number;
-    needLink: string;
-    needTitle: string;
-    needCategory: string;
-    needCountry: string;
-    needCity: string;
-    needDuration: string;
-    needContent: string;
-
-
-    age: number;
-    gender: string;
-    businessName: string;
-    businessRevenue: number;
-    jobPosition: string;
-    salary: number;
-    bizCategory: string;
-    exhibited: number;
-    eventSpent: number;
-    visited: number;
-    listedNeeds: number;
-    listedOffers: number;
-    advertSpent: number;
-    peopleSatisfiedNeeds: number;
-    peopleRequestedNeeds: number;
-    investorsAdverts: number;
-    pitchings: number;
-    bizMentor: number;
-    bizMentorSpent: number;
-    mobileNo: string;
-    email: string;
-    bizCountry: string;
-    bizCity: string;
-    connections: number;
-    noEmployees: number;
-    bookingDate: string;
-    joined: string;
-    lastLoggedIn: string;
-    noLoggedIn: number;
-    fullProfileSeen: number;
-  }
-
-  export default defineComponent({
-    name: 'MembersNeedDetailProfileDetailAdminComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
-    setup() {
-      const members = ref<Member[]>([
-        {
-          id: 3,
-          personPic: 'pic_url_a',
-          firstName: 'Johneee',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
-
-          // NeedDetails section
-          needImage: 'https://example.com/image.jpg',
-          needWanted: 100,
-          needSeen: 200,
-          needListView: 300,
-          needRenewed: 400,
-          liked: 500,
-          needLink: 'https://example.com/need',
-          needTitle: 'Amazing Need',
-          needCategory: 'Real Estate',
-          needCountry: 'USA',
-          needCity: 'New York',
-          needDuration: '1 Year',
-          needContent: 'This is a great need that you do not want to miss.',
-
-          age: 30,
-          gender: 'Male',
-          businessName: 'JohnBusiness',
-          businessRevenue: 1000000,
-          jobPosition: 'CEO',
-          salary: 200000,
-          bizCategory: 'IT',
-          exhibited: 30,
-          eventSpent: 1000,
-          visited: 30,
-          listedNeeds: 5,
-          listedOffers: 3,
-          advertSpent: 500,
-          peopleSatisfiedNeeds: 5,
-          peopleRequestedNeeds: 3,
-          investorsAdverts: 2,
-          pitchings: 5,
-          bizMentor: 30,
-          bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
-          bizCountry: 'USA',
-          bizCity: 'New York',
-          connections: 100,
-          noEmployees: 50,
-          bookingDate: '2023-01-01',
-          joined: '2023-01-01',
-          lastLoggedIn: '2023-06-01',
-          noLoggedIn: 20,
-          fullProfileSeen: 100
-        },
-        {
-          id: 2,
-          personPic: 'pic_url_a',
-          firstName: 'res',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
-
-
-          // NeedDetails section
-          needImage: 'https://example.com/image1.jpg',
-          needWanted: 150,
-          needSeen: 250,
-          needListView: 350,
-          needRenewed: 450,
-          liked: 550,
-          needLink: 'https://example.com/need1',
-          needTitle: 'Exclusive Need',
-          needCategory: 'Technology',
-          needCountry: 'Canada',
-          needCity: 'Toronto',
-          needDuration: '6 Months',
-          needContent: 'An exclusive need for tech enthusiasts looking to invest in cutting-edge startups.',
-
-
-          age: 30,
-          gender: 'Male',
-          businessName: 'JohnBusiness',
-          businessRevenue: 1000000,
-          jobPosition: 'CEO',
-          salary: 200000,
-          bizCategory: 'IT',
-          exhibited: 30,
-          eventSpent: 1000,
-          visited: 30,
-          listedNeeds: 5,
-          listedOffers: 3,
-          advertSpent: 500,
-          peopleSatisfiedNeeds: 5,
-          peopleRequestedNeeds: 3,
-          investorsAdverts: 2,
-          pitchings: 5,
-          bizMentor: 30,
-          bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
-          bizCountry: 'USA',
-          bizCity: 'New York',
-          connections: 100,
-          noEmployees: 50,
-          bookingDate: '2023-01-01',
-          joined: '2023-01-01',
-          lastLoggedIn: '2023-06-01',
-          noLoggedIn: 20,
-          fullProfileSeen: 100
-        },
-        {
-          id: 1,
-          personPic: 'pic_url_a',
-          firstName: 'John',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
-
-
-          // NeedDetails section
-          needImage: 'https://example.com/image2.jpg',
-          needWanted: 200,
-          needSeen: 300,
-          needListView: 400,
-          needRenewed: 500,
-          liked: 600,
-          needLink: 'https://example.com/need2',
-          needTitle: 'Premium Need',
-          needCategory: 'Healthcare',
-          needCountry: 'UK',
-          needCity: 'London',
-          needDuration: '2 Years',
-          needContent: 'A premium need in the healthcare sector, perfect for investors looking to support innovative health solutions.',
-
-
-          age: 30,
-          gender: 'Male',
-          businessName: 'JohnBusiness',
-          businessRevenue: 1000000,
-          jobPosition: 'CEO',
-          salary: 200000,
-          bizCategory: 'IT',
-          exhibited: 30,
-          eventSpent: 1000,
-          visited: 30,
-          listedNeeds: 5,
-          listedOffers: 3,
-          advertSpent: 500,
-          peopleSatisfiedNeeds: 5,
-          peopleRequestedNeeds: 3,
-          investorsAdverts: 2,
-          pitchings: 5,
-          bizMentor: 30,
-          bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
-          bizCountry: 'USA',
-          bizCity: 'New York',
-          connections: 100,
-          noEmployees: 50,
-          bookingDate: '2023-01-01',
-          joined: '2023-01-01',
-          lastLoggedIn: '2023-06-01',
-          noLoggedIn: 20,
-          fullProfileSeen: 100
-        },
-        // Add more members as necessary
-        
-
-      ]);
-
-      const sortKey = ref<keyof Member | null>('bookingDate');
-
-      const sortAsc = ref(true);
-      // making the selected row distinguishable
-
-      const selectedRow = ref<number | null>(null);
-      // Search Filed
-
-      const searchQuery = ref<string>('');
-      const filteredMembers = ref(members.value);
-
-// back button does not wor, fix itk
-      const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
-      const scrollToLeft = () => {
-        if (scrollableContainer.value) {
-          scrollableContainer.value.scrollLeft = 0;
-        }
-      };
-// back button does not work
-
-
-      const sortIcon = (key: keyof Member) => {
-        if (sortKey.value === key) {
-          return sortAsc.value ? arrowUpOutline : arrowDownOutline;
-        }
-        return null;
-      };
-      
-
-    //  * Resets the sorting to the original state (default order).
-      const resetSorting = () => {
-        sortKey.value = 'bookingDate';
-        sortAsc.value = true;
-      };
-
-
-      //  * Computes the sorted members based on the current sortKey and sort order.      const sortMembers = (key: keyof Member) => {
-      const sortMembers = (key: keyof Member) => {
-      if (sortKey.value === key) {
-        sortAsc.value = !sortAsc.value;
-      } else {
-        sortKey.value = key;
-        sortAsc.value = true;
-      }
-      searchMembers();
+    const customFormatter = (inputLength: number, maxLength: number) => {
+      return `${maxLength - inputLength} characters remaining`;
     };
 
-    const sortedMembers = computed(() => {
-      return [...filteredMembers.value].sort((a, b) => {
-        if (sortKey.value) {
-          if (a[sortKey.value] < b[sortKey.value]) return sortAsc.value ? -1 : 1;
-          if (a[sortKey.value] > b[sortKey.value]) return sortAsc.value ? 1 : -1;
-        }
-        return 0;
-      });
-    });
+    const onFileSelected = (event: Event) => {
+      const input = event.target as HTMLInputElement;
+      const file = input.files?.[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          if (input.name === 'businessLogo') {
+            businessLogo.value = reader.result as string;
+          } else if (input.name === 'facePhoto') {
+            facePhoto.value = reader.result as string;
+          }
+        };
+      }
+    };
 
-    // Set default sorting by bookingDate
-resetSorting();
-
-      const itemsPerPage = 20;
-      const currentPage = ref(1);
-
-      //  Computes the paginated members for the current page.
-      const paginatedMembers = computed(() => {
-        const start = (currentPage.value - 1) * itemsPerPage;
-        return sortedMembers.value.slice(start, start + itemsPerPage);
-      });
-
-      //  * Computes the total number of pages based on the number of members and items per page.
-      const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
-
-      //  * Computes the total price of all members.
-      const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
-      const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
-
-      // Need Totals
-      const totalNeedWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needWanted, 0));
-      const totalNeedSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needSeen, 0));
-      const totalNeedListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needListView, 0));
-      const totalNeedRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needRenewed, 0));
-      const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
-
-      const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
-      const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
-      const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
-      const totalAdvertSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.advertSpent, 0));
-      const bizMentorSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bizMentorSpent, 0));
-      const totalEmployees = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.noEmployees, 0));
-
-      const prevPage = () => {
-        if (currentPage.value > 1) {
-          currentPage.value -= 1;
-        }
+    const submitContent = () => {
+      const formData = {
+        email: '', // You should add email input handling here
+        password: '', // You should add password input handling here
+        businessName: businessName.value,
+        businessCategory: businessCategory.value,
+        businessCountry: businessCountry.value,
+        businessCity: businessCity.value,
+        businessRevenue: businessRevenue.value,
+        businessEmployees: businessEmployees.value,
+        businessEstablished: businessEstablished.value,
+        businessLogo: businessLogo.value,
+        businessTwitter: businessTwitter.value,
+        businessGoogle: businessGoogle.value,
+        businessFacebook: businessFacebook.value,
+        businessLinkedIn: businessLinkedIn.value,
+        firstName: firstName.value,
+        lastName: lastName.value,
+        jobPosition: jobPosition.value,
+        yearlySalary: yearlySalary.value,
+        age: age.value,
+        country: country.value,
+        city: city.value,
+        facePhoto: facePhoto.value,
+        personalLinkedIn: personalLinkedIn.value,
+        personalGoogle: personalGoogle.value,
+        personalFacebook: personalFacebook.value,
+        personalTwitter: personalTwitter.value,
+        summaryWhoWeAre: summaryWhoWeAre.value,
+        summaryWhatWeProvide: summaryWhatWeProvide.value,
+        summaryWhatWeLookingFor: summaryWhatWeLookingFor.value,
       };
 
-    //  * Navigates to the next page, if possible.
-      const nextPage = () => {
-        if (currentPage.value < totalPages.value) {
-          currentPage.value += 1;
-        }
-      };
+      console.log('Form Data:', formData);
+      // Here you should send formData to your API endpoint
+    };
 
-    //  * Exports the table data to a CSV file.
-      const exportTable = () => {
-        const csvContent = [
-          [
-            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
-            // Need section
-            'NeedImage', 'NeedWanted', 'NeedSeen', 'NeedListView', 'NeedRenewed', 'Liked', 'NeedLink', 'NeedTitle', 'NeedCategory', 'NeedCountry', 'NeedCity', 'NeedDuration', 'NeedContent',
-            // Need section
-
-            'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'listedOffers',
-            'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedNeeds', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
-          ],
-          ...filteredMembers.value.map(member => [
-            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent, member.totalSpent,
-            // Need section
-            member.needImage, member.needWanted, member.needSeen, member.needListView, member.needRenewed, member.liked, member.needLink, member.needTitle, member.needCategory, member.needCountry, member.needCity, member.needDuration, member.needContent,
-            // Need section
-
-            member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent,
-            member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedNeeds,
-            member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
-            member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
-          ])
-        ]
-          .map(e => e.join(","))
-          .join("\n");
-
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'LENmembersProfile.csv';
-        link.click();
-      };
-
-      const printTable = () => {
-        const printContent = `
-          <html>
-            <head>
-              <style>
-                @page {
-                  size: landscape;
-                  margin: 1cm;
-                }
-                table {
-                  width: 100%;
-                  border-collapse: collapse;
-                  table-layout: fixed;
-                }
-                th, td {
-                  border: 1px solid gray;
-                  padding: 5px;
-                  text-align: left;
-                  font-size: 8px;
-                }
-                th {
-                  background-color: #f1f1f1;
-                  font-weight: bold;
-                }
-                .odd-row {
-                  background-color: #f5efef;
-                }
-                .even-row {
-                  background-color: #bceea5;
-                }
-                .even-row .MemberTitleCol {
-                  background-color: aquamarine;
-                }
-                .TotalRow {
-                  font-weight: bold;
-                }
-              </style>
-            </head>
-            <body>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Member ID</th>
-                    <th>Person Pic</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Membership Type</th>
-                    <th>Total Membership Spent</th>
-                    <th>Total Spent</th>
-                    
-                    // Need section
-
-                    <th>Need Image</th>
-                    <th>Need Wanted</th>
-                    <th>Need Seen</th>
-                    <th>Need ListView</th>
-                    <th>Need Renewed</th>
-                    <th>Liked</th>
-                    <th>Need Link</th>
-                    <th>Need Title</th>
-                    <th>Need Category</th>
-                    <th>Need Country</th>
-                    <th>Need City</th>
-                    <th>Need Duration</th>
-                    <th>Need Content</th>
-
-
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Business Name</th>
-                    <th>Business Revenue</th>
-                    <th>Job Position</th>
-                    <th>Salary</th>
-                    <th>Biz Category</th>
-                    <th>Exhibited</th>
-                    <th>Event Spent</th>
-                    <th>Visited</th>
-                    <th>Listed Needs</th>
-                    <th>Listed Offers</th>
-                    <th>Advert Spent</th>
-                    <th>People Satisfied Needs</th>
-                    <th>People Requested Needs</th>
-                    <th>Investors Adverts</th>
-                    <th>Pitchings</th>
-                    <th>Biz Mentor</th>
-                    <th>BizMentor Spent</th>
-                    <th>Mobile No</th>
-                    <th>Email</th>
-                    <th>Biz Country</th>
-                    <th>Biz City</th>
-                    <th>Connections</th>
-                    <th>No Employees</th>
-                    <th>BookingDate</th>
-                    <th>Joined</th>
-                    <th>Last Logged In</th>
-                    <th>No Logged In</th>
-                    <th>Full Profile Seen</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${paginatedMembers.value.map((member, index) => `
-                    <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
-                      <td>${member.id}</td>
-                      <td>${member.personPic}</td>
-                      <td>${member.firstName}</td>
-                      <td>${member.lastName}</td>
-                      <td>${member.membershipType}</td>
-                      <td>${member.totalMembershipSpent}</td>
-                      <td>${member.totalSpent}</td>
-
-                      // Need Section
-                      <td>${member.needImage}</td>
-                      <td>${member.needWanted}</td>
-                      <td>${member.needSeen}</td>
-                      <td>${member.needListView}</td>
-                      <td>${member.needRenewed}</td>
-                      <td>${member.liked}</td>
-                      <td>${member.needLink}</td>
-                      <td>${member.needTitle}</td>
-                      <td>${member.needCategory}</td>
-                      <td>${member.needCountry}</td>
-                      <td>${member.needCity}</td>
-                      <td>${member.needDuration}</td>
-                      <td>${member.needContent}</td>
-
-                      <td>${member.age}</td>
-                      <td>${member.gender}</td>
-                      <td>${member.businessName}</td>
-                      <td>${member.businessRevenue}</td>
-                      <td>${member.jobPosition}</td>
-                      <td>${member.salary}</td>
-                      <td>${member.bizCategory}</td>
-                      <td>${member.exhibited}</td>
-                      <td>${member.eventSpent}</td>
-                      <td>${member.visited}</td>
-                      <td>${member.listedNeeds}</td>
-                      <td>${member.listedOffers}</td>
-                      <td>${member.advertSpent}</td>
-                      <td>${member.peopleSatisfiedNeeds}</td>
-                      <td>${member.peopleRequestedNeeds}</td>
-                      <td>${member.investorsAdverts}</td>
-                      <td>${member.pitchings}</td>
-                      <td>${member.bizMentor}</td>
-                      <td>${member.bizMentorSpent}</td>
-                      <td>${member.mobileNo}</td>
-                      <td>${member.email}</td>
-                      <td>${member.bizCountry}</td>
-                      <td>${member.bizCity}</td>
-                      <td>${member.connections}</td>
-                      <td>${member.noEmployees}</td>
-                      <td>${member.bookingDate}</td>
-                      <td>${member.joined}</td>
-                      <td>${member.lastLoggedIn}</td>
-                      <td>${member.noLoggedIn}</td>
-                      <td>${member.fullProfileSeen}</td>
-                    </tr>
-                  `).join('')}
-                  <tr class="TotalRow">
-                    <td colspan="5">Totals</td>
-                    <td>${totalMembershipSpent.value}</td>
-                    <td>${totalSpent.value}</td>
-
-                    // Need section
-                    <td></td>
-                    <td>${totalNeedWanted.value}</td>
-                    <td>${totalNeedSeen.value}</td>
-                    <td>${totalNeedListView.value}</td>
-                    <td>${totalNeedRenewed.value}</td>
-                    <td>${totalLiked.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    
-
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>${totalBusinessRevenue.value}</td>
-                    <td></td>
-                    <td>${totalSalary.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td>${totalEventSpent.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>${totalAdvertSpent.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>${bizMentorSpent.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>${totalEmployees.value}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div style="font-size: 8px;">Page ${currentPage.value} of ${totalPages.value}</div>
-            </body>
-          </html>
-        `;
-        const printWindow = window.open('', '', 'height=600,width=800');
-        if (printWindow) {
-          printWindow.document.write(printContent);
-          printWindow.document.close();
-          printWindow.print();
-        }
-      };
-
-        // making the selected row distinguishable
-      const selectRow = (id: number) => {
-        selectedRow.value = id;
-      };
-
-        // Search Function
-      const searchMembers = () => {
-        if (searchQuery.value.trim() === '') {
-          filteredMembers.value = members.value;
-        } else {
-          const query = searchQuery.value.trim().toLowerCase();
-          filteredMembers.value = members.value.filter(member => 
-            Object.values(member).some(val => 
-              val.toString().toLowerCase().includes(query)
-            )
-          );
-        }
-      };
-
-      watch(searchQuery, searchMembers);
-
-      return {
-        members,
-        sortKey,
-        sortAsc,
-        sortMembers,
-        sortIcon,
-        resetSorting,
-        selectRow,
-        selectedRow,
-        searchQuery,
-        searchMembers,
-        paginatedMembers,
-        currentPage,
-        totalPages,
-        prevPage,
-        nextPage,
-        exportTable,
-        printTable,
-        totalMembershipSpent,
-        totalSpent,
-
-        // Need section
-        totalNeedWanted,
-        totalNeedSeen,
-        totalNeedListView,
-        totalNeedRenewed,
-        totalLiked,
-
-        totalBusinessRevenue,
-        totalSalary,
-        totalEventSpent,
-        totalAdvertSpent,
-        bizMentorSpent,
-        totalEmployees,
-        arrowBackCircle,
-        scrollToLeft,
-        scrollableContainer,
-      };
-    }
-  });
+    return {
+      businessName,
+      businessCategory,
+      businessCountry,
+      businessCity,
+      businessRevenue,
+      businessEmployees,
+      businessEstablished,
+      businessLogo,
+      businessTwitter,
+      businessGoogle,
+      businessFacebook,
+      businessLinkedIn,
+      firstName,
+      lastName,
+      jobPosition,
+      yearlySalary,
+      age,
+      country,
+      city,
+      facePhoto,
+      personalLinkedIn,
+      personalGoogle,
+      personalFacebook,
+      personalTwitter,
+      summaryWhoWeAre,
+      summaryWhatWeProvide,
+      summaryWhatWeLookingFor,
+      onFileSelected,
+      submitContent,
+      customFormatter,
+    };
+  },
+});
 </script>
-
-
-
-
-
-
-
-<style scoped>
-.TitleP{
-  display: center;
-  text-align: center;
-  font-weight: bold;
-} 
-/* Adjusting the length of the table here: http://localhost:8100/adminpage */
-.search {
-  width: 100px;
-}
-.NeedImageCol {
-  Border-left: 2px red solid;
-}
-.NeedContentCol {
-  Border-right: 2px red solid;
-}
-.TitleRow .NeedImageCol,
-.TitleRow .NeedWantedCol,
-.TitleRow .NeedSeenCol,
-.TitleRow .NeedListViewCol,
-.TitleRow .NeedRenewedCol,
-.TitleRow .LikedCol,
-.TitleRow .NeedLinkCol,
-.TitleRow .NeedTitleCol,
-.TitleRow .NeedCategoryCol,
-.TitleRow .NeedCountryCol,
-.TitleRow .NeedCityCol,
-.TitleRow .NeedDurationCol,
-.TitleRow .NeedContentCol {
-  border-top: 3px solid red;
-}
-.arrowBackCircle {
-  position: fixed;
-  top: 55;
-  left: 90;
-  right: 0;
-  z-index: 1;
-}
-
-.TitleRow {
-  font-weight: bold;
-  cursor: pointer;
-  height: 50px;
-  align-items: center;
-}
-
-.ContainerRow {
-  width: 5500px;
-  flex-direction: column;
-  overflow-y: scroll;
-  overflow-x: scroll;
-}
-
-.DataRow {
-  cursor: pointer;
-}
-
-.DataRow.selected {
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-}
-
-
-.DataRow:nth-child(odd) ion-col {
-  background-color: #f5efef;
-}
-
-.DataRow:nth-child(even) ion-col {
-  background-color: #bceea5;
-}
-
-.TotalRow {
-  font-weight: bold;
-}
-
-.ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
-  border: 1px solid gray;
-}
-
-.DataRow, .TotalRow {
-  white-space: nowrap;
-}
-
-.TitleRow ion-col {
-  overflow: visible; /* Ensure the content is fully visible */
-  word-wrap: break-word; /* Break long words */
-  white-space: normal; /* Allow text to wrap */
-  text-align: center; /* Center align for better presentation */
-}
-
-.MemberIDCol {
-  background-color: red;
-}
-
-ion-col {
-  max-width: 100px; /* Increase the max width for better visibility */
-  padding: 0;
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: auto;
-  align-content: center;
-  height: 30px;
-  font-size: 12px;
-  border-right: 1px solid lightgray;
-}
-.PageInfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  margin: 0 10px;
-}
-
-.sort-icon {
-  margin-left: 5px;
-}
-
-.person-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-@media (max-width: 600px) {
-  .ContainerRow {
-    width: 4000px;
-  }
-  .TitleRow, .DataRow, .TotalRow {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  ion-col {
-    max-width: 100px;
-  }
-}
-</style>
-
-

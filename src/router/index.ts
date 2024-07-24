@@ -75,6 +75,13 @@ import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminCom
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 
+// Backend folder
+// import  BusinessProfile  from '/backend/models/BusinessProfile.ts';
+// import  PersonalProfile  from '/backend/models/PersonalProfile';
+
+
+
+
 // AdminEventSpecificMembersPitchingProfileDetailAdminComponent
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
@@ -432,7 +439,22 @@ const routes: Array<RouteRecordRaw> = [
     name: 'RightAd4Component',
     component: RightAd4Component
   }, 
-  // Left & Right Aderts ENDs here
+
+
+  // Backend BusinessProfile.ts
+  // {
+  //   path: '/businessProfile',
+  //   name: 'BusinessProfile',
+  //   component: BusinessProfile
+  // }, 
+  // {
+  //   path: '/personalProfile',
+  //   name: 'PersonalProfile',
+  //   component: PersonalProfile
+  // },
+
+
+  // Backend BusinessProfile.ts
 
 
 
