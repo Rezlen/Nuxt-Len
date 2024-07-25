@@ -33,7 +33,7 @@
           <IonCol class="OfferTitleCol" @click="sortMembers('offerTitle')">OfferTitle <IonIcon :icon="sortIcon('offerTitle')" class="sort-icon" /></IonCol>
           <IonCol class="OfferCategoryCol" @click="sortMembers('offerCategory')">OfferCategory <IonIcon :icon="sortIcon('offerCategory')" class="sort-icon" /></IonCol>
           <IonCol class="OfferCountryCol" @click="sortMembers('offerCountry')">OfferCountry <IonIcon :icon="sortIcon('offerCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferCityCol" @click="sortMembers('offerCity')">OfferCity <IonIcon :icon="sortIcon('OfferCity')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferCityCol" @click="sortMembers('offerCity')">OfferCity <IonIcon :icon="sortIcon('offerCity')" class="sort-icon" /></IonCol>
           <IonCol class="OfferDurationCol" @click="sortMembers('offerDuration')">OfferDuration <IonIcon :icon="sortIcon('offerDuration')" class="sort-icon" /></IonCol>
           <IonCol class="OfferContentCol" @click="sortMembers('offerContent')">OfferContent <IonIcon :icon="sortIcon('offerContent')" class="sort-icon" /></IonCol>
 

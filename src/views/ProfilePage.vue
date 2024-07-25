@@ -72,7 +72,7 @@ import RightAd1Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd2Component from '@/components/6TempComponents/LeftRightAds/RightAd2Component.vue';
 import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd3Component.vue';
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
-import ProfilePublicSectionComponent from '/Ionics/nuxt-len/src/components/ProfileComponents/ProfilePublicSectionComponent.vue';
+import ProfilePublicSectionComponent from '@/components/ProfileComponents/ProfilePublicSectionComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 import ProfileLeftSideBarComponent from '@/components/ProfileComponents/ProfileLeftSideBarComponent.vue';
 
