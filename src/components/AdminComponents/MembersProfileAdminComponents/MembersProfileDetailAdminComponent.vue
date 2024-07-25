@@ -380,7 +380,7 @@
         if (sortKey.value === key) {
           return sortAsc.value ? arrowUpOutline : arrowDownOutline;
         }
-        return null;
+        return undefined;
       };
       
 
