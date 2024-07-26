@@ -77,6 +77,10 @@ import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminCom
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 
+// Admin Profile comp
+import TABEmailWebsiteNotification from '@/components/EmailWebsiteNotification/TABEmailWebsiteNotification.vue';
+import EmailNotification from '@/components/EmailWebsiteNotification/EmailNotification.vue';
+import WebsiteNotification from '@/components/EmailWebsiteNotification/WebsiteNotification.vue';
 
 
 
@@ -117,6 +121,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'ProfilePage',
     component: ProfilePage
   },
+
   {
     path: '/freePitchingsPage',
     name: 'FreePitchingsPage',
@@ -393,8 +398,22 @@ const routes: Array<RouteRecordRaw> = [
     component: MembersBestOfferDetailProfileDetailAdminComponent
   },
 
-
-
+  // EmailWebsiteNotification
+{
+    path: '/tABEmailWebsiteNotification',
+    name: 'TABEmailWebsiteNotification',
+    component: TABEmailWebsiteNotification
+  },
+  {
+    path: '/emailNotification',
+    name: 'EmailNotification',
+    component: EmailNotification
+  },
+  {
+    path: '/websiteNotification',
+    name: 'WebsiteNotification',
+    component: WebsiteNotification
+  },
 
   // Left & Right Adverts starts here  MembersNeedDetailProfileDetailAdminComponent
   {

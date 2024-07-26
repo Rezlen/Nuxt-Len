@@ -74,7 +74,7 @@ import { defineComponent, ref } from 'vue';
 import { IonContent, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonTextarea } from '@ionic/vue';
 
 export default defineComponent({
-  name: 'FormPage',
+  name: 'PostOfferComponent',
   components: {
     IonContent,
     IonGrid,
