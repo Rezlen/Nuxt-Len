@@ -114,7 +114,7 @@ import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd
 
 import ProfilePublicSectionComponent from '@/components/ProfileComponents/ProfilePublicSectionComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
-import TABEmailWebsiteNotification from '@/components/EmailWebsiteNotification/TABEmailWebsiteNotification.vue';
+import TABEmailWebsiteNotification from '@/components/EmailWebsiteNotification/EmailWebsiteNotification.vue';
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
 export default defineComponent({

@@ -35,7 +35,6 @@ import FormProfilePublicSectionComponent from '@/components/ProfileComponents/Fo
 import MiniProfileCardComponent from '@/components/ProfileComponents/MiniProfileCardComponent.vue';
 import MiniProfileCardVIPComponent from '@/components/ProfileComponents/MiniProfileCardVIPComponent.vue';
 import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
-import ProfileLeftSideBarComponent from '@/components/ProfileComponents/ProfileLeftSideBarComponent.vue';
 import FilterByComponent from '@/components/OfferNeedBestOfferComponent/FilterByComponent.vue';
 // Offer comp
 import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferComponent.vue';
@@ -78,9 +77,7 @@ import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComp
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 
 // Admin Profile comp
-import TABEmailWebsiteNotification from '@/components/EmailWebsiteNotification/TABEmailWebsiteNotification.vue';
-import EmailNotification from '@/components/EmailWebsiteNotification/EmailNotification.vue';
-import WebsiteNotification from '@/components/EmailWebsiteNotification/WebsiteNotification.vue';
+import EmailWebsiteNotification from '@/components/EmailWebsiteNotification/EmailWebsiteNotification.vue';
 
 
 
@@ -196,11 +193,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/formProfilePublicSectionComponent',
     name: 'FormProfilePublicSectionComponent',
     component: FormProfilePublicSectionComponent
-  },
-  {
-    path: '/profileLeftSideBarComponent',
-    name: 'ProfileLeftSideBarComponent',
-    component: ProfileLeftSideBarComponent
   },
   {
     path: '/miniProfileCardComponent',
@@ -400,20 +392,11 @@ const routes: Array<RouteRecordRaw> = [
 
   // EmailWebsiteNotification
 {
-    path: '/tABEmailWebsiteNotification',
-    name: 'TABEmailWebsiteNotification',
-    component: TABEmailWebsiteNotification
+    path: '/emailWebsiteNotification',
+    name: 'EmailWebsiteNotification',
+    component: EmailWebsiteNotification
   },
-  {
-    path: '/emailNotification',
-    name: 'EmailNotification',
-    component: EmailNotification
-  },
-  {
-    path: '/websiteNotification',
-    name: 'WebsiteNotification',
-    component: WebsiteNotification
-  },
+
 
   // Left & Right Adverts starts here  MembersNeedDetailProfileDetailAdminComponent
   {
