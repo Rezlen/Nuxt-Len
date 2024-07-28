@@ -139,7 +139,8 @@
                 <p><a href="/MembersBestOfferDetailProfileDetailAdminComponent" class="Events-button" >MembersBestOfferDetailProfileDetailAdminComponent   </a> </p>
                 <p><a href="/InvestmentApplicationMembersProfileDetailAdminComponent " class="Events-button" >InvestmentApplicationMembersProfileDetailAdminComponent    </a> </p>
                 <p><a href="/AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent " class="Events-button" >AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent </a> </p>
-                <p><a href="/EmailWebsiteNotification" class="Events-button" >EmailWebsiteNotification </a> </p>
+                <p><a href="/EmailWebsiteNotificationComponent" class="Events-button" >EmailWebsiteNotificationComponent </a> </p>
+                <p><a href="/MessagingComponent" class="Events-button" >MessagingComponent </a> </p>
 
               
               </IonRow>

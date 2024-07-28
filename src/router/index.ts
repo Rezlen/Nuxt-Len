@@ -76,8 +76,9 @@ import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminCom
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 
-// Admin Profile comp
-import EmailWebsiteNotification from '@/components/EmailWebsiteNotification/EmailWebsiteNotification.vue';
+// User Account Section comps
+import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
+import MessagingComponent from '@/components/MessagingComponents/MessagingComponent.vue';
 
 
 
@@ -390,11 +391,16 @@ const routes: Array<RouteRecordRaw> = [
     component: MembersBestOfferDetailProfileDetailAdminComponent
   },
 
-  // EmailWebsiteNotification
+  // User Account section
 {
-    path: '/emailWebsiteNotification',
-    name: 'EmailWebsiteNotification',
-    component: EmailWebsiteNotification
+    path: '/emailWebsiteNotificationComponent',
+    name: 'EmailWebsiteNotificationComponent',
+    component: EmailWebsiteNotificationComponent
+  },
+  {
+    path: '/messagingComponent',
+    name: 'MessagingComponent',
+    component: MessagingComponent
   },
 
 

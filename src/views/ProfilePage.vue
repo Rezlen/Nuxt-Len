@@ -29,7 +29,7 @@
             </IonRow>
             <IonRow class="PaddingBorder EditProfile" @click="showComponent('FormProfilePublicSectionComponent')">Edit Profile</IonRow>
             <IonRow class="PaddingBorder " >My Connections</IonRow>
-            <IonRow class="PaddingBorder " >Messages</IonRow>
+            <IonRow class="PaddingBorder Messages" @click="showComponent('MessagingComponent')">Messages</IonRow>
             <IonRow class="PaddingBorder " >My Offer</IonRow>
             <IonRow class="PaddingBorder " >My Best Offers</IonRow>
             <IonRow class="PaddingBorder " >My Need</IonRow>
@@ -41,7 +41,7 @@
             <IonRow class="PaddingBorder " >My Gallery</IonRow>
             <IonRow class="PaddingBorder " >Change Password</IonRow>
             <IonRow class="PaddingBorder " >Delete Account</IonRow>
-            <IonRow class="PaddingBorder NotificationSetting" @click="showComponent('TABEmailWebsiteNotification')">Notification Setting</IonRow>
+            <IonRow class="PaddingBorder NotificationSetting" @click="showComponent('EmailWebsiteNotificationComponent')">Notification Setting</IonRow>
             <IonRow class="PaddingBorder " >My Groups</IonRow>
             <IonRow class="PaddingBorder " >Log Out</IonRow>
         
@@ -114,7 +114,9 @@ import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd
 
 import ProfilePublicSectionComponent from '@/components/ProfileComponents/ProfilePublicSectionComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
-import TABEmailWebsiteNotification from '@/components/EmailWebsiteNotification/EmailWebsiteNotification.vue';
+import MessagingComponent from '@/components/MessagingComponents/MessagingComponent.vue';
+import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
+
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
 export default defineComponent({
@@ -137,7 +139,8 @@ export default defineComponent({
     RightAd4Component,
     ProfilePublicSectionComponent,
     FormProfilePublicSectionComponent,
-    TABEmailWebsiteNotification,
+    MessagingComponent,
+    EmailWebsiteNotificationComponent,
     FooterComponent,
   },
   setup() {
@@ -155,8 +158,11 @@ export default defineComponent({
       if (componentName === 'FormProfilePublicSectionComponent') {
         currentComponent.value = FormProfilePublicSectionComponent;
       }
-      if (componentName === 'TABEmailWebsiteNotification') {
-        currentComponent.value = TABEmailWebsiteNotification;
+      if (componentName === 'MessagingComponent') {
+        currentComponent.value = MessagingComponent;
+      }
+      if (componentName === 'EmailWebsiteNotificationComponent') {
+        currentComponent.value = EmailWebsiteNotificationComponent;
       }
       
       // Add other cases as needed for other menu items
@@ -244,7 +250,8 @@ export default defineComponent({
 }
 .MyAccount,
 .EditProfile,
-.NotificationSetting {
+.NotificationSetting,
+.Messages {
   font-weight: bold;
 }
 @media (max-width: 600px) {

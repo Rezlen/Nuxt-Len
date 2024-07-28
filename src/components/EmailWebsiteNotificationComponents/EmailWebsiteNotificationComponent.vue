@@ -13,43 +13,43 @@
     <IonRow>
       <IonItem class=" Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox1"></IonCheckbox>
-        <div class="label">1-When members send a message to me</div>
+        <div class="label">1- When members send a message to me</div>
         <IonCheckbox slot="end" v-model="checkboxStates.checkbox2"></IonCheckbox>
       </IonItem>
 
       <IonItem class=" Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox3"></IonCheckbox>
-        <div class="label">2-When my connection posts in the Feed page</div>
+        <div class="label">2- When my connection posts in the Feed page</div>
         <IonCheckbox slot="end" v-model="checkboxStates.checkbox4"></IonCheckbox>
       </IonItem>
 
       <IonItem class=" Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox5"></IonCheckbox>
-        <div class="label">3-When my friends & contacts posts in the Feed page</div>
+        <div class="label">3- When my friends & contacts posts in the Feed page</div>
         <IonCheckbox slot="end" v-model="checkboxStates.checkbox6"></IonCheckbox>
       </IonItem>
 
       <IonItem class=" Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox7"></IonCheckbox>
-        <div class="label">4-When my friends & contacts join the LEN community</div>
+        <div class="label">4- When my friends & contacts join the LEN community</div>
         <IonCheckbox slot="end" v-model="checkboxStates.checkbox8"></IonCheckbox>
       </IonItem>
 
       <IonItem class=" Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox9"></IonCheckbox>
-        <div class="label">5-When my connection request is accepted by the LEN members</div>
+        <div class="label">5- When my connection request is accepted by the LEN members</div>
         <IonCheckbox slot="end" v-model="checkboxStates.checkbox10"></IonCheckbox>
       </IonItem>
 
       <IonItem class=" Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox11"></IonCheckbox>
-        <div class="label">6-When I receive connection request from LEN members</div>
+        <div class="label">6- When I receive connection request from LEN members</div>
         <IonCheckbox slot="end" v-model="checkboxStates.checkbox12"></IonCheckbox>
       </IonItem>
 
       <IonItem class=" Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox13"></IonCheckbox>
-        <div class="label">7-When my posts in Feed Page commented or liked</div>
+        <div class="label">7- When my posts in Feed Page commented or liked</div>
         <IonCheckbox slot="end" v-model="checkboxStates.checkbox14"></IonCheckbox>
       </IonItem>
     </IonRow>
@@ -60,7 +60,7 @@
     <IonRow>
       <IonRow>
         <div class="label Head" @click="toggleSection('section1')">
-          8-When a '1 Minute Pitcher' registered to pitch for:
+          8- When a '1 Minute Pitcher' registered to pitch for:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -91,7 +91,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section2')">
-          9-When a '3 Minute Pitcher' registered to pitch for:
+          9- When a '3 Minute Pitcher' registered to pitch for:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -122,7 +122,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section3')">
-          10-When an 'Investment Pitcher' registered to pitch for:
+          10- When an 'Investment Pitcher' registered to pitch for:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -153,7 +153,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section4')">
-          11-When an 'Investment Seeker' (Investee) registered:
+          11- When an 'Investment Seeker' (Investee) registered:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -183,7 +183,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section5')">
-          12-When an 'Investor' registered to pitch for:
+          12- When an 'Investor' registered to pitch for:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -219,7 +219,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section6')">
-          13-When an 'Exhibitors' from below booked an exhibiting ticket:
+          13- When an 'Exhibitors' from below booked an exhibiting ticket:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -245,7 +245,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section7')">
-          14-When an 'Offer' listed in:
+          14- When an 'Offer' listed in:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -276,7 +276,7 @@
     
       <IonRow>
         <div class="label Head" @click="toggleSection('section8')">
-          15-When a 'Need' is listed in:
+          15- When a 'Need' is listed in:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -307,7 +307,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section9')">
-          16-When a 'Best Offer' listed in:
+          16- When a 'Best Offer' listed in:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -338,7 +338,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section10')">
-          17-When people/members have joined LEN from:
+          17- When people/members have joined LEN from:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -365,7 +365,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section11')">
-          18-When businesses have joined LEN from:
+          18- When businesses have joined LEN from:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -391,7 +391,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section12')">
-          19-When LEN Sponsors or Partners:
+          19- When LEN Sponsors or Partners:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -412,7 +412,7 @@
 
       <IonRow>
         <div class="label Head" @click="toggleSection('section13')">
-          20-When an LEN member has become VIP or VVIP member from:
+          20- When an LEN member has become VIP or VVIP member from:
         </div>
         
         <!-- Conditional rendering based on section visibility -->
@@ -449,7 +449,7 @@ import { defineComponent, ref } from 'vue';
 import { IonItem, IonCheckbox, IonGrid, IonRow, IonCol, IonButton, } from '@ionic/vue';
 
 export default defineComponent({
-  name: 'EmailWebsiteNotification',
+  name: 'EmailWebsiteNotificationComponent',
   components: {
     IonItem,
     IonCheckbox,
