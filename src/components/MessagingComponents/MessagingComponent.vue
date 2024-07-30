@@ -5,27 +5,22 @@
     
     <!-- Title Row -->
     <IonRow class="FirstRow">
-      <IonCol class="LeftCol">
-        <IonCol class="items3">
+      <IonCol class="LeftCol" size="12" sizeMd="4">
           <IonButton class="GroupMessages"  @click="submitContent">Group Messages</IonButton>
           <IonSearchbar></IonSearchbar>
           <IonCol class="RecentMessages">Recent Messages </IonCol>
-        </IonCol>
-
-        <IonCol class="MiniProfileCol">
           <MiniProfileCardVVIPComponent />
-        </IonCol>
       </IonCol>
 
 
-      <IonCol class="RightCol">
+      <IonCol class="RightCol" size="12" sizeMd="8">
         <IonRow>
           <IonCol class="MessageStatus">
             <IonRow class="CurrentSelection">Current Selection:</IonRow>
-            <IonRow class="ConnectionsStat">Connections: (342)£45k  Non-Connections: (343)£65k</IonRow>
-            <IonRow class="TSpentStat">TSpent: £45k  Connections: £65k Non-Connections: £65k</IonRow>
-            <IonRow class="GroupStat">Group Sent: 878 Seen: 876 Replied: 63</IonRow>
-            <IonRow class="AllStat">All: 6554 Groups: 775 Seen: 543 Replied: 664</IonRow>
+            <IonRow class="ConnectionsStat">Connections: 34k(£4k) | Non-Connections: 34k(£4k)</IonRow>
+            <IonRow class="TSpentStat">TSpent: 34k(£45k) | Connections: 34k(£65k) | Non-Connections: 34k(£5k)</IonRow>
+            <IonRow class="GroupStat">GroupSent: 878(£3k) | Seen: 876 | Replied: 63</IonRow>
+            <IonRow class="AllStat">All: 6554(£33k) | Groups: 775 | Seen: 543 | Replied: 664</IonRow>
           </IonCol>
           <IonCol class="SelectConnectionBTNs">
               <IonRow class="SelectConnectionBTN">Select Connections & Message/Email Them at Once</IonRow>
@@ -36,11 +31,11 @@
         <IonRow class="MessageDisplayWindow">DisplayMessages</IonRow>
 
         <IonRow class="MessageEditor">
-        <IonCol>
-          <IonTextarea class="MessageEditor" label="Type Your Message/Email Here"
-            label-placement="floating" :counter="true" :auto-grow="true" :maxlength="10000"></IonTextarea>
-        </IonCol>
-        <IonButton class="UpdateBTN" size="large" expand="block" @click="submitContent">Send</IonButton>
+          <IonCol>
+            <IonTextarea class="MessageEditor" label="Type Your Message/Email Here"
+              label-placement="floating" :counter="true" :auto-grow="true" :maxlength="10000"></IonTextarea>
+          </IonCol>
+          <IonButton class="UpdateBTN" size="large" expand="block" @click="submitContent">Send</IonButton>
 
         </IonRow>
       </IonCol>
@@ -85,48 +80,42 @@ export default defineComponent({
 
 
 <style scoped>
-
-ion-grid {
-  height: fit-content;
-  /* overflow-y: auto; */
-  /* overflow-x: auto; */
-
-}
-
-.LeftCol{
-  max-width: 30%;
-}
 .Header {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 20px;
+  font-weight: bold;;
 }
 
-ion-row {
-  width: 100%;
+
+.SecondRow {
+  max-width: 70%;
+
+}
+.LeftCol{
+  max-width: 30%;
+  /* display: flex; */
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  /* width: 100%; */
+    overflow-y: auto;
+  /* display: block; */
 }
 
 .RecentMessages {
-  /* height: 500px; */
-  /* border: 1px solid lightgray; */
-  background-color: lightblue;
-  overflow: auto;
-}
-.items3{
-  display: flex;
-  flex-direction: column;
-  /* width: fit-content; */
-  align-items: center;
-  /* align-content: center; */
-  /* justify-content: center; */
-  background-color: rgb(231, 231, 238);
   height: 500px;
-  border-radius: 10px;
-
+  border: 1px solid lightgray;
+  background-color: lightblue;
+  overflow-y: auto;
+  display: block;
 }
+
+
 .MessageEditor{
   border: 1px solid #ccc;
 }
@@ -152,9 +141,11 @@ ion-row {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+
     /* align-content: center; */
   /* justify-content: center; */
-  background-color: lightblue;
+  background-color: rgb(240, 240, 240);
   width: 80%;
 }
 .ConnectionsStat,
@@ -169,6 +160,9 @@ ion-row {
 }
 .SelectConnectionBTNs{
   max-width: 150px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 .SelectConnectionBTN{
   background-color: #ffffff; 
@@ -179,6 +173,8 @@ ion-row {
   transition: all 0.3s ease; 
   cursor: pointer;
   /* max-width: 130px; */
+  text-align: center;
+
 }
 .SelectConnectionBTN:hover {
   background-color: #cdb5fa; /* Purple background on hover */
@@ -193,5 +189,23 @@ ion-row {
 .UpdateBTN {
   width: 100%;
 }
+
+@media (max-width: 760px) {
+  .RecentMessages {
+    height: 300px;
+    overflow-y: auto;
+    /* display: block; */
+  }
+  .SelectConnectionBTNs{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+}
+
 </style>
 
