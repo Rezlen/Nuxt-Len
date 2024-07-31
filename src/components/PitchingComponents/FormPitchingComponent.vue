@@ -15,7 +15,7 @@
       <!-- Opens the  pitching, workshops or presentations form-->
       <IonCol v-show="selectedTab === 'PitchingPresentationWorkshop'" class="PitchingPresentationWorkshop">
 
-        <p class="CenterPositions">People often ask blow info about your pitching/workshop/presentation. Fill below so they can contact you!</p>
+        <p class="CenterPositions">People often ask below info about your pitching/workshop/presentation. Fill below so they can contact you!</p>
         <IonTextarea  label="Enter Your Pitching Title Here" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
         <IonTextarea  label="What You Are Going to Pitch,Present/Workshop for?" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
         

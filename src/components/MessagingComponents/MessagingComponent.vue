@@ -1,7 +1,7 @@
 <template>
   <IonGrid>
     <!-- Header text -->
-    <p class="Header">All Your Messaging On This Page.</p>
+    <p class="Header">All Your Messaging/Emailing On This Page.</p>
     
     <!-- Title Row -->
     <IonRow class="FirstRow">

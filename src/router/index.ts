@@ -76,13 +76,15 @@ import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminCom
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 
-// User Account Section comps
+// User/Member Account Section Comps
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
 import MessagingComponent from '@/components/MessagingComponents/MessagingComponent.vue';
+import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/MembersMyOrderTABsComponent.vue';
+import MemberTicketsComponent from '@/components/MembersMyOrderComponents/MemberTicketsComponent.vue';
+import MemberMessagingEmailingComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingComponent.vue';
 
 
-
-// AdminEventSpecificMembersPitchingProfileDetailAdminComponent
+// MemberMessagingEmailingComponent
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
   {
@@ -391,7 +393,7 @@ const routes: Array<RouteRecordRaw> = [
     component: MembersBestOfferDetailProfileDetailAdminComponent
   },
 
-  // User Account section
+  // User Account section  MembersMyOrderComponent
 {
     path: '/emailWebsiteNotificationComponent',
     name: 'EmailWebsiteNotificationComponent',
@@ -402,9 +404,25 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MessagingComponent',
     component: MessagingComponent
   },
+  {
+    path: '/membersMyOrderTABsComponent',
+    name: 'MembersMyOrderTABsComponent',
+    component: MembersMyOrderTABsComponent
+  },
+  {
+    path: '/memberTicketsComponent',
+    name: 'MemberTicketsComponent',
+    component: MemberTicketsComponent
+  },
+  {
+    path: '/memberMessagingEmailingComponent',
+    name: 'MemberMessagingEmailingComponent',
+    component: MemberMessagingEmailingComponent
+  },
+  
 
 
-  // Left & Right Adverts starts here  MembersNeedDetailProfileDetailAdminComponent
+  // Left & Right Adverts starts here  MemberEventsBookingsComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',

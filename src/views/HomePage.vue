@@ -141,11 +141,14 @@
                 <p><a href="/AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent " class="Events-button" >AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent </a> </p>
                 <p><a href="/EmailWebsiteNotificationComponent" class="Events-button" >EmailWebsiteNotificationComponent </a> </p>
                 <p><a href="/MessagingComponent" class="Events-button" >MessagingComponent </a> </p>
+                <p><a href="/MembersMyOrderTABsComponent" class="Events-button" >MembersMyOrderTABsComponent </a> </p>
+                <p><a href="/MemberTicketsComponent" class="Events-button" >MemberTicketsComponent </a> </p>
+                <p><a href="/MemberMessagingEmailingComponent" class="Events-button" >MemberMessagingEmailingComponent </a> </p>
 
               
               </IonRow>
               
-              <!-- MiniProfilesRow #####  InvestmentApplicationMembersProfileDetailAdminComponent     -->
+              <!-- MiniProfilesRow #####  MemberEventsBookingsComponent    -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

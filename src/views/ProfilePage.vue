@@ -35,7 +35,7 @@
             <IonRow class="PaddingBorder " >My Need</IonRow>
             <IonRow class="PaddingBorder " >My Pitches</IonRow>
             <IonRow class="PaddingBorder " >My Investments</IonRow>
-            <IonRow class="PaddingBorder " >My Orders</IonRow>
+            <IonRow class="PaddingBorder MyOrders" @click="showComponent('MembersMyOrderTABsComponent')">My Orders</IonRow>
             <IonRow class="PaddingBorder " >My Blogs</IonRow>
             <IonRow class="PaddingBorder " >My Comments Posts</IonRow>
             <IonRow class="PaddingBorder " >My Gallery</IonRow>
@@ -115,6 +115,7 @@ import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import ProfilePublicSectionComponent from '@/components/ProfileComponents/ProfilePublicSectionComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 import MessagingComponent from '@/components/MessagingComponents/MessagingComponent.vue';
+import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/MembersMyOrderTABsComponent.vue';
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
@@ -140,6 +141,7 @@ export default defineComponent({
     ProfilePublicSectionComponent,
     FormProfilePublicSectionComponent,
     MessagingComponent,
+    MembersMyOrderTABsComponent,
     EmailWebsiteNotificationComponent,
     FooterComponent,
   },
@@ -163,6 +165,9 @@ export default defineComponent({
       }
       if (componentName === 'EmailWebsiteNotificationComponent') {
         currentComponent.value = EmailWebsiteNotificationComponent;
+      }
+      if (componentName === 'MembersMyOrderTABsComponent') {
+        currentComponent.value = MembersMyOrderTABsComponent;
       }
       
       // Add other cases as needed for other menu items
@@ -251,7 +256,8 @@ export default defineComponent({
 .MyAccount,
 .EditProfile,
 .NotificationSetting,
-.Messages {
+.Messages,
+.MyOrders {
   font-weight: bold;
 }
 @media (max-width: 600px) {
