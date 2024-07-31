@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all my messaging/emailing orders</p>
+    <p class="TitleP">History of membership purchase</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
@@ -16,7 +16,7 @@
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           
-          <IonCol class="TicketIDCol" @click="sortTickets('id')">Ticket ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+          <IonCol class="OrderIDCol" @click="sortTickets('id')">Order ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
           <IonCol class="BookingDateCol" @click="sortTickets('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
           <IonCol class="MessageTitleCol" @click="sortTickets('messageTitle')">Email/Message Title <IonIcon :icon="sortIcon('messageTitle')" class="sort-icon" /></IonCol>
           <IonCol class="CostCol" @click="sortTickets('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
@@ -54,7 +54,7 @@
 
         <!-- Data rows -->
         <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)">
-          <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
+          <IonCol class="OrderIDCol">{{ ticket.id }}</IonCol>
           <IonCol class="BookingDateCol">{{ ticket.bookingDate }}</IonCol>
           <IonCol class="TicketTitleCol">{{ ticket.messageTitle }}</IonCol>
           <IonCol class="CostCol">{{ ticket.cost }}</IonCol>
@@ -96,7 +96,7 @@
 
         <!-- Total row -->
         <IonRow class="TotalRow">
-          <IonCol class="TicketIDCol">Totals:</IonCol>
+          <IonCol class="OrderIDCol">Totals:</IonCol>
           <IonCol class="BookingDateCol"></IonCol>
           <IonCol class="MessageTitleCol"></IonCol>
           <IonCol class="costCol"></IonCol>
@@ -651,7 +651,7 @@
     text-align: center; /* Center align for better presentation */
   }
 
-  .TicketIDCol {
+  .OrderIDCol {
     /* width: 50px; */
     background-color: red;
   }
