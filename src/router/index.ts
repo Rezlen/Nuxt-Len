@@ -81,10 +81,11 @@ import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotifica
 import MessagingComponent from '@/components/MessagingComponents/MessagingComponent.vue';
 import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/MembersMyOrderTABsComponent.vue';
 import MemberTicketsComponent from '@/components/MembersMyOrderComponents/MemberTicketsComponent.vue';
-import MemberMessagingEmailingComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingComponent.vue';
+import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
+import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 
 
-// MemberMessagingEmailingComponent
+// MemberMembershipOrderComponent
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
   {
@@ -415,9 +416,14 @@ const routes: Array<RouteRecordRaw> = [
     component: MemberTicketsComponent
   },
   {
-    path: '/memberMessagingEmailingComponent',
-    name: 'MemberMessagingEmailingComponent',
-    component: MemberMessagingEmailingComponent
+    path: '/memberMessagingEmailingOrderComponent',
+    name: 'MemberMessagingEmailingOrderComponent',
+    component: MemberMessagingEmailingOrderComponent
+  },
+  {
+    path: '/memberMembershipOrderComponent',
+    name: 'MemberMembershipOrderComponent',
+    component: MemberMembershipOrderComponent
   },
   
 

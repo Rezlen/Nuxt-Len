@@ -22,6 +22,7 @@
           <IonCol class="CostCol" @click="sortTickets('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
           <IonCol class="SelectedConnectionsCol" @click="sortTickets('selectedConnections')">Selected Connections <IonIcon :icon="sortIcon('selectedConnections')" class="sort-icon" /></IonCol>
           <IonCol class="SelectedNonConnectionsCol" @click="sortTickets('selectedNonConnections')">Selected Non Connections <IonIcon :icon="sortIcon('selectedNonConnections')" class="sort-icon" /></IonCol>
+          <IonCol class="MessageOpenedCol" @click="sortTickets('messageOpened')">Message Opened/Seen <IonIcon :icon="sortIcon('messageOpened')" class="sort-icon" /></IonCol>
           <IonCol class="PersonPicCol" @click="sortTickets('personPic')">Picture <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
           <IonCol class="FirstNameCol" @click="sortTickets('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
           <IonCol class="LastNameCol" @click="sortTickets('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
@@ -59,6 +60,7 @@
           <IonCol class="CostCol">{{ ticket.cost }}</IonCol>
           <IonCol class="SelectedConnectionsCol">{{ ticket.selectedConnections }}</IonCol>
           <IonCol class="SelectedNonConnectionsCol">{{ ticket.selectedNonConnections }}</IonCol>
+          <IonCol class="MessageOpenedCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
           <IonCol class="PersonPicCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
           <IonCol class="FirstNameCol">{{ ticket.firstName }}</IonCol>
           <IonCol class="LastNameCol">{{ ticket.lastName }}</IonCol>
@@ -100,6 +102,7 @@
           <IonCol class="costCol"></IonCol>
           <IonCol class="SelectedConnectionsCol"></IonCol>
           <IonCol class="SelectedNonConnectionsCol"></IonCol>
+          <IonCol class="MessageOpenedCol"></IonCol>
           <IonCol class="PersonPicCol"></IonCol>
           <IonCol class="FirstNameCol"></IonCol>
           <IonCol class="LastNameCol"></IonCol>
@@ -157,6 +160,7 @@
     cost: number;
     selectedConnections: number;
     selectedNonConnections: string;
+    messageOpened: number;
     personPic: string;
     firstName: string;
     lastName: string;
@@ -185,7 +189,7 @@
   }
 
   export default defineComponent({
-    name: 'MemberMessagingEmailingComponent',
+    name: 'MemberMessagingEmailingOrderComponent',
     components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
     setup() {
       const tickets = ref<Ticket[]>([
@@ -196,6 +200,7 @@
           cost: 100, // Added cost value
           selectedConnections: 30,
           selectedNonConnections: 'red',
+          messageOpened: 23,
           personPic: 'pic_url_a',
           firstName: 'John',
           lastName: 'Doe',
@@ -230,6 +235,7 @@
           cost: 120, // Added cost value
           selectedConnections: 30,
           selectedNonConnections: 'red',
+          messageOpened: 23,
           personPic: 'pic_url_b',
           firstName: 'Alice',
           lastName: 'Smith',
@@ -264,6 +270,7 @@
           cost: 150, // Added cost value
           selectedConnections: 30,
           selectedNonConnections: 'red',
+          messageOpened: 23,
           personPic: 'pic_url_c',
           firstName: 'Bob',
           lastName: 'Brown',
@@ -382,12 +389,12 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Ticket ID',  'Booking Date', 'Message Title', 'Cost', 'SelectedConnections', 'Selected NonConnections', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
+            'Ticket ID',  'Booking Date', 'Message Title', 'Cost', 'SelectedConnections', 'Selected NonConnections', 'MessageOpened', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorTicket', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
           ],
           ...filteredTickets.value.map(ticket => [
-            ticket.id,  ticket.bookingDate, ticket.messageTitle, ticket.cost, ticket.selectedConnections, ticket.selectedNonConnections, ticket.personPic, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
+            ticket.id,  ticket.bookingDate, ticket.messageTitle, ticket.cost, ticket.selectedConnections, ticket.selectedNonConnections, ticket.personPic, ticket.messageOpened, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
             ticket.businessName, ticket.bizCategory, ticket.exhibited, ticket.visited, ticket.investorTicket, ticket.investmentBroker,
             ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.oneMinPitching, ticket.threeMinPitching, ticket.investmentPitching, ticket.workshop, ticket.presentation, ticket.bookingDate,  ticket.lastLoggedIn
           ])
@@ -450,6 +457,7 @@
                     <th>Cost</th>
                     <th>SelectedConnections</th>
                     <th>Selected NonConnections</th>
+                    <th>MessageOpened</th>
                     <th>Person Pic</th>
                     <th>First Name</th>
                     <th>Last Name</th>
@@ -485,6 +493,7 @@
                       <td>${ticket.cost}</td>
                       <td>${ticket.selectedConnections}</td>
                       <td>${ticket.selectedNonConnections}</td>
+                      <td>${ticket.messageOpened}</td>
                       <td>${ticket.personPic}</td>
                       <td>${ticket.firstName}</td>
                       <td>${ticket.lastName}</td>
@@ -513,9 +522,9 @@
                   `).join('')}
                   <tr class="TotalRow">
                     <td>Totals:</td>
-                    <td colspan="17"></td>
+                    <td colspan="23"></td>
                     <td>${total.value}</td>
-                    <td colspan="6"></td>
+                    <td colspan="7"></td>
                   </tr>
                 </tbody>
               </table>

@@ -143,7 +143,8 @@
                 <p><a href="/MessagingComponent" class="Events-button" >MessagingComponent </a> </p>
                 <p><a href="/MembersMyOrderTABsComponent" class="Events-button" >MembersMyOrderTABsComponent </a> </p>
                 <p><a href="/MemberTicketsComponent" class="Events-button" >MemberTicketsComponent </a> </p>
-                <p><a href="/MemberMessagingEmailingComponent" class="Events-button" >MemberMessagingEmailingComponent </a> </p>
+                <p><a href="/MemberMessagingEmailingOrderComponent" class="Events-button" >MemberMessagingEmailingOrderComponent </a> </p>
+                <p><a href="/MemberMembershipOrderComponent" class="Events-button" >MemberMembershipOrderComponent </a> </p>
 
               
               </IonRow>
