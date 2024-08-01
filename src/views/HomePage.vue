@@ -145,6 +145,7 @@
                 <p><a href="/MemberTicketsComponent" class="Events-button" >MemberTicketsComponent </a> </p>
                 <p><a href="/MemberMessagingEmailingOrderComponent" class="Events-button" >MemberMessagingEmailingOrderComponent </a> </p>
                 <p><a href="/MemberMembershipOrderComponent" class="Events-button" >MemberMembershipOrderComponent </a> </p>
+                <p><a href="/MemberInvestmentApplicationComponent" class="Events-button" >MemberInvestmentApplicationComponent </a> </p>
 
               
               </IonRow>

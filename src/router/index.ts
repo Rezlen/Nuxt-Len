@@ -83,6 +83,7 @@ import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/M
 import MemberTicketsComponent from '@/components/MembersMyOrderComponents/MemberTicketsComponent.vue';
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
+import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderComponents/MemberInvestmentApplicationComponent.vue';
 
 
 // MemberMembershipOrderComponent
@@ -425,10 +426,14 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MemberMembershipOrderComponent',
     component: MemberMembershipOrderComponent
   },
-  
+  {
+    path: '/memberInvestmentApplicationComponent',
+    name: 'MemberInvestmentApplicationComponent',
+    component: MemberInvestmentApplicationComponent
+  },
 
 
-  // Left & Right Adverts starts here  MemberEventsBookingsComponent
+  // Left & Right Adverts starts here  MemberInvestmentApplicationComponent
   {
     path: '/LeftAd1',
     name: 'LeftAd1Component',
