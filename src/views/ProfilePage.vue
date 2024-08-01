@@ -121,7 +121,7 @@ import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotifica
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
 export default defineComponent({
-  name: 'ProfilePageTest',
+  name: 'ProfilePage',
   components: {
     IonPage,
     IonGrid,

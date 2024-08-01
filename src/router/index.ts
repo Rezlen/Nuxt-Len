@@ -15,6 +15,8 @@ import AdminPage from '../views/AdminPage.vue';
 import PrivacyPolicyPage from '../views/PrivacyPolicyPage.vue';
 import TermsConditionsPage from '../views/TermsConditionsPage.vue';
 import InvestorsInvesteesPage from '../views/InvestorsInvesteesPage.vue';
+import SponsorsPartnershipPage from '../views/SponsorsPartnershipPage.vue';
+
 
 // Comp Stats here
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
@@ -84,6 +86,11 @@ import MemberTicketsComponent from '@/components/MembersMyOrderComponents/Member
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderComponents/MemberInvestmentApplicationComponent.vue';
+
+// Sponsorship Partnership  SponsorshipPartnershipForm
+import SponsorshipPartnershipFormComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipFormComponent.vue';
+
+
 
 
 // MemberMembershipOrderComponent
@@ -159,9 +166,14 @@ const routes: Array<RouteRecordRaw> = [
     name: 'InvestorsInvesteesPage',
     component: InvestorsInvesteesPage
   },
+  {
+    path: '/sponsorsPartnershipPage',
+    name: 'SponsorsPartnershipPage',
+    component: SponsorsPartnershipPage
+  },
 
   
-  // pages end here InvestorsInvesteesPage
+  // pages end here SponsorsPartnersPage
 
 
 
@@ -430,6 +442,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/memberInvestmentApplicationComponent',
     name: 'MemberInvestmentApplicationComponent',
     component: MemberInvestmentApplicationComponent
+  },
+
+
+// Sponsorship Partnership  SponsorshipPartnershipForm
+{
+    path: '/sponsorshipPartnershipFormComponent ',
+    name: 'SponsorshipPartnershipFormComponent ',
+    component: SponsorshipPartnershipFormComponent 
   },
 
 
