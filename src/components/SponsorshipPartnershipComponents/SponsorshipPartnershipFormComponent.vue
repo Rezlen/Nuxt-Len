@@ -179,7 +179,7 @@ export default defineComponent({
     border-radius: 10px;
   }
   .DatePrice {
-    max-width: 20%;
+    max-width: 200px;
   }
   .price,
   .date {
@@ -188,7 +188,8 @@ export default defineComponent({
   }
   .title {
     font-weight: bold;
-    max-width: 25%;
+    min-width: 200px;
+    max-width: 200px;
     font-size: 14px;
     white-space: wrap; 
     /* Prevent text wrapping #important */
