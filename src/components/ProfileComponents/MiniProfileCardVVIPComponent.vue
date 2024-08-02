@@ -186,11 +186,6 @@ ion-card {
   padding: 4px 0;
 }
 
-.social-button {
-  margin:0;
-  padding:0;
-}
-
 .linkedin-icon {
   color: #0077b5; /* LinkedIn blue */
 }

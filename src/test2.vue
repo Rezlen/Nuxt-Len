@@ -2,7 +2,7 @@
   <IonGrid>
     <!-- Header text -->
     <p class="Header">Below are the opportunities which LEN (London Entrepreneurs Network) can provide you. We are open to suggestions, contact us.</p>
-    
+
     <IonRow class="mainRow">
       <!-- Checkbox items for website notifications -->
       <IonItem class="Head">
@@ -84,9 +84,26 @@
 
     <IonRow class="fields">
       <IonItem>
-        <IonInput label="Enter Your Mobile Number" label-placement="floating" :counter="true"
-          :maxlength="100" :counter-formatter="customFormatter" fill="outline"></IonInput>
+        <IonInput class="inputFields" label="Enter Your Mobile/LandLine Number" label-placement="floating" :counter="true" :maxlength="100"></IonInput>
       </IonItem>
+      <IonItem>
+        <IonInput class="inputFields" label="Enter Link To Redirect" label-placement="floating" :counter="true" :maxlength="100"></IonInput>
+      </IonItem>
+      <IonItem>
+        <IonTextarea class="inputFields" label="Enter Your Description" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="1000"></IonTextarea>
+      </IonItem>
+      <IonCol>
+        <IonInput v-model="businessTwitter" type="url" label="Business Twitter/X Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="businessGoogle" type="url" label="Business Google Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="businessFacebook" type="url" label="Business Facebook Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
+      <IonCol>
+        <IonInput v-model="businessLinkedIn" type="url" label="Business LinkedIn Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
+      </IonCol>
       <IonItem>
         <IonSelect v-model="selectedCategory" placeholder="Repeat Billing Every" fill="outline">
           <IonSelectOption value="Week">Week</IonSelectOption>
@@ -95,21 +112,40 @@
         </IonSelect>
       </IonItem>
       <IonItem>
-        <IonTextarea label="Enter Your Description" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="1000" :counter-formatter="customFormatter"></IonTextarea>
-      </IonItem>
-      <IonItem>
         <IonLabel>Upload Image</IonLabel>
         <input type="file" @change="onFileSelected" />
       </IonItem>
     </IonRow>
-      
-    <IonButton class="UpdateBTN" size="large" expand="block" title="SubmitBTN" @click="submitContent">Update</IonButton>
+    <p class="terms">
+      By clicking on SUBMIT, you agree to London Entrepreneurs Network's 
+      <a href="/TermsConditionsPage" class="terms-link">TERMS & CONDITIONS</a> and 
+      <a href="/PrivacyPolicypage" class="terms-link">PRIVACY POLICY</a>.
+    </p>
+    <IonButton class="UpdateBTN" size="large" expand="block" title="SubmitBTN" @click="submitContent">Submit</IonButton>
   </IonGrid>
 </template>
+
+
+
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { IonInput, IonItem, IonLabel, IonSelect, IonSelectOption, IonTextarea, IonCheckbox, IonGrid, IonRow, IonCol, IonButton, IonDatetime, IonDatetimeButton, IonModal } from '@ionic/vue';
+
+// Function to sanitize input
+const sanitizeInput = (input: string): string => {
+  return input
+    .replace(/<script.*?>.*?<\/script>/gi, '')  // Remove script tags
+    .replace(/<[\/\!]*?[^<>]*?>/gi, '')       // Remove HTML tags
+    .replace(/&(?:lt|gt|amp|quot|#39);/g, '') // Remove HTML entities
+    .replace(/[<>\/\\'";]/g, '');              // Remove potentially harmful characters
+};
+
+// Function to validate URLs
+const isValidUrl = (url: string): boolean => {
+  const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/i;
+  return urlPattern.test(url);
+};
 
 export default defineComponent({
   name: 'EmailWebsiteNotificationComponent',
@@ -136,8 +172,13 @@ export default defineComponent({
       checkbox3: false,
       checkbox4: false,
     });
-    
+
     const selectedCategory = ref<string | null>(null);
+
+    const businessTwitter = ref<string>('');
+    const businessGoogle = ref<string>('');
+    const businessFacebook = ref<string>('');
+    const businessLinkedIn = ref<string>('');
 
     const customFormatter = (inputLength: number, maxLength: number) => {
       return `${maxLength - inputLength} characters remaining`;
@@ -152,7 +193,23 @@ export default defineComponent({
     };
 
     const submitContent = () => {
-      console.log('Submit button clicked');
+      // Sanitize all text fields
+      const sanitizedData = {
+        checkboxStates: {
+          checkbox1: checkboxStates.value.checkbox1,
+          checkbox2: checkboxStates.value.checkbox2,
+          checkbox3: checkboxStates.value.checkbox3,
+          checkbox4: checkboxStates.value.checkbox4,
+        },
+        selectedCategory: sanitizeInput(selectedCategory.value || ''),
+        businessTwitter: isValidUrl(businessTwitter.value) ? businessTwitter.value : '',
+        businessGoogle: isValidUrl(businessGoogle.value) ? businessGoogle.value : '',
+        businessFacebook: isValidUrl(businessFacebook.value) ? businessFacebook.value : '',
+        businessLinkedIn: isValidUrl(businessLinkedIn.value) ? businessLinkedIn.value : '',
+      };
+
+      console.log('Sanitized Data:', sanitizedData);
+      // Here you should send sanitizedData to your API endpoint
     };
 
     return {
@@ -160,11 +217,17 @@ export default defineComponent({
       selectedCategory,
       customFormatter,
       onFileSelected,
-      submitContent
+      submitContent,
+      businessTwitter,
+      businessGoogle,
+      businessFacebook,
+      businessLinkedIn,
     };
   },
 });
 </script>
+
+
 
 
 <style scoped>
@@ -172,6 +235,7 @@ export default defineComponent({
   text-align: center;
   margin-bottom: 20px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .mainRow {
@@ -181,26 +245,21 @@ export default defineComponent({
 
 .Head {
   display: flex;
-  align-items: center; /* Align items at the start */
+  align-items: center;
   flex-direction: row;
   padding: 10px;
   border: 1px solid lightgray;
   border-radius: 10px;
   margin-right: 10px; /* Add spacing between items */
   min-width: 200px; /* Ensure a minimum width */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  box-sizing: border-box;
 }
 
 .DatePrice {
-  display: flex;
-  flex-direction: column;
+  max-width: 200px;
 }
 
-.price {
-  font-weight: bold;
-  color: purple;
-}
-
+.price,
 .date {
   font-weight: bold;
   color: purple;
@@ -211,16 +270,13 @@ export default defineComponent({
   min-width: 200px;
   max-width: 200px;
   font-size: 14px;
-  white-space: nowrap; /* Prevent text wrapping */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  white-space: wrap;
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
 }
 
 .description {
   width: 100%;
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Add ellipsis for overflow text */
-  white-space: normal; /* Allow text to wrap */
 }
 
 .label {
@@ -231,10 +287,43 @@ export default defineComponent({
   width: 100%;
 }
 
+.fields {
+  margin-top: 20px;
+}
+
+.inputFields {
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+.terms {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.terms-link {
+  color: blue;
+  text-decoration: none;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 600px) {
   .mainRow {
-    width: 100vw; /* Full viewport width */
+    border: 2px solid rgb(148, 9, 141);
+    border-radius: 8px;
+  }
+  .Head {
+    flex: 0 0 auto;
+    width: 200vw; /* Full viewport width */
     overflow-x: auto; /* Ensure horizontal scrolling */
+  }
+  .fields {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <IonGrid>
     <!-- Header text -->
     <p class="Header">Below are the opportunities which LEN (London Entrepreneurs Network) can provide you. We are open to suggestions, contact us.</p>
-
+    
     <IonRow class="mainRow">
       <!-- Checkbox items for website notifications -->
       <IonItem class="Head">
@@ -84,23 +84,18 @@
 
     <IonRow class="fields">
       <IonItem>
-        <IonInput class="inputFields" label="Enter Your Mobile/LandLine Number" label-placement="floating" :counter="true" :maxlength="100"></IonInput>
+        <IonInput class="inputFields" label="Enter Your Mobile/LandLine Number" label-placement="floating" :counter="true"
+          :maxlength="100" ></IonInput>
       </IonItem>
       <IonItem>
-        <IonInput class="inputFields" label="Enter Link To Redirect" label-placement="floating" :counter="true" :maxlength="100"></IonInput>
+        <IonInput class="inputFields" label="Enter Link To Redirect" label-placement="floating" :counter="true"
+          :maxlength="100" ></IonInput>
       </IonItem>
+      
       <IonItem>
-        <IonInput class="inputFields" v-model="businessTwitter" type="url" label="Business Twitter/X Profile Link" label-placement="floating" :counter="true" :maxlength="70" ></IonInput>
+        <IonTextarea class="inputFields" label="Enter Your Description" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="100" ></IonTextarea>
       </IonItem>
-      <IonItem>
-        <IonInput class="inputFields" v-model="businessGoogle" type="url" label="Business Google Profile Link" label-placement="floating" :counter="true" :maxlength="70" ></IonInput>
-      </IonItem>
-      <IonItem>
-        <IonInput class="inputFields" v-model="businessFacebook" type="url" label="Business Facebook Profile Link" label-placement="floating" :counter="true" :maxlength="70" ></IonInput>
-      </IonItem>
-      <IonItem>
-        <IonInput class="inputFields" v-model="businessLinkedIn" type="url" label="Business LinkedIn Profile Link" label-placement="floating" :counter="true" :maxlength="70" ></IonInput>
-      </IonItem>
+      
       <IonItem>
         <IonSelect v-model="selectedCategory" placeholder="Repeat Billing Every" fill="outline">
           <IonSelectOption value="Week">Week</IonSelectOption>
@@ -112,9 +107,6 @@
         <IonLabel>Upload Image</IonLabel>
         <input type="file" @change="onFileSelected" />
       </IonItem>
-      <IonItem>
-        <IonTextarea class="inputFields" label="Enter Your Description" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="1000"></IonTextarea>
-      </IonItem>
     </IonRow>
     <p class="terms">
       By clicking on SUBMIT, you agree to London Entrepreneurs Network's 
@@ -125,27 +117,9 @@
   </IonGrid>
 </template>
 
-
-
-
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { IonInput, IonItem, IonLabel, IonSelect, IonSelectOption, IonTextarea, IonCheckbox, IonGrid, IonRow, IonCol, IonButton, IonDatetime, IonDatetimeButton, IonModal } from '@ionic/vue';
-
-// Function to sanitize input
-const sanitizeInput = (input: string): string => {
-  return input
-    .replace(/<script.*?>.*?<\/script>/gi, '')  // Remove script tags
-    .replace(/<[\/\!]*?[^<>]*?>/gi, '')       // Remove HTML tags
-    .replace(/&(?:lt|gt|amp|quot|#39);/g, '') // Remove HTML entities
-    .replace(/[<>\/\\'";]/g, '');              // Remove potentially harmful characters
-};
-
-// Function to validate URLs
-const isValidUrl = (url: string): boolean => {
-  const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/i;
-  return urlPattern.test(url);
-};
 
 export default defineComponent({
   name: 'EmailWebsiteNotificationComponent',
@@ -172,13 +146,8 @@ export default defineComponent({
       checkbox3: false,
       checkbox4: false,
     });
-
+    
     const selectedCategory = ref<string | null>(null);
-
-    const businessTwitter = ref<string>('');
-    const businessGoogle = ref<string>('');
-    const businessFacebook = ref<string>('');
-    const businessLinkedIn = ref<string>('');
 
     const customFormatter = (inputLength: number, maxLength: number) => {
       return `${maxLength - inputLength} characters remaining`;
@@ -193,23 +162,7 @@ export default defineComponent({
     };
 
     const submitContent = () => {
-      // Sanitize all text fields
-      const sanitizedData = {
-        checkboxStates: {
-          checkbox1: checkboxStates.value.checkbox1,
-          checkbox2: checkboxStates.value.checkbox2,
-          checkbox3: checkboxStates.value.checkbox3,
-          checkbox4: checkboxStates.value.checkbox4,
-        },
-        selectedCategory: sanitizeInput(selectedCategory.value || ''),
-        businessTwitter: isValidUrl(businessTwitter.value) ? businessTwitter.value : '',
-        businessGoogle: isValidUrl(businessGoogle.value) ? businessGoogle.value : '',
-        businessFacebook: isValidUrl(businessFacebook.value) ? businessFacebook.value : '',
-        businessLinkedIn: isValidUrl(businessLinkedIn.value) ? businessLinkedIn.value : '',
-      };
-
-      console.log('Sanitized Data:', sanitizedData);
-      // Here you should send sanitizedData to your API endpoint
+      console.log('Submit button clicked');
     };
 
     return {
@@ -217,16 +170,11 @@ export default defineComponent({
       selectedCategory,
       customFormatter,
       onFileSelected,
-      submitContent,
-      businessTwitter,
-      businessGoogle,
-      businessFacebook,
-      businessLinkedIn,
+      submitContent
     };
   },
 });
 </script>
-
 
 <style scoped>
 
