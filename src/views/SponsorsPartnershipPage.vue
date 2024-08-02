@@ -181,18 +181,14 @@ export default defineComponent({
 .CurrentSponsorsPartners,
 .PastSponsorsPartners,
 .SponsorshipPartnershipForm {
-  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  background-color: #f9f9f9;
   flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
-  margin: 10px;
 }
 
 /* This makes the sidebar floating beautifully */
 .floating-sidebar {
   position: absolute;
-  /* z-index: 1000; */    /* Ensure it is above other content */
 }
 
 @media (max-width: 768px) {
