@@ -45,11 +45,11 @@
       </IonRow>
       <IonButton size="small" fill="clear" class=" CenterPositions ConnectbtnRow">ConnectBTN</IonButton>
       <IonRow class=" CenterPositions social-media-icons">
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="linkOutline" class="link-outline" /></IonButton>
+        <IonButton size="small" fill="clear" ><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
+        <IonButton size="small" fill="clear" ><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
+        <IonButton size="small" fill="clear" ><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
+        <IonButton size="small" fill="clear" ><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+        <IonButton size="small" fill="clear" ><IonIcon :icon="linkOutline" class="link-outline" /></IonButton>
       </IonRow>
     </IonCOl>
   
@@ -185,19 +185,15 @@ ion-card {
   background-color: white;
   padding: 4px 0;
 }
-
 .linkedin-icon {
   color: #0077b5; /* LinkedIn blue */
 }
-
 .google-icon {
   color: #db4437; /* Google red */
 }
-
 .facebook-icon {
   color: #3b5998; /* Facebook blue */
 }
-
 .twitter-icon {
   color: #1da1f2; /* Twitter blue */
 }

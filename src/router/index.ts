@@ -89,6 +89,7 @@ import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderCom
 
 // Sponsorship Partnership  SponsorshipPartnershipForm
 import SponsorshipPartnershipFormComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipFormComponent.vue';
+import SponsorshipPartnershipAdComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipAdComponent.vue';
 
 
 
@@ -446,10 +447,15 @@ const routes: Array<RouteRecordRaw> = [
 
 
 // Sponsorship Partnership  SponsorshipPartnershipForm
-{
+  {
     path: '/sponsorshipPartnershipFormComponent ',
     name: 'SponsorshipPartnershipFormComponent ',
     component: SponsorshipPartnershipFormComponent 
+  },
+  {
+    path: '/sponsorshipPartnershipAdComponent ',
+    name: 'SponsorshipPartnershipAdComponent ',
+    component: SponsorshipPartnershipAdComponent 
   },
 
 

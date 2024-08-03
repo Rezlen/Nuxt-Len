@@ -33,17 +33,16 @@
                 <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
                   <IonSegmentButton class="btn" value="CurrentSponsorsPartners">Current Sponsors Partners</IonSegmentButton>
                   <IonSegmentButton class="btn" value="PastSponsorsPartners">Past Sponsors Partners</IonSegmentButton>
-                  <IonSegmentButton class="btn" value="SponsorshipPartnershipForm">All Sponsorship Partnership Form</IonSegmentButton>
+                  <IonSegmentButton class="btn" value="SponsorshipPartnershipForm">Sponsorship Partnership Form</IonSegmentButton>
                 </IonSegment>
               </IonRow>
               <IonRow class="DisplayComponentRow">
                 <IonCol v-show="selectedTab === 'CurrentSponsorsPartners'" class="CurrentSponsorsPartners">
-                  <MiniProfileCardComponent />
-                  <MiniProfileCardComponent />
+                  <SponsorshipPartnershipAdComponent />
                 </IonCol>
                 <IonCol v-show="selectedTab === 'PastSponsorsPartners'" class="PastSponsorsPartners">
                   <!-- Component for All PastSponsorsPartners #########" -->
-                  <OfferComponent />
+                  <SponsorshipPartnershipAdComponent />
                 </IonCol>
                 <IonCol v-show="selectedTab === 'SponsorshipPartnershipForm'" class="SponsorshipPartnershipForm">
                   <!-- Component for All SponsorshipPartnershipForm #########" -->
@@ -97,6 +96,7 @@ import FilterByComponent from '@/components/OfferNeedBestOfferComponent/FilterBy
 
 
 import SponsorshipPartnershipFormComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipFormComponent.vue';
+import SponsorshipPartnershipAdComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipAdComponent.vue';
 
 
 export default defineComponent({
@@ -124,6 +124,7 @@ export default defineComponent({
     FilterByComponent,
 
     SponsorshipPartnershipFormComponent,
+    SponsorshipPartnershipAdComponent,
 
   },
   setup() {

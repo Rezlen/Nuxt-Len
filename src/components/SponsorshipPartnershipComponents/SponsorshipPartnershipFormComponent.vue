@@ -102,7 +102,7 @@
         <IonInput class="inputFields" v-model="businessLinkedIn" type="url" label="Business LinkedIn Profile Link" label-placement="floating" :counter="true" :maxlength="70" ></IonInput>
       </IonItem>
       <IonItem>
-        <IonSelect v-model="selectedCategory" placeholder="Repeat Billing Every" fill="outline">
+        <IonSelect v-model="selectedCategory" placeholder="Repeat Sponsorship Partnership & Billing Every" fill="outline">
           <IonSelectOption value="Week">Week</IonSelectOption>
           <IonSelectOption value="Month">Month</IonSelectOption>
           <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
@@ -148,7 +148,7 @@ const isValidUrl = (url: string): boolean => {
 };
 
 export default defineComponent({
-  name: 'EmailWebsiteNotificationComponent',
+  name: 'SponsorshipPartnershipFormComponent',
   components: {
     IonInput,
     IonItem,
