@@ -35,6 +35,7 @@
             <IonSelectOption value="Excel">Excel</IonSelectOption>
             <IonSelectOption value="Facebook">Facebook</IonSelectOption>
             <IonSelectOption value="LinkedIn">LinkedIn</IonSelectOption>
+            <IonSelectOption value="CopyPaste">CopyPaste</IonSelectOption>
           </IonSelect>
         </IonCol>
 
