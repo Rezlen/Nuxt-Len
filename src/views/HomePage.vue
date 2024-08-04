@@ -149,11 +149,14 @@
                 <p><a href="/SponsorsPartnershipPage" class="Events-button" >SponsorsPartnershipPage </a> </p>
                 <p><a href="/SponsorshipPartnershipForm" class="Events-button" >SponsorshipPartnershipForm </a> </p>
                 <p><a href="/SponsorshipPartnershipAdComponent" class="Events-button" >SponsorshipPartnershipAdComponent </a> </p>
+                <p><a href="/MyConnectionComponent" class="Events-button" >MyConnectionComponent </a> </p>
+                <p><a href="/EmailImportsTableComponent" class="Events-button" >EmailImportsTableComponent</a> </p>
+
 
               
               </IonRow>
               
-              <!-- MiniProfilesRow #####  MemberEventsBookingsComponent    -->
+              <!-- MiniProfilesRow #####  EmailImports.vue    -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

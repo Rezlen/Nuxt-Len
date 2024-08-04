@@ -126,7 +126,7 @@ interface Event {
 }
 
 export default defineComponent({
-  name: 'AdminEventsListComponent',
+  name: 'EmailImportsTableComponent',
   components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, },
   setup() {
     const events = ref<Event[]>([

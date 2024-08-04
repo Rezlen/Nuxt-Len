@@ -1,136 +1,62 @@
 <template>
   <IonGrid>
-    <!-- Header text -->
-    <p class="Header">Below are the opportunities which LEN (London Entrepreneurs Network) can provide you. We are open to suggestions, contact us.</p>
+    <IonRow class="importPaste">
+      <IonCol class="importFrom">
+        <p>Imports your emails from:</p>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" alt="Excel" viewBox="0 0 48 48">
+            <!-- SVG content here -->
+          </svg>
+        </a>
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" name="Outlook" viewBox="0 0 48 48">
+            <!-- SVG content here -->
+          </svg>
+        </a>
+        <a href="#"><IonIcon class="linkedin-icon" size="large" :icon="logoLinkedin" /></a>
+        <a href="#"><IonIcon class="google-icon" size="large" :icon="logoGoogle" /></a>
+        <a href="#"><IonIcon class="facebook-icon" size="large" :icon="logoFacebook" /></a>
+        <a href="#"><IonIcon class="twitter-icon" size="large" :icon="logoTwitter" /></a>
+        <a href="#"><IonIcon class="yahoo-icon" size="large" :icon="logoYahoo" /></a>
+      </IonCol>
 
-    <IonRow class="mainRow">
-      <!-- Checkbox items for website notifications -->
-      <IonItem class="Head">
-        <IonCheckbox slot="start" v-model="checkboxStates.checkbox1"></IonCheckbox>
-        <IonCol class="title label">30 Minutes Workshop Or Presentation IN LEN's Events Or Business Shows</IonCol>
-        <IonCol class="DatePrice">
-          <IonCol class="price">£1000</IonCol>
-          <IonCol class="date">ChooseDate</IonCol>
-          <IonCol>
-            <IonDatetimeButton datetime="datetime1"></IonDatetimeButton>
-            <IonModal :keep-contents-mounted="true">
-              <IonDatetime id="datetime1"></IonDatetime>
-            </IonModal>
-          </IonCol>
-        </IonCol>
-        <IonCol class="description label">
-          <li>We can ORGANISE up-to 30 minutes presentation or workshop in a room within one of our shows/events exclusively for you to present, promote, or sell anything you wish.</li>
-          <li>You can expect about 30 relevant attendees (highly potential clients for)</li>
-        </IonCol>
-      </IonItem>
-
-      <IonItem class="Head">
-        <IonCheckbox slot="start" v-model="checkboxStates.checkbox2"></IonCheckbox>
-        <IonCol class="title label">Email to a 10,000 of our members</IonCol>
-        <IonCol class="DatePrice">
-          <IonCol class="price">£300</IonCol>
-          <IonCol class="date">ChooseDate</IonCol>
-          <IonCol>
-            <IonDatetimeButton datetime="datetime2"></IonDatetimeButton>
-            <IonModal :keep-contents-mounted="true">
-              <IonDatetime id="datetime2"></IonDatetime>
-            </IonModal>
-          </IonCol>
-        </IonCol>
-        <IonCol class="description label">
-          <li>We have 30,000+ members. We can send your exclusive email to all of them for only £850 instead of £900 OR to any 10,000 of them for only £300.</li>
-          <li>Our email open rate is about 30% and conversion about 5% generally.</li>
-          <li>Currently, our database shows 60% startups.</li>
-        </IonCol>
-      </IonItem>
-
-      <IonItem class="Head">
-        <IonCheckbox slot="start" v-model="checkboxStates.checkbox3"></IonCheckbox>
-        <IonCol class="title label">Email to 30,000+ of our members</IonCol>
-        <IonCol class="DatePrice">
-          <IonCol class="price">£850</IonCol>
-          <IonCol class="date">ChooseDate</IonCol>
-          <IonCol>
-            <IonDatetimeButton datetime="datetime3"></IonDatetimeButton>
-            <IonModal :keep-contents-mounted="true">
-              <IonDatetime id="datetime3"></IonDatetime>
-            </IonModal>
-          </IonCol>
-        </IonCol>
-        <IonCol class="description label">
-          <li>We have 30,000+ members; we can send your exclusive email to all of them for only £850.</li>
-          <li>This includes a £50 discount if you were to send 3 emails to any 10,000 of our 30,000+ members!</li>
-        </IonCol>
-      </IonItem>
-
-      <IonItem class="Head">
-        <IonCheckbox slot="start" v-model="checkboxStates.checkbox4"></IonCheckbox>
-        <IonCol class="title label">One Month Logo Display On LEN's Meetup Groups with 30,000+ members</IonCol>
-        <IonCol class="DatePrice">
-          <IonCol class="price">£250</IonCol>
-          <IonCol class="date">ChooseDate</IonCol>
-          <IonCol>
-            <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
-            <IonModal :keep-contents-mounted="true">
-              <IonDatetime id="datetime4"></IonDatetime>
-            </IonModal>
-          </IonCol>
-        </IonCol>
-        <IonCol class="description label">
-          <li>We place your logo, an offer & your link on the left side of all our Meetup Groups with 30,000+ members so at least 30,000+ members see it, plus many who are not our members & check our groups regularly!</li>
-        </IonCol>
-      </IonItem>
+      <IonCol>
+        <IonTextarea class="pasteEmailsHere" v-model="pasteEmailsHere" label="OR; copy then 'Paste' your emails here" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="500" />
+      </IonCol>
     </IonRow>
 
-    <IonRow class="fields">
-      <IonItem>
-        <IonInput class="inputFields" label="Enter Your Mobile/LandLine Number" label-placement="floating" :counter="true" :maxlength="100"></IonInput>
-      </IonItem>
-      <IonItem>
-        <IonInput class="inputFields" label="Enter Link To Redirect" label-placement="floating" :counter="true" :maxlength="100"></IonInput>
-      </IonItem>
-      <IonItem>
-        <IonTextarea class="inputFields" label="Enter Your Description" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="1000"></IonTextarea>
-      </IonItem>
+    <IonRow class="displays">
       <IonCol>
-        <IonInput v-model="businessTwitter" type="url" label="Business Twitter/X Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
-      </IonCol>
-      <IonCol>
-        <IonInput v-model="businessGoogle" type="url" label="Business Google Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
-      </IonCol>
-      <IonCol>
-        <IonInput v-model="businessFacebook" type="url" label="Business Facebook Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
-      </IonCol>
-      <IonCol>
-        <IonInput v-model="businessLinkedIn" type="url" label="Business LinkedIn Profile Link" label-placement="floating" :counter="true" :maxlength="70" :counter-formatter="customFormatter" fill="outline"></IonInput>
-      </IonCol>
-      <IonItem>
-        <IonSelect v-model="selectedCategory" placeholder="Repeat Billing Every" fill="outline">
-          <IonSelectOption value="Week">Week</IonSelectOption>
-          <IonSelectOption value="Month">Month</IonSelectOption>
-          <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+        <IonSelect v-model="displayImportedFrom" placeholder="Display Imported Emails From" fill="outline">
+          <IonSelectOption value="Gmail">Gmail</IonSelectOption>
+          <IonSelectOption value="Yahoo">Yahoo</IonSelectOption>
+          <IonSelectOption value="Outlook">Outlook</IonSelectOption>
+          <IonSelectOption value="Excel">Excel</IonSelectOption>
+          <IonSelectOption value="Facebook">Facebook</IonSelectOption>
+          <IonSelectOption value="LinkedIn">LinkedIn</IonSelectOption>
         </IonSelect>
-      </IonItem>
-      <IonItem>
-        <IonLabel>Upload Image</IonLabel>
-        <input type="file" @change="onFileSelected" />
-      </IonItem>
+      </IonCol>
+
+      <IonCol>
+        <IonSelect v-model="displayMyConnections" placeholder="Display My Connections" fill="outline">
+          <IonSelectOption value="Gmail">My Connections</IonSelectOption>
+          <IonSelectOption value="Yahoo">Pending Connection Request To Me</IonSelectOption>
+          <IonSelectOption value="Outlook">Pending Connection Request To Others</IonSelectOption>
+        </IonSelect>
+      </IonCol>
+      <IonRow class="displayConnectionAndEmails"></IonRow>
     </IonRow>
-    <p class="terms">
-      By clicking on SUBMIT, you agree to London Entrepreneurs Network's 
-      <a href="/TermsConditionsPage" class="terms-link">TERMS & CONDITIONS</a> and 
-      <a href="/PrivacyPolicypage" class="terms-link">PRIVACY POLICY</a>.
-    </p>
-    <IonButton class="UpdateBTN" size="large" expand="block" title="SubmitBTN" @click="submitContent">Submit</IonButton>
   </IonGrid>
 </template>
 
 
 
 
+
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonInput, IonItem, IonLabel, IonSelect, IonSelectOption, IonTextarea, IonCheckbox, IonGrid, IonRow, IonCol, IonButton, IonDatetime, IonDatetimeButton, IonModal } from '@ionic/vue';
+import { IonCard, IonButton, IonCol, IonGrid, IonIcon, IonRow, IonTextarea, IonSelect, IonSelectOption } from '@ionic/vue';
+import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin, logoYahoo } from 'ionicons/icons';
 
 // Function to sanitize input
 const sanitizeInput = (input: string): string => {
@@ -141,87 +67,44 @@ const sanitizeInput = (input: string): string => {
     .replace(/[<>\/\\'";]/g, '');              // Remove potentially harmful characters
 };
 
-// Function to validate URLs
-const isValidUrl = (url: string): boolean => {
-  const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/i;
-  return urlPattern.test(url);
-};
-
 export default defineComponent({
-  name: 'EmailWebsiteNotificationComponent',
+  name: 'MyConnectionComponent',
   components: {
-    IonInput,
-    IonItem,
-    IonCheckbox,
+    IonCard, 
+    IonButton,
+    IonCol,
     IonGrid,
     IonRow,
-    IonCol,
-    IonButton,
-    IonDatetime,
-    IonDatetimeButton,
-    IonModal,
-    IonLabel,
+    IonIcon,
+    IonTextarea,
     IonSelect,
     IonSelectOption,
-    IonTextarea,
   },
   setup() {
-    const checkboxStates = ref({
-      checkbox1: false,
-      checkbox2: false,
-      checkbox3: false,
-      checkbox4: false,
-    });
-
-    const selectedCategory = ref<string | null>(null);
-
-    const businessTwitter = ref<string>('');
-    const businessGoogle = ref<string>('');
-    const businessFacebook = ref<string>('');
-    const businessLinkedIn = ref<string>('');
-
-    const customFormatter = (inputLength: number, maxLength: number) => {
-      return `${maxLength - inputLength} characters remaining`;
-    };
-
-    const onFileSelected = (event: Event) => {
-      const input = event.target as HTMLInputElement;
-      const file = input.files?.[0];
-      if (file) {
-        console.log(file);
-      }
-    };
+    const pasteEmailsHere = ref<string>('');
+    const displayImportedFrom = ref<string | null>(null);
+    const displayMyConnections = ref<string | null>(null);
 
     const submitContent = () => {
       // Sanitize all text fields
       const sanitizedData = {
-        checkboxStates: {
-          checkbox1: checkboxStates.value.checkbox1,
-          checkbox2: checkboxStates.value.checkbox2,
-          checkbox3: checkboxStates.value.checkbox3,
-          checkbox4: checkboxStates.value.checkbox4,
-        },
-        selectedCategory: sanitizeInput(selectedCategory.value || ''),
-        businessTwitter: isValidUrl(businessTwitter.value) ? businessTwitter.value : '',
-        businessGoogle: isValidUrl(businessGoogle.value) ? businessGoogle.value : '',
-        businessFacebook: isValidUrl(businessFacebook.value) ? businessFacebook.value : '',
-        businessLinkedIn: isValidUrl(businessLinkedIn.value) ? businessLinkedIn.value : '',
+        displayImportedFrom: sanitizeInput(displayImportedFrom.value ?? ''),
+        pasteEmailsHere: sanitizeInput(pasteEmailsHere.value).substring(0, 10000),
       };
-
-      console.log('Sanitized Data:', sanitizedData);
+      console.log('Form Data:', sanitizedData);
       // Here you should send sanitizedData to your API endpoint
     };
 
     return {
-      checkboxStates,
-      selectedCategory,
-      customFormatter,
-      onFileSelected,
+      pasteEmailsHere,
+      displayImportedFrom,
+      displayMyConnections,
+      logoFacebook,
+      logoTwitter,
+      logoGoogle,
+      logoLinkedin,
+      logoYahoo,
       submitContent,
-      businessTwitter,
-      businessGoogle,
-      businessFacebook,
-      businessLinkedIn,
     };
   },
 });
@@ -231,102 +114,82 @@ export default defineComponent({
 
 
 <style scoped>
-.Header {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.mainRow {
-  display: flex;
-  overflow-x: auto; /* Enable horizontal scrolling */
-}
-
-.Head {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  padding: 10px;
-  border: 1px solid lightgray;
-  border-radius: 10px;
-  margin-right: 10px; /* Add spacing between items */
-  min-width: 200px; /* Ensure a minimum width */
-  box-sizing: border-box;
-}
-
-.DatePrice {
-  max-width: 200px;
-}
-
-.price,
-.date {
-  font-weight: bold;
-  color: purple;
-}
-
-.title {
-  font-weight: bold;
-  min-width: 200px;
-  max-width: 200px;
-  font-size: 14px;
-  white-space: wrap;
-  /* overflow: hidden; */
-  text-overflow: ellipsis;
-}
-
-.description {
-  width: 100%;
-}
-
-.label {
-  text-align: left;
-}
-
-.UpdateBTN {
-  width: 100%;
-}
-
-.fields {
-  margin-top: 20px;
-}
-
-.inputFields {
-  border: 1px solid gray;
-  border-radius: 8px;
-}
-
-.terms {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-.terms-link {
-  color: blue;
-  text-decoration: none;
-}
-
-.terms-link:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-  .mainRow {
-    border: 2px solid rgb(148, 9, 141);
-    border-radius: 8px;
+  ion-grid {
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 100%; /* Full height to fit the parent */
+    margin-top: 20px;
   }
-  .Head {
-    flex: 0 0 auto;
-    width: 200vw; /* Full viewport width */
-    overflow-x: auto; /* Ensure horizontal scrolling */
-  }
-  .fields {
+
+  .image {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
   }
-}
+
+  /* Social media icon colors */
+  .linkedin-icon {
+    color: #0077b5; /* LinkedIn blue */
+  }
+
+  .google-icon {
+    color: #db4437; /* Google red */
+  }
+
+  .facebook-icon {
+    color: #3b5998; /* Facebook blue */
+  }
+
+  .twitter-icon {
+    color: #1da1f2; /* Twitter blue */
+  }
+
+  .yahoo-icon {
+    color: #720e9e; /* Yahoo purple */
+  }
+
+  .pasteEmailsHere,
+  .importFrom {
+    width: 100%;
+    height: 100px; /* Adjust as needed */
+    border: solid 1px gray;
+    border-radius: 7px;
+  }
+  .displayConnectionAndEmails {
+    height: 200px;
+    border: 3px solid rgb(202, 9, 9);
+  }
+
+  @media (max-width: 600px) {
+    ion-grid {
+      /* display: flex; */
+      /* flex-direction: column; */
+      background-color: red;
+
+    }
+
+    .importPaste,
+    .displays {
+      /* flex-direction: column; */
+      background-color: red;
+
+      
+    }
+
+    .importFrom {
+      /* display: flex; */
+      /* flex-direction: column; */
+      background-color: red;
+
+      
+    }
+
+    .pasteEmailsHere {
+      /* margin-top: 15px; */
+      background-color: red;
+
+    }
+  }
 </style>
+
 
 
 

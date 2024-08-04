@@ -90,7 +90,9 @@ import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderCom
 // Sponsorship Partnership  SponsorshipPartnershipForm
 import SponsorshipPartnershipFormComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipFormComponent.vue';
 import SponsorshipPartnershipAdComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipAdComponent.vue';
-
+// My Connection Components
+import MyConnectionComponent from '@/components/MyConnectionComponents/MyConnectionComponent.vue';
+import EmailImportsTableComponent from '@/components/MyConnectionComponents/EmailImportsTableComponent.vue';
 
 
 
@@ -453,11 +455,21 @@ const routes: Array<RouteRecordRaw> = [
     component: SponsorshipPartnershipFormComponent 
   },
   {
-    path: '/sponsorshipPartnershipAdComponent ',
-    name: 'SponsorshipPartnershipAdComponent ',
+    path: '/sponsorshipPartnershipAdComponent',
+    name: 'SponsorshipPartnershipAdComponent',
     component: SponsorshipPartnershipAdComponent 
   },
-
+  // My Connection Components
+  {
+    path: '/myConnectionComponent',
+    name: 'MyConnectionComponent',
+    component: MyConnectionComponent 
+  },
+  {
+    path: '/emailImportsTableComponent',
+    name: 'EmailImportsTableComponent',
+    component: EmailImportsTableComponent 
+  },
 
   // Left & Right Adverts starts here  MemberInvestmentApplicationComponent
   {

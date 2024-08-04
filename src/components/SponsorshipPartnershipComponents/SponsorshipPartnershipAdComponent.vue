@@ -2,18 +2,18 @@
   <IonGrid>
   <IonCard>
       <IonRow class="image">
-        <img alt="LEN Logo" height="350" width="300" src="/favicon.png" />
+        <img alt="LEN Logo" height="300" width="350" src="/favicon.png" />
       </IonRow>
       <IonRow class="description">
         <p>This is the description part of sponsorship partnership. It can only be 200 characters.</p>
       </IonRow>
       <IonRow class="socialStat">
         <IonCol class="stat">List Viewed: 21 | Clicked: 33</IonCol>
-        <IonIcon class="linkedin-icon" size="large" :icon="logoLinkedin" />
-        <IonIcon class="google-icon" size="large" :icon="logoGoogle" />
-        <IonIcon class="facebook-icon" size="large" :icon="logoFacebook" />
-        <IonIcon class="twitter-icon" size="large" :icon="logoTwitter" />
-        <IonIcon size="large" :icon="linkOutline" />
+        <a href="#"><IonIcon class="linkedin-icon" size="large" :icon="logoLinkedin" /></a>
+        <a href="#"><IonIcon class="google-icon" size="large" :icon="logoGoogle" /></a>
+        <a href="#"><IonIcon class="facebook-icon" size="large" :icon="logoFacebook" /></a>
+        <a href="#"><IonIcon class="twitter-icon" size="large" :icon="logoTwitter" /></a>
+        <a href="#"><IonIcon size="large" :icon="linkOutline" /></a>
       </IonRow>
     </IonCard>
   </IonGrid>
@@ -54,15 +54,14 @@ export default defineComponent({
   } */
   ion-card {
     max-width: 400px; 
-    max-height: 700px; 
+    max-height: 420px; 
     margin: 0 auto;
     border-radius: 6px;
     border: 3px solid red; 
   }
   .image {
     display: flex;
-    /* align-items: center; */
-    /* align-content: center; */
+
     justify-content: center;
   }
   /* Social media icon colors */

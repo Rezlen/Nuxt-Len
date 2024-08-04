@@ -28,7 +28,7 @@
               <IonButton size="small" >Buy More</IonButton> {11} of 20 of your monthly messages remaining
             </IonRow>
             <IonRow class="PaddingBorder EditProfile" @click="showComponent('FormProfilePublicSectionComponent')">Edit Profile</IonRow>
-            <IonRow class="PaddingBorder " >My Connections</IonRow>
+            <IonRow class="PaddingBorder MyConnections" @click="showComponent('MyConnectionComponent')">My Connections</IonRow>
             <IonRow class="PaddingBorder Messages" @click="showComponent('MessagingComponent')">Messages</IonRow>
             <IonRow class="PaddingBorder " >My Offer</IonRow>
             <IonRow class="PaddingBorder " >My Best Offers</IonRow>
@@ -117,6 +117,7 @@ import FormProfilePublicSectionComponent from '@/components/ProfileComponents/Fo
 import MessagingComponent from '@/components/MessagingComponents/MessagingComponent.vue';
 import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/MembersMyOrderTABsComponent.vue';
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
+import MyConnectionComponent from '@/components/MyConnectionComponents/MyConnectionComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -143,6 +144,8 @@ export default defineComponent({
     MessagingComponent,
     MembersMyOrderTABsComponent,
     EmailWebsiteNotificationComponent,
+    MyConnectionComponent,
+
     FooterComponent,
   },
   setup() {
@@ -159,6 +162,9 @@ export default defineComponent({
       }
       if (componentName === 'FormProfilePublicSectionComponent') {
         currentComponent.value = FormProfilePublicSectionComponent;
+      }
+      if (componentName === 'MyConnectionComponent') {
+        currentComponent.value = MyConnectionComponent;
       }
       if (componentName === 'MessagingComponent') {
         currentComponent.value = MessagingComponent;
@@ -257,7 +263,8 @@ export default defineComponent({
 .EditProfile,
 .NotificationSetting,
 .Messages,
-.MyOrders {
+.MyOrders,
+.MyConnections {
   font-weight: bold;
 }
 @media (max-width: 600px) {
