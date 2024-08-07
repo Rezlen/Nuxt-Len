@@ -165,7 +165,7 @@ const menus = ref([
       { title: 'Services/Products Exchange', path: '/ServicesProductsExchange' },
       { title: 'About Us', path: '/AboutUsPage' },
       { title: 'Gallery', path: '/Gallery' },
-      { title: 'Business Advice', path: '/BusinessAdvice' },
+      { title: 'Business Advice', path: '/CEOBusinessAdvicePage' },
       { title: 'Contact Us', path: '/ContactUs' },
       { title: 'Blogs', path: '/Blogs' },
       { title: 'Groups', path: '/Groups' },

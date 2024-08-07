@@ -79,11 +79,11 @@
               <ul>
                 <li>Rewards & Discounts</li>
                 <li>Shares</li>
-                <li>Sponsorship/Partnership</li>
-                <li>Sponsors/Partners</li>
+                <li><a href='/SponsorsPartnershipPage' class="Items" >Sponsorship/Partnership</a></li>
+                <li><a href='/SponsorsPartnershipPage' class="Items" >Sponsors/Partners</a></li>
                 <li>Services/Products Exchange</li>
                 <li>Gallery</li>
-                <li>Business Advice</li>
+                <li><a href='/CEOBusinessAdvicePage' class="Items" >Business Advice</a></li>
                 <li>Blog</li>
                 <li>Groups</li>
               </ul>

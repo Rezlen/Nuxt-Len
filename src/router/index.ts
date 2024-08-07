@@ -16,6 +16,7 @@ import PrivacyPolicyPage from '../views/PrivacyPolicyPage.vue';
 import TermsConditionsPage from '../views/TermsConditionsPage.vue';
 import InvestorsInvesteesPage from '../views/InvestorsInvesteesPage.vue';
 import SponsorsPartnershipPage from '../views/SponsorsPartnershipPage.vue';
+import CEOBusinessAdvicePage from '../views/CEOBusinessAdvicePage.vue';
 
 
 // Comp Stats here
@@ -92,11 +93,11 @@ import EmailImportsTableComponent from '@/components/MyConnectionComponents/Emai
 // SponsorshipPartnershipTableComponent
 import SponsorshipPartnershipTableComponent from '@/components/MembersMyOrderComponents/SponsorshipPartnershipTableComponent.vue';
 
-
-
 // Sponsorship Partnership  SponsorshipPartnershipForm
 import SponsorshipPartnershipFormComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipFormComponent.vue';
 import SponsorshipPartnershipAdComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipAdComponent.vue';
+//  CEOBusinessAdviceFormComponent
+import CEOBusinessAdviceFormComponent from '@/components/CEOBusinessAdviceComponents/CEOBusinessAdviceFormComponent.vue';
 
 
 
@@ -177,6 +178,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/sponsorsPartnershipPage',
     name: 'SponsorsPartnershipPage',
     component: SponsorsPartnershipPage
+  },
+  {
+    path: '/CEOBusinessAdvicePage',
+    name: 'CEOBusinessAdvicePage',
+    component: CEOBusinessAdvicePage
   },
 
   
@@ -479,6 +485,13 @@ const routes: Array<RouteRecordRaw> = [
     name: 'EmailImportsTableComponent',
     component: EmailImportsTableComponent 
   },
+  // CEOBusinessAdviceComponents
+{
+    path: '/CEOBusinessAdviceFormComponent',
+    name: 'CEOBusinessAdviceFormComponent',
+    component: CEOBusinessAdviceFormComponent 
+  },
+
 
   // Left & Right Adverts starts here  MemberInvestmentApplicationComponent
   {
@@ -523,19 +536,7 @@ const routes: Array<RouteRecordRaw> = [
   }, 
 
 
-  // Backend BusinessProfile.ts
-  // {
-  //   path: '/businessProfile',
-  //   name: 'BusinessProfile',
-  //   component: BusinessProfile
-  // }, 
-  // {
-  //   path: '/personalProfile',
-  //   name: 'PersonalProfile',
-  //   component: PersonalProfile
-  // },
-
-
+ 
   // Backend BusinessProfile.ts
 
 
