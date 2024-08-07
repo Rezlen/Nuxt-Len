@@ -548,7 +548,7 @@
     });
 
     // Set default sorting by bookingDate
-resetSorting();
+      resetSorting();
 
       const itemsPerPage = 20;
       const currentPage = ref(1);

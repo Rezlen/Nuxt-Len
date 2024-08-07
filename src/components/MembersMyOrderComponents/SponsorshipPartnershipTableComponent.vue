@@ -25,10 +25,10 @@
           <IonCol class="PersonPicCol" @click="sortTickets('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
           <IonCol class="FirstNameCol" @click="sortTickets('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
           <IonCol class="LastNameCol" @click="sortTickets('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+          <IonCol class="EmailCol" @click="sortTickets('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
           <IonCol class="MembershipTypeCol" @click="sortTickets('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
           <IonCol class="VIPMembershipCol" @click="sortTickets('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
           <IonCol class="VVIPMembershipCol" @click="sortTickets('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
-          <IonCol class="CostCol" @click="sortTickets('cost')">Sponsorship/Partnership Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
 
           <IonCol class="ResponseToYourNeedsCol green" @click="sortTickets('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
           <IonCol class="ResponseToYourOffersCol green" @click="sortTickets('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
@@ -52,9 +52,11 @@
           <IonCol class="InvestmentPitchingCol green" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
           <IonCol class="WorkshopCol green" @click="sortTickets('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
           <IonCol class="PresentationCol green" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
-          
-          
           <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+          <IonCol class="sponsorshipPartnershipTitleCol" @click="sortTickets('sponsorshipPartnershipTitle')">Sponsorship Partnership Title <IonIcon :icon="sortIcon('sponsorshipPartnershipTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="sponsorshipPartnershipSeenCol" @click="sortTickets('sponsorshipPartnershipSeen')">Sponsorship Partnership Seen <IonIcon :icon="sortIcon('sponsorshipPartnershipSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="sponsorshipPartnershipListViewCol" @click="sortTickets('sponsorshipPartnershipListView')">Sponsorship Partnership List View <IonIcon :icon="sortIcon('sponsorshipPartnershipListView')" class="sort-icon" /></IonCol>
+          <IonCol class="CostCol" @click="sortTickets('cost')">Sponsorship/Partnership Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
           <IonCol class="ActionCol">Stop next Sponsorship Billing, Hide, Edit</IonCol>
         </IonRow>
 
@@ -68,10 +70,10 @@
           <IonCol class="PersonPicCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
           <IonCol class="FirstNameCol">{{ ticket.firstName }}</IonCol>
           <IonCol class="LastNameCol">{{ ticket.lastName }}</IonCol>
+          <IonCol class="EmailCol">{{ ticket.email }}</IonCol>
           <IonCol class="MembershipTypeCol">{{ ticket.membershipType }}</IonCol>
           <IonCol class="VIPMembershipCol">{{ ticket.VIPMembership }}</IonCol>
           <IonCol class="VVIPMembershipCol">{{ ticket.VVIPMembership }}</IonCol>
-          <IonCol class="CostCol">{{ ticket.cost }}</IonCol>
 
           <IonCol class="ResponseToYourNeedsCol">{{ ticket.responseToYourNeeds}}</IonCol>
           <IonCol class="ResponseToYourOffersCol">{{ ticket.responseToYourOffers}}</IonCol>
@@ -95,9 +97,12 @@
           <IonCol class="InvestmentPitchingCol">{{ ticket.investmentPitching }}</IonCol>
           <IonCol class="WorkshopCol">{{ ticket.workshop }}</IonCol>
           <IonCol class="PresentationCol">{{ ticket.presentation }}</IonCol>
-
-
           <IonCol class="LastLoggedInCol">{{ ticket.lastLoggedIn }}</IonCol>
+          <IonCol class="sponsorshipPartnershipTitleCol">{{ ticket.sponsorshipPartnershipTitle }}</IonCol>
+          <IonCol class="sponsorshipPartnershipSeenCol">{{ ticket.sponsorshipPartnershipSeen }}</IonCol>
+          <IonCol class="sponsorshipPartnershipListViewCol">{{ ticket.sponsorshipPartnershipListView }}</IonCol>
+          
+          <IonCol class="CostCol">{{ ticket.cost }}</IonCol>
           <IonCol class="ActionCol">
             <IonButton class="ActionCol" fill="clear" title="Close">
               <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
@@ -116,10 +121,10 @@
           <IonCol class="PersonPicCol"></IonCol>
           <IonCol class="FirstNameCol"></IonCol>
           <IonCol class="LastNameCol"></IonCol>
+          <IonCol class="EmailCol"></IonCol>
           <IonCol class="MembershipTypeCol"></IonCol>
           <IonCol class="VIPMembershipCol"></IonCol>
           <IonCol class="VVIPMembershipCol"></IonCol>
-          <IonCol class="costCol"></IonCol>
           
           <IonCol class="ResponseToYourNeedsCol"></IonCol>
           <IonCol class="ResponseToYourOffersCol"></IonCol>
@@ -143,9 +148,12 @@
           <IonCol class="InvestmentPitchingCol"></IonCol>
           <IonCol class="WorkshopCol"></IonCol>
           <IonCol class="PresentationCol"></IonCol>
-
           
           <IonCol class="LastLoggedInCol"></IonCol>
+          <IonCol class="sponsorshipPartnershipTitleCol"></IonCol>
+          <IonCol class="sponsorshipPartnershipSeenCol">{{ totalsponsorshipPartnershipSeen }}</IonCol>
+          <IonCol class="sponsorshipPartnershipListViewCol">{{ totalsponsorshipPartnershipListView }}</IonCol>
+          <IonCol class="costCol"></IonCol>
           <IonCol class="ActionCol"></IonCol>
         </IonRow>
 
@@ -185,10 +193,10 @@
     personPic: string;
     firstName: string;
     lastName: string;
+    email: string;
     membershipType: string;
     VIPMembership: number;
     VVIPMembership: number;
-    cost: number;
     
     responseToYourNeeds: number;
     responseToYourOffers: number;
@@ -213,6 +221,11 @@
     presentation: number;
 
     lastLoggedIn: string;
+    sponsorshipPartnershipTitle: string;
+    sponsorshipPartnershipSeen: number;
+    sponsorshipPartnershipListView: number;
+    cost: number;
+
   }
 
   export default defineComponent({
@@ -228,10 +241,10 @@
           personPic: 'pic_url_a',
           firstName: 'Johneee',
           lastName: 'Doe',
+          email: 'john.doe@example.com',
           membershipType: 'Gold',
           VIPMembership: 43,
           VVIPMembership: 30,
-          cost: 100, // Added cost value
           responseToYourNeeds: 54,
           responseToYourOffers: 4,
           responseToYourBestOffers: 44,
@@ -253,7 +266,11 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-06-01'
+          lastLoggedIn: '2023-06-01',
+          sponsorshipPartnershipTitle: 'Amazing sponsorshipPartnership',
+          sponsorshipPartnershipSeen: 200,
+          sponsorshipPartnershipListView: 300,
+          cost: 100, // Added cost value
         },
         {
           id: 2,
@@ -263,10 +280,10 @@
           personPic: 'pic_url_a',
           firstName: 'res',
           lastName: 'Doe',
+          email: 'alice.smith@example.com',
           membershipType: 'Silver',
           VIPMembership: 2,
           VVIPMembership: 30,
-          cost: 120, // Added cost value
 
           responseToYourNeeds: 22,
           responseToYourOffers: 2,
@@ -289,7 +306,12 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-07-01'
+          lastLoggedIn: '2023-07-01',
+          sponsorshipPartnershipTitle: 'Exclusive sponsorshipPartnership',
+          sponsorshipPartnershipSeen: 250,
+          sponsorshipPartnershipListView: 350,
+          cost: 120, // Added cost value
+
         },
         {
           id: 1,
@@ -299,10 +321,10 @@
           personPic: 'pic_url_a',
           firstName: 'John',
           lastName: 'Doe',
+          email: 'bob.brown@example.com',
           membershipType: 'Platinum',
           VIPMembership: 7,
           VVIPMembership: 30,
-          cost: 150, // Added cost value
           responseToYourNeeds: 77,
           responseToYourOffers: 7,
           responseToYourBestOffers: 777,
@@ -324,7 +346,12 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-08-01'
+          lastLoggedIn: '2023-08-01',
+          sponsorshipPartnershipTitle: 'Premium sponsorshipPartnership',
+          sponsorshipPartnershipSeen: 300,
+          sponsorshipPartnershipListView: 400,
+          cost: 150, // Added cost value
+
         }
       ]);
 
@@ -399,7 +426,8 @@
 
       //  * Computes the total cost of all tickets.
       const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
-
+      const totalsponsorshipPartnershipSeen = computed(() => filteredTickets.value.reduce((sum, member) => sum + member.sponsorshipPartnershipSeen, 0));
+      const totalsponsorshipPartnershipListView = computed(() => filteredTickets.value.reduce((sum, member) => sum + member.sponsorshipPartnershipListView, 0));
       //  * Navigates to the previous page, if possible.
       const prevPage = () => {
         if (currentPage.value > 1) {
@@ -418,14 +446,14 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Ticket ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'MembershipType', 'VIP Membership', 'VVIPMembership', 'Cost',   'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
+            'Ticket ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorTicket', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
-            'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
+            'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn', 'Sponsorship Partnership Title', 'Sponsorship Partnership Seen', 'Sponsorship Partnership List View', 'Cost',
           ],
           ...filteredTickets.value.map(ticket => [
-            ticket.id,  ticket.bookingDate, ticket.expiringDate, ticket.timeLeftTillExpiry, ticket.personPic, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.VIPMembership, ticket.VVIPMembership, ticket.cost,   ticket.responseToYourNeeds, ticket.responseToYourOffers, ticket.responseToYourBestOffers, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
+            ticket.id,  ticket.bookingDate, ticket.expiringDate, ticket.timeLeftTillExpiry, ticket.personPic, ticket.firstName, ticket.lastName, ticket.email, ticket.membershipType, ticket.VIPMembership, ticket.VVIPMembership,  ticket.responseToYourNeeds, ticket.responseToYourOffers, ticket.responseToYourBestOffers, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
             ticket.businessName, ticket.bizCategory, ticket.exhibited, ticket.visited, ticket.investorTicket, ticket.investmentBroker,
-            ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.oneMinPitching, ticket.threeMinPitching, ticket.investmentPitching, ticket.workshop, ticket.presentation, ticket.bookingDate,  ticket.lastLoggedIn
+            ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.oneMinPitching, ticket.threeMinPitching, ticket.investmentPitching, ticket.workshop, ticket.presentation, ticket.bookingDate,  ticket.lastLoggedIn,  ticket.sponsorshipPartnershipTitle, ticket.sponsorshipPartnershipSeen, ticket.sponsorshipPartnershipListView, ticket.cost, 
           ])
         ]
           .map(e => e.join(","))
@@ -487,10 +515,10 @@
                     <th>Person Pic</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Email</th>
                     <th>Membership Type</th>
                     <th>VIP Membership</th>
                     <th>VVIPMembership</th>
-                    <th>Cost</th>
                     <th>Response To Your Needs</th>
                     <th>Response To Your Offers</th>
                     <th>Response To Your Best Offers</th>
@@ -514,6 +542,10 @@
                     <th>Workshop</th>
                     <th>Presentation</th>
                     <th>Last Logged In</th>
+                    <th>SponsorshipPartnershipTitle</th>
+                    <td>${totalsponsorshipPartnershipSeen.value}</td>
+                    <td>${totalsponsorshipPartnershipListView.value}</td>
+                    <th>Cost</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -526,10 +558,10 @@
                       <td>${ticket.personPic}</td>
                       <td>${ticket.firstName}</td>
                       <td>${ticket.lastName}</td>
+                      <td>${ticket.email}</td>
                       <td>${ticket.membershipType}</td>
                       <td>${ticket.VIPMembership}</td>
                       <td>${ticket.VVIPMembership}</td>
-                      <td>${ticket.cost}</td>
                       <td>${ticket.responseToYourNeeds}</td>
                       <td>${ticket.responseToYourOffers}</td>
                       <td>${ticket.responseToYourBestOffers}</td>
@@ -553,6 +585,11 @@
                       <td>${ticket.workshop}</td>
                       <td>${ticket.presentation}</td>
                       <td>${ticket.lastLoggedIn}</td>
+                      <td>${ticket.sponsorshipPartnershipTitle}</td>
+                      <td>${ticket.sponsorshipPartnershipSeen}</td>
+                      <td>${ticket.sponsorshipPartnershipListView}</td>
+
+                      <td>${ticket.cost}</td>
                     </tr>
                   `).join('')}
                   <tr class="TotalRow">
@@ -615,6 +652,8 @@
         exportTable,
         printTable,
         total,
+        totalsponsorshipPartnershipSeen,
+        totalsponsorshipPartnershipListView,
         close,
         create,
         arrowBackCircle,
@@ -655,7 +694,7 @@
     /* border: 4px solid rgb(26, 185, 18); */
   }
   .scrollingRow {
-    min-width: 3500px;
+    min-width: 4200px;
     /* border: 1px solid red; */
     flex-direction: column;
   }
@@ -669,6 +708,18 @@
   .DataRow.selected {
     border-top: 3px solid red;
     border-bottom: 3px solid red;
+  }
+  .sponsorshipPartnershipTitleCol {
+    Border-left: 3px rgb(24, 30, 203) solid;
+  }
+  .TitleRow .sponsorshipPartnershipTitleCol,
+  .TitleRow .sponsorshipPartnershipSeenCol,
+  .TitleRow .sponsorshipPartnershipListViewCol,
+  .TitleRow .CostCol {
+    border-top: 3px rgb(24, 30, 203) solid;
+  }
+  .CostCol {
+  Border-right: 3px rgb(24, 30, 203) solid;
   }
   .DataRow:nth-child(odd) ion-col {
     background-color: #f5efef;
