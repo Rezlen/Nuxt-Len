@@ -11,7 +11,9 @@
       </IonButton>
     </IonRow>
     
-    <IonRow class="ContainerRow" ref="scrollableContainer">
+    <IonRow class="NONscrollingRow">
+
+      <IonRow class="scrollingRow" ref="scrollableContainer">
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
@@ -208,6 +210,8 @@
 
           <IonCol class="ActionCol"></IonCol>
         </IonRow>
+      </IonRow>
+
     </IonRow>
 
     <!-- Pagination -->
@@ -928,27 +932,30 @@
 .TitleRow .LookingForSummeryCol {
   border-top: 2px solid red;
 }
-.arrowBackCircle {
+/* .arrowBackCircle {
   position: fixed;
   top: 55;
   left: 90;
   right: 0;
   z-index: 1;
-}
+} */
 
 .TitleRow {
   font-weight: bold;
   cursor: pointer;
   height: 50px;
-  align-items: center;
-}
-
-.ContainerRow {
-  width: 5500px;
-  flex-direction: column;
-  overflow-y: scroll;
-  overflow-x: scroll;
-}
+    align-items: top;
+    text-align: top;
+  }
+  .NONscrollingRow {
+    overflow-x: auto;
+    /* border: 4px solid rgb(26, 185, 18); */
+  }
+  .scrollingRow {
+    min-width: 5500px;
+    /* border: 1px solid red; */
+    flex-direction: column;
+  }
 
 .DataRow {
   cursor: pointer;
@@ -1034,16 +1041,7 @@ ion-col {
 }
 
 @media (max-width: 600px) {
-  .ContainerRow {
-    width: 4000px;
-  }
-  .TitleRow, .DataRow, .TotalRow {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  ion-col {
-    max-width: 100px;
-  }
+
 }
 </style>
 

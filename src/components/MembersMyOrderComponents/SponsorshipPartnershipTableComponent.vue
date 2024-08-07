@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">History of membership purchase</p>
+    <p class="TitleP">Your Sponsorship & Partnership traffic, click, reaction and edit</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
@@ -15,56 +15,64 @@
     <IonRow class="NONscrollingRow">
     
       <IonRow class="scrollingRow" ref="scrollableContainer">
-          <!-- TitleRow with sorting functionality and icons -->
-          <IonRow class="TitleRow">
-            
-            <IonCol class="OrderIDCol" @click="sortTickets('id')">ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-            <IonCol class="BookingDateCol" @click="sortTickets('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
-            <IonCol class="MembershipTypeCol" @click="sortTickets('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-            <IonCol class="VIPMembershipCol" @click="sortTickets('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
-            <IonCol class="VVIPMembershipCol" @click="sortTickets('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
-            <IonCol class="CostCol" @click="sortTickets('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
-            <IonCol class="ExpiringDateCol" @click="sortTickets('expiringDate')">Expiring Date <IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
-            <IonCol class="TimeLeftTillExpiryCol" @click="sortTickets('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
-            <IonCol class="ResponseToYourNeedsCol green" @click="sortTickets('responseToYourNeeds')">Response To Your Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
-            <IonCol class="ResponseToYourOffersCol green" @click="sortTickets('responseToYourOffers')">Response To Your Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
-            <IonCol class="ResponseToYourBestOffersCol green" @click="sortTickets('responseToYourBestOffers')">Response To Your Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
-            <IonCol class="PitchTrainingCol" @click="sortTickets('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
-            <IonCol class="BusinessFundingAdviceCol" @click="sortTickets('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol" @click="sortTickets('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="VideoOfPitchingCol" @click="sortTickets('videoOfPitching')">Video Of My Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
+        <!-- TitleRow with sorting functionality and icons -->
+        <IonRow class="TitleRow">
+          
+          <IonCol class="OrderIDCol" @click="sortTickets('id')">ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+          <IonCol class="BookingDateCol" @click="sortTickets('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+          <IonCol class="ExpiringDateCol" @click="sortTickets('expiringDate')">Expiring Date<IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
+          <IonCol class="TimeLeftTillExpiryCol" @click="sortTickets('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
+          <IonCol class="PersonPicCol" @click="sortTickets('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+          <IonCol class="FirstNameCol" @click="sortTickets('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+          <IonCol class="LastNameCol" @click="sortTickets('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+          <IonCol class="MembershipTypeCol" @click="sortTickets('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="VIPMembershipCol" @click="sortTickets('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
+          <IonCol class="VVIPMembershipCol" @click="sortTickets('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
+          <IonCol class="CostCol" @click="sortTickets('cost')">Sponsorship/Partnership Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
 
-            <IonCol class="BusinessNameCol" @click="sortTickets('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
-            <IonCol class="BizCategoryCol" @click="sortTickets('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="ExhibitedCol green" @click="sortTickets('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
-            <IonCol class="VisitedCol green" @click="sortTickets('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorTicketCol" @click="sortTickets('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentBrokerCol" @click="sortTickets('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorsAdvertsCol  green" @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
-            <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-            <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
-            <IonCol class="OneMinPitchingCol" @click="sortTickets('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="ThreeMinPitchingCol" @click="sortTickets('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentPitchingCol green" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="WorkshopCol green" @click="sortTickets('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
-            <IonCol class="PresentationCol green" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
-            
-            
-            <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-            <IonCol class="ActionCol">Stop next Membership Billing</IonCol>
-          </IonRow>
+          <IonCol class="ResponseToYourNeedsCol green" @click="sortTickets('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourOffersCol green" @click="sortTickets('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourBestOffersCol green" @click="sortTickets('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchTrainingCol" @click="sortTickets('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
+          <IonCol class="BusinessFundingAdviceCol" @click="sortTickets('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol" @click="sortTickets('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
+          <IonCol class="VideoOfPitchingCol" @click="sortTickets('videoOfPitching')">Video Of Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
+
+          <IonCol class="BusinessNameCol" @click="sortTickets('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+          <IonCol class="BizCategoryCol" @click="sortTickets('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="ExhibitedCol green" @click="sortTickets('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+          <IonCol class="VisitedCol green" @click="sortTickets('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorTicketCol" @click="sortTickets('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentBrokerCol" @click="sortTickets('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorsAdvertsCol  green" @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
+          <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="OneMinPitchingCol" @click="sortTickets('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="ThreeMinPitchingCol" @click="sortTickets('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentPitchingCol green" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="WorkshopCol green" @click="sortTickets('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
+          <IonCol class="PresentationCol green" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
+          
+          
+          <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+          <IonCol class="ActionCol">Stop next Sponsorship Billing, Hide, Edit</IonCol>
+        </IonRow>
 
         
         <!-- Data rows -->
         <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)">
           <IonCol class="OrderIDCol">{{ ticket.id }}</IonCol>
           <IonCol class="BookingDateCol">{{ ticket.bookingDate }}</IonCol>
+          <IonCol class="ExpiringDateCol">{{ ticket.expiringDate }}</IonCol>
+          <IonCol class="TimeLeftTillExpiryCol">{{ ticket.timeLeftTillExpiry}}</IonCol>
+          <IonCol class="PersonPicCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="FirstNameCol">{{ ticket.firstName }}</IonCol>
+          <IonCol class="LastNameCol">{{ ticket.lastName }}</IonCol>
           <IonCol class="MembershipTypeCol">{{ ticket.membershipType }}</IonCol>
           <IonCol class="VIPMembershipCol">{{ ticket.VIPMembership }}</IonCol>
           <IonCol class="VVIPMembershipCol">{{ ticket.VVIPMembership }}</IonCol>
           <IonCol class="CostCol">{{ ticket.cost }}</IonCol>
-          <IonCol class="ExpiringDateCol">{{ ticket.expiringDate }}</IonCol>
-          <IonCol class="TimeLeftTillExpiryCol">{{ ticket.timeLeftTillExpiry}}</IonCol>
+
           <IonCol class="ResponseToYourNeedsCol">{{ ticket.responseToYourNeeds}}</IonCol>
           <IonCol class="ResponseToYourOffersCol">{{ ticket.responseToYourOffers}}</IonCol>
           <IonCol class="ResponseToYourBestOffersCol">{{ ticket.responseToYourBestOffers }}</IonCol>
@@ -93,6 +101,8 @@
           <IonCol class="ActionCol">
             <IonButton class="ActionCol" fill="clear" title="Close">
               <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+              <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon>
+
             </IonButton>
           </IonCol>
         </IonRow>
@@ -101,12 +111,16 @@
         <IonRow class="TotalRow">
           <IonCol class="OrderIDCol">Totals:</IonCol>
           <IonCol class="BookingDateCol"></IonCol>
+          <IonCol class="expiringDateCol"></IonCol>
+          <IonCol class="TimeLeftTillExpiryCol"></IonCol>
+          <IonCol class="PersonPicCol"></IonCol>
+          <IonCol class="FirstNameCol"></IonCol>
+          <IonCol class="LastNameCol"></IonCol>
           <IonCol class="MembershipTypeCol"></IonCol>
           <IonCol class="VIPMembershipCol"></IonCol>
           <IonCol class="VVIPMembershipCol"></IonCol>
           <IonCol class="costCol"></IonCol>
-          <IonCol class="expiringDateCol"></IonCol>
-          <IonCol class="TimeLeftTillExpiryCol"></IonCol>
+          
           <IonCol class="ResponseToYourNeedsCol"></IonCol>
           <IonCol class="ResponseToYourOffersCol"></IonCol>
           <IonCol class="ResponseToYourBestOffersCol"></IonCol>
@@ -145,6 +159,9 @@
       <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
+    <IonRow class="editingRow">
+      <SponsorshipPartnershipFormComponent/>
+    </IonRow>
 
   </IonGrid>
 </template>
@@ -157,17 +174,22 @@
 <script lang="ts">
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
-  import { close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import { create, close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import SponsorshipPartnershipFormComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipFormComponent.vue';
 
   interface Ticket {
     id: number;
     bookingDate: string;
+    expiringDate: string;
+    timeLeftTillExpiry: string;
+    personPic: string;
+    firstName: string;
+    lastName: string;
     membershipType: string;
     VIPMembership: number;
     VVIPMembership: number;
     cost: number;
-    expiringDate: string;
-    timeLeftTillExpiry: string;
+    
     responseToYourNeeds: number;
     responseToYourOffers: number;
     responseToYourBestOffers: number;
@@ -195,18 +217,21 @@
 
   export default defineComponent({
     name: 'SponsorshipPartnershipTableComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, SponsorshipPartnershipFormComponent, },
     setup() {
       const tickets = ref<Ticket[]>([
         {
           id: 3,
           bookingDate: '2023-01-01T12:00:00',
+          expiringDate: '2023-01-01T12:00:00',
+          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'Johneee',
+          lastName: 'Doe',
           membershipType: 'Gold',
           VIPMembership: 43,
           VVIPMembership: 30,
           cost: 100, // Added cost value
-          expiringDate: '2023-01-01T12:00:00',
-          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           responseToYourNeeds: 54,
           responseToYourOffers: 4,
           responseToYourBestOffers: 44,
@@ -233,12 +258,16 @@
         {
           id: 2,
           bookingDate: '2023-01-01T12:00:00',
+          expiringDate: '2023-01-01T12:00:00',
+          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'res',
+          lastName: 'Doe',
           membershipType: 'Silver',
           VIPMembership: 2,
           VVIPMembership: 30,
           cost: 120, // Added cost value
-          expiringDate: '2023-01-01T12:00:00',
-          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+
           responseToYourNeeds: 22,
           responseToYourOffers: 2,
           responseToYourBestOffers: 222,
@@ -265,12 +294,15 @@
         {
           id: 1,
           bookingDate: '2023-01-01T12:00:00',
+          expiringDate: '2023-01-01T12:00:00',
+          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'John',
+          lastName: 'Doe',
           membershipType: 'Platinum',
           VIPMembership: 7,
           VVIPMembership: 30,
           cost: 150, // Added cost value
-          expiringDate: '2023-01-01T12:00:00',
-          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           responseToYourNeeds: 77,
           responseToYourOffers: 7,
           responseToYourBestOffers: 777,
@@ -386,12 +418,12 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Ticket ID',  'Booking Date', 'MembershipType', 'VIP Membership', 'VVIPMembership', 'Cost',  'ExpiringDate', 'TimeLeftTillExpiry', 'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
+            'Ticket ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'MembershipType', 'VIP Membership', 'VVIPMembership', 'Cost',   'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorTicket', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
           ],
           ...filteredTickets.value.map(ticket => [
-            ticket.id,  ticket.bookingDate, ticket.membershipType, ticket.VIPMembership, ticket.VVIPMembership, ticket.cost,  ticket.expiringDate, ticket.timeLeftTillExpiry, ticket.responseToYourNeeds, ticket.responseToYourOffers, ticket.responseToYourBestOffers, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
+            ticket.id,  ticket.bookingDate, ticket.expiringDate, ticket.timeLeftTillExpiry, ticket.personPic, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.VIPMembership, ticket.VVIPMembership, ticket.cost,   ticket.responseToYourNeeds, ticket.responseToYourOffers, ticket.responseToYourBestOffers, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
             ticket.businessName, ticket.bizCategory, ticket.exhibited, ticket.visited, ticket.investorTicket, ticket.investmentBroker,
             ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.oneMinPitching, ticket.threeMinPitching, ticket.investmentPitching, ticket.workshop, ticket.presentation, ticket.bookingDate,  ticket.lastLoggedIn
           ])
@@ -450,12 +482,15 @@
                   <tr>
                     <th>Ticket ID</th>
                     <th>BookingDate</th>
+                    <th>ExpiringDate</th>
+                    <th>timeLeftTillExpiry</th>
+                    <th>Person Pic</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Membership Type</th>
                     <th>VIP Membership</th>
                     <th>VVIPMembership</th>
                     <th>Cost</th>
-                    <th>ExpiringDate</th>
-                    <th>timeLeftTillExpiry</th>
                     <th>Response To Your Needs</th>
                     <th>Response To Your Offers</th>
                     <th>Response To Your Best Offers</th>
@@ -486,12 +521,15 @@
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                       <td>${ticket.id}</td>
                       <td>${ticket.bookingDate}</td>
+                      <td>${ticket.expiringDate}</td>
+                      <td>${ticket.timeLeftTillExpiry}</td>
+                      <td>${ticket.personPic}</td>
+                      <td>${ticket.firstName}</td>
+                      <td>${ticket.lastName}</td>
                       <td>${ticket.membershipType}</td>
                       <td>${ticket.VIPMembership}</td>
                       <td>${ticket.VVIPMembership}</td>
                       <td>${ticket.cost}</td>
-                      <td>${ticket.expiringDate}</td>
-                      <td>${ticket.timeLeftTillExpiry}</td>
                       <td>${ticket.responseToYourNeeds}</td>
                       <td>${ticket.responseToYourOffers}</td>
                       <td>${ticket.responseToYourBestOffers}</td>
@@ -578,6 +616,7 @@
         printTable,
         total,
         close,
+        create,
         arrowBackCircle,
         scrollToLeft,
         scrollableContainer,
@@ -597,18 +636,19 @@
   .search{
     width: 100px;
   }
-  /* .arrowBackCircle {
-    position: fixed;
+  .arrowBackCircle {
+    /* position: fixed;
     top: 55;
     left: 90;
     right: 0;
-    z-index: 1;
-  } */
+    z-index: 1; */
+  }
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
     height: 50px;
-    align-items: center;
+    align-items: top;
+    text-align: top;
   }
   .NONscrollingRow {
     overflow-x: auto;
