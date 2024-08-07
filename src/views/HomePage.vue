@@ -153,6 +153,8 @@
                 <p><a href="/EmailImportsTableComponent" class="Events-button" >EmailImportsTableComponent</a> </p>
                 <p><a href="/SponsorshipPartnershipTableComponent" class="Events-button" >SponsorshipPartnershipTableComponent</a> </p>
                 <p><a href="/CEOBusinessAdvicePage" class="Events-button" >CEOBusinessAdvicePage</a> </p>
+                <p><a href="/FAQPage" class="Events-button" >FAQPage</a> </p>
+                <p><a href="/FAQTableComponent" class="Events-button" >FAQTableComponent</a> </p>
 
 
               

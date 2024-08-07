@@ -18,7 +18,7 @@
               <ul>
                 <li><a href='/AboutUsPage' class="Items" >About Us</a></li>
                 <li>Contact Us</li>
-                <li>FAQ</li>
+                <li><a href='/FAQPage' class="Items" >FAQ</a></li>
                 <li>Sitemap</li>
               </ul>
             </li>

@@ -17,6 +17,7 @@ import TermsConditionsPage from '../views/TermsConditionsPage.vue';
 import InvestorsInvesteesPage from '../views/InvestorsInvesteesPage.vue';
 import SponsorsPartnershipPage from '../views/SponsorsPartnershipPage.vue';
 import CEOBusinessAdvicePage from '../views/CEOBusinessAdvicePage.vue';
+import FAQPage from '../views/FAQPage.vue';
 
 
 // Comp Stats here
@@ -98,7 +99,8 @@ import SponsorshipPartnershipFormComponent from '@/components/SponsorshipPartner
 import SponsorshipPartnershipAdComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipAdComponent.vue';
 //  CEOBusinessAdviceFormComponent
 import CEOBusinessAdviceFormComponent from '@/components/CEOBusinessAdviceComponents/CEOBusinessAdviceFormComponent.vue';
-
+// /FAQTableComponent
+import FAQTableComponent from '@/components/FAQComponents/FAQTableComponent.vue';
 
 
 // MemberMembershipOrderComponent
@@ -184,7 +186,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'CEOBusinessAdvicePage',
     component: CEOBusinessAdvicePage
   },
-
+  {
+    path: '/fAQPage',
+    name: 'FAQPage',
+    component: FAQPage
+  },
   
   // pages end here SponsorsPartnersPage
 
@@ -486,12 +492,17 @@ const routes: Array<RouteRecordRaw> = [
     component: EmailImportsTableComponent 
   },
   // CEOBusinessAdviceComponents
-{
+  {
     path: '/CEOBusinessAdviceFormComponent',
     name: 'CEOBusinessAdviceFormComponent',
     component: CEOBusinessAdviceFormComponent 
   },
-
+  // FAQComponents
+  {
+    path: '/fAQTableComponent',
+    name: 'FAQTableComponent',
+    component: FAQTableComponent
+  },
 
   // Left & Right Adverts starts here  MemberInvestmentApplicationComponent
   {
