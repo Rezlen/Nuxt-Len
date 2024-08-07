@@ -151,6 +151,7 @@
                 <p><a href="/SponsorshipPartnershipAdComponent" class="Events-button" >SponsorshipPartnershipAdComponent </a> </p>
                 <p><a href="/MyConnectionComponent" class="Events-button" >MyConnectionComponent </a> </p>
                 <p><a href="/EmailImportsTableComponent" class="Events-button" >EmailImportsTableComponent</a> </p>
+                <p><a href="/SponsorshipPartnershipTableComponent" class="Events-button" >SponsorshipPartnershipTableComponent</a> </p>
 
 
               

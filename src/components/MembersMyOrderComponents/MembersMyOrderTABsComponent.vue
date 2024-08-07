@@ -8,7 +8,7 @@
         <IonSegmentButton class="btn" value="Adverts">Adverts</IonSegmentButton>
         <IonSegmentButton class="btn" value="Membership">Membership</IonSegmentButton>
         <IonSegmentButton class="btn" value="MemberInvestmentApplicationComponent">Investment Application</IonSegmentButton>
-        <IonSegmentButton class="btn" value="SponsorshipPartnership">Sponsorship Partnership</IonSegmentButton>
+        <IonSegmentButton class="btn" value="SponsorshipPartnershipTableComponent">Sponsorship Partnership</IonSegmentButton>
         <IonSegmentButton class="btn" value="ServiceProductExchange">Service Product Exchange</IonSegmentButton>
         <IonSegmentButton class="btn" value="BusinessAdvice">Business Advice</IonSegmentButton>
         <IonSegmentButton class="btn" value="Shares">Shares</IonSegmentButton>
@@ -36,7 +36,8 @@
         <MemberInvestmentApplicationComponent/>
       </IonCol>
       <!-- SponsorshipPartnership Tab here ####################################-->
-      <IonCol v-show="selectedTab === 'SponsorshipPartnership'" class="SponsorshipPartnership">
+      <IonCol v-show="selectedTab === 'SponsorshipPartnershipTableComponent'" class="SponsorshipPartnershipTableComponent">
+        <SponsorshipPartnershipTableComponent/>
       </IonCol>
       <!-- BusinessAdvice ####################################-->
       <IonCol v-show="selectedTab === 'BusinessAdvice'" class="ServiceProductExchange">
@@ -59,6 +60,7 @@ import MemberTicketsComponent from '@/components/MembersMyOrderComponents/Member
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderComponents/MemberInvestmentApplicationComponent.vue';
+import SponsorshipPartnershipTableComponent from '@/components/MembersMyOrderComponents/SponsorshipPartnershipTableComponent.vue';
 
 
 // MemberMembershipOrderComponent
@@ -74,6 +76,7 @@ export default defineComponent({
     MemberMessagingEmailingOrderComponent,
     MemberMembershipOrderComponent,
     MemberInvestmentApplicationComponent,
+    SponsorshipPartnershipTableComponent,
     
 
 

@@ -6,84 +6,88 @@
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
       <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchEvents"></IonInput>
-      <IonButton class="arrowBackCircle" fill="clear" title="Duplicate" @click="scrollToLeft"> 
+
+      <IonButton class="SendEmailMessageBTN" fill="clear" @click="printTable">Send Email/Message</IonButton>
+      <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
         <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
       </IonButton> 
-      <IonButton class="SendEmailMessageBTN" fill="clear" @click="printTable">Send Email/Message</IonButton>
     </IonRow>
 
       <!-- TitleRow with sorting functionality and icons -->
-    <IonRow class="ContainerRow" ref="scrollableContainer">
+    <IonRow class="NONscrollingRow">
+      
+      <IonRow class="scrollingRow" ref="scrollableContainer">
 
-      <IonRow class="TitleRow"  >
-        <IonCol class="EventIDCol" @click="sortEvents('eventId')">Event ID<IonIcon :icon="sortIcon('eventId')" class="sort-icon" /></IonCol>
-        <IonCol class="emailImportConnectionRequestDateCol" @click="sortEvents('emailImportConnectionRequestDate')">Email Import Connection Request Date<IonIcon :icon="sortIcon('emailImportConnectionRequestDate')" class="sort-icon" /></IonCol>
-        <IonCol class="joinedLENConnectionRequestAcceptedDateCol" @click="sortEvents('joinedLENConnectionRequestAcceptedDate')">Joined LEN Connection Request Accepted Date<IonIcon :icon="sortIcon('joinedLENConnectionRequestAcceptedDate')" class="sort-icon" /></IonCol>
-        <IonCol class="totalEmailsSentToThisEmailCol" @click="sortEvents('totalEmailsSentToThisEmail')">Total Emails Sent To This Email<IonIcon :icon="sortIcon('totalEmailsSentToThisEmail')" class="sort-icon" /></IonCol>
-        <IonCol class="lastEmailSentDateCol" @click="sortEvents('lastEmailSentDate')">Last Email Sent Date<IonIcon :icon="sortIcon('lastEmailSentDate')" class="sort-icon" /></IonCol>
-        <IonCol class="BookingsCol" @click="sortEvents('bookings')">Bookings<IonIcon :icon="sortIcon('bookings')" class="sort-icon" /></IonCol>
-        <IonCol class="VisitorsCol" @click="sortEvents('visitors')">Visitors<IonIcon :icon="sortIcon('visitors')" class="sort-icon" /></IonCol>
-        <IonCol class="ExhibitorsCol" @click="sortEvents('exhibitors')">Exhibitors<IonIcon :icon="sortIcon('exhibitors')" class="sort-icon" /></IonCol>
-        <IonCol class="spentOnLENCol" @click="sortEvents('spentOnLEN')">Spent On LEN<IonIcon :icon="sortIcon('spentOnLEN')" class="sort-icon" /></IonCol>
-        <IonCol class="OneMinPitchersCol" @click="sortEvents('oneMinPitchers')">1MinPitchers<IonIcon :icon="sortIcon('oneMinPitchers')" class="sort-icon" /></IonCol>
-        <IonCol class="ThreeMinPitchersCol" @click="sortEvents('threeMinPitchers')">3MinPitchers<IonIcon :icon="sortIcon('threeMinPitchers')" class="sort-icon" /></IonCol>
-        <IonCol class="InvestmentPitchersCol" @click="sortEvents('investmentPitchers')">Investment Pitchers<IonIcon :icon="sortIcon('investmentPitchers')" class="sort-icon" /></IonCol>
-        <IonCol class="InvestorsCol" @click="sortEvents('investors')">Investors<IonIcon :icon="sortIcon('investors')" class="sort-icon" /></IonCol>
-        <IonCol class="BizMentorsCol" @click="sortEvents('bizMentors')">Biz Mentors<IonIcon :icon="sortIcon('bizMentors')" class="sort-icon" /></IonCol>
-        <IonCol class="yourEarnedCommissionCol" @click="sortEvents('yourEarnedCommission')">Your Earned Commission<IonIcon :icon="sortIcon('yourEarnedCommission')" class="sort-icon" /></IonCol>
-        
-        <IonCol class="ActionCol">
-          Select To Send Email/message
-        </IonCol>
-      </IonRow>
+        <IonRow class="TitleRow"  >
+          <IonCol class="EventIDCol" @click="sortEvents('eventId')">Event ID<IonIcon :icon="sortIcon('eventId')" class="sort-icon" /></IonCol>
+          <IonCol class="emailImportConnectionRequestDateCol" @click="sortEvents('emailImportConnectionRequestDate')">Email Import Connection Request Date<IonIcon :icon="sortIcon('emailImportConnectionRequestDate')" class="sort-icon" /></IonCol>
+          <IonCol class="joinedLENConnectionRequestAcceptedDateCol" @click="sortEvents('joinedLENConnectionRequestAcceptedDate')">Joined LEN Connection Request Accepted Date<IonIcon :icon="sortIcon('joinedLENConnectionRequestAcceptedDate')" class="sort-icon" /></IonCol>
+          <IonCol class="totalEmailsSentToThisEmailCol" @click="sortEvents('totalEmailsSentToThisEmail')">Total Emails Sent To This Email<IonIcon :icon="sortIcon('totalEmailsSentToThisEmail')" class="sort-icon" /></IonCol>
+          <IonCol class="lastEmailSentDateCol" @click="sortEvents('lastEmailSentDate')">Last Email Sent Date<IonIcon :icon="sortIcon('lastEmailSentDate')" class="sort-icon" /></IonCol>
+          <IonCol class="BookingsCol" @click="sortEvents('bookings')">Bookings<IonIcon :icon="sortIcon('bookings')" class="sort-icon" /></IonCol>
+          <IonCol class="VisitorsCol" @click="sortEvents('visitors')">Visitors<IonIcon :icon="sortIcon('visitors')" class="sort-icon" /></IonCol>
+          <IonCol class="ExhibitorsCol" @click="sortEvents('exhibitors')">Exhibitors<IonIcon :icon="sortIcon('exhibitors')" class="sort-icon" /></IonCol>
+          <IonCol class="spentOnLENCol" @click="sortEvents('spentOnLEN')">Spent On LEN<IonIcon :icon="sortIcon('spentOnLEN')" class="sort-icon" /></IonCol>
+          <IonCol class="OneMinPitchersCol" @click="sortEvents('oneMinPitchers')">1MinPitchers<IonIcon :icon="sortIcon('oneMinPitchers')" class="sort-icon" /></IonCol>
+          <IonCol class="ThreeMinPitchersCol" @click="sortEvents('threeMinPitchers')">3MinPitchers<IonIcon :icon="sortIcon('threeMinPitchers')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentPitchersCol" @click="sortEvents('investmentPitchers')">Investment Pitchers<IonIcon :icon="sortIcon('investmentPitchers')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorsCol" @click="sortEvents('investors')">Investors<IonIcon :icon="sortIcon('investors')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorsCol" @click="sortEvents('bizMentors')">Biz Mentors<IonIcon :icon="sortIcon('bizMentors')" class="sort-icon" /></IonCol>
+          <IonCol class="yourEarnedCommissionCol" @click="sortEvents('yourEarnedCommission')">Your Earned Commission<IonIcon :icon="sortIcon('yourEarnedCommission')" class="sort-icon" /></IonCol>
+          
+          <IonCol class="ActionCol">
+            Select To Send Email/message
+          </IonCol>
+        </IonRow>
 
-      <!-- Data rows -->
-      <IonRow  v-for="event in paginatedEvents" :key="event.eventId" class="DataRow" :class="{ selected: selectedRow === event.eventId }" @click="selectRow(event.eventId)" >        
-        <IonCol class="EventIDCol">{{ event.eventId }}</IonCol>
-        <IonCol class="emailImportConnectionRequestDateCol">{{ event.emailImportConnectionRequestDate }}</IonCol>
-        <IonCol class="joinedLENConnectionRequestAcceptedDateCol">{{ event.joinedLENConnectionRequestAcceptedDate }}</IonCol>
-        <IonCol class="totalEmailsSentToThisEmailCol">{{ event.totalEmailsSentToThisEmail }}</IonCol>
-        <IonCol class="lastEmailSentDateCol">{{ event.lastEmailSentDate }}</IonCol>
-        <IonCol class="BookingsCol">{{ event.bookings }}</IonCol>
-        <IonCol class="VisitorsCol">{{ event.visitors }}</IonCol>
-        <IonCol class="ExhibitorsCol">{{ event.exhibitors }}</IonCol>
-        <IonCol class="spentOnLENCol">{{ event.spentOnLEN }}</IonCol>
-        <IonCol class="OneMinPitchersCol">{{ event.oneMinPitchers }}</IonCol>
-        <IonCol class="ThreeMinPitchersCol">{{ event.threeMinPitchers }}</IonCol>
-        <IonCol class="InvestmentPitchersCol">{{ event.investmentPitchers }}</IonCol>
-        <IonCol class="InvestorsCol">{{ event.investors }}</IonCol>
-        <IonCol class="BizMentorsCol">{{ event.bizMentors }}</IonCol>
-        <IonCol class="yourEarnedCommissionCol">{{ event.yourEarnedCommission }}</IonCol>
+        <!-- Data rows -->
+        <IonRow  v-for="event in paginatedEvents" :key="event.eventId" class="DataRow" :class="{ selected: selectedRow === event.eventId }" @click="selectRow(event.eventId)" >        
+          <IonCol class="EventIDCol">{{ event.eventId }}</IonCol>
+          <IonCol class="emailImportConnectionRequestDateCol">{{ event.emailImportConnectionRequestDate }}</IonCol>
+          <IonCol class="joinedLENConnectionRequestAcceptedDateCol">{{ event.joinedLENConnectionRequestAcceptedDate }}</IonCol>
+          <IonCol class="totalEmailsSentToThisEmailCol">{{ event.totalEmailsSentToThisEmail }}</IonCol>
+          <IonCol class="lastEmailSentDateCol">{{ event.lastEmailSentDate }}</IonCol>
+          <IonCol class="BookingsCol">{{ event.bookings }}</IonCol>
+          <IonCol class="VisitorsCol">{{ event.visitors }}</IonCol>
+          <IonCol class="ExhibitorsCol">{{ event.exhibitors }}</IonCol>
+          <IonCol class="spentOnLENCol">{{ event.spentOnLEN }}</IonCol>
+          <IonCol class="OneMinPitchersCol">{{ event.oneMinPitchers }}</IonCol>
+          <IonCol class="ThreeMinPitchersCol">{{ event.threeMinPitchers }}</IonCol>
+          <IonCol class="InvestmentPitchersCol">{{ event.investmentPitchers }}</IonCol>
+          <IonCol class="InvestorsCol">{{ event.investors }}</IonCol>
+          <IonCol class="BizMentorsCol">{{ event.bizMentors }}</IonCol>
+          <IonCol class="yourEarnedCommissionCol">{{ event.yourEarnedCommission }}</IonCol>
 
-        <IonCol class="ActionCol">
-          <IonButton class="ActionCol" fill="clear" title="Close">
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox1"></IonCheckbox>
-          </IonButton>
-        </IonCol>
-      </IonRow>
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonCheckbox slot="start" v-model="checkboxStates.checkbox1"></IonCheckbox>
+            </IonButton>
+          </IonCol>
+        </IonRow>
 
-      <!-- Total row -->
-      <IonRow class="TotalRow"> 
-      <IonCol class="EventIDCol">Totals:</IonCol>
-      <IonCol class="emailImportConnectionRequestDateCol"></IonCol>
-      <IonCol class="joinedLENConnectionRequestAcceptedDateCol"></IonCol>
-      <IonCol class="totalEmailsSentToThisEmailCol"></IonCol>
-      <IonCol class="lastEmailSentDateCol"></IonCol>
-      <IonCol class="BookingsCol">{{ totalBookings }}</IonCol>
-      <IonCol class="VisitorsCol">{{ totalVisitors }}</IonCol>
-      <IonCol class="ExhibitorsCol">{{ totalExhibitors }}</IonCol>
-      <IonCol class="spentOnLENCol">{{ totalspentOnLEN }}</IonCol>
-      <IonCol class="OneMinPitchersCol">{{ totalOneMinPitchers }}</IonCol>
-      <IonCol class="ThreeMinPitchersCol">{{ totalThreeMinPitchers }}</IonCol>
-      <IonCol class="InvestmentPitchersCol">{{ totalInvestmentPitchers }}</IonCol>
-      <IonCol class="InvestorsCol">{{ totalInvestors }}</IonCol>
-      <IonCol class="BizMentorsCol">{{ totalBizMentors }}</IonCol>
-      <IonCol class="yourEarnedCommissionCol"></IonCol>
+        <!-- Total row -->
+        <IonRow class="TotalRow"> 
+        <IonCol class="EventIDCol">Totals:</IonCol>
+        <IonCol class="emailImportConnectionRequestDateCol"></IonCol>
+        <IonCol class="joinedLENConnectionRequestAcceptedDateCol"></IonCol>
+        <IonCol class="totalEmailsSentToThisEmailCol"></IonCol>
+        <IonCol class="lastEmailSentDateCol"></IonCol>
+        <IonCol class="BookingsCol">{{ totalBookings }}</IonCol>
+        <IonCol class="VisitorsCol">{{ totalVisitors }}</IonCol>
+        <IonCol class="ExhibitorsCol">{{ totalExhibitors }}</IonCol>
+        <IonCol class="spentOnLENCol">{{ totalspentOnLEN }}</IonCol>
+        <IonCol class="OneMinPitchersCol">{{ totalOneMinPitchers }}</IonCol>
+        <IonCol class="ThreeMinPitchersCol">{{ totalThreeMinPitchers }}</IonCol>
+        <IonCol class="InvestmentPitchersCol">{{ totalInvestmentPitchers }}</IonCol>
+        <IonCol class="InvestorsCol">{{ totalInvestors }}</IonCol>
+        <IonCol class="BizMentorsCol">{{ totalBizMentors }}</IonCol>
+        <IonCol class="yourEarnedCommissionCol"></IonCol>
 
-        <IonCol class="ActionCol"></IonCol>
+          <IonCol class="ActionCol"></IonCol>
+        </IonRow>
       </IonRow>
     </IonRow>
-
+    
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
@@ -498,28 +502,30 @@ export default defineComponent({
   color: white;
   font-weight: bold;
 }
-  .search{
+.search{
   width: 100px;
 }
-.arrowBackCircle {
+/* .arrowBackCircle {
   position: fixed;
   top: 55;
-  left: 90;
+  left: 50;
   right: 0;
   z-index: 1;
-}
+} */
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
     height: 60px;
     align-items: top;
   }
-  .ContainerRow {
-    width: 2000px;
+  .NONscrollingRow {
+    overflow-x: auto;
+    /* border: 4px solid rgb(26, 185, 18); */
+  }
+  .scrollingRow {
+    min-width: 2000px;
+    /* border: 1px solid red; */
     flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: scroll;
-
   }
   .DataRow {
     cursor: pointer;
@@ -596,16 +602,13 @@ export default defineComponent({
   }
 
   @media (max-width: 600px) {
-    .ContainerRow {
-      width: 4000px;
-    }
-    .TitleRow, .DataRow, .TotalRow {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    ion-col {
-      max-width: 100px;
-    }
+  .arrowBackCircle {
+    position: fixed;
+    top: 55;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
   }
 
 

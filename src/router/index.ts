@@ -86,13 +86,17 @@ import MemberTicketsComponent from '@/components/MembersMyOrderComponents/Member
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderComponents/MemberInvestmentApplicationComponent.vue';
+// My Connection Components
+import MyConnectionComponent from '@/components/MyConnectionComponents/MyConnectionComponent.vue';
+import EmailImportsTableComponent from '@/components/MyConnectionComponents/EmailImportsTableComponent.vue';
+// SponsorshipPartnershipTableComponent
+import SponsorshipPartnershipTableComponent from '@/components/MembersMyOrderComponents/SponsorshipPartnershipTableComponent.vue';
+
+
 
 // Sponsorship Partnership  SponsorshipPartnershipForm
 import SponsorshipPartnershipFormComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipFormComponent.vue';
 import SponsorshipPartnershipAdComponent from '@/components/SponsorshipPartnershipComponents/SponsorshipPartnershipAdComponent.vue';
-// My Connection Components
-import MyConnectionComponent from '@/components/MyConnectionComponents/MyConnectionComponent.vue';
-import EmailImportsTableComponent from '@/components/MyConnectionComponents/EmailImportsTableComponent.vue';
 
 
 
@@ -446,9 +450,14 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MemberInvestmentApplicationComponent',
     component: MemberInvestmentApplicationComponent
   },
+  {
+    path: '/sponsorshipPartnershipTableComponent',
+    name: 'SponsorshipPartnershipTableComponent',
+    component: SponsorshipPartnershipTableComponent
+  },
 
 
-// Sponsorship Partnership  SponsorshipPartnershipForm
+// Sponsorship Partnership  
   {
     path: '/sponsorshipPartnershipFormComponent ',
     name: 'SponsorshipPartnershipFormComponent ',

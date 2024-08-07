@@ -7,129 +7,133 @@
       <IonButton fill="clear" @click="exportTable">EXPORT</IonButton>
       <IonButton fill="clear" @click="printTable">PRINT</IonButton>
       <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
-      <IonButton class="arrowBackCircle" fill="clear" title="Duplicate" @click="scrollToLeft"> 
+      <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
         <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
       </IonButton>
     </IonRow>
+
+    <IonRow class="NONscrollingRow">
     
-    <IonRow class="ContainerRow" ref="scrollableContainer">
-        <!-- TitleRow with sorting functionality and icons -->
-        <IonRow class="TitleRow">
-          
-          <IonCol class="TicketIDCol" @click="sortTickets('id')">Ticket ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-          <IonCol class="BookingDateCol" @click="sortTickets('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
-          <IonCol class="TicketTitleCol" @click="sortTickets('title')">Ticket Title <IonIcon :icon="sortIcon('title')" class="sort-icon" /></IonCol>
-          <IonCol class="TicketPriceCol" @click="sortTickets('price')">Ticket Price <IonIcon :icon="sortIcon('price')" class="sort-icon" /></IonCol>
-          <IonCol class="ExhibitionSpotNoCol" @click="sortTickets('spotNo')">Exhibition SpotNo <IonIcon :icon="sortIcon('spotNo')" class="sort-icon" /></IonCol>
-          <IonCol class="ExhibitionSpotColorCol" @click="sortTickets('spotColor')">Exhibition SpotColor <IonIcon :icon="sortIcon('spotColor')" class="sort-icon" /></IonCol>
-          <IonCol class="PersonPicCol" @click="sortTickets('personPic')">Picture <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
-          <IonCol class="FirstNameCol" @click="sortTickets('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
-          <IonCol class="LastNameCol" @click="sortTickets('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
-          <IonCol class="MembershipTypeCol" @click="sortTickets('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="PitchTrainingCol" @click="sortTickets('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
-          <IonCol class="BusinessFundingAdviceCol" @click="sortTickets('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
-          <IonCol class="FreeBusinessFundingAdviceCol" @click="sortTickets('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
-          <IonCol class="VideoOfPitchingCol" @click="sortTickets('videoOfPitching')">Video Of My Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
+      <IonRow class="scrollingRow" ref="scrollableContainer">
+          <!-- TitleRow with sorting functionality and icons -->
+          <IonRow class="TitleRow">
+            
+            <IonCol class="TicketIDCol" @click="sortTickets('id')">Ticket ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+            <IonCol class="BookingDateCol" @click="sortTickets('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+            <IonCol class="TicketTitleCol" @click="sortTickets('title')">Ticket Title <IonIcon :icon="sortIcon('title')" class="sort-icon" /></IonCol>
+            <IonCol class="TicketPriceCol" @click="sortTickets('price')">Ticket Price <IonIcon :icon="sortIcon('price')" class="sort-icon" /></IonCol>
+            <IonCol class="ExhibitionSpotNoCol" @click="sortTickets('spotNo')">Exhibition SpotNo <IonIcon :icon="sortIcon('spotNo')" class="sort-icon" /></IonCol>
+            <IonCol class="ExhibitionSpotColorCol" @click="sortTickets('spotColor')">Exhibition SpotColor <IonIcon :icon="sortIcon('spotColor')" class="sort-icon" /></IonCol>
+            <IonCol class="PersonPicCol" @click="sortTickets('personPic')">Picture <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+            <IonCol class="FirstNameCol" @click="sortTickets('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+            <IonCol class="LastNameCol" @click="sortTickets('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+            <IonCol class="MembershipTypeCol" @click="sortTickets('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+            <IonCol class="PitchTrainingCol" @click="sortTickets('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
+            <IonCol class="BusinessFundingAdviceCol" @click="sortTickets('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
+            <IonCol class="FreeBusinessFundingAdviceCol" @click="sortTickets('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
+            <IonCol class="VideoOfPitchingCol" @click="sortTickets('videoOfPitching')">Video Of My Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
 
-          <IonCol class="BusinessNameCol" @click="sortTickets('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
-          <IonCol class="BizCategoryCol" @click="sortTickets('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="ExhibitedCol" @click="sortTickets('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
-          <IonCol class="VisitedCol" @click="sortTickets('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestorTicketCol" @click="sortTickets('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestmentBrokerCol" @click="sortTickets('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestorsAdvertsCol" @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
-          <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
-          <IonCol class="OneMinPitchingCol" @click="sortTickets('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
-          <IonCol class="ThreeMinPitchingCol" @click="sortTickets('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestmentPitchingCol" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
-          <IonCol class="WorkshopCol" @click="sortTickets('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
-          <IonCol class="PresentationCol" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
-          
-          
-          <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-          <IonCol class="ActionCol">Actions</IonCol>
-        </IonRow>
+            <IonCol class="BusinessNameCol" @click="sortTickets('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+            <IonCol class="BizCategoryCol" @click="sortTickets('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
+            <IonCol class="ExhibitedCol" @click="sortTickets('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+            <IonCol class="VisitedCol" @click="sortTickets('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestorTicketCol" @click="sortTickets('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestmentBrokerCol" @click="sortTickets('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestorsAdvertsCol" @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+            <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
+            <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+            <IonCol class="OneMinPitchingCol" @click="sortTickets('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
+            <IonCol class="ThreeMinPitchingCol" @click="sortTickets('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestmentPitchingCol" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
+            <IonCol class="WorkshopCol" @click="sortTickets('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
+            <IonCol class="PresentationCol" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
+            
+            
+            <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+            <IonCol class="ActionCol">Actions</IonCol>
+          </IonRow>
 
-        <!-- Data rows -->
-        <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)">
-          <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
-          <IonCol class="BookingDateCol">{{ ticket.bookingDate }}</IonCol>
-          <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
-          <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
-          <IonCol class="ExhibitionSpotNoCol">{{ ticket.spotNo }}</IonCol>
-          <IonCol class="ExhibitionSpotColorCol">{{ ticket.spotColor }}</IonCol>
-          <IonCol class="PersonPicCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-          <IonCol class="FirstNameCol">{{ ticket.firstName }}</IonCol>
-          <IonCol class="LastNameCol">{{ ticket.lastName }}</IonCol>
-          <IonCol class="MembershipTypeCol">{{ ticket.membershipType }}</IonCol>
-          <IonCol class="PitchTrainingCol">{{ ticket.pitchTraining }}</IonCol>
-          <IonCol class="BusinessFundingAdviceCol">{{ ticket.businessFundingAdvice }}</IonCol>
-          <IonCol class="FreeBusinessFundingAdviceCol">{{ ticket.freeBusinessFundingAdvice }}</IonCol>
-          <IonCol class="VideoOfPitchingCol">{{ ticket.videoOfPitching }}</IonCol>
+          <!-- Data rows -->
+          <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)">
+            <IonCol class="TicketIDCol">{{ ticket.id }}</IonCol>
+            <IonCol class="BookingDateCol">{{ ticket.bookingDate }}</IonCol>
+            <IonCol class="TicketTitleCol">{{ ticket.title }}</IonCol>
+            <IonCol class="TicketPriceCol">{{ ticket.price }}</IonCol>
+            <IonCol class="ExhibitionSpotNoCol">{{ ticket.spotNo }}</IonCol>
+            <IonCol class="ExhibitionSpotColorCol">{{ ticket.spotColor }}</IonCol>
+            <IonCol class="PersonPicCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+            <IonCol class="FirstNameCol">{{ ticket.firstName }}</IonCol>
+            <IonCol class="LastNameCol">{{ ticket.lastName }}</IonCol>
+            <IonCol class="MembershipTypeCol">{{ ticket.membershipType }}</IonCol>
+            <IonCol class="PitchTrainingCol">{{ ticket.pitchTraining }}</IonCol>
+            <IonCol class="BusinessFundingAdviceCol">{{ ticket.businessFundingAdvice }}</IonCol>
+            <IonCol class="FreeBusinessFundingAdviceCol">{{ ticket.freeBusinessFundingAdvice }}</IonCol>
+            <IonCol class="VideoOfPitchingCol">{{ ticket.videoOfPitching }}</IonCol>
 
-          <IonCol class="BusinessNameCol">{{ ticket.businessName }}</IonCol>
-          <IonCol class="BizCategoryCol">{{ ticket.bizCategory }}</IonCol>
-          <IonCol class="ExhibitedCol">{{ ticket.exhibited }}</IonCol>
-          <IonCol class="VisitedCol">{{ ticket.visited }}</IonCol>
-          <IonCol class="InvestorTicketCol">{{ ticket.investorTicket }}</IonCol>
-          <IonCol class="investmentBrokerCol">{{ ticket.investmentBroker }}</IonCol>
-          <IonCol class="InvestorsAdvertsCol">{{ ticket.investorsAdverts }}</IonCol>
-          <IonCol class="BizMentorCol">{{ ticket.bizMentor }}</IonCol>
-          <IonCol class="TotalSpentCol">{{ ticket.totalSpent }}</IonCol>
-          <IonCol class="OneMinPitchingCol">{{ ticket.oneMinPitching }}</IonCol>
-          <IonCol class="ThreeMinPitchingCol">{{ ticket.threeMinPitching }}</IonCol>
-          <IonCol class="InvestmentPitchingCol">{{ ticket.investmentPitching }}</IonCol>
-          <IonCol class="WorkshopCol">{{ ticket.workshop }}</IonCol>
-          <IonCol class="PresentationCol">{{ ticket.presentation }}</IonCol>
+            <IonCol class="BusinessNameCol">{{ ticket.businessName }}</IonCol>
+            <IonCol class="BizCategoryCol">{{ ticket.bizCategory }}</IonCol>
+            <IonCol class="ExhibitedCol">{{ ticket.exhibited }}</IonCol>
+            <IonCol class="VisitedCol">{{ ticket.visited }}</IonCol>
+            <IonCol class="InvestorTicketCol">{{ ticket.investorTicket }}</IonCol>
+            <IonCol class="investmentBrokerCol">{{ ticket.investmentBroker }}</IonCol>
+            <IonCol class="InvestorsAdvertsCol">{{ ticket.investorsAdverts }}</IonCol>
+            <IonCol class="BizMentorCol">{{ ticket.bizMentor }}</IonCol>
+            <IonCol class="TotalSpentCol">{{ ticket.totalSpent }}</IonCol>
+            <IonCol class="OneMinPitchingCol">{{ ticket.oneMinPitching }}</IonCol>
+            <IonCol class="ThreeMinPitchingCol">{{ ticket.threeMinPitching }}</IonCol>
+            <IonCol class="InvestmentPitchingCol">{{ ticket.investmentPitching }}</IonCol>
+            <IonCol class="WorkshopCol">{{ ticket.workshop }}</IonCol>
+            <IonCol class="PresentationCol">{{ ticket.presentation }}</IonCol>
 
 
-          <IonCol class="LastLoggedInCol">{{ ticket.lastLoggedIn }}</IonCol>
-          <IonCol class="ActionCol">
-            <IonButton class="ActionCol" fill="clear" title="Close">
-              <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
-            </IonButton>
-          </IonCol>
-        </IonRow>
+            <IonCol class="LastLoggedInCol">{{ ticket.lastLoggedIn }}</IonCol>
+            <IonCol class="ActionCol">
+              <IonButton class="ActionCol" fill="clear" title="Close">
+                <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+              </IonButton>
+            </IonCol>
+          </IonRow>
 
-        <!-- Total row -->
-        <IonRow class="TotalRow">
-          <IonCol class="TicketIDCol">Totals:</IonCol>
-          <IonCol class="BookingDateCol"></IonCol>
-          <IonCol class="TicketTitleCol"></IonCol>
-          <IonCol class="TicketPriceCol"></IonCol>
-          <IonCol class="ExhibitionSpotNoCol"></IonCol>
-          <IonCol class="ExhibitionSpotColorCol"></IonCol>
-          <IonCol class="PersonPicCol"></IonCol>
-          <IonCol class="FirstNameCol"></IonCol>
-          <IonCol class="LastNameCol"></IonCol>
-          <IonCol class="MembershipTypeCol"></IonCol>
-          <IonCol class="PitchTrainingCol"></IonCol>
-          <IonCol class="BusinessFundingAdviceCol"></IonCol>
-          <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
-          <IonCol class="VideoOfPitchingCol"></IonCol>
+          <!-- Total row -->
+          <IonRow class="TotalRow">
+            <IonCol class="TicketIDCol">Totals:</IonCol>
+            <IonCol class="BookingDateCol"></IonCol>
+            <IonCol class="TicketTitleCol"></IonCol>
+            <IonCol class="TicketPriceCol"></IonCol>
+            <IonCol class="ExhibitionSpotNoCol"></IonCol>
+            <IonCol class="ExhibitionSpotColorCol"></IonCol>
+            <IonCol class="PersonPicCol"></IonCol>
+            <IonCol class="FirstNameCol"></IonCol>
+            <IonCol class="LastNameCol"></IonCol>
+            <IonCol class="MembershipTypeCol"></IonCol>
+            <IonCol class="PitchTrainingCol"></IonCol>
+            <IonCol class="BusinessFundingAdviceCol"></IonCol>
+            <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
+            <IonCol class="VideoOfPitchingCol"></IonCol>
 
-          <IonCol class="BusinessNameCol"></IonCol>
-          <IonCol class="BizCategoryCol"></IonCol>
-          <IonCol class="ExhibitedCol"></IonCol>
-          <IonCol class="VisitedCol"></IonCol>
-          <IonCol class="InvestorTicketCol"></IonCol>
-          <IonCol class="InvestmentBrokerCol"></IonCol>
-          <IonCol class="InvestorsAdvertsCol"></IonCol>
-          <IonCol class="BizMentorCol"></IonCol>
-          <IonCol class="TotalSpentCol">{{ total }}</IonCol>
-          <IonCol class="OneMinPitchingCol"></IonCol>
-          <IonCol class="threeMinPitchingCol"></IonCol>
-          <IonCol class="InvestmentPitchingCol"></IonCol>
-          <IonCol class="WorkshopCol"></IonCol>
-          <IonCol class="PresentationCol"></IonCol>
+            <IonCol class="BusinessNameCol"></IonCol>
+            <IonCol class="BizCategoryCol"></IonCol>
+            <IonCol class="ExhibitedCol"></IonCol>
+            <IonCol class="VisitedCol"></IonCol>
+            <IonCol class="InvestorTicketCol"></IonCol>
+            <IonCol class="InvestmentBrokerCol"></IonCol>
+            <IonCol class="InvestorsAdvertsCol"></IonCol>
+            <IonCol class="BizMentorCol"></IonCol>
+            <IonCol class="TotalSpentCol">{{ total }}</IonCol>
+            <IonCol class="OneMinPitchingCol"></IonCol>
+            <IonCol class="threeMinPitchingCol"></IonCol>
+            <IonCol class="InvestmentPitchingCol"></IonCol>
+            <IonCol class="WorkshopCol"></IonCol>
+            <IonCol class="PresentationCol"></IonCol>
 
-          
-          <IonCol class="LastLoggedInCol"></IonCol>
-          <IonCol class="ActionCol"></IonCol>
-        </IonRow>
+            
+            <IonCol class="LastLoggedInCol"></IonCol>
+            <IonCol class="ActionCol"></IonCol>
+          </IonRow>
+      </IonRow>
+
     </IonRow>
-
+    
     <!-- Pagination -->
     <IonRow class="PaginationRow">
       <IonButton @click="prevPage">Prev</IonButton>
@@ -591,24 +595,28 @@
 .search{
   width: 100px;
 }
-.arrowBackCircle {
+/* .arrowBackCircle {
   position: fixed;
   top: 55;
   left: 90;
   right: 0;
   z-index: 1;
-}
+} */
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
     height: 50px;
     align-items: center;
   }
-  .ContainerRow {
-    width: 3200px;
+  .NONscrollingRow {
+    overflow-x: auto;
+    /* border: 4px solid rgb(26, 185, 18); */
+  }
+  .scrollingRow {
+    min-width: 3500px;
+    /* border: 1px solid red; */
     flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: scroll;
+
   }
   .DataRow {
     cursor: pointer;
@@ -689,16 +697,6 @@
   }
 
   @media (max-width: 600px) {
-    .ContainerRow {
-      width: 3200px;
-    }
-    .TitleRow, .DataRow, .TotalRow {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    ion-col {
-      max-width: 100px;
-    }
   }
   
 
