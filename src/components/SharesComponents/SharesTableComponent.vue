@@ -1,7 +1,7 @@
 <template>
   <IonGrid>
     <!-- Header text -->
-    <p class="Header1">Any 100% completed profile entitles you to own 1 LEN share for FREE.</p>
+    <p class="Header1">A 100% completed profile entitles you to own 1 LEN share for FREE.</p>
     <p class="Header2">How & when to receive its documents will be announced in due time.</p>
     <p class="Header3">Tempted to buy more shares of the next big thing that might beat LinkedIn? No problem, send us your offer!</p>
 
@@ -10,10 +10,10 @@
         <IonInput class="percentage" label="Enter the %" label-placement="floating" :counter="true" :maxlength="2"></IonInput>
       </IonCol>
       <IonCol>
-        <IonInput class="amount" label="Enter Your Suggested Amount" label-placement="floating" :counter="true" :maxlength="2"></IonInput>
+        <IonInput class="amount" label="Enter Your Suggested Amount" label-placement="floating" :counter="true" :maxlength="10"></IonInput>
       </IonCol>
       <IonCol>
-        <IonTextarea class="description" label="Optional Description" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="1000"></IonTextarea>
+        <IonTextarea class="description" label="Optional Description" label-placement="floating" :counter="true" :auto-grow="true" :maxlength="500"></IonTextarea>
       </IonCol>
     </IonRow>
 
