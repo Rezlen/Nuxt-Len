@@ -155,6 +155,8 @@
                 <p><a href="/CEOBusinessAdvicePage" class="Events-button" >CEOBusinessAdvicePage</a> </p>
                 <p><a href="/FAQPage" class="Events-button" >FAQPage</a> </p>
                 <p><a href="/FAQTableComponent" class="Events-button" >FAQTableComponent</a> </p>
+                <p><a href="/SharesTableComponent" class="Events-button" >SharesTableComponent</a> </p>
+                <p><a href="/SharesPage" class="Events-button" >SharesPage</a> </p>
 
 
               

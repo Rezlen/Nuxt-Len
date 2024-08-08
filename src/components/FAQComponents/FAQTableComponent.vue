@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-      <p class="TopTitle">All Your Question answered Here, if not simply contact Us through the Contact Us Page!</p>
+      <p class="TopTitle">All Your Question answered here, if not, simply ask us on Contact Us Page!</p>
     <IonRow>
 
       <div class="faq-container">

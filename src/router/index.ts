@@ -18,6 +18,8 @@ import InvestorsInvesteesPage from '../views/InvestorsInvesteesPage.vue';
 import SponsorsPartnershipPage from '../views/SponsorsPartnershipPage.vue';
 import CEOBusinessAdvicePage from '../views/CEOBusinessAdvicePage.vue';
 import FAQPage from '../views/FAQPage.vue';
+import SharesPage from '../views/SharesPage.vue';
+
 
 
 // Comp Stats here
@@ -101,6 +103,8 @@ import SponsorshipPartnershipAdComponent from '@/components/SponsorshipPartnersh
 import CEOBusinessAdviceFormComponent from '@/components/CEOBusinessAdviceComponents/CEOBusinessAdviceFormComponent.vue';
 // /FAQTableComponent
 import FAQTableComponent from '@/components/FAQComponents/FAQTableComponent.vue';
+// Share Components
+import SharesTableComponent from '@/components/SharesComponents/SharesTableComponent.vue';
 
 
 // MemberMembershipOrderComponent
@@ -190,6 +194,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/fAQPage',
     name: 'FAQPage',
     component: FAQPage
+  },
+  {
+    path: '/sharesPage',
+    name: 'SharesPage',
+    component: SharesPage
   },
   
   // pages end here SponsorsPartnersPage
@@ -502,6 +511,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/fAQTableComponent',
     name: 'FAQTableComponent',
     component: FAQTableComponent
+  },
+  // FAQComponents
+  {
+    path: '/sharesTableComponent',
+    name: 'SharesTableComponent',
+    component: SharesTableComponent
   },
 
   // Left & Right Adverts starts here  MemberInvestmentApplicationComponent

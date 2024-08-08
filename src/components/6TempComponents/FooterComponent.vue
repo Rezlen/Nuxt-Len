@@ -78,7 +78,7 @@
               <strong>MORE OPTIONS</strong>
               <ul>
                 <li>Rewards & Discounts</li>
-                <li>Shares</li>
+                <li><a href='/SharesPage' class="Items" >Shares</a></li>
                 <li><a href='/SponsorsPartnershipPage' class="Items" >Sponsorship/Partnership</a></li>
                 <li><a href='/SponsorsPartnershipPage' class="Items" >Sponsors/Partners</a></li>
                 <li>Services/Products Exchange</li>

@@ -273,10 +273,11 @@ export default defineComponent({
   }
   .fields{
     margin-top: 20px;
-  }
+   }
   .inputFields{
     border: 1px solid gray;
     border-radius: 8px;
+    display: flex;
   }
   .terms {
     text-align: center;

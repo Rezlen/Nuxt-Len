@@ -101,7 +101,7 @@ const menus = ref([
     subMenus: [
       { title: 'All Businesses Profile', path: '/BizOfferNeedPage' },
       { title: 'All Offers', path: '/BizOfferNeedPage' },
-      { title: 'Best Offers', path: '/BizOfferNeedPages' },
+      { title: 'Best Offers', path: '/BizOfferNeedPage' },
       { title: 'All Needs', path: '/BizOfferNeedPage' },
       { title: 'Advertise For FREE', path: '/BizOfferNeedPage' },
     ],
@@ -112,9 +112,9 @@ const menus = ref([
     path: '/EventsShowsPage',
     subMenus: [
       { title: 'Events & Shows', path: '/EventsShowsPage' },
-      { title: 'Exhibitors', path: '/Exhibitors' },
-      { title: 'Visitors', path: '/Visitors' },
-      { title: 'Exhibiting', path: '/Exhibiting' },
+      { title: 'Exhibitors', path: '/EventsShowsPage' },
+      { title: 'Visitors', path: '/EventsShowsPage' },
+      { title: 'Exhibiting', path: '/EventsShowsPage' },
     ],
     showSubMenus: false, // Initially hide submenu
   },
@@ -159,7 +159,7 @@ const menus = ref([
     subMenus: [
       { title: 'Rewards & Discounts', path: '/RewardsDiscounts' },
       { title: 'Adverts', path: '/Adverts' },
-      { title: 'Shares', path: '/Shares' },
+      { title: 'Shares', path: '/SharesPage' },
       { title: 'Sponsorship/Partnership Options', path: '/SponsorsPartnershipPage' },
       { title: 'Sponsors/Partners', path: '/SponsorsPartnershipPage' },
       { title: 'Services/Products Exchange', path: '/ServicesProductsExchange' },
@@ -169,6 +169,8 @@ const menus = ref([
       { title: 'Contact Us', path: '/ContactUs' },
       { title: 'Blogs', path: '/Blogs' },
       { title: 'Groups', path: '/Groups' },
+      { title: 'FAQ', path: '/FAQPage' },
+
     ],
     showSubMenus: false, // Initially hide submenu
   },
