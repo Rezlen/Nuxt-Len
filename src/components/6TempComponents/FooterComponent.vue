@@ -17,7 +17,7 @@
               <strong>ABOUT US</strong>
               <ul>
                 <li><a href='/AboutUsPage' class="Items" >About Us</a></li>
-                <li>Contact Us</li>
+                <li><a href='/ContactUsPage' class="Items" >Contact Us</a></li>
                 <li><a href='/FAQPage' class="Items" >FAQ</a></li>
                 <li>Sitemap</li>
               </ul>

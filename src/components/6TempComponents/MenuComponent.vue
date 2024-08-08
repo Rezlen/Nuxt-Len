@@ -166,7 +166,7 @@ const menus = ref([
       { title: 'About Us', path: '/AboutUsPage' },
       { title: 'Gallery', path: '/Gallery' },
       { title: 'Business Advice', path: '/CEOBusinessAdvicePage' },
-      { title: 'Contact Us', path: '/ContactUs' },
+      { title: 'Contact Us', path: '/ContactUsPage' },
       { title: 'Blogs', path: '/Blogs' },
       { title: 'Groups', path: '/Groups' },
       { title: 'FAQ', path: '/FAQPage' },
