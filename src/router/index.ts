@@ -20,6 +20,7 @@ import CEOBusinessAdvicePage from '../views/CEOBusinessAdvicePage.vue';
 import FAQPage from '../views/FAQPage.vue';
 import SharesPage from '../views/SharesPage.vue';
 import ContactUsPage from '../views/ContactUsPage.vue';
+import RewardDiscountPage from '../views/RewardDiscountPage.vue';
 
 
 
@@ -94,6 +95,11 @@ import MemberTicketsComponent from '@/components/MembersMyOrderComponents/Member
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderComponents/MemberInvestmentApplicationComponent.vue';
+// My Rewards Discounts
+import MyRewardsDiscountsComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsComponent.vue';
+import MyRewardsDiscountsEarnedTableComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsEarnedTableComponent.vue';
+import MyRewardsDiscountsUsedTableComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsUsedTableComponent.vue';
+
 // My Connection Components
 import MyConnectionComponent from '@/components/MyConnectionComponents/MyConnectionComponent.vue';
 import EmailImportsTableComponent from '@/components/MyConnectionComponents/EmailImportsTableComponent.vue';
@@ -210,6 +216,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/contactUsPage',
     name: 'ContactUsPage',
     component: ContactUsPage
+  },
+  {
+    path: '/rewardDiscountPage',
+    name: 'RewardDiscountPage',
+    component: RewardDiscountPage
   },
   
   // pages end here SponsorsPartnersPage
@@ -499,6 +510,22 @@ const routes: Array<RouteRecordRaw> = [
     path: '/sponsorshipPartnershipTableComponent',
     name: 'SponsorshipPartnershipTableComponent',
     component: SponsorshipPartnershipTableComponent
+  },
+  // MyRewardsDiscountsComponents
+  {
+    path: '/myRewardsDiscountsComponent',
+    name: 'MyRewardsDiscountsComponent',
+    component: MyRewardsDiscountsComponent
+  },
+  {
+    path: '/myRewardsDiscountsEarnedTableComponent',
+    name: 'MyRewardsDiscountsEarnedTableComponent',
+    component: MyRewardsDiscountsEarnedTableComponent
+  },
+  {
+    path: '/myRewardsDiscountsUsedTableComponent',
+    name: 'MyRewardsDiscountsUsedTableComponent',
+    component: MyRewardsDiscountsUsedTableComponent
   },
 
 

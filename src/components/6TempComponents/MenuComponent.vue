@@ -157,7 +157,7 @@ const menus = ref([
     title: 'More Options⌄',
     path: '',
     subMenus: [
-      { title: 'Rewards & Discounts', path: '/RewardsDiscounts' },
+      { title: 'Rewards & Discounts', path: '/RewardDiscountPage' },
       { title: 'Adverts', path: '/Adverts' },
       { title: 'Shares', path: '/SharesPage' },
       { title: 'Sponsorship/Partnership Options', path: '/SponsorsPartnershipPage' },

@@ -161,6 +161,10 @@
                 <p><a href="/ContactUsPage" class="Events-button" >ContactUsPage</a> </p>
                 <p><a href="/contactUsTABsAdminComponent" class="Events-button" >contactUsTABsAdminComponent</a> </p>
                 <p><a href="/membersContactUsMessagesTableAdminComponent" class="Events-button" >membersContactUsMessagesTableAdminComponent</a> </p>
+                <p><a href="/RewardDiscountPage" class="Events-button" >RewardDiscountPage</a> </p>
+                <p><a href="/MyRewardsDiscountsUsedTableComponent" class="Events-button" >MyRewardsDiscountsUsedTableComponent</a> </p>
+                <p><a href="/MyRewardsDiscountsEarnedTableComponent" class="Events-button" >MyRewardsDiscountsEarnedTableComponent</a> </p>
+                <p><a href="/MyRewardsDiscountsComponent" class="Events-button" >MyRewardsDiscountsComponent</a> </p>
 
 
 

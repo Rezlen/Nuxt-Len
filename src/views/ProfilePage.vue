@@ -22,7 +22,7 @@
           <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
 
             <IonRow class="PaddingBorder MyAccount" @click="showComponent('ProfilePublicSectionComponent')">My Account</IonRow>
-            <IonRow class="PaddingBorder MainOptions">Reward/Discount: 0%</IonRow>
+            <IonRow class="PaddingBorder MainOptions" @click="showComponent('MyRewardsDiscountsComponent')">Reward/Discount: 0%</IonRow>
             <IonRow class="PaddingBorder UpgradeVIP" >{Profile Pic}+Upgrade to VIP</IonRow>
             <IonRow class="PaddingBorder MessageRemaining">
               <IonButton fill="solid" class="buyMore" size="small" >Buy More</IonButton> <a class="remainingMessageNo">{11} of your 20 </a>monthly messages remaining
@@ -113,6 +113,7 @@ import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 
 import ProfilePublicSectionComponent from '@/components/ProfileComponents/ProfilePublicSectionComponent.vue';
+import MyRewardsDiscountsComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsComponent.vue';
 import FormProfilePublicSectionComponent from '@/components/ProfileComponents/FormProfilePublicSectionComponent.vue';
 import MessagingComponent from '@/components/MessagingComponents/MessagingComponent.vue';
 import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/MembersMyOrderTABsComponent.vue';
@@ -141,6 +142,7 @@ export default defineComponent({
     RightAd3Component,
     RightAd4Component,
     ProfilePublicSectionComponent,
+    MyRewardsDiscountsComponent,
     FormProfilePublicSectionComponent,
     MessagingComponent,
     MembersMyOrderTABsComponent,
@@ -160,6 +162,9 @@ export default defineComponent({
     const showComponent = (componentName: string) => {
       if (componentName === 'ProfilePublicSectionComponent') {
         currentComponent.value = ProfilePublicSectionComponent;
+      }
+      if (componentName === 'MyRewardsDiscountsComponent') {
+        currentComponent.value = MyRewardsDiscountsComponent;
       }
       if (componentName === 'FormProfilePublicSectionComponent') {
         currentComponent.value = FormProfilePublicSectionComponent;
