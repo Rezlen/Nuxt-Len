@@ -159,6 +159,8 @@
                 <p><a href="/SharesPage" class="Events-button" >SharesPage</a> </p>
                 <p><a href="/ContactUsFormComponent" class="Events-button" >ContactUsFormComponent</a> </p>
                 <p><a href="/ContactUsPage" class="Events-button" >ContactUsPage</a> </p>
+                <p><a href="/contactUsTABsAdminComponent" class="Events-button" >contactUsTABsAdminComponent</a> </p>
+                <p><a href="/membersContactUsMessagesTableAdminComponent" class="Events-button" >membersContactUsMessagesTableAdminComponent</a> </p>
 
 
 

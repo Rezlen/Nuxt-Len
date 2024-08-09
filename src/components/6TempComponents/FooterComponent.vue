@@ -62,7 +62,7 @@
               <strong>POLICIES</strong>
               <ul>
                 <li><a href='/TermsConditionsPage' class="Items" >Terms & Conditions</a></li>
-                <li>Cancellation Policy</li>
+                <li><a href='/CancellationPolicyPage' class="Items" >Cancellation Policy</a></li>
                 <li><a href='/PrivacyPolicyPage' class="Items" >Privacy Policy</a></li>
               </ul>
             </li>

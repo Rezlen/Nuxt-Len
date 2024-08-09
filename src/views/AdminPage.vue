@@ -22,7 +22,7 @@
             <IonRow class="PaddingBorder Investments">Investments</IonRow>
             <IonRow class="PaddingBorder OffersNeeds">Offers Needs</IonRow>
             <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
-            <IonRow class="PaddingBorder Messages">Messages</IonRow>
+            <IonRow class="PaddingBorder contactUs" @click="showComponent('contactUsTABsAdminComponent')" >Contacted Us</IonRow>
             <IonRow class="PaddingBorder RewardsDiscounts">Rewards Discounts</IonRow>
             <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
 
@@ -52,6 +52,8 @@ import { IonPage, IonGrid, IonRow, IonCol, IonContent } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
 import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
+import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
+
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
 export default defineComponent({
@@ -65,6 +67,8 @@ export default defineComponent({
     MenuComponent,
     AdminCreateEventTABsComponent,
     MembersProfileDetailTABsAdminComponent,
+    contactUsTABsAdminComponent,
+
     FooterComponent,
   },
   setup() {
@@ -81,6 +85,9 @@ export default defineComponent({
       }
       if (componentName === 'profiles') {
         currentComponent.value = MembersProfileDetailTABsAdminComponent;
+      }
+      if (componentName === 'contactUsTABsAdminComponent') {
+        currentComponent.value = contactUsTABsAdminComponent;
       }
       // Add other cases as needed for other menu items
     };
@@ -132,9 +139,10 @@ ion-grid {
 }
 
 .Events, 
-.Profiles {
+.Profiles,
+.contactUs {
   font-weight: bold;
-  /* padding: 5px; */
+  color: red;
 }
 .PaddingBorder{
   border-bottom: 1px gray solid;

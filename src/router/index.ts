@@ -83,6 +83,8 @@ import InvestmentApplicationMembersProfileDetailAdminComponent from '@/component
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
+import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
+import membersContactUsMessagesTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/membersContactUsMessagesTableAdminComponent.vue';
 
 // User/Member Account Section Comps
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
@@ -443,6 +445,19 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MembersBestOfferDetailProfileDetailAdminComponent',
     component: MembersBestOfferDetailProfileDetailAdminComponent
   },
+  // Admin Contact Us
+  {
+    path: '/contactUsTABsAdminComponent',
+    name: 'contactUsTABsAdminComponent',
+    component: contactUsTABsAdminComponent
+  },
+  {
+    path: '/membersContactUsMessagesTableAdminComponent',
+    name: 'membersContactUsMessagesTableAdminComponent',
+    component: membersContactUsMessagesTableAdminComponent
+  },
+
+
 
   // User Account section  MembersMyOrderComponent
 {
