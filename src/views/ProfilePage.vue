@@ -25,7 +25,7 @@
             <IonRow class="PaddingBorder MainOptions">Reward/Discount: 0%</IonRow>
             <IonRow class="PaddingBorder UpgradeVIP" >{Profile Pic}+Upgrade to VIP</IonRow>
             <IonRow class="PaddingBorder MessageRemaining">
-              <IonButton size="small" >Buy More</IonButton> {11} of 20 of your monthly messages remaining
+              <IonButton fill="solid" class="buyMore" size="small" >Buy More</IonButton> <a class="remainingMessageNo">{11} of your 20 </a>monthly messages remaining
             </IonRow>
             <IonRow class="PaddingBorder EditProfile" @click="showComponent('FormProfilePublicSectionComponent')">Edit Profile</IonRow>
             <IonRow class="PaddingBorder MyConnections" @click="showComponent('MyConnectionComponent')">My Connections</IonRow>
@@ -100,7 +100,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue';
-import { IonPage, IonGrid, IonRow, IonCol, IonContent } from '@ionic/vue';
+import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonButton } from '@ionic/vue';
 import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 import LeftAd1Component from '@/components/6TempComponents/LeftRightAds/LeftAd1Component.vue';
@@ -129,6 +129,7 @@ export default defineComponent({
     IonRow,
     IonCol,
     IonContent,
+    IonButton,
     MenuComponent,
     SocialMediaBarComponent,
     LeftAd1Component,
@@ -227,6 +228,13 @@ export default defineComponent({
 }
 .MessageRemaining {
   font-size: 13px;;
+}
+.buyMore {
+  --background: #7cdd06;
+}
+.remainingMessageNo {
+  color: red;
+  font-weight: bold;
 }
 .PaddingBorder{
   border-bottom: 1px gray solid;

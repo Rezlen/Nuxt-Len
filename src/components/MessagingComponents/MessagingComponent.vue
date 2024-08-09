@@ -6,8 +6,8 @@
     <!-- Title Row -->
     <IonRow class="FirstRow">
       <IonCol class="LeftCol" size="12" sizeMd="4">
-          <IonButton class="GroupMessages"  @click="submitContent">Group Messages</IonButton>
           <IonSearchbar></IonSearchbar>
+          <IonButton class="GroupMessages"  expand="block" @click="submitContent">Group Messages</IonButton>
           <IonCol class="RecentMessages">Recent Messages </IonCol>
           <MiniProfileCardVVIPComponent />
       </IonCol>
