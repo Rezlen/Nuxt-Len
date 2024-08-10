@@ -938,38 +938,29 @@ resetSorting();
   align-items: top;
   text-align: top;
 }
-
 .NONscrollingRow {
   overflow-x: auto;
-  /* border: 4px solid rgb(26, 185, 18); */
 }
 .scrollingRow {
   min-width: 5500px;
-  /* border: 1px solid red; */
   flex-direction: column;
 }
-
 .DataRow {
   cursor: pointer;
 }
-
 .DataRow.selected {
   border-top: 3px solid red;
   border-bottom: 3px solid red;
 }
-
 .DataRow:nth-child(odd) ion-col {
   background-color: #f5efef;
 }
-
 .DataRow:nth-child(even) ion-col {
   background-color: #bceea5;
 }
-
 .TotalRow {
   font-weight: bold;
 }
-
 .ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
   border: 1px solid gray;
 }

@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">History of membership purchase</p>
+    <p class="TitleP">History Of My Membership Purchase</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
@@ -597,18 +597,26 @@
   .search{
     width: 100px;
   }
-  /* .arrowBackCircle {
-    position: fixed;
-    top: 55;
-    left: 90;
-    right: 0;
-    z-index: 1;
-  } */
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
     height: 50px;
-    align-items: center;
+    align-items: top;
+  }
+  .TitleRow .BookingDateCol,
+  .TitleRow .MembershipTypeCol,
+  .TitleRow .VIPMembershipCol,
+  .TitleRow .VVIPMembershipCol,
+  .TitleRow .CostCol,
+  .TitleRow .ExpiringDateCol,
+  .TitleRow .TimeLeftTillExpiryCol {
+    border-top: 3px solid red;
+  }
+  .BookingDateCol {
+    border-left: 3px solid red;
+  }
+  .TimeLeftTillExpiryCol {
+    border-right: 3px solid red;
   }
   .NONscrollingRow {
     overflow-x: auto;

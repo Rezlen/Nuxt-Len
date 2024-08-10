@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">History of membership purchase</p>
+    <p class="TitleP">History Of Your Investment Applications</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
@@ -605,17 +605,18 @@
     font-weight: bold;
     cursor: pointer;
     height: 50px;
-    align-items: center;
+    align-items: top;
   }
   .Purple{
     color: rgb(206, 6, 251);
     font-weight: bold;
   }
-  .ContainerRow {
-    width: 3200px;
+  .NONscrollingRow {
+    overflow-x: auto;
+  }
+  .scrollingRow {
+    min-width: 3500px;
     flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: scroll;
   }
   .DataRow {
     cursor: pointer;
@@ -630,7 +631,6 @@
   .DataRow:nth-child(even) ion-col {
     background-color: #bceea5;
   }
-
   .TotalRow {
     font-weight: bold;
   }

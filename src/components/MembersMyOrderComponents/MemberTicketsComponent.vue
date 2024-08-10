@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all booked tickets</p>
+    <p class="TitleP">List Of All My Booked Tickets</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
@@ -606,7 +606,20 @@
     font-weight: bold;
     cursor: pointer;
     height: 50px;
-    align-items: center;
+    align-items: top;
+  }
+  .TitleRow .BookingDateCol, 
+  .TitleRow .TicketTitleCol,
+  .TitleRow .TicketPriceCol,
+  .TitleRow .ExhibitionSpotNoCol,
+  .TitleRow .ExhibitionSpotColorCol {
+    border-top: 3px solid red;
+  }
+  .BookingDateCol {
+    border-left: 3px solid red;
+  }
+  .ExhibitionSpotColorCol {
+    border-right: 3px solid red;
   }
   .NONscrollingRow {
     overflow-x: auto;

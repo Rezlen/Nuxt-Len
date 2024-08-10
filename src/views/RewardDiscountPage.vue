@@ -63,8 +63,7 @@ import RightAd3Component from '@/components/6TempComponents/LeftRightAds/RightAd
 import RightAd4Component from '@/components/6TempComponents/LeftRightAds/RightAd4Component.vue';
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
-import MyRewardsDiscountsComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsComponent.vue';
-
+import MyRewardsDiscountsComponent from '@/components/MyRewardsDiscountsComponents-FrontDisplayOnly/MyRewardsDiscountsComponent.vue';
 
 export default defineComponent({
   name: 'RewardDiscountPage',

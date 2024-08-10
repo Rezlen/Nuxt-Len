@@ -689,6 +689,17 @@
     align-items: top;
     text-align: top;
   }
+  .TitleRow .BookingDateCol,
+  .TitleRow .ExpiringDateCol,
+  .TitleRow .TimeLeftTillExpiryCol {
+    border-top: 3px solid red;
+  }
+  .BookingDateCol {
+    border-left: 3px solid red; 
+  }
+  .TimeLeftTillExpiryCol {
+    border-right: 3px solid red; 
+  }
   .NONscrollingRow {
     overflow-x: auto;
     /* border: 4px solid rgb(26, 185, 18); */

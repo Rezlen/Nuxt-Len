@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all my messaging/emailing orders</p>
+    <p class="TitleP">List Of All My Messaging/Emailing Orders</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
@@ -615,7 +615,7 @@
     font-weight: bold;
     cursor: pointer;
     height: 50px;
-    align-items: center;
+    align-items: top;
   }
   .NONscrollingRow {
     overflow-x: auto;
@@ -628,6 +628,20 @@
   }
   .DataRow {
     cursor: pointer;
+  }
+  .TitleRow .MessageTitleCol,
+  .TitleRow .MessageTitleCol,
+  .TitleRow .CostCol,
+  .TitleRow .SelectedConnectionsCol,
+  .TitleRow .SelectedNonConnectionsCol,
+  .TitleRow .MessageOpenedCol {
+    border-top: 3px solid red;
+  }
+  .MessageTitleCol{
+    border-left: 3px solid red;
+  }
+  .MessageOpenedCol{
+    border-right: 3px solid red;
   }
   .DataRow.selected {
     border-top: 3px solid red;
