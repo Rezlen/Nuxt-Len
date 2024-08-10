@@ -50,10 +50,10 @@ export default defineComponent({
 
 
 <style scoped>
-  ion-grid {
-    overflow-y: auto;     /* Enable vertical scrolling */
-    height: 100%;     /* Full height to fit the parent */
-  }
+  /* ion-grid {
+    overflow-y: auto;
+    height: 100%;
+  } */
   .rewardLine {
     font-size: 17px;
     text-align: center;
