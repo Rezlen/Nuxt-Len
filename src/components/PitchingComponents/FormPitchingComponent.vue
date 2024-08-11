@@ -63,8 +63,15 @@
       <!-- TAB Opens the Upselling form ############################################################################################### -->
       <IonCol v-show="selectedTab === 'UpSelling'" class="UpSelling">
         <IonRow class="UpSellingService1 ">
-          <p class="CenterPositions checkbox-text">Do You Need Presentation or Pitching Training ?</p>
-          <IonCheckbox justify="end"><p class="checkbox-text">I want 1 hour presentation/pitching training, for my presentation or pitching in this event; £100 x 1 = £100</p></IonCheckbox>
+          <p class="CenterPositions checkbox-text">Do You Need Presentation or Pitching Training ? </p>
+          <p class="checkbox-text">I want 
+            <IonInput class="numberInput" type="number" :maxlength="2" placeholder=" 00" required></IonInput>
+            hour x £ 100 = £100 
+            
+            presentation/pitching training, for my presentation or pitching in this event:
+             
+            <IonCheckbox justify="end"></IonCheckbox>
+          </p>
         </IonRow>
         <IonRow class="UpSellingService2 ">
           <p class="CenterPositions checkbox-text">Do You Need Business/Funding/Investment Advice ?</p>
@@ -96,12 +103,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { IonCheckbox, IonSegment, IonSegmentButton,IonContent, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonTextarea, IonList } from '@ionic/vue';
+import { IonCheckbox, IonSegment, IonSegmentButton,IonContent, IonInput, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonTextarea, IonList } from '@ionic/vue';
 
 export default defineComponent({
   name: 'FormPitchingComponent',
   components: {
     IonContent,
+    IonInput,
     IonGrid,
     IonRow,
     IonCol,
@@ -189,7 +197,19 @@ ion-textarea{
   padding: 5px;
   font-size: 13px;
   margin: 0;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+
 }
+.numberInput {
+  max-width: 40px;
+  max-height: 1px;
+  border: solid 1px rgb(12, 42, 211);
+  margin-left: 5px;
+
+}
+
 .ADVICEforFREE {
   /* font-weight: bold; */
   color: red;
@@ -242,7 +262,12 @@ input[type="file"] {
   /* width: fit-content; */
   gap: 5px;
  }
- 
-
+@media (max-width: 600px) {
+.test {
+  flex-direction: row;
+  width: 100%;
+  display: flex;
+}
+ }
 
 </style>

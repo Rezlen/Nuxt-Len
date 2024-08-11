@@ -11,7 +11,7 @@
         <IonSegmentButton class="btn" value="SponsorshipPartnershipTableComponent">Sponsorship Partnership</IonSegmentButton>
         <IonSegmentButton class="btn" value="ServiceProductExchange">Service Product Exchange</IonSegmentButton>
         <IonSegmentButton class="btn" value="BusinessAdvice">Business Advice</IonSegmentButton>
-        <IonSegmentButton class="btn" value="Shares">Shares</IonSegmentButton>
+        <IonSegmentButton class="btn" value="mySharesTableComponent">My Shares</IonSegmentButton>
 
       </IonSegment>
     </IonRow>
@@ -45,7 +45,8 @@
       <!-- BusinessAdvice ####################################-->
       <IonCol v-show="selectedTab === 'BusinessAdvice'" class="BusinessAdvice">
       </IonCol>
-      <IonCol v-show="selectedTab === 'Shares'" class="Shares">
+      <IonCol v-show="selectedTab === 'mySharesTableComponent'" class="mySharesTableComponent">
+        <MySharesTableComponent/>
       </IonCol>
     </IonRow>
   </IonGrid>
@@ -61,6 +62,7 @@ import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderCo
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderComponents/MemberInvestmentApplicationComponent.vue';
 import SponsorshipPartnershipTableComponent from '@/components/MembersMyOrderComponents/SponsorshipPartnershipTableComponent.vue';
+import MySharesTableComponent from '@/components/MembersMyOrderComponents/MySharesTableComponent.vue';
 
 
 // MemberMembershipOrderComponent
@@ -77,6 +79,7 @@ export default defineComponent({
     MemberMembershipOrderComponent,
     MemberInvestmentApplicationComponent,
     SponsorshipPartnershipTableComponent,
+    MySharesTableComponent,
     
 
 

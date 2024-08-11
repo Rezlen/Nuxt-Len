@@ -1,71 +1,76 @@
 <template>
   <IonGrid class="IonGrid">
-  <div class="table-container">
-    <div class="header row-small">
-      <div class="column wide-column left-align">Ticket Type</div>
-      <div class="column">Available Ticket</div>
-      <div class="column">Spot Number</div>
-      <div class="column small-column">Price Inc VAT</div>
-    </div>
-
-
-
-    <!-- ################################################################### -->
-    <div class="row row-small">
-      <div class="column wide-column left-align" >
-        <IonCheckbox justify="start">FREE Visitor</IonCheckbox><br/>
-        <IonCheckbox justify="start">FREE Business Mentor</IonCheckbox><br/>
-        <IonCheckbox justify="start">FREE Investor</IonCheckbox><br/>
-        <IonCheckbox justify="start">FREE Investment Broker</IonCheckbox><br/>
-      </div>
-      <div class="column">Availability Numbers</div>
-      <div class="column"></div>
-      <div class="column small-column">FREE</div>
-    </div>
-
-
-
-    <!-- ################################################################### -->
-    <div class="row">
-      <div class="column wide-column left-align" >
-
-          <IonCheckbox justify="start">Exhibition number4 Blue Square</IonCheckbox><br/>
-          <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
-          <IonCheckbox justify="start">Exhibitions Black Sqare</IonCheckbox><br/>
-          <IonCheckbox justify="start">Exhibitions Blue Square</IonCheckbox><br/>
-          <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
+    <div class="table-container">
+      <div class="header row-small">
+        <div class="column wide-column left-align">Ticket Type</div>
+        <div class="column">Available Ticket</div>
+        <div class="column">Spot Number</div>
+        <div class="column small-column">Price Inc VAT</div>
       </div>
 
-      <div class="column">Availability Numbers</div>
-      <div class="column">Spot Numbers Exhibitions</div>
-      <div class="column small-column">Price</div>
-    </div>
 
 
+      <!-- ################################################################### -->
+      <div class="row row-small">
+        <div class="column wide-column left-align" >
+          <IonCheckbox justify="start">FREE Visitor</IonCheckbox><br/>
+          <IonCheckbox justify="start">FREE Business Mentor</IonCheckbox><br/>
+          <IonCheckbox justify="start">FREE Investor</IonCheckbox><br/>
+          <IonCheckbox justify="start">FREE Investment Broker</IonCheckbox><br/>
+        </div>
+        <div class="column">Availability Numbers</div>
+        <div class="column"></div>
+        <div class="column small-column">FREE</div>
+      </div>
+
+
+
+      <!-- ################################################################### -->
+      <div class="row">
+        <div class="column wide-column left-align" >
+
+            <IonCheckbox justify="start">Exhibition number4 Blue Square</IonCheckbox><br/>
+            <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
+            <IonCheckbox justify="start">Exhibitions Black Square</IonCheckbox><br/>
+            <IonCheckbox justify="start">Exhibitions Blue Square</IonCheckbox><br/>
+            <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
+        </div>
+
+        <div class="column">Availability Numbers</div>
+        <div class="column">Spot Numbers Exhibitions</div>
+        <div class="column small-column">Price</div>
+      </div>
+
+
+
+      <!-- ################################################################### -->
+      <div class="row">
+        <!-- Conditional Rendering of the FormPitchingComponent -->
+        <div class="column wide-column left-align " @click="toggleFormPitching" >
+          <IonCheckbox justify="start" class="FREEOneMinute">FREE One Minute Pitching</IonCheckbox>
+          <IonCheckbox justify="start">Three Minutes Pitching</IonCheckbox>
+          <IonCheckbox justify="start">Investment Pitching; 5 Minutes</IonCheckbox>
+          <IonCheckbox justify="start">Workshops Black Sqare; 30 Minutes</IonCheckbox><br/>
+          <IonCheckbox justify="start">Presentation Black Square; 5 Minutes</IonCheckbox><br/>
+        </div>
+        <div class="column">Availability Numbers</div>
+        <div class="column">Spot Numbers</div>
+        <div class="column small-column">Price</div>
+      </div>
+      
 
     <!-- ################################################################### -->
-    <div class="row">
+    </div>
+
       <!-- Conditional Rendering of the FormPitchingComponent -->
-      <div class="column wide-column left-align " @click="toggleFormPitching" >
-        <IonCheckbox justify="start" class="FREEOneMinute">FREE One Minute Pitching</IonCheckbox>
-        <IonCheckbox justify="start">Three Minutes Pitching</IonCheckbox>
-        <IonCheckbox justify="start">Investment Pitching; 5 Minutes</IonCheckbox>
-        <IonCheckbox justify="start">Workshops Black Sqare; 30 Minutes</IonCheckbox><br/>
-        <IonCheckbox justify="start">Presentation Black Square; 5 Minutes</IonCheckbox><br/>
+      <div v-if="showFormPitching">
+        <FormPitchingComponent />
       </div>
-      <div class="column">Availability Numbers</div>
-      <div class="column">Spot Numbers</div>
-      <div class="column small-column">Price</div>
-    </div>
-    
-    <!-- Conditional Rendering of the FormPitchingComponent -->
-    <div v-if="showFormPitching">
-      <FormPitchingComponent />
-    </div>
 
 
-  <!-- ################################################################### -->
-  </div>
+
+
+
     <div class="footer">
       <img alt="LEN Logo" height="160" src="/public/favicon.png" />
       <!-- later stage we should create the Bonus/Discount functionalities -->

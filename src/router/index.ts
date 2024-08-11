@@ -95,6 +95,8 @@ import MemberTicketsComponent from '@/components/MembersMyOrderComponents/Member
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderComponents/MemberInvestmentApplicationComponent.vue';
+import MySharesTableComponent from '@/components/MembersMyOrderComponents/MySharesTableComponent.vue';
+
 // My Rewards Discounts
 import MyRewardsDiscountsComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsComponent.vue';
 import MyRewardsDiscountsEarnedTableComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsEarnedTableComponent.vue';
@@ -505,6 +507,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/memberInvestmentApplicationComponent',
     name: 'MemberInvestmentApplicationComponent',
     component: MemberInvestmentApplicationComponent
+  },
+  {
+    path: '/mySharesTableComponent',
+    name: 'MySharesTableComponent',
+    component: MySharesTableComponent
   },
   {
     path: '/sponsorshipPartnershipTableComponent',

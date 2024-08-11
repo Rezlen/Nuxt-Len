@@ -31,7 +31,7 @@
 
           <IonCheckbox justify="start">Exhibition number4 Blue Square</IonCheckbox><br/>
           <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
-          <IonCheckbox justify="start">Exhibitions Black Sqare</IonCheckbox><br/>
+          <IonCheckbox justify="start">Exhibitions Black Square</IonCheckbox><br/>
           <IonCheckbox justify="start">Exhibitions Blue Square</IonCheckbox><br/>
           <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
       </div>
@@ -50,7 +50,7 @@
         <IonCheckbox justify="start">FREE One Minute Pitching</IonCheckbox>
         <IonCheckbox justify="start">Three Minutes Pitching</IonCheckbox>
         <IonCheckbox justify="start">Investment Pitching; 5 Minutes</IonCheckbox>
-        <IonCheckbox justify="start">Workshops Black Sqare; 30 Minutes</IonCheckbox><br/>
+        <IonCheckbox justify="start">Workshops Black Square; 30 Minutes</IonCheckbox><br/>
         <IonCheckbox justify="start">Presentation Black Square; 5 Minutes</IonCheckbox><br/>
       </div>
       <div class="column">Availability Numbers</div>

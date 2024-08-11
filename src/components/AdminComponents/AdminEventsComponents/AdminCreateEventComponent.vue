@@ -24,7 +24,7 @@
         <!-- Event Details Section -->
       <IonCol>
         <IonRow class="BorderedSection">
-            <P>This section is to create Titele Of the event, address & details etc..</P>
+            <P>This section is to create Title Of the event, address & details etc..</P>
           <IonCol>
             <IonTextarea class="Summaries" label="AddressLocationName" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
           </IonCol>
@@ -119,36 +119,36 @@
           <IonRow class="BorderedSection ">
             <p>This section is to create Upselling tickets for Exhibitors, Pitchers, Presenters etc..</p>
             <IonCol class="UpSellingService1">
-              <IonTextarea class="TicketQ" label="Type the quiestion 1 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketQ" label="Type the question 1 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- Do You Need Presentation or Pitching Training ? -->
-              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketA" label="Question Description Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- I want 1 hour presentation/pitching training, for my presentation or pitching in this event; £100 x 1 = £100 -->
             </IonCol>
 
             <IonCol class="UpSellingService2">
-              <IonTextarea class="TicketQ" label="Type the quiestion 2 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketQ" label="Type the question 2 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- Do You Need Business/Funding/Investment Advice ? -->
-              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketA" label="Question Description Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- I want 1 hour FUNDING, INVESTMENT ADVICE on how/where-from to source funding/investment for my business/idea; £75 x 1 = £75 -->
-              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketA" label="Question Description Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- I want 1 hour BUSINESS ADVICE about my business/idea; in-person, phone or online e.g Skype; £75 x 1 = £75 -->
             </IonCol>
 
             <IonCol class="UpSellingService3">
-              <IonTextarea class="TicketQ" label="Type the quiestion 3 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketQ" label="Type the question 3 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- Do You Need FREE Business/Funding/Investment Advice ?-->
-              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketA" label="Question Description Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- I want HALF an HOUR <span class="ADVICEforFREE">FUNDING, INVESTMENT ADVICE for FREE</span>, on how/where-from to source funding/investment for my business/idea. -->
-              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketA" label="Question Description Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- I want HALF an HOUR <span class="ADVICEforFREE">BUSINESS ADVICE for FREE</span>, about my business/idea; in-person, phone or online e.g Skype. -->
             </IonCol>
 
             <IonCol class="UpSellingService4">
-              <IonTextarea class="TicketQ" label="Type the quiestion 4 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketQ" label="Type the question 4 here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- Tick Below if You Like to Receive a Video of Your Pitching!-->
-              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketA" label="Question Description Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- My pitching be professionally filmed, receive a RAW (UN-Edited) professional footage; £20 x 1 = £20 -->
-              <IonTextarea class="TicketA" label="Question Discription Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
+              <IonTextarea class="TicketA" label="Question Description Here" label-placement="floating" :counter="true" :maxlength="100" :counter-formatter="customFormatter"></IonTextarea>
               <!-- My pitching be filmed, receive professionally EDITED 5 minutes footage; £250 x 1 = £250 -->
             </IonCol>
 
