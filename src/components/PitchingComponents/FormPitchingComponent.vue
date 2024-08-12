@@ -62,31 +62,46 @@
 
       <!-- TAB Opens the Upselling form ############################################################################################### -->
       <IonCol v-show="selectedTab === 'UpSelling'" class="UpSelling">
+
         <IonRow class="UpSellingService1 ">
           <p class="CenterPositions checkbox-text">Do You Need Presentation or Pitching Training ? </p>
-          <p class="checkbox-text">I want 
-            <IonInput class="numberInput" type="number" :maxlength="2" placeholder=" 00" required></IonInput>
-            hour x £ 100 = £100 
-            
-            presentation/pitching training, for my presentation or pitching in this event:
-             
-            <IonCheckbox justify="end"></IonCheckbox>
-          </p>
+
+          <IonCheckbox justify="end">
+            <p class="checkbox-text">I want<IonInput class="numberInput" type="number" :maxlength="2" placeholder=" 00" required></IonInput>
+              hour x £ 100 = £100 presentation/pitching training, for my presentation or pitching in this event</p>
+          </IonCheckbox>
         </IonRow>
+
         <IonRow class="UpSellingService2 ">
           <p class="CenterPositions checkbox-text">Do You Need Business/Funding/Investment Advice ?</p>
-          <IonCheckbox justify="end"><p class="checkbox-text">I want 1 hour FUNDING, INVESTMENT ADVICE on how/where-from to source funding/investment for my business/idea; £75 x 1 = £75</p></IonCheckbox>
-          <IonCheckbox justify="end"><p class="checkbox-text">I want 1 hour BUSINESS ADVICE about my business/idea; in-person, phone or online e.g Skype; £75 x 1 = £75</p></IonCheckbox>
+
+          <IonCheckbox justify="end">
+            <p class="checkbox-text">I want <IonInput class="numberInput" type="number" :maxlength="2" placeholder=" 00" required></IonInput>
+            hour X £75=£75 FUNDING, INVESTMENT ADVICE on how/where-from to source funding/investment for my business/idea</p>
+          </IonCheckbox>
+
+          <IonCheckbox justify="end">
+            <p class="checkbox-text ">I want <IonInput class="numberInput" type="number" :maxlength="2" placeholder=" 00" required></IonInput>
+            hour X £75=£75 BUSINESS ADVICE about my business/idea; in-person, phone or online e.g Skype</p>
+          </IonCheckbox>
         </IonRow>
+
         <IonRow class="UpSellingService3">
           <p class="CenterPositions checkbox-text">Do You Need FREE Business/Funding/Investment Advice ?</p>
-          <IonCheckbox justify="end"><p class="checkbox-text">I want HALF an HOUR <span class="ADVICEforFREE">FUNDING, INVESTMENT ADVICE for FREE</span>, on how/where-from to source funding/investment for my business/idea.</p></IonCheckbox>
-          <IonCheckbox justify="end"><p class="checkbox-text">I want HALF an HOUR <span class="ADVICEforFREE">BUSINESS ADVICE for FREE</span>, about my business/idea; in-person, phone or online e.g Skype.</p></IonCheckbox>
+
+          <IonCheckbox justify="end" >
+            <p class="checkbox-text redWords">I want HALF an HOUR <span class="ADVICEforFREE">FUNDING, INVESTMENT ADVICE for FREE</span>, on how/where-from to source funding investment for my business/idea.</p>
+          </IonCheckbox>
+
+          <IonCheckbox justify="end" >
+            <p class="checkbox-text redWords">I want HALF an HOUR <span class="ADVICEforFREE">BUSINESS ADVICE for FREE</span>, about my business/idea; in-person, phone or online e.g Skype.</p>
+          </IonCheckbox>
         </IonRow>
+
         <IonRow class="UpSellingService4">
           <p class="CenterPositions checkbox-text" > Tick Below if You Like to Receive a Video of Your Pitching!</p>
-          <IonCheckbox justify="end"><p class="checkbox-text">My pitching be professionally filmed, receive a RAW (UN-Edited) professional footage; £20 x 1 = £20</p></IonCheckbox>
-          <IonCheckbox justify="end"><p class="checkbox-text">My pitching be filmed, receive professionally EDITED 5 minutes footage; £250 x 1 = £250</p></IonCheckbox>
+          <IonCheckbox justify="end"><p class="checkbox-text">My pitching be professionally filmed, receive a RAW (UN-Edited) professional footage for £20</p></IonCheckbox>
+          <IonCheckbox justify="end"><p class="checkbox-text">My pitching be filmed, receive professionally EDITED 5 minutes footage for £250</p></IonCheckbox>
         </IonRow>
 
 
@@ -206,8 +221,7 @@ ion-textarea{
   max-width: 40px;
   max-height: 1px;
   border: solid 1px rgb(12, 42, 211);
-  margin-left: 5px;
-
+  margin: 0 5px;
 }
 
 .ADVICEforFREE {
@@ -232,9 +246,9 @@ ion-checkbox {
   width: 100%;
 }
 
-.TabSegment .btn {
-  flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
-  min-width: 150px; /* Minimum width for each button to ensure readability */
+.btn {
+  /* flex: 1; */
+  white-space: normal; /* Allows text to wrap */
   color: red;
   font-weight: bold;
 }
@@ -263,11 +277,15 @@ input[type="file"] {
   gap: 5px;
  }
 @media (max-width: 600px) {
-.test {
-  flex-direction: row;
-  width: 100%;
-  display: flex;
-}
+  .test {
+    flex-direction: row;
+    width: 100%;
+    display: flex;
+  }
+  .redWords{
+    display: block;
+  }
+
  }
 
 </style>
