@@ -48,9 +48,9 @@
             <input type="file" @change="onFileSelected" />
           </IonItem>
           <IonRow class="Summaries" >
-            <IonTextarea class="Summaries" label="Enter You YouTube EMBEDING Link Here (If you have/wish)" label-placement="floating"  :counter="true"  :maxlength="30" :counter-formatter="customFormatter" ></IonTextarea>
-            <IonTextarea  class="Summaries" label="Summerise Your Pitching/Presentation Here" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea>
-            <IonTextarea  class="Summaries" label="Summerise What You Are Looking For/Need" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea> 
+            <IonTextarea class="Summaries" label="Enter You YouTube EMBEDDING Link Here (If you have/wish)" label-placement="floating"  :counter="true"  :maxlength="30" :counter-formatter="customFormatter" ></IonTextarea>
+            <IonTextarea  class="Summaries" label="Summaries Your Pitching/Presentation Here" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea>
+            <IonTextarea  class="Summaries" label="Summaries What You Are Looking For/Need" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea> 
           </IonRow>
         </IonRow>
 
@@ -271,10 +271,9 @@ input[type="file"] {
 }
 
 .Summaries {
-  /* display: flex; */
-  flex-direction: row;
-  /* width: fit-content; */
+  width: 100%; /*ensures does not exit the mobile frame for long Label*/
   gap: 5px;
+  white-space: normal; /* Allows text to wrap */
  }
 @media (max-width: 600px) {
   .test {

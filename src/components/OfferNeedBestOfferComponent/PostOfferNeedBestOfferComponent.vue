@@ -1,5 +1,4 @@
 <template>
-  <IonTitle class="CenterPositions">Post Your OFFERS or NEEDS for FREE, to be seen by Millions of People </IonTitle>
   <IonRow class="bordered-section InvestorsSection">
     <!-- 3Tabs 1- Post an Offer 2- Post a Need 3- Post a Best offer ##############################-->
     <IonCol class="TabPostSection">
@@ -87,16 +86,6 @@ export default defineComponent({
   justify-content: space-around;
   align-items: center;
 }
-
-.CenterPositions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  text-align: center;
-}
-
-
 .PostOffer,
 .PostNeed,
 .PostBestOffer {

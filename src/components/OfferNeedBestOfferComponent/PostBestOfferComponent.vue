@@ -1,7 +1,8 @@
 <template>
 
   <IonGrid class="Grid">
-
+    <p class="title">Is your offer the BEST in its world? and you like to offer it to the world?!!</p>
+    <p class="title">Fill below, we might display to millions of people!!</p>
     <IonTextarea  label="Enter Your Best Offer's Title Here" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
     
     <IonRow>  
@@ -149,7 +150,10 @@ ion-grid {
   overflow-y: auto; /* Enable vertical scrolling */
   height: 100%; /* Full height to fit the parent */
 }
-
+.title {
+  text-align: center;
+  font-weight: bold;
+}
 ion-textarea{
   border-radius: 7px;
   border:1px green solid;

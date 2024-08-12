@@ -1,7 +1,7 @@
 <template>
 
   <IonGrid class="Grid">
-
+    <p class="title">Post your OFFERs for FREE, to display to thousands of daily visitors!!</p>
     <IonTextarea  label="Enter Your Offer's Title Here" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
     
     <IonRow>  
@@ -131,6 +131,10 @@ ion-grid {
 ion-textarea{
   border-radius: 7px;
   border:1px green solid;
+}
+.title {
+  text-align: center;
+  font-weight: bold;
 }
 #editor-container {
   height: 300px;
