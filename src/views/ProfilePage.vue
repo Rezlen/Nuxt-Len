@@ -21,27 +21,28 @@
           <!-- Sidebar Menu -->
           <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
 
-            <IonRow class="PaddingBorder MyAccount" @click="showComponent('ProfilePublicSectionComponent')">My Account</IonRow>
-            <IonRow class="PaddingBorder MainOptions" @click="showComponent('MyRewardsDiscountsComponent')">Reward/Discount: 0%</IonRow>
-            <IonRow class="PaddingBorder UpgradeVIP" >{Profile Pic}+Upgrade to VIP</IonRow>
-            <IonRow class="PaddingBorder MessageRemaining">
-              <IonButton fill="solid" class="buyMore" size="small" >Buy More</IonButton> <a class="remainingMessageNo">{11} of your 20 </a>monthly messages remaining
+            <IonRow class="PaddingBorder bold" @click="showComponent('ProfilePublicSectionComponent')">My Account</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyRewardsDiscountsComponent')">Reward/Discount: 0%</IonRow>
+            <IonRow class="PaddingBorder bold" >{Profile Pic}+Upgrade to VIP</IonRow>
+            <IonRow class="PaddingBorder bold">
+              <IonButton fill="solid" class="buyMore bold" size="small" >Buy More</IonButton> <a class="remainingMessageNo">{11} of your 20 </a>monthly messages remaining
             </IonRow>
-            <IonRow class="PaddingBorder EditProfile" @click="showComponent('FormProfilePublicSectionComponent')">Edit Profile</IonRow>
-            <IonRow class="PaddingBorder MyConnections" @click="showComponent('MyConnectionComponent')">My Connections</IonRow>
-            <IonRow class="PaddingBorder Messages" @click="showComponent('MessagingComponent')">Messages</IonRow>
-            <IonRow class="PaddingBorder MyOffers" @click="showComponent('MyOffersActivityTableComponent')">My Offer</IonRow>
-            <IonRow class="PaddingBorder MyBestOffers" @click="showComponent('MyBestOffersActivityTableComponent')">My Best Offers</IonRow>
-            <IonRow class="PaddingBorder MyNeeds" @click="showComponent('MyNeedsActivityTableComponent')">My Need</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('FormProfilePublicSectionComponent')">Edit Profile</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyConnectionComponent')">My Connections</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MessagingComponent')">Messages</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyOffersActivityTableComponent')">My Offer</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyBestOffersActivityTableComponent')">My Best Offers</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyNeedsActivityTableComponent')">My Need</IonRow>
             <IonRow class="PaddingBorder " >My Pitches</IonRow>
-            <IonRow class="PaddingBorder " >My Investments</IonRow>
-            <IonRow class="PaddingBorder MyOrders" @click="showComponent('MembersMyOrderTABsComponent')">My Orders</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyInvestmentApplicationComponent')" >My Investment Applications</IonRow>
+            <IonRow class="PaddingBorder bold" >My Investments</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MembersMyOrderTABsComponent')">My Orders</IonRow>
             <IonRow class="PaddingBorder " >My Blogs</IonRow>
             <IonRow class="PaddingBorder " >My Comments Posts</IonRow>
             <IonRow class="PaddingBorder " >My Gallery</IonRow>
             <IonRow class="PaddingBorder " >Change Password</IonRow>
             <IonRow class="PaddingBorder " >Delete Account</IonRow>
-            <IonRow class="PaddingBorder NotificationSetting" @click="showComponent('EmailWebsiteNotificationComponent')">Notification Setting</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('EmailWebsiteNotificationComponent')">Notification Setting</IonRow>
             <IonRow class="PaddingBorder " >My Groups</IonRow>
             <IonRow class="PaddingBorder " >Log Out</IonRow>
         
@@ -122,6 +123,7 @@ import MyConnectionComponent from '@/components/MyConnectionComponents/MyConnect
 import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
 import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTableComponent.vue';
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
+import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -154,6 +156,7 @@ export default defineComponent({
     MyOffersActivityTableComponent,
     MyNeedsActivityTableComponent,
     MyBestOffersActivityTableComponent,
+    MyInvestmentApplicationComponent,
 
     FooterComponent,
   },
@@ -192,6 +195,9 @@ export default defineComponent({
       }
       if (componentName === 'MyNeedsActivityTableComponent') {
         currentComponent.value = MyNeedsActivityTableComponent;
+      }
+      if (componentName === 'MyInvestmentApplicationComponent') {
+        currentComponent.value = MyInvestmentApplicationComponent;
       }
       if (componentName === 'MyBestOffersActivityTableComponent') {
         currentComponent.value = MyBestOffersActivityTableComponent;
@@ -287,15 +293,7 @@ export default defineComponent({
   position: absolute;
   /* z-index: 1000; */    /* Ensure it is above other content */
 }
-.MyAccount,
-.EditProfile,
-.NotificationSetting,
-.Messages,
-.MyOrders,
-.MyConnections,
-.MyOffers,
-.MyBestOffers,
-.MyNeeds {
+.bold {
   font-weight: bold;
 }
 @media (max-width: 600px) {

@@ -94,7 +94,6 @@ import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/M
 import MemberTicketsComponent from '@/components/MembersMyOrderComponents/MemberTicketsComponent.vue';
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
-import MemberInvestmentApplicationComponent from '@/components/MembersMyOrderComponents/MemberInvestmentApplicationComponent.vue';
 import MySharesTableComponent from '@/components/MembersMyOrderComponents/MySharesTableComponent.vue';
 
 // My Rewards Discounts
@@ -123,6 +122,10 @@ import ContactUsFormComponent from '@/components/ContactUsComponents/ContactUsFo
 import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
 import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTableComponent.vue';
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
+// MyInvestmentApplicationComponent 
+import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
+
+
 
 // MemberMembershipOrderComponent
 const routes: Array<RouteRecordRaw> = [  
@@ -507,11 +510,6 @@ const routes: Array<RouteRecordRaw> = [
     component: MemberMembershipOrderComponent
   },
   {
-    path: '/memberInvestmentApplicationComponent',
-    name: 'MemberInvestmentApplicationComponent',
-    component: MemberInvestmentApplicationComponent
-  },
-  {
     path: '/mySharesTableComponent',
     name: 'MySharesTableComponent',
     component: MySharesTableComponent
@@ -601,6 +599,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/myBestOffersActivityTableComponent',
     name: 'MyBestOffersActivityTableComponent',
     component: MyBestOffersActivityTableComponent
+  },
+  // MyInvestmentApplicationComponent
+  {
+    path: '/myInvestmentApplicationComponent',
+    name: 'MyInvestmentApplicationComponent',
+    component: MyInvestmentApplicationComponent
   },
 
 
