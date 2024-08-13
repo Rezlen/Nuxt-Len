@@ -1,149 +1,212 @@
 <template>
   <IonGrid>
-    <p class="TitleP">History Of Your Investment Applications</p>
+    <p class="TitleP">Track your Need, activities, click, views, reaction and edits</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
       <IonButton fill="clear" @click="exportTable">EXPORT</IonButton>
       <IonButton fill="clear" @click="printTable">PRINT</IonButton>
-      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
+      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchMembers"></IonInput>
       <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
         <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
       </IonButton>
     </IonRow>
-
+    
     <IonRow class="NONscrollingRow">
     
       <IonRow class="scrollingRow" ref="scrollableContainer">
-          <!-- TitleRow with sorting functionality and icons -->
-          <IonRow class="TitleRow">
-            
-            <IonCol class="OrderIDCol" @click="sortTickets('id')">Order ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-            <IonCol class="BookingDateCol" @click="sortTickets('BookingDate')">Application Date <IonIcon :icon="sortIcon('BookingDate')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol " @click="sortTickets('ApplicationIdeaBusinessName')">Application Idea Business Name <IonIcon :icon="sortIcon('ApplicationIdeaBusinessName')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol " @click="sortTickets('ApplicationIdeaBizCategory')">Application Idea Biz Category <IonIcon :icon="sortIcon('ApplicationIdeaBizCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="EquityLoanCol " @click="sortTickets('EquityLoan')">EquityLoan <IonIcon :icon="sortIcon('EquityLoan')" class="sort-icon" /></IonCol>
-            <IonCol class="DisplayedInListCol Purple" @click="sortTickets('DisplayedInList')">Displayed in a Page <IonIcon :icon="sortIcon('DisplayedInList')" class="sort-icon" /></IonCol>
-            <IonCol class="OpenedSeenCol Purple" @click="sortTickets('OpenedSeen')">Opened Seen <IonIcon :icon="sortIcon('OpenedSeen')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationMessagedCol Purple" @click="sortTickets('ApplicationMessaged')">Application Messaged <IonIcon :icon="sortIcon('ApplicationMessaged')" class="sort-icon" /></IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol" @click="sortTickets('TopCategoryOpenedYourApplication')">Top Category Opened Your Application <IonIcon :icon="sortIcon('TopCategoryOpenedYourApplication')" class="sort-icon" /></IonCol>
-            <IonCol class="ProductServiceCol" @click="sortTickets('ProductService')">Product Or Service <IonIcon :icon="sortIcon('ProductService')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationAmountCol Purple" @click="sortTickets('ApplicationAmount')">Application Amount <IonIcon :icon="sortIcon('ApplicationAmount')" class="sort-icon" /></IonCol>
-            <IonCol class="RevenueInThreeYearsCol Purple" @click="sortTickets('RevenueInThreeYears')">Revenue In Three Years <IonIcon :icon="sortIcon('RevenueInThreeYears')" class="sort-icon" /></IonCol>
-            <IonCol class="ProfitInThreeYearsCol Purple" @click="sortTickets('ProfitInThreeYears')">Profit In Three Years <IonIcon :icon="sortIcon('ProfitInThreeYears')" class="sort-icon" /></IonCol>
-            <IonCol class="ExpiringDateCol" @click="sortTickets('expiringDate')">Expiring Date <IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
-            <IonCol class="TimeLeftTillExpiryCol" @click="sortTickets('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
-            
-            <IonCol class="PitchTrainingCol" @click="sortTickets('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
-            <IonCol class="BusinessFundingAdviceCol" @click="sortTickets('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol" @click="sortTickets('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="VideoOfPitchingCol" @click="sortTickets('videoOfPitching')">Video Of My Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorTicketCol" @click="sortTickets('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentBrokerCol" @click="sortTickets('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorsAdvertsCol " @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
-            <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-            <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
-            <IonCol class="OneMinPitchingCol" @click="sortTickets('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="ThreeMinPitchingCol" @click="sortTickets('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentPitchingCol" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="WorkshopCol " @click="sortTickets('workshop')">Workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
-            <IonCol class="PresentationCol" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
-            
-            
-            <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-            <IonCol class="ActionCol">Hide The Application</IonCol>
-          </IonRow>
+        <!-- TitleRow with sorting functionality and icons -->
+        <IonRow class="TitleRow">
+          
+          <IonCol class="OrderIDCol" @click="sortMembers('id')">ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+          <IonCol class="BookingDateCol" @click="sortMembers('bookingDate')">CreateDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+          <IonCol class="ExpiringDateCol" @click="sortMembers('expiringDate')">Expiring Date<IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
+          <IonCol class="TimeLeftTillExpiryCol" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
+          <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+          <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+          <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+          <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
+          <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="VIPMembershipCol" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
+          <IonCol class="VVIPMembershipCol" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
 
-          <!-- Data rows -->
-          <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)">
-            <IonCol class="OrderIDCol">{{ ticket.id }}</IonCol>
-            <IonCol class="BookingDateCol">{{ ticket.BookingDate }}</IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol">{{ ticket.ApplicationIdeaBusinessName}}</IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol">{{ ticket.ApplicationIdeaBizCategory}}</IonCol>
-            <IonCol class="EquityLoanCol">{{ ticket.EquityLoan }}</IonCol>
-            <IonCol class="DisplayedInListCol">{{ ticket.DisplayedInList }}</IonCol>
-            <IonCol class="OpenedSeenCol">{{ ticket.OpenedSeen }}</IonCol>
-            <IonCol class="ApplicationMessagedCol">{{ ticket.ApplicationMessaged }}</IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol">{{ ticket.TopCategoryOpenedYourApplication }}</IonCol>
-            <IonCol class="ProductServiceCol">{{ ticket.ProductService }}</IonCol>
-            <IonCol class="ApplicationAmountCol">{{ ticket.ApplicationAmount }}</IonCol>
-            <IonCol class="RevenueInThreeYearsCol">{{ ticket.RevenueInThreeYears }}</IonCol>
-            <IonCol class="ProfitInThreeYearsCol">{{ ticket.ProfitInThreeYears }}</IonCol>
-            <IonCol class="ExpiringDateCol">{{ ticket.expiringDate }}</IonCol>
-            <IonCol class="TimeLeftTillExpiryCol">{{ ticket.timeLeftTillExpiry}}</IonCol>
-            
-            <IonCol class="PitchTrainingCol">{{ ticket.pitchTraining }}</IonCol>
-            <IonCol class="BusinessFundingAdviceCol">{{ ticket.businessFundingAdvice }}</IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol">{{ ticket.freeBusinessFundingAdvice }}</IonCol>
-            <IonCol class="VideoOfPitchingCol">{{ ticket.videoOfPitching }}</IonCol>
+          <IonCol class="ResponseToYourNeedsCol purple" @click="sortMembers('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourBestOffersCol purple" @click="sortMembers('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchTrainingCol" @click="sortMembers('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
+          <IonCol class="BusinessFundingAdviceCol" @click="sortMembers('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol" @click="sortMembers('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
+          <IonCol class="VideoOfPitchingCol" @click="sortMembers('videoOfPitching')">Video Of Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
+          
+          <IonCol class="BusinessRevenueCol purple" @click="sortMembers('businessRevenue')">Business Revenue <IonIcon :icon="sortIcon('businessRevenue')" class="sort-icon" /></IonCol>
+          <IonCol class="JobPositionCol" @click="sortMembers('jobPosition')">Job Position<IonIcon :icon="sortIcon('jobPosition')" class="sort-icon" /></IonCol>
+          <IonCol class="SalaryCol purple" @click="sortMembers('salary')">Salary<IonIcon :icon="sortIcon('salary')" class="sort-icon" /></IonCol>
+          <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+          <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="ExhibitedCol purple" @click="sortMembers('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+          <IonCol class="VisitedCol purple" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorMemberCol" @click="sortMembers('investorMember')">Investor Member <IonIcon :icon="sortIcon('investorMember')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentBrokerCol" @click="sortMembers('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorsAdvertsCol  purple" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
+          <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="OneMinPitchingCol" @click="sortMembers('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="ThreeMinPitchingCol" @click="sortMembers('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentPitchingCol purple" @click="sortMembers('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="WorkshopCol purple" @click="sortMembers('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
+          <IonCol class="PresentationCol purple" @click="sortMembers('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
+          <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+          <!-- Need Data -->
+          <IonCol class="NeedImageCol" @click="sortMembers('needImage')">NeedImage <IonIcon :icon="sortIcon('needImage')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedWantedCol" @click="sortMembers('needWanted')">NeedWanted<IonIcon :icon="sortIcon('needWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedSeenCol" @click="sortMembers('needSeen')">NeedSeen <IonIcon :icon="sortIcon('needSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedListViewCol" @click="sortMembers('needListView')">NeedListView <IonIcon :icon="sortIcon('needListView')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedRenewedCol" @click="sortMembers('needRenewed')">NeedRenewed <IonIcon :icon="sortIcon('needRenewed')" class="sort-icon" /></IonCol>
+          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedLinkCol" @click="sortMembers('needLink')">NeedLink <IonIcon :icon="sortIcon('needLink')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedTitleCol" @click="sortMembers('needTitle')">NeedTitle <IonIcon :icon="sortIcon('needTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedCategoryCol" @click="sortMembers('needCategory')">NeedCategory <IonIcon :icon="sortIcon('needCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedCountryCol" @click="sortMembers('needCountry')">NeedCountry <IonIcon :icon="sortIcon('needCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedCityCol" @click="sortMembers('needCity')">NeedCity <IonIcon :icon="sortIcon('needCity')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedDurationCol" @click="sortMembers('needDuration')">NeedDuration <IonIcon :icon="sortIcon('needDuration')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedContentCol" @click="sortMembers('needContent')">NeedContent <IonIcon :icon="sortIcon('needContent')" class="sort-icon" /></IonCol>
+          <IonCol class="ActionCol">Stop next Sponsorship Billing, Hide, Edit</IonCol>
+        </IonRow>
 
-            
-            <IonCol class="InvestorTicketCol">{{ ticket.investorTicket }}</IonCol>
-            <IonCol class="investmentBrokerCol">{{ ticket.investmentBroker }}</IonCol>
-            <IonCol class="InvestorsAdvertsCol">{{ ticket.investorsAdverts }}</IonCol>
-            <IonCol class="BizMentorCol">{{ ticket.bizMentor }}</IonCol>
-            <IonCol class="TotalSpentCol">{{ ticket.totalSpent }}</IonCol>
-            <IonCol class="OneMinPitchingCol">{{ ticket.oneMinPitching }}</IonCol>
-            <IonCol class="ThreeMinPitchingCol">{{ ticket.threeMinPitching }}</IonCol>
-            <IonCol class="InvestmentPitchingCol">{{ ticket.investmentPitching }}</IonCol>
-            <IonCol class="WorkshopCol">{{ ticket.workshop }}</IonCol>
-            <IonCol class="PresentationCol">{{ ticket.presentation }}</IonCol>
+        
+        <!-- Data rows -->
+        <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
+          <IonCol class="OrderIDCol">{{ member.id }}</IonCol>
+          <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
+          <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
+          <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry}}</IonCol>
+          <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
+          <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
+          <IonCol class="EmailCol">{{ member.email }}</IonCol>
+          <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
+          <IonCol class="VIPMembershipCol">{{ member.VIPMembership }}</IonCol>
+          <IonCol class="VVIPMembershipCol">{{ member.VVIPMembership }}</IonCol>
 
+          <IonCol class="ResponseToYourNeedsCol">{{ member.responseToYourNeeds}}</IonCol>
+          <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
+          <IonCol class="ResponseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
+          <IonCol class="PitchTrainingCol">{{ member.pitchTraining }}</IonCol>
+          <IonCol class="BusinessFundingAdviceCol">{{ member.businessFundingAdvice }}</IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol">{{ member.freeBusinessFundingAdvice }}</IonCol>
+          <IonCol class="VideoOfPitchingCol">{{ member.videoOfPitching }}</IonCol>
+          
+          <IonCol class="BusinessRevenueCol">{{ member.businessRevenue }}</IonCol>
+          <IonCol class="JobPositionCol">{{ member.jobPosition }}</IonCol>
+          <IonCol class="SalaryCol">{{ member.salary }}</IonCol>
+          <IonCol class="BusinessNameCol">{{ member.businessName }}</IonCol>
+          <IonCol class="BizCategoryCol">{{ member.bizCategory }}</IonCol>
+          <IonCol class="ExhibitedCol">{{ member.exhibited }}</IonCol>
+          <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
+          <IonCol class="InvestorMemberCol">{{ member.investorMember }}</IonCol>
+          <IonCol class="investmentBrokerCol">{{ member.investmentBroker }}</IonCol>
+          <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
+          <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
+          <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+          <IonCol class="OneMinPitchingCol">{{ member.oneMinPitching }}</IonCol>
+          <IonCol class="ThreeMinPitchingCol">{{ member.threeMinPitching }}</IonCol>
+          <IonCol class="InvestmentPitchingCol">{{ member.investmentPitching }}</IonCol>
+          <IonCol class="WorkshopCol">{{ member.workshop }}</IonCol>
+          <IonCol class="PresentationCol">{{ member.presentation }}</IonCol>
+          <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
+          <!-- Need Data -->
+          <IonCol class="NeedImageCol">{{ member.needImage }}</IonCol>
+          <IonCol class="NeedWantedCol">{{ member.needWanted }}</IonCol>
+          <IonCol class="NeedSeenCol">{{ member.needSeen }}</IonCol>
+          <IonCol class="NeedListViewCol">{{ member.needListView }}</IonCol>
+          <IonCol class="NeedRenewedCol">{{ member.needRenewed }}</IonCol>
+          <IonCol class="LikedCol">{{ member.liked }}</IonCol>
+          <IonCol class="NeedLinkCol">{{ member.needLink }}</IonCol>
+          <IonCol class="NeedTitleCol">{{ member.needTitle }}</IonCol>
+          <IonCol class="NeedCategoryCol">{{ member.needCategory }}</IonCol>
+          <IonCol class="NeedCountryCol">{{ member.needCountry }}</IonCol>
+          <IonCol class="NeedCityCol">{{ member.needCity }}</IonCol>
+          <IonCol class="NeedDurationCol">{{ member.needDuration }}</IonCol>
+          <IonCol class="NeedContentCol">{{ member.needContent }}</IonCol>
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+              <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon>
 
-            <IonCol class="LastLoggedInCol">{{ ticket.lastLoggedIn }}</IonCol>
-            <IonCol class="ActionCol">
-              <IonButton class="ActionCol" fill="clear" title="Close">
-                <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
-              </IonButton>
-            </IonCol>
-          </IonRow>
+            </IonButton>
+          </IonCol>
+        </IonRow>
 
-          <!-- Total row -->
-          <IonRow class="TotalRow">
-            <IonCol class="OrderIDCol">Totals:</IonCol>
-            <IonCol class="BookingDateCol"></IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol"></IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol"></IonCol>
-            <IonCol class="EquityLoanCol"></IonCol>
-            <IonCol class="DisplayedInListCol"></IonCol>
-            <IonCol class="OpenedSeenCol"></IonCol>
-            <IonCol class="ApplicationMessagedCol"></IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol"></IonCol>
-            <IonCol class="ProductServiceCol"></IonCol>
-            <IonCol class="ApplicationAmountCol"></IonCol>
-            <IonCol class="RevenueInThreeYearsCol"></IonCol>
-            <IonCol class="ProfitInThreeYearsCol"></IonCol>
-            <IonCol class="expiringDateCol"></IonCol>
-            <IonCol class="TimeLeftTillExpiryCol"></IonCol>
-            <IonCol class="PitchTrainingCol"></IonCol>
-            <IonCol class="BusinessFundingAdviceCol"></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
-            <IonCol class="VideoOfPitchingCol"></IonCol>
-            <IonCol class="InvestorTicketCol"></IonCol>
-            <IonCol class="InvestmentBrokerCol"></IonCol>
-            <IonCol class="InvestorsAdvertsCol"></IonCol>
-            <IonCol class="BizMentorCol"></IonCol>
-            <IonCol class="TotalSpentCol">{{ total }}</IonCol>
-            <IonCol class="OneMinPitchingCol"></IonCol>
-            <IonCol class="threeMinPitchingCol"></IonCol>
-            <IonCol class="InvestmentPitchingCol"></IonCol>
-            <IonCol class="WorkshopCol"></IonCol>
-            <IonCol class="PresentationCol"></IonCol>
+        <!-- Total row -->
+        <IonRow class="TotalRow">
+          <IonCol class="OrderIDCol">Totals:</IonCol>
+          <IonCol class="BookingDateCol"></IonCol>
+          <IonCol class="expiringDateCol"></IonCol>
+          <IonCol class="TimeLeftTillExpiryCol"></IonCol>
+          <IonCol class="PersonPicCol"></IonCol>
+          <IonCol class="FirstNameCol"></IonCol>
+          <IonCol class="LastNameCol"></IonCol>
+          <IonCol class="EmailCol"></IonCol>
+          <IonCol class="MembershipTypeCol"></IonCol>
+          <IonCol class="VIPMembershipCol"></IonCol>
+          <IonCol class="VVIPMembershipCol"></IonCol>
+          
+          <IonCol class="ResponseToYourNeedsCol"></IonCol>
+          <IonCol class="ResponseToYourOffersCol"></IonCol>
+          <IonCol class="ResponseToYourBestOffersCol"></IonCol>
+          <IonCol class="PitchTrainingCol"></IonCol>
+          <IonCol class="BusinessFundingAdviceCol"></IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
+          <IonCol class="VideoOfPitchingCol"></IonCol>
 
-            
-            <IonCol class="LastLoggedInCol"></IonCol>
-            <IonCol class="ActionCol"></IonCol>
-          </IonRow>
+          <IonCol class="BusinessRevenueCol">{{ totalBusinessRevenue }}</IonCol>
+          <IonCol class="JobPositionCol"></IonCol>
+          <IonCol class="SalaryCol">{{ totalSalary }}</IonCol>
+          <IonCol class="BusinessNameCol"></IonCol>
+          <IonCol class="BizCategoryCol"></IonCol>
+          <IonCol class="ExhibitedCol"></IonCol>
+          <IonCol class="VisitedCol"></IonCol>
+          <IonCol class="InvestorMemberCol"></IonCol>
+          <IonCol class="InvestmentBrokerCol"></IonCol>
+          <IonCol class="InvestorsAdvertsCol"></IonCol>
+          <IonCol class="BizMentorCol"></IonCol>
+          <IonCol class="TotalSpentCol">{{ total }}</IonCol>
+          <IonCol class="OneMinPitchingCol"></IonCol>
+          <IonCol class="threeMinPitchingCol"></IonCol>
+          <IonCol class="InvestmentPitchingCol"></IonCol>
+          <IonCol class="WorkshopCol"></IonCol>
+          <IonCol class="PresentationCol"></IonCol>
+          
+          <IonCol class="LastLoggedInCol"></IonCol>
+          <!-- Need Data -->
+          <IonCol class="NeedImageCol"></IonCol>
+          <IonCol class="NeedWantedCol">{{ totalNeedWanted }}</IonCol>
+          <IonCol class="NeedSeenCol">{{ totalNeedSeen }}</IonCol>
+          <IonCol class="NeedListViewCol">{{ totalNeedListView }}</IonCol>
+          <IonCol class="NeedRenewedCol">{{ totalNeedRenewed }}</IonCol>
+          <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
+          <IonCol class="NeedLinkCol"></IonCol>
+          <IonCol class="NeedTitleCol"></IonCol>
+          <IonCol class="NeedCategoryCol"></IonCol>
+          <IonCol class="NeedCountryCol"></IonCol>
+          <IonCol class="NeedCityCol"></IonCol>
+          <IonCol class="NeedDurationCol"></IonCol>
+          <IonCol class="NeedContentCol"></IonCol>
+          <IonCol class="ActionCol"></IonCol>
+        </IonRow>
+
       </IonRow>
 
     </IonRow>
-
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
       <IonButton @click="prevPage">Prev</IonButton>
       <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
       <IonButton @click="nextPage">Next</IonButton>
+    </IonRow>
+    <IonRow class="editingRow">
+      <NeedComponent/>
     </IonRow>
 
   </IonGrid>
@@ -157,29 +220,38 @@
 <script lang="ts">
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
-  import { close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import { create, close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
 
-  interface Ticket {
+  interface Member {
     id: number;
-    BookingDate: string;
-    ApplicationIdeaBusinessName: string;
-    ApplicationIdeaBizCategory: string;
-    EquityLoan: string;
-    DisplayedInList: number;
-    OpenedSeen: number;
-    ApplicationMessaged: number;
-    TopCategoryOpenedYourApplication: string;
-    ProductService: string;
-    ApplicationAmount: number;
-    RevenueInThreeYears: number;
-    ProfitInThreeYears: number;
+    bookingDate: string;
     expiringDate: string;
     timeLeftTillExpiry: string;
+    personPic: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    membershipType: string;
+    VIPMembership: number;
+    VVIPMembership: number;
+    
+    responseToYourNeeds: number;
+    responseToYourOffers: number;
+    responseToYourBestOffers: number;
     pitchTraining: number;
     businessFundingAdvice: number;
     freeBusinessFundingAdvice: number;
     videoOfPitching: number;
-    investorTicket: number;
+
+    businessRevenue: number;
+    jobPosition: string;
+    salary: number;
+    businessName: string;
+    bizCategory: string;
+    exhibited: number;
+    visited: number;
+    investorMember: number;
     investmentBroker: number;
     investorsAdverts: number;
     bizMentor: number;
@@ -191,34 +263,56 @@
     presentation: number;
 
     lastLoggedIn: string;
+    // NeedDetails section
+    needImage: string; // URL or path to the image
+    needWanted: number;
+    needSeen: number;
+    needListView: number;
+    needRenewed: number;
+    liked: number;
+    needLink: string;
+    needTitle: string;
+    needCategory: string;
+    needCountry: string;
+    needCity: string;
+    needDuration: string;
+    needContent: string;
+
   }
 
   export default defineComponent({
-    name: 'MemberInvestmentApplicationComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
+    name: 'MyNeedsActivityTableComponent',
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, NeedComponent, },
     setup() {
-      const tickets = ref<Ticket[]>([
+      const members = ref<Member[]>([
         {
           id: 3,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup3',
-          ApplicationIdeaBizCategory: 'Tech',
-          EquityLoan: 'Equity',
-          DisplayedInList: 22,
-          OpenedSeen: 43,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'JohnBusiness',
-          ApplicationAmount: 11,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
+          bookingDate: '2023-01-01T12:00:00',
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'Johneee',
+          lastName: 'Doe',
+          email: 'john.doe@example.com',
+          membershipType: 'Gold',
+          VIPMembership: 43,
+          VVIPMembership: 30,
+          responseToYourNeeds: 54,
+          responseToYourOffers: 4,
+          responseToYourBestOffers: 44,
           pitchTraining: 30,
           businessFundingAdvice: 34,
           freeBusinessFundingAdvice: 55,
           videoOfPitching: 55,
-          investorTicket: 5,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
+          businessName: 'JohnBusiness',
+          bizCategory: 'IT',
+          exhibited: 30,
+          visited: 30,
+          investorMember: 5,
           investmentBroker: 3,
           investorsAdverts: 2,
           bizMentor: 30,
@@ -228,29 +322,51 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-06-01'
+          lastLoggedIn: '2023-06-01',
+          // NeedDetails section
+          needImage: 'https://example.com/image.jpg',
+          needWanted: 100,
+          needSeen: 200,
+          needListView: 300,
+          needRenewed: 400,
+          liked: 500,
+          needLink: 'https://example.com/need',
+          needTitle: 'Amazing Need',
+          needCategory: 'Real Estate',
+          needCountry: 'USA',
+          needCity: 'New York',
+          needDuration: '1 Year',
+          needContent: 'This is a great need that you do not want to miss.',
         },
         {
           id: 2,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup',
-          ApplicationIdeaBizCategory: 'Finance',
-          EquityLoan: 'Loan',
-          DisplayedInList: 32,
-          OpenedSeen: 2,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'AliceBusiness',
-          ApplicationAmount: 345,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
+          bookingDate: '2023-01-01T12:00:00',
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'res',
+          lastName: 'Doe',
+          email: 'alice.smith@example.com',
+          membershipType: 'Silver',
+          VIPMembership: 2,
+          VVIPMembership: 30,
+
+          responseToYourNeeds: 22,
+          responseToYourOffers: 2,
+          responseToYourBestOffers: 222,
           pitchTraining: 28,
           businessFundingAdvice: 33,
           freeBusinessFundingAdvice: 33,
           videoOfPitching: 55,
-          investorTicket: 4,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
+          businessName: 'AliceBusiness',
+          bizCategory: 'Marketing',
+          exhibited: 30,
+          visited: 30,
+          investorMember: 4,
           investmentBroker: 5,
           investorsAdverts: 1,
           bizMentor: 30,
@@ -260,29 +376,51 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-07-01'
+          lastLoggedIn: '2023-07-01',
+          // NeedDetails section
+          needImage: 'https://example.com/image1.jpg',
+          needWanted: 150,
+          needSeen: 250,
+          needListView: 350,
+          needRenewed: 450,
+          liked: 550,
+          needLink: 'https://example.com/need1',
+          needTitle: 'Exclusive Need',
+          needCategory: 'Technology',
+          needCountry: 'Canada',
+          needCity: 'Toronto',
+          needDuration: '6 Months',
+          needContent: 'An exclusive need for tech enthusiasts looking to invest in cutting-edge startups.',
+
         },
         {
           id: 1,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup6',
-          ApplicationIdeaBizCategory: 'Tech',
-          EquityLoan: 'Loan',
-          DisplayedInList: 11,
-          OpenedSeen: 7,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'BobBusiness',
-          ApplicationAmount: 76,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
+          bookingDate: '2023-01-01T12:00:00',
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'John',
+          lastName: 'Doe',
+          email: 'bob.brown@example.com',
+          membershipType: 'Platinum',
+          VIPMembership: 7,
+          VVIPMembership: 30,
+          responseToYourNeeds: 77,
+          responseToYourOffers: 7,
+          responseToYourBestOffers: 777,
           pitchTraining: 35,
           businessFundingAdvice: 33,
           freeBusinessFundingAdvice: 33,
           videoOfPitching: 55,
-          investorTicket: 6,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
+          businessName: 'BobBusiness',
+          bizCategory: 'Finance',
+          exhibited: 30,
+          visited: 30,
+          investorMember: 6,
           investmentBroker: 4,
           investorsAdverts: 3,
           bizMentor: 30,
@@ -292,11 +430,26 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-08-01'
+          lastLoggedIn: '2023-08-01',
+          // NeedDetails section
+          needImage: 'https://example.com/image2.jpg',
+          needWanted: 200,
+          needSeen: 300,
+          needListView: 400,
+          needRenewed: 500,
+          liked: 600,
+          needLink: 'https://example.com/need2',
+          needTitle: 'Premium Need',
+          needCategory: 'Healthcare',
+          needCountry: 'UK',
+          needCity: 'London',
+          needDuration: '2 Years',
+          needContent: 'A premium need in the healthcare sector, perfect for investors looking to support innovative health solutions.',
+
         }
       ]);
 
-      const sortKey = ref<keyof Ticket | null>(null);
+      const sortKey = ref<keyof Member | null>(null);
       const sortAsc = ref(true);
       // making the selected row distinguishable
 
@@ -304,7 +457,7 @@
       // Search Filed
 
       const searchQuery = ref<string>('');
-      const filteredTickets = ref(tickets.value);
+      const filteredMembers = ref(members.value);
 
       // back button does not wor, fix itk
       const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
@@ -318,7 +471,7 @@
       // back button does not work
 
 
-      const sortTickets = (key: keyof Ticket) => {
+      const sortMembers = (key: keyof Member) => {
         if (sortKey.value === key) {
           sortAsc.value = !sortAsc.value;
         } else {
@@ -327,7 +480,7 @@
         }
       };
 
-      const sortIcon = (key: keyof Ticket) => {
+      const sortIcon = (key: keyof Member) => {
         if (sortKey.value === key) {
           return sortAsc.value ? arrowUpOutline : arrowDownOutline;
         }
@@ -337,16 +490,16 @@
       
       //  * Resets the sorting to the original state (default order).
       const resetSorting = () => {
-        sortKey.value = 'BookingDate';
+        sortKey.value = 'bookingDate';
         sortAsc.value = true;
       };
 
       
-      //  * Computes the sorted tickets based on the current sortKey and sort order.
-      const sortedTickets = computed(() => {
-        if (!sortKey.value) return filteredTickets.value;
+      //  * Computes the sorted members based on the current sortKey and sort order.
+      const sortedMembers = computed(() => {
+        if (!sortKey.value) return filteredMembers.value;
 
-        return [...filteredTickets.value].sort((a, b) => {
+        return [...filteredMembers.value].sort((a, b) => {
           if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
           if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
           return 0;
@@ -356,18 +509,31 @@
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-      //  * Computes the paginated tickets for the current page.
-      const paginatedTickets = computed(() => {
+      //  * Computes the paginated Members for the current page.
+      const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
-        return sortedTickets.value.slice(start, start + itemsPerPage);
+        return sortedMembers.value.slice(start, start + itemsPerPage);
       });
 
-      //  * Computes the total number of pages based on the number of tickets and items per page.
-      const totalPages = computed(() => Math.ceil(filteredTickets.value.length / itemsPerPage));
+      //  * Computes the total number of pages based on the number of members and items per page.
+      const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
-      const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
+      //  * Computes the total cost of all members.
+      const total = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
 
-      //  * Navigates to the previous page, if possible.
+
+      const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
+      const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
+
+      // Need Totals
+      const totalNeedWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needWanted, 0));
+      const totalNeedSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needSeen, 0));
+      const totalNeedListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needListView, 0));
+      const totalNeedRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needRenewed, 0));
+      const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
+
+
+            //  * Navigates to the previous page, if possible.
       const prevPage = () => {
         if (currentPage.value > 1) {
           currentPage.value -= 1;
@@ -385,14 +551,20 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Ticket ID',  'BookingDate','ApplicationIdeaBusinessName', 'ApplicationIdeaBizCategory', 'EquityLoan',  'DisplayedInList', 'Opened Seen', 'ApplicationMessaged', 'TopCategoryOpenedYourApplication',  'ProductService', 
-            'ApplicationAmount', 'RevenueInThreeYears', 'ProfitInThreeYears', 'ExpiringDate', 'TimeLeftTillExpiry', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'InvestorTicket', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
-            'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
+            'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
+            'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
+            'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn',
+            // Need section
+            'NeedImage', 'NeedWanted', 'NeedSeen', 'NeedListView', 'NeedRenewed', 'Liked', 'NeedLink', 'NeedTitle', 'NeedCategory', 'NeedCountry', 'NeedCity', 'NeedDuration', 'NeedContent',
+            // Need section
           ],
-          ...filteredTickets.value.map(ticket => [
-            ticket.id,  ticket.BookingDate, ticket.ApplicationIdeaBusinessName, ticket.ApplicationIdeaBizCategory, ticket.EquityLoan, ticket.DisplayedInList, ticket.OpenedSeen, ticket.ApplicationMessaged, ticket.TopCategoryOpenedYourApplication,  ticket.ProductService, ticket.ApplicationAmount, ticket.RevenueInThreeYears, ticket.ProfitInThreeYears, ticket.expiringDate, ticket.timeLeftTillExpiry, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
-            ticket.investorTicket, ticket.investmentBroker,
-            ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.oneMinPitching, ticket.threeMinPitching, ticket.investmentPitching, ticket.workshop, ticket.presentation, ticket.BookingDate,  ticket.lastLoggedIn
+          ...filteredMembers.value.map(member => [
+            member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
+            member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
+            member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn,
+            // Need section
+            member.needImage, member.needWanted, member.needSeen, member.needListView, member.needRenewed, member.liked, member.needLink, member.needTitle, member.needCategory, member.needCountry, member.needCity, member.needDuration, member.needContent,
+            // Need section
           ])
         ]
           .map(e => e.join(","))
@@ -435,7 +607,7 @@
                 .even-row {
                   background-color: #bceea5;
                 }
-                .even-row .TicketTitleCol {
+                .even-row .MemberTitleCol {
                   background-color: aquamarine;
                 }
                 .TotalRow {
@@ -447,26 +619,33 @@
               <table>
                 <thead>
                   <tr>
-                    <th>Ticket ID</th>
+                    <th>Member ID</th>
                     <th>BookingDate</th>
-                    <th>ApplicationIdeaBusinessName</th>
-                    <th>ApplicationIdeaBizCategory</th>
-                    <th>EquityLoan</th>
-                    <th>DisplayedInAPage</th>
-                    <th>Opened Seen</th>
-                    <th>ApplicationMessaged</th>
-                    <th>TopCategoryOpenedYourApplication</th>
-                    <th>ProductService</th>
-                    <th>ApplicationAmount</th>
-                    <th>RevenueInThreeYears</th>
-                    <th>ProfitInThreeYears</th>
                     <th>ExpiringDate</th>
                     <th>timeLeftTillExpiry</th>
+                    <th>Person Pic</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Membership Type</th>
+                    <th>VIP Membership</th>
+                    <th>VVIPMembership</th>
+                    <th>Response To Your Needs</th>
+                    <th>Response To Your Offers</th>
+                    <th>Response To Your Best Offers</th>
                     <th>PitchTraining</th>
                     <th>Business Funding Advice</th>
                     <th>Free Business Funding Advice</th>
                     <th>Video Of Pitching</th>
-                    <th>Investor Ticket</th>
+
+                    <th>Business Revenue</th>
+                    <th>Job Position</th>
+                    <th>Salary</th>
+                    <th>Business Name</th>
+                    <th>Biz Category</th>
+                    <th>Exhibited</th>
+                    <th>Visited</th>
+                    <th>Investor Member</th>
                     <th>Investment Broker</th>
                     <th>Investors Adverts</th>
                     <th>Biz Mentor</th>
@@ -477,48 +656,133 @@
                     <th>Workshop</th>
                     <th>Presentation</th>
                     <th>Last Logged In</th>
+
+                    // Need section
+
+                    <th>Need Image</th>
+                    <th>Need Wanted</th>
+                    <th>Need Seen</th>
+                    <th>Need ListView</th>
+                    <th>Need Renewed</th>
+                    <th>Liked</th>
+                    <th>Need Link</th>
+                    <th>Need Title</th>
+                    <th>Need Category</th>
+                    <th>Need Country</th>
+                    <th>Need City</th>
+                    <th>Need Duration</th>
+                    <th>Need Content</th>
                   </tr>
                 </thead>
                 <tbody>
-                  ${paginatedTickets.value.map((ticket, index) => `
+                  ${paginatedMembers.value.map((member, index) => `
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
-                      <td>${ticket.id}</td>
-                      <td>${ticket.BookingDate}</td>
-                      <td>${ticket.ApplicationIdeaBusinessName}</td>
-                      <td>${ticket.ApplicationIdeaBizCategory}</td>
-                      <td>${ticket.EquityLoan}</td>
-                      <td>${ticket.DisplayedInList}</td>
-                      <td>${ticket.OpenedSeen}</td>
-                      <td>${ticket.ApplicationMessaged}</td>
-                      <td>${ticket.TopCategoryOpenedYourApplication}</td>
-                      <td>${ticket.ProductService}</td>
-                      <td>${ticket.ApplicationAmount}</td>
-                      <td>${ticket.RevenueInThreeYears}</td>
-                      <td>${ticket.ProfitInThreeYears}</td>
-                      <td>${ticket.expiringDate}</td>
-                      <td>${ticket.timeLeftTillExpiry}</td>
-                      <td>${ticket.pitchTraining}</td>
-                      <td>${ticket.businessFundingAdvice}</td>
-                      <td>${ticket.freeBusinessFundingAdvice}</td>
-                      <td>${ticket.videoOfPitching}</td>
-                      <td>${ticket.investorTicket}</td>
-                      <td>${ticket.investmentBroker}</td>
-                      <td>${ticket.investorsAdverts}</td>
-                      <td>${ticket.bizMentor}</td>
-                      <td>${ticket.totalSpent}</td>
-                      <td>${ticket.oneMinPitching}</td>
-                      <td>${ticket.threeMinPitching}</td>
-                      <td>${ticket.investmentPitching}</td>
-                      <td>${ticket.workshop}</td>
-                      <td>${ticket.presentation}</td>
-                      <td>${ticket.lastLoggedIn}</td>
+                      <td>${member.id}</td>
+                      <td>${member.bookingDate}</td>
+                      <td>${member.expiringDate}</td>
+                      <td>${member.timeLeftTillExpiry}</td>
+                      <td>${member.personPic}</td>
+                      <td>${member.firstName}</td>
+                      <td>${member.lastName}</td>
+                      <td>${member.email}</td>
+                      <td>${member.membershipType}</td>
+                      <td>${member.VIPMembership}</td>
+                      <td>${member.VVIPMembership}</td>
+                      <td>${member.responseToYourNeeds}</td>
+                      <td>${member.responseToYourOffers}</td>
+                      <td>${member.responseToYourBestOffers}</td>
+                      <td>${member.pitchTraining}</td>
+                      <td>${member.businessFundingAdvice}</td>
+                      <td>${member.freeBusinessFundingAdvice}</td>
+                      <td>${member.videoOfPitching}</td>
+
+                      <td>${member.businessRevenue}</td>
+                      <td>${member.jobPosition}</td>
+                      <td>${member.salary}</td>                      
+                      <td>${member.businessName}</td>
+                      <td>${member.bizCategory}</td>
+                      <td>${member.exhibited}</td>
+                      <td>${member.visited}</td>
+                      <td>${member.investorMember}</td>
+                      <td>${member.investmentBroker}</td>
+                      <td>${member.investorsAdverts}</td>
+                      <td>${member.bizMentor}</td>
+                      <td>${member.totalSpent}</td>
+                      <td>${member.oneMinPitching}</td>
+                      <td>${member.threeMinPitching}</td>
+                      <td>${member.investmentPitching}</td>
+                      <td>${member.workshop}</td>
+                      <td>${member.presentation}</td>
+                      <td>${member.lastLoggedIn}</td>
+
+                      // Need Section
+                      <td>${member.needImage}</td>
+                      <td>${member.needWanted}</td>
+                      <td>${member.needSeen}</td>
+                      <td>${member.needListView}</td>
+                      <td>${member.needRenewed}</td>
+                      <td>${member.liked}</td>
+                      <td>${member.needLink}</td>
+                      <td>${member.needTitle}</td>
+                      <td>${member.needCategory}</td>
+                      <td>${member.needCountry}</td>
+                      <td>${member.needCity}</td>
+                      <td>${member.needDuration}</td>
+                      <td>${member.needContent}</td>
                     </tr>
                   `).join('')}
                   <tr class="TotalRow">
                     <td>Totals:</td>
-                    <td colspan="23"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${totalBusinessRevenue.value}</td>
+                    <td></td>
+                    <td>${totalSalary.value}</td> 
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>                   
                     <td>${total.value}</td>
-                    <td colspan="7"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    // Need section
+                    <td>${totalNeedWanted.value}</td>
+                    <td>${totalNeedSeen.value}</td>
+                    <td>${totalNeedListView.value}</td>
+                    <td>${totalNeedRenewed.value}</td>
+                    <td>${totalLiked.value}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>                    
                   </tr>
                 </tbody>
               </table>
@@ -540,33 +804,33 @@
       };
 
       // Search Function
-      const searchTickets = () => {
+      const searchMembers = () => {
         if (searchQuery.value.trim() === '') {
-          filteredTickets.value = tickets.value;
+          filteredMembers.value = members.value;
         } else {
           const query = searchQuery.value.trim().toLowerCase();
-          filteredTickets.value = tickets.value.filter(ticket => 
-            Object.values(ticket).some(val => 
+          filteredMembers.value = members.value.filter(member => 
+            Object.values(member).some(val => 
               val.toString().toLowerCase().includes(query)
             )
           );
         }
       };
 
-      watch(searchQuery, searchTickets);
+      watch(searchQuery, searchMembers);
 
       return {
-        tickets,
+        members,
         sortKey,
         sortAsc,
-        sortTickets,
+        sortMembers,
         sortIcon,
         resetSorting,
         selectRow,
         selectedRow,
         searchQuery,
-        searchTickets,
-        paginatedTickets,
+        searchMembers,
+        paginatedMembers,
         currentPage,
         totalPages,
         prevPage,
@@ -574,7 +838,19 @@
         exportTable,
         printTable,
         total,
+        totalBusinessRevenue,
+        totalSalary,
+
+        // Need section
+        totalNeedWanted,
+        totalNeedSeen,
+        totalNeedListView,
+        totalNeedRenewed,
+        totalLiked,
+
+
         close,
+        create,
         arrowBackCircle,
         scrollToLeft,
         scrollableContainer,
@@ -591,32 +867,70 @@
 
 <style scoped>
   /* Adjusting the length of the table here: http://localhost:8100/adminpage */
+    ion-grid {
+    width: 100%;
+  }
   .search{
     width: 100px;
   }
+  .NeedImageCol {
+  Border-left: 2px red solid;
+}
+.NeedContentCol {
+  Border-right: 2px red solid;
+}
+.TitleRow .NeedImageCol,
+.TitleRow .NeedWantedCol,
+.TitleRow .NeedSeenCol,
+.TitleRow .NeedListViewCol,
+.TitleRow .NeedRenewedCol,
+.TitleRow .LikedCol,
+.TitleRow .NeedLinkCol,
+.TitleRow .NeedTitleCol,
+.TitleRow .NeedCategoryCol,
+.TitleRow .NeedCountryCol,
+.TitleRow .NeedCityCol,
+.TitleRow .NeedDurationCol,
+.TitleRow .NeedContentCol {
+  border-top: 3px solid red;
+}
   .arrowBackCircle {
-    position: fixed;
+    /* position: fixed;
     top: 55;
     left: 90;
     right: 0;
-    z-index: 1;
+    z-index: 1; */
   }
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
     height: 50px;
     align-items: top;
+    text-align: top;
   }
-  .Purple{
-    color: rgb(206, 6, 251);
-    font-weight: bold;
+  .TitleRow .BookingDateCol,
+  .TitleRow .ExpiringDateCol,
+  .TitleRow .TimeLeftTillExpiryCol {
+    border-top: 3px solid red;
+  }
+  .BookingDateCol {
+    border-left: 3px solid red; 
+  }
+  .TimeLeftTillExpiryCol {
+    border-right: 3px solid red; 
   }
   .NONscrollingRow {
     overflow-x: auto;
+    /* border: 4px solid rgb(26, 185, 18); */
   }
   .scrollingRow {
-    min-width: 3500px;
+    min-width: 5200px;
+    /* border: 1px solid red; */
     flex-direction: column;
+  }
+  .purple{
+    color: rgb(206, 6, 251);
+    font-weight: bold;
   }
   .DataRow {
     cursor: pointer;
@@ -625,12 +939,25 @@
     border-top: 3px solid red;
     border-bottom: 3px solid red;
   }
+  .sponsorshipPartnershipTitleCol {
+    Border-left: 3px rgb(24, 30, 203) solid;
+  }
+  .TitleRow .sponsorshipPartnershipTitleCol,
+  .TitleRow .sponsorshipPartnershipSeenCol,
+  .TitleRow .sponsorshipPartnershipListViewCol,
+  .TitleRow .CostCol {
+    border-top: 3px rgb(24, 30, 203) solid;
+  }
+  .CostCol {
+  Border-right: 3px rgb(24, 30, 203) solid;
+  }
   .DataRow:nth-child(odd) ion-col {
     background-color: #f5efef;
   }
   .DataRow:nth-child(even) ion-col {
     background-color: #bceea5;
   }
+
   .TotalRow {
     font-weight: bold;
   }
@@ -661,7 +988,7 @@
     white-space: nowrap;
     overflow-x: auto;
     align-content: center;
-    height: 40px;
+    height: 30px;
     font-size: 12px;
     border-right: 1px solid lightgray;
   }
@@ -697,16 +1024,7 @@
   }
 
   @media (max-width: 600px) {
-    .ContainerRow {
-      width: 3200px;
-    }
-    .TitleRow, .DataRow, .TotalRow {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    ion-col {
-      max-width: 100px;
-    }
+
   }
   
 

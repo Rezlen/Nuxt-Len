@@ -91,7 +91,7 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!-- BestOffers &  Profile Data -->
+          <!-- BestOffers  Data -->
           <IonCol class="BestOfferImageCol">{{ member.bestOfferImage }}</IonCol>
           <IonCol class="BestOfferWantedCol">{{ member.bestOfferWanted }}</IonCol>
           <IonCol class="BestOfferCommissionCol">{{ member.bestOfferCommission }}</IonCol>
@@ -106,7 +106,7 @@
           <IonCol class="BestOfferCityCol">{{ member.bestOfferCity }}</IonCol>
           <IonCol class="BestOfferDurationCol">{{ member.bestOfferDuration }}</IonCol>
           <IonCol class="BestOfferContentCol">{{ member.bestOfferContent }}</IonCol>
-          <!-- BestOffers &  Profile Data -->
+          <!-- BestOffers  Data -->
 
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -164,7 +164,7 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- BestOffers &  Profile Data -->
+          <!-- BestOffers Data -->
           <IonCol class="BestOfferImageCol"></IonCol>
           <IonCol class="BestOfferWantedCol">{{ totalBestOfferWanted }}</IonCol>
           <IonCol class="BestOfferCommissionCol"></IonCol>
@@ -179,6 +179,7 @@
           <IonCol class="BestOfferCityCol"></IonCol>
           <IonCol class="BestOfferDurationCol"></IonCol>
           <IonCol class="BestOfferContentCol"></IonCol>
+          <!-- BestOffers Data -->
 
 
 

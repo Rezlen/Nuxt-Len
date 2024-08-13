@@ -121,8 +121,8 @@ import SharesTableComponent from '@/components/SharesComponents/SharesTableCompo
 import ContactUsFormComponent from '@/components/ContactUsComponents/ContactUsFormComponent.vue';
 // My Offers, Need BestOffers ActivityTableComponent
 import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
-import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
-import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
+import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTableComponent.vue';
+import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
 
 // MemberMembershipOrderComponent
 const routes: Array<RouteRecordRaw> = [  

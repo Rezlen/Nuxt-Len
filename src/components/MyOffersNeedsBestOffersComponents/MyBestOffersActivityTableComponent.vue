@@ -1,149 +1,218 @@
 <template>
   <IonGrid>
-    <p class="TitleP">History Of Your Investment Applications</p>
+    <p class="TitleP">Track your Best Offer, activities, click, views, reaction and edits</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
       <IonButton fill="clear" @click="exportTable">EXPORT</IonButton>
       <IonButton fill="clear" @click="printTable">PRINT</IonButton>
-      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
+      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchMembers"></IonInput>
       <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
         <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
       </IonButton>
     </IonRow>
-
+    
     <IonRow class="NONscrollingRow">
     
       <IonRow class="scrollingRow" ref="scrollableContainer">
-          <!-- TitleRow with sorting functionality and icons -->
-          <IonRow class="TitleRow">
-            
-            <IonCol class="OrderIDCol" @click="sortTickets('id')">Order ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-            <IonCol class="BookingDateCol" @click="sortTickets('BookingDate')">Application Date <IonIcon :icon="sortIcon('BookingDate')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol " @click="sortTickets('ApplicationIdeaBusinessName')">Application Idea Business Name <IonIcon :icon="sortIcon('ApplicationIdeaBusinessName')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol " @click="sortTickets('ApplicationIdeaBizCategory')">Application Idea Biz Category <IonIcon :icon="sortIcon('ApplicationIdeaBizCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="EquityLoanCol " @click="sortTickets('EquityLoan')">EquityLoan <IonIcon :icon="sortIcon('EquityLoan')" class="sort-icon" /></IonCol>
-            <IonCol class="DisplayedInListCol Purple" @click="sortTickets('DisplayedInList')">Displayed in a Page <IonIcon :icon="sortIcon('DisplayedInList')" class="sort-icon" /></IonCol>
-            <IonCol class="OpenedSeenCol Purple" @click="sortTickets('OpenedSeen')">Opened Seen <IonIcon :icon="sortIcon('OpenedSeen')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationMessagedCol Purple" @click="sortTickets('ApplicationMessaged')">Application Messaged <IonIcon :icon="sortIcon('ApplicationMessaged')" class="sort-icon" /></IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol" @click="sortTickets('TopCategoryOpenedYourApplication')">Top Category Opened Your Application <IonIcon :icon="sortIcon('TopCategoryOpenedYourApplication')" class="sort-icon" /></IonCol>
-            <IonCol class="ProductServiceCol" @click="sortTickets('ProductService')">Product Or Service <IonIcon :icon="sortIcon('ProductService')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationAmountCol Purple" @click="sortTickets('ApplicationAmount')">Application Amount <IonIcon :icon="sortIcon('ApplicationAmount')" class="sort-icon" /></IonCol>
-            <IonCol class="RevenueInThreeYearsCol Purple" @click="sortTickets('RevenueInThreeYears')">Revenue In Three Years <IonIcon :icon="sortIcon('RevenueInThreeYears')" class="sort-icon" /></IonCol>
-            <IonCol class="ProfitInThreeYearsCol Purple" @click="sortTickets('ProfitInThreeYears')">Profit In Three Years <IonIcon :icon="sortIcon('ProfitInThreeYears')" class="sort-icon" /></IonCol>
-            <IonCol class="ExpiringDateCol" @click="sortTickets('expiringDate')">Expiring Date <IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
-            <IonCol class="TimeLeftTillExpiryCol" @click="sortTickets('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
-            
-            <IonCol class="PitchTrainingCol" @click="sortTickets('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
-            <IonCol class="BusinessFundingAdviceCol" @click="sortTickets('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol" @click="sortTickets('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="VideoOfPitchingCol" @click="sortTickets('videoOfPitching')">Video Of My Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorTicketCol" @click="sortTickets('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentBrokerCol" @click="sortTickets('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorsAdvertsCol " @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
-            <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-            <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
-            <IonCol class="OneMinPitchingCol" @click="sortTickets('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="ThreeMinPitchingCol" @click="sortTickets('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentPitchingCol" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="WorkshopCol " @click="sortTickets('workshop')">Workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
-            <IonCol class="PresentationCol" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
-            
-            
-            <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-            <IonCol class="ActionCol">Hide The Application</IonCol>
-          </IonRow>
+        <!-- TitleRow with sorting functionality and icons -->
+        <IonRow class="TitleRow">
+          
+          <IonCol class="OrderIDCol" @click="sortMembers('id')">ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+          <IonCol class="BookingDateCol" @click="sortMembers('bookingDate')">CreateDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+          <IonCol class="ExpiringDateCol" @click="sortMembers('expiringDate')">Expiring Date<IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
+          <IonCol class="TimeLeftTillExpiryCol" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
+          <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+          <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+          <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+          <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
+          <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="VIPMembershipCol" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
+          <IonCol class="VVIPMembershipCol" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
 
-          <!-- Data rows -->
-          <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)">
-            <IonCol class="OrderIDCol">{{ ticket.id }}</IonCol>
-            <IonCol class="BookingDateCol">{{ ticket.BookingDate }}</IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol">{{ ticket.ApplicationIdeaBusinessName}}</IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol">{{ ticket.ApplicationIdeaBizCategory}}</IonCol>
-            <IonCol class="EquityLoanCol">{{ ticket.EquityLoan }}</IonCol>
-            <IonCol class="DisplayedInListCol">{{ ticket.DisplayedInList }}</IonCol>
-            <IonCol class="OpenedSeenCol">{{ ticket.OpenedSeen }}</IonCol>
-            <IonCol class="ApplicationMessagedCol">{{ ticket.ApplicationMessaged }}</IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol">{{ ticket.TopCategoryOpenedYourApplication }}</IonCol>
-            <IonCol class="ProductServiceCol">{{ ticket.ProductService }}</IonCol>
-            <IonCol class="ApplicationAmountCol">{{ ticket.ApplicationAmount }}</IonCol>
-            <IonCol class="RevenueInThreeYearsCol">{{ ticket.RevenueInThreeYears }}</IonCol>
-            <IonCol class="ProfitInThreeYearsCol">{{ ticket.ProfitInThreeYears }}</IonCol>
-            <IonCol class="ExpiringDateCol">{{ ticket.expiringDate }}</IonCol>
-            <IonCol class="TimeLeftTillExpiryCol">{{ ticket.timeLeftTillExpiry}}</IonCol>
-            
-            <IonCol class="PitchTrainingCol">{{ ticket.pitchTraining }}</IonCol>
-            <IonCol class="BusinessFundingAdviceCol">{{ ticket.businessFundingAdvice }}</IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol">{{ ticket.freeBusinessFundingAdvice }}</IonCol>
-            <IonCol class="VideoOfPitchingCol">{{ ticket.videoOfPitching }}</IonCol>
+          <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourBestOffersCol purple" @click="sortMembers('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchTrainingCol" @click="sortMembers('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
+          <IonCol class="BusinessFundingAdviceCol" @click="sortMembers('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol" @click="sortMembers('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
+          <IonCol class="VideoOfPitchingCol" @click="sortMembers('videoOfPitching')">Video Of Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
+          
+          <IonCol class="BusinessRevenueCol purple" @click="sortMembers('businessRevenue')">Business Revenue <IonIcon :icon="sortIcon('businessRevenue')" class="sort-icon" /></IonCol>
+          <IonCol class="JobPositionCol" @click="sortMembers('jobPosition')">Job Position<IonIcon :icon="sortIcon('jobPosition')" class="sort-icon" /></IonCol>
+          <IonCol class="SalaryCol purple" @click="sortMembers('salary')">Salary<IonIcon :icon="sortIcon('salary')" class="sort-icon" /></IonCol>
+          <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+          <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="ExhibitedCol purple" @click="sortMembers('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+          <IonCol class="VisitedCol purple" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorMemberCol" @click="sortMembers('investorMember')">Investor Member <IonIcon :icon="sortIcon('investorMember')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentBrokerCol" @click="sortMembers('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorsAdvertsCol  purple" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
+          <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="OneMinPitchingCol" @click="sortMembers('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="ThreeMinPitchingCol" @click="sortMembers('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentPitchingCol purple" @click="sortMembers('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="WorkshopCol purple" @click="sortMembers('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
+          <IonCol class="PresentationCol purple" @click="sortMembers('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
+          <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+          <!-- BestOffers Data -->
+          <IonCol class="BestOfferImageCol" @click="sortMembers('bestOfferImage')">BestOffer Image <IonIcon :icon="sortIcon('bestOfferImage')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferWantedCol" @click="sortMembers('bestOfferWanted')">BestOffer Wanted<IonIcon :icon="sortIcon('bestOfferWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCommissionCol" @click="sortMembers('bestOfferCommission')">BestOffer Commission<IonIcon :icon="sortIcon('bestOfferCommission')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferSeenCol" @click="sortMembers('bestOfferSeen')">BestOffer Seen <IonIcon :icon="sortIcon('bestOfferSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferListViewCol" @click="sortMembers('bestOfferListView')">BestOffer ListView <IonIcon :icon="sortIcon('bestOfferListView')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferRenewedCol" @click="sortMembers('bestOfferRenewed')">Best Offer Renewed <IonIcon :icon="sortIcon('bestOfferRenewed')" class="sort-icon" /></IonCol>
+          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferLinkCol" @click="sortMembers('bestOfferLink')">BestOffer Link <IonIcon :icon="sortIcon('bestOfferLink')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferTitleCol" @click="sortMembers('bestOfferTitle')">BestOffer Title <IonIcon :icon="sortIcon('bestOfferTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCategoryCol" @click="sortMembers('bestOfferCategory')">BestOffer Category <IonIcon :icon="sortIcon('bestOfferCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCountryCol" @click="sortMembers('bestOfferCountry')">BestOffer Country <IonIcon :icon="sortIcon('bestOfferCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCityCol" @click="sortMembers('bestOfferCity')">BestOffer City <IonIcon :icon="sortIcon('bestOfferCity')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferDurationCol" @click="sortMembers('bestOfferDuration')">Best Offer Duration <IonIcon :icon="sortIcon('bestOfferDuration')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferContentCol" @click="sortMembers('bestOfferContent')">BestOffer Content <IonIcon :icon="sortIcon('bestOfferContent')" class="sort-icon" /></IonCol>
+          <!-- BestOffers Data -->
+          <IonCol class="ActionCol">Hide, Edit</IonCol>
+        </IonRow>
 
-            
-            <IonCol class="InvestorTicketCol">{{ ticket.investorTicket }}</IonCol>
-            <IonCol class="investmentBrokerCol">{{ ticket.investmentBroker }}</IonCol>
-            <IonCol class="InvestorsAdvertsCol">{{ ticket.investorsAdverts }}</IonCol>
-            <IonCol class="BizMentorCol">{{ ticket.bizMentor }}</IonCol>
-            <IonCol class="TotalSpentCol">{{ ticket.totalSpent }}</IonCol>
-            <IonCol class="OneMinPitchingCol">{{ ticket.oneMinPitching }}</IonCol>
-            <IonCol class="ThreeMinPitchingCol">{{ ticket.threeMinPitching }}</IonCol>
-            <IonCol class="InvestmentPitchingCol">{{ ticket.investmentPitching }}</IonCol>
-            <IonCol class="WorkshopCol">{{ ticket.workshop }}</IonCol>
-            <IonCol class="PresentationCol">{{ ticket.presentation }}</IonCol>
+        
+        <!-- Data rows -->
+        <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
+          <IonCol class="OrderIDCol">{{ member.id }}</IonCol>
+          <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
+          <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
+          <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry}}</IonCol>
+          <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
+          <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
+          <IonCol class="EmailCol">{{ member.email }}</IonCol>
+          <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
+          <IonCol class="VIPMembershipCol">{{ member.VIPMembership }}</IonCol>
+          <IonCol class="VVIPMembershipCol">{{ member.VVIPMembership }}</IonCol>
 
+          <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
+          <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
+          <IonCol class="ResponseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
+          <IonCol class="PitchTrainingCol">{{ member.pitchTraining }}</IonCol>
+          <IonCol class="BusinessFundingAdviceCol">{{ member.businessFundingAdvice }}</IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol">{{ member.freeBusinessFundingAdvice }}</IonCol>
+          <IonCol class="VideoOfPitchingCol">{{ member.videoOfPitching }}</IonCol>
+          
+          <IonCol class="BusinessRevenueCol">{{ member.businessRevenue }}</IonCol>
+          <IonCol class="JobPositionCol">{{ member.jobPosition }}</IonCol>
+          <IonCol class="SalaryCol">{{ member.salary }}</IonCol>
+          <IonCol class="BusinessNameCol">{{ member.businessName }}</IonCol>
+          <IonCol class="BizCategoryCol">{{ member.bizCategory }}</IonCol>
+          <IonCol class="ExhibitedCol">{{ member.exhibited }}</IonCol>
+          <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
+          <IonCol class="InvestorMemberCol">{{ member.investorMember }}</IonCol>
+          <IonCol class="investmentBrokerCol">{{ member.investmentBroker }}</IonCol>
+          <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
+          <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
+          <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+          <IonCol class="OneMinPitchingCol">{{ member.oneMinPitching }}</IonCol>
+          <IonCol class="ThreeMinPitchingCol">{{ member.threeMinPitching }}</IonCol>
+          <IonCol class="InvestmentPitchingCol">{{ member.investmentPitching }}</IonCol>
+          <IonCol class="WorkshopCol">{{ member.workshop }}</IonCol>
+          <IonCol class="PresentationCol">{{ member.presentation }}</IonCol>
+          <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
+          <!-- BestOffers  Data -->
+          <IonCol class="BestOfferImageCol">{{ member.bestOfferImage }}</IonCol>
+          <IonCol class="BestOfferWantedCol">{{ member.bestOfferWanted }}</IonCol>
+          <IonCol class="BestOfferCommissionCol">{{ member.bestOfferCommission }}</IonCol>
+          <IonCol class="BestOfferSeenCol">{{ member.bestOfferSeen }}</IonCol>
+          <IonCol class="BestOfferListViewCol">{{ member.bestOfferListView }}</IonCol>
+          <IonCol class="BestOfferRenewedCol">{{ member.bestOfferRenewed }}</IonCol>
+          <IonCol class="LikedCol">{{ member.liked }}</IonCol>
+          <IonCol class="BestOfferLinkCol">{{ member.bestOfferLink }}</IonCol>
+          <IonCol class="BestOfferTitleCol">{{ member.bestOfferTitle }}</IonCol>
+          <IonCol class="BestOfferCategoryCol">{{ member.bestOfferCategory }}</IonCol>
+          <IonCol class="BestOfferCountryCol">{{ member.bestOfferCountry }}</IonCol>
+          <IonCol class="BestOfferCityCol">{{ member.bestOfferCity }}</IonCol>
+          <IonCol class="BestOfferDurationCol">{{ member.bestOfferDuration }}</IonCol>
+          <IonCol class="BestOfferContentCol">{{ member.bestOfferContent }}</IonCol>
+          <!-- BestOffers  Data -->
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+              <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon>
 
-            <IonCol class="LastLoggedInCol">{{ ticket.lastLoggedIn }}</IonCol>
-            <IonCol class="ActionCol">
-              <IonButton class="ActionCol" fill="clear" title="Close">
-                <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
-              </IonButton>
-            </IonCol>
-          </IonRow>
+            </IonButton>
+          </IonCol>
+        </IonRow>
 
-          <!-- Total row -->
-          <IonRow class="TotalRow">
-            <IonCol class="OrderIDCol">Totals:</IonCol>
-            <IonCol class="BookingDateCol"></IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol"></IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol"></IonCol>
-            <IonCol class="EquityLoanCol"></IonCol>
-            <IonCol class="DisplayedInListCol"></IonCol>
-            <IonCol class="OpenedSeenCol"></IonCol>
-            <IonCol class="ApplicationMessagedCol"></IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol"></IonCol>
-            <IonCol class="ProductServiceCol"></IonCol>
-            <IonCol class="ApplicationAmountCol"></IonCol>
-            <IonCol class="RevenueInThreeYearsCol"></IonCol>
-            <IonCol class="ProfitInThreeYearsCol"></IonCol>
-            <IonCol class="expiringDateCol"></IonCol>
-            <IonCol class="TimeLeftTillExpiryCol"></IonCol>
-            <IonCol class="PitchTrainingCol"></IonCol>
-            <IonCol class="BusinessFundingAdviceCol"></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
-            <IonCol class="VideoOfPitchingCol"></IonCol>
-            <IonCol class="InvestorTicketCol"></IonCol>
-            <IonCol class="InvestmentBrokerCol"></IonCol>
-            <IonCol class="InvestorsAdvertsCol"></IonCol>
-            <IonCol class="BizMentorCol"></IonCol>
-            <IonCol class="TotalSpentCol">{{ total }}</IonCol>
-            <IonCol class="OneMinPitchingCol"></IonCol>
-            <IonCol class="threeMinPitchingCol"></IonCol>
-            <IonCol class="InvestmentPitchingCol"></IonCol>
-            <IonCol class="WorkshopCol"></IonCol>
-            <IonCol class="PresentationCol"></IonCol>
+        <!-- Total row -->
+        <IonRow class="TotalRow">
+          <IonCol class="OrderIDCol">Totals:</IonCol>
+          <IonCol class="BookingDateCol"></IonCol>
+          <IonCol class="expiringDateCol"></IonCol>
+          <IonCol class="TimeLeftTillExpiryCol"></IonCol>
+          <IonCol class="PersonPicCol"></IonCol>
+          <IonCol class="FirstNameCol"></IonCol>
+          <IonCol class="LastNameCol"></IonCol>
+          <IonCol class="EmailCol"></IonCol>
+          <IonCol class="MembershipTypeCol"></IonCol>
+          <IonCol class="VIPMembershipCol"></IonCol>
+          <IonCol class="VVIPMembershipCol"></IonCol>
+          
+          <IonCol class="ResponseToYourOffersCol"></IonCol>
+          <IonCol class="ResponseToYourOffersCol"></IonCol>
+          <IonCol class="ResponseToYourBestOffersCol"></IonCol>
+          <IonCol class="PitchTrainingCol"></IonCol>
+          <IonCol class="BusinessFundingAdviceCol"></IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
+          <IonCol class="VideoOfPitchingCol"></IonCol>
 
-            
-            <IonCol class="LastLoggedInCol"></IonCol>
-            <IonCol class="ActionCol"></IonCol>
-          </IonRow>
+          <IonCol class="BusinessRevenueCol">{{ totalBusinessRevenue }}</IonCol>
+          <IonCol class="JobPositionCol"></IonCol>
+          <IonCol class="SalaryCol">{{ totalSalary }}</IonCol>
+          <IonCol class="BusinessNameCol"></IonCol>
+          <IonCol class="BizCategoryCol"></IonCol>
+          <IonCol class="ExhibitedCol"></IonCol>
+          <IonCol class="VisitedCol"></IonCol>
+          <IonCol class="InvestorMemberCol"></IonCol>
+          <IonCol class="InvestmentBrokerCol"></IonCol>
+          <IonCol class="InvestorsAdvertsCol"></IonCol>
+          <IonCol class="BizMentorCol"></IonCol>
+          <IonCol class="TotalSpentCol">{{ total }}</IonCol>
+          <IonCol class="OneMinPitchingCol"></IonCol>
+          <IonCol class="threeMinPitchingCol"></IonCol>
+          <IonCol class="InvestmentPitchingCol"></IonCol>
+          <IonCol class="WorkshopCol"></IonCol>
+          <IonCol class="PresentationCol"></IonCol>
+          
+          <IonCol class="LastLoggedInCol"></IonCol>
+          <!-- BestOffers Data -->
+          <IonCol class="BestOfferImageCol"></IonCol>
+          <IonCol class="BestOfferWantedCol">{{ totalBestOfferWanted }}</IonCol>
+          <IonCol class="BestOfferCommissionCol"></IonCol>
+          <IonCol class="BestOfferSeenCol">{{ totalBestOfferSeen }}</IonCol>
+          <IonCol class="BestOfferListViewCol">{{ totalBestOfferListView }}</IonCol>
+          <IonCol class="BestOfferRenewedCol">{{ totalBestOfferRenewed }}</IonCol>
+          <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
+          <IonCol class="BestOfferLinkCol"></IonCol>
+          <IonCol class="BestOfferTitleCol"></IonCol>
+          <IonCol class="BestOfferCategoryCol"></IonCol>
+          <IonCol class="BestOfferCountryCol"></IonCol>
+          <IonCol class="BestOfferCityCol"></IonCol>
+          <IonCol class="BestOfferDurationCol"></IonCol>
+          <IonCol class="BestOfferContentCol"></IonCol>
+          <!-- BestOffers Data -->
+          <IonCol class="ActionCol"></IonCol>
+        </IonRow>
+
       </IonRow>
 
     </IonRow>
-
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
       <IonButton @click="prevPage">Prev</IonButton>
       <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
       <IonButton @click="nextPage">Next</IonButton>
+    </IonRow>
+    <IonRow class="editingRow">
+      <BestOfferTABsComponent/>
     </IonRow>
 
   </IonGrid>
@@ -157,29 +226,38 @@
 <script lang="ts">
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
-  import { close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import { create, close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
+  import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
 
-  interface Ticket {
+  interface Member {
     id: number;
-    BookingDate: string;
-    ApplicationIdeaBusinessName: string;
-    ApplicationIdeaBizCategory: string;
-    EquityLoan: string;
-    DisplayedInList: number;
-    OpenedSeen: number;
-    ApplicationMessaged: number;
-    TopCategoryOpenedYourApplication: string;
-    ProductService: string;
-    ApplicationAmount: number;
-    RevenueInThreeYears: number;
-    ProfitInThreeYears: number;
+    bookingDate: string;
     expiringDate: string;
     timeLeftTillExpiry: string;
+    personPic: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    membershipType: string;
+    VIPMembership: number;
+    VVIPMembership: number;
+    
+    responseToYourNeeds: number;
+    responseToYourOffers: number;
+    responseToYourBestOffers: number;
     pitchTraining: number;
     businessFundingAdvice: number;
     freeBusinessFundingAdvice: number;
     videoOfPitching: number;
-    investorTicket: number;
+
+    businessRevenue: number;
+    jobPosition: string;
+    salary: number;
+    businessName: string;
+    bizCategory: string;
+    exhibited: number;
+    visited: number;
+    investorMember: number;
     investmentBroker: number;
     investorsAdverts: number;
     bizMentor: number;
@@ -191,34 +269,57 @@
     presentation: number;
 
     lastLoggedIn: string;
+    // BestOfferDetails section
+    bestOfferImage: string; // URL or path to the image
+    bestOfferWanted: number;
+    bestOfferCommission: number;
+    bestOfferSeen: number;
+    bestOfferListView: number;
+    bestOfferRenewed: number;
+    liked: number;
+    bestOfferLink: string;
+    bestOfferTitle: string;
+    bestOfferCategory: string;
+    bestOfferCountry: string;
+    bestOfferCity: string;
+    bestOfferDuration: string;
+    bestOfferContent: string;
+
   }
 
   export default defineComponent({
-    name: 'MemberInvestmentApplicationComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
+    name: 'MyBestOffersActivityTableComponent',
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, BestOfferTABsComponent, },
     setup() {
-      const tickets = ref<Ticket[]>([
+      const members = ref<Member[]>([
         {
           id: 3,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup3',
-          ApplicationIdeaBizCategory: 'Tech',
-          EquityLoan: 'Equity',
-          DisplayedInList: 22,
-          OpenedSeen: 43,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'JohnBusiness',
-          ApplicationAmount: 11,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
+          bookingDate: '2023-01-01T12:00:00',
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'Johneee',
+          lastName: 'Doe',
+          email: 'john.doe@example.com',
+          membershipType: 'Gold',
+          VIPMembership: 43,
+          VVIPMembership: 30,
+          responseToYourNeeds: 54,
+          responseToYourOffers: 4,
+          responseToYourBestOffers: 44,
           pitchTraining: 30,
           businessFundingAdvice: 34,
           freeBusinessFundingAdvice: 55,
           videoOfPitching: 55,
-          investorTicket: 5,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
+          businessName: 'JohnBusiness',
+          bizCategory: 'IT',
+          exhibited: 30,
+          visited: 30,
+          investorMember: 5,
           investmentBroker: 3,
           investorsAdverts: 2,
           bizMentor: 30,
@@ -228,29 +329,52 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-06-01'
+          lastLoggedIn: '2023-06-01',
+          // BestOfferDetails section
+          bestOfferImage: 'https://example.com/image.jpg',
+          bestOfferWanted: 100,
+          bestOfferCommission: 100,
+          bestOfferSeen: 200,
+          bestOfferListView: 300,
+          bestOfferRenewed: 400,
+          liked: 500,
+          bestOfferLink: 'https://example.com/bestOffer',
+          bestOfferTitle: 'Amazing BestOffer',
+          bestOfferCategory: 'Real Estate',
+          bestOfferCountry: 'USA',
+          bestOfferCity: 'New York',
+          bestOfferDuration: '1 Year',
+          bestOfferContent: 'This is a great bestOffer that you do not want to miss.',
         },
         {
           id: 2,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup',
-          ApplicationIdeaBizCategory: 'Finance',
-          EquityLoan: 'Loan',
-          DisplayedInList: 32,
-          OpenedSeen: 2,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'AliceBusiness',
-          ApplicationAmount: 345,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
+          bookingDate: '2023-01-01T12:00:00',
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'res',
+          lastName: 'Doe',
+          email: 'alice.smith@example.com',
+          membershipType: 'Silver',
+          VIPMembership: 2,
+          VVIPMembership: 30,
+
+          responseToYourNeeds: 22,
+          responseToYourOffers: 2,
+          responseToYourBestOffers: 222,
           pitchTraining: 28,
           businessFundingAdvice: 33,
           freeBusinessFundingAdvice: 33,
           videoOfPitching: 55,
-          investorTicket: 4,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
+          businessName: 'AliceBusiness',
+          bizCategory: 'Marketing',
+          exhibited: 30,
+          visited: 30,
+          investorMember: 4,
           investmentBroker: 5,
           investorsAdverts: 1,
           bizMentor: 30,
@@ -260,29 +384,52 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-07-01'
+          lastLoggedIn: '2023-07-01',
+          // BestOfferDetails section
+          bestOfferImage: 'https://example.com/image1.jpg',
+          bestOfferWanted: 150,
+          bestOfferCommission: 100,
+          bestOfferSeen: 250,
+          bestOfferListView: 350,
+          bestOfferRenewed: 450,
+          liked: 550,
+          bestOfferLink: 'https://example.com/bestOffer1',
+          bestOfferTitle: 'Exclusive BestOffer',
+          bestOfferCategory: 'Technology',
+          bestOfferCountry: 'Canada',
+          bestOfferCity: 'Toronto',
+          bestOfferDuration: '6 Months',
+          bestOfferContent: 'An exclusive bestOffer for tech enthusiasts looking to invest in cutting-edge startups.',
+
         },
         {
           id: 1,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup6',
-          ApplicationIdeaBizCategory: 'Tech',
-          EquityLoan: 'Loan',
-          DisplayedInList: 11,
-          OpenedSeen: 7,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'BobBusiness',
-          ApplicationAmount: 76,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
+          bookingDate: '2023-01-01T12:00:00',
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          personPic: 'pic_url_a',
+          firstName: 'John',
+          lastName: 'Doe',
+          email: 'bob.brown@example.com',
+          membershipType: 'Platinum',
+          VIPMembership: 7,
+          VVIPMembership: 30,
+          responseToYourNeeds: 77,
+          responseToYourOffers: 7,
+          responseToYourBestOffers: 777,
           pitchTraining: 35,
           businessFundingAdvice: 33,
           freeBusinessFundingAdvice: 33,
           videoOfPitching: 55,
-          investorTicket: 6,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
+          businessName: 'BobBusiness',
+          bizCategory: 'Finance',
+          exhibited: 30,
+          visited: 30,
+          investorMember: 6,
           investmentBroker: 4,
           investorsAdverts: 3,
           bizMentor: 30,
@@ -292,11 +439,27 @@
           investmentPitching: 32,
           workshop: 22,
           presentation: 22,
-          lastLoggedIn: '2023-08-01'
+          lastLoggedIn: '2023-08-01',
+          // BestOfferDetails section
+          bestOfferImage: 'https://example.com/image2.jpg',
+          bestOfferWanted: 200,
+          bestOfferCommission: 600,
+          bestOfferSeen: 300,
+          bestOfferListView: 400,
+          bestOfferRenewed: 500,
+          liked: 600,
+          bestOfferLink: 'https://example.com/bestOffer2',
+          bestOfferTitle: 'Premium BestOffer',
+          bestOfferCategory: 'Healthcare',
+          bestOfferCountry: 'UK',
+          bestOfferCity: 'London',
+          bestOfferDuration: '2 Years',
+          bestOfferContent: 'A premium bestOffer in the healthcare sector, perfect for investors looking to support innovative health solutions.',
+
         }
       ]);
 
-      const sortKey = ref<keyof Ticket | null>(null);
+      const sortKey = ref<keyof Member | null>(null);
       const sortAsc = ref(true);
       // making the selected row distinguishable
 
@@ -304,7 +467,7 @@
       // Search Filed
 
       const searchQuery = ref<string>('');
-      const filteredTickets = ref(tickets.value);
+      const filteredMembers = ref(members.value);
 
       // back button does not wor, fix itk
       const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
@@ -318,7 +481,7 @@
       // back button does not work
 
 
-      const sortTickets = (key: keyof Ticket) => {
+      const sortMembers = (key: keyof Member) => {
         if (sortKey.value === key) {
           sortAsc.value = !sortAsc.value;
         } else {
@@ -327,7 +490,7 @@
         }
       };
 
-      const sortIcon = (key: keyof Ticket) => {
+      const sortIcon = (key: keyof Member) => {
         if (sortKey.value === key) {
           return sortAsc.value ? arrowUpOutline : arrowDownOutline;
         }
@@ -337,16 +500,16 @@
       
       //  * Resets the sorting to the original state (default order).
       const resetSorting = () => {
-        sortKey.value = 'BookingDate';
+        sortKey.value = 'bookingDate';
         sortAsc.value = true;
       };
 
       
-      //  * Computes the sorted tickets based on the current sortKey and sort order.
-      const sortedTickets = computed(() => {
-        if (!sortKey.value) return filteredTickets.value;
+      //  * Computes the sorted members based on the current sortKey and sort order.
+      const sortedMembers = computed(() => {
+        if (!sortKey.value) return filteredMembers.value;
 
-        return [...filteredTickets.value].sort((a, b) => {
+        return [...filteredMembers.value].sort((a, b) => {
           if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
           if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
           return 0;
@@ -356,18 +519,31 @@
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-      //  * Computes the paginated tickets for the current page.
-      const paginatedTickets = computed(() => {
+      //  * Computes the paginated Members for the current page.
+      const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
-        return sortedTickets.value.slice(start, start + itemsPerPage);
+        return sortedMembers.value.slice(start, start + itemsPerPage);
       });
 
-      //  * Computes the total number of pages based on the number of tickets and items per page.
-      const totalPages = computed(() => Math.ceil(filteredTickets.value.length / itemsPerPage));
+      //  * Computes the total number of pages based on the number of members and items per page.
+      const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
-      const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
+      //  * Computes the total cost of all members.
+      const total = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
 
-      //  * Navigates to the previous page, if possible.
+
+      const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
+      const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
+
+      // bestOffer Totals
+      const totalBestOfferWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferWanted, 0));
+      const totalBestOfferSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferSeen, 0));
+      const totalBestOfferListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferListView, 0));
+      const totalBestOfferRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferRenewed, 0));
+      const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
+
+
+            //  * Navigates to the previous page, if possible.
       const prevPage = () => {
         if (currentPage.value > 1) {
           currentPage.value -= 1;
@@ -385,14 +561,20 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Ticket ID',  'BookingDate','ApplicationIdeaBusinessName', 'ApplicationIdeaBizCategory', 'EquityLoan',  'DisplayedInList', 'Opened Seen', 'ApplicationMessaged', 'TopCategoryOpenedYourApplication',  'ProductService', 
-            'ApplicationAmount', 'RevenueInThreeYears', 'ProfitInThreeYears', 'ExpiringDate', 'TimeLeftTillExpiry', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'InvestorTicket', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
-            'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
+            'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Offers', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
+            'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
+            'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn',
+            // bestOffer section
+            'BestOfferImage', 'BestOfferWanted', 'BestOfferCommission', 'BestOfferSeen', 'BestOfferListView', 'BestOfferRenewed', 'Liked', 'BestOfferLink', 'BestOfferTitle', 'BestOfferCategory', 'BestOfferCountry', 'BestOfferCity', 'BestOfferDuration', 'BestOfferContent',
+            // bestOffer section
           ],
-          ...filteredTickets.value.map(ticket => [
-            ticket.id,  ticket.BookingDate, ticket.ApplicationIdeaBusinessName, ticket.ApplicationIdeaBizCategory, ticket.EquityLoan, ticket.DisplayedInList, ticket.OpenedSeen, ticket.ApplicationMessaged, ticket.TopCategoryOpenedYourApplication,  ticket.ProductService, ticket.ApplicationAmount, ticket.RevenueInThreeYears, ticket.ProfitInThreeYears, ticket.expiringDate, ticket.timeLeftTillExpiry, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
-            ticket.investorTicket, ticket.investmentBroker,
-            ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.oneMinPitching, ticket.threeMinPitching, ticket.investmentPitching, ticket.workshop, ticket.presentation, ticket.BookingDate,  ticket.lastLoggedIn
+          ...filteredMembers.value.map(member => [
+            member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourOffers, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
+            member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
+            member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn,
+            // bestOffer section
+            member.bestOfferImage, member.bestOfferWanted, member.bestOfferCommission, member.bestOfferSeen, member.bestOfferListView, member.bestOfferRenewed, member.liked, member.bestOfferLink, member.bestOfferTitle, member.bestOfferCategory, member.bestOfferCountry, member.bestOfferCity, member.bestOfferDuration, member.bestOfferContent,
+            // bestOffer section
           ])
         ]
           .map(e => e.join(","))
@@ -435,7 +617,7 @@
                 .even-row {
                   background-color: #bceea5;
                 }
-                .even-row .TicketTitleCol {
+                .even-row .MemberTitleCol {
                   background-color: aquamarine;
                 }
                 .TotalRow {
@@ -447,26 +629,33 @@
               <table>
                 <thead>
                   <tr>
-                    <th>Ticket ID</th>
+                    <th>Member ID</th>
                     <th>BookingDate</th>
-                    <th>ApplicationIdeaBusinessName</th>
-                    <th>ApplicationIdeaBizCategory</th>
-                    <th>EquityLoan</th>
-                    <th>DisplayedInAPage</th>
-                    <th>Opened Seen</th>
-                    <th>ApplicationMessaged</th>
-                    <th>TopCategoryOpenedYourApplication</th>
-                    <th>ProductService</th>
-                    <th>ApplicationAmount</th>
-                    <th>RevenueInThreeYears</th>
-                    <th>ProfitInThreeYears</th>
                     <th>ExpiringDate</th>
                     <th>timeLeftTillExpiry</th>
+                    <th>Person Pic</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Membership Type</th>
+                    <th>VIP Membership</th>
+                    <th>VVIPMembership</th>
+                    <th>Response To Your Offers</th>
+                    <th>Response To Your Offers</th>
+                    <th>Response To Your Best Offers</th>
                     <th>PitchTraining</th>
                     <th>Business Funding Advice</th>
                     <th>Free Business Funding Advice</th>
                     <th>Video Of Pitching</th>
-                    <th>Investor Ticket</th>
+
+                    <th>Business Revenue</th>
+                    <th>Job Position</th>
+                    <th>Salary</th>
+                    <th>Business Name</th>
+                    <th>Biz Category</th>
+                    <th>Exhibited</th>
+                    <th>Visited</th>
+                    <th>Investor Member</th>
                     <th>Investment Broker</th>
                     <th>Investors Adverts</th>
                     <th>Biz Mentor</th>
@@ -477,48 +666,135 @@
                     <th>Workshop</th>
                     <th>Presentation</th>
                     <th>Last Logged In</th>
+
+                    // BestOffer section
+
+                    <th>BestOffer Image</th>
+                    <th>BestOffer Wanted</th>
+                    <th>BestOffer Commission</th>
+                    <th>BestOffer Seen</th>
+                    <th>BestOffer ListView</th>
+                    <th>BestOffer Renewed</th>
+                    <th>Liked</th>
+                    <th>BestOffer Link</th>
+                    <th>BestOffer Title</th>
+                    <th>BestOffer Category</th>
+                    <th>BestOffer Country</th>
+                    <th>BestOffer City</th>
+                    <th>BestOffer Duration</th>
+                    <th>BestOffer Content</th>
                   </tr>
                 </thead>
                 <tbody>
-                  ${paginatedTickets.value.map((ticket, index) => `
+                  ${paginatedMembers.value.map((member, index) => `
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
-                      <td>${ticket.id}</td>
-                      <td>${ticket.BookingDate}</td>
-                      <td>${ticket.ApplicationIdeaBusinessName}</td>
-                      <td>${ticket.ApplicationIdeaBizCategory}</td>
-                      <td>${ticket.EquityLoan}</td>
-                      <td>${ticket.DisplayedInList}</td>
-                      <td>${ticket.OpenedSeen}</td>
-                      <td>${ticket.ApplicationMessaged}</td>
-                      <td>${ticket.TopCategoryOpenedYourApplication}</td>
-                      <td>${ticket.ProductService}</td>
-                      <td>${ticket.ApplicationAmount}</td>
-                      <td>${ticket.RevenueInThreeYears}</td>
-                      <td>${ticket.ProfitInThreeYears}</td>
-                      <td>${ticket.expiringDate}</td>
-                      <td>${ticket.timeLeftTillExpiry}</td>
-                      <td>${ticket.pitchTraining}</td>
-                      <td>${ticket.businessFundingAdvice}</td>
-                      <td>${ticket.freeBusinessFundingAdvice}</td>
-                      <td>${ticket.videoOfPitching}</td>
-                      <td>${ticket.investorTicket}</td>
-                      <td>${ticket.investmentBroker}</td>
-                      <td>${ticket.investorsAdverts}</td>
-                      <td>${ticket.bizMentor}</td>
-                      <td>${ticket.totalSpent}</td>
-                      <td>${ticket.oneMinPitching}</td>
-                      <td>${ticket.threeMinPitching}</td>
-                      <td>${ticket.investmentPitching}</td>
-                      <td>${ticket.workshop}</td>
-                      <td>${ticket.presentation}</td>
-                      <td>${ticket.lastLoggedIn}</td>
+                      <td>${member.id}</td>
+                      <td>${member.bookingDate}</td>
+                      <td>${member.expiringDate}</td>
+                      <td>${member.timeLeftTillExpiry}</td>
+                      <td>${member.personPic}</td>
+                      <td>${member.firstName}</td>
+                      <td>${member.lastName}</td>
+                      <td>${member.email}</td>
+                      <td>${member.membershipType}</td>
+                      <td>${member.VIPMembership}</td>
+                      <td>${member.VVIPMembership}</td>
+                      <td>${member.responseToYourOffers}</td>
+                      <td>${member.responseToYourOffers}</td>
+                      <td>${member.responseToYourBestOffers}</td>
+                      <td>${member.pitchTraining}</td>
+                      <td>${member.businessFundingAdvice}</td>
+                      <td>${member.freeBusinessFundingAdvice}</td>
+                      <td>${member.videoOfPitching}</td>
+
+                      <td>${member.businessRevenue}</td>
+                      <td>${member.jobPosition}</td>
+                      <td>${member.salary}</td>                      
+                      <td>${member.businessName}</td>
+                      <td>${member.bizCategory}</td>
+                      <td>${member.exhibited}</td>
+                      <td>${member.visited}</td>
+                      <td>${member.investorMember}</td>
+                      <td>${member.investmentBroker}</td>
+                      <td>${member.investorsAdverts}</td>
+                      <td>${member.bizMentor}</td>
+                      <td>${member.totalSpent}</td>
+                      <td>${member.oneMinPitching}</td>
+                      <td>${member.threeMinPitching}</td>
+                      <td>${member.investmentPitching}</td>
+                      <td>${member.workshop}</td>
+                      <td>${member.presentation}</td>
+                      <td>${member.lastLoggedIn}</td>
+
+                      // BestOffer Section
+                      <td>${member.bestOfferImage}</td>
+                      <td>${member.bestOfferWanted}</td>
+                      <td>${member.bestOfferCommission}</td>
+                      <td>${member.bestOfferSeen}</td>
+                      <td>${member.bestOfferListView}</td>
+                      <td>${member.bestOfferRenewed}</td>
+                      <td>${member.liked}</td>
+                      <td>${member.bestOfferLink}</td>
+                      <td>${member.bestOfferTitle}</td>
+                      <td>${member.bestOfferCategory}</td>
+                      <td>${member.bestOfferCountry}</td>
+                      <td>${member.bestOfferCity}</td>
+                      <td>${member.bestOfferDuration}</td>
+                      <td>${member.bestOfferContent}</td>
                     </tr>
                   `).join('')}
                   <tr class="TotalRow">
                     <td>Totals:</td>
-                    <td colspan="23"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>${totalBusinessRevenue.value}</td>
+                    <td></td>
+                    <td>${totalSalary.value}</td> 
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>                   
                     <td>${total.value}</td>
-                    <td colspan="7"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    // BestOffer section
+                    <td></td>
+                    <td>${totalBestOfferWanted.value}</td>
+                    <td></td>
+                    <td>${totalBestOfferSeen.value}</td>
+                    <td>${totalBestOfferListView.value}</td>
+                    <td>${totalBestOfferRenewed.value}</td>
+                    <td>${totalLiked.value}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>                  
                   </tr>
                 </tbody>
               </table>
@@ -540,33 +816,33 @@
       };
 
       // Search Function
-      const searchTickets = () => {
+      const searchMembers = () => {
         if (searchQuery.value.trim() === '') {
-          filteredTickets.value = tickets.value;
+          filteredMembers.value = members.value;
         } else {
           const query = searchQuery.value.trim().toLowerCase();
-          filteredTickets.value = tickets.value.filter(ticket => 
-            Object.values(ticket).some(val => 
+          filteredMembers.value = members.value.filter(member => 
+            Object.values(member).some(val => 
               val.toString().toLowerCase().includes(query)
             )
           );
         }
       };
 
-      watch(searchQuery, searchTickets);
+      watch(searchQuery, searchMembers);
 
       return {
-        tickets,
+        members,
         sortKey,
         sortAsc,
-        sortTickets,
+        sortMembers,
         sortIcon,
         resetSorting,
         selectRow,
         selectedRow,
         searchQuery,
-        searchTickets,
-        paginatedTickets,
+        searchMembers,
+        paginatedMembers,
         currentPage,
         totalPages,
         prevPage,
@@ -574,7 +850,20 @@
         exportTable,
         printTable,
         total,
+        totalBusinessRevenue,
+        totalSalary,
+
+
+        // BestOffer section
+        totalBestOfferWanted,
+        totalBestOfferSeen,
+        totalBestOfferListView,
+        totalBestOfferRenewed,
+        totalLiked,
+
+
         close,
+        create,
         arrowBackCircle,
         scrollToLeft,
         scrollableContainer,
@@ -591,32 +880,71 @@
 
 <style scoped>
   /* Adjusting the length of the table here: http://localhost:8100/adminpage */
+    ion-grid {
+    width: 100%;
+  }
   .search{
     width: 100px;
   }
+.BestOfferImageCol {
+  Border-left: 2px red solid;
+}
+.BestOfferContentCol {
+  Border-right: 2px red solid;
+}
+.TitleRow .BestOfferImageCol,
+.TitleRow .BestOfferWantedCol,
+.TitleRow .BestOfferCommissionCol,
+.TitleRow .BestOfferSeenCol,
+.TitleRow .BestOfferListViewCol,
+.TitleRow .BestOfferRenewedCol,
+.TitleRow .LikedCol,
+.TitleRow .BestOfferLinkCol,
+.TitleRow .BestOfferTitleCol,
+.TitleRow .BestOfferCategoryCol,
+.TitleRow .BestOfferCountryCol,
+.TitleRow .BestOfferCityCol,
+.TitleRow .BestOfferDurationCol,
+.TitleRow .BestOfferContentCol {
+  border-top: 3px solid red;
+}
   .arrowBackCircle {
-    position: fixed;
+    /* position: fixed;
     top: 55;
     left: 90;
     right: 0;
-    z-index: 1;
+    z-index: 1; */
   }
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
     height: 50px;
     align-items: top;
+    text-align: top;
   }
-  .Purple{
-    color: rgb(206, 6, 251);
-    font-weight: bold;
+  .TitleRow .BookingDateCol,
+  .TitleRow .ExpiringDateCol,
+  .TitleRow .TimeLeftTillExpiryCol {
+    border-top: 3px solid red;
+  }
+  .BookingDateCol {
+    border-left: 3px solid red; 
+  }
+  .TimeLeftTillExpiryCol {
+    border-right: 3px solid red; 
   }
   .NONscrollingRow {
     overflow-x: auto;
+    /* border: 4px solid rgb(26, 185, 18); */
   }
   .scrollingRow {
-    min-width: 3500px;
+    min-width: 5200px;
+    /* border: 1px solid red; */
     flex-direction: column;
+  }
+  .purple{
+    color: rgb(206, 6, 251);
+    font-weight: bold;
   }
   .DataRow {
     cursor: pointer;
@@ -625,12 +953,25 @@
     border-top: 3px solid red;
     border-bottom: 3px solid red;
   }
+  .sponsorshipPartnershipTitleCol {
+    Border-left: 3px rgb(24, 30, 203) solid;
+  }
+  .TitleRow .sponsorshipPartnershipTitleCol,
+  .TitleRow .sponsorshipPartnershipSeenCol,
+  .TitleRow .sponsorshipPartnershipListViewCol,
+  .TitleRow .CostCol {
+    border-top: 3px rgb(24, 30, 203) solid;
+  }
+  .CostCol {
+  Border-right: 3px rgb(24, 30, 203) solid;
+  }
   .DataRow:nth-child(odd) ion-col {
     background-color: #f5efef;
   }
   .DataRow:nth-child(even) ion-col {
     background-color: #bceea5;
   }
+
   .TotalRow {
     font-weight: bold;
   }
@@ -661,7 +1002,7 @@
     white-space: nowrap;
     overflow-x: auto;
     align-content: center;
-    height: 40px;
+    height: 30px;
     font-size: 12px;
     border-right: 1px solid lightgray;
   }
@@ -697,16 +1038,7 @@
   }
 
   @media (max-width: 600px) {
-    .ContainerRow {
-      width: 3200px;
-    }
-    .TitleRow, .DataRow, .TotalRow {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    ion-col {
-      max-width: 100px;
-    }
+
   }
   
 

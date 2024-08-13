@@ -120,8 +120,8 @@ import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/M
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
 import MyConnectionComponent from '@/components/MyConnectionComponents/MyConnectionComponent.vue';
 import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
-import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
-import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
+import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTableComponent.vue';
+import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 

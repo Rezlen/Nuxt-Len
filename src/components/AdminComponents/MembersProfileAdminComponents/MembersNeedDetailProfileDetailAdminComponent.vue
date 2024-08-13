@@ -92,7 +92,7 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!-- Need &  Profile Data -->
+          <!-- Need Data -->
           <IonCol class="NeedImageCol">{{ member.needImage }}</IonCol>
           <IonCol class="NeedWantedCol">{{ member.needWanted }}</IonCol>
           <IonCol class="NeedSeenCol">{{ member.needSeen }}</IonCol>
@@ -164,7 +164,7 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Need &  Profile Data -->
+          <!-- Need Data -->
           <IonCol class="NeedImageCol"></IonCol>
           <IonCol class="NeedWantedCol">{{ totalNeedWanted }}</IonCol>
           <IonCol class="NeedSeenCol">{{ totalNeedSeen }}</IonCol>
