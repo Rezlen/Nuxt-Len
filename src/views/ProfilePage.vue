@@ -30,9 +30,9 @@
             <IonRow class="PaddingBorder EditProfile" @click="showComponent('FormProfilePublicSectionComponent')">Edit Profile</IonRow>
             <IonRow class="PaddingBorder MyConnections" @click="showComponent('MyConnectionComponent')">My Connections</IonRow>
             <IonRow class="PaddingBorder Messages" @click="showComponent('MessagingComponent')">Messages</IonRow>
-            <IonRow class="PaddingBorder " >My Offer</IonRow>
-            <IonRow class="PaddingBorder " >My Best Offers</IonRow>
-            <IonRow class="PaddingBorder " >My Need</IonRow>
+            <IonRow class="PaddingBorder MyOffers" @click="showComponent('MyOffersActivityTableComponent')">My Offer</IonRow>
+            <IonRow class="PaddingBorder MyBestOffers" @click="showComponent('MyBestOffersActivityTableComponent')">My Best Offers</IonRow>
+            <IonRow class="PaddingBorder MyNeeds" @click="showComponent('MyNeedsActivityTableComponent')">My Need</IonRow>
             <IonRow class="PaddingBorder " >My Pitches</IonRow>
             <IonRow class="PaddingBorder " >My Investments</IonRow>
             <IonRow class="PaddingBorder MyOrders" @click="showComponent('MembersMyOrderTABsComponent')">My Orders</IonRow>
@@ -119,6 +119,9 @@ import MessagingComponent from '@/components/MessagingComponents/MessagingCompon
 import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/MembersMyOrderTABsComponent.vue';
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
 import MyConnectionComponent from '@/components/MyConnectionComponents/MyConnectionComponent.vue';
+import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
+import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
+import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -148,6 +151,9 @@ export default defineComponent({
     MembersMyOrderTABsComponent,
     EmailWebsiteNotificationComponent,
     MyConnectionComponent,
+    MyOffersActivityTableComponent,
+    MyNeedsActivityTableComponent,
+    MyBestOffersActivityTableComponent,
 
     FooterComponent,
   },
@@ -180,6 +186,15 @@ export default defineComponent({
       }
       if (componentName === 'MembersMyOrderTABsComponent') {
         currentComponent.value = MembersMyOrderTABsComponent;
+      }
+      if (componentName === 'MyOffersActivityTableComponent') {
+        currentComponent.value = MyOffersActivityTableComponent;
+      }
+      if (componentName === 'MyNeedsActivityTableComponent') {
+        currentComponent.value = MyNeedsActivityTableComponent;
+      }
+      if (componentName === 'MyBestOffersActivityTableComponent') {
+        currentComponent.value = MyBestOffersActivityTableComponent;
       }
       
       // Add other cases as needed for other menu items
@@ -277,7 +292,10 @@ export default defineComponent({
 .NotificationSetting,
 .Messages,
 .MyOrders,
-.MyConnections {
+.MyConnections,
+.MyOffers,
+.MyBestOffers,
+.MyNeeds {
   font-weight: bold;
 }
 @media (max-width: 600px) {

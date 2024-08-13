@@ -119,7 +119,10 @@ import FAQTableComponent from '@/components/FAQComponents/FAQTableComponent.vue'
 import SharesTableComponent from '@/components/SharesComponents/SharesTableComponent.vue';
 // Contact Us
 import ContactUsFormComponent from '@/components/ContactUsComponents/ContactUsFormComponent.vue';
-
+// My Offers, Need BestOffers ActivityTableComponent
+import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
+import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
+import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
 
 // MemberMembershipOrderComponent
 const routes: Array<RouteRecordRaw> = [  
@@ -583,47 +586,65 @@ const routes: Array<RouteRecordRaw> = [
     component: ContactUsFormComponent
   },
 
-  // Left & Right Adverts starts here  MemberInvestmentApplicationComponent
+// My Offers Best Offers, Needs components
   {
-    path: '/LeftAd1',
-    name: 'LeftAd1Component',
-    component: LeftAd1Component
+    path: '/myOffersActivityTableComponent',
+    name: 'MyOffersActivityTableComponent',
+    component: MyOffersActivityTableComponent
   },
   {
-    path: '/LeftAd2',
-    name: 'LeftAd2Component',
-    component: LeftAd2Component
+    path: '/myNeedsActivityTableComponent',
+    name: 'MyNeedsActivityTableComponent',
+    component: MyNeedsActivityTableComponent
   },
   {
-    path: '/LeftAd3',
-    name: 'LeftAd3Component',
-    component: LeftAd3Component
+    path: '/myBestOffersActivityTableComponent',
+    name: 'MyBestOffersActivityTableComponent',
+    component: MyBestOffersActivityTableComponent
   },
-  {
-    path: '/LeftAd4',
-    name: 'LeftAd4Component',
-    component: LeftAd4Component
-  },
-  {
-    path: '/RightAd1',
-    name: 'RightAd1Component',
-    component: RightAd1Component
-  },
-  {
-    path: '/RightAd2',
-    name: 'RightAd2Component',
-    component: RightAd2Component
-  },
-  {
-    path: '/RightAd3',
-    name: 'RightAd3Component',
-    component: RightAd3Component
-  },
-  {
-    path: '/RightAd4',
-    name: 'RightAd4Component',
-    component: RightAd4Component
-  }, 
+
+
+// Left & Right Adverts starts here  MemberInvestmentApplicationComponent
+{
+  path: '/LeftAd1',
+  name: 'LeftAd1Component',
+  component: LeftAd1Component
+},
+{
+  path: '/LeftAd2',
+  name: 'LeftAd2Component',
+  component: LeftAd2Component
+},
+{
+  path: '/LeftAd3',
+  name: 'LeftAd3Component',
+  component: LeftAd3Component
+},
+{
+  path: '/LeftAd4',
+  name: 'LeftAd4Component',
+  component: LeftAd4Component
+},
+{
+  path: '/RightAd1',
+  name: 'RightAd1Component',
+  component: RightAd1Component
+},
+{
+  path: '/RightAd2',
+  name: 'RightAd2Component',
+  component: RightAd2Component
+},
+{
+  path: '/RightAd3',
+  name: 'RightAd3Component',
+  component: RightAd3Component
+},
+{
+  path: '/RightAd4',
+  name: 'RightAd4Component',
+  component: RightAd4Component
+}, 
 
 
  

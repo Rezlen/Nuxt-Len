@@ -30,28 +30,31 @@
           <IonCol class="VIPMembershipCol" @click="sortTickets('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
           <IonCol class="VVIPMembershipCol" @click="sortTickets('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
 
-          <IonCol class="ResponseToYourNeedsCol green" @click="sortTickets('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
-          <IonCol class="ResponseToYourOffersCol green" @click="sortTickets('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
-          <IonCol class="ResponseToYourBestOffersCol green" @click="sortTickets('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourNeedsCol purple" @click="sortTickets('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourOffersCol purple" @click="sortTickets('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="ResponseToYourBestOffersCol purple" @click="sortTickets('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
           <IonCol class="PitchTrainingCol" @click="sortTickets('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
           <IonCol class="BusinessFundingAdviceCol" @click="sortTickets('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
           <IonCol class="FreeBusinessFundingAdviceCol" @click="sortTickets('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
           <IonCol class="VideoOfPitchingCol" @click="sortTickets('videoOfPitching')">Video Of Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
-
-          <IonCol class="BusinessNameCol" @click="sortTickets('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+          
+          <IonCol class="BusinessRevenueCol" @click="sortTickets('businessRevenue')">Business Revenue <IonIcon :icon="sortIcon('businessRevenue')" class="sort-icon" /></IonCol>
+          <IonCol class="JobPositionCol" @click="sortTickets('jobPosition')">Job Position<IonIcon :icon="sortIcon('jobPosition')" class="sort-icon" /></IonCol>
+          <IonCol class="SalaryCol purple" @click="sortTickets('salary')">Salary<IonIcon :icon="sortIcon('salary')" class="sort-icon" /></IonCol>
+          <IonCol class="BusinessNameCol purple" @click="sortTickets('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
           <IonCol class="BizCategoryCol" @click="sortTickets('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="ExhibitedCol green" @click="sortTickets('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
-          <IonCol class="VisitedCol green" @click="sortTickets('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+          <IonCol class="ExhibitedCol purple" @click="sortTickets('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+          <IonCol class="VisitedCol purple" @click="sortTickets('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
           <IonCol class="InvestorTicketCol" @click="sortTickets('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
           <IonCol class="InvestmentBrokerCol" @click="sortTickets('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestorsAdvertsCol  green" @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorsAdvertsCol  purple" @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
           <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
           <IonCol class="OneMinPitchingCol" @click="sortTickets('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
           <IonCol class="ThreeMinPitchingCol" @click="sortTickets('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
-          <IonCol class="InvestmentPitchingCol green" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
-          <IonCol class="WorkshopCol green" @click="sortTickets('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
-          <IonCol class="PresentationCol green" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentPitchingCol purple" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="WorkshopCol purple" @click="sortTickets('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
+          <IonCol class="PresentationCol purple" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
           <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="sponsorshipPartnershipTitleCol" @click="sortTickets('sponsorshipPartnershipTitle')">Sponsorship Partnership Title <IonIcon :icon="sortIcon('sponsorshipPartnershipTitle')" class="sort-icon" /></IonCol>
           <IonCol class="sponsorshipPartnershipSeenCol" @click="sortTickets('sponsorshipPartnershipSeen')">Sponsorship Partnership Seen <IonIcon :icon="sortIcon('sponsorshipPartnershipSeen')" class="sort-icon" /></IonCol>
@@ -82,7 +85,10 @@
           <IonCol class="BusinessFundingAdviceCol">{{ ticket.businessFundingAdvice }}</IonCol>
           <IonCol class="FreeBusinessFundingAdviceCol">{{ ticket.freeBusinessFundingAdvice }}</IonCol>
           <IonCol class="VideoOfPitchingCol">{{ ticket.videoOfPitching }}</IonCol>
-
+          
+          <IonCol class="BusinessRevenueCol">{{ ticket.businessRevenue }}</IonCol>
+          <IonCol class="JobPositionCol">{{ ticket.jobPosition }}</IonCol>
+          <IonCol class="SalaryCol">{{ ticket.salary }}</IonCol>
           <IonCol class="BusinessNameCol">{{ ticket.businessName }}</IonCol>
           <IonCol class="BizCategoryCol">{{ ticket.bizCategory }}</IonCol>
           <IonCol class="ExhibitedCol">{{ ticket.exhibited }}</IonCol>
@@ -134,6 +140,9 @@
           <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
           <IonCol class="VideoOfPitchingCol"></IonCol>
 
+          <IonCol class="BusinessRevenueCol">{{ totalBusinessRevenue }}</IonCol>
+          <IonCol class="JobPositionCol"></IonCol>
+          <IonCol class="SalaryCol">{{ totalSalary }}</IonCol>
           <IonCol class="BusinessNameCol"></IonCol>
           <IonCol class="BizCategoryCol"></IonCol>
           <IonCol class="ExhibitedCol"></IonCol>
@@ -205,6 +214,10 @@
     businessFundingAdvice: number;
     freeBusinessFundingAdvice: number;
     videoOfPitching: number;
+
+    businessRevenue: number;
+    jobPosition: string;
+    salary: number;
     businessName: string;
     bizCategory: string;
     exhibited: number;
@@ -252,6 +265,10 @@
           businessFundingAdvice: 34,
           freeBusinessFundingAdvice: 55,
           videoOfPitching: 55,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
           businessName: 'JohnBusiness',
           bizCategory: 'IT',
           exhibited: 30,
@@ -292,6 +309,10 @@
           businessFundingAdvice: 33,
           freeBusinessFundingAdvice: 33,
           videoOfPitching: 55,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
           businessName: 'AliceBusiness',
           bizCategory: 'Marketing',
           exhibited: 30,
@@ -332,6 +353,10 @@
           businessFundingAdvice: 33,
           freeBusinessFundingAdvice: 33,
           videoOfPitching: 55,
+
+          businessRevenue: 1000000,
+          jobPosition: 'CEO',
+          salary: 200000,
           businessName: 'BobBusiness',
           bizCategory: 'Finance',
           exhibited: 30,
@@ -426,8 +451,11 @@
 
       //  * Computes the total cost of all tickets.
       const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
-      const totalsponsorshipPartnershipSeen = computed(() => filteredTickets.value.reduce((sum, member) => sum + member.sponsorshipPartnershipSeen, 0));
-      const totalsponsorshipPartnershipListView = computed(() => filteredTickets.value.reduce((sum, member) => sum + member.sponsorshipPartnershipListView, 0));
+
+      const totalBusinessRevenue = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.businessRevenue, 0));
+      const totalSalary = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.salary, 0));
+      const totalsponsorshipPartnershipSeen = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.sponsorshipPartnershipSeen, 0));
+      const totalsponsorshipPartnershipListView = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.sponsorshipPartnershipListView, 0));
       //  * Navigates to the previous page, if possible.
       const prevPage = () => {
         if (currentPage.value > 1) {
@@ -446,12 +474,12 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Ticket ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
+            'Ticket ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorTicket', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn', 'Sponsorship Partnership Title', 'Sponsorship Partnership Seen', 'Sponsorship Partnership List View', 'Cost',
           ],
           ...filteredTickets.value.map(ticket => [
-            ticket.id,  ticket.bookingDate, ticket.expiringDate, ticket.timeLeftTillExpiry, ticket.personPic, ticket.firstName, ticket.lastName, ticket.email, ticket.membershipType, ticket.VIPMembership, ticket.VVIPMembership,  ticket.responseToYourNeeds, ticket.responseToYourOffers, ticket.responseToYourBestOffers, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
+            ticket.id,  ticket.bookingDate, ticket.expiringDate, ticket.timeLeftTillExpiry, ticket.personPic, ticket.firstName, ticket.lastName, ticket.email, ticket.membershipType, ticket.VIPMembership, ticket.VVIPMembership,  ticket.responseToYourNeeds, ticket.responseToYourOffers, ticket.responseToYourBestOffers, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,ticket.businessRevenue, ticket.jobPosition, ticket.salary,
             ticket.businessName, ticket.bizCategory, ticket.exhibited, ticket.visited, ticket.investorTicket, ticket.investmentBroker,
             ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.oneMinPitching, ticket.threeMinPitching, ticket.investmentPitching, ticket.workshop, ticket.presentation, ticket.bookingDate,  ticket.lastLoggedIn,  ticket.sponsorshipPartnershipTitle, ticket.sponsorshipPartnershipSeen, ticket.sponsorshipPartnershipListView, ticket.cost, 
           ])
@@ -527,6 +555,9 @@
                     <th>Free Business Funding Advice</th>
                     <th>Video Of Pitching</th>
 
+                    <th>Business Revenue</th>
+                    <th>Job Position</th>
+                    <th>Salary</th>
                     <th>Business Name</th>
                     <th>Biz Category</th>
                     <th>Exhibited</th>
@@ -570,6 +601,9 @@
                       <td>${ticket.freeBusinessFundingAdvice}</td>
                       <td>${ticket.videoOfPitching}</td>
 
+                      <td>${ticket.businessRevenue}</td>
+                      <td>${ticket.jobPosition}</td>
+                      <td>${ticket.salary}</td>                      
                       <td>${ticket.businessName}</td>
                       <td>${ticket.bizCategory}</td>
                       <td>${ticket.exhibited}</td>
@@ -595,6 +629,9 @@
                   <tr class="TotalRow">
                     <td>Totals:</td>
                     <td colspan="23"></td>
+                    <td>${totalBusinessRevenue.value}</td>
+                    <td></td>
+                    <td>${totalSalary.value}</td>                    
                     <td>${total.value}</td>
                     <td colspan="7"></td>
                   </tr>
@@ -652,6 +689,8 @@
         exportTable,
         printTable,
         total,
+        totalBusinessRevenue,
+        totalSalary,
         totalsponsorshipPartnershipSeen,
         totalsponsorshipPartnershipListView,
         close,
@@ -709,7 +748,7 @@
     /* border: 1px solid red; */
     flex-direction: column;
   }
-  .green{
+  .purple{
     color: rgb(206, 6, 251);
     font-weight: bold;
   }

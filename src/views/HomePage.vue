@@ -166,6 +166,9 @@
                 <p><a href="/MyRewardsDiscountsEarnedTableComponent" class="Events-button" >MyRewardsDiscountsEarnedTableComponent</a> </p>
                 <p><a href="/MyRewardsDiscountsComponent" class="Events-button" >MyRewardsDiscountsComponent</a> </p>
                 <p><a href="/MySharesTableComponent" class="Events-button" >MySharesTableComponent</a> </p>
+                <p><a href="/MyOffersActivityTableComponent" class="Events-button" >MyOffersActivityTableComponent</a> </p>
+                <p><a href="/MyBestOffersActivityTableComponent" class="Events-button" >MyBestOffersActivityTableComponent</a> </p>
+                <p><a href="/MyNeedsActivityTableComponent" class="Events-button" >MyNeedsActivityTableComponent</a> </p>
 
 
               
