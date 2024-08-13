@@ -26,13 +26,17 @@
           <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
           <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
           <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
+          <IonCol class="needWantedCol" @click="sortMembers('needWanted')">Need Wanted<IonIcon :icon="sortIcon('needWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="needSeenCol" @click="sortMembers('needSeen')">Need Seen<IonIcon :icon="sortIcon('needSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="likedCol" @click="sortMembers('liked')">Liked<IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+
           <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
           <IonCol class="VIPMembershipCol" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
           <IonCol class="VVIPMembershipCol" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
 
           <IonCol class="ResponseToYourNeedsCol purple" @click="sortMembers('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
           <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
-          <IonCol class="ResponseToYourBestOffersCol purple" @click="sortMembers('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="responseToYourBestOffersCol purple" @click="sortMembers('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
           <IonCol class="PitchTrainingCol" @click="sortMembers('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
           <IonCol class="BusinessFundingAdviceCol" @click="sortMembers('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
           <IonCol class="FreeBusinessFundingAdviceCol" @click="sortMembers('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
@@ -58,11 +62,11 @@
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <!-- Need Data -->
           <IonCol class="NeedImageCol" @click="sortMembers('needImage')">NeedImage <IonIcon :icon="sortIcon('needImage')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedWantedCol" @click="sortMembers('needWanted')">NeedWanted<IonIcon :icon="sortIcon('needWanted')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedSeenCol" @click="sortMembers('needSeen')">NeedSeen <IonIcon :icon="sortIcon('needSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="needWantedAllCol" @click="sortMembers('needWantedAll')">Need Wanted All<IonIcon :icon="sortIcon('needWantedAll')" class="sort-icon" /></IonCol>
+          <IonCol class="needSeenAllCol" @click="sortMembers('needSeenAll')">Need Seen All <IonIcon :icon="sortIcon('needSeenAll')" class="sort-icon" /></IonCol>
           <IonCol class="NeedListViewCol" @click="sortMembers('needListView')">NeedListView <IonIcon :icon="sortIcon('needListView')" class="sort-icon" /></IonCol>
           <IonCol class="NeedRenewedCol" @click="sortMembers('needRenewed')">NeedRenewed <IonIcon :icon="sortIcon('needRenewed')" class="sort-icon" /></IonCol>
-          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="likedAllCol" @click="sortMembers('likedAll')">Liked All <IonIcon :icon="sortIcon('likedAll')" class="sort-icon" /></IonCol>
           <IonCol class="NeedLinkCol" @click="sortMembers('needLink')">NeedLink <IonIcon :icon="sortIcon('needLink')" class="sort-icon" /></IonCol>
           <IonCol class="NeedTitleCol" @click="sortMembers('needTitle')">NeedTitle <IonIcon :icon="sortIcon('needTitle')" class="sort-icon" /></IonCol>
           <IonCol class="NeedCategoryCol" @click="sortMembers('needCategory')">NeedCategory <IonIcon :icon="sortIcon('needCategory')" class="sort-icon" /></IonCol>
@@ -70,9 +74,9 @@
           <IonCol class="NeedCityCol" @click="sortMembers('needCity')">NeedCity <IonIcon :icon="sortIcon('needCity')" class="sort-icon" /></IonCol>
           <IonCol class="NeedDurationCol" @click="sortMembers('needDuration')">NeedDuration <IonIcon :icon="sortIcon('needDuration')" class="sort-icon" /></IonCol>
           <IonCol class="NeedContentCol" @click="sortMembers('needContent')">NeedContent <IonIcon :icon="sortIcon('needContent')" class="sort-icon" /></IonCol>
-          <IonCol class="ActionCol">Stop next Sponsorship Billing, Hide, Edit</IonCol>
+          <IonCol class="ActionCol">Hide, Edit</IonCol>
         </IonRow>
-
+          
         
         <!-- Data rows -->
         <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
@@ -84,13 +88,17 @@
           <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
           <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
           <IonCol class="EmailCol">{{ member.email }}</IonCol>
+          <IonCol class="needWantedCol">{{ member.needWanted }}</IonCol>
+          <IonCol class="needSeenCol">{{ member.needSeen }}</IonCol>
+          <IonCol class="likedCol">{{ member.liked }}</IonCol>
+
           <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
           <IonCol class="VIPMembershipCol">{{ member.VIPMembership }}</IonCol>
           <IonCol class="VVIPMembershipCol">{{ member.VVIPMembership }}</IonCol>
 
           <IonCol class="ResponseToYourNeedsCol">{{ member.responseToYourNeeds}}</IonCol>
-          <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
-          <IonCol class="ResponseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
+          <IonCol class="responseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
+          <IonCol class="responseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
           <IonCol class="PitchTrainingCol">{{ member.pitchTraining }}</IonCol>
           <IonCol class="BusinessFundingAdviceCol">{{ member.businessFundingAdvice }}</IonCol>
           <IonCol class="FreeBusinessFundingAdviceCol">{{ member.freeBusinessFundingAdvice }}</IonCol>
@@ -116,11 +124,11 @@
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
           <!-- Need Data -->
           <IonCol class="NeedImageCol">{{ member.needImage }}</IonCol>
-          <IonCol class="NeedWantedCol">{{ member.needWanted }}</IonCol>
-          <IonCol class="NeedSeenCol">{{ member.needSeen }}</IonCol>
+          <IonCol class="needWantedAllCol">{{ member.needWantedAll }}</IonCol>
+          <IonCol class="needSeenAllCol">{{ member.needSeenAll }}</IonCol>
           <IonCol class="NeedListViewCol">{{ member.needListView }}</IonCol>
           <IonCol class="NeedRenewedCol">{{ member.needRenewed }}</IonCol>
-          <IonCol class="LikedCol">{{ member.liked }}</IonCol>
+          <IonCol class="likedAllCol">{{ member.likedAll }}</IonCol>
           <IonCol class="NeedLinkCol">{{ member.needLink }}</IonCol>
           <IonCol class="NeedTitleCol">{{ member.needTitle }}</IonCol>
           <IonCol class="NeedCategoryCol">{{ member.needCategory }}</IonCol>
@@ -146,14 +154,18 @@
           <IonCol class="PersonPicCol"></IonCol>
           <IonCol class="FirstNameCol"></IonCol>
           <IonCol class="LastNameCol"></IonCol>
-          <IonCol class="EmailCol"></IonCol>
+          <IonCol class="EmailCol"> </IonCol>
+
+          <IonCol class="needWantedCol">{{ totalneedWanted }}</IonCol>
+          <IonCol class="needSeenCol">{{ totalneedSeen }}</IonCol>
+          <IonCol class="likedCol">{{ totalliked }}</IonCol>
           <IonCol class="MembershipTypeCol"></IonCol>
           <IonCol class="VIPMembershipCol"></IonCol>
           <IonCol class="VVIPMembershipCol"></IonCol>
           
           <IonCol class="ResponseToYourNeedsCol"></IonCol>
           <IonCol class="ResponseToYourOffersCol"></IonCol>
-          <IonCol class="ResponseToYourBestOffersCol"></IonCol>
+          <IonCol class="responseToYourBestOffersCol"></IonCol>
           <IonCol class="PitchTrainingCol"></IonCol>
           <IonCol class="BusinessFundingAdviceCol"></IonCol>
           <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
@@ -180,11 +192,11 @@
           <IonCol class="LastLoggedInCol"></IonCol>
           <!-- Need Data -->
           <IonCol class="NeedImageCol"></IonCol>
-          <IonCol class="NeedWantedCol">{{ totalNeedWanted }}</IonCol>
-          <IonCol class="NeedSeenCol">{{ totalNeedSeen }}</IonCol>
+          <IonCol class="needWantedAllCol">{{ totalneedWantedAll }}</IonCol>
+          <IonCol class="needSeenAllCol">{{ totalneedSeenAll }}</IonCol>
           <IonCol class="NeedListViewCol">{{ totalNeedListView }}</IonCol>
           <IonCol class="NeedRenewedCol">{{ totalNeedRenewed }}</IonCol>
-          <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
+          <IonCol class="likedAllCol">{{ totallikedAll }}</IonCol>
           <IonCol class="NeedLinkCol"></IonCol>
           <IonCol class="NeedTitleCol"></IonCol>
           <IonCol class="NeedCategoryCol"></IonCol>
@@ -232,6 +244,9 @@
     firstName: string;
     lastName: string;
     email: string;
+    needWanted: number;
+    needSeen: number;
+    liked: number;
     membershipType: string;
     VIPMembership: number;
     VVIPMembership: number;
@@ -265,11 +280,11 @@
     lastLoggedIn: string;
     // NeedDetails section
     needImage: string; // URL or path to the image
-    needWanted: number;
-    needSeen: number;
+    needWantedAll: number;
+    needSeenAll: number;
     needListView: number;
     needRenewed: number;
-    liked: number;
+    likedAll: number;
     needLink: string;
     needTitle: string;
     needCategory: string;
@@ -294,6 +309,9 @@
           firstName: 'Johneee',
           lastName: 'Doe',
           email: 'john.doe@example.com',
+          needWanted: 100,
+          needSeen: 200,
+          liked: 500,
           membershipType: 'Gold',
           VIPMembership: 43,
           VVIPMembership: 30,
@@ -325,11 +343,11 @@
           lastLoggedIn: '2023-06-01',
           // NeedDetails section
           needImage: 'https://example.com/image.jpg',
-          needWanted: 100,
-          needSeen: 200,
+          needWantedAll: 100,
+          needSeenAll: 200,
           needListView: 300,
           needRenewed: 400,
-          liked: 500,
+          likedAll: 500,
           needLink: 'https://example.com/need',
           needTitle: 'Amazing Need',
           needCategory: 'Real Estate',
@@ -347,6 +365,9 @@
           firstName: 'res',
           lastName: 'Doe',
           email: 'alice.smith@example.com',
+          needWanted: 150,
+          needSeen: 250,
+          liked: 550,
           membershipType: 'Silver',
           VIPMembership: 2,
           VVIPMembership: 30,
@@ -379,11 +400,11 @@
           lastLoggedIn: '2023-07-01',
           // NeedDetails section
           needImage: 'https://example.com/image1.jpg',
-          needWanted: 150,
-          needSeen: 250,
+          needWantedAll: 150,
+          needSeenAll: 250,
           needListView: 350,
           needRenewed: 450,
-          liked: 550,
+          likedAll: 550,
           needLink: 'https://example.com/need1',
           needTitle: 'Exclusive Need',
           needCategory: 'Technology',
@@ -402,6 +423,9 @@
           firstName: 'John',
           lastName: 'Doe',
           email: 'bob.brown@example.com',
+          needWanted: 200,
+          needSeen: 300,
+          liked: 600,
           membershipType: 'Platinum',
           VIPMembership: 7,
           VVIPMembership: 30,
@@ -433,11 +457,11 @@
           lastLoggedIn: '2023-08-01',
           // NeedDetails section
           needImage: 'https://example.com/image2.jpg',
-          needWanted: 200,
-          needSeen: 300,
+          needWantedAll: 200,
+          needSeenAll: 300,
           needListView: 400,
           needRenewed: 500,
-          liked: 600,
+          likedAll: 600,
           needLink: 'https://example.com/need2',
           needTitle: 'Premium Need',
           needCategory: 'Healthcare',
@@ -526,11 +550,15 @@
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
 
       // Need Totals
-      const totalNeedWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needWanted, 0));
-      const totalNeedSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needSeen, 0));
+      const totalneedWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needWanted, 0));
+      const totalneedSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needSeen, 0));
+      const totalliked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
+
+      const totalneedWantedAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needWantedAll, 0));
+      const totalneedSeenAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needSeenAll, 0));
       const totalNeedListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needListView, 0));
       const totalNeedRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needRenewed, 0));
-      const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
+      const totallikedAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.likedAll, 0));
 
 
             //  * Navigates to the previous page, if possible.
@@ -551,19 +579,19 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
+            'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'needWanted', 'needSeen', 'liked',  'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Needs', 'responseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn',
             // Need section
-            'NeedImage', 'NeedWanted', 'NeedSeen', 'NeedListView', 'NeedRenewed', 'Liked', 'NeedLink', 'NeedTitle', 'NeedCategory', 'NeedCountry', 'NeedCity', 'NeedDuration', 'NeedContent',
+            'NeedImage', 'needWantedAll', 'needSeenAll', 'NeedListView', 'NeedRenewed', 'likedAll', 'NeedLink', 'NeedTitle', 'NeedCategory', 'NeedCountry', 'NeedCity', 'NeedDuration', 'NeedContent',
             // Need section
           ],
           ...filteredMembers.value.map(member => [
-            member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
+            member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.needWanted, member.needSeen, member.liked, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
             member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
             member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn,
             // Need section
-            member.needImage, member.needWanted, member.needSeen, member.needListView, member.needRenewed, member.liked, member.needLink, member.needTitle, member.needCategory, member.needCountry, member.needCity, member.needDuration, member.needContent,
+            member.needImage, member.needWantedAll, member.needSeenAll, member.needListView, member.needRenewed, member.likedAll, member.needLink, member.needTitle, member.needCategory, member.needCountry, member.needCity, member.needDuration, member.needContent,
             // Need section
           ])
         ]
@@ -627,12 +655,15 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>needWanted</th>
+                    <th>needSeen</th>
+                    <th>liked</th>
                     <th>Membership Type</th>
                     <th>VIP Membership</th>
                     <th>VVIPMembership</th>
                     <th>Response To Your Needs</th>
-                    <th>Response To Your Offers</th>
-                    <th>Response To Your Best Offers</th>
+                    <th>Response To Your Needs</th>
+                    <th>Response To Your Best Needs</th>
                     <th>PitchTraining</th>
                     <th>Business Funding Advice</th>
                     <th>Free Business Funding Advice</th>
@@ -660,11 +691,11 @@
                     // Need section
 
                     <th>Need Image</th>
-                    <th>Need Wanted</th>
-                    <th>Need Seen</th>
+                    <th>needWantedAll</th>
+                    <th>needSeenAll</th>
                     <th>Need ListView</th>
                     <th>Need Renewed</th>
-                    <th>Liked</th>
+                    <th>likedAll</th>
                     <th>Need Link</th>
                     <th>Need Title</th>
                     <th>Need Category</th>
@@ -685,6 +716,9 @@
                       <td>${member.firstName}</td>
                       <td>${member.lastName}</td>
                       <td>${member.email}</td>
+                      <td>${member.needWanted}</td>
+                      <td>${member.needSeen}</td>
+                      <td>${member.liked}</td>
                       <td>${member.membershipType}</td>
                       <td>${member.VIPMembership}</td>
                       <td>${member.VVIPMembership}</td>
@@ -717,11 +751,11 @@
 
                       // Need Section
                       <td>${member.needImage}</td>
-                      <td>${member.needWanted}</td>
-                      <td>${member.needSeen}</td>
+                      <td>${member.needWantedAll}</td>
+                      <td>${member.needSeenAll}</td>
                       <td>${member.needListView}</td>
                       <td>${member.needRenewed}</td>
-                      <td>${member.liked}</td>
+                      <td>${member.likedAll}</td>
                       <td>${member.needLink}</td>
                       <td>${member.needTitle}</td>
                       <td>${member.needCategory}</td>
@@ -740,6 +774,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>${totalneedWanted.value}</td>
+                    <td>${totalneedSeen.value}</td>
+                    <td>${totalliked.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -770,11 +807,11 @@
                     <td></td>
                     <td></td>
                     // Need section
-                    <td>${totalNeedWanted.value}</td>
-                    <td>${totalNeedSeen.value}</td>
+                    <td>${totalneedWantedAll.value}</td>
+                    <td>${totalneedSeenAll.value}</td>
                     <td>${totalNeedListView.value}</td>
                     <td>${totalNeedRenewed.value}</td>
-                    <td>${totalLiked.value}</td>
+                    <td>${totallikedAll.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -842,11 +879,15 @@
         totalSalary,
 
         // Need section
-        totalNeedWanted,
-        totalNeedSeen,
+        totalneedWanted,
+        totalneedSeen,
+        totalliked,
+
+        totalneedWantedAll,
+        totalneedSeenAll,
         totalNeedListView,
         totalNeedRenewed,
-        totalLiked,
+        totallikedAll,
 
 
         close,
@@ -880,11 +921,11 @@
   Border-right: 2px red solid;
 }
 .TitleRow .NeedImageCol,
-.TitleRow .NeedWantedCol,
-.TitleRow .NeedSeenCol,
+.TitleRow .needWantedAllCol,
+.TitleRow .needSeenAllCol,
 .TitleRow .NeedListViewCol,
 .TitleRow .NeedRenewedCol,
-.TitleRow .LikedCol,
+.TitleRow .likedAllCol,
 .TitleRow .NeedLinkCol,
 .TitleRow .NeedTitleCol,
 .TitleRow .NeedCategoryCol,
@@ -894,13 +935,13 @@
 .TitleRow .NeedContentCol {
   border-top: 3px solid red;
 }
-  .arrowBackCircle {
-    /* position: fixed;
+  /* .arrowBackCircle {
+    position: fixed;
     top: 55;
     left: 90;
     right: 0;
-    z-index: 1; */
-  }
+    z-index: 1;
+  } */
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
@@ -924,7 +965,7 @@
     /* border: 4px solid rgb(26, 185, 18); */
   }
   .scrollingRow {
-    min-width: 5200px;
+    min-width: 5500px;
     /* border: 1px solid red; */
     flex-direction: column;
   }

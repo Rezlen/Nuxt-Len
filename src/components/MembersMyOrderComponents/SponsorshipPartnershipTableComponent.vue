@@ -714,13 +714,13 @@
   .search{
     width: 100px;
   }
-  .arrowBackCircle {
-    /* position: fixed;
+  /* .arrowBackCircle {
+    position: fixed;
     top: 55;
     left: 90;
     right: 0;
-    z-index: 1; */
-  }
+    z-index: 1;
+  } */
   .TitleRow {
     font-weight: bold;
     cursor: pointer;

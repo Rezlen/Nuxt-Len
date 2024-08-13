@@ -26,11 +26,15 @@
           <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
           <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
           <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
+          <IonCol class="offerWantedCol" @click="sortMembers('offerWanted')">Offer Wanted<IonIcon :icon="sortIcon('offerWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="offerSeenCol" @click="sortMembers('offerSeen')">Offer Seen<IonIcon :icon="sortIcon('offerSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="likedCol" @click="sortMembers('liked')">Liked<IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+
           <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
           <IonCol class="VIPMembershipCol" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
           <IonCol class="VVIPMembershipCol" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
 
-          <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="responseToYourNeedsCol purple" @click="sortMembers('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
           <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
           <IonCol class="ResponseToYourBestOffersCol purple" @click="sortMembers('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
           <IonCol class="PitchTrainingCol" @click="sortMembers('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
@@ -58,11 +62,11 @@
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <!-- Offer Data -->
           <IonCol class="OfferImageCol" @click="sortMembers('offerImage')">OfferImage <IonIcon :icon="sortIcon('offerImage')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferWantedCol" @click="sortMembers('offerWanted')">OfferWanted<IonIcon :icon="sortIcon('offerWanted')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferSeenCol" @click="sortMembers('offerSeen')">OfferSeen <IonIcon :icon="sortIcon('offerSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="offerWantedAllCol" @click="sortMembers('offerWantedAll')">Offer Wanted All<IonIcon :icon="sortIcon('offerWantedAll')" class="sort-icon" /></IonCol>
+          <IonCol class="offerSeenAllCol" @click="sortMembers('offerSeenAll')">Offer Seen All <IonIcon :icon="sortIcon('offerSeenAll')" class="sort-icon" /></IonCol>
           <IonCol class="OfferListViewCol" @click="sortMembers('offerListView')">OfferListView <IonIcon :icon="sortIcon('offerListView')" class="sort-icon" /></IonCol>
           <IonCol class="OfferRenewedCol" @click="sortMembers('offerRenewed')">OfferRenewed <IonIcon :icon="sortIcon('offerRenewed')" class="sort-icon" /></IonCol>
-          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="likedAllCol" @click="sortMembers('likedAll')">Liked All <IonIcon :icon="sortIcon('likedAll')" class="sort-icon" /></IonCol>
           <IonCol class="OfferLinkCol" @click="sortMembers('offerLink')">OfferLink <IonIcon :icon="sortIcon('offerLink')" class="sort-icon" /></IonCol>
           <IonCol class="OfferTitleCol" @click="sortMembers('offerTitle')">OfferTitle <IonIcon :icon="sortIcon('offerTitle')" class="sort-icon" /></IonCol>
           <IonCol class="OfferCategoryCol" @click="sortMembers('offerCategory')">OfferCategory <IonIcon :icon="sortIcon('offerCategory')" class="sort-icon" /></IonCol>
@@ -70,9 +74,9 @@
           <IonCol class="OfferCityCol" @click="sortMembers('offerCity')">OfferCity <IonIcon :icon="sortIcon('offerCity')" class="sort-icon" /></IonCol>
           <IonCol class="OfferDurationCol" @click="sortMembers('offerDuration')">OfferDuration <IonIcon :icon="sortIcon('offerDuration')" class="sort-icon" /></IonCol>
           <IonCol class="OfferContentCol" @click="sortMembers('offerContent')">OfferContent <IonIcon :icon="sortIcon('offerContent')" class="sort-icon" /></IonCol>
-          <IonCol class="ActionCol">Stop next Sponsorship Billing, Hide, Edit</IonCol>
+          <IonCol class="ActionCol">Hide, Edit</IonCol>
         </IonRow>
-
+          
         
         <!-- Data rows -->
         <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
@@ -84,11 +88,15 @@
           <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
           <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
           <IonCol class="EmailCol">{{ member.email }}</IonCol>
+          <IonCol class="offerWantedCol">{{ member.offerWanted }}</IonCol>
+          <IonCol class="offerSeenCol">{{ member.offerSeen }}</IonCol>
+          <IonCol class="likedCol">{{ member.liked }}</IonCol>
+
           <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
           <IonCol class="VIPMembershipCol">{{ member.VIPMembership }}</IonCol>
           <IonCol class="VVIPMembershipCol">{{ member.VVIPMembership }}</IonCol>
 
-          <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
+          <IonCol class="responseToYourNeedsCol">{{ member.responseToYourNeeds}}</IonCol>
           <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
           <IonCol class="ResponseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
           <IonCol class="PitchTrainingCol">{{ member.pitchTraining }}</IonCol>
@@ -116,11 +124,11 @@
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
           <!-- Offer Data -->
           <IonCol class="OfferImageCol">{{ member.offerImage }}</IonCol>
-          <IonCol class="OfferWantedCol">{{ member.offerWanted }}</IonCol>
-          <IonCol class="OfferSeenCol">{{ member.offerSeen }}</IonCol>
+          <IonCol class="offerWantedAllCol">{{ member.offerWantedAll }}</IonCol>
+          <IonCol class="offerSeenAllCol">{{ member.offerSeenAll }}</IonCol>
           <IonCol class="OfferListViewCol">{{ member.offerListView }}</IonCol>
           <IonCol class="OfferRenewedCol">{{ member.offerRenewed }}</IonCol>
-          <IonCol class="LikedCol">{{ member.liked }}</IonCol>
+          <IonCol class="likedAllCol">{{ member.likedAll }}</IonCol>
           <IonCol class="OfferLinkCol">{{ member.offerLink }}</IonCol>
           <IonCol class="OfferTitleCol">{{ member.offerTitle }}</IonCol>
           <IonCol class="OfferCategoryCol">{{ member.offerCategory }}</IonCol>
@@ -146,12 +154,16 @@
           <IonCol class="PersonPicCol"></IonCol>
           <IonCol class="FirstNameCol"></IonCol>
           <IonCol class="LastNameCol"></IonCol>
-          <IonCol class="EmailCol"></IonCol>
+          <IonCol class="EmailCol"> </IonCol>
+
+          <IonCol class="offerWantedCol">{{ totalofferWanted }}</IonCol>
+          <IonCol class="offerSeenCol">{{ totalofferSeen }}</IonCol>
+          <IonCol class="likedCol">{{ totalliked }}</IonCol>
           <IonCol class="MembershipTypeCol"></IonCol>
           <IonCol class="VIPMembershipCol"></IonCol>
           <IonCol class="VVIPMembershipCol"></IonCol>
           
-          <IonCol class="ResponseToYourOffersCol"></IonCol>
+          <IonCol class="responseToYourNeedsCol"></IonCol>
           <IonCol class="ResponseToYourOffersCol"></IonCol>
           <IonCol class="ResponseToYourBestOffersCol"></IonCol>
           <IonCol class="PitchTrainingCol"></IonCol>
@@ -180,11 +192,11 @@
           <IonCol class="LastLoggedInCol"></IonCol>
           <!-- Offer Data -->
           <IonCol class="OfferImageCol"></IonCol>
-          <IonCol class="OfferWantedCol">{{ totalOfferWanted }}</IonCol>
-          <IonCol class="OfferSeenCol">{{ totalOfferSeen }}</IonCol>
+          <IonCol class="offerWantedAllCol">{{ totalofferWantedAll }}</IonCol>
+          <IonCol class="offerSeenAllCol">{{ totalofferSeenAll }}</IonCol>
           <IonCol class="OfferListViewCol">{{ totalOfferListView }}</IonCol>
           <IonCol class="OfferRenewedCol">{{ totalOfferRenewed }}</IonCol>
-          <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
+          <IonCol class="likedAllCol">{{ totallikedAll }}</IonCol>
           <IonCol class="OfferLinkCol"></IonCol>
           <IonCol class="OfferTitleCol"></IonCol>
           <IonCol class="OfferCategoryCol"></IonCol>
@@ -232,6 +244,9 @@
     firstName: string;
     lastName: string;
     email: string;
+    offerWanted: number;
+    offerSeen: number;
+    liked: number;
     membershipType: string;
     VIPMembership: number;
     VVIPMembership: number;
@@ -265,11 +280,11 @@
     lastLoggedIn: string;
     // OfferDetails section
     offerImage: string; // URL or path to the image
-    offerWanted: number;
-    offerSeen: number;
+    offerWantedAll: number;
+    offerSeenAll: number;
     offerListView: number;
     offerRenewed: number;
-    liked: number;
+    likedAll: number;
     offerLink: string;
     offerTitle: string;
     offerCategory: string;
@@ -294,6 +309,9 @@
           firstName: 'Johneee',
           lastName: 'Doe',
           email: 'john.doe@example.com',
+          offerWanted: 100,
+          offerSeen: 200,
+          liked: 500,
           membershipType: 'Gold',
           VIPMembership: 43,
           VVIPMembership: 30,
@@ -325,11 +343,11 @@
           lastLoggedIn: '2023-06-01',
           // OfferDetails section
           offerImage: 'https://example.com/image.jpg',
-          offerWanted: 100,
-          offerSeen: 200,
+          offerWantedAll: 100,
+          offerSeenAll: 200,
           offerListView: 300,
           offerRenewed: 400,
-          liked: 500,
+          likedAll: 500,
           offerLink: 'https://example.com/offer',
           offerTitle: 'Amazing Offer',
           offerCategory: 'Real Estate',
@@ -347,6 +365,9 @@
           firstName: 'res',
           lastName: 'Doe',
           email: 'alice.smith@example.com',
+          offerWanted: 150,
+          offerSeen: 250,
+          liked: 550,
           membershipType: 'Silver',
           VIPMembership: 2,
           VVIPMembership: 30,
@@ -379,11 +400,11 @@
           lastLoggedIn: '2023-07-01',
           // OfferDetails section
           offerImage: 'https://example.com/image1.jpg',
-          offerWanted: 150,
-          offerSeen: 250,
+          offerWantedAll: 150,
+          offerSeenAll: 250,
           offerListView: 350,
           offerRenewed: 450,
-          liked: 550,
+          likedAll: 550,
           offerLink: 'https://example.com/offer1',
           offerTitle: 'Exclusive Offer',
           offerCategory: 'Technology',
@@ -402,6 +423,9 @@
           firstName: 'John',
           lastName: 'Doe',
           email: 'bob.brown@example.com',
+          offerWanted: 200,
+          offerSeen: 300,
+          liked: 600,
           membershipType: 'Platinum',
           VIPMembership: 7,
           VVIPMembership: 30,
@@ -433,11 +457,11 @@
           lastLoggedIn: '2023-08-01',
           // OfferDetails section
           offerImage: 'https://example.com/image2.jpg',
-          offerWanted: 200,
-          offerSeen: 300,
+          offerWantedAll: 200,
+          offerSeenAll: 300,
           offerListView: 400,
           offerRenewed: 500,
-          liked: 600,
+          likedAll: 600,
           offerLink: 'https://example.com/offer2',
           offerTitle: 'Premium Offer',
           offerCategory: 'Healthcare',
@@ -526,11 +550,15 @@
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
 
       // Offer Totals
-      const totalOfferWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerWanted, 0));
-      const totalOfferSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerSeen, 0));
+      const totalofferWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerWanted, 0));
+      const totalofferSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerSeen, 0));
+      const totalliked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
+
+      const totalofferWantedAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerWantedAll, 0));
+      const totalofferSeenAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerSeenAll, 0));
       const totalOfferListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerListView, 0));
       const totalOfferRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerRenewed, 0));
-      const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
+      const totallikedAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.likedAll, 0));
 
 
             //  * Navigates to the previous page, if possible.
@@ -551,19 +579,19 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Offers', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
+            'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'offerWanted', 'offerSeen', 'liked',  'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Offers', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn',
             // Offer section
-            'OfferImage', 'OfferWanted', 'OfferSeen', 'OfferListView', 'OfferRenewed', 'Liked', 'OfferLink', 'OfferTitle', 'OfferCategory', 'OfferCountry', 'OfferCity', 'OfferDuration', 'OfferContent',
+            'OfferImage', 'offerWantedAll', 'offerSeenAll', 'OfferListView', 'OfferRenewed', 'likedAll', 'OfferLink', 'OfferTitle', 'OfferCategory', 'OfferCountry', 'OfferCity', 'OfferDuration', 'OfferContent',
             // Offer section
           ],
           ...filteredMembers.value.map(member => [
-            member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourOffers, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
+            member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.offerWanted, member.offerSeen, member.liked, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
             member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
             member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn,
             // Offer section
-            member.offerImage, member.offerWanted, member.offerSeen, member.offerListView, member.offerRenewed, member.liked, member.offerLink, member.offerTitle, member.offerCategory, member.offerCountry, member.offerCity, member.offerDuration, member.offerContent,
+            member.offerImage, member.offerWantedAll, member.offerSeenAll, member.offerListView, member.offerRenewed, member.likedAll, member.offerLink, member.offerTitle, member.offerCategory, member.offerCountry, member.offerCity, member.offerDuration, member.offerContent,
             // Offer section
           ])
         ]
@@ -627,6 +655,9 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>offerWanted</th>
+                    <th>offerSeen</th>
+                    <th>liked</th>
                     <th>Membership Type</th>
                     <th>VIP Membership</th>
                     <th>VVIPMembership</th>
@@ -660,11 +691,11 @@
                     // Offer section
 
                     <th>Offer Image</th>
-                    <th>Offer Wanted</th>
-                    <th>Offer Seen</th>
+                    <th>offerWantedAll</th>
+                    <th>offerSeenAll</th>
                     <th>Offer ListView</th>
                     <th>Offer Renewed</th>
-                    <th>Liked</th>
+                    <th>likedAll</th>
                     <th>Offer Link</th>
                     <th>Offer Title</th>
                     <th>Offer Category</th>
@@ -685,10 +716,13 @@
                       <td>${member.firstName}</td>
                       <td>${member.lastName}</td>
                       <td>${member.email}</td>
+                      <td>${member.offerWanted}</td>
+                      <td>${member.offerSeen}</td>
+                      <td>${member.liked}</td>
                       <td>${member.membershipType}</td>
                       <td>${member.VIPMembership}</td>
                       <td>${member.VVIPMembership}</td>
-                      <td>${member.responseToYourOffers}</td>
+                      <td>${member.responseToYourNeeds}</td>
                       <td>${member.responseToYourOffers}</td>
                       <td>${member.responseToYourBestOffers}</td>
                       <td>${member.pitchTraining}</td>
@@ -717,11 +751,11 @@
 
                       // Offer Section
                       <td>${member.offerImage}</td>
-                      <td>${member.offerWanted}</td>
-                      <td>${member.offerSeen}</td>
+                      <td>${member.offerWantedAll}</td>
+                      <td>${member.offerSeenAll}</td>
                       <td>${member.offerListView}</td>
                       <td>${member.offerRenewed}</td>
-                      <td>${member.liked}</td>
+                      <td>${member.likedAll}</td>
                       <td>${member.offerLink}</td>
                       <td>${member.offerTitle}</td>
                       <td>${member.offerCategory}</td>
@@ -740,6 +774,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>${totalofferWanted.value}</td>
+                    <td>${totalofferSeen.value}</td>
+                    <td>${totalliked.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -770,11 +807,11 @@
                     <td></td>
                     <td></td>
                     // Offer section
-                    <td>${totalOfferWanted.value}</td>
-                    <td>${totalOfferSeen.value}</td>
+                    <td>${totalofferWantedAll.value}</td>
+                    <td>${totalofferSeenAll.value}</td>
                     <td>${totalOfferListView.value}</td>
                     <td>${totalOfferRenewed.value}</td>
-                    <td>${totalLiked.value}</td>
+                    <td>${totallikedAll.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -842,11 +879,15 @@
         totalSalary,
 
         // Offer section
-        totalOfferWanted,
-        totalOfferSeen,
+        totalofferWanted,
+        totalofferSeen,
+        totalliked,
+
+        totalofferWantedAll,
+        totalofferSeenAll,
         totalOfferListView,
         totalOfferRenewed,
-        totalLiked,
+        totallikedAll,
 
 
         close,
@@ -880,11 +921,11 @@
   Border-right: 2px red solid;
 }
 .TitleRow .OfferImageCol,
-.TitleRow .OfferWantedCol,
-.TitleRow .OfferSeenCol,
+.TitleRow .offerWantedAllCol,
+.TitleRow .offerSeenAllCol,
 .TitleRow .OfferListViewCol,
 .TitleRow .OfferRenewedCol,
-.TitleRow .LikedCol,
+.TitleRow .likedAllCol,
 .TitleRow .OfferLinkCol,
 .TitleRow .OfferTitleCol,
 .TitleRow .OfferCategoryCol,
@@ -894,13 +935,13 @@
 .TitleRow .OfferContentCol {
   border-top: 3px solid red;
 }
-  .arrowBackCircle {
-    /* position: fixed;
+  /* .arrowBackCircle {
+    position: fixed;
     top: 55;
     left: 90;
     right: 0;
-    z-index: 1; */
-  }
+    z-index: 1;
+  } */
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
@@ -924,7 +965,7 @@
     /* border: 4px solid rgb(26, 185, 18); */
   }
   .scrollingRow {
-    min-width: 5200px;
+    min-width: 5500px;
     /* border: 1px solid red; */
     flex-direction: column;
   }

@@ -124,6 +124,7 @@ import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOf
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
 // MyInvestmentApplicationComponent 
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
+import MyInvestmentAdsComponent from '@/components/MyInvestmentComponents/MyInvestmentAdsComponent.vue';
 
 
 
@@ -600,11 +601,16 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MyBestOffersActivityTableComponent',
     component: MyBestOffersActivityTableComponent
   },
-  // MyInvestmentApplicationComponent
+  // MyInvestmentApplicationComponent  
   {
     path: '/myInvestmentApplicationComponent',
     name: 'MyInvestmentApplicationComponent',
     component: MyInvestmentApplicationComponent
+  },
+  {
+    path: '/myInvestmentAdsComponent',
+    name: 'MyInvestmentAdsComponent',
+    component: MyInvestmentAdsComponent
   },
 
 

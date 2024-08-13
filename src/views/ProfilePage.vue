@@ -35,7 +35,7 @@
             <IonRow class="PaddingBorder bold" @click="showComponent('MyNeedsActivityTableComponent')">My Need</IonRow>
             <IonRow class="PaddingBorder " >My Pitches</IonRow>
             <IonRow class="PaddingBorder bold" @click="showComponent('MyInvestmentApplicationComponent')" >My Investment Applications</IonRow>
-            <IonRow class="PaddingBorder bold" >My Investments</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyInvestmentAdsComponent')">My Investments</IonRow>
             <IonRow class="PaddingBorder bold" @click="showComponent('MembersMyOrderTABsComponent')">My Orders</IonRow>
             <IonRow class="PaddingBorder " >My Blogs</IonRow>
             <IonRow class="PaddingBorder " >My Comments Posts</IonRow>
@@ -124,6 +124,7 @@ import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffers
 import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTableComponent.vue';
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
+import MyInvestmentAdsComponent from '@/components/MyInvestmentComponents/MyInvestmentAdsComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -157,6 +158,7 @@ export default defineComponent({
     MyNeedsActivityTableComponent,
     MyBestOffersActivityTableComponent,
     MyInvestmentApplicationComponent,
+    MyInvestmentAdsComponent,
 
     FooterComponent,
   },
@@ -198,6 +200,9 @@ export default defineComponent({
       }
       if (componentName === 'MyInvestmentApplicationComponent') {
         currentComponent.value = MyInvestmentApplicationComponent;
+      }
+      if (componentName === 'MyInvestmentAdsComponent') {
+        currentComponent.value = MyInvestmentAdsComponent;
       }
       if (componentName === 'MyBestOffersActivityTableComponent') {
         currentComponent.value = MyBestOffersActivityTableComponent;

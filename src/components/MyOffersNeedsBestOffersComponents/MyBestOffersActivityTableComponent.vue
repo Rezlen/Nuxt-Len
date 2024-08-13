@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">Track your Best Offer, activities, click, views, reaction and edits</p>
+    <p class="TitleP">Track your bestOffer, activities, click, views, reaction and edits</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
@@ -26,13 +26,17 @@
           <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
           <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
           <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferWantedCol" @click="sortMembers('bestOfferWanted')">Best Offer Wanted<IonIcon :icon="sortIcon('bestOfferWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferSeenCol" @click="sortMembers('bestOfferSeen')">Best Offer Seen<IonIcon :icon="sortIcon('bestOfferSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="likedCol" @click="sortMembers('liked')">Best Offer Liked<IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+
           <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
           <IonCol class="VIPMembershipCol" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
           <IonCol class="VVIPMembershipCol" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
 
-          <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
-          <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
-          <IonCol class="ResponseToYourBestOffersCol purple" @click="sortMembers('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="responseToYourNeedsCol purple" @click="sortMembers('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
+          <IonCol class="responseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
+          <IonCol class="responseToYourBestOffersCol purple" @click="sortMembers('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
           <IonCol class="PitchTrainingCol" @click="sortMembers('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
           <IonCol class="BusinessFundingAdviceCol" @click="sortMembers('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
           <IonCol class="FreeBusinessFundingAdviceCol" @click="sortMembers('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
@@ -56,25 +60,23 @@
           <IonCol class="WorkshopCol purple" @click="sortMembers('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
           <IonCol class="PresentationCol purple" @click="sortMembers('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-          <!-- BestOffers Data -->
-          <IonCol class="BestOfferImageCol" @click="sortMembers('bestOfferImage')">BestOffer Image <IonIcon :icon="sortIcon('bestOfferImage')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferWantedCol" @click="sortMembers('bestOfferWanted')">BestOffer Wanted<IonIcon :icon="sortIcon('bestOfferWanted')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferCommissionCol" @click="sortMembers('bestOfferCommission')">BestOffer Commission<IonIcon :icon="sortIcon('bestOfferCommission')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferSeenCol" @click="sortMembers('bestOfferSeen')">BestOffer Seen <IonIcon :icon="sortIcon('bestOfferSeen')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferListViewCol" @click="sortMembers('bestOfferListView')">BestOffer ListView <IonIcon :icon="sortIcon('bestOfferListView')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferRenewedCol" @click="sortMembers('bestOfferRenewed')">Best Offer Renewed <IonIcon :icon="sortIcon('bestOfferRenewed')" class="sort-icon" /></IonCol>
-          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferLinkCol" @click="sortMembers('bestOfferLink')">BestOffer Link <IonIcon :icon="sortIcon('bestOfferLink')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferTitleCol" @click="sortMembers('bestOfferTitle')">BestOffer Title <IonIcon :icon="sortIcon('bestOfferTitle')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferCategoryCol" @click="sortMembers('bestOfferCategory')">BestOffer Category <IonIcon :icon="sortIcon('bestOfferCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferCountryCol" @click="sortMembers('bestOfferCountry')">BestOffer Country <IonIcon :icon="sortIcon('bestOfferCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferCityCol" @click="sortMembers('bestOfferCity')">BestOffer City <IonIcon :icon="sortIcon('bestOfferCity')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferDurationCol" @click="sortMembers('bestOfferDuration')">Best Offer Duration <IonIcon :icon="sortIcon('bestOfferDuration')" class="sort-icon" /></IonCol>
-          <IonCol class="BestOfferContentCol" @click="sortMembers('bestOfferContent')">BestOffer Content <IonIcon :icon="sortIcon('bestOfferContent')" class="sort-icon" /></IonCol>
-          <!-- BestOffers Data -->
+          <!-- bestOffer Data -->
+          <IonCol class="bestOfferImageCol" @click="sortMembers('bestOfferImage')">bestOfferImage <IonIcon :icon="sortIcon('bestOfferImage')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferWantedAllCol" @click="sortMembers('bestOfferWantedAll')">bestOffer Wanted All<IonIcon :icon="sortIcon('bestOfferWantedAll')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferSeenAllCol" @click="sortMembers('bestOfferSeenAll')">bestOffer Seen All <IonIcon :icon="sortIcon('bestOfferSeenAll')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferListViewCol" @click="sortMembers('bestOfferListView')">bestOfferListView <IonIcon :icon="sortIcon('bestOfferListView')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferRenewedCol" @click="sortMembers('bestOfferRenewed')">bestOfferRenewed <IonIcon :icon="sortIcon('bestOfferRenewed')" class="sort-icon" /></IonCol>
+          <IonCol class="likedAllCol" @click="sortMembers('likedAll')">Liked All <IonIcon :icon="sortIcon('likedAll')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferLinkCol" @click="sortMembers('bestOfferLink')">bestOfferLink <IonIcon :icon="sortIcon('bestOfferLink')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferTitleCol" @click="sortMembers('bestOfferTitle')">bestOfferTitle <IonIcon :icon="sortIcon('bestOfferTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferCategoryCol" @click="sortMembers('bestOfferCategory')">bestOfferCategory <IonIcon :icon="sortIcon('bestOfferCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferCountryCol" @click="sortMembers('bestOfferCountry')">bestOfferCountry <IonIcon :icon="sortIcon('bestOfferCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferCityCol" @click="sortMembers('bestOfferCity')">bestOfferCity <IonIcon :icon="sortIcon('bestOfferCity')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferDurationCol" @click="sortMembers('bestOfferDuration')">bestOfferDuration <IonIcon :icon="sortIcon('bestOfferDuration')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferContentCol" @click="sortMembers('bestOfferContent')">bestOfferContent <IonIcon :icon="sortIcon('bestOfferContent')" class="sort-icon" /></IonCol>
           <IonCol class="ActionCol">Hide, Edit</IonCol>
         </IonRow>
-
+          
         
         <!-- Data rows -->
         <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
@@ -86,13 +88,17 @@
           <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
           <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
           <IonCol class="EmailCol">{{ member.email }}</IonCol>
+          <IonCol class="bestOfferWantedCol">{{ member.bestOfferWanted }}</IonCol>
+          <IonCol class="bestOfferSeenCol">{{ member.bestOfferSeen }}</IonCol>
+          <IonCol class="likedCol">{{ member.liked }}</IonCol>
+
           <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
           <IonCol class="VIPMembershipCol">{{ member.VIPMembership }}</IonCol>
           <IonCol class="VVIPMembershipCol">{{ member.VVIPMembership }}</IonCol>
 
-          <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
-          <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
-          <IonCol class="ResponseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
+          <IonCol class="responseToYourNeedsCol">{{ member.responseToYourNeeds}}</IonCol>
+          <IonCol class="responseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
+          <IonCol class="responseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
           <IonCol class="PitchTrainingCol">{{ member.pitchTraining }}</IonCol>
           <IonCol class="BusinessFundingAdviceCol">{{ member.businessFundingAdvice }}</IonCol>
           <IonCol class="FreeBusinessFundingAdviceCol">{{ member.freeBusinessFundingAdvice }}</IonCol>
@@ -116,22 +122,20 @@
           <IonCol class="WorkshopCol">{{ member.workshop }}</IonCol>
           <IonCol class="PresentationCol">{{ member.presentation }}</IonCol>
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
-          <!-- BestOffers  Data -->
-          <IonCol class="BestOfferImageCol">{{ member.bestOfferImage }}</IonCol>
-          <IonCol class="BestOfferWantedCol">{{ member.bestOfferWanted }}</IonCol>
-          <IonCol class="BestOfferCommissionCol">{{ member.bestOfferCommission }}</IonCol>
-          <IonCol class="BestOfferSeenCol">{{ member.bestOfferSeen }}</IonCol>
-          <IonCol class="BestOfferListViewCol">{{ member.bestOfferListView }}</IonCol>
-          <IonCol class="BestOfferRenewedCol">{{ member.bestOfferRenewed }}</IonCol>
-          <IonCol class="LikedCol">{{ member.liked }}</IonCol>
-          <IonCol class="BestOfferLinkCol">{{ member.bestOfferLink }}</IonCol>
-          <IonCol class="BestOfferTitleCol">{{ member.bestOfferTitle }}</IonCol>
-          <IonCol class="BestOfferCategoryCol">{{ member.bestOfferCategory }}</IonCol>
-          <IonCol class="BestOfferCountryCol">{{ member.bestOfferCountry }}</IonCol>
-          <IonCol class="BestOfferCityCol">{{ member.bestOfferCity }}</IonCol>
-          <IonCol class="BestOfferDurationCol">{{ member.bestOfferDuration }}</IonCol>
-          <IonCol class="BestOfferContentCol">{{ member.bestOfferContent }}</IonCol>
-          <!-- BestOffers  Data -->
+          <!-- bestOffer Data -->
+          <IonCol class="bestOfferImageCol">{{ member.bestOfferImage }}</IonCol>
+          <IonCol class="bestOfferWantedAllCol">{{ member.bestOfferWantedAll }}</IonCol>
+          <IonCol class="bestOfferSeenAllCol">{{ member.bestOfferSeenAll }}</IonCol>
+          <IonCol class="bestOfferListViewCol">{{ member.bestOfferListView }}</IonCol>
+          <IonCol class="bestOfferRenewedCol">{{ member.bestOfferRenewed }}</IonCol>
+          <IonCol class="likedAllCol">{{ member.likedAll }}</IonCol>
+          <IonCol class="bestOfferLinkCol">{{ member.bestOfferLink }}</IonCol>
+          <IonCol class="bestOfferTitleCol">{{ member.bestOfferTitle }}</IonCol>
+          <IonCol class="bestOfferCategoryCol">{{ member.bestOfferCategory }}</IonCol>
+          <IonCol class="bestOfferCountryCol">{{ member.bestOfferCountry }}</IonCol>
+          <IonCol class="bestOfferCityCol">{{ member.bestOfferCity }}</IonCol>
+          <IonCol class="bestOfferDurationCol">{{ member.bestOfferDuration }}</IonCol>
+          <IonCol class="bestOfferContentCol">{{ member.bestOfferContent }}</IonCol>
           <IonCol class="ActionCol">
             <IonButton class="ActionCol" fill="clear" title="Close">
               <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
@@ -150,14 +154,18 @@
           <IonCol class="PersonPicCol"></IonCol>
           <IonCol class="FirstNameCol"></IonCol>
           <IonCol class="LastNameCol"></IonCol>
-          <IonCol class="EmailCol"></IonCol>
+          <IonCol class="EmailCol"> </IonCol>
+
+          <IonCol class="bestOfferWantedCol">{{ totalbestOfferWanted }}</IonCol>
+          <IonCol class="bestOfferSeenCol">{{ totalbestOfferSeen }}</IonCol>
+          <IonCol class="likedCol">{{ totalliked }}</IonCol>
           <IonCol class="MembershipTypeCol"></IonCol>
           <IonCol class="VIPMembershipCol"></IonCol>
           <IonCol class="VVIPMembershipCol"></IonCol>
           
-          <IonCol class="ResponseToYourOffersCol"></IonCol>
-          <IonCol class="ResponseToYourOffersCol"></IonCol>
-          <IonCol class="ResponseToYourBestOffersCol"></IonCol>
+          <IonCol class="responseToYourNeedsCol"></IonCol>
+          <IonCol class="responseToYourOffersCol"></IonCol>
+          <IonCol class="responseToYourBestOffersCol"></IonCol>
           <IonCol class="PitchTrainingCol"></IonCol>
           <IonCol class="BusinessFundingAdviceCol"></IonCol>
           <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
@@ -182,22 +190,20 @@
           <IonCol class="PresentationCol"></IonCol>
           
           <IonCol class="LastLoggedInCol"></IonCol>
-          <!-- BestOffers Data -->
-          <IonCol class="BestOfferImageCol"></IonCol>
-          <IonCol class="BestOfferWantedCol">{{ totalBestOfferWanted }}</IonCol>
-          <IonCol class="BestOfferCommissionCol"></IonCol>
-          <IonCol class="BestOfferSeenCol">{{ totalBestOfferSeen }}</IonCol>
-          <IonCol class="BestOfferListViewCol">{{ totalBestOfferListView }}</IonCol>
-          <IonCol class="BestOfferRenewedCol">{{ totalBestOfferRenewed }}</IonCol>
-          <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
-          <IonCol class="BestOfferLinkCol"></IonCol>
-          <IonCol class="BestOfferTitleCol"></IonCol>
-          <IonCol class="BestOfferCategoryCol"></IonCol>
-          <IonCol class="BestOfferCountryCol"></IonCol>
-          <IonCol class="BestOfferCityCol"></IonCol>
-          <IonCol class="BestOfferDurationCol"></IonCol>
-          <IonCol class="BestOfferContentCol"></IonCol>
-          <!-- BestOffers Data -->
+          <!-- bestOffer Data -->
+          <IonCol class="bestOfferImageCol"></IonCol>
+          <IonCol class="bestOfferWantedAllCol">{{ totalbestOfferWantedAll }}</IonCol>
+          <IonCol class="bestOfferSeenAllCol">{{ totalbestOfferSeenAll }}</IonCol>
+          <IonCol class="bestOfferListViewCol">{{ totalbestOfferListView }}</IonCol>
+          <IonCol class="bestOfferRenewedCol">{{ totalbestOfferRenewed }}</IonCol>
+          <IonCol class="likedAllCol">{{ totallikedAll }}</IonCol>
+          <IonCol class="bestOfferLinkCol"></IonCol>
+          <IonCol class="bestOfferTitleCol"></IonCol>
+          <IonCol class="bestOfferCategoryCol"></IonCol>
+          <IonCol class="bestOfferCountryCol"></IonCol>
+          <IonCol class="bestOfferCityCol"></IonCol>
+          <IonCol class="bestOfferDurationCol"></IonCol>
+          <IonCol class="bestOfferContentCol"></IonCol>
           <IonCol class="ActionCol"></IonCol>
         </IonRow>
 
@@ -238,6 +244,9 @@
     firstName: string;
     lastName: string;
     email: string;
+    bestOfferWanted: number;
+    bestOfferSeen: number;
+    liked: number;
     membershipType: string;
     VIPMembership: number;
     VVIPMembership: number;
@@ -269,14 +278,13 @@
     presentation: number;
 
     lastLoggedIn: string;
-    // BestOfferDetails section
+    // bestOfferDetails section
     bestOfferImage: string; // URL or path to the image
-    bestOfferWanted: number;
-    bestOfferCommission: number;
-    bestOfferSeen: number;
+    bestOfferWantedAll: number;
+    bestOfferSeenAll: number;
     bestOfferListView: number;
     bestOfferRenewed: number;
-    liked: number;
+    likedAll: number;
     bestOfferLink: string;
     bestOfferTitle: string;
     bestOfferCategory: string;
@@ -288,7 +296,7 @@
   }
 
   export default defineComponent({
-    name: 'MyBestOffersActivityTableComponent',
+    name: 'MybestOffersActivityTableComponent',
     components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, BestOfferTABsComponent, },
     setup() {
       const members = ref<Member[]>([
@@ -301,6 +309,9 @@
           firstName: 'Johneee',
           lastName: 'Doe',
           email: 'john.doe@example.com',
+          bestOfferWanted: 100,
+          bestOfferSeen: 200,
+          liked: 500,
           membershipType: 'Gold',
           VIPMembership: 43,
           VVIPMembership: 30,
@@ -330,16 +341,15 @@
           workshop: 22,
           presentation: 22,
           lastLoggedIn: '2023-06-01',
-          // BestOfferDetails section
+          // bestOfferDetails section
           bestOfferImage: 'https://example.com/image.jpg',
-          bestOfferWanted: 100,
-          bestOfferCommission: 100,
-          bestOfferSeen: 200,
+          bestOfferWantedAll: 100,
+          bestOfferSeenAll: 200,
           bestOfferListView: 300,
           bestOfferRenewed: 400,
-          liked: 500,
+          likedAll: 500,
           bestOfferLink: 'https://example.com/bestOffer',
-          bestOfferTitle: 'Amazing BestOffer',
+          bestOfferTitle: 'Amazing bestOffer',
           bestOfferCategory: 'Real Estate',
           bestOfferCountry: 'USA',
           bestOfferCity: 'New York',
@@ -355,6 +365,9 @@
           firstName: 'res',
           lastName: 'Doe',
           email: 'alice.smith@example.com',
+          bestOfferWanted: 150,
+          bestOfferSeen: 250,
+          liked: 550,
           membershipType: 'Silver',
           VIPMembership: 2,
           VVIPMembership: 30,
@@ -385,16 +398,15 @@
           workshop: 22,
           presentation: 22,
           lastLoggedIn: '2023-07-01',
-          // BestOfferDetails section
+          // bestOfferDetails section
           bestOfferImage: 'https://example.com/image1.jpg',
-          bestOfferWanted: 150,
-          bestOfferCommission: 100,
-          bestOfferSeen: 250,
+          bestOfferWantedAll: 150,
+          bestOfferSeenAll: 250,
           bestOfferListView: 350,
           bestOfferRenewed: 450,
-          liked: 550,
+          likedAll: 550,
           bestOfferLink: 'https://example.com/bestOffer1',
-          bestOfferTitle: 'Exclusive BestOffer',
+          bestOfferTitle: 'Exclusive bestOffer',
           bestOfferCategory: 'Technology',
           bestOfferCountry: 'Canada',
           bestOfferCity: 'Toronto',
@@ -411,6 +423,9 @@
           firstName: 'John',
           lastName: 'Doe',
           email: 'bob.brown@example.com',
+          bestOfferWanted: 200,
+          bestOfferSeen: 300,
+          liked: 600,
           membershipType: 'Platinum',
           VIPMembership: 7,
           VVIPMembership: 30,
@@ -440,16 +455,15 @@
           workshop: 22,
           presentation: 22,
           lastLoggedIn: '2023-08-01',
-          // BestOfferDetails section
+          // bestOfferDetails section
           bestOfferImage: 'https://example.com/image2.jpg',
-          bestOfferWanted: 200,
-          bestOfferCommission: 600,
-          bestOfferSeen: 300,
+          bestOfferWantedAll: 200,
+          bestOfferSeenAll: 300,
           bestOfferListView: 400,
           bestOfferRenewed: 500,
-          liked: 600,
+          likedAll: 600,
           bestOfferLink: 'https://example.com/bestOffer2',
-          bestOfferTitle: 'Premium BestOffer',
+          bestOfferTitle: 'Premium bestOffer',
           bestOfferCategory: 'Healthcare',
           bestOfferCountry: 'UK',
           bestOfferCity: 'London',
@@ -536,11 +550,15 @@
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
 
       // bestOffer Totals
-      const totalBestOfferWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferWanted, 0));
-      const totalBestOfferSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferSeen, 0));
-      const totalBestOfferListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferListView, 0));
-      const totalBestOfferRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferRenewed, 0));
-      const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
+      const totalbestOfferWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferWanted, 0));
+      const totalbestOfferSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferSeen, 0));
+      const totalliked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
+
+      const totalbestOfferWantedAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferWantedAll, 0));
+      const totalbestOfferSeenAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferSeenAll, 0));
+      const totalbestOfferListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferListView, 0));
+      const totalbestOfferRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bestOfferRenewed, 0));
+      const totallikedAll = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.likedAll, 0));
 
 
             //  * Navigates to the previous page, if possible.
@@ -561,19 +579,19 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Offers', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
+            'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'bestOfferWanted', 'bestOfferSeen', 'liked',  'MembershipType', 'VIP Membership', 'VVIPMembership',    'responseToYourNeeds', 'responseToYourOffers', 'responseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn',
             // bestOffer section
-            'BestOfferImage', 'BestOfferWanted', 'BestOfferCommission', 'BestOfferSeen', 'BestOfferListView', 'BestOfferRenewed', 'Liked', 'BestOfferLink', 'BestOfferTitle', 'BestOfferCategory', 'BestOfferCountry', 'BestOfferCity', 'BestOfferDuration', 'BestOfferContent',
+            'bestOfferImage', 'bestOfferWantedAll', 'bestOfferSeenAll', 'bestOfferListView', 'bestOfferRenewed', 'likedAll', 'bestOfferLink', 'bestOfferTitle', 'bestOfferCategory', 'bestOfferCountry', 'bestOfferCity', 'bestOfferDuration', 'bestOfferContent',
             // bestOffer section
           ],
           ...filteredMembers.value.map(member => [
-            member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourOffers, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
+            member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.bestOfferWanted, member.bestOfferSeen, member.liked, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
             member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
             member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn,
             // bestOffer section
-            member.bestOfferImage, member.bestOfferWanted, member.bestOfferCommission, member.bestOfferSeen, member.bestOfferListView, member.bestOfferRenewed, member.liked, member.bestOfferLink, member.bestOfferTitle, member.bestOfferCategory, member.bestOfferCountry, member.bestOfferCity, member.bestOfferDuration, member.bestOfferContent,
+            member.bestOfferImage, member.bestOfferWantedAll, member.bestOfferSeenAll, member.bestOfferListView, member.bestOfferRenewed, member.likedAll, member.bestOfferLink, member.bestOfferTitle, member.bestOfferCategory, member.bestOfferCountry, member.bestOfferCity, member.bestOfferDuration, member.bestOfferContent,
             // bestOffer section
           ])
         ]
@@ -637,12 +655,15 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>bestOfferWanted</th>
+                    <th>bestOfferSeen</th>
+                    <th>liked</th>
                     <th>Membership Type</th>
                     <th>VIP Membership</th>
                     <th>VVIPMembership</th>
-                    <th>Response To Your Offers</th>
-                    <th>Response To Your Offers</th>
-                    <th>Response To Your Best Offers</th>
+                    <th>Response To Your bestOffers</th>
+                    <th>Response To Your bestOffers</th>
+                    <th>Response To Your Best bestOffers</th>
                     <th>PitchTraining</th>
                     <th>Business Funding Advice</th>
                     <th>Free Business Funding Advice</th>
@@ -667,22 +688,21 @@
                     <th>Presentation</th>
                     <th>Last Logged In</th>
 
-                    // BestOffer section
+                    // bestOffer section
 
-                    <th>BestOffer Image</th>
-                    <th>BestOffer Wanted</th>
-                    <th>BestOffer Commission</th>
-                    <th>BestOffer Seen</th>
-                    <th>BestOffer ListView</th>
-                    <th>BestOffer Renewed</th>
-                    <th>Liked</th>
-                    <th>BestOffer Link</th>
-                    <th>BestOffer Title</th>
-                    <th>BestOffer Category</th>
-                    <th>BestOffer Country</th>
-                    <th>BestOffer City</th>
-                    <th>BestOffer Duration</th>
-                    <th>BestOffer Content</th>
+                    <th>bestOffer Image</th>
+                    <th>bestOfferWantedAll</th>
+                    <th>bestOfferSeenAll</th>
+                    <th>bestOffer ListView</th>
+                    <th>bestOffer Renewed</th>
+                    <th>likedAll</th>
+                    <th>bestOffer Link</th>
+                    <th>bestOffer Title</th>
+                    <th>bestOffer Category</th>
+                    <th>bestOffer Country</th>
+                    <th>bestOffer City</th>
+                    <th>bestOffer Duration</th>
+                    <th>bestOffer Content</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -696,10 +716,13 @@
                       <td>${member.firstName}</td>
                       <td>${member.lastName}</td>
                       <td>${member.email}</td>
+                      <td>${member.bestOfferWanted}</td>
+                      <td>${member.bestOfferSeen}</td>
+                      <td>${member.liked}</td>
                       <td>${member.membershipType}</td>
                       <td>${member.VIPMembership}</td>
                       <td>${member.VVIPMembership}</td>
-                      <td>${member.responseToYourOffers}</td>
+                      <td>${member.responseToYourNeeds}</td>
                       <td>${member.responseToYourOffers}</td>
                       <td>${member.responseToYourBestOffers}</td>
                       <td>${member.pitchTraining}</td>
@@ -726,14 +749,13 @@
                       <td>${member.presentation}</td>
                       <td>${member.lastLoggedIn}</td>
 
-                      // BestOffer Section
+                      // bestOffer Section
                       <td>${member.bestOfferImage}</td>
-                      <td>${member.bestOfferWanted}</td>
-                      <td>${member.bestOfferCommission}</td>
-                      <td>${member.bestOfferSeen}</td>
+                      <td>${member.bestOfferWantedAll}</td>
+                      <td>${member.bestOfferSeenAll}</td>
                       <td>${member.bestOfferListView}</td>
                       <td>${member.bestOfferRenewed}</td>
-                      <td>${member.liked}</td>
+                      <td>${member.likedAll}</td>
                       <td>${member.bestOfferLink}</td>
                       <td>${member.bestOfferTitle}</td>
                       <td>${member.bestOfferCategory}</td>
@@ -752,6 +774,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td>${totalbestOfferWanted.value}</td>
+                    <td>${totalbestOfferSeen.value}</td>
+                    <td>${totalliked.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -781,20 +806,20 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    // BestOffer section
-                    <td></td>
-                    <td>${totalBestOfferWanted.value}</td>
-                    <td></td>
-                    <td>${totalBestOfferSeen.value}</td>
-                    <td>${totalBestOfferListView.value}</td>
-                    <td>${totalBestOfferRenewed.value}</td>
-                    <td>${totalLiked.value}</td>
+                    // bestOffer section
+                    <td>${totalbestOfferWantedAll.value}</td>
+                    <td>${totalbestOfferSeenAll.value}</td>
+                    <td>${totalbestOfferListView.value}</td>
+                    <td>${totalbestOfferRenewed.value}</td>
+                    <td>${totallikedAll.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>                  
+                    <td></td>
+                    <td></td>
+                    <td></td>                    
                   </tr>
                 </tbody>
               </table>
@@ -853,13 +878,16 @@
         totalBusinessRevenue,
         totalSalary,
 
+        // bestOffer section
+        totalbestOfferWanted,
+        totalbestOfferSeen,
+        totalliked,
 
-        // BestOffer section
-        totalBestOfferWanted,
-        totalBestOfferSeen,
-        totalBestOfferListView,
-        totalBestOfferRenewed,
-        totalLiked,
+        totalbestOfferWantedAll,
+        totalbestOfferSeenAll,
+        totalbestOfferListView,
+        totalbestOfferRenewed,
+        totallikedAll,
 
 
         close,
@@ -886,26 +914,25 @@
   .search{
     width: 100px;
   }
-.BestOfferImageCol {
+  .bestOfferImageCol {
   Border-left: 2px red solid;
 }
-.BestOfferContentCol {
+.bestOfferContentCol {
   Border-right: 2px red solid;
 }
-.TitleRow .BestOfferImageCol,
-.TitleRow .BestOfferWantedCol,
-.TitleRow .BestOfferCommissionCol,
-.TitleRow .BestOfferSeenCol,
-.TitleRow .BestOfferListViewCol,
-.TitleRow .BestOfferRenewedCol,
-.TitleRow .LikedCol,
-.TitleRow .BestOfferLinkCol,
-.TitleRow .BestOfferTitleCol,
-.TitleRow .BestOfferCategoryCol,
-.TitleRow .BestOfferCountryCol,
-.TitleRow .BestOfferCityCol,
-.TitleRow .BestOfferDurationCol,
-.TitleRow .BestOfferContentCol {
+.TitleRow .bestOfferImageCol,
+.TitleRow .bestOfferWantedAllCol,
+.TitleRow .bestOfferSeenAllCol,
+.TitleRow .bestOfferListViewCol,
+.TitleRow .bestOfferRenewedCol,
+.TitleRow .likedAllCol,
+.TitleRow .bestOfferLinkCol,
+.TitleRow .bestOfferTitleCol,
+.TitleRow .bestOfferCategoryCol,
+.TitleRow .bestOfferCountryCol,
+.TitleRow .bestOfferCityCol,
+.TitleRow .bestOfferDurationCol,
+.TitleRow .bestOfferContentCol {
   border-top: 3px solid red;
 }
   /* .arrowBackCircle {
@@ -938,7 +965,7 @@
     /* border: 4px solid rgb(26, 185, 18); */
   }
   .scrollingRow {
-    min-width: 5200px;
+    min-width: 5500px;
     /* border: 1px solid red; */
     flex-direction: column;
   }

@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">History Of Your Investment Applications</p>
+    <p class="TitleP">History Of Your Investment Adverts, Clicks, Messages and Edit</p>
 
     <IonRow class="ButtonRow">
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
@@ -19,28 +19,35 @@
           <IonRow class="TitleRow">
             
             <IonCol class="OrderIDCol" @click="sortMembers('id')">Order ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-            <IonCol class="BookingDateCol topBorder" @click="sortMembers('BookingDate')">Application Date <IonIcon :icon="sortIcon('BookingDate')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol topBorder" @click="sortMembers('ApplicationIdeaBusinessName')">Application Idea Business Name <IonIcon :icon="sortIcon('ApplicationIdeaBusinessName')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol topBorder" @click="sortMembers('ApplicationIdeaBizCategory')">Application Idea Biz Category <IonIcon :icon="sortIcon('ApplicationIdeaBizCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="EquityLoanCol topBorder" @click="sortMembers('EquityLoan')">EquityLoan <IonIcon :icon="sortIcon('EquityLoan')" class="sort-icon" /></IonCol>
+            <IonCol class="BookingDateCol topBorder" @click="sortMembers('BookingDate')">Advert Date <IonIcon :icon="sortIcon('BookingDate')" class="sort-icon" /></IonCol>
+            <!-- Investors Profile Data -->
+            <IonCol class="InvestmentAmountCol topBorder" @click="sortMembers('investmentAmount')">Investment Amount<IonIcon :icon="sortIcon('investmentAmount')" class="sort-icon" /></IonCol>
+            <IonCol class="EquityLoanCol topBorder" @click="sortMembers('equityLoan')">EquityLoan <IonIcon :icon="sortIcon('equityLoan')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestingCountryCol topBorder" @click="sortMembers('investingCountry')">Investing Country <IonIcon :icon="sortIcon('investingCountry')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestingCityCol topBorder" @click="sortMembers('investingCity')">Investing City <IonIcon :icon="sortIcon('investingCity')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestingLengthCol topBorder" @click="sortMembers('investingLength')">Investing Length <IonIcon :icon="sortIcon('investingLength')" class="sort-icon" /></IonCol>
+            <IonCol class="WantedROICol topBorder" @click="sortMembers('wantedROI')">Wanted ROI <IonIcon :icon="sortIcon('wantedROI')" class="sort-icon" /></IonCol>
+            <IonCol class="MobNoCol topBorder" @click="sortMembers('mobNo')">Mob No <IonIcon :icon="sortIcon('mobNo')" class="sort-icon" /></IonCol>
+            <IonCol class="RequiredEquityInterestCol topBorder" @click="sortMembers('requiredEquityInterest')">Required EquityInterest <IonIcon :icon="sortIcon('requiredEquityInterest')" class="sort-icon" /></IonCol>
+            <IonCol class="ProductServiceCol topBorder" @click="sortMembers('productService')">Product/Service <IonIcon :icon="sortIcon('productService')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestingCategoryCol topBorder" @click="sortMembers('investingCategory')">Investing Category <IonIcon :icon="sortIcon('investingCategory')" class="sort-icon" /></IonCol>
+            <IonCol class="LookingForSummeryCol topBorder" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
+            <!-- Investors Profile Data -->
             <IonCol class="DisplayedInListCol Purple topBorder" @click="sortMembers('DisplayedInList')">Displayed in a Page <IonIcon :icon="sortIcon('DisplayedInList')" class="sort-icon" /></IonCol>
-            <IonCol class="openedSeenAllCol Purple topBorder" @click="sortMembers('openedSeenAll')">opened Seen All <IonIcon :icon="sortIcon('openedSeenAll')" class="sort-icon" /></IonCol>
+            <IonCol class="openedSeenAllCol Purple topBorder" @click="sortMembers('openedSeenAll')">Opened Seen All <IonIcon :icon="sortIcon('openedSeenAll')" class="sort-icon" /></IonCol>
             <IonCol class="applicationMessagedAllCol Purple topBorder" @click="sortMembers('applicationMessagedAll')">Application Messaged All <IonIcon :icon="sortIcon('applicationMessagedAll')" class="sort-icon" /></IonCol>
             <IonCol class="TopCategoryOpenedYourApplicationCol topBorder" @click="sortMembers('TopCategoryOpenedYourApplication')">Top Category Opened Your Application <IonIcon :icon="sortIcon('TopCategoryOpenedYourApplication')" class="sort-icon" /></IonCol>
             <IonCol class="ProductServiceCol topBorder" @click="sortMembers('ProductService')">Product Or Service <IonIcon :icon="sortIcon('ProductService')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationAmountCol Purple topBorder" @click="sortMembers('ApplicationAmount')">Application Amount <IonIcon :icon="sortIcon('ApplicationAmount')" class="sort-icon" /></IonCol>
-            <IonCol class="RevenueInThreeYearsCol Purple topBorder" @click="sortMembers('RevenueInThreeYears')">Revenue In Three Years <IonIcon :icon="sortIcon('RevenueInThreeYears')" class="sort-icon" /></IonCol>
-            <IonCol class="ProfitInThreeYearsCol Purple topBorder" @click="sortMembers('ProfitInThreeYears')">Profit In Three Years <IonIcon :icon="sortIcon('ProfitInThreeYears')" class="sort-icon" /></IonCol>
             <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')">Expiring Date <IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
             <IonCol class="TimeLeftTillExpiryCol topBorder" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
             
-            <IonCol class="successFeeCommissionPaidCol topBorder" @click="sortMembers('successFeeCommissionPaid')">SuccessFee CommissionPaid <IonIcon :icon="sortIcon('successFeeCommissionPaid')" class="sort-icon" /></IonCol>
+            <IonCol class="successFeeCommissionPaidCol topBorder" @click="sortMembers('successFeeCommissionPaid')">SuccessFee Commission Paid <IonIcon :icon="sortIcon('successFeeCommissionPaid')" class="sort-icon" /></IonCol>
             <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
             <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
             <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
             <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
             <IonCol class="openedSeenCol Purple topBorder" @click="sortMembers('openedSeen')">Opened Seen <IonIcon :icon="sortIcon('openedSeen')" class="sort-icon" /></IonCol>
-            <IonCol class="applicationMessagedCol Purple topBorder" @click="sortMembers('applicationMessaged')">Application Messaged <IonIcon :icon="sortIcon('applicationMessaged')" class="sort-icon" /></IonCol>
+            <IonCol class="applicationMessagedCol Purple topBorder" @click="sortMembers('applicationMessaged')">Messaged <IonIcon :icon="sortIcon('applicationMessaged')" class="sort-icon" /></IonCol>
             <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
             <IonCol class="VIPMembershipCol" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
             <IonCol class="VVIPMembershipCol" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
@@ -80,17 +87,24 @@
           <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
             <IonCol class="OrderIDCol">{{ member.id }}</IonCol>
             <IonCol class="BookingDateCol">{{ member.BookingDate }}</IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol">{{ member.ApplicationIdeaBusinessName}}</IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol">{{ member.ApplicationIdeaBizCategory}}</IonCol>
-            <IonCol class="EquityLoanCol">{{ member.EquityLoan }}</IonCol>
+            <!-- Investors Profile Data -->
+            <IonCol class="InvestmentAmountCol">{{ member.investmentAmount }}</IonCol>
+            <IonCol class="EquityLoanCol">{{ member.equityLoan }}</IonCol>
+            <IonCol class="InvestingCountryCol">{{ member.investingCountry }}</IonCol>
+            <IonCol class="InvestingCityCol">{{ member.investingCity }}</IonCol>
+            <IonCol class="InvestingLengthCol">{{ member.investingLength }}</IonCol>
+            <IonCol class="WantedROICol">{{ member.wantedROI }}</IonCol>
+            <IonCol class="MobNoCol">{{ member.mobNo }}</IonCol>
+            <IonCol class="RequiredEquityInterestCol">{{ member.requiredEquityInterest }}</IonCol>
+            <IonCol class="ProductServiceCol">{{ member.productService }}</IonCol>
+            <IonCol class="InvestingCategoryCol">{{ member.investingCategory }}</IonCol>
+            <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
+            <!-- Investors Profile Data -->
             <IonCol class="DisplayedInListCol">{{ member.DisplayedInList }}</IonCol>
             <IonCol class="openedSeenAllCol">{{ member.openedSeenAll }}</IonCol>
             <IonCol class="applicationMessagedAllCol">{{ member.applicationMessagedAll }}</IonCol>
             <IonCol class="TopCategoryOpenedYourApplicationCol">{{ member.TopCategoryOpenedYourApplication }}</IonCol>
             <IonCol class="ProductServiceCol">{{ member.ProductService }}</IonCol>
-            <IonCol class="ApplicationAmountCol">{{ member.ApplicationAmount }}</IonCol>
-            <IonCol class="RevenueInThreeYearsCol">{{ member.RevenueInThreeYears }}</IonCol>
-            <IonCol class="ProfitInThreeYearsCol">{{ member.ProfitInThreeYears }}</IonCol>
             <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
             <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry}}</IonCol>
             
@@ -144,17 +158,24 @@
           <IonRow class="TotalRow">
             <IonCol class="OrderIDCol">Totals:</IonCol>
             <IonCol class="BookingDateCol"></IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol"></IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol"></IonCol>
+            <!-- Investor section -->
+            <IonCol class="InvestmentAmountCol">{{ totalInvestmentAmount }}</IonCol>
             <IonCol class="EquityLoanCol"></IonCol>
+            <IonCol class="InvestingCountryCol"></IonCol>
+            <IonCol class="InvestingCityCol"></IonCol>
+            <IonCol class="InvestingLengthCol"></IonCol>
+            <IonCol class="WantedROICol"></IonCol>
+            <IonCol class="MobNoCol"></IonCol>
+            <IonCol class="RequiredEquityCol"></IonCol>
+            <IonCol class="ProductServiceCol"></IonCol>
+            <IonCol class="InvestingCategoryCol"></IonCol>
+            <IonCol class="LookingForSummeryCol"></IonCol>
+            <!-- Investor section -->
             <IonCol class="DisplayedInListCol"></IonCol>
             <IonCol class="openedSeenAllCol"></IonCol>
             <IonCol class="applicationMessagedAllCol"></IonCol>
             <IonCol class="TopCategoryOpenedYourApplicationCol"></IonCol>
             <IonCol class="ProductServiceCol"></IonCol>
-            <IonCol class="ApplicationAmountCol"></IonCol>
-            <IonCol class="RevenueInThreeYearsCol"></IonCol>
-            <IonCol class="ProfitInThreeYearsCol"></IonCol>
             <IonCol class="expiringDateCol"></IonCol>
             <IonCol class="TimeLeftTillExpiryCol"></IonCol>
             <IonCol class="successFeeCommissionPaidCol"></IonCol>
@@ -210,7 +231,7 @@
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
     <IonRow class="editingRow">
-      <FormApplyForInvestmentComponent/>
+      <FormProvideInvestmentComponent/>
     </IonRow>    
 
   </IonGrid>
@@ -225,22 +246,30 @@
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
   import { close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
-  import FormApplyForInvestmentComponent from '@/components/InvestmentComponents/FormApplyForInvestmentComponent.vue';
+  import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
 
   interface Member {
     id: number;
     BookingDate: string;
-    ApplicationIdeaBusinessName: string;
-    ApplicationIdeaBizCategory: string;
-    EquityLoan: string;
+    // Investor section 
+    investmentAmount: number;
+    equityLoan: 'Equity' | 'Loan';
+    investingCountry: string;
+    investingCity: string;
+    investingLength: string;
+    wantedROI: number;
+    mobNo: string;
+    requiredEquityInterest: number;
+    productService: string;
+    investingCategory: string;
+    lookingForSummery: string;
+    // Investor section 
+
     DisplayedInList: number;
     openedSeenAll: number;
     applicationMessagedAll: number;
     TopCategoryOpenedYourApplication: string;
     ProductService: string;
-    ApplicationAmount: number;
-    RevenueInThreeYears: number;
-    ProfitInThreeYears: number;
     expiringDate: string;
     timeLeftTillExpiry: string;
     successFeeCommissionPaid: number;
@@ -285,23 +314,31 @@
 
   export default defineComponent({
     name: 'MemberInvestmentApplicationComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormApplyForInvestmentComponent },
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormProvideInvestmentComponent },
     setup() {
       const members = ref<Member[]>([
         {
           id: 3,
           BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup3',
-          ApplicationIdeaBizCategory: 'Tech',
-          EquityLoan: 'Equity',
+          // Investor section 
+          investmentAmount: 100,
+          equityLoan: 'Equity',
+          investingCountry: 'USA',
+          investingCity: 'New York',
+          investingLength: '5 years',
+          wantedROI: 15,
+          mobNo: '123-456-7890',
+          requiredEquityInterest: 20,
+          productService: 'Tech Solutions',
+          investingCategory: 'Technology',
+          lookingForSummery: 'Looking for investment in tech startups',
+          // Investor section 
+
           DisplayedInList: 22,
           openedSeenAll: 43,
           applicationMessagedAll: 30,
           TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
           ProductService: 'JohnBusiness',
-          ApplicationAmount: 11,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           successFeeCommissionPaid: 30,
@@ -345,17 +382,25 @@
         {
           id: 2,
           BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup',
-          ApplicationIdeaBizCategory: 'Finance',
-          EquityLoan: 'Loan',
+          // Investor section 
+          investmentAmount: 2000,
+          equityLoan: 'Equity',
+          investingCountry: 'USA',
+          investingCity: 'New York',
+          investingLength: '5 years',
+          wantedROI: 15,
+          mobNo: '123-456-7890',
+          requiredEquityInterest: 20,
+          productService: 'Tech Solutions',
+          investingCategory: 'Technology',
+          lookingForSummery: 'Looking for investment in tech startups',
+          // Investor section 
+
           DisplayedInList: 32,
           openedSeenAll: 2,
           applicationMessagedAll: 30,
           TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
           ProductService: 'AliceBusiness',
-          ApplicationAmount: 345,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           successFeeCommissionPaid: 28,
@@ -400,17 +445,25 @@
         {
           id: 1,
           BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup3',
-          ApplicationIdeaBizCategory: 'Tech',
-          EquityLoan: 'Equity',
+          // Investor section 
+          investmentAmount: 300,
+          equityLoan: 'Equity',
+          investingCountry: 'USA',
+          investingCity: 'New York',
+          investingLength: '5 years',
+          wantedROI: 15,
+          mobNo: '123-456-7890',
+          requiredEquityInterest: 20,
+          productService: 'Tech Solutions',
+          investingCategory: 'Technology',
+          lookingForSummery: 'Looking for investment in tech startups',
+          // Investor section 
+
           DisplayedInList: 22,
           openedSeenAll: 43,
           applicationMessagedAll: 30,
           TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
           ProductService: 'JohnBusiness',
-          ApplicationAmount: 11,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           successFeeCommissionPaid: 30,
@@ -521,6 +574,7 @@
 
       //  * Computes the total number of pages based on the number of members and items per page.
       const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
+      const totalInvestmentAmount = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.investmentAmount, 0));
 
       const total = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
@@ -543,13 +597,25 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID',  'BookingDate','ApplicationIdeaBusinessName', 'ApplicationIdeaBizCategory', 'EquityLoan',  'DisplayedInList', 'openedSeenAll', 'applicationMessagedAll', 'TopCategoryOpenedYourApplication',  'ProductService', 
-            'ApplicationAmount', 'RevenueInThreeYears', 'ProfitInThreeYears', 'ExpiringDate', 'TimeLeftTillExpiry', 'successFeeCommissionPaid', 'PersonPic', 'FirstName', 'LastName', 'Email', 'openedSeen', 'applicationMessaged', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
+            'Member ID', 'BookingDate',
+            // Investment data
+            'Investment Amount', 'Equity Loan', 'Investing Country', 'Investing City', 'Investing Length', 'Wanted ROI', 'Mob No', 'Required Equity', 'Product Service', 'Investing Category', 'LookingFor Summery',
+            // <!-- Investment Data
+
+            'DisplayedInList', 'openedSeenAll', 'applicationMessagedAll', 'TopCategoryOpenedYourApplication',  'ProductService', 
+            'ExpiringDate', 'TimeLeftTillExpiry', 'successFeeCommissionPaid', 'PersonPic', 'FirstName', 'LastName', 'Email', 'openedSeen', 'applicationMessaged', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
           ],
           ...filteredMembers.value.map(member => [
-            member.id,  member.BookingDate, member.ApplicationIdeaBusinessName, member.ApplicationIdeaBizCategory, member.EquityLoan, member.DisplayedInList, member.openedSeenAll, member.applicationMessagedAll, member.TopCategoryOpenedYourApplication,  member.ProductService, member.ApplicationAmount, member.RevenueInThreeYears, member.ProfitInThreeYears, member.expiringDate, member.timeLeftTillExpiry, member.successFeeCommissionPaid, member.personPic, member.firstName, member.lastName, member.email, member.openedSeen, member.applicationMessaged, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
+            member.id,  member.BookingDate,
+
+            //  Investment Data
+            member.investmentAmount, member.equityLoan, member.investingCountry, member.investingCity, member.investingLength, member.wantedROI, member.mobNo, member.requiredEquityInterest, member.productService, member.investingCategory, member.lookingForSummery,
+            //  Investment Data
+            
+            member.DisplayedInList, member.openedSeenAll, member.applicationMessagedAll, member.TopCategoryOpenedYourApplication,  member.ProductService, member.expiringDate, member.timeLeftTillExpiry, member.successFeeCommissionPaid, member.personPic, member.firstName, member.lastName, member.email, member.openedSeen, member.applicationMessaged, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
+
             member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
             member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop,   member.lastLoggedIn
           ])
@@ -608,17 +674,26 @@
                   <tr>
                     <th>Member ID</th>
                     <th>BookingDate</th>
-                    <th>ApplicationIdeaBusinessName</th>
-                    <th>ApplicationIdeaBizCategory</th>
-                    <th>EquityLoan</th>
+
+                    // Investor section 
+                    <th>Investment Amount</th>
+                    <th>Equity Loan</th>
+                    <th>Investing Country</th>
+                    <th>Investing City</th>
+                    <th>Investing Length</th>
+                    <th>Wanted ROI</th>
+                    <th>Mob No</th>
+                    <th>Required Equity</th>
+                    <th>Product Service</th>
+                    <th>Investing Category</th>
+                    <th>LookingFor Summery</th>
+                    // Investor section
+                    
                     <th>DisplayedInAPage</th>
                     <th>openedSeenAll</th>
                     <th>applicationMessagedAll</th>
                     <th>TopCategoryOpenedYourApplication</th>
                     <th>ProductService</th>
-                    <th>ApplicationAmount</th>
-                    <th>RevenueInThreeYears</th>
-                    <th>ProfitInThreeYears</th>
                     <th>ExpiringDate</th>
                     <th>timeLeftTillExpiry</th>
                     <th>successFeeCommissionPaid</th>
@@ -664,17 +739,26 @@
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                       <td>${member.id}</td>
                       <td>${member.BookingDate}</td>
-                      <td>${member.ApplicationIdeaBusinessName}</td>
-                      <td>${member.ApplicationIdeaBizCategory}</td>
-                      <td>${member.EquityLoan}</td>
+
+                      // Investor section 
+                      <td>${member.investmentAmount}</td>
+                      <td>${member.equityLoan}</td>
+                      <td>${member.investingCountry}</td>
+                      <td>${member.investingCity}</td>
+                      <td>${member.investingLength}</td>
+                      <td>${member.wantedROI}</td>
+                      <td>${member.mobNo}</td>
+                      <td>${member.requiredEquityInterest}</td>
+                      <td>${member.productService}</td>
+                      <td>${member.investingCategory}</td>
+                      <td>${member.lookingForSummery}</td>
+                      // Investor section 
+
                       <td>${member.DisplayedInList}</td>
                       <td>${member.openedSeenAll}</td>
                       <td>${member.applicationMessagedAll}</td>
                       <td>${member.TopCategoryOpenedYourApplication}</td>
                       <td>${member.ProductService}</td>
-                      <td>${member.ApplicationAmount}</td>
-                      <td>${member.RevenueInThreeYears}</td>
-                      <td>${member.ProfitInThreeYears}</td>
                       <td>${member.expiringDate}</td>
                       <td>${member.timeLeftTillExpiry}</td>
                       <td>${member.successFeeCommissionPaid}</td>
@@ -717,7 +801,11 @@
                   `).join('')}
                   <tr class="TotalRow">
                     <td>Totals:</td>
-                    <td colspan="29"></td>
+                    <td"></td>
+                    <td"></td>
+                    // Investor section 
+                    <td>${totalInvestmentAmount.value}</td>
+                    <td colspan="34"></td>
                     <td>${totalBusinessRevenue.value}</td>
                     <td></td>
                     <td>${totalSalary.value}</td> 
@@ -779,6 +867,7 @@
         exportTable,
         printTable,
         total,
+        totalInvestmentAmount,
         totalBusinessRevenue,
         totalSalary,
         close,
@@ -831,7 +920,7 @@
     overflow-x: auto;
   }
   .scrollingRow {
-    min-width: 5200px;
+    min-width: 6000px;
     flex-direction: column;
   }
   .DataRow {
