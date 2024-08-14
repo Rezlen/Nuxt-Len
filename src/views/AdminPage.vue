@@ -20,7 +20,7 @@
             <IonRow class="PaddingBorder Profiles" @click="showComponent('profiles')">Profiles</IonRow>
             <IonRow class="PaddingBorder Events" @click="showComponent('events')" >Events</IonRow>
             <IonRow class="PaddingBorder sponsorshipPartnership" @click="showComponent('MembersSponsorshipPartnershipProfileDetailAdminComponent')">Sponsorship Partnership</IonRow>
-            <IonRow class="PaddingBorder OffersNeeds">Offers Needs</IonRow>
+            <IonRow class="PaddingBorder MembersMembershipsProfileDetailAdminComponent"  @click="showComponent('MembersMembershipsProfileDetailAdminComponent')">Memberships</IonRow>
             <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
             <IonRow class="PaddingBorder contactUs" @click="showComponent('contactUsTABsAdminComponent')" >Contacted Us</IonRow>
             <IonRow class="PaddingBorder RewardsDiscounts">Rewards Discounts</IonRow>
@@ -33,7 +33,7 @@
           <component :is="currentComponent" />
         </IonRow>
         
-        <!-- /* Floating sidebar ends here ##################################################### */ -->
+        <!-- /* Floating sidebar ends here MembersMembershipsProfileDetailAdminComponent  ##################################################### */ -->
 
         <!-- Footer Section -->
         <IonRow>
@@ -53,7 +53,8 @@ import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
 import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
 import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
-import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
+import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminComponents/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
+import MembersMembershipsProfileDetailAdminComponent from '@/components/AdminComponents/AdminMembershipsComponents/MembersMembershipsProfileDetailAdminComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -70,6 +71,7 @@ export default defineComponent({
     MembersProfileDetailTABsAdminComponent,
     contactUsTABsAdminComponent,
     MembersSponsorshipPartnershipProfileDetailAdminComponent,
+    MembersMembershipsProfileDetailAdminComponent,
 
     FooterComponent,
   },
@@ -93,6 +95,9 @@ export default defineComponent({
       }
       if (componentName === 'contactUsTABsAdminComponent') {
         currentComponent.value = contactUsTABsAdminComponent;
+      }
+      if (componentName === 'MembersMembershipsProfileDetailAdminComponent') {
+        currentComponent.value = MembersMembershipsProfileDetailAdminComponent;
       }
       // Add other cases as needed for other menu items
     };
@@ -146,7 +151,8 @@ ion-grid {
 .Events, 
 .Profiles,
 .contactUs,
-.sponsorshipPartnership {
+.sponsorshipPartnership,
+.MembersMembershipsProfileDetailAdminComponent {
   font-weight: bold;
   color: red;
 }

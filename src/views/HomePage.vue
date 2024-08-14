@@ -175,6 +175,7 @@
                 <p><a href="/MyInvestmentAdsComponent" class="Events-button" > MyInvestmentAdsComponent </a> </p>
                 <p><a href="/MyPitchingsActivityTableComponent" class="Events-button" > MyPitchingsActivityTableComponent </a> </p>
                 <p><a href="/MembersSponsorshipPartnershipProfileDetailAdminComponent" class="Events-button" > MembersSponsorshipPartnershipProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersMembershipsProfileDetailAdminComponent" class="Events-button" > MembersMembershipsProfileDetailAdminComponent </a> </p>
 
 
               

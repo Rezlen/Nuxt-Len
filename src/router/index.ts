@@ -90,7 +90,9 @@ import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/Admi
 import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
 import membersContactUsMessagesTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/membersContactUsMessagesTableAdminComponent.vue';
 //  Admin Sponsorship Partnership comps MembersSponsorshipPartnershipProfileDetailAdminComponent
-import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
+import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminComponents/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
+// Admin membership components
+import MembersMembershipsProfileDetailAdminComponent from '@/components/AdminComponents/AdminMembershipsComponents/MembersMembershipsProfileDetailAdminComponent.vue';
 
 // User/Member Account Section Comps
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
@@ -499,9 +501,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MembersSponsorshipPartnershipProfileDetailAdminComponent',
     component: MembersSponsorshipPartnershipProfileDetailAdminComponent
   },
+  // Admin Membership comp
+  {
+    path: '/membersMembershipsProfileDetailAdminComponent',
+    name: 'MembersMembershipsProfileDetailAdminComponent',
+    component: MembersMembershipsProfileDetailAdminComponent
+  },
 
+  // User Account section  import MembersMembershipsProfileDetailAdminComponent from '@/components/AdminComponents/AdminMembershipsComponents/MembersMembershipsProfileDetailAdminComponent.vue';
 
-  // User Account section  MembersMyOrderComponent
 {
     path: '/emailWebsiteNotificationComponent',
     name: 'EmailWebsiteNotificationComponent',
