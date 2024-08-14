@@ -209,7 +209,7 @@
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
     <IonRow class="editingRow">
-      <TicketTABsPitchingUpSellingComponent/>
+      <FormPitchingWorkshopPresentationComponent/>
     </IonRow>
 
   </IonGrid>
@@ -224,7 +224,7 @@
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
   import { create, close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
-  import TicketTABsPitchingUpSellingComponent from '@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue';
+  import FormPitchingWorkshopPresentationComponent from '@/components/PitchingComponents/FormPitchingWorkshopPresentationComponent.vue';
 
   interface Member {
     id: number;
@@ -285,7 +285,7 @@
 
   export default defineComponent({
     name: 'MyPitchingsActivityTableComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormPitchingWorkshopPresentationComponent, },
     setup() {
       const members = ref<Member[]>([
         {
