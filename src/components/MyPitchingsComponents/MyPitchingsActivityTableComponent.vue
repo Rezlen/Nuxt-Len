@@ -69,6 +69,7 @@
           <IonCol class="YouTubeLinkCol  redBorder" @click="sortMembers('youTubeLink')">YouTube Link<IonIcon :icon="sortIcon('youTubeLink')" class="sort-icon" /></IonCol>
           <IonCol class="PitchingSummeryCol  redBorder" @click="sortMembers('pitchingSummery')">PitchingSummery <IonIcon :icon="sortIcon('pitchingSummery')" class="sort-icon" /></IonCol>
           <IonCol class="LookingForSummeryCol  redBorder" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
+          <IonCol class="lastUpdatedAtCol redBorder" @click="sortMembers('lastUpdatedAt')">Last Updated At<IonIcon :icon="sortIcon('lastUpdatedAt')" class="sort-icon" /></IonCol>
           <!--  PitchingSection-->
           <IonCol class="ActionCol">Hide, Edit</IonCol>
         </IonRow>
@@ -127,6 +128,7 @@
           <IonCol class="YouTubeLinkCol"><a :href="member.youTubeLink" target="_blank">YouTube Link</a></IonCol>
           <IonCol class="PitchingSummeryCol">{{ member.pitchingSummery }}</IonCol>
           <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
+          <IonCol class="lastUpdatedAtCol">{{ member.lastUpdatedAt }}</IonCol>
           <!-- PitchingSection Data -->
           <IonCol class="ActionCol">
             <IonButton class="ActionCol" fill="clear" title="Close">
@@ -191,6 +193,7 @@
           <IonCol class="YouTubeLinkCol"></IonCol>
           <IonCol class="PitchingSummeryCol"></IonCol>
           <IonCol class="LookingForSummeryCol"></IonCol>
+          <IonCol class="lastUpdatedAtCol"></IonCol>
           <!-- Pitching section -->
           <IonCol class="ActionCol"></IonCol>
         </IonRow>
@@ -206,7 +209,7 @@
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
     <IonRow class="editingRow">
-      <FormPitchingComponent/>
+      <TicketTABsPitchingUpSellingComponent/>
     </IonRow>
 
   </IonGrid>
@@ -221,7 +224,7 @@
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
   import { create, close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
-  import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
+  import TicketTABsPitchingUpSellingComponent from '@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue';
 
   interface Member {
     id: number;
@@ -275,13 +278,14 @@
     youTubeLink: string;
     pitchingSummery: string;
     lookingForSummery: string;
+    lastUpdatedAt: number;
     // Pitching section
 
   }
 
   export default defineComponent({
     name: 'MyPitchingsActivityTableComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormPitchingComponent, },
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([
         {
@@ -334,6 +338,7 @@
           youTubeLink: 'youtube_link',
           pitchingSummery: 'Tech pitch summary',
           lookingForSummery: 'Looking for funding',
+          lastUpdatedAt: 20,
           // Pitching Section
         },
         {
@@ -387,6 +392,7 @@
           youTubeLink: 'youtube_link',
           pitchingSummery: 'Tech pitch summary',
           lookingForSummery: 'Looking for funding',
+          lastUpdatedAt: 20,
           // Pitching section
 
         },
@@ -440,6 +446,7 @@
           youTubeLink: 'youtube_link',
           pitchingSummery: 'Tech pitch summary',
           lookingForSummery: 'Looking for funding',
+          lastUpdatedAt: 20,
           // Pitching section
 
         }
@@ -569,7 +576,7 @@
             'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn',
             // Pitching Section
-            'Pitching Kind', 'likedAll', 'seenAll', 'Pitching Title', 'PitchingFor', 'Pitching Country', 'Pitching City', 'Pitching Category', 'YouTube Link', 'PitchingSummery', 'LookingFor Summery',
+            'Pitching Kind', 'likedAll', 'seenAll', 'Pitching Title', 'PitchingFor', 'Pitching Country', 'Pitching City', 'Pitching Category', 'YouTube Link', 'PitchingSummery', 'LookingFor Summery','lastUpdatedAt',
             // Pitching Section
           ],
           ...filteredMembers.value.map(member => [
@@ -577,7 +584,7 @@
             member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
             member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn,
             // Pitching section
-            member.pitchingKind, member.likedAll, member.seenAll, member.pitchingTitle, member.pitchingFor, member.pitchingCountry, member.pitchingCity, member.pitchingCategory, member.youTubeLink, member.pitchingSummery, member.lookingForSummery,
+            member.pitchingKind, member.likedAll, member.seenAll, member.pitchingTitle, member.pitchingFor, member.pitchingCountry, member.pitchingCity, member.pitchingCategory, member.youTubeLink, member.pitchingSummery, member.lookingForSummery,member.lastUpdatedAt,
             // Pitching section
           ])
         ]
@@ -683,6 +690,7 @@
                     <th>YouTube Link</th>
                     <th>PitchingSummery</th>
                     <th>LookingFor Summery</th>
+                    <th>lastUpdatedAt</th>
                     // Pitching section
                   </tr>
                 </thead>
@@ -739,6 +747,7 @@
                       <td>${member.youTubeLink}</td>
                       <td>${member.pitchingSummery}</td>
                       <td>${member.lookingForSummery}</td>
+                      <td>${member.lastUpdatedAt}</td>
                       // Pitching section
                     </tr>
                   `).join('')}
@@ -786,6 +795,7 @@
                     <td></td>
                     <td>${totallikedAll.value}</td>
                     <td>${totalseenAll.value}</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -888,7 +898,7 @@
   .PitchingKindCol {
   Border-left: 2px red solid;
 }
-.LookingForSummeryCol {
+.lastUpdatedAtCol {
   Border-right: 2px red solid;
 }
  .redBorder {

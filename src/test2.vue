@@ -1,911 +1,293 @@
+<!-- Copy of tabs Pitching; named; FormPitchingComponent -->
+
+
 <template>
-  <IonGrid>
-    <p class="TitleP">History Of Your Investment Adverts</p>
 
-    <IonRow class="ButtonRow">
-      <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
-      <IonButton fill="clear" @click="exportTable">EXPORT</IonButton>
-      <IonButton fill="clear" @click="printTable">PRINT</IonButton>
-      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchMembers"></IonInput>
-      <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
-        <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
-      </IonButton>
+  <IonGrid class="Grid">
+
+
+    <IonRow class="Tabs2_PitchingPresentationWorkshop-Upselling">
+      <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+        <IonSegmentButton class="btn" value="PitchingPresentationWorkshop">pitching, workshops, presentations</IonSegmentButton>
+        <IonSegmentButton class="btn" value="UpSelling">Video Recording, Business Advice, Pitching Training</IonSegmentButton>
+      </IonSegment>
+    </IonRow>
+    <IonRow class="DisplayComponentRow">
+
+      
+      <!-- Opens the  pitching, workshops or presentations form-->
+      <IonCol v-show="selectedTab === 'PitchingPresentationWorkshop'" class="PitchingPresentationWorkshop">
+
+        <p class="CenterPositions">People often ask below info about your pitching/workshop/presentation. Fill below so they can contact you!</p>
+        <IonTextarea  label="Enter Your Pitching Title Here" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
+        <IonTextarea  label="What You Are Going to Pitch,Present/Workshop for?" label-placement="floating"  :counter="true"  :maxlength="100" :counter-formatter="customFormatter" ></IonTextarea> 
+        
+        <IonRow>  
+          <IonCol>
+            <IonSelect v-model="selectedCategory" placeholder="For Which Country" fill="outline" >
+              <IonSelectOption value="category1">Category 1</IonSelectOption>
+              <IonSelectOption value="category2">Category 2</IonSelectOption>
+              <IonSelectOption value="category3">Category 3</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonSelect v-model="selectedCategory" placeholder="For Which  City" fill="outline" >
+              <IonSelectOption value="category1">Category 1</IonSelectOption>
+              <IonSelectOption value="category2">Category 2</IonSelectOption>
+              <IonSelectOption value="category3">Category 3</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+          <IonCol>
+            <IonSelect v-model="selectedCategory" placeholder="Choose Category" fill="outline" >
+              <IonSelectOption value="category1">Category 1</IonSelectOption>
+              <IonSelectOption value="category2">Category 2</IonSelectOption>
+              <IonSelectOption value="category3">Category 3</IonSelectOption>
+            </IonSelect>
+          </IonCol>
+
+
+          <IonItem>
+            <IonLabel>Upload PowerPoint</IonLabel>
+            <input type="file" @change="onFileSelected" />
+          </IonItem>
+          <IonRow class="Summaries" >
+            <IonTextarea class="Summaries" label="Enter You YouTube EMBEDDING Link Here (If you have/wish)" label-placement="floating"  :counter="true"  :maxlength="30" :counter-formatter="customFormatter" ></IonTextarea>
+            <IonTextarea  class="Summaries" label="Summaries Your Pitching/Presentation Here" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea>
+            <IonTextarea  class="Summaries" label="Summaries What You Are Looking For/Need" label-placement="floating"  :counter="true" :auto-grow="true" :maxlength="500" :counter-formatter="customFormatter" ></IonTextarea> 
+          </IonRow>
+        </IonRow>
+
+      </IonCol>
+
+
+
+
+
+      <!-- TAB Opens the Upselling form ############################################################################################### -->
+      <IonCol v-show="selectedTab === 'UpSelling'" class="UpSelling">
+
+        <IonRow class="UpSellingService1 ">
+          <p class="CenterPositions checkbox-text">Do You Need Presentation or Pitching Training ? </p>
+
+          <IonCheckbox justify="end">
+            <p class="checkbox-text">I want<IonInput class="numberInput" type="number" :maxlength="2" placeholder=" 00" required></IonInput>
+              hour x £ 100 = £100 presentation/pitching training, for my presentation or pitching in this event</p>
+          </IonCheckbox>
+        </IonRow>
+
+        <IonRow class="UpSellingService2 ">
+          <p class="CenterPositions checkbox-text">Do You Need Business/Funding/Investment Advice ?</p>
+
+          <IonCheckbox justify="end">
+            <p class="checkbox-text">I want <IonInput class="numberInput" type="number" :maxlength="2" placeholder=" 00" required></IonInput>
+            hour X £75=£75 FUNDING, INVESTMENT ADVICE on how/where-from to source funding/investment for my business/idea</p>
+          </IonCheckbox>
+
+          <IonCheckbox justify="end">
+            <p class="checkbox-text ">I want <IonInput class="numberInput" type="number" :maxlength="2" placeholder=" 00" required></IonInput>
+            hour X £75=£75 BUSINESS ADVICE about my business/idea; in-person, phone or online e.g Skype</p>
+          </IonCheckbox>
+        </IonRow>
+
+        <IonRow class="UpSellingService3">
+          <p class="CenterPositions checkbox-text">Do You Need FREE Business/Funding/Investment Advice ?</p>
+
+          <IonCheckbox justify="end" >
+            <p class="checkbox-text redWords">I want HALF an HOUR <span class="ADVICEforFREE">FUNDING, INVESTMENT ADVICE for FREE</span>, on how/where-from to source funding investment for my business/idea.</p>
+          </IonCheckbox>
+
+          <IonCheckbox justify="end" >
+            <p class="checkbox-text redWords">I want HALF an HOUR <span class="ADVICEforFREE">BUSINESS ADVICE for FREE</span>, about my business/idea; in-person, phone or online e.g Skype.</p>
+          </IonCheckbox>
+        </IonRow>
+
+        <IonRow class="UpSellingService4">
+          <p class="CenterPositions checkbox-text" > Tick Below if You Like to Receive a Video of Your Pitching!</p>
+          <IonCheckbox justify="end"><p class="checkbox-text">My pitching be professionally filmed, receive a RAW (UN-Edited) professional footage for £20</p></IonCheckbox>
+          <IonCheckbox justify="end"><p class="checkbox-text">My pitching be filmed, receive professionally EDITED 5 minutes footage for £250</p></IonCheckbox>
+        </IonRow>
+
+
+
+
+      </IonCol>
     </IonRow>
 
-    <IonRow class="NONscrollingRow">
-    
-      <IonRow class="scrollingRow" ref="scrollableContainer">
-          <!-- TitleRow with sorting functionality and icons -->
-          <IonRow class="TitleRow">
-            
-            <IonCol class="OrderIDCol" @click="sortMembers('id')">Order ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-            <IonCol class="BookingDateCol topBorder" @click="sortMembers('BookingDate')">Application Date <IonIcon :icon="sortIcon('BookingDate')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol topBorder" @click="sortMembers('ApplicationIdeaBusinessName')">Application Idea Business Name <IonIcon :icon="sortIcon('ApplicationIdeaBusinessName')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol topBorder" @click="sortMembers('ApplicationIdeaBizCategory')">Application Idea Biz Category <IonIcon :icon="sortIcon('ApplicationIdeaBizCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="EquityLoanCol topBorder" @click="sortMembers('EquityLoan')">EquityLoan <IonIcon :icon="sortIcon('EquityLoan')" class="sort-icon" /></IonCol>
-            <IonCol class="DisplayedInListCol Purple topBorder" @click="sortMembers('DisplayedInList')">Displayed in a Page <IonIcon :icon="sortIcon('DisplayedInList')" class="sort-icon" /></IonCol>
-            <IonCol class="OpenedSeenCol Purple topBorder" @click="sortMembers('OpenedSeen')">Opened Seen <IonIcon :icon="sortIcon('OpenedSeen')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationMessagedCol Purple topBorder" @click="sortMembers('ApplicationMessaged')">Application Messaged <IonIcon :icon="sortIcon('ApplicationMessaged')" class="sort-icon" /></IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol topBorder" @click="sortMembers('TopCategoryOpenedYourApplication')">Top Category Opened Your Application <IonIcon :icon="sortIcon('TopCategoryOpenedYourApplication')" class="sort-icon" /></IonCol>
-            <IonCol class="ProductServiceCol topBorder" @click="sortMembers('ProductService')">Product Or Service <IonIcon :icon="sortIcon('ProductService')" class="sort-icon" /></IonCol>
-            <IonCol class="ApplicationAmountCol Purple topBorder" @click="sortMembers('ApplicationAmount')">Application Amount <IonIcon :icon="sortIcon('ApplicationAmount')" class="sort-icon" /></IonCol>
-            <IonCol class="RevenueInThreeYearsCol Purple topBorder" @click="sortMembers('RevenueInThreeYears')">Revenue In Three Years <IonIcon :icon="sortIcon('RevenueInThreeYears')" class="sort-icon" /></IonCol>
-            <IonCol class="ProfitInThreeYearsCol Purple topBorder" @click="sortMembers('ProfitInThreeYears')">Profit In Three Years <IonIcon :icon="sortIcon('ProfitInThreeYears')" class="sort-icon" /></IonCol>
-            <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')">Expiring Date <IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
-            <IonCol class="TimeLeftTillExpiryCol topBorder" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
-            
-            <IonCol class="successFeeCommissionPaidCol topBorder" @click="sortMembers('successFeeCommissionPaid')">SuccessFee CommissionPaid <IonIcon :icon="sortIcon('successFeeCommissionPaid')" class="sort-icon" /></IonCol>
-            <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
-            <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
-            <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
-            <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
-            <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-            <IonCol class="VIPMembershipCol" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
-            <IonCol class="VVIPMembershipCol" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
-
-            <IonCol class="ResponseToYourNeedsCol purple" @click="sortMembers('responseToYourNeeds')">Response To His/Her Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
-            <IonCol class="ResponseToYourOffersCol purple" @click="sortMembers('responseToYourOffers')">Response To His/Her Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
-            <IonCol class="ResponseToYourBestOffersCol purple" @click="sortMembers('responseToYourBestOffers')">Response To His/Her Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
-            <IonCol class="PitchTrainingCol" @click="sortMembers('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
-            <IonCol class="BusinessFundingAdviceCol" @click="sortMembers('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol" @click="sortMembers('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="VideoOfPitchingCol" @click="sortMembers('videoOfPitching')">Video Of Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
-            
-            <IonCol class="BusinessRevenueCol" @click="sortMembers('businessRevenue')">Business Revenue <IonIcon :icon="sortIcon('businessRevenue')" class="sort-icon" /></IonCol>
-            <IonCol class="JobPositionCol" @click="sortMembers('jobPosition')">Job Position<IonIcon :icon="sortIcon('jobPosition')" class="sort-icon" /></IonCol>
-            <IonCol class="SalaryCol purple" @click="sortMembers('salary')">Salary<IonIcon :icon="sortIcon('salary')" class="sort-icon" /></IonCol>
-            <IonCol class="BusinessNameCol purple" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
-            <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="ExhibitedCol purple" @click="sortMembers('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
-            <IonCol class="VisitedCol purple" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorMemberCol" @click="sortMembers('investorMember')">Investor Member <IonIcon :icon="sortIcon('investorMember')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentBrokerCol" @click="sortMembers('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorsAdvertsCol  purple" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
-            <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-            <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
-            <IonCol class="OneMinPitchingCol" @click="sortMembers('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="ThreeMinPitchingCol" @click="sortMembers('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentPitchingCol purple" @click="sortMembers('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="WorkshopCol purple" @click="sortMembers('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
-            <IonCol class="PresentationCol purple" @click="sortMembers('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
-            
-            
-            <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-            <IonCol class="ActionCol">Hide The Application</IonCol>
-          </IonRow>
-
-          <!-- Data rows -->
-          <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
-            <IonCol class="OrderIDCol">{{ member.id }}</IonCol>
-            <IonCol class="BookingDateCol">{{ member.BookingDate }}</IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol">{{ member.ApplicationIdeaBusinessName}}</IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol">{{ member.ApplicationIdeaBizCategory}}</IonCol>
-            <IonCol class="EquityLoanCol">{{ member.EquityLoan }}</IonCol>
-            <IonCol class="DisplayedInListCol">{{ member.DisplayedInList }}</IonCol>
-            <IonCol class="OpenedSeenCol">{{ member.OpenedSeen }}</IonCol>
-            <IonCol class="ApplicationMessagedCol">{{ member.ApplicationMessaged }}</IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol">{{ member.TopCategoryOpenedYourApplication }}</IonCol>
-            <IonCol class="ProductServiceCol">{{ member.ProductService }}</IonCol>
-            <IonCol class="ApplicationAmountCol">{{ member.ApplicationAmount }}</IonCol>
-            <IonCol class="RevenueInThreeYearsCol">{{ member.RevenueInThreeYears }}</IonCol>
-            <IonCol class="ProfitInThreeYearsCol">{{ member.ProfitInThreeYears }}</IonCol>
-            <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
-            <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry}}</IonCol>
-            
-            <IonCol class="successFeeCommissionPaidCol">{{ member.successFeeCommissionPaid }}</IonCol>
-            <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-            <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
-            <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
-            <IonCol class="EmailCol">{{ member.email }}</IonCol>
-            <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
-            <IonCol class="VIPMembershipCol">{{ member.VIPMembership }}</IonCol>
-            <IonCol class="VVIPMembershipCol">{{ member.VVIPMembership }}</IonCol>
-
-            <IonCol class="ResponseToYourNeedsCol">{{ member.responseToYourNeeds}}</IonCol>
-            <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
-            <IonCol class="ResponseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
-            <IonCol class="PitchTrainingCol">{{ member.pitchTraining }}</IonCol>
-            <IonCol class="BusinessFundingAdviceCol">{{ member.businessFundingAdvice }}</IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol">{{ member.freeBusinessFundingAdvice }}</IonCol>
-            <IonCol class="VideoOfPitchingCol">{{ member.videoOfPitching }}</IonCol>
-            
-            <IonCol class="BusinessRevenueCol">{{ member.businessRevenue }}</IonCol>
-            <IonCol class="JobPositionCol">{{ member.jobPosition }}</IonCol>
-            <IonCol class="SalaryCol">{{ member.salary }}</IonCol>
-            <IonCol class="BusinessNameCol">{{ member.businessName }}</IonCol>
-            <IonCol class="BizCategoryCol">{{ member.bizCategory }}</IonCol>
-            <IonCol class="ExhibitedCol">{{ member.exhibited }}</IonCol>
-            <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
-            <IonCol class="InvestorMemberCol">{{ member.investorMember }}</IonCol>
-            <IonCol class="investmentBrokerCol">{{ member.investmentBroker }}</IonCol>
-            <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
-            <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
-            <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
-            <IonCol class="OneMinPitchingCol">{{ member.oneMinPitching }}</IonCol>
-            <IonCol class="ThreeMinPitchingCol">{{ member.threeMinPitching }}</IonCol>
-            <IonCol class="InvestmentPitchingCol">{{ member.investmentPitching }}</IonCol>
-            <IonCol class="WorkshopCol">{{ member.workshop }}</IonCol>
-            <IonCol class="PresentationCol">{{ member.presentation }}</IonCol>
-
-
-            <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
-            <IonCol class="ActionCol">
-              <IonButton class="ActionCol" fill="clear" title="Close">
-                <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
-              </IonButton>
-            </IonCol>
-          </IonRow>
-
-          <!-- Total row -->
-          <IonRow class="TotalRow">
-            <IonCol class="OrderIDCol">Totals:</IonCol>
-            <IonCol class="BookingDateCol"></IonCol>
-            <IonCol class="ApplicationIdeaBusinessNameCol"></IonCol>
-            <IonCol class="ApplicationIdeaBizCategoryCol"></IonCol>
-            <IonCol class="EquityLoanCol"></IonCol>
-            <IonCol class="DisplayedInListCol"></IonCol>
-            <IonCol class="OpenedSeenCol"></IonCol>
-            <IonCol class="ApplicationMessagedCol"></IonCol>
-            <IonCol class="TopCategoryOpenedYourApplicationCol"></IonCol>
-            <IonCol class="ProductServiceCol"></IonCol>
-            <IonCol class="ApplicationAmountCol"></IonCol>
-            <IonCol class="RevenueInThreeYearsCol"></IonCol>
-            <IonCol class="ProfitInThreeYearsCol"></IonCol>
-            <IonCol class="expiringDateCol"></IonCol>
-            <IonCol class="TimeLeftTillExpiryCol"></IonCol>
-            <IonCol class="successFeeCommissionPaidCol"></IonCol>
-            <IonCol class="PersonPicCol"></IonCol>
-            <IonCol class="FirstNameCol"></IonCol>
-            <IonCol class="LastNameCol"></IonCol>
-            <IonCol class="EmailCol"></IonCol>
-            <IonCol class="MembershipTypeCol"></IonCol>
-            <IonCol class="VIPMembershipCol"></IonCol>
-            <IonCol class="VVIPMembershipCol"></IonCol>
-            
-            <IonCol class="ResponseToYourNeedsCol"></IonCol>
-            <IonCol class="ResponseToYourOffersCol"></IonCol>
-            <IonCol class="ResponseToYourBestOffersCol"></IonCol>
-            <IonCol class="PitchTrainingCol"></IonCol>
-            <IonCol class="BusinessFundingAdviceCol"></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
-            <IonCol class="VideoOfPitchingCol"></IonCol>
-
-            <IonCol class="BusinessRevenueCol">{{ totalBusinessRevenue }}</IonCol>
-            <IonCol class="JobPositionCol"></IonCol>
-            <IonCol class="SalaryCol">{{ totalSalary }}</IonCol>
-            <IonCol class="BusinessNameCol"></IonCol>
-            <IonCol class="BizCategoryCol"></IonCol>
-            <IonCol class="ExhibitedCol"></IonCol>
-            <IonCol class="VisitedCol"></IonCol>
-            <IonCol class="InvestorMemberCol"></IonCol>
-            <IonCol class="InvestmentBrokerCol"></IonCol>
-            <IonCol class="InvestorsAdvertsCol"></IonCol>
-            <IonCol class="BizMentorCol"></IonCol>
-            <IonCol class="TotalSpentCol">{{ total }}</IonCol>
-            <IonCol class="OneMinPitchingCol"></IonCol>
-            <IonCol class="threeMinPitchingCol"></IonCol>
-            <IonCol class="InvestmentPitchingCol"></IonCol>
-            <IonCol class="WorkshopCol"></IonCol>
-            <IonCol class="PresentationCol"></IonCol>
-
-            
-            <IonCol class="LastLoggedInCol"></IonCol>
-            <IonCol class="ActionCol"></IonCol>
-          </IonRow>
-      </IonRow>
-
-    </IonRow>
-
-
-    <!-- Pagination -->
-    <IonRow class="PaginationRow">
-      <IonButton @click="prevPage">Prev</IonButton>
-      <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
-      <IonButton @click="nextPage">Next</IonButton>
-    </IonRow>
-    <IonRow class="editingRow">
-      <FormProvideInvestmentComponent/>
-    </IonRow>    
 
   </IonGrid>
+
 </template>
 
 
-
-
-
-
 <script lang="ts">
-  import { defineComponent, ref, computed, watch } from 'vue';
-  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
-  import { close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
-  import FormProvideInvestmentComponent from '@/components/InvestmentComponents/FormProvideInvestmentComponent.vue';
+import { defineComponent, ref } from 'vue';
+import { IonCheckbox, IonSegment, IonSegmentButton,IonContent, IonInput, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonTextarea, IonList } from '@ionic/vue';
 
-  interface Member {
-    id: number;
-    BookingDate: string;
-    ApplicationIdeaBusinessName: string;
-    ApplicationIdeaBizCategory: string;
-    EquityLoan: string;
-    DisplayedInList: number;
-    OpenedSeen: number;
-    ApplicationMessaged: number;
-    TopCategoryOpenedYourApplication: string;
-    ProductService: string;
-    ApplicationAmount: number;
-    RevenueInThreeYears: number;
-    ProfitInThreeYears: number;
-    expiringDate: string;
-    timeLeftTillExpiry: string;
-    successFeeCommissionPaid: number;
-    personPic: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    membershipType: string;
-    VIPMembership: number;
-    VVIPMembership: number;
-    
-    responseToYourNeeds: number;
-    responseToYourOffers: number;
-    responseToYourBestOffers: number;
-    pitchTraining: number;
-    businessFundingAdvice: number;
-    freeBusinessFundingAdvice: number;
-    videoOfPitching: number;
+export default defineComponent({
+  name: 'FormPitchingComponent',
+  components: {
+    IonContent,
+    IonInput,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonItem,
+    IonLabel,
+    IonSelect,
+    IonSelectOption,
+    IonButton,
+    IonTextarea,
+    IonList,
+    IonSegment,
+    IonSegmentButton,
+    IonCheckbox,
+  },
+  setup() {
+    const selectedTab = ref<string>(''); // Initialize with the default tab
+    const selectedCategory = ref<string | null>(null);
 
-    businessRevenue: number;
-    jobPosition: string;
-    salary: number;
-    businessName: string;
-    bizCategory: string;
-    exhibited: number;
-    visited: number;
-    investorMember: number;
-    investmentBroker: number;
-    investorsAdverts: number;
-    bizMentor: number;
-    totalSpent: number;
-    oneMinPitching: number;
-    threeMinPitching: number;
-    investmentPitching: number;
-    workshop: number;
-    presentation: number;
+    const customFormatter = (inputLength: number, maxLength: number) => {
+      return `${maxLength - inputLength} characters remaining`;
+    };
 
-    lastLoggedIn: string;
+    const onFileSelected = (event: Event) => {
+      const input = event.target as HTMLInputElement;
+      const file = input.files?.[0];
+      if (file) {
+        console.log(file);
+      }
+    };
+
+    const submitContent = () => {
+      console.log('Category:', selectedCategory.value);
+
+    };
+
+    return {
+      selectedTab,
+      selectedCategory,
+      onFileSelected,
+      submitContent,
+      customFormatter
+    };
   }
-
-  export default defineComponent({
-    name: 'MyInvestmentAdsComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormProvideInvestmentComponent },
-    setup() {
-      const members = ref<Member[]>([
-        {
-          id: 3,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup3',
-          ApplicationIdeaBizCategory: 'Tech',
-          EquityLoan: 'Equity',
-          DisplayedInList: 22,
-          OpenedSeen: 43,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'JohnBusiness',
-          ApplicationAmount: 11,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
-          expiringDate: '2023-01-01T12:00:00',
-          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
-          successFeeCommissionPaid: 30,
-
-          personPic: 'pic_url_a',
-          firstName: 'Johneee',
-          lastName: 'Doe',
-          email: 'john.doe@example.com',
-          membershipType: 'Gold',
-          VIPMembership: 43,
-          VVIPMembership: 30,
-          responseToYourNeeds: 54,
-          responseToYourOffers: 4,
-          responseToYourBestOffers: 44,
-          pitchTraining: 30,
-          businessFundingAdvice: 34,
-          freeBusinessFundingAdvice: 55,
-          videoOfPitching: 55,
-
-          businessRevenue: 1000000,
-          jobPosition: 'CEO',
-          salary: 200000,
-          businessName: 'JohnBusiness',
-          bizCategory: 'IT',
-          exhibited: 30,
-          visited: 30,
-          investorMember: 5,
-          investmentBroker: 3,
-          investorsAdverts: 2,
-          bizMentor: 30,
-          totalSpent: 150,
-          oneMinPitching: 344,
-          threeMinPitching: 44,
-          investmentPitching: 32,
-          workshop: 22,
-          presentation: 22,
-          lastLoggedIn: '2023-06-01'
-        },
-        {
-          id: 2,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup',
-          ApplicationIdeaBizCategory: 'Finance',
-          EquityLoan: 'Loan',
-          DisplayedInList: 32,
-          OpenedSeen: 2,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'AliceBusiness',
-          ApplicationAmount: 345,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
-          expiringDate: '2023-01-01T12:00:00',
-          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
-          successFeeCommissionPaid: 28,
-
-          personPic: 'pic_url_a',
-          firstName: 'res',
-          lastName: 'Doe',
-          email: 'alice.smith@example.com',
-          membershipType: 'Silver',
-          VIPMembership: 2,
-          VVIPMembership: 30,
-
-          responseToYourNeeds: 22,
-          responseToYourOffers: 2,
-          responseToYourBestOffers: 222,
-          pitchTraining: 28,
-          businessFundingAdvice: 33,
-          freeBusinessFundingAdvice: 33,
-          videoOfPitching: 55,
-
-          businessRevenue: 1000000,
-          jobPosition: 'CEO',
-          salary: 200000,
-          businessName: 'AliceBusiness',
-          bizCategory: 'Marketing',
-          exhibited: 30,
-          visited: 30,
-          investorMember: 4,
-          investmentBroker: 5,
-          investorsAdverts: 1,
-          bizMentor: 30,
-          totalSpent: 200,
-          oneMinPitching: 344,
-          threeMinPitching: 44,
-          investmentPitching: 32,
-          workshop: 22,
-          presentation: 22,
-          lastLoggedIn: '2023-07-01'
-        },
-        {
-          id: 1,
-          BookingDate: '2023-01-01T12:00:00',
-          ApplicationIdeaBusinessName: 'New Startup3',
-          ApplicationIdeaBizCategory: 'Tech',
-          EquityLoan: 'Equity',
-          DisplayedInList: 22,
-          OpenedSeen: 43,
-          ApplicationMessaged: 30,
-          TopCategoryOpenedYourApplication: 'Biz mentors', // Added TopCategoryOpenedYourApplication value
-          ProductService: 'JohnBusiness',
-          ApplicationAmount: 11,
-          RevenueInThreeYears: 30,
-          ProfitInThreeYears: 30,
-          expiringDate: '2023-01-01T12:00:00',
-          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
-          successFeeCommissionPaid: 30,
-
-          personPic: 'pic_url_a',
-          firstName: 'Johneee',
-          lastName: 'Doe',
-          email: 'john.doe@example.com',
-          membershipType: 'Gold',
-          VIPMembership: 43,
-          VVIPMembership: 30,
-          responseToYourNeeds: 54,
-          responseToYourOffers: 4,
-          responseToYourBestOffers: 44,
-          pitchTraining: 30,
-          businessFundingAdvice: 34,
-          freeBusinessFundingAdvice: 55,
-          videoOfPitching: 55,
-
-          businessRevenue: 1000000,
-          jobPosition: 'CEO',
-          salary: 200000,
-          businessName: 'JohnBusiness',
-          bizCategory: 'IT',
-          exhibited: 30,
-          visited: 30,
-          investorMember: 5,
-          investmentBroker: 3,
-          investorsAdverts: 2,
-          bizMentor: 30,
-          totalSpent: 150,
-          oneMinPitching: 344,
-          threeMinPitching: 44,
-          investmentPitching: 32,
-          workshop: 22,
-          presentation: 22,
-          lastLoggedIn: '2023-06-01'
-        }
-      ]);
-
-      const sortKey = ref<keyof Member | null>(null);
-      const sortAsc = ref(true);
-      // making the selected row distinguishable
-
-      const selectedRow = ref<number | null>(null);
-      // Search Filed
-
-      const searchQuery = ref<string>('');
-      const filteredMembers = ref(members.value);
-
-      // back button does not wor, fix itk
-      const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
-
-      const scrollToLeft = () => {
-          if (scrollableContainer.value) {
-            scrollableContainer.value.scrollLeft = 0;
-          }
-        };
-
-      // back button does not work
-
-
-      const sortMembers = (key: keyof Member) => {
-        if (sortKey.value === key) {
-          sortAsc.value = !sortAsc.value;
-        } else {
-          sortKey.value = key;
-          sortAsc.value = true;
-        }
-      };
-
-      const sortIcon = (key: keyof Member) => {
-        if (sortKey.value === key) {
-          return sortAsc.value ? arrowUpOutline : arrowDownOutline;
-        }
-        return undefined;
-      };
-
-      
-      //  * Resets the sorting to the original state (default order).
-      const resetSorting = () => {
-        sortKey.value = 'BookingDate';
-        sortAsc.value = true;
-      };
-
-      
-      //  * Computes the sorted members based on the current sortKey and sort order.
-      const sortedMembers = computed(() => {
-        if (!sortKey.value) return filteredMembers.value;
-
-        return [...filteredMembers.value].sort((a, b) => {
-          if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
-          if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
-          return 0;
-        });
-      });
-
-      const itemsPerPage = 20;
-      const currentPage = ref(1);
-
-      //  * Computes the paginated members for the current page.
-      const paginatedMembers = computed(() => {
-        const start = (currentPage.value - 1) * itemsPerPage;
-        return sortedMembers.value.slice(start, start + itemsPerPage);
-      });
-
-      //  * Computes the total number of pages based on the number of members and items per page.
-      const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
-
-      const total = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
-      const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
-      const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
-      //  * Navigates to the previous page, if possible.
-      const prevPage = () => {
-        if (currentPage.value > 1) {
-          currentPage.value -= 1;
-        }
-      };
-
-      //  * Navigates to the next page, if possible.
-      const nextPage = () => {
-        if (currentPage.value < totalPages.value) {
-          currentPage.value += 1;
-        }
-      };
-
-      //  * Exports the table data to a CSV file.
-      const exportTable = () => {
-        const csvContent = [
-          [
-            'Member ID',  'BookingDate','ApplicationIdeaBusinessName', 'ApplicationIdeaBizCategory', 'EquityLoan',  'DisplayedInList', 'Opened Seen', 'ApplicationMessaged', 'TopCategoryOpenedYourApplication',  'ProductService', 
-            'ApplicationAmount', 'RevenueInThreeYears', 'ProfitInThreeYears', 'ExpiringDate', 'TimeLeftTillExpiry', 'successFeeCommissionPaid', 'PersonPic', 'FirstName', 'LastName', 'Email', 'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
-            'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
-            'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
-          ],
-          ...filteredMembers.value.map(member => [
-            member.id,  member.BookingDate, member.ApplicationIdeaBusinessName, member.ApplicationIdeaBizCategory, member.EquityLoan, member.DisplayedInList, member.OpenedSeen, member.ApplicationMessaged, member.TopCategoryOpenedYourApplication,  member.ProductService, member.ApplicationAmount, member.RevenueInThreeYears, member.ProfitInThreeYears, member.expiringDate, member.timeLeftTillExpiry, member.successFeeCommissionPaid, member.personPic, member.firstName, member.lastName, member.email, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
-            member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
-            member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop,   member.lastLoggedIn
-          ])
-        ]
-          .map(e => e.join(","))
-          .join("\n");
-
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'LENeventBookings.csv';
-        link.click();
-      };
-
-      const printTable = () => {
-        const printContent = `
-          <html>
-            <head>
-              <style>
-                @page {
-                  size: landscape;
-                  margin: 1cm;
-                }
-                table {
-                  width: 100%;
-                  border-collapse: collapse;
-                  table-layout: fixed;
-                }
-                th, td {
-                  border: 1px solid gray;
-                  padding: 5px;
-                  text-align: left;
-                  font-size: 8px;
-                }
-                th {
-                  background-color: #f1f1f1;
-                  font-weight: bold;
-                }
-                .odd-row {
-                  background-color: #f5efef;
-                }
-                .even-row {
-                  background-color: #bceea5;
-                }
-                .even-row .MemberTitleCol {
-                  background-color: aquamarine;
-                }
-                .TotalRow {
-                  font-weight: bold;
-                }
-              </style>
-            </head>
-            <body>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Member ID</th>
-                    <th>BookingDate</th>
-                    <th>ApplicationIdeaBusinessName</th>
-                    <th>ApplicationIdeaBizCategory</th>
-                    <th>EquityLoan</th>
-                    <th>DisplayedInAPage</th>
-                    <th>Opened Seen</th>
-                    <th>ApplicationMessaged</th>
-                    <th>TopCategoryOpenedYourApplication</th>
-                    <th>ProductService</th>
-                    <th>ApplicationAmount</th>
-                    <th>RevenueInThreeYears</th>
-                    <th>ProfitInThreeYears</th>
-                    <th>ExpiringDate</th>
-                    <th>timeLeftTillExpiry</th>
-                    <th>successFeeCommissionPaid</th>
-                    <th>Person Pic</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Membership Type</th>
-                    <th>VIP Membership</th>
-                    <th>VVIPMembership</th>
-                    <th>Response To Your Needs</th>
-                    <th>Response To Your Offers</th>
-                    <th>Response To Your Best Offers</th>
-                    <th>PitchTraining</th>
-                    <th>Business Funding Advice</th>
-                    <th>Free Business Funding Advice</th>
-                    <th>Video Of Pitching</th>
-
-                    <th>Business Revenue</th>
-                    <th>Job Position</th>
-                    <th>Salary</th>
-                    <th>Business Name</th>
-                    <th>Biz Category</th>
-                    <th>Exhibited</th>
-                    <th>Visited</th>
-                    <th>Investor Member</th>
-                    <th>Investment Broker</th>
-                    <th>Investors Adverts</th>
-                    <th>Biz Mentor</th>
-                    <th>Total Spent</th>
-                    <th>OneMin Pitching</th>
-                    <th>ThreeMin Pitching</th>
-                    <th>Investment Pitching</th>
-                    <th>Workshop</th>
-                    <th>Presentation</th>
-                    <th>Last Logged In</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  ${paginatedMembers.value.map((member, index) => `
-                    <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
-                      <td>${member.id}</td>
-                      <td>${member.BookingDate}</td>
-                      <td>${member.ApplicationIdeaBusinessName}</td>
-                      <td>${member.ApplicationIdeaBizCategory}</td>
-                      <td>${member.EquityLoan}</td>
-                      <td>${member.DisplayedInList}</td>
-                      <td>${member.OpenedSeen}</td>
-                      <td>${member.ApplicationMessaged}</td>
-                      <td>${member.TopCategoryOpenedYourApplication}</td>
-                      <td>${member.ProductService}</td>
-                      <td>${member.ApplicationAmount}</td>
-                      <td>${member.RevenueInThreeYears}</td>
-                      <td>${member.ProfitInThreeYears}</td>
-                      <td>${member.expiringDate}</td>
-                      <td>${member.timeLeftTillExpiry}</td>
-                      <td>${member.successFeeCommissionPaid}</td>
-                      <td>${member.personPic}</td>
-                      <td>${member.firstName}</td>
-                      <td>${member.lastName}</td>
-                      <td>${member.email}</td>
-                      <td>${member.membershipType}</td>
-                      <td>${member.VIPMembership}</td>
-                      <td>${member.VVIPMembership}</td>
-                      <td>${member.responseToYourNeeds}</td>
-                      <td>${member.responseToYourOffers}</td>
-                      <td>${member.responseToYourBestOffers}</td>
-                      <td>${member.pitchTraining}</td>
-                      <td>${member.businessFundingAdvice}</td>
-                      <td>${member.freeBusinessFundingAdvice}</td>
-                      <td>${member.videoOfPitching}</td>
-
-                      <td>${member.businessRevenue}</td>
-                      <td>${member.jobPosition}</td>
-                      <td>${member.salary}</td>                      
-                      <td>${member.businessName}</td>
-                      <td>${member.bizCategory}</td>
-                      <td>${member.exhibited}</td>
-                      <td>${member.visited}</td>
-                      <td>${member.investorMember}</td>
-                      <td>${member.investmentBroker}</td>
-                      <td>${member.investorsAdverts}</td>
-                      <td>${member.bizMentor}</td>
-                      <td>${member.totalSpent}</td>
-                      <td>${member.oneMinPitching}</td>
-                      <td>${member.threeMinPitching}</td>
-                      <td>${member.investmentPitching}</td>
-                      <td>${member.workshop}</td>
-                      <td>${member.presentation}</td>
-                      <td>${member.lastLoggedIn}</td>
-                    </tr>
-                  `).join('')}
-                  <tr class="TotalRow">
-                    <td>Totals:</td>
-                    <td colspan="29"></td>
-                    <td>${totalBusinessRevenue.value}</td>
-                    <td></td>
-                    <td>${totalSalary.value}</td> 
-                    <td colspan="8"></td>
-                    <td>${total.value}</td>
-                    <td colspan="6"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div style="font-size: 8px;">Page ${currentPage.value} of ${totalPages.value}</div>
-            </body>
-          </html>
-        `;
-        const printWindow = window.open('', '', 'height=600,width=800');
-        if (printWindow) {
-          printWindow.document.write(printContent);
-          printWindow.document.close();
-          printWindow.print();
-        }
-      };
-
-      // making the selected row distinguishable
-      const selectRow = (id: number) => {
-        selectedRow.value = id;
-      };
-
-      // Search Function
-      const searchMembers = () => {
-        if (searchQuery.value.trim() === '') {
-          filteredMembers.value = members.value;
-        } else {
-          const query = searchQuery.value.trim().toLowerCase();
-          filteredMembers.value = members.value.filter(member => 
-            Object.values(member).some(val => 
-              val.toString().toLowerCase().includes(query)
-            )
-          );
-        }
-      };
-
-      watch(searchQuery, searchMembers);
-
-      return {
-        members,
-        sortKey,
-        sortAsc,
-        sortMembers,
-        sortIcon,
-        resetSorting,
-        selectRow,
-        selectedRow,
-        searchQuery,
-        searchMembers,
-        paginatedMembers,
-        currentPage,
-        totalPages,
-        prevPage,
-        nextPage,
-        exportTable,
-        printTable,
-        total,
-        totalBusinessRevenue,
-        totalSalary,
-        close,
-        arrowBackCircle,
-        scrollToLeft,
-        scrollableContainer,
-      };
-    }
-  });
+});
 </script>
 
 
 
-
-
-
-
 <style scoped>
-  /* Adjusting the length of the table here: http://localhost:8100/adminpage */
-  ion-grid {
+
+ion-grid {
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100%; /* Full height to fit the parent */
+}
+
+ion-textarea{
+  border-radius: 7px;
+  border:1px gray solid;
+  margin-bottom: 10px;
+}
+.UpSellingService2,
+.UpSellingService4 {
+  margin: 10px;
+  background-color: rgb(245, 229, 253);
+  border-radius: 7px;
+  padding: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.UpSellingService1,
+.UpSellingService3 {
+  margin: 10px;
+  background-color: rgb(177, 247, 206);
+  border-radius: 7px;
+  padding: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.checkbox-text {
+  white-space: normal;
+  text-align: left;
+  padding: 5px;
+  font-size: 13px;
+  margin: 0;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+
+}
+.numberInput {
+  max-width: 40px;
+  max-height: 1px;
+  border: solid 1px rgb(12, 42, 211);
+  margin: 0 5px;
+}
+
+.ADVICEforFREE {
+  /* font-weight: bold; */
+  color: red;
+}
+ion-checkbox {
+  border: solid 1px rgb(223, 223, 223);
+  border-radius: 4px;
+}
+
+/* <!-- tabs style --> */
+.Tabs2_PitchingPresentationWorkshop-Upselling {
+  display: flex;
+  flex-wrap: wrap; /* Allow tabs to wrap to the next row */
+  margin-bottom: 10px;
+}
+
+.TabSegment {
+  display: flex;
+  flex-wrap: wrap; /* Allow segment buttons to wrap */
+  width: 100%;
+}
+
+.btn {
+  /* flex: 1; */
+  white-space: normal; /* Allows text to wrap */
+  color: red;
+  font-weight: bold;
+}
+
+.DisplayComponentRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.CenterPositions {
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+input[type="file"] {
+  width: 100%;
+}
+
+.Summaries {
+  width: 100%; /*ensures does not exit the mobile frame for long Label*/
+  gap: 5px;
+  white-space: normal; /* Allows text to wrap */
+ }
+@media (max-width: 600px) {
+  .test {
+    flex-direction: row;
     width: 100%;
-  }
-  .search{
-    width: 100px;
-  }
-  /* .arrowBackCircle {
-    position: fixed;
-    top: 55;
-    left: 90;
-    right: 0;
-    z-index: 1;
-  } */
-  .TitleRow {
-    font-weight: bold;
-    cursor: pointer;
-    height: 50px;
-    align-items: top;
-  }
-  .topBorder {
-    border-top: 3px solid red;
-  }
-  .successFeeCommissionPaidCol {
-    border-right: 3px solid red;
-  }
-  .Purple{
-    color: rgb(206, 6, 251);
-    font-weight: bold;
-  }
-  .NONscrollingRow {
-    overflow-x: auto;
-  }
-  .scrollingRow {
-    min-width: 5200px;
-    flex-direction: column;
-  }
-  .DataRow {
-    cursor: pointer;
-  }
-  .DataRow.selected {
-    border-top: 3px solid red;
-    border-bottom: 3px solid red;
-  }
-  .DataRow:nth-child(odd) ion-col {
-    background-color: #f5efef;
-  }
-  .DataRow:nth-child(even) ion-col {
-    background-color: #bceea5;
-  }
-  .TotalRow {
-    font-weight: bold;
-  }
-
-  .TitleRow, .DataRow, .TotalRow {
-    border: 1px solid gray;
-  }
-
-  .DataRow, .TotalRow {
-    white-space: nowrap;
-  }
-  .TitleRow ion-col {
-    overflow: visible; /* Ensure the content is fully visible */
-    word-wrap: break-word; /* Break long words */
-    white-space: normal; /* Allow text to wrap */
-    text-align: center; /* Center align for better presentation */
-  }
-
-  .OrderIDCol {
-    /* width: 50px; */
-    background-color: red;
-  }
-
-  ion-col {
-    max-width: 100px;
-    padding: 0;
-    margin: 0;
-    white-space: nowrap;
-    overflow-x: auto;
-    align-content: center;
-    height: 40px;
-    font-size: 12px;
-    border-right: 1px solid lightgray;
-  }
-  .ActionCol{
-    overflow-x: visible;
-    color: red;
-  }
-  .ActionCol ion-button  {
-    margin:0;
-    padding:0;
-  }
-
-  .PageInfo {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    margin: 0 10px;
+  }
+  .redWords{
+    display: block;
   }
 
-  .sort-icon {
-    margin-left: 5px;
-  }
-
-  .person-pic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-  .TitleP {
-    text-align: center;
-    font-weight: bold;
-  }
-
-  @media (max-width: 600px) {
-    .TitleRow, .DataRow, .TotalRow {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    ion-col {
-      max-width: 100px;
-    }
-  }
-  
-
+ }
 
 </style>
-
-

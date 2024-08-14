@@ -111,7 +111,10 @@
                 <p><a href="/FreePitchingsPage" class="Events-button" >FreePitchingsPage </a> </p>
                 <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
                 <p><a href="/PitchingComponent" class="Events-button" >PitchingComponent </a> </p>
-                <p><a href="/FormPitchingComponent" class="Events-button" >FormPitchingComponent </a> </p>
+                <p><a href="/TicketTABsPitchingUpSellingComponent" class="Events-button" >TicketTABsPitchingUpSellingComponent </a> </p>
+                <p><a href="/FormPitchingWorkshopPresentationComponent" class="Events-button" >FormPitchingWorkshopPresentationComponent </a> </p>
+                <p><a href="/FormUpSellingComponent" class="Events-button" >FormUpSellingComponent </a> </p>
+
                 <p><a href="/FormExhibitingWorkshopPresentComponent" class="Events-button" >FormExhibitingWorkshopPresentComponent </a> </p>
                 <p><a href="/AboutUsPage" class="Events-button" >AboutUsPage </a> </p>
                 <p><a href="/ProfileLeftSideBarComponent" class="Events-button" >ProfileLeftSideBarComponent </a> </p>

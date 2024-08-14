@@ -45,7 +45,7 @@
 
       <!-- ################################################################### -->
       <div class="row">
-        <!-- Conditional Rendering of the FormPitchingComponent -->
+        <!-- Conditional Rendering of the TicketTABsPitchingUpSellingComponent -->
         <div class="column wide-column left-align " @click="toggleFormPitching" >
           <IonCheckbox justify="start" class="FREEOneMinute">FREE One Minute Pitching</IonCheckbox>
           <IonCheckbox justify="start">Three Minutes Pitching</IonCheckbox>
@@ -62,9 +62,9 @@
     <!-- ################################################################### -->
     </div>
 
-      <!-- Conditional Rendering of the FormPitchingComponent -->
+      <!-- Conditional Rendering of the TicketTABsPitchingUpSellingComponent -->
       <div v-if="showFormPitching">
-        <FormPitchingComponent />
+        <TicketTABsPitchingUpSellingComponent />
       </div>
 
 
@@ -86,7 +86,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import { IonButton, IonGrid, IonCheckbox } from '@ionic/vue';
-import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
+import TicketTABsPitchingUpSellingComponent from '@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue';
 import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
 import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
 
@@ -96,7 +96,7 @@ export default defineComponent({
     IonButton,
     IonGrid,
     IonCheckbox,
-    FormPitchingComponent,
+    TicketTABsPitchingUpSellingComponent,
     MiniEventComponent,
     MiniProfileCardVVIPComponent,
   },

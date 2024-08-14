@@ -121,7 +121,7 @@ import { defineComponent, ref } from 'vue';
 import { IonCheckbox, IonSegment, IonSegmentButton,IonContent, IonInput, IonGrid, IonRow, IonCol, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonTextarea, IonList } from '@ionic/vue';
 
 export default defineComponent({
-  name: 'FormPitchingComponent',
+  name: 'TicketTABsPitchingUpSellingComponent',
   components: {
     IonContent,
     IonInput,

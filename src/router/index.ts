@@ -59,7 +59,12 @@ import TheEventComponent from '@/components/EventsShowsComponent/TheEventCompone
 import TicketEventComponent from '@/components/EventsShowsComponent/TicketEventComponent.vue';
 import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
-import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
+import TicketTABsPitchingUpSellingComponent from '@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue';
+
+
+import FormPitchingWorkshopPresentationComponent from '@/components/PitchingComponents/FormPitchingWorkshopPresentationComponent.vue';
+import FormUpSellingComponent from '@/components/PitchingComponents/FormUpSellingComponent.vue';
+
 // Admin events comp
 import AdminLeftSideBarComponent from '@/components/AdminComponents/AdminEventsComponents/AdminLeftSideBarComponent.vue';
 import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
@@ -357,9 +362,19 @@ const routes: Array<RouteRecordRaw> = [
     component: PitchingComponent
   },
   {
-    path: '/formPitchingComponent',
-    name: 'FormPitchingComponent',
-    component: FormPitchingComponent
+    path: '/ticketTABsPitchingUpSellingComponent',
+    name: 'TicketTABsPitchingUpSellingComponent',
+    component: TicketTABsPitchingUpSellingComponent
+  },
+  {
+    path: '/formPitchingWorkshopPresentationComponent',
+    name: 'FormPitchingWorkshopPresentationComponent',
+    component: FormPitchingWorkshopPresentationComponent
+  },
+  {
+    path: '/formUpSellingComponent',
+    name: 'FormUpSellingComponent',
+    component: FormUpSellingComponent
   },
 
   // Investment comp

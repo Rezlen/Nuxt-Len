@@ -221,7 +221,7 @@
 
     <!-- Modal for displaying component in a popup -->
     <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
-      <FormPitchingComponent />
+      <TicketTABsPitchingUpSellingComponent />
       <IonButton @click="closeModal">Close</IonButton>
     </IonModal>
 
@@ -238,7 +238,7 @@
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal } from '@ionic/vue';
   import { create, trash, ban, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
-  import FormPitchingComponent from '@/components/PitchingComponents/FormPitchingComponent.vue';
+  import TicketTABsPitchingUpSellingComponent from '@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue';
 
   interface Member {
     id: number;
@@ -295,7 +295,7 @@
 
   export default defineComponent({
     name: 'AdminEventSpecificMembersPitchingProfileDetailAdminComponent',
-    components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, FormPitchingComponent, },
+    components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([
         {
