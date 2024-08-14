@@ -17,9 +17,9 @@
 
           <!-- Sidebar Menu -->
           <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
-            <IonRow class="PaddingBorder Profiles"@click="showComponent('profiles')">Profiles</IonRow>
-            <IonRow class="PaddingBorder Events"@click="showComponent('events')" >Events</IonRow>
-            <IonRow class="PaddingBorder Investments">Investments</IonRow>
+            <IonRow class="PaddingBorder Profiles" @click="showComponent('profiles')">Profiles</IonRow>
+            <IonRow class="PaddingBorder Events" @click="showComponent('events')" >Events</IonRow>
+            <IonRow class="PaddingBorder sponsorshipPartnership" @click="showComponent('MembersSponsorshipPartnershipProfileDetailAdminComponent')">Sponsorship Partnership</IonRow>
             <IonRow class="PaddingBorder OffersNeeds">Offers Needs</IonRow>
             <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
             <IonRow class="PaddingBorder contactUs" @click="showComponent('contactUsTABsAdminComponent')" >Contacted Us</IonRow>
@@ -53,6 +53,7 @@ import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import AdminCreateEventTABsComponent from '@/components/AdminComponents/AdminEventsComponents/AdminCreateEventTABsComponent.vue';
 import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersProfileDetailTABsAdminComponent.vue';
 import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
+import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -68,6 +69,7 @@ export default defineComponent({
     AdminCreateEventTABsComponent,
     MembersProfileDetailTABsAdminComponent,
     contactUsTABsAdminComponent,
+    MembersSponsorshipPartnershipProfileDetailAdminComponent,
 
     FooterComponent,
   },
@@ -85,6 +87,9 @@ export default defineComponent({
       }
       if (componentName === 'profiles') {
         currentComponent.value = MembersProfileDetailTABsAdminComponent;
+      }
+      if (componentName === 'MembersSponsorshipPartnershipProfileDetailAdminComponent') {
+        currentComponent.value = MembersSponsorshipPartnershipProfileDetailAdminComponent;
       }
       if (componentName === 'contactUsTABsAdminComponent') {
         currentComponent.value = contactUsTABsAdminComponent;
@@ -140,7 +145,8 @@ ion-grid {
 
 .Events, 
 .Profiles,
-.contactUs {
+.contactUs,
+.sponsorshipPartnership {
   font-weight: bold;
   color: red;
 }

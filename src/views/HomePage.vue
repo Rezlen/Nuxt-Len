@@ -173,13 +173,14 @@
                 <p><a href="/MyBestOffersActivityTableComponent" class="Events-button" >MyBestOffersActivityTableComponent</a> </p>
                 <p><a href="/MyNeedsActivityTableComponent" class="Events-button" >MyNeedsActivityTableComponent</a> </p>
                 <p><a href="/MyInvestmentAdsComponent" class="Events-button" > MyInvestmentAdsComponent </a> </p>
-                <p><a href="/MyPitchingsActivityTableComponent" class="MyPitchingsActivityTableComponent" > MyPitchingsActivityTableComponent </a> </p>
+                <p><a href="/MyPitchingsActivityTableComponent" class="Events-button" > MyPitchingsActivityTableComponent </a> </p>
+                <p><a href="/MembersSponsorshipPartnershipProfileDetailAdminComponent" class="Events-button" > MembersSponsorshipPartnershipProfileDetailAdminComponent </a> </p>
 
 
               
               </IonRow>
               
-              <!-- MiniProfilesRow #####  EmailImports.vue    -->
+              <!-- MiniProfilesRow #####  EmailImports.vue    MembersSponsorshipPartnershipProfileDetailAdminComponent -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

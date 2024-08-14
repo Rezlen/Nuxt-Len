@@ -60,8 +60,6 @@ import TicketEventComponent from '@/components/EventsShowsComponent/TicketEventC
 import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
 import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
 import TicketTABsPitchingUpSellingComponent from '@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue';
-
-
 import FormPitchingWorkshopPresentationComponent from '@/components/PitchingComponents/FormPitchingWorkshopPresentationComponent.vue';
 import FormUpSellingComponent from '@/components/PitchingComponents/FormUpSellingComponent.vue';
 
@@ -91,6 +89,8 @@ import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComp
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
 import membersContactUsMessagesTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/membersContactUsMessagesTableAdminComponent.vue';
+//  Admin Sponsorship Partnership comps MembersSponsorshipPartnershipProfileDetailAdminComponent
+import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
 
 // User/Member Account Section Comps
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
@@ -493,7 +493,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'membersContactUsMessagesTableAdminComponent',
     component: membersContactUsMessagesTableAdminComponent
   },
-
+//  Admin Sponsorship Partnership comps MembersSponsorshipPartnershipProfileDetailAdminComponent
+  {
+    path: '/membersSponsorshipPartnershipProfileDetailAdminComponent',
+    name: 'MembersSponsorshipPartnershipProfileDetailAdminComponent',
+    component: MembersSponsorshipPartnershipProfileDetailAdminComponent
+  },
 
 
   // User Account section  MembersMyOrderComponent
