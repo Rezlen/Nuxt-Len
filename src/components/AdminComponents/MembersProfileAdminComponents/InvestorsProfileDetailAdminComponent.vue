@@ -11,218 +11,218 @@
       </IonButton>
     </IonRow>
 
-    <IonRow class="NONscrollingRow">
-    
-      <IonRow class="scrollingRow" ref="scrollableContainer">
-          <!-- TitleRow with sorting functionality and icons -->
-          <IonRow class="TitleRow">
-            <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-            <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
-            <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
-            <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
-            <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-            <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
-            <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+      <IonRow class="NONscrollingRow">
+      
+        <IonRow class="scrollingRow" ref="scrollableContainer">
+            <!-- TitleRow with sorting functionality and icons -->
+            <IonRow class="TitleRow">
+              <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+              <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+              <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+              <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+              <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+              <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
+              <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-            <!-- Investors Profile Data -->
-            <IonCol class="InvestmentAmountCol" @click="sortMembers('investmentAmount')">Investment Amount<IonIcon :icon="sortIcon('investmentAmount')" class="sort-icon" /></IonCol>
-            <IonCol class="EquityLoanCol" @click="sortMembers('equityLoan')">EquityLoan <IonIcon :icon="sortIcon('equityLoan')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestingCountryCol" @click="sortMembers('investingCountry')">Investing Country <IonIcon :icon="sortIcon('investingCountry')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestingCityCol" @click="sortMembers('investingCity')">Investing City <IonIcon :icon="sortIcon('investingCity')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestingLengthCol" @click="sortMembers('investingLength')">Investing Length <IonIcon :icon="sortIcon('investingLength')" class="sort-icon" /></IonCol>
-            <IonCol class="WantedROICol" @click="sortMembers('wantedROI')">Wanted ROI <IonIcon :icon="sortIcon('wantedROI')" class="sort-icon" /></IonCol>
-            <IonCol class="MobNoCol" @click="sortMembers('mobNo')">Mob No <IonIcon :icon="sortIcon('mobNo')" class="sort-icon" /></IonCol>
-            <IonCol class="RequiredEquityInterestCol" @click="sortMembers('requiredEquityInterest')">Required EquityInterest <IonIcon :icon="sortIcon('requiredEquityInterest')" class="sort-icon" /></IonCol>
-            <IonCol class="ProductServiceCol" @click="sortMembers('productService')">Product/Service <IonIcon :icon="sortIcon('productService')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestingCategoryCol" @click="sortMembers('investingCategory')">Investing Category <IonIcon :icon="sortIcon('investingCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="LookingForSummeryCol" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
-            <!-- Investors Profile Data -->
+              <!-- Investors Profile Data -->
+              <IonCol class="InvestmentAmountCol" @click="sortMembers('investmentAmount')">Investment Amount<IonIcon :icon="sortIcon('investmentAmount')" class="sort-icon" /></IonCol>
+              <IonCol class="EquityLoanCol" @click="sortMembers('equityLoan')">EquityLoan <IonIcon :icon="sortIcon('equityLoan')" class="sort-icon" /></IonCol>
+              <IonCol class="InvestingCountryCol" @click="sortMembers('investingCountry')">Investing Country <IonIcon :icon="sortIcon('investingCountry')" class="sort-icon" /></IonCol>
+              <IonCol class="InvestingCityCol" @click="sortMembers('investingCity')">Investing City <IonIcon :icon="sortIcon('investingCity')" class="sort-icon" /></IonCol>
+              <IonCol class="InvestingLengthCol" @click="sortMembers('investingLength')">Investing Length <IonIcon :icon="sortIcon('investingLength')" class="sort-icon" /></IonCol>
+              <IonCol class="WantedROICol" @click="sortMembers('wantedROI')">Wanted ROI <IonIcon :icon="sortIcon('wantedROI')" class="sort-icon" /></IonCol>
+              <IonCol class="MobNoCol" @click="sortMembers('mobNo')">Mob No <IonIcon :icon="sortIcon('mobNo')" class="sort-icon" /></IonCol>
+              <IonCol class="RequiredEquityInterestCol" @click="sortMembers('requiredEquityInterest')">Required EquityInterest <IonIcon :icon="sortIcon('requiredEquityInterest')" class="sort-icon" /></IonCol>
+              <IonCol class="ProductServiceCol" @click="sortMembers('productService')">Product/Service <IonIcon :icon="sortIcon('productService')" class="sort-icon" /></IonCol>
+              <IonCol class="InvestingCategoryCol" @click="sortMembers('investingCategory')">Investing Category <IonIcon :icon="sortIcon('investingCategory')" class="sort-icon" /></IonCol>
+              <IonCol class="LookingForSummeryCol" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
+              <!-- Investors Profile Data -->
 
-            <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
-            <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
-            <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
-            <IonCol class="BusinessRevenueCol" @click="sortMembers('businessRevenue')">Business Revenue <IonIcon :icon="sortIcon('businessRevenue')" class="sort-icon" /></IonCol>
-            <IonCol class="JobPositionCol" @click="sortMembers('jobPosition')">Job Position<IonIcon :icon="sortIcon('jobPosition')" class="sort-icon" /></IonCol>
-            <IonCol class="SalaryCol" @click="sortMembers('salary')">Salary<IonIcon :icon="sortIcon('salary')" class="sort-icon" /></IonCol>
+              <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
+              <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
+              <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+              <IonCol class="BusinessRevenueCol" @click="sortMembers('businessRevenue')">Business Revenue <IonIcon :icon="sortIcon('businessRevenue')" class="sort-icon" /></IonCol>
+              <IonCol class="JobPositionCol" @click="sortMembers('jobPosition')">Job Position<IonIcon :icon="sortIcon('jobPosition')" class="sort-icon" /></IonCol>
+              <IonCol class="SalaryCol" @click="sortMembers('salary')">Salary<IonIcon :icon="sortIcon('salary')" class="sort-icon" /></IonCol>
 
-            <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="ExhibitedCol" @click="sortMembers('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
-            <IonCol class="EventSpentCol" @click="sortMembers('eventSpent')">Event Spent <IonIcon :icon="sortIcon('eventSpent')" class="sort-icon" /></IonCol>
+              <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
+              <IonCol class="ExhibitedCol" @click="sortMembers('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+              <IonCol class="EventSpentCol" @click="sortMembers('eventSpent')">Event Spent <IonIcon :icon="sortIcon('eventSpent')" class="sort-icon" /></IonCol>
 
-            <IonCol class="VisitedCol" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
-            <IonCol class="ListedNeedsCol" @click="sortMembers('listedNeeds')">Listed Needs <IonIcon :icon="sortIcon('listedNeeds')" class="sort-icon" /></IonCol>
-            <IonCol class="ListedOffersCol" @click="sortMembers('listedOffers')">Listed Offers <IonIcon :icon="sortIcon('listedOffers')" class="sort-icon" /></IonCol>
-            <IonCol class="AdvertSpentCol" @click="sortMembers('advertSpent')">Advert Spent <IonIcon :icon="sortIcon('advertSpent')" class="sort-icon" /></IonCol>
+              <IonCol class="VisitedCol" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+              <IonCol class="ListedNeedsCol" @click="sortMembers('listedNeeds')">Listed Needs <IonIcon :icon="sortIcon('listedNeeds')" class="sort-icon" /></IonCol>
+              <IonCol class="ListedOffersCol" @click="sortMembers('listedOffers')">Listed Offers <IonIcon :icon="sortIcon('listedOffers')" class="sort-icon" /></IonCol>
+              <IonCol class="AdvertSpentCol" @click="sortMembers('advertSpent')">Advert Spent <IonIcon :icon="sortIcon('advertSpent')" class="sort-icon" /></IonCol>
 
-            <IonCol class="PeopleSatisfiedNeedsCol" @click="sortMembers('peopleSatisfiedNeeds')">People SatisfiedNeeds <IonIcon :icon="sortIcon('peopleSatisfiedNeeds')" class="sort-icon" /></IonCol>
-            <IonCol class="PeopleRequestedOffersCol" @click="sortMembers('peopleRequestedOffers')">People RequestedOffers <IonIcon :icon="sortIcon('peopleRequestedOffers')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorsAdvertsCol" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
-            <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
+              <IonCol class="PeopleSatisfiedNeedsCol" @click="sortMembers('peopleSatisfiedNeeds')">People SatisfiedNeeds <IonIcon :icon="sortIcon('peopleSatisfiedNeeds')" class="sort-icon" /></IonCol>
+              <IonCol class="PeopleRequestedOffersCol" @click="sortMembers('peopleRequestedOffers')">People RequestedOffers <IonIcon :icon="sortIcon('peopleRequestedOffers')" class="sort-icon" /></IonCol>
+              <IonCol class="InvestorsAdvertsCol" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+              <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
 
-            <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-            <IonCol class="BizMentorSpentCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
-            <IonCol class="MobileNoCol" @click="sortMembers('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
-            <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
-            <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
-            <IonCol class="BizCityCol" @click="sortMembers('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
-            <IonCol class="ConnectionsCol" @click="sortMembers('connections')">Connections <IonIcon :icon="sortIcon('connections')" class="sort-icon" /></IonCol>
-            <IonCol class="NoEmployeesCol" @click="sortMembers('noEmployees')">No.Employees <IonIcon :icon="sortIcon('noEmployees')" class="sort-icon" /></IonCol>
+              <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
+              <IonCol class="BizMentorSpentCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
+              <IonCol class="MobileNoCol" @click="sortMembers('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
+              <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
+              <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
+              <IonCol class="BizCityCol" @click="sortMembers('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
+              <IonCol class="ConnectionsCol" @click="sortMembers('connections')">Connections <IonIcon :icon="sortIcon('connections')" class="sort-icon" /></IonCol>
+              <IonCol class="NoEmployeesCol" @click="sortMembers('noEmployees')">No.Employees <IonIcon :icon="sortIcon('noEmployees')" class="sort-icon" /></IonCol>
 
-            <IonCol class="BookingDateCol" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+              <IonCol class="BookingDateCol" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
 
-            <IonCol class="JoinedCol" @click="sortMembers('joined')">Joined <IonIcon :icon="sortIcon('joined')" class="sort-icon" /></IonCol>
-            <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-            <IonCol class="NoLoggedInCol" @click="sortMembers('noLoggedIn')">NoOf LoggedIn <IonIcon :icon="sortIcon('noLoggedIn')" class="sort-icon" /></IonCol>
-            <IonCol class="FullProfileSeenCol" @click="sortMembers('fullProfileSeen')">FullProfile Seen <IonIcon :icon="sortIcon('fullProfileSeen')" class="sort-icon" /></IonCol>
+              <IonCol class="JoinedCol" @click="sortMembers('joined')">Joined <IonIcon :icon="sortIcon('joined')" class="sort-icon" /></IonCol>
+              <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+              <IonCol class="NoLoggedInCol" @click="sortMembers('noLoggedIn')">NoOf LoggedIn <IonIcon :icon="sortIcon('noLoggedIn')" class="sort-icon" /></IonCol>
+              <IonCol class="FullProfileSeenCol" @click="sortMembers('fullProfileSeen')">FullProfile Seen <IonIcon :icon="sortIcon('fullProfileSeen')" class="sort-icon" /></IonCol>
 
-            <IonCol class="ActionCol">Actions</IonCol>
-          </IonRow>
+              <IonCol class="ActionCol">Actions</IonCol>
+            </IonRow>
 
-          <!-- Data rows -->
-          <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
-            <IonCol class="MemberIDCol">{{ member.id }}</IonCol>
-            <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-            <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
-            <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
-            <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
-            <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
-            <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+            <!-- Data rows -->
+            <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
+              <IonCol class="MemberIDCol">{{ member.id }}</IonCol>
+              <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+              <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
+              <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
+              <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
+              <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
+              <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-            <!-- Investors Profile Data -->
-            <IonCol class="InvestmentAmountCol">{{ member.investmentAmount }}</IonCol>
-            <IonCol class="EquityLoanCol">{{ member.equityLoan }}</IonCol>
-            <IonCol class="InvestingCountryCol">{{ member.investingCountry }}</IonCol>
-            <IonCol class="InvestingCityCol">{{ member.investingCity }}</IonCol>
-            <IonCol class="InvestingLengthCol">{{ member.investingLength }}</IonCol>
-            <IonCol class="WantedROICol">{{ member.wantedROI }}</IonCol>
-            <IonCol class="MobNoCol">{{ member.mobNo }}</IonCol>
-            <IonCol class="RequiredEquityInterestCol">{{ member.requiredEquityInterest }}</IonCol>
-            <IonCol class="ProductServiceCol">{{ member.productService }}</IonCol>
-            <IonCol class="InvestingCategoryCol">{{ member.investingCategory }}</IonCol>
-            <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
-            <!-- Investors Profile Data -->
-
-
-            <IonCol class="AgeCol">{{ member.age }}</IonCol>
-            <IonCol class="GenderCol">{{ member.gender }}</IonCol>
-            <IonCol class="BusinessNameCol">{{ member.businessName }}</IonCol>
-            <IonCol class="BusinessRevenueCol">{{ member.businessRevenue }}</IonCol>
-            <IonCol class="JobPositionCol">{{ member.jobPosition }}</IonCol>
-            <IonCol class="SalaryCol">{{ member.salary }}</IonCol>
-
-            <IonCol class="BizCategoryCol">{{ member.bizCategory }}</IonCol>
-            <IonCol class="ExhibitedCol">{{ member.exhibited }}</IonCol>
-            <IonCol class="EventSpentCol">{{ member.eventSpent }}</IonCol>
-
-            <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
-            <IonCol class="ListedNeedsCol">{{ member.listedNeeds }}</IonCol>
-            <IonCol class="ListedOffersCol">{{ member.listedOffers }}</IonCol>
-            <IonCol class="AdvertSpentCol">{{ member.advertSpent }}</IonCol>
-
-            <IonCol class="PeopleSatisfiedNeedsCol">{{ member.peopleSatisfiedNeeds }}</IonCol>
-            <IonCol class="PeopleRequestedOffersCol">{{ member.peopleRequestedOffers }}</IonCol>
-            <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
-            <IonCol class="PitchingsCol">{{ member.pitchings }}</IonCol>
-
-            <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
-            <IonCol class="BizMentorSpentCol">{{ member.bizMentorSpent }}</IonCol>
-            <IonCol class="MobileNoCol">{{ member.mobileNo }}</IonCol>
-            <IonCol class="EmailCol">{{ member.email }}</IonCol>
-            <IonCol class="BizCountryCol">{{ member.bizCountry }}</IonCol>
-            <IonCol class="BizCityCol">{{ member.bizCity }}</IonCol>
-            <IonCol class="ConnectionsCol">{{ member.connections }}</IonCol>
-            <IonCol class="NoEmployeesCol">{{ member.noEmployees }}</IonCol>
-
-            <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
-
-            <IonCol class="JoinedCol">{{ member.joined }}</IonCol>
-            <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
-            <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
-            <IonCol class="FullProfileSeenCol">{{ member.fullProfileSeen }}</IonCol>
-            <IonCol class="ActionCol">
-              <IonButton class="ActionCol" fill="clear" title="Close">
-                <IonButton @click="openModal(member.id)" class="test" fill="clear" title="Edit This Profile"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-                <IonButton class="test" fill="clear" title="Deactivate/Hide This Offer From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
-                <IonButton class="test" fill="clear" title="Delete This Offer After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
-              </IonButton>
-            </IonCol>
-          </IonRow>
-
-          <!-- Total row -->
-          <IonRow class="TotalRow">
-            <IonCol class="MemberIDCol">Totals:</IonCol>
-            <IonCol class="PersonPicCol"></IonCol>
-            <IonCol class="FirstNameCol"></IonCol>
-            <IonCol class="LastNameCol"></IonCol>
-            <IonCol class="MembershipTypeCol"></IonCol>
-            <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
-            <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
-
-            <!-- Investor section -->
-            <IonCol class="InvestmentAmountCol">{{ totalInvestmentAmount }}</IonCol>
-            <IonCol class="EquityLoanCol"></IonCol>
-            <IonCol class="InvestingCountryCol"></IonCol>
-            <IonCol class="InvestingCityCol"></IonCol>
-            <IonCol class="InvestingLengthCol"></IonCol>
-            <IonCol class="WantedROICol"></IonCol>
-            <IonCol class="MobNoCol"></IonCol>
-            <IonCol class="RequiredEquityCol"></IonCol>
-            <IonCol class="ProductServiceCol"></IonCol>
-            <IonCol class="InvestingCategoryCol"></IonCol>
-            <IonCol class="LookingForSummeryCol"></IonCol>
-            <!-- Investor section -->
-
-            <IonCol class="AgeCol"></IonCol>
-            <IonCol class="GenderCol"></IonCol>
-            <IonCol class="BusinessNameCol"></IonCol>
-            <IonCol class="BusinessRevenueCol">{{ totalBusinessRevenue }}</IonCol>
-            <IonCol class="JobPositionCol"></IonCol>
-            <IonCol class="SalaryCol">{{ totalSalary }}</IonCol>
-
-            <IonCol class="BizCategoryCol"></IonCol>
-            <IonCol class="ExhibitedCol"></IonCol>
-            <IonCol class="EventSpentCol">{{ totalEventSpent }}</IonCol>
-
-            <IonCol class="VisitedCol"></IonCol>
-            <IonCol class="ListedNeedsCol"></IonCol>
-            <IonCol class="ListedOffersCol"></IonCol>
-            <IonCol class="AdvertSpentCol">{{ totalAdvertSpent }}</IonCol>
-
-            <IonCol class="PeopleSatisfiedNeedsCol"></IonCol>
-            <IonCol class="PeopleRequestedOffersCol"></IonCol>
-            <IonCol class="InvestorsAdvertsCol"></IonCol>
-            <IonCol class="PitchingsCol"></IonCol>
-
-            <IonCol class="BizMentorCol"></IonCol>
-            <IonCol class="BizMentorSpentCol">{{ bizMentorSpent }}</IonCol>
-            <IonCol class="MobileNoCol"></IonCol>
-            <IonCol class="EmailCol"></IonCol>
-            <IonCol class="BizCountryCol"></IonCol>
-            <IonCol class="BizCityCol"></IonCol>
-            <IonCol class="ConnectionsCol"></IonCol>
-            <IonCol class="NoEmployeesCol">{{ totalEmployees }}</IonCol>
-
-            <IonCol class="BookingDateCol"></IonCol>
-
-            <IonCol class="JoinedCol"></IonCol>
-            <IonCol class="LastLoggedInCol"></IonCol>
-            <IonCol class="NoLoggedInCol"></IonCol>
-            <IonCol class="FullProfileSeenCol"></IonCol>
+              <!-- Investors Profile Data -->
+              <IonCol class="InvestmentAmountCol">{{ member.investmentAmount }}</IonCol>
+              <IonCol class="EquityLoanCol">{{ member.equityLoan }}</IonCol>
+              <IonCol class="InvestingCountryCol">{{ member.investingCountry }}</IonCol>
+              <IonCol class="InvestingCityCol">{{ member.investingCity }}</IonCol>
+              <IonCol class="InvestingLengthCol">{{ member.investingLength }}</IonCol>
+              <IonCol class="WantedROICol">{{ member.wantedROI }}</IonCol>
+              <IonCol class="MobNoCol">{{ member.mobNo }}</IonCol>
+              <IonCol class="RequiredEquityInterestCol">{{ member.requiredEquityInterest }}</IonCol>
+              <IonCol class="ProductServiceCol">{{ member.productService }}</IonCol>
+              <IonCol class="InvestingCategoryCol">{{ member.investingCategory }}</IonCol>
+              <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
+              <!-- Investors Profile Data -->
 
 
-            <IonCol class="ActionCol"></IonCol>
-          </IonRow>
+              <IonCol class="AgeCol">{{ member.age }}</IonCol>
+              <IonCol class="GenderCol">{{ member.gender }}</IonCol>
+              <IonCol class="BusinessNameCol">{{ member.businessName }}</IonCol>
+              <IonCol class="BusinessRevenueCol">{{ member.businessRevenue }}</IonCol>
+              <IonCol class="JobPositionCol">{{ member.jobPosition }}</IonCol>
+              <IonCol class="SalaryCol">{{ member.salary }}</IonCol>
+
+              <IonCol class="BizCategoryCol">{{ member.bizCategory }}</IonCol>
+              <IonCol class="ExhibitedCol">{{ member.exhibited }}</IonCol>
+              <IonCol class="EventSpentCol">{{ member.eventSpent }}</IonCol>
+
+              <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
+              <IonCol class="ListedNeedsCol">{{ member.listedNeeds }}</IonCol>
+              <IonCol class="ListedOffersCol">{{ member.listedOffers }}</IonCol>
+              <IonCol class="AdvertSpentCol">{{ member.advertSpent }}</IonCol>
+
+              <IonCol class="PeopleSatisfiedNeedsCol">{{ member.peopleSatisfiedNeeds }}</IonCol>
+              <IonCol class="PeopleRequestedOffersCol">{{ member.peopleRequestedOffers }}</IonCol>
+              <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
+              <IonCol class="PitchingsCol">{{ member.pitchings }}</IonCol>
+
+              <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
+              <IonCol class="BizMentorSpentCol">{{ member.bizMentorSpent }}</IonCol>
+              <IonCol class="MobileNoCol">{{ member.mobileNo }}</IonCol>
+              <IonCol class="EmailCol">{{ member.email }}</IonCol>
+              <IonCol class="BizCountryCol">{{ member.bizCountry }}</IonCol>
+              <IonCol class="BizCityCol">{{ member.bizCity }}</IonCol>
+              <IonCol class="ConnectionsCol">{{ member.connections }}</IonCol>
+              <IonCol class="NoEmployeesCol">{{ member.noEmployees }}</IonCol>
+
+              <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
+
+              <IonCol class="JoinedCol">{{ member.joined }}</IonCol>
+              <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
+              <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
+              <IonCol class="FullProfileSeenCol">{{ member.fullProfileSeen }}</IonCol>
+              <IonCol class="ActionCol">
+                <IonButton class="ActionCol" fill="clear" title="Close">
+                  <IonButton @click="openModal(member.id)" class="test" fill="clear" title="Edit This Profile"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
+                  <IonButton class="test" fill="clear" title="Deactivate/Hide This Offer From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+                  <IonButton class="test" fill="clear" title="Delete This Offer After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+                </IonButton>
+              </IonCol>
+            </IonRow>
+
+            <!-- Total row -->
+            <IonRow class="TotalRow">
+              <IonCol class="MemberIDCol">Totals:</IonCol>
+              <IonCol class="PersonPicCol"></IonCol>
+              <IonCol class="FirstNameCol"></IonCol>
+              <IonCol class="LastNameCol"></IonCol>
+              <IonCol class="MembershipTypeCol"></IonCol>
+              <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
+              <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
+
+              <!-- Investor section -->
+              <IonCol class="InvestmentAmountCol">{{ totalInvestmentAmount }}</IonCol>
+              <IonCol class="EquityLoanCol"></IonCol>
+              <IonCol class="InvestingCountryCol"></IonCol>
+              <IonCol class="InvestingCityCol"></IonCol>
+              <IonCol class="InvestingLengthCol"></IonCol>
+              <IonCol class="WantedROICol"></IonCol>
+              <IonCol class="MobNoCol"></IonCol>
+              <IonCol class="RequiredEquityCol"></IonCol>
+              <IonCol class="ProductServiceCol"></IonCol>
+              <IonCol class="InvestingCategoryCol"></IonCol>
+              <IonCol class="LookingForSummeryCol"></IonCol>
+              <!-- Investor section -->
+
+              <IonCol class="AgeCol"></IonCol>
+              <IonCol class="GenderCol"></IonCol>
+              <IonCol class="BusinessNameCol"></IonCol>
+              <IonCol class="BusinessRevenueCol">{{ totalBusinessRevenue }}</IonCol>
+              <IonCol class="JobPositionCol"></IonCol>
+              <IonCol class="SalaryCol">{{ totalSalary }}</IonCol>
+
+              <IonCol class="BizCategoryCol"></IonCol>
+              <IonCol class="ExhibitedCol"></IonCol>
+              <IonCol class="EventSpentCol">{{ totalEventSpent }}</IonCol>
+
+              <IonCol class="VisitedCol"></IonCol>
+              <IonCol class="ListedNeedsCol"></IonCol>
+              <IonCol class="ListedOffersCol"></IonCol>
+              <IonCol class="AdvertSpentCol">{{ totalAdvertSpent }}</IonCol>
+
+              <IonCol class="PeopleSatisfiedNeedsCol"></IonCol>
+              <IonCol class="PeopleRequestedOffersCol"></IonCol>
+              <IonCol class="InvestorsAdvertsCol"></IonCol>
+              <IonCol class="PitchingsCol"></IonCol>
+
+              <IonCol class="BizMentorCol"></IonCol>
+              <IonCol class="BizMentorSpentCol">{{ bizMentorSpent }}</IonCol>
+              <IonCol class="MobileNoCol"></IonCol>
+              <IonCol class="EmailCol"></IonCol>
+              <IonCol class="BizCountryCol"></IonCol>
+              <IonCol class="BizCityCol"></IonCol>
+              <IonCol class="ConnectionsCol"></IonCol>
+              <IonCol class="NoEmployeesCol">{{ totalEmployees }}</IonCol>
+
+              <IonCol class="BookingDateCol"></IonCol>
+
+              <IonCol class="JoinedCol"></IonCol>
+              <IonCol class="LastLoggedInCol"></IonCol>
+              <IonCol class="NoLoggedInCol"></IonCol>
+              <IonCol class="FullProfileSeenCol"></IonCol>
+
+
+              <IonCol class="ActionCol"></IonCol>
+            </IonRow>
+        </IonRow>
+
       </IonRow>
+      
 
-    </IonRow>
-    
-
-    <!-- Pagination -->
-    <IonRow class="PaginationRow">
-      <IonButton @click="prevPage">Prev</IonButton>
-      <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
-      <IonButton @click="nextPage">Next</IonButton>
-    </IonRow>
+      <!-- Pagination -->
+      <IonRow class="PaginationRow">
+        <IonButton @click="prevPage">Prev</IonButton>
+        <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
+        <IonButton @click="nextPage">Next</IonButton>
+      </IonRow>
 
     <!-- Modal for displaying component in a popup -->
     <IonModal :is-open="isModalOpen" @didDismiss="closeModal">
@@ -899,138 +899,138 @@ resetSorting();
 
 
 <style scoped>
-.TitleP{
-  display: center;
-  text-align: center;
-  font-weight: bold;
-} 
-/* Adjusting the length of the table here: http://localhost:8100/adminpage */
-.search {
-  width: 100px;
-}
-.InvestmentAmountCol {
-  Border-left: 2px red solid;
-}
-.LookingForSummeryCol {
-  Border-right: 2px red solid;
-}
-.TitleRow .InvestmentAmountCol,
-.TitleRow .EquityLoanCol,
-.TitleRow .InvestingCountryCol,
-.TitleRow .InvestingCityCol,
-.TitleRow .InvestingLengthCol,
-.TitleRow .WantedROICol,
-.TitleRow .MobNoCol,
-.TitleRow .RequiredEquityInterestCol,
-.TitleRow .ProductServiceCol,
-.TitleRow .InvestingCategoryCol,
-.TitleRow .LookingForSummeryCol {
+  .TitleP{
+    display: center;
+    text-align: center;
+    font-weight: bold;
+  } 
+  /* Adjusting the length of the table here: http://localhost:8100/adminpage */
+  .search {
+    width: 100px;
+  }
+  .InvestmentAmountCol {
+    Border-left: 2px red solid;
+  }
+  .LookingForSummeryCol {
+    Border-right: 2px red solid;
+  }
+  .TitleRow .InvestmentAmountCol,
+  .TitleRow .EquityLoanCol,
+  .TitleRow .InvestingCountryCol,
+  .TitleRow .InvestingCityCol,
+  .TitleRow .InvestingLengthCol,
+  .TitleRow .WantedROICol,
+  .TitleRow .MobNoCol,
+  .TitleRow .RequiredEquityInterestCol,
+  .TitleRow .ProductServiceCol,
+  .TitleRow .InvestingCategoryCol,
+  .TitleRow .LookingForSummeryCol {
+      border-top: 3px solid red;
+  }
+  /* .arrowBackCircle {
+    position: fixed;
+    top: 55;
+    left: 90;
+    right: 0;
+    z-index: 1;
+
+  } */
+
+  .TitleRow {
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    align-items: top;
+    text-align: top;
+  }
+  .NONscrollingRow {
+    overflow-x: auto;
+  }
+  .scrollingRow {
+    min-width: 5500px;
+    flex-direction: column;
+  }
+  .DataRow {
+    cursor: pointer;
+  }
+  .DataRow.selected {
     border-top: 3px solid red;
-}
-/* .arrowBackCircle {
-  position: fixed;
-  top: 55;
-  left: 90;
-  right: 0;
-  z-index: 1;
-
-} */
-
-.TitleRow {
-  font-weight: bold;
-  cursor: pointer;
-  height: 50px;
-  align-items: top;
-  text-align: top;
-}
-.NONscrollingRow {
-  overflow-x: auto;
-}
-.scrollingRow {
-  min-width: 5500px;
-  flex-direction: column;
-}
-.DataRow {
-  cursor: pointer;
-}
-.DataRow.selected {
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-}
-.DataRow:nth-child(odd) ion-col {
-  background-color: #f5efef;
-}
-.DataRow:nth-child(even) ion-col {
-  background-color: #bceea5;
-}
-.TotalRow {
-  font-weight: bold;
-}
-.ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
-  border: 1px solid gray;
-}
-
-.DataRow, .TotalRow {
-  white-space: nowrap;
-}
-
-.TitleRow ion-col {
-  overflow: visible; /* Ensure the content is fully visible */
-  word-wrap: break-word; /* Break long words */
-  white-space: normal; /* Allow text to wrap */
-  text-align: center; /* Center align for better presentation */
-}
-
-.MemberIDCol {
-  background-color: red;
-}
-
-ion-col {
-  max-width: 100px; /* Increase the max width for better visibility */
-  padding: 0;
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: auto;
-  align-content: center;
-  height: 30px;
-  font-size: 12px;
-  border-right: 1px solid lightgray;
-}
-/* popup section */
-  ion-modal {
-  --width: 90%; /* Adjust width as needed */
-  --height: 90%; /* Adjust height as needed */
-  --max-width: 90vw; /* Adjust max-width as needed */
-  --max-height: 90vh; /* Adjust max-height as needed */
-}
-  .ActionCol {
-    overflow-x: visible;
+    border-bottom: 3px solid red;
   }
-  .ActionCol ion-button {
-    margin: 0;
+  .DataRow:nth-child(odd) ion-col {
+    background-color: #f5efef;
+  }
+  .DataRow:nth-child(even) ion-col {
+    background-color: #bceea5;
+  }
+  .TotalRow {
+    font-weight: bold;
+  }
+  .ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
+    border: 1px solid gray;
+  }
+
+  .DataRow, .TotalRow {
+    white-space: nowrap;
+  }
+
+  .TitleRow ion-col {
+    overflow: visible; /* Ensure the content is fully visible */
+    word-wrap: break-word; /* Break long words */
+    white-space: normal; /* Allow text to wrap */
+    text-align: center; /* Center align for better presentation */
+  }
+
+  .MemberIDCol {
+    background-color: red;
+  }
+
+  ion-col {
+    max-width: 100px; /* Increase the max width for better visibility */
     padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    align-content: center;
+    height: 30px;
+    font-size: 12px;
+    border-right: 1px solid lightgray;
   }
-.PageInfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  margin: 0 10px;
-}
+  /* popup section */
+    ion-modal {
+    --width: 90%; /* Adjust width as needed */
+    --height: 90%; /* Adjust height as needed */
+    --max-width: 90vw; /* Adjust max-width as needed */
+    --max-height: 90vh; /* Adjust max-height as needed */
+  }
+    .ActionCol {
+      overflow-x: visible;
+    }
+    .ActionCol ion-button {
+      margin: 0;
+      padding: 0;
+    }
+  .PageInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 10px;
+  }
 
-.sort-icon {
-  margin-left: 5px;
-}
+  .sort-icon {
+    margin-left: 5px;
+  }
 
-.person-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
+  .person-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
 
-@media (max-width: 600px) {
+  @media (max-width: 600px) {
 
-}
+  }
 </style>
 
 

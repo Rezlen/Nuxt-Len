@@ -13,7 +13,9 @@
       </IonButton>
     </IonRow>
     
-    <IonRow class="ContainerRow" ref="scrollableContainer">
+    <IonRow class="NONscrollingRow">
+      
+      <IonRow class="scrollingRow" ref="scrollableContainer">
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
@@ -211,7 +213,10 @@
 
           <IonCol class="ActionCol"></IonCol>
         </IonRow>
+      </IonRow>
+
     </IonRow>
+
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
@@ -891,151 +896,150 @@ resetSorting();
 
 
 <style scoped>
-.TitleP{
-  display: center;
-  text-align: center;
-  font-weight: bold;
-} 
-/* Adjusting the length of the table here: http://localhost:8100/adminpage */
-.search {
-  width: 100px;
-}
-.InvestmentAmountCol {
-  Border-left: 2px red solid;
-}
-.LookingForSummeryCol {
-  Border-right: 2px red solid;
-}
-.TitleRow .InvestmentAmountCol,
-.TitleRow .EquityLoanCol,
-.TitleRow .InvestingCountryCol,
-.TitleRow .InvestingCityCol,
-.TitleRow .InvestingLengthCol,
-.TitleRow .WantedROICol,
-.TitleRow .MobNoCol,
-.TitleRow .RequiredEquityInterestCol,
-.TitleRow .ProductServiceCol,
-.TitleRow .InvestingCategoryCol,
-.TitleRow .LookingForSummeryCol {
+  .TitleP{
+    display: center;
+    text-align: center;
+    font-weight: bold;
+  } 
+  /* Adjusting the length of the table here: http://localhost:8100/adminpage */
+  .search {
+    width: 100px;
+  }
+  .InvestmentAmountCol {
+    Border-left: 2px red solid;
+  }
+  .LookingForSummeryCol {
+    Border-right: 2px red solid;
+  }
+  .TitleRow .InvestmentAmountCol,
+  .TitleRow .EquityLoanCol,
+  .TitleRow .InvestingCountryCol,
+  .TitleRow .InvestingCityCol,
+  .TitleRow .InvestingLengthCol,
+  .TitleRow .WantedROICol,
+  .TitleRow .MobNoCol,
+  .TitleRow .RequiredEquityInterestCol,
+  .TitleRow .ProductServiceCol,
+  .TitleRow .InvestingCategoryCol,
+  .TitleRow .LookingForSummeryCol {
+      border-top: 3px solid red;
+  }
+  /* .arrowBackCircle {
+    position: fixed;
+    top: 55;
+    left: 90;
+    right: 0;
+    z-index: 1;
+  } */
+
+  .TitleRow {
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    align-items: center;
+  }
+  .NONscrollingRow {
+    overflow-x: auto;
+  }
+  .scrollingRow {
+    min-width: 5000px;
+    flex-direction: column;
+  }
+  .DataRow {
+    cursor: pointer;
+  }
+
+  .DataRow.selected {
     border-top: 3px solid red;
-}
-.arrowBackCircle {
-  position: fixed;
-  top: 55;
-  left: 90;
-  right: 0;
-  z-index: 1;
-}
-
-.TitleRow {
-  font-weight: bold;
-  cursor: pointer;
-  height: 50px;
-  align-items: center;
-}
-
-.ContainerRow {
-  width: 5500px;
-  flex-direction: column;
-  overflow-y: scroll;
-  overflow-x: scroll;
-}
-
-.DataRow {
-  cursor: pointer;
-}
-
-.DataRow.selected {
-  border-top: 3px solid red;
-  border-bottom: 3px solid red;
-}
-
-.DataRow:nth-child(odd) ion-col {
-  background-color: #f5efef;
-}
-
-.DataRow:nth-child(even) ion-col {
-  background-color: #bceea5;
-}
-
-.TotalRow {
-  font-weight: bold;
-}
-
-.ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
-  border: 1px solid gray;
-}
-
-.DataRow, .TotalRow {
-  white-space: nowrap;
-}
-
-.TitleRow ion-col {
-  overflow: visible; /* Ensure the content is fully visible */
-  word-wrap: break-word; /* Break long words */
-  white-space: normal; /* Allow text to wrap */
-  text-align: center; /* Center align for better presentation */
-}
-
-.MemberIDCol {
-  background-color: red;
-}
-
-ion-col {
-  max-width: 100px; /* Increase the max width for better visibility */
-  padding: 0;
-  margin: 0;
-  white-space: nowrap;
-  overflow-x: auto;
-  align-content: center;
-  height: 30px;
-  font-size: 12px;
-  border-right: 1px solid lightgray;
-}
-/* popup section */
-  ion-modal {
-  --width: 90%; /* Adjust width as needed */
-  --height: 90%; /* Adjust height as needed */
-  --max-width: 90vw; /* Adjust max-width as needed */
-  --max-height: 90vh; /* Adjust max-height as needed */
-}
-  .ActionCol {
-    overflow-x: visible;
+    border-bottom: 3px solid red;
   }
-  .ActionCol ion-button {
-    margin: 0;
-    padding: 0;
-  }
-.PageInfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  margin: 0 10px;
-}
 
-.sort-icon {
-  margin-left: 5px;
-}
-
-.person-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-@media (max-width: 600px) {
-  .ContainerRow {
-    width: 4000px;
+  .DataRow:nth-child(odd) ion-col {
+    background-color: #f5efef;
   }
-  .TitleRow, .DataRow, .TotalRow {
-    display: flex;
-    flex-wrap: wrap;
+
+  .DataRow:nth-child(even) ion-col {
+    background-color: #bceea5;
   }
+
+  .TotalRow {
+    font-weight: bold;
+  }
+
+  .ButtonRow, .TitleRow, .DataRow, .TotalRow, .PaginationRow {
+    border: 1px solid gray;
+  }
+
+  .DataRow, .TotalRow {
+    white-space: nowrap;
+  }
+
+  .TitleRow ion-col {
+    overflow: visible; /* Ensure the content is fully visible */
+    word-wrap: break-word; /* Break long words */
+    white-space: normal; /* Allow text to wrap */
+    text-align: center; /* Center align for better presentation */
+  }
+
+  .MemberIDCol {
+    background-color: red;
+  }
+
   ion-col {
-    max-width: 100px;
+    max-width: 100px; /* Increase the max width for better visibility */
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    align-content: center;
+    height: 30px;
+    font-size: 12px;
+    border-right: 1px solid lightgray;
   }
-}
+  /* popup section */
+    ion-modal {
+    --width: 90%; /* Adjust width as needed */
+    --height: 90%; /* Adjust height as needed */
+    --max-width: 90vw; /* Adjust max-width as needed */
+    --max-height: 90vh; /* Adjust max-height as needed */
+  }
+    .ActionCol {
+      overflow-x: visible;
+    }
+    .ActionCol ion-button {
+      margin: 0;
+      padding: 0;
+    }
+  .PageInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+
+  .sort-icon {
+    margin-left: 5px;
+  }
+
+  .person-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 600px) {
+    .ContainerRow {
+      width: 4000px;
+    }
+    .TitleRow, .DataRow, .TotalRow {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    ion-col {
+      max-width: 100px;
+    }
+  }
 </style>
 
 

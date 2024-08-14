@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-
+    <p class="TitleP">List of all members who applied for investment</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -11,7 +11,9 @@
       </IonButton>
     </IonRow>
     
-    <IonRow class="ContainerRow" ref="scrollableContainer">
+    <IonRow class="NONscrollingRow">
+      
+      <IonRow class="scrollingRow" ref="scrollableContainer">
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
@@ -167,7 +169,10 @@
 
           <IonCol class="ActionCol"></IonCol>
         </IonRow>
+      </IonRow>
+
     </IonRow>
+
 
     <!-- Pagination -->
     <IonRow class="PaginationRow">
@@ -731,18 +736,23 @@
 
 
 <style scoped>
+  .TitleP{
+    display: center;
+    text-align: center;
+    font-weight: bold;
+  } 
   /* Adjusting the length of the table here: http://localhost:8100/adminpage */
   .search {
     width: 100px;
   }
   
-  .arrowBackCircle {
+  /* .arrowBackCircle {
     position: fixed;
     top: 55;
     left: 90;
     right: 0;
     z-index: 1;
-  }
+  } */
   
   .TitleRow {
     font-weight: bold;
@@ -750,14 +760,13 @@
     height: 50px;
     align-items: center;
   }
-  
-  .ContainerRow {
-    width: 4000px;
-    flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: scroll;
+  .NONscrollingRow {
+    overflow-x: auto;
   }
-  
+  .scrollingRow {
+    min-width: 4000px;
+    flex-direction: column;
+  }
   .DataRow {
     cursor: pointer;
   }

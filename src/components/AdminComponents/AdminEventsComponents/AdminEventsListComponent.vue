@@ -11,80 +11,85 @@
       </IonButton>    
     </IonRow>
 
-      <!-- TitleRow with sorting functionality and icons -->
-    <IonRow class="ContainerRow" ref="scrollableContainer">
+    <IonRow class="NONscrollingRow">
+      
+      <IonRow class="scrollingRow" ref="scrollableContainer">
 
-      <IonRow class="TitleRow"  >
-        <IonCol class="EventIDCol" @click="sortEvents('eventId')">Event ID<IonIcon :icon="sortIcon('eventId')" class="sort-icon" /></IonCol>
-        <IonCol class="EventDateCol" @click="sortEvents('eventDate')">Event Date<IonIcon :icon="sortIcon('eventDate')" class="sort-icon" /></IonCol>
-        <IonCol class="EventTitleCol" @click="sortEvents('eventTitle')">Event Title<IonIcon :icon="sortIcon('eventTitle')" class="sort-icon" /></IonCol>
-        <IonCol class="LocationNameCol" @click="sortEvents('locationName')">Location Name<IonIcon :icon="sortIcon('locationName')" class="sort-icon" /></IonCol>
-        <IonCol class="FullAddressCol" @click="sortEvents('fullAddress')">Full Address<IonIcon :icon="sortIcon('fullAddress')" class="sort-icon" /></IonCol>
-        <IonCol class="BookingsCol" @click="sortEvents('bookings')">Bookings<IonIcon :icon="sortIcon('bookings')" class="sort-icon" /></IonCol>
-        <IonCol class="VisitorsCol" @click="sortEvents('visitors')">Visitors<IonIcon :icon="sortIcon('visitors')" class="sort-icon" /></IonCol>
-        <IonCol class="ExhibitorsCol" @click="sortEvents('exhibitors')">Exhibitors<IonIcon :icon="sortIcon('exhibitors')" class="sort-icon" /></IonCol>
-        <IonCol class="AllIncomeCol" @click="sortEvents('allIncome')">All Income<IonIcon :icon="sortIcon('allIncome')" class="sort-icon" /></IonCol>
-        <IonCol class="OneMinPitchersCol" @click="sortEvents('oneMinPitchers')">1MinPitchers<IonIcon :icon="sortIcon('oneMinPitchers')" class="sort-icon" /></IonCol>
-        <IonCol class="ThreeMinPitchersCol" @click="sortEvents('threeMinPitchers')">3MinPitchers<IonIcon :icon="sortIcon('threeMinPitchers')" class="sort-icon" /></IonCol>
-        <IonCol class="InvestmentPitchersCol" @click="sortEvents('investmentPitchers')">Investment Pitchers<IonIcon :icon="sortIcon('investmentPitchers')" class="sort-icon" /></IonCol>
-        <IonCol class="InvestorsCol" @click="sortEvents('investors')">Investors<IonIcon :icon="sortIcon('investors')" class="sort-icon" /></IonCol>
-        <IonCol class="BizMentorsCol" @click="sortEvents('bizMentors')">Biz Mentors<IonIcon :icon="sortIcon('bizMentors')" class="sort-icon" /></IonCol>
-        <IonCol class="CreatedDateCol" @click="sortEvents('createdDate')">CreatedDate<IonIcon :icon="sortIcon('createdDate')" class="sort-icon" /></IonCol>
-        
-        <IonCol class="ActionCol">
-          Actions
-        </IonCol>
-      </IonRow>
+        <IonRow class="TitleRow"  >
+          <IonCol class="EventIDCol" @click="sortEvents('eventId')">Event ID<IonIcon :icon="sortIcon('eventId')" class="sort-icon" /></IonCol>
+          <IonCol class="EventDateCol" @click="sortEvents('eventDate')">Event Date<IonIcon :icon="sortIcon('eventDate')" class="sort-icon" /></IonCol>
+          <IonCol class="EventTitleCol" @click="sortEvents('eventTitle')">Event Title<IonIcon :icon="sortIcon('eventTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="LocationNameCol" @click="sortEvents('locationName')">Location Name<IonIcon :icon="sortIcon('locationName')" class="sort-icon" /></IonCol>
+          <IonCol class="FullAddressCol" @click="sortEvents('fullAddress')">Full Address<IonIcon :icon="sortIcon('fullAddress')" class="sort-icon" /></IonCol>
+          <IonCol class="BookingsCol" @click="sortEvents('bookings')">Bookings<IonIcon :icon="sortIcon('bookings')" class="sort-icon" /></IonCol>
+          <IonCol class="VisitorsCol" @click="sortEvents('visitors')">Visitors<IonIcon :icon="sortIcon('visitors')" class="sort-icon" /></IonCol>
+          <IonCol class="ExhibitorsCol" @click="sortEvents('exhibitors')">Exhibitors<IonIcon :icon="sortIcon('exhibitors')" class="sort-icon" /></IonCol>
+          <IonCol class="AllIncomeCol" @click="sortEvents('allIncome')">All Income<IonIcon :icon="sortIcon('allIncome')" class="sort-icon" /></IonCol>
+          <IonCol class="OneMinPitchersCol" @click="sortEvents('oneMinPitchers')">1MinPitchers<IonIcon :icon="sortIcon('oneMinPitchers')" class="sort-icon" /></IonCol>
+          <IonCol class="ThreeMinPitchersCol" @click="sortEvents('threeMinPitchers')">3MinPitchers<IonIcon :icon="sortIcon('threeMinPitchers')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentPitchersCol" @click="sortEvents('investmentPitchers')">Investment Pitchers<IonIcon :icon="sortIcon('investmentPitchers')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorsCol" @click="sortEvents('investors')">Investors<IonIcon :icon="sortIcon('investors')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorsCol" @click="sortEvents('bizMentors')">Biz Mentors<IonIcon :icon="sortIcon('bizMentors')" class="sort-icon" /></IonCol>
+          <IonCol class="CreatedDateCol" @click="sortEvents('createdDate')">CreatedDate<IonIcon :icon="sortIcon('createdDate')" class="sort-icon" /></IonCol>
+          
+          <IonCol class="ActionCol">
+            Actions
+          </IonCol>
+        </IonRow>
 
-      <!-- Data rows -->
-      <IonRow  v-for="event in paginatedEvents" :key="event.eventId" class="DataRow" :class="{ selected: selectedRow === event.eventId }" @click="selectRow(event.eventId)" >        
-        <IonCol class="EventIDCol">{{ event.eventId }}</IonCol>
-        <IonCol class="EventDateCol">{{ event.eventDate }}</IonCol>
-        <IonCol class="EventTitleCol">{{ event.eventTitle }}</IonCol>
-        <IonCol class="LocationNameCol">{{ event.locationName }}</IonCol>
-        <IonCol class="FullAddressCol">{{ event.fullAddress }}</IonCol>
-        <IonCol class="BookingsCol">{{ event.bookings }}</IonCol>
-        <IonCol class="VisitorsCol">{{ event.visitors }}</IonCol>
-        <IonCol class="ExhibitorsCol">{{ event.exhibitors }}</IonCol>
-        <IonCol class="AllIncomeCol">{{ event.allIncome }}</IonCol>
-        <IonCol class="OneMinPitchersCol">{{ event.oneMinPitchers }}</IonCol>
-        <IonCol class="ThreeMinPitchersCol">{{ event.threeMinPitchers }}</IonCol>
-        <IonCol class="InvestmentPitchersCol">{{ event.investmentPitchers }}</IonCol>
-        <IonCol class="InvestorsCol">{{ event.investors }}</IonCol>
-        <IonCol class="BizMentorsCol">{{ event.bizMentors }}</IonCol>
-        <IonCol class="CreatedDateCol">{{ event.createdDate }}</IonCol>
+        <!-- Data rows -->
+        <IonRow  v-for="event in paginatedEvents" :key="event.eventId" class="DataRow" :class="{ selected: selectedRow === event.eventId }" @click="selectRow(event.eventId)" >        
+          <IonCol class="EventIDCol">{{ event.eventId }}</IonCol>
+          <IonCol class="EventDateCol">{{ event.eventDate }}</IonCol>
+          <IonCol class="EventTitleCol">{{ event.eventTitle }}</IonCol>
+          <IonCol class="LocationNameCol">{{ event.locationName }}</IonCol>
+          <IonCol class="FullAddressCol">{{ event.fullAddress }}</IonCol>
+          <IonCol class="BookingsCol">{{ event.bookings }}</IonCol>
+          <IonCol class="VisitorsCol">{{ event.visitors }}</IonCol>
+          <IonCol class="ExhibitorsCol">{{ event.exhibitors }}</IonCol>
+          <IonCol class="AllIncomeCol">{{ event.allIncome }}</IonCol>
+          <IonCol class="OneMinPitchersCol">{{ event.oneMinPitchers }}</IonCol>
+          <IonCol class="ThreeMinPitchersCol">{{ event.threeMinPitchers }}</IonCol>
+          <IonCol class="InvestmentPitchersCol">{{ event.investmentPitchers }}</IonCol>
+          <IonCol class="InvestorsCol">{{ event.investors }}</IonCol>
+          <IonCol class="BizMentorsCol">{{ event.bizMentors }}</IonCol>
+          <IonCol class="CreatedDateCol">{{ event.createdDate }}</IonCol>
 
-        <IonCol class="ActionCol">
-          <IonButton class="ActionCol" fill="clear" title="Close">
-            <IonButton class="icons" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="small" :icon="duplicate"></IonIcon></IonButton>
-            <IonButton class="icons" fill="clear" title="Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-            <IonButton class="icons" fill="clear" title="Hide This Event" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
-            <IonButton class="icons" fill="clear" title="Delete This Event" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
-          </IonButton>
-        </IonCol>
-      </IonRow>
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonButton class="icons" fill="clear" title="Duplicate"> <IonIcon slot="icon-only" size="small" :icon="duplicate"></IonIcon></IonButton>
+              <IonButton class="icons" fill="clear" title="Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
+              <IonButton class="icons" fill="clear" title="Hide This Event" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+              <IonButton class="icons" fill="clear" title="Delete This Event" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
+            </IonButton>
+          </IonCol>
+        </IonRow>
 
-      <!-- Total row -->
-      <IonRow class="TotalRow"> 
-      <IonCol class="EventIDCol">Totals:</IonCol>
-      <IonCol class="EventDateCol"></IonCol>
-      <IonCol class="EventTitleCol"></IonCol>
-      <IonCol class="LocationNameCol"></IonCol>
-      <IonCol class="FullAddressCol"></IonCol>
-      <IonCol class="BookingsCol">{{ totalBookings }}</IonCol>
-      <IonCol class="VisitorsCol">{{ totalVisitors }}</IonCol>
-      <IonCol class="ExhibitorsCol">{{ totalExhibitors }}</IonCol>
-      <IonCol class="AllIncomeCol">{{ totalAllIncome }}</IonCol>
-      <IonCol class="OneMinPitchersCol">{{ totalOneMinPitchers }}</IonCol>
-      <IonCol class="ThreeMinPitchersCol">{{ totalThreeMinPitchers }}</IonCol>
-      <IonCol class="InvestmentPitchersCol">{{ totalInvestmentPitchers }}</IonCol>
-      <IonCol class="InvestorsCol">{{ totalInvestors }}</IonCol>
-      <IonCol class="BizMentorsCol">{{ totalBizMentors }}</IonCol>
-      <IonCol class="CreatedDateCol"></IonCol>
+        <!-- Total row -->
+        <IonRow class="TotalRow"> 
+        <IonCol class="EventIDCol">Totals:</IonCol>
+        <IonCol class="EventDateCol"></IonCol>
+        <IonCol class="EventTitleCol"></IonCol>
+        <IonCol class="LocationNameCol"></IonCol>
+        <IonCol class="FullAddressCol"></IonCol>
+        <IonCol class="BookingsCol">{{ totalBookings }}</IonCol>
+        <IonCol class="VisitorsCol">{{ totalVisitors }}</IonCol>
+        <IonCol class="ExhibitorsCol">{{ totalExhibitors }}</IonCol>
+        <IonCol class="AllIncomeCol">{{ totalAllIncome }}</IonCol>
+        <IonCol class="OneMinPitchersCol">{{ totalOneMinPitchers }}</IonCol>
+        <IonCol class="ThreeMinPitchersCol">{{ totalThreeMinPitchers }}</IonCol>
+        <IonCol class="InvestmentPitchersCol">{{ totalInvestmentPitchers }}</IonCol>
+        <IonCol class="InvestorsCol">{{ totalInvestors }}</IonCol>
+        <IonCol class="BizMentorsCol">{{ totalBizMentors }}</IonCol>
+        <IonCol class="CreatedDateCol"></IonCol>
 
-        <IonCol class="ActionCol"></IonCol>
+          <IonCol class="ActionCol"></IonCol>
       </IonRow>
     </IonRow>
+
+
+    </IonRow>
+
 
 
     <!-- Pagination -->
@@ -487,28 +492,28 @@ export default defineComponent({
 
 <style scoped>
   /* Adjusting the length of the table here: http://localhost:8100/adminpage */
-.search{
-  width: 100px;
-}
-.arrowBackCircle {
-  position: fixed;
-  top: 55;
-  left: 90;
-  right: 0;
-  z-index: 1;
-}
+  .search{
+    width: 100px;
+  }
+  /* .arrowBackCircle {
+    position: fixed;
+    top: 55;
+    left: 90;
+    right: 0;
+    z-index: 1;
+  } */
   .TitleRow {
     font-weight: bold;
     cursor: pointer;
     height: 50px;
     align-items: center;
   }
-  .ContainerRow {
-    width: 2000px;
+  .NONscrollingRow {
+    overflow-x: auto;
+  }
+  .scrollingRow {
+    min-width: 1900px;
     flex-direction: column;
-    overflow-y: scroll;
-    overflow-x: scroll;
-
   }
   .DataRow {
     cursor: pointer;
