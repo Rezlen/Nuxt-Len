@@ -273,7 +273,7 @@
   }
 
   export default defineComponent({
-    name: 'MembersSponsorshipPartnershipProfileDetailAdminComponent',
+    name: 'MembersMembershipsProfileDetailAdminComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([

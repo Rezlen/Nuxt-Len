@@ -1,184 +1,748 @@
 <template>
   <IonGrid>
-    <IonRow>
-      <IonCol>
-        Imports your emails from:
-        <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" alt="Excel" viewBox="0 0 48 48">
-            <rect width="16" height="9" x="28" y="15" fill="#21a366"></rect><path fill="#185c37" d="M44,24H12v16c0,1.105,0.895,2,2,2h28c1.105,0,2-0.895,2-2V24z"></path><rect width="16" height="9" x="28" y="24" fill="#107c42"></rect><rect width="16" height="9" x="12" y="15" fill="#3fa071"></rect><path fill="#33c481" d="M42,6H28v9h16V8C44,6.895,43.105,6,42,6z"></path><path fill="#21a366" d="M14,6h14v9H12V8C12,6.895,12.895,6,14,6z"></path><path d="M22.319,13H12v24h10.319C24.352,37,26,35.352,26,33.319V16.681C26,14.648,24.352,13,22.319,13z" opacity=".05"></path><path d="M22.213,36H12V13.333h10.213c1.724,0,3.121,1.397,3.121,3.121v16.425	C25.333,34.603,23.936,36,22.213,36z" opacity=".07"></path><path d="M22.106,35H12V13.667h10.106c1.414,0,2.56,1.146,2.56,2.56V32.44C24.667,33.854,23.52,35,22.106,35z" opacity=".09"></path><linearGradient id="flEJnwg7q~uKUdkX0KCyBa_UECmBSgBOvPT_gr1" x1="4.725" x2="23.055" y1="14.725" y2="33.055" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#18884f"></stop><stop offset="1" stop-color="#0b6731"></stop></linearGradient><path fill="url(#flEJnwg7q~uKUdkX0KCyBa_UECmBSgBOvPT_gr1)" d="M22,34H6c-1.105,0-2-0.895-2-2V16c0-1.105,0.895-2,2-2h16c1.105,0,2,0.895,2,2v16	C24,33.105,23.105,34,22,34z"></path><path fill="#fff" d="M9.807,19h2.386l1.936,3.754L16.175,19h2.229l-3.071,5l3.141,5h-2.351l-2.11-3.93L11.912,29H9.526	l3.193-5.018L9.807,19z"></path>
-            </svg>
-        </a>
-        <a href="#">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" name="Outlook" viewBox="0 0 48 48">
-            <path fill="#103262" d="M43.255,23.547l-6.81-3.967v11.594H44v-6.331C44,24.309,43.716,23.816,43.255,23.547z"></path><path fill="#0084d7" d="M13,10h10v9H13V10z"></path><path fill="#33afec" d="M23,10h10v9H23V10z"></path><path fill="#54daff" d="M33,10h10v9H33V10z"></path><path fill="#027ad4" d="M23,19h10v9H23V19z"></path><path fill="#0553a4" d="M23,28h10v9H23V28z"></path><path fill="#25a2e5" d="M33,19h10v9H33V19z"></path><path fill="#0262b8" d="M33,28h10v9H33V28z"></path><polygon points="13,37 43,37 43,24.238 28.99,32.238 13,24.238" opacity=".019"></polygon><polygon points="13,37 43,37 43,24.476 28.99,32.476 13,24.476" opacity=".038"></polygon><polygon points="13,37 43,37 43,24.714 28.99,32.714 13,24.714" opacity=".057"></polygon><polygon points="13,37 43,37 43,24.952 28.99,32.952 13,24.952" opacity=".076"></polygon><polygon points="13,37 43,37 43,25.19 28.99,33.19 13,25.19" opacity=".095"></polygon><polygon points="13,37 43,37 43,25.429 28.99,33.429 13,25.429" opacity=".114"></polygon><polygon points="13,37 43,37 43,25.667 28.99,33.667 13,25.667" opacity=".133"></polygon><polygon points="13,37 43,37 43,25.905 28.99,33.905 13,25.905" opacity=".152"></polygon><polygon points="13,37 43,37 43,26.143 28.99,34.143 13,26.143" opacity=".171"></polygon><polygon points="13,37 43,37 43,26.381 28.99,34.381 13,26.381" opacity=".191"></polygon><polygon points="13,37 43,37 43,26.619 28.99,34.619 13,26.619" opacity=".209"></polygon><polygon points="13,37 43,37 43,26.857 28.99,34.857 13,26.857" opacity=".229"></polygon><polygon points="13,37 43,37 43,27.095 28.99,35.095 13,27.095" opacity=".248"></polygon><polygon points="13,37 43,37 43,27.333 28.99,35.333 13,27.333" opacity=".267"></polygon><polygon points="13,37 43,37 43,27.571 28.99,35.571 13,27.571" opacity=".286"></polygon><polygon points="13,37 43,37 43,27.81 28.99,35.81 13,27.81" opacity=".305"></polygon><polygon points="13,37 43,37 43,28.048 28.99,36.048 13,28.048" opacity=".324"></polygon><polygon points="13,37 43,37 43,28.286 28.99,36.286 13,28.286" opacity=".343"></polygon><polygon points="13,37 43,37 43,28.524 28.99,36.524 13,28.524" opacity=".362"></polygon><polygon points="13,37 43,37 43,28.762 28.99,36.762 13,28.762" opacity=".381"></polygon><polygon points="13,37 43,37 43,29 28.99,37 13,29" opacity=".4"></polygon><linearGradient id="Qf7015RosYe_HpjKeG0QTa_ut6gQeo5pNqf_gr1" x1="38.925" x2="32.286" y1="24.557" y2="36.024" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#31abec"></stop><stop offset="1" stop-color="#1582d5"></stop></linearGradient><path fill="url(#Qf7015RosYe_HpjKeG0QTa_ut6gQeo5pNqf_gr1)" d="M15.441,42h26.563c1.104,0,1.999-0.889,2-1.994C44.007,35.485,44,24.843,44,24.843	s-0.007,0.222-1.751,1.212S14.744,41.566,14.744,41.566S14.978,42,15.441,42z"></path><linearGradient id="Qf7015RosYe_HpjKeG0QTb_ut6gQeo5pNqf_gr2" x1="13.665" x2="41.285" y1="6.992" y2="9.074" gradientUnits="userSpaceOnUse"><stop offset=".042" stop-color="#076db4"></stop><stop offset=".85" stop-color="#0461af"></stop></linearGradient><path fill="url(#Qf7015RosYe_HpjKeG0QTb_ut6gQeo5pNqf_gr2)" d="M43,10H13V8c0-1.105,0.895-2,2-2h26c1.105,0,2,0.895,2,2V10z"></path><linearGradient id="Qf7015RosYe_HpjKeG0QTc_ut6gQeo5pNqf_gr3" x1="28.153" x2="23.638" y1="33.218" y2="41.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#33acee"></stop><stop offset="1" stop-color="#1b8edf"></stop></linearGradient><path fill="url(#Qf7015RosYe_HpjKeG0QTc_ut6gQeo5pNqf_gr3)" d="M13,25v15c0,1.105,0.895,2,2,2h15h12.004c0.462,0,0.883-0.162,1.221-0.425L13,25z"></path><path d="M21.319,13H13v24h8.319C23.352,37,25,35.352,25,33.319V16.681C25,14.648,23.352,13,21.319,13z" opacity=".05"></path><path d="M21.213,36H13V13.333h8.213c1.724,0,3.121,1.397,3.121,3.121v16.425	C24.333,34.603,22.936,36,21.213,36z" opacity=".07"></path><path d="M21.106,35H13V13.667h8.106c1.414,0,2.56,1.146,2.56,2.56V32.44C23.667,33.854,22.52,35,21.106,35z" opacity=".09"></path><linearGradient id="Qf7015RosYe_HpjKeG0QTd_ut6gQeo5pNqf_gr4" x1="3.53" x2="22.41" y1="14.53" y2="33.41" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1784d8"></stop><stop offset="1" stop-color="#0864c5"></stop></linearGradient><path fill="url(#Qf7015RosYe_HpjKeG0QTd_ut6gQeo5pNqf_gr4)" d="M21,34H5c-1.105,0-2-0.895-2-2V16c0-1.105,0.895-2,2-2h16c1.105,0,2,0.895,2,2v16	C23,33.105,22.105,34,21,34z"></path><path fill="#fff" d="M13,18.691c-3.111,0-4.985,2.377-4.985,5.309S9.882,29.309,13,29.309	c3.119,0,4.985-2.377,4.985-5.308C17.985,21.068,16.111,18.691,13,18.691z M13,27.517c-1.765,0-2.82-1.574-2.82-3.516	s1.06-3.516,2.82-3.516s2.821,1.575,2.821,3.516S14.764,27.517,13,27.517z"></path>
-            </svg>
-        </a>
-        <a href="#">
-          <IonIcon class="linkedin-icon" size="large" :icon="logoLinkedin" />
-        </a>
-        <a href="#">
-          <IonIcon class="google-icon" size="large" :icon="logoGoogle" />
-        </a>
-        <a href="#">
-          <IonIcon class="facebook-icon" size="large" :icon="logoFacebook" />
-        </a>
-        <a href="#">
-          <IonIcon class="twitter-icon" size="large" :icon="logoTwitter" />
-        </a>
-        <a href="#">
-          <IonIcon class="yahoo-icon" size="large" :icon="logoYahoo" />
-        </a>
-      </IonCol>
+    <p class="TitleP">History of my membership purchase and my activities during that period.</p>
+
+    <IonRow class="ButtonRow">
+      <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
+      <IonButton fill="clear" @click="exportTable">EXPORT</IonButton>
+      <IonButton fill="clear" @click="printTable">PRINT</IonButton>
+      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchMembers"></IonInput>
+      <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
+        <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
+      </IonButton>
+    </IonRow>
+    
+    <IonRow class="NONscrollingRow">
+    
+      <IonRow class="scrollingRow" ref="scrollableContainer">
+          <!-- TitleRow with sorting functionality and icons -->
+          <IonRow class="TitleRow">
+            
+            <IonCol class="OrderIDCol" @click="sortMembers('id')">Order ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+          <!-- Membership Purchase Section -->
+            <IonCol class="BookingDateCol topBorder" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+            <IonCol class="MembershipTypeCol topBorder" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+            <IonCol class="VIPMembershipCol topBorder" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
+            <IonCol class="VVIPMembershipCol topBorder" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
+            <IonCol class="CostCol topBorder" @click="sortMembers('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
+            <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')">Expiring Date <IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
+            <IonCol class="TimeLeftTillExpiryCol topBorder" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
+          <!-- Membership Purchase Section -->
+            <IonCol class="ResponseToYourNeedsCol green" @click="sortMembers('responseToYourNeeds')">Response To Your Needs <IonIcon :icon="sortIcon('responseToYourNeeds')" class="sort-icon" /></IonCol>
+            <IonCol class="ResponseToYourOffersCol green" @click="sortMembers('responseToYourOffers')">Response To Your Offers <IonIcon :icon="sortIcon('responseToYourOffers')" class="sort-icon" /></IonCol>
+            <IonCol class="ResponseToYourBestOffersCol green" @click="sortMembers('responseToYourBestOffers')">Response To Your Best Offers <IonIcon :icon="sortIcon('responseToYourBestOffers')" class="sort-icon" /></IonCol>
+            <IonCol class="PitchTrainingCol" @click="sortMembers('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
+            <IonCol class="BusinessFundingAdviceCol" @click="sortMembers('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
+            <IonCol class="FreeBusinessFundingAdviceCol" @click="sortMembers('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
+            <IonCol class="VideoOfPitchingCol" @click="sortMembers('videoOfPitching')">Video Of My Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
+
+            <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+            <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
+            <IonCol class="ExhibitedCol green" @click="sortMembers('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+            <IonCol class="VisitedCol green" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestorTicketCol" @click="sortMembers('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestmentBrokerCol" @click="sortMembers('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestorsAdvertsCol  green" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+            <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
+            <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">TotalSpent (Remove it) <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+            <IonCol class="OneMinPitchingCol" @click="sortMembers('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
+            <IonCol class="ThreeMinPitchingCol" @click="sortMembers('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
+            <IonCol class="InvestmentPitchingCol green" @click="sortMembers('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
+            <IonCol class="WorkshopCol green" @click="sortMembers('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
+            <IonCol class="PresentationCol green" @click="sortMembers('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
+            
+            
+            <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+            <IonCol class="ActionCol">Stop next Membership Billing</IonCol>
+          </IonRow>
+
+        
+        <!-- Data rows -->
+        <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
+          <IonCol class="OrderIDCol">{{ member.id }}</IonCol>
+          <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
+          <!-- Membership Purchase Section -->
+          <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
+          <IonCol class="VIPMembershipCol">{{ member.VIPMembership }}</IonCol>
+          <IonCol class="VVIPMembershipCol">{{ member.VVIPMembership }}</IonCol>
+          <IonCol class="CostCol">{{ member.cost }}</IonCol>
+          <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
+          <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry}}</IonCol>
+          <!-- Membership Purchase Section -->
+          <IonCol class="ResponseToYourNeedsCol">{{ member.responseToYourNeeds}}</IonCol>
+          <IonCol class="ResponseToYourOffersCol">{{ member.responseToYourOffers}}</IonCol>
+          <IonCol class="ResponseToYourBestOffersCol">{{ member.responseToYourBestOffers }}</IonCol>
+          <IonCol class="PitchTrainingCol">{{ member.pitchTraining }}</IonCol>
+          <IonCol class="BusinessFundingAdviceCol">{{ member.businessFundingAdvice }}</IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol">{{ member.freeBusinessFundingAdvice }}</IonCol>
+          <IonCol class="VideoOfPitchingCol">{{ member.videoOfPitching }}</IonCol>
+
+          <IonCol class="BusinessNameCol">{{ member.businessName }}</IonCol>
+          <IonCol class="BizCategoryCol">{{ member.bizCategory }}</IonCol>
+          <IonCol class="ExhibitedCol">{{ member.exhibited }}</IonCol>
+          <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
+          <IonCol class="InvestorTicketCol">{{ member.investorTicket }}</IonCol>
+          <IonCol class="investmentBrokerCol">{{ member.investmentBroker }}</IonCol>
+          <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
+          <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
+          <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+          <IonCol class="OneMinPitchingCol">{{ member.oneMinPitching }}</IonCol>
+          <IonCol class="ThreeMinPitchingCol">{{ member.threeMinPitching }}</IonCol>
+          <IonCol class="InvestmentPitchingCol">{{ member.investmentPitching }}</IonCol>
+          <IonCol class="WorkshopCol">{{ member.workshop }}</IonCol>
+          <IonCol class="PresentationCol">{{ member.presentation }}</IonCol>
+
+
+          <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+            </IonButton>
+          </IonCol>
+        </IonRow>
+
+        <!-- Total row -->
+        <IonRow class="TotalRow">
+          <IonCol class="OrderIDCol">Totals:</IonCol>
+          <!-- Membership Purchase Section -->
+          <IonCol class="BookingDateCol"></IonCol>
+          <IonCol class="MembershipTypeCol"></IonCol>
+          <IonCol class="VIPMembershipCol"></IonCol>
+          <IonCol class="VVIPMembershipCol"></IonCol>
+          <IonCol class="costCol"></IonCol>
+          <IonCol class="expiringDateCol"></IonCol>
+          <IonCol class="TimeLeftTillExpiryCol"></IonCol>
+          <!-- Membership Purchase Section -->
+          <IonCol class="ResponseToYourNeedsCol"></IonCol>
+          <IonCol class="ResponseToYourOffersCol"></IonCol>
+          <IonCol class="ResponseToYourBestOffersCol"></IonCol>
+          <IonCol class="PitchTrainingCol"></IonCol>
+          <IonCol class="BusinessFundingAdviceCol"></IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
+          <IonCol class="VideoOfPitchingCol"></IonCol>
+
+          <IonCol class="BusinessNameCol"></IonCol>
+          <IonCol class="BizCategoryCol"></IonCol>
+          <IonCol class="ExhibitedCol"></IonCol>
+          <IonCol class="VisitedCol"></IonCol>
+          <IonCol class="InvestorTicketCol"></IonCol>
+          <IonCol class="InvestmentBrokerCol"></IonCol>
+          <IonCol class="InvestorsAdvertsCol"></IonCol>
+          <IonCol class="BizMentorCol"></IonCol>
+          <IonCol class="TotalSpentCol">{{ total }}</IonCol>
+          <IonCol class="OneMinPitchingCol"></IonCol>
+          <IonCol class="threeMinPitchingCol"></IonCol>
+          <IonCol class="InvestmentPitchingCol"></IonCol>
+          <IonCol class="WorkshopCol"></IonCol>
+          <IonCol class="PresentationCol"></IonCol>
+
+          
+          <IonCol class="LastLoggedInCol"></IonCol>
+          <IonCol class="ActionCol"></IonCol>
+        </IonRow>
+
+      </IonRow>
+
     </IonRow>
 
-    <IonRow>
-      <IonCol>
-        <IonTextarea
-          v-model="pasteEmailsHere"
-          class="pasteEmailsHere"
-          label="OR; copy then 'Paste' your emails here"
-          label-placement="floating"
-          :counter="true"
-          :auto-grow="true"
-          :maxlength="500"
-        />
-      </IonCol>
+    <!-- Pagination -->
+    <IonRow class="PaginationRow">
+      <IonButton @click="prevPage">Prev</IonButton>
+      <div class="PageInfo">{{ currentPage }} / {{ totalPages }}</div>
+      <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
 
-    <IonRow>
-      <IonCol>
-        <IonSelect v-model="displayImportedFrom" placeholder="Display Imported Emails From" fill="outline">
-          <IonSelectOption value="Gmail">Gmail</IonSelectOption>
-          <IonSelectOption value="Yahoo">Yahoo</IonSelectOption>
-          <IonSelectOption value="Outlook">Outlook</IonSelectOption>
-          <IonSelectOption value="Excel">Excel</IonSelectOption>
-          <IonSelectOption value="Facebook">Facebook</IonSelectOption>
-          <IonSelectOption value="LinkedIn">LinkedIn</IonSelectOption>
-        </IonSelect>
-        <IonRow class="displayImportedEmails"></IonRow>
-      </IonCol>
-    </IonRow>
-
-    <IonRow>
-      <IonCol>
-        <IonSelect v-model="displayMyConnections" placeholder="Display My Connections" fill="outline">
-          <IonSelectOption value="Gmail">My Connections</IonSelectOption>
-          <IonSelectOption value="Yahoo">Pending Connection Request To Me</IonSelectOption>
-          <IonSelectOption value="Outlook">Pending Connection Request To Others</IonSelectOption>
-        </IonSelect>
-        <IonRow class="displayConnectionRequests"></IonRow>
-      </IonCol>
-    </IonRow>
   </IonGrid>
 </template>
 
 
 
+
+
+
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { IonCard, IonButton, IonCol, IonGrid, IonIcon, IonRow, IonTextarea, IonSelect, IonSelectOption } from '@ionic/vue';
-import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin, logoYahoo } from 'ionicons/icons';
+  import { defineComponent, ref, computed, watch } from 'vue';
+  import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
+  import { close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
 
-// Function to sanitize input
-const sanitizeInput = (input: string): string => {
-  return input
-    .replace(/<script.*?>.*?<\/script>/gi, '')  // Remove script tags
-    .replace(/<[\/\!]*?[^<>]*?>/gi, '')       // Remove HTML tags
-    .replace(/&(?:lt|gt|amp|quot|#39);/g, '') // Remove HTML entities
-    .replace(/[<>\/\\'";]/g, '');              // Remove potentially harmful characters
-};
+  interface Member {
+    id: number;
+    // Membership Purchase Section -->
+    bookingDate: string;
+    membershipType: string;
+    VIPMembership: number;
+    VVIPMembership: number;
+    cost: number;
+    expiringDate: string;
+    timeLeftTillExpiry: string;
+    // Membership Purchase Section -->
 
-export default defineComponent({
-  name: 'MyConnectionComponent',
-  components: {
-    IonCard, 
-    IonButton,
-    IonCol,
-    IonGrid,
-    IonRow,
-    IonIcon,
-    IonTextarea,
-    IonSelect,
-    IonSelectOption,
-  },
-  setup() {
-    const pasteEmailsHere = ref<string>('');
-    const displayImportedFrom = ref<string | null>(null);
-    const displayMyConnections = ref<string | null>(null);
+    responseToYourNeeds: number;
+    responseToYourOffers: number;
+    responseToYourBestOffers: number;
+    pitchTraining: number;
+    businessFundingAdvice: number;
+    freeBusinessFundingAdvice: number;
+    videoOfPitching: number;
+    businessName: string;
+    bizCategory: string;
+    exhibited: number;
+    visited: number;
+    investorTicket: number;
+    investmentBroker: number;
+    investorsAdverts: number;
+    bizMentor: number;
+    totalSpent: number;
+    oneMinPitching: number;
+    threeMinPitching: number;
+    investmentPitching: number;
+    workshop: number;
+    presentation: number;
 
-    const submitContent = () => {
-      // Sanitize all text fields
-      const sanitizedData = {
-        displayImportedFrom: sanitizeInput(displayImportedFrom.value ?? ''),
-        pasteEmailsHere: sanitizeInput(pasteEmailsHere.value).substring(0, 10000),
+    lastLoggedIn: string;
+  }
+
+  export default defineComponent({
+    name: 'MemberMembershipOrderComponent',
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
+    setup() {
+      const members = ref<Member[]>([
+        {
+          id: 3,
+          // Membership Purchase Section -->
+          bookingDate: '2023-01-01T12:00:00',
+          membershipType: 'Gold',
+          VIPMembership: 43,
+          VVIPMembership: 30,
+          cost: 100, // Added cost value
+          expiringDate: '2023-01-01T12:00:00',
+          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          // Membership Purchase Section -->
+          responseToYourNeeds: 54,
+          responseToYourOffers: 4,
+          responseToYourBestOffers: 44,
+          pitchTraining: 30,
+          businessFundingAdvice: 34,
+          freeBusinessFundingAdvice: 55,
+          videoOfPitching: 55,
+          businessName: 'JohnBusiness',
+          bizCategory: 'IT',
+          exhibited: 30,
+          visited: 30,
+          investorTicket: 5,
+          investmentBroker: 3,
+          investorsAdverts: 2,
+          bizMentor: 30,
+          totalSpent: 150,
+          oneMinPitching: 344,
+          threeMinPitching: 44,
+          investmentPitching: 32,
+          workshop: 22,
+          presentation: 22,
+          lastLoggedIn: '2023-06-01'
+        },
+        {
+          id: 2,
+          // Membership Purchase Section -->
+          bookingDate: '2023-01-01T12:00:00',
+          membershipType: 'Silver',
+          VIPMembership: 2,
+          VVIPMembership: 30,
+          cost: 120, // Added cost value
+          expiringDate: '2023-01-01T12:00:00',
+          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          // Membership Purchase Section -->
+          responseToYourNeeds: 22,
+          responseToYourOffers: 2,
+          responseToYourBestOffers: 222,
+          pitchTraining: 28,
+          businessFundingAdvice: 33,
+          freeBusinessFundingAdvice: 33,
+          videoOfPitching: 55,
+          businessName: 'AliceBusiness',
+          bizCategory: 'Marketing',
+          exhibited: 30,
+          visited: 30,
+          investorTicket: 4,
+          investmentBroker: 5,
+          investorsAdverts: 1,
+          bizMentor: 30,
+          totalSpent: 200,
+          oneMinPitching: 344,
+          threeMinPitching: 44,
+          investmentPitching: 32,
+          workshop: 22,
+          presentation: 22,
+          lastLoggedIn: '2023-07-01'
+        },
+        {
+          id: 1,
+          // Membership Purchase Section -->
+          bookingDate: '2023-01-01T12:00:00',
+          membershipType: 'Platinum',
+          VIPMembership: 7,
+          VVIPMembership: 30,
+          cost: 150, // Added cost value
+          expiringDate: '2023-01-01T12:00:00',
+          timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
+          // Membership Purchase Section -->
+          responseToYourNeeds: 77,
+          responseToYourOffers: 7,
+          responseToYourBestOffers: 777,
+          pitchTraining: 35,
+          businessFundingAdvice: 33,
+          freeBusinessFundingAdvice: 33,
+          videoOfPitching: 55,
+          businessName: 'BobBusiness',
+          bizCategory: 'Finance',
+          exhibited: 30,
+          visited: 30,
+          investorTicket: 6,
+          investmentBroker: 4,
+          investorsAdverts: 3,
+          bizMentor: 30,
+          totalSpent: 250,
+          oneMinPitching: 344,
+          threeMinPitching: 44,
+          investmentPitching: 32,
+          workshop: 22,
+          presentation: 22,
+          lastLoggedIn: '2023-08-01'
+        }
+      ]);
+
+      const sortKey = ref<keyof Member | null>(null);
+      const sortAsc = ref(true);
+      // making the selected row distinguishable
+
+      const selectedRow = ref<number | null>(null);
+      // Search Filed
+
+      const searchQuery = ref<string>('');
+      const filteredMembers = ref(members.value);
+
+      // back button does not wor, fix itk
+      const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
+
+      const scrollToLeft = () => {
+          if (scrollableContainer.value) {
+            scrollableContainer.value.scrollLeft = 0;
+          }
+        };
+
+      // back button does not work
+
+
+      const sortMembers = (key: keyof Member) => {
+        if (sortKey.value === key) {
+          sortAsc.value = !sortAsc.value;
+        } else {
+          sortKey.value = key;
+          sortAsc.value = true;
+        }
       };
-      console.log('Form Data:', sanitizedData);
-      // Here you should send sanitizedData to your API endpoint
-    };
 
-    return {
-      pasteEmailsHere,
-      displayImportedFrom,
-      displayMyConnections,
-      logoFacebook,
-      logoTwitter,
-      logoGoogle,
-      logoLinkedin,
-      logoYahoo,
-      submitContent,
-    };
-  },
-});
+      const sortIcon = (key: keyof Member) => {
+        if (sortKey.value === key) {
+          return sortAsc.value ? arrowUpOutline : arrowDownOutline;
+        }
+        return undefined;
+      };
+
+      
+      //  * Resets the sorting to the original state (default order).
+      const resetSorting = () => {
+        sortKey.value = 'bookingDate';
+        sortAsc.value = true;
+      };
+
+      
+      //  * Computes the sorted members based on the current sortKey and sort order.
+      const sortedMembers = computed(() => {
+        if (!sortKey.value) return filteredMembers.value;
+
+        return [...filteredMembers.value].sort((a, b) => {
+          if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
+          if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
+          return 0;
+        });
+      });
+
+      const itemsPerPage = 20;
+      const currentPage = ref(1);
+
+      //  * Computes the paginated members for the current page.
+      const paginatedMembers = computed(() => {
+        const start = (currentPage.value - 1) * itemsPerPage;
+        return sortedMembers.value.slice(start, start + itemsPerPage);
+      });
+
+      //  * Computes the total number of pages based on the number of members and items per page.
+      const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
+
+      //  * Computes the total cost of all members.
+      const total = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
+
+      //  * Navigates to the previous page, if possible.
+      const prevPage = () => {
+        if (currentPage.value > 1) {
+          currentPage.value -= 1;
+        }
+      };
+
+      //  * Navigates to the next page, if possible.
+      const nextPage = () => {
+        if (currentPage.value < totalPages.value) {
+          currentPage.value += 1;
+        }
+      };
+
+      //  * Exports the table data to a CSV file.
+      const exportTable = () => {
+        const csvContent = [
+          [
+            'Member ID', 
+            // Membership Section
+            'Booking Date', 'MembershipType', 'VIP Membership', 'VVIPMembership', 'Cost', 'ExpiringDate', 'TimeLeftTillExpiry',
+            // Membership Section
+            
+            'Response To Your Needs', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice', 'FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
+            'BizCategory', 'Exhibited', 'Visited', 'InvestorTicket', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
+            'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
+          ],
+          ...filteredMembers.value.map(member => [
+            member.id,  
+            // Membership Section
+            member.bookingDate, member.membershipType, member.VIPMembership, member.VVIPMembership, member.cost,  member.expiringDate, member.timeLeftTillExpiry,
+            // Membership Section
+            member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,
+            member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorTicket, member.investmentBroker,
+            member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn
+          ])
+        ]
+          .map(e => e.join(","))
+          .join("\n");
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'LENeventBookings.csv';
+        link.click();
+      };
+
+      const printTable = () => {
+        const printContent = `
+          <html>
+            <head>
+              <style>
+                @page {
+                  size: landscape;
+                  margin: 1cm;
+                }
+                table {
+                  width: 100%;
+                  border-collapse: collapse;
+                  table-layout: fixed;
+                }
+                th, td {
+                  border: 1px solid gray;
+                  padding: 5px;
+                  text-align: left;
+                  font-size: 8px;
+                }
+                th {
+                  background-color: #f1f1f1;
+                  font-weight: bold;
+                }
+                .odd-row {
+                  background-color: #f5efef;
+                }
+                .even-row {
+                  background-color: #bceea5;
+                }
+                .even-row .TicketTitleCol {
+                  background-color: aquamarine;
+                }
+                .TotalRow {
+                  font-weight: bold;
+                }
+              </style>
+            </head>
+            <body>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Member ID</th>
+
+                    <!-- Membership Section -->
+                    <th>BookingDate</th>
+                    <th>Membership Type</th>
+                    <th>VIP Membership</th>
+                    <th>VVIPMembership</th>
+                    <th>Cost</th>
+                    <th>ExpiringDate</th>
+                    <th>timeLeftTillExpiry</th>
+                    <!-- Membership Section -->
+
+                    <th>Response To Your Needs</th>
+                    <th>Response To Your Offers</th>
+                    <th>Response To Your Best Offers</th>
+                    <th>PitchTraining</th>
+                    <th>Business Funding Advice</th>
+                    <th>Free Business Funding Advice</th>
+                    <th>Video Of Pitching</th>
+
+                    <th>Business Name</th>
+                    <th>Biz Category</th>
+                    <th>Exhibited</th>
+                    <th>Visited</th>
+                    <th>Investor Ticket</th>
+                    <th>Investment Broker</th>
+                    <th>Investors Adverts</th>
+                    <th>Biz Mentor</th>
+                    <th>Total Spent</th>
+                    <th>OneMin Pitching</th>
+                    <th>ThreeMin Pitching</th>
+                    <th>Investment Pitching</th>
+                    <th>Workshop</th>
+                    <th>Presentation</th>
+                    <th>Last Logged In</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${paginatedMembers.value.map((member, index) => `
+                    <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
+                      <td>${member.id}</td>
+
+                      // Membership Section
+                      <td>${member.bookingDate}</td>
+                      <td>${member.membershipType}</td>
+                      <td>${member.VIPMembership}</td>
+                      <td>${member.VVIPMembership}</td>
+                      <td>${member.cost}</td>
+                      <td>${member.expiringDate}</td>
+                      <td>${member.timeLeftTillExpiry}</td>
+                      // Membership Section
+
+                      <td>${member.responseToYourNeeds}</td>
+                      <td>${member.responseToYourOffers}</td>
+                      <td>${member.responseToYourBestOffers}</td>
+                      <td>${member.pitchTraining}</td>
+                      <td>${member.businessFundingAdvice}</td>
+                      <td>${member.freeBusinessFundingAdvice}</td>
+                      <td>${member.videoOfPitching}</td>
+
+                      <td>${member.businessName}</td>
+                      <td>${member.bizCategory}</td>
+                      <td>${member.exhibited}</td>
+                      <td>${member.visited}</td>
+                      <td>${member.investorTicket}</td>
+                      <td>${member.investmentBroker}</td>
+                      <td>${member.investorsAdverts}</td>
+                      <td>${member.bizMentor}</td>
+                      <td>${member.totalSpent}</td>
+                      <td>${member.oneMinPitching}</td>
+                      <td>${member.threeMinPitching}</td>
+                      <td>${member.investmentPitching}</td>
+                      <td>${member.workshop}</td>
+                      <td>${member.presentation}</td>
+                      <td>${member.lastLoggedIn}</td>
+                    </tr>
+                  `).join('')}
+                  <tr class="TotalRow">
+                    <td>Totals:</td>
+                    <td colspan="23"></td>
+                    <td>${total.value}</td>
+                    <td colspan="7"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="font-size: 8px;">Page ${currentPage.value} of ${totalPages.value}</div>
+            </body>
+          </html>
+        `;
+        const printWindow = window.open('', '', 'height=600,width=800');
+        if (printWindow) {
+          printWindow.document.write(printContent);
+          printWindow.document.close();
+          printWindow.print();
+        }
+      };
+
+      // making the selected row distinguishable
+      const selectRow = (id: number) => {
+        selectedRow.value = id;
+      };
+
+      // Search Function
+      const searchMembers = () => {
+        if (searchQuery.value.trim() === '') {
+          filteredMembers.value = members.value;
+        } else {
+          const query = searchQuery.value.trim().toLowerCase();
+          filteredMembers.value = members.value.filter(member => 
+            Object.values(member).some(val => 
+              val.toString().toLowerCase().includes(query)
+            )
+          );
+        }
+      };
+
+      watch(searchQuery, searchMembers);
+
+      return {
+        members,
+        sortKey,
+        sortAsc,
+        sortMembers,
+        sortIcon,
+        resetSorting,
+        selectRow,
+        selectedRow,
+        searchQuery,
+        searchMembers,
+        paginatedMembers,
+        currentPage,
+        totalPages,
+        prevPage,
+        nextPage,
+        exportTable,
+        printTable,
+        total,
+        close,
+        arrowBackCircle,
+        scrollToLeft,
+        scrollableContainer,
+      };
+    }
+  });
 </script>
 
 
 
+
+
+
+
 <style scoped>
-ion-card {
-  max-width: 400px; 
-  max-height: 420px; 
-  margin: 0 auto;
-  border-radius: 6px;
-  border: 3px solid red; 
-}
+  /* Adjusting the length of the table here: http://localhost:8100/adminpage */
+  .search{
+    width: 100px;
+  }
+  .TitleRow {
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    align-items: top;
+  }
+  
+  .BookingDateCol {
+    border-left: 3px solid red;
+  }
+  .TimeLeftTillExpiryCol {
+    border-right: 3px solid red;
+  }
+  .topBorder {
+    border-top: 3px solid red;
+  }
+  .NONscrollingRow {
+    overflow-x: auto;
+    /* border: 4px solid rgb(26, 185, 18); */
+  }
+  .scrollingRow {
+    min-width: 3500px;
+    /* border: 1px solid red; */
+    flex-direction: column;
+  }
+  .green{
+    color: rgb(206, 6, 251);
+    font-weight: bold;
+  }
+  .DataRow {
+    cursor: pointer;
+  }
+  .DataRow.selected {
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+  }
+  .DataRow:nth-child(odd) ion-col {
+    background-color: #f5efef;
+  }
+  .DataRow:nth-child(even) ion-col {
+    background-color: #bceea5;
+  }
 
-.image {
-  display: flex;
-  justify-content: center;
-}
+  .TotalRow {
+    font-weight: bold;
+  }
 
-/* Social media icon colors */
-.linkedin-icon {
-  color: #0077b5; /* LinkedIn blue */
-}
+  .TitleRow, .DataRow, .TotalRow {
+    border: 1px solid gray;
+  }
 
-.google-icon {
-  color: #db4437; /* Google red */
-}
+  .DataRow, .TotalRow {
+    white-space: nowrap;
+  }
+  .TitleRow ion-col {
+    overflow: visible; /* Ensure the content is fully visible */
+    word-wrap: break-word; /* Break long words */
+    white-space: normal; /* Allow text to wrap */
+    text-align: center; /* Center align for better presentation */
+  }
 
-.facebook-icon {
-  color: #3b5998; /* Facebook blue */
-}
+  .OrderIDCol {
+    /* width: 50px; */
+    background-color: red;
+  }
 
-.twitter-icon {
-  color: #1da1f2; /* Twitter blue */
-}
+  ion-col {
+    max-width: 100px;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    align-content: center;
+    height: 30px;
+    font-size: 12px;
+    border-right: 1px solid lightgray;
+  }
+  .ActionCol{
+    overflow-x: visible;
+    color: red;
+  }
+  .ActionCol ion-button  {
+    margin:0;
+    padding:0;
+  }
 
-.yahoo-icon {
-  color: #720e9e; /* Yahoo purple */
-}
+  .PageInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 0 10px;
+  }
 
-.pasteEmailsHere {
-  width: 100%;
-  height: 150px; /* Adjust as needed */
-}
+  .sort-icon {
+    margin-left: 5px;
+  }
 
-.displayImportedEmails, .displayConnectionRequests {
-  margin-top: 10px;
-}
+  .person-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .TitleP {
+    text-align: center;
+    font-weight: bold;
+  }
 
-@media (max-width: 600px) {
-  /* Add responsive styles if needed */
-}
+  @media (max-width: 600px) {
+
+  }
+  
+
+
 </style>
+
 
