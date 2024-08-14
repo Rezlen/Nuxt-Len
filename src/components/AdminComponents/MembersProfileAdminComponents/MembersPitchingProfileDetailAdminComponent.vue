@@ -24,7 +24,7 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-          <!-- <IonRow class="PitchingSection"> -->
+          <!-- PitchingSection -->
           <IonCol class="PitchingKindCol" @click="sortMembers('pitchingKind')">Pitching Kind <IonIcon :icon="sortIcon('pitchingKind')" class="sort-icon" /></IonCol>
           <IonCol class="LikedNoCol" @click="sortMembers('likedNo')">LikedNo <IonIcon :icon="sortIcon('likedNo')" class="sort-icon" /></IonCol>
           <IonCol class="SeenNoCol" @click="sortMembers('seenNo')">SeenNo <IonIcon :icon="sortIcon('seenNo')" class="sort-icon" /></IonCol>
@@ -36,7 +36,7 @@
           <IonCol class="YouTubeLinkCol" @click="sortMembers('youTubeLink')">YouTube Link<IonIcon :icon="sortIcon('youTubeLink')" class="sort-icon" /></IonCol>
           <IonCol class="PitchingSummeryCol" @click="sortMembers('pitchingSummery')">PitchingSummery <IonIcon :icon="sortIcon('pitchingSummery')" class="sort-icon" /></IonCol>
           <IonCol class="LookingForSummeryCol" @click="sortMembers('lookingForSummery')">LookingFor Summery <IonIcon :icon="sortIcon('lookingForSummery')" class="sort-icon" /></IonCol>
-          <!-- </IonRow> -->
+          <!--  PitchingSection-->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -100,6 +100,7 @@
           <IonCol class="YouTubeLinkCol"><a :href="member.youTubeLink" target="_blank">YouTube Link</a></IonCol>
           <IonCol class="PitchingSummeryCol">{{ member.pitchingSummery }}</IonCol>
           <IonCol class="LookingForSummeryCol">{{ member.lookingForSummery }}</IonCol>
+          <!-- PitchingSection Data -->
 
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -169,6 +170,7 @@
           <IonCol class="YouTubeLinkCol"></IonCol>
           <IonCol class="PitchingSummeryCol"></IonCol>
           <IonCol class="LookingForSummeryCol"></IonCol>
+          <!-- Pitching section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -263,6 +265,8 @@
     youTubeLink: string;
     pitchingSummery: string;
     lookingForSummery: string;
+    // Pitching section
+
     age: number;
     gender: string;
     businessName: string;
@@ -321,6 +325,8 @@
           youTubeLink: 'youtube_link',
           pitchingSummery: 'Tech pitch summary',
           lookingForSummery: 'Looking for funding',
+          // Pitching Section
+
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -373,6 +379,8 @@
           youTubeLink: 'youtube_link',
           pitchingSummery: 'Tech pitch summary',
           lookingForSummery: 'Looking for funding',
+          // Pitching section
+
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -425,6 +433,8 @@
           youTubeLink: 'youtube_link',
           pitchingSummery: 'Tech pitch summary',
           lookingForSummery: 'Looking for funding',
+          // Pitching section
+
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -481,7 +491,7 @@
         }
       };
 
-// back button does not work
+      // back button does not work
 
       // Custom order for pitchingKind
       const pitchingKindOrder: Record<Member['pitchingKind'], number> = {
@@ -507,7 +517,7 @@
 
 
       //  * Computes the sorted members based on the current sortKey and sort order.      const sortMembers = (key: keyof Member) => {
-      const sortMembers = (key: keyof Member) => {
+    const sortMembers = (key: keyof Member) => {
       if (sortKey.value === key) {
         sortAsc.value = !sortAsc.value;
       } else {
@@ -657,7 +667,6 @@
                     <th>Total Spent</th>
 
                     // Pitching section
-
                     <th>Pitching Kind</th>
                     <th>LikedNo</th>
                     <th>SeenNo</th>
@@ -669,6 +678,7 @@
                     <th>YouTube Link</th>
                     <th>PitchingSummery</th>
                     <th>LookingFor Summery</th>
+                    // Pitching section
 
 
                     <th>Age</th>
@@ -726,6 +736,7 @@
                       <td>${member.youTubeLink}</td>
                       <td>${member.pitchingSummery}</td>
                       <td>${member.lookingForSummery}</td>
+                      // Pitching section
                       
                       <td>${member.age}</td>
                       <td>${member.gender}</td>

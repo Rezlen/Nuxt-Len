@@ -33,7 +33,7 @@
             <IonRow class="PaddingBorder bold" @click="showComponent('MyOffersActivityTableComponent')">My Offer</IonRow>
             <IonRow class="PaddingBorder bold" @click="showComponent('MyBestOffersActivityTableComponent')">My Best Offers</IonRow>
             <IonRow class="PaddingBorder bold" @click="showComponent('MyNeedsActivityTableComponent')">My Need</IonRow>
-            <IonRow class="PaddingBorder " >My Pitches</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyPitchingsActivityTableComponent')">My Pitches</IonRow>
             <IonRow class="PaddingBorder bold" @click="showComponent('MyInvestmentApplicationComponent')" >My Investment Applications</IonRow>
             <IonRow class="PaddingBorder bold" @click="showComponent('MyInvestmentAdsComponent')">My Investments</IonRow>
             <IonRow class="PaddingBorder bold" @click="showComponent('MembersMyOrderTABsComponent')">My Orders</IonRow>
@@ -125,6 +125,7 @@ import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOf
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
 import MyInvestmentAdsComponent from '@/components/MyInvestmentComponents/MyInvestmentAdsComponent.vue';
+import MyPitchingsActivityTableComponent from '@/components/MyPitchingsComponents/MyPitchingsActivityTableComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -159,6 +160,7 @@ export default defineComponent({
     MyBestOffersActivityTableComponent,
     MyInvestmentApplicationComponent,
     MyInvestmentAdsComponent,
+    MyPitchingsActivityTableComponent,
 
     FooterComponent,
   },
@@ -206,6 +208,9 @@ export default defineComponent({
       }
       if (componentName === 'MyBestOffersActivityTableComponent') {
         currentComponent.value = MyBestOffersActivityTableComponent;
+      }
+      if (componentName === 'MyPitchingsActivityTableComponent') {
+        currentComponent.value = MyPitchingsActivityTableComponent;
       }
       
       // Add other cases as needed for other menu items

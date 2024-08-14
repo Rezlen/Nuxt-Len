@@ -170,6 +170,7 @@
                 <p><a href="/MyBestOffersActivityTableComponent" class="Events-button" >MyBestOffersActivityTableComponent</a> </p>
                 <p><a href="/MyNeedsActivityTableComponent" class="Events-button" >MyNeedsActivityTableComponent</a> </p>
                 <p><a href="/MyInvestmentAdsComponent" class="Events-button" > MyInvestmentAdsComponent </a> </p>
+                <p><a href="/MyPitchingsActivityTableComponent" class="MyPitchingsActivityTableComponent" > MyPitchingsActivityTableComponent </a> </p>
 
 
               

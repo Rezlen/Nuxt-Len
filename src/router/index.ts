@@ -125,6 +125,8 @@ import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersC
 // MyInvestmentApplicationComponent 
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
 import MyInvestmentAdsComponent from '@/components/MyInvestmentComponents/MyInvestmentAdsComponent.vue';
+// my pitchings
+import MyPitchingsActivityTableComponent from '@/components/MyPitchingsComponents/MyPitchingsActivityTableComponent.vue';
 
 
 
@@ -612,7 +614,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MyInvestmentAdsComponent',
     component: MyInvestmentAdsComponent
   },
-
+  //  My Pitching components
+  {
+    path: '/myPitchingsActivityTableComponent',
+    name: 'MyPitchingsActivityTableComponent',
+    component: MyPitchingsActivityTableComponent
+  },
 
 // Left & Right Adverts starts here  MemberInvestmentApplicationComponent
 {

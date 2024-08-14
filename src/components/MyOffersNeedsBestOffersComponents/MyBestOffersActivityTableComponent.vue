@@ -26,9 +26,9 @@
           <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
           <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
           <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
-          <IonCol class="bestOfferWantedCol" @click="sortMembers('bestOfferWanted')">Best Offer Wanted<IonIcon :icon="sortIcon('bestOfferWanted')" class="sort-icon" /></IonCol>
-          <IonCol class="bestOfferSeenCol" @click="sortMembers('bestOfferSeen')">Best Offer Seen<IonIcon :icon="sortIcon('bestOfferSeen')" class="sort-icon" /></IonCol>
-          <IonCol class="likedCol" @click="sortMembers('liked')">Best Offer Liked<IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferWantedCol purple" @click="sortMembers('bestOfferWanted')">Best Offer Wanted<IonIcon :icon="sortIcon('bestOfferWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="bestOfferSeenCol purple" @click="sortMembers('bestOfferSeen')">Best Offer Seen<IonIcon :icon="sortIcon('bestOfferSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="likedCol purple" @click="sortMembers('liked')">Best Offer Liked<IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
 
           <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
           <IonCol class="VIPMembershipCol" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>

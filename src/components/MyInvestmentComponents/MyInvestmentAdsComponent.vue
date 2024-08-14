@@ -27,7 +27,6 @@
             <IonCol class="InvestingCityCol topBorder" @click="sortMembers('investingCity')">Investing City <IonIcon :icon="sortIcon('investingCity')" class="sort-icon" /></IonCol>
             <IonCol class="InvestingLengthCol topBorder" @click="sortMembers('investingLength')">Investing Length <IonIcon :icon="sortIcon('investingLength')" class="sort-icon" /></IonCol>
             <IonCol class="WantedROICol topBorder" @click="sortMembers('wantedROI')">Wanted ROI <IonIcon :icon="sortIcon('wantedROI')" class="sort-icon" /></IonCol>
-            <IonCol class="MobNoCol topBorder" @click="sortMembers('mobNo')">Mob No <IonIcon :icon="sortIcon('mobNo')" class="sort-icon" /></IonCol>
             <IonCol class="RequiredEquityInterestCol topBorder" @click="sortMembers('requiredEquityInterest')">Required EquityInterest <IonIcon :icon="sortIcon('requiredEquityInterest')" class="sort-icon" /></IonCol>
             <IonCol class="ProductServiceCol topBorder" @click="sortMembers('productService')">Product/Service <IonIcon :icon="sortIcon('productService')" class="sort-icon" /></IonCol>
             <IonCol class="InvestingCategoryCol topBorder" @click="sortMembers('investingCategory')">Investing Category <IonIcon :icon="sortIcon('investingCategory')" class="sort-icon" /></IonCol>
@@ -40,8 +39,8 @@
             <IonCol class="ProductServiceCol topBorder" @click="sortMembers('ProductService')">Product Or Service <IonIcon :icon="sortIcon('ProductService')" class="sort-icon" /></IonCol>
             <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')">Expiring Date <IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
             <IonCol class="TimeLeftTillExpiryCol topBorder" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
-            
-            <IonCol class="successFeeCommissionPaidCol topBorder" @click="sortMembers('successFeeCommissionPaid')">SuccessFee Commission Paid <IonIcon :icon="sortIcon('successFeeCommissionPaid')" class="sort-icon" /></IonCol>
+            <IonCol class="successFeeCommissionPaidCol topBorder" @click="sortMembers('successFeeCommissionPaid')">Investee Paid SuccessFee Commission<IonIcon :icon="sortIcon('successFeeCommissionPaid')" class="sort-icon" /></IonCol>
+
             <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
             <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
             <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
@@ -94,7 +93,6 @@
             <IonCol class="InvestingCityCol">{{ member.investingCity }}</IonCol>
             <IonCol class="InvestingLengthCol">{{ member.investingLength }}</IonCol>
             <IonCol class="WantedROICol">{{ member.wantedROI }}</IonCol>
-            <IonCol class="MobNoCol">{{ member.mobNo }}</IonCol>
             <IonCol class="RequiredEquityInterestCol">{{ member.requiredEquityInterest }}</IonCol>
             <IonCol class="ProductServiceCol">{{ member.productService }}</IonCol>
             <IonCol class="InvestingCategoryCol">{{ member.investingCategory }}</IonCol>
@@ -165,7 +163,6 @@
             <IonCol class="InvestingCityCol"></IonCol>
             <IonCol class="InvestingLengthCol"></IonCol>
             <IonCol class="WantedROICol"></IonCol>
-            <IonCol class="MobNoCol"></IonCol>
             <IonCol class="RequiredEquityCol"></IonCol>
             <IonCol class="ProductServiceCol"></IonCol>
             <IonCol class="InvestingCategoryCol"></IonCol>
@@ -258,7 +255,6 @@
     investingCity: string;
     investingLength: string;
     wantedROI: number;
-    mobNo: string;
     requiredEquityInterest: number;
     productService: string;
     investingCategory: string;
@@ -327,7 +323,6 @@
           investingCity: 'New York',
           investingLength: '5 years',
           wantedROI: 15,
-          mobNo: '123-456-7890',
           requiredEquityInterest: 20,
           productService: 'Tech Solutions',
           investingCategory: 'Technology',
@@ -389,7 +384,6 @@
           investingCity: 'New York',
           investingLength: '5 years',
           wantedROI: 15,
-          mobNo: '123-456-7890',
           requiredEquityInterest: 20,
           productService: 'Tech Solutions',
           investingCategory: 'Technology',
@@ -452,7 +446,6 @@
           investingCity: 'New York',
           investingLength: '5 years',
           wantedROI: 15,
-          mobNo: '123-456-7890',
           requiredEquityInterest: 20,
           productService: 'Tech Solutions',
           investingCategory: 'Technology',
@@ -599,7 +592,7 @@
           [
             'Member ID', 'BookingDate',
             // Investment data
-            'Investment Amount', 'Equity Loan', 'Investing Country', 'Investing City', 'Investing Length', 'Wanted ROI', 'Mob No', 'Required Equity', 'Product Service', 'Investing Category', 'LookingFor Summery',
+            'Investment Amount', 'Equity Loan', 'Investing Country', 'Investing City', 'Investing Length', 'Wanted ROI', 'Required Equity', 'Product Service', 'Investing Category', 'LookingFor Summery',
             // <!-- Investment Data
 
             'DisplayedInList', 'openedSeenAll', 'applicationMessagedAll', 'TopCategoryOpenedYourApplication',  'ProductService', 
@@ -611,7 +604,7 @@
             member.id,  member.BookingDate,
 
             //  Investment Data
-            member.investmentAmount, member.equityLoan, member.investingCountry, member.investingCity, member.investingLength, member.wantedROI, member.mobNo, member.requiredEquityInterest, member.productService, member.investingCategory, member.lookingForSummery,
+            member.investmentAmount, member.equityLoan, member.investingCountry, member.investingCity, member.investingLength, member.wantedROI, member.requiredEquityInterest, member.productService, member.investingCategory, member.lookingForSummery,
             //  Investment Data
             
             member.DisplayedInList, member.openedSeenAll, member.applicationMessagedAll, member.TopCategoryOpenedYourApplication,  member.ProductService, member.expiringDate, member.timeLeftTillExpiry, member.successFeeCommissionPaid, member.personPic, member.firstName, member.lastName, member.email, member.openedSeen, member.applicationMessaged, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
@@ -747,7 +740,6 @@
                       <td>${member.investingCity}</td>
                       <td>${member.investingLength}</td>
                       <td>${member.wantedROI}</td>
-                      <td>${member.mobNo}</td>
                       <td>${member.requiredEquityInterest}</td>
                       <td>${member.productService}</td>
                       <td>${member.investingCategory}</td>
@@ -805,7 +797,7 @@
                     <td"></td>
                     // Investor section 
                     <td>${totalInvestmentAmount.value}</td>
-                    <td colspan="34"></td>
+                    <td colspan="33"></td>
                     <td>${totalBusinessRevenue.value}</td>
                     <td></td>
                     <td>${totalSalary.value}</td> 
@@ -920,7 +912,7 @@
     overflow-x: auto;
   }
   .scrollingRow {
-    min-width: 6000px;
+    min-width: 5700px;
     flex-direction: column;
   }
   .DataRow {
