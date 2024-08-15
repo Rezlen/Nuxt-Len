@@ -8,32 +8,34 @@
         <div class="column small-column">Price Inc VAT</div>
       </div>
 
-
-
       <!-- ################################################################### -->
       <div class="row row-small">
-        <div class="column wide-column left-align" >
-          <IonCheckbox justify="start">FREE Visitor</IonCheckbox><br/>
-          <IonCheckbox justify="start">FREE Business Mentor</IonCheckbox><br/>
-          <IonCheckbox justify="start">FREE Investor</IonCheckbox><br/>
-          <IonCheckbox justify="start">FREE Investment Broker</IonCheckbox><br/>
+        <div class="column wide-column left-align">
+          <IonCheckbox justify="start">FREE Visitor</IonCheckbox><br />
+          <IonCheckbox justify="start">FREE Business Mentor</IonCheckbox><br />
+          <IonCheckbox justify="start">FREE Investor</IonCheckbox><br />
+          <IonCheckbox justify="start">FREE Investment Broker</IonCheckbox
+          ><br />
         </div>
         <div class="column">Availability Numbers</div>
         <div class="column"></div>
         <div class="column small-column">FREE</div>
       </div>
 
-
-
       <!-- ################################################################### -->
       <div class="row">
-        <div class="column wide-column left-align" >
-
-            <IonCheckbox justify="start">Exhibition number4 Blue Square</IonCheckbox><br/>
-            <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
-            <IonCheckbox justify="start">Exhibitions Black Square</IonCheckbox><br/>
-            <IonCheckbox justify="start">Exhibitions Blue Square</IonCheckbox><br/>
-            <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox><br/>
+        <div class="column wide-column left-align">
+          <IonCheckbox justify="start"
+            >Exhibition number4 Blue Square</IonCheckbox
+          ><br />
+          <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox
+          ><br />
+          <IonCheckbox justify="start">Exhibitions Black Square</IonCheckbox
+          ><br />
+          <IonCheckbox justify="start">Exhibitions Blue Square</IonCheckbox
+          ><br />
+          <IonCheckbox justify="start">Exhibitions Red Circle</IonCheckbox
+          ><br />
         </div>
 
         <div class="column">Availability Numbers</div>
@@ -41,57 +43,57 @@
         <div class="column small-column">Price</div>
       </div>
 
-
-
       <!-- ################################################################### -->
       <div class="row">
         <!-- Conditional Rendering of the TicketTABsPitchingUpSellingComponent -->
-        <div class="column wide-column left-align " @click="toggleFormPitching" >
-          <IonCheckbox justify="start" class="FREEOneMinute">FREE One Minute Pitching</IonCheckbox>
+        <div class="column wide-column left-align" @click="toggleFormPitching">
+          <IonCheckbox justify="start" class="FREEOneMinute"
+            >FREE One Minute Pitching</IonCheckbox
+          >
           <IonCheckbox justify="start">Three Minutes Pitching</IonCheckbox>
-          <IonCheckbox justify="start">Investment Pitching; 5 Minutes</IonCheckbox>
-          <IonCheckbox justify="start">Workshops Black Sqare; 30 Minutes</IonCheckbox><br/>
-          <IonCheckbox justify="start">Presentation Black Square; 5 Minutes</IonCheckbox><br/>
+          <IonCheckbox justify="start"
+            >Investment Pitching; 5 Minutes</IonCheckbox
+          >
+          <IonCheckbox justify="start"
+            >Workshops Black Sqare; 30 Minutes</IonCheckbox
+          ><br />
+          <IonCheckbox justify="start"
+            >Presentation Black Square; 5 Minutes</IonCheckbox
+          ><br />
         </div>
         <div class="column">Availability Numbers</div>
         <div class="column">Spot Numbers</div>
         <div class="column small-column">Price</div>
       </div>
-      
 
-    <!-- ################################################################### -->
+      <!-- ################################################################### -->
     </div>
 
-      <!-- Conditional Rendering of the TicketTABsPitchingUpSellingComponent -->
-      <div v-if="showFormPitching">
-        <TicketTABsPitchingUpSellingComponent />
-      </div>
-
-
-
-
+    <!-- Conditional Rendering of the TicketTABsPitchingUpSellingComponent -->
+    <div v-if="showFormPitching">
+      <TicketTABsPitchingUpSellingComponent />
+    </div>
 
     <div class="footer">
-      <img alt="LEN Logo" height="160" src="/public/favicon.png" />
+      <img alt="LEN Logo" height="160" src="/favicon.png" />
       <!-- later stage we should create the Bonus/Discount functionalities -->
       <!-- <div>
         <ion-input label="Enter Discount Code" label-placement="floating" fill="outline"></ion-input>
       </div> -->
       <IonButton size="large">Book Now</IonButton>
     </div>
-
   </IonGrid>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { IonButton, IonGrid, IonCheckbox } from '@ionic/vue';
-import TicketTABsPitchingUpSellingComponent from '@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue';
-import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
-import MiniProfileCardVVIPComponent from '@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue';
+import { defineComponent, ref } from "vue";
+import { IonButton, IonGrid, IonCheckbox } from "@ionic/vue";
+import TicketTABsPitchingUpSellingComponent from "@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue";
+import MiniEventComponent from "@/components/EventsShowsComponent/MiniEventComponent.vue";
+import MiniProfileCardVVIPComponent from "@/components/ProfileComponents/MiniProfileCardVVIPComponent.vue";
 
 export default defineComponent({
-  name: 'TicketEventComponent',
+  name: "TicketEventComponent",
   components: {
     IonButton,
     IonGrid,
@@ -100,7 +102,7 @@ export default defineComponent({
     MiniEventComponent,
     MiniProfileCardVVIPComponent,
   },
-   setup() {
+  setup() {
     // Define refs to track the visibility of each component
     const showFormPitching = ref(false);
     const showMiniEvent = ref(false);
@@ -117,9 +119,8 @@ export default defineComponent({
     };
     const toggleMiniProfileCardVVIP = () => {
       showMiniProfileCardVVIP.value = !showMiniProfileCardVVIP.value;
-     };
+    };
     // Below two const & their RETURNS (toggleMiniEvent, toggleMiniProfileCardVVIP ) was for two other rows that need expanding. I just kept it as refrnece & learning
-    
 
     return {
       showFormPitching,
@@ -133,9 +134,7 @@ export default defineComponent({
 });
 </script>
 
-
 <style scoped>
-
 .wide-column {
   cursor: pointer;
 }
@@ -148,7 +147,9 @@ export default defineComponent({
   border-radius: 10px;
 }
 
-.header, .row, .footer {
+.header,
+.row,
+.footer {
   display: flex;
   flex-wrap: nowrap;
 }
@@ -179,18 +180,20 @@ export default defineComponent({
   text-align: left; /* Align text to the left for specified columns */
 }
 
-.header .column, .header .wide-column {
+.header .column,
+.header .wide-column {
   font-weight: bold;
   background-color: #17df10;
   font-size: 20px;
   color: white;
 }
 
-.row-small .column, .row-small .wide-column {
+.row-small .column,
+.row-small .wide-column {
   height: 80px; /* Fixed height for small rows */
 }
-.FREEOneMinute{
-  color:red;
+.FREEOneMinute {
+  color: red;
 }
 
 .footer {
@@ -218,9 +221,5 @@ ion-checkbox {
     display: flex;
     flex-direction: column;
   }
-
 }
-
-
-
 </style>

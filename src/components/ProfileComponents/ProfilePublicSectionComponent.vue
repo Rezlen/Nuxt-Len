@@ -3,31 +3,43 @@
     <!-- 5Rows 1- Business Row 2- Personal row 3- Statistics row  4-WhatWho row 5- Activities row -->
     <IonCol class="ProfileStatisticsRow">
       <IonRow class="BusinessName">
-        <IonTitle>Business Name, Business Name, Business Name, Business</IonTitle>
+        <IonTitle
+          >Business Name, Business Name, Business Name, Business</IonTitle
+        >
       </IonRow>
 
       <IonRow class="BusinessRow">
         <IonCol class="IMG-socialIcons">
-          <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
+          <img alt="LEN Logo" height="100" width="150" src="/favicon.png" />
           <div class="social-media-icons">
-            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
-            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
-            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
-            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"
+              ><IonIcon :icon="logoLinkedin" class="linkedin-icon"
+            /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"
+              ><IonIcon :icon="logoGoogle" class="google-icon"
+            /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"
+              ><IonIcon :icon="logoFacebook" class="facebook-icon"
+            /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"
+              ><IonIcon :icon="logoTwitter" class="twitter-icon"
+            /></IonButton>
           </div>
         </IonCol>
         <IonCol class="BusinessDetails">
-          <IonRow class="BusinessRevenue">Business Revenue Yearly: £20,0000</IonRow>
+          <IonRow class="BusinessRevenue"
+            >Business Revenue Yearly: £20,0000</IonRow
+          >
           <IonRow>
             <IonCol class="TextStyle">Business Main Category:</IonCol>
             <IonCol class="TextStyle">Business Main Country:</IonCol>
           </IonRow>
           <IonRow>
-            <IonCol class="TextStyle" >No. of Employees:</IonCol>
+            <IonCol class="TextStyle">No. of Employees:</IonCol>
             <IonCol class="TextStyle">Business Main City:</IonCol>
           </IonRow>
           <IonRow>
-            <IonCol class="TextStyle" >Business Established Year:</IonCol>
+            <IonCol class="TextStyle">Business Established Year:</IonCol>
             <IonCol class="TextStyle">Membership Type:</IonCol>
           </IonRow>
         </IonCol>
@@ -36,12 +48,20 @@
       <!-- Personal Row ###################-->
       <IonRow class="PersonalRow">
         <IonCol class="IMG-socialIcons">
-          <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
+          <img alt="LEN Logo" height="100" width="150" src="/favicon.png" />
           <div class="social-media-icons">
-            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
-            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
-            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
-            <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"
+              ><IonIcon :icon="logoLinkedin" class="linkedin-icon"
+            /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"
+              ><IonIcon :icon="logoGoogle" class="google-icon"
+            /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"
+              ><IonIcon :icon="logoFacebook" class="facebook-icon"
+            /></IonButton>
+            <IonButton size="small" fill="clear" class="social-button"
+              ><IonIcon :icon="logoTwitter" class="twitter-icon"
+            /></IonButton>
           </div>
         </IonCol>
         <IonCol class="PersonalDetails">
@@ -68,16 +88,23 @@
         <IonCol class="StatisticsColumn">
           <IonRow class="TextStyle ListedOffers">Listed Offers: 86</IonRow>
           <IonRow class="TextStyle ProvidedOffers">Provided Offers: 86</IonRow>
-          <IonRow class="TextStyle RequestedOffers">Requested Offers: 86</IonRow>
-          <IonRow class="TextStyle MiniProfileListed">Full Profile Seen: 86</IonRow>
-
+          <IonRow class="TextStyle RequestedOffers"
+            >Requested Offers: 86</IonRow
+          >
+          <IonRow class="TextStyle MiniProfileListed"
+            >Full Profile Seen: 86</IonRow
+          >
         </IonCol>
         <!-- Column 2 -->
         <IonCol class="StatisticsColumn">
           <IonRow class="TextStyle ListedNeeds">Listed Needs: 86</IonRow>
           <IonRow class="TextStyle SatisfiedNeeds">Satisfied Needs: 86</IonRow>
-          <IonRow class="TextStyle PeopleSatisfiedNeeds">People Satisfied Needs: 86</IonRow>
-          <IonRow class="TextStyle MiniProfileListed">Mini Profile Listed: 86</IonRow>
+          <IonRow class="TextStyle PeopleSatisfiedNeeds"
+            >People Satisfied Needs: 86</IonRow
+          >
+          <IonRow class="TextStyle MiniProfileListed"
+            >Mini Profile Listed: 86</IonRow
+          >
         </IonCol>
         <!-- Column 3 -->
         <IonCol class="StatisticsColumn">
@@ -89,7 +116,9 @@
         <!-- Column 3 -->
         <IonCol class="StatisticsColumn">
           <IonRow class="TextStyle Investor">Investor: 86</IonRow>
-          <IonRow class="TextStyle InvestmentBroker">Investment Broker: 86</IonRow>
+          <IonRow class="TextStyle InvestmentBroker"
+            >Investment Broker: 86</IonRow
+          >
           <IonRow class="TextStyle BusinessMentor">Business Mentor: 86</IonRow>
           <IonRow class="TextStyle QRCode"><a>QR code</a></IonRow>
         </IonCol>
@@ -98,79 +127,141 @@
       <!-- 4- WhoWhat row ##############################-->
       <div class="borderedSections">
         <IonRow class="WhoWhatSections">
-          <IonSegment v-model= "selectedTab" class="TabSegment" color="primary">
-            <IonSegmentButton class="btn" value="who">Who We Are, What We Dooooo</IonSegmentButton>
-            <IonSegmentButton class="btn" value="what">What We Provide</IonSegmentButton>
-            <IonSegmentButton class="btn" value="looking">What We Are Looking For</IonSegmentButton>
+          <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
+            <IonSegmentButton class="btn" value="who"
+              >Who We Are, What We Dooooo</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="what"
+              >What We Provide</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="looking"
+              >What We Are Looking For</IonSegmentButton
+            >
           </IonSegment>
         </IonRow>
         <IonRow class="ContentRow">
           <IonCol v-show="selectedTab === 'who'" class="WhoWeAreWhatWeDo">
-          <NeedComponent />
+            <NeedComponent />
             <!-- Content for "Who We Are, What We Do" -->
           </IonCol>
           <IonCol v-show="selectedTab === 'what'" class="WhatWeProvide">
             <p>What We Provide</p>
-          <NeedComponent />
+            <NeedComponent />
             <!-- Content for "What We Provide" -->
           </IonCol>
-          <IonCol v-show="selectedTab === 'looking'" class="WhatWeAreLookingFor">
+          <IonCol
+            v-show="selectedTab === 'looking'"
+            class="WhatWeAreLookingFor"
+          >
             <p>What We Are Looking For</p>
-          <NeedComponent />
+            <NeedComponent />
             <!-- Content for "What We Are Looking For" -->
           </IonCol>
         </IonRow>
       </div>
-      
+
       <div class="borderedSections">
-      <!-- 5 - ActivityRow ListedNeedsOffersVisitedEventsConnectionGallery -->
-      <IonRow class="ActivityRow">
-        <IonSegment v-model="selectedTab" class="ActivitySegment" scrollable>
-          <IonSegmentButton class="btn" value="listedNeeds">Listed Needs</IonSegmentButton>
-          <IonSegmentButton class="btn" value="satisfiedNeeds">Satisfied Needs</IonSegmentButton>
-          <IonSegmentButton class="btn" value="peopleSatisfiedNeeds">People Satisfied Needs</IonSegmentButton>
-          <IonSegmentButton class="btn" value="listedOffers">Listed Offers</IonSegmentButton>
-          <IonSegmentButton class="btn" value="requestedOffers">Requested Offers</IonSegmentButton>
-          <IonSegmentButton class="btn" value="peopleRequestedOffers">People Requested Offers</IonSegmentButton>
-          <IonSegmentButton class="btn" value="listedBestOffer">Listed Best Offer</IonSegmentButton>
-          <IonSegmentButton class="btn" value="visitedEvents">Visited Events</IonSegmentButton>
-          <IonSegmentButton class="btn" value="exhibitedEvents">Exhibited Events</IonSegmentButton>
-          <IonSegmentButton class="btn" value="connections">Connections</IonSegmentButton>
-          <IonSegmentButton class="btn" value="galleries">4 Galleries</IonSegmentButton>
-          <IonSegmentButton class="btn" value="pitchings">3 Pitchings</IonSegmentButton>
-          <IonSegmentButton class="btn" value="investor">Investor</IonSegmentButton>
-          <IonSegmentButton class="btn" value="investees">Investees</IonSegmentButton>
-          <IonSegmentButton class="btn" value="businessMentor">Business Mentor</IonSegmentButton>
-        </IonSegment>
+        <!-- 5 - ActivityRow ListedNeedsOffersVisitedEventsConnectionGallery -->
+        <IonRow class="ActivityRow">
+          <IonSegment v-model="selectedTab" class="ActivitySegment" scrollable>
+            <IonSegmentButton class="btn" value="listedNeeds"
+              >Listed Needs</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="satisfiedNeeds"
+              >Satisfied Needs</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="peopleSatisfiedNeeds"
+              >People Satisfied Needs</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="listedOffers"
+              >Listed Offers</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="requestedOffers"
+              >Requested Offers</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="peopleRequestedOffers"
+              >People Requested Offers</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="listedBestOffer"
+              >Listed Best Offer</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="visitedEvents"
+              >Visited Events</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="exhibitedEvents"
+              >Exhibited Events</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="connections"
+              >Connections</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="galleries"
+              >4 Galleries</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="pitchings"
+              >3 Pitchings</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="investor"
+              >Investor</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="investees"
+              >Investees</IonSegmentButton
+            >
+            <IonSegmentButton class="btn" value="businessMentor"
+              >Business Mentor</IonSegmentButton
+            >
+          </IonSegment>
 
-        <IonRow class="ContentRow">
-
-        <!-- Tab Content -->
+          <IonRow class="ContentRow">
+            <!-- Tab Content -->
             <IonCol v-show="selectedTab === 'listedNeeds'" class="ListedNeeds">
               <NeedComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'satisfiedNeeds'" class="SatisfiedNeeds">
+            <IonCol
+              v-show="selectedTab === 'satisfiedNeeds'"
+              class="SatisfiedNeeds"
+            >
               <NeedComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'peopleSatisfiedNeeds'" class="PeopleSatisfiedNeeds">
+            <IonCol
+              v-show="selectedTab === 'peopleSatisfiedNeeds'"
+              class="PeopleSatisfiedNeeds"
+            >
               <NeedComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'listedOffers'" class="listedOffers">
+            <IonCol
+              v-show="selectedTab === 'listedOffers'"
+              class="listedOffers"
+            >
               <OfferComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'requestedOffers'" class="RequestedOffers">
+            <IonCol
+              v-show="selectedTab === 'requestedOffers'"
+              class="RequestedOffers"
+            >
               <OfferComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'peopleRequestedOffers'" class="PeopleRequestedOffers">
+            <IonCol
+              v-show="selectedTab === 'peopleRequestedOffers'"
+              class="PeopleRequestedOffers"
+            >
               <OfferComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'listedBestOffer'" class="ListedBestOffer">
+            <IonCol
+              v-show="selectedTab === 'listedBestOffer'"
+              class="ListedBestOffer"
+            >
               <BestOfferComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'visitedEvents'" class="VisitedEvents">
+            <IonCol
+              v-show="selectedTab === 'visitedEvents'"
+              class="VisitedEvents"
+            >
               <MiniEventComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'exhibitedEvents'" class="ExhibitedEvents">
+            <IonCol
+              v-show="selectedTab === 'exhibitedEvents'"
+              class="ExhibitedEvents"
+            >
               <MiniEventComponent />
             </IonCol>
             <IonCol v-show="selectedTab === 'connections'" class="Connections">
@@ -188,35 +279,46 @@
             <IonCol v-show="selectedTab === 'investees'" class="Investees">
               <MiniInvesteesProfileComponent />
             </IonCol>
-            <IonCol v-show="selectedTab === 'businessMentor'" class="BusinessMentor">
+            <IonCol
+              v-show="selectedTab === 'businessMentor'"
+              class="BusinessMentor"
+            >
               <BusinessMentorComponent />
             </IonCol>
+          </IonRow>
         </IonRow>
-      
-
-
-
-      </IonRow>
-    </div>
+      </div>
     </IonCol>
   </IonGrid>
 </template>
 
-
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonButton, IonIcon } from '@ionic/vue';
-import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
-import NeedComponent from '@/components/OfferNeedBestOfferComponent/NeedComponent.vue';
-import OfferComponent from '@/components/OfferNeedBestOfferComponent/OfferComponent.vue';
-import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
-import PitchingComponent from '@/components/PitchingComponents/PitchingComponent.vue';
-import MiniInvestorsProfileComponent from '@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue';
-import MiniInvesteesProfileComponent from '@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue';
-import MiniEventComponent from '@/components/EventsShowsComponent/MiniEventComponent.vue';
+import { defineComponent, ref } from "vue";
+import {
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonSegment,
+  IonSegmentButton,
+  IonButton,
+  IonIcon,
+} from "@ionic/vue";
+import {
+  logoFacebook,
+  logoTwitter,
+  logoGoogle,
+  logoLinkedin,
+} from "ionicons/icons";
+import NeedComponent from "@/components/OfferNeedBestOfferComponent/NeedComponent.vue";
+import OfferComponent from "@/components/OfferNeedBestOfferComponent/OfferComponent.vue";
+import BestOfferComponent from "@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue";
+import PitchingComponent from "@/components/PitchingComponents/PitchingComponent.vue";
+import MiniInvestorsProfileComponent from "@/components/InvestmentComponents/MiniInvestorsProfileComponent.vue";
+import MiniInvesteesProfileComponent from "@/components/InvestmentComponents/MiniInvesteesProfileComponent.vue";
+import MiniEventComponent from "@/components/EventsShowsComponent/MiniEventComponent.vue";
 
 export default defineComponent({
-  name: 'ProfilePublicSectionComponent',
+  name: "ProfilePublicSectionComponent",
   components: {
     IonGrid,
     IonRow,
@@ -234,7 +336,7 @@ export default defineComponent({
     MiniEventComponent,
   },
   setup() {
-    const selectedTab = ref<string>('#'); // Initialize with the default tab
+    const selectedTab = ref<string>("#"); // Initialize with the default tab
 
     return {
       selectedTab,
@@ -246,8 +348,6 @@ export default defineComponent({
   },
 });
 </script>
-
-
 
 <style scoped>
 /* General styles */
@@ -263,7 +363,7 @@ ion-grid {
 
 /* BusinessName styles */
 .BusinessName {
-  font-family: 'Arial Narrow Bold', sans-serif;
+  font-family: "Arial Narrow Bold", sans-serif;
   font-size: 40px;
   /* font-weight: bold; */
   justify-content: center;
@@ -287,7 +387,6 @@ ion-grid {
   justify-content: center;
   border: 1px solid gray;
   border-radius: 10px;
-  
 }
 
 .BusinessDetails {
@@ -303,7 +402,7 @@ ion-grid {
   padding: 15px;
   font-size: 25px;
   font-weight: bold;
-  color:white;
+  color: white;
   text-align: center;
   justify-content: center;
 }
@@ -332,7 +431,6 @@ ion-grid {
   font-weight: bold;
 }
 
-
 /* PersonalRow styles */
 .PersonalRow {
   display: flex;
@@ -349,8 +447,8 @@ ion-grid {
 
 /* Social media icon colors */
 .social-button {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 .linkedin-icon {
   color: #0077b5; /* LinkedIn blue */
@@ -367,20 +465,23 @@ ion-grid {
 
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
-  .BusinessRow, .PersonalRow {
+  .BusinessRow,
+  .PersonalRow {
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
   }
 
-  .IMG-socialIcons, .BusinessDetails, .PersonalDetails {
+  .IMG-socialIcons,
+  .BusinessDetails,
+  .PersonalDetails {
     flex: 1 1 100%; /* Take full width on smaller screens */
   }
   .BusinessName {
-  font-family: 'Arial Narrow Bold', sans-serif;
-  font-size: 25px;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-}
+    font-family: "Arial Narrow Bold", sans-serif;
+    font-size: 25px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
 }
 
 /* StatisticsRow styles */
@@ -395,7 +496,7 @@ ion-grid {
   width: 100%;
   justify-content: center;
   font-weight: bold;
-  font-size: 15px; 
+  font-size: 15px;
   color: white;
   background-color: rgb(213, 86, 245);
   padding: 10px 0;
@@ -444,7 +545,6 @@ ion-grid {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  
 }
 
 .ActivitySegment {
@@ -464,7 +564,7 @@ ion-grid {
     width: 100%;
   }
 }
- /*  gives the nice button color & shape effect to the tab */
+/*  gives the nice button color & shape effect to the tab */
 .btn {
   transition: 0.5s;
   padding: 0;
@@ -480,7 +580,4 @@ ion-grid {
   color: black;
   box-shadow: 0 0 1rem #ffee10;
 }
-
-
 </style>
-

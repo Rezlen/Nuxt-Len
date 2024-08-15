@@ -1,51 +1,87 @@
 <template>
   <IonCard>
-    <IonCardHeader class=" CenterPositions TitelSubTitle">
-      <IonCardTitle class=" OfferTitle" >Card Title Company Name</IonCardTitle>
-      <IonCardSubtitle class=" OfferSubTitle" >Card Subtitle Person Name</IonCardSubTitle>
+    <IonCardHeader class="CenterPositions TitelSubTitle">
+      <IonCardTitle class="OfferTitle">Card Title Company Name</IonCardTitle>
+      <IonCardSubtitle class="OfferSubTitle"
+        >Card Subtitle Person Name</IonCardSubtitle
+      >
     </IonCardHeader>
-    <IonRow class=" CenterPositions ImgSocialButtonRow" >
-      <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
+    <IonRow class="CenterPositions ImgSocialButtonRow">
+      <img alt="LEN Logo" height="100" width="150" src="/favicon.png" />
       <IonButton>I want This Offer</IonButton>
-      <IonRow class=" CenterPositions social-media-icons">
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="linkOutline" class="link-outline" /></IonButton>
+      <IonRow class="CenterPositions social-media-icons">
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="logoLinkedin" class="linkedin-icon"
+        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="logoGoogle" class="google-icon"
+        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="logoFacebook" class="facebook-icon"
+        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="logoTwitter" class="twitter-icon"
+        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="linkOutline" class="link-outline"
+        /></IonButton>
       </IonRow>
-      <p>Want to create a FREE advert like this? <a href="/home" class="Events-button"> Click HERE </a> & fill the form, simple!</p>
+      <p>
+        Want to create a FREE advert like this?
+        <a href="/home" class="Events-button"> Click HERE </a> & fill the form,
+        simple!
+      </p>
       <IonRow>
-        Category: OFFICE SPACE Wanted: 1 Seen: 1370 List Viewed: 987 Renewed: 1 Like: 2987
+        Category: OFFICE SPACE Wanted: 1 Seen: 1370 List Viewed: 987 Renewed: 1
+        Like: 2987
       </IonRow>
     </IonRow>
-    <IonCardContent class=" ContentSection">
+    <IonCardContent class="ContentSection">
       <p>
-        Offer & needs content here. commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Offer & needs content here. commodo consequat. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+        qui officia deserunt mollit anim id est laborum.
       </p>
     </IonCardContent>
     <IonRow class="ButtonsSection">
       <IonButton>Duplicate This Offer</IonButton>
-      <IonButton  fill="outline">Edit <ion-icon slot="end" :icon="create"></ion-icon></IonButton>
+      <IonButton fill="outline"
+        >Edit <ion-icon slot="end" :icon="create"></ion-icon
+      ></IonButton>
       <IonButton>Hide This Offer</IonButton>
       <IonButton fill="outline"> Delete </IonButton>
       <IonButton>Renew This Offer</IonButton>
-
     </IonRow>
-
   </IonCard>
-
-
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { IonGrid, IonRow, IonCol, IonIcon, IonCard, IonButton, IonButtons, IonCardHeader, IonCardContent, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
-import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin, linkOutline } from 'ionicons/icons';
-import { create } from 'ionicons/icons';
+import { defineComponent, ref } from "vue";
+import {
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonIcon,
+  IonCard,
+  IonButton,
+  IonButtons,
+  IonCardHeader,
+  IonCardContent,
+  IonCardSubtitle,
+  IonCardTitle,
+} from "@ionic/vue";
+import {
+  logoFacebook,
+  logoTwitter,
+  logoGoogle,
+  logoLinkedin,
+  linkOutline,
+} from "ionicons/icons";
+import { create } from "ionicons/icons";
 
 export default defineComponent({
-  name: 'OfferComponent',
+  name: "OfferComponent",
   components: {
     IonGrid,
     IonRow,
@@ -60,7 +96,6 @@ export default defineComponent({
     IonCardTitle,
   },
   setup() {
-    
     return {
       logoFacebook,
       logoTwitter,
@@ -77,7 +112,7 @@ export default defineComponent({
 /* *{
   border: solid 1px black;
 } */
-ion-card{
+ion-card {
   height: 100%;
   overflow-y: auto;
 }
@@ -91,7 +126,6 @@ ion-card{
 }
 .TitelSubTitle {
   border: solid 1px black;
-
 }
 
 .TitelSubTitle,
@@ -109,8 +143,8 @@ ion-card{
 }
 
 .social-button {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 .linkedin-icon {
@@ -130,7 +164,6 @@ ion-card{
 }
 
 a {
- font-weight: bold;
+  font-weight: bold;
 }
-
 </style>

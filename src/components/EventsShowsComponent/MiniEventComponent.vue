@@ -1,23 +1,46 @@
 <template>
   <IonGrid class="IonGrid">
     <IonCardHeader class="CenterPositions EventTitleRow">
-      <IonCardTitle class="EventTitle"><a href="/TheEventShowPage" class="Events-button" >The Event Name</a></IonCardTitle>
-      <IonCardSubtitle class="DateRow">From January 26, 2022 20:00 TO January 27, 2022 00:00</IonCardSubtitle>
+      <IonCardTitle class="EventTitle"
+        ><a href="/TheEventShowPage" class="Events-button"
+          >The Event Name</a
+        ></IonCardTitle
+      >
+      <IonCardSubtitle class="DateRow"
+        >From January 26, 2022 20:00 TO January 27, 2022 00:00</IonCardSubtitle
+      >
     </IonCardHeader>
 
     <IonRow class="ContentGoMapSocialState">
       <IonCol class="AttendeesProfilePic">
         <IonRow class="ProfilePicRow">
-          <IonCol class="ProfilePicCol"><img alt="LEN Logo" width="80px" height="80px" src="/public/favicon.png" /></IonCol>
-          <IonCol class="ProfilePicCol"><img alt="LEN Logo" width="80px" height="80px" src="/public/favicon.png" /></IonCol>
+          <IonCol class="ProfilePicCol"
+            ><img alt="LEN Logo" width="80px" height="80px" src="/favicon.png"
+          /></IonCol>
+          <IonCol class="ProfilePicCol"
+            ><img alt="LEN Logo" width="80px" height="80px" src="/favicon.png"
+          /></IonCol>
         </IonRow>
         <IonRow class="ProfilePicRow">
-          <IonCol class="ProfilePicCol"><img alt="LEN Logo" width="80px" height="80px" src="/public/favicon.png" /></IonCol>
-          <IonCol class="ProfilePicCol"><img alt="LEN Logo" width="80px" height="80px" src="/public/favicon.png" /></IonCol>
+          <IonCol class="ProfilePicCol"
+            ><img alt="LEN Logo" width="80px" height="80px" src="/favicon.png"
+          /></IonCol>
+          <IonCol class="ProfilePicCol"
+            ><img alt="LEN Logo" width="80px" height="80px" src="/favicon.png"
+          /></IonCol>
         </IonRow>
       </IonCol>
       <IonCol class="EventMapCol">
-        <iframe width="100" height="100" src="https://www.youtube.com/embed/dNjQ_wZBA28" title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe
+          width="100"
+          height="100"
+          src="https://www.youtube.com/embed/dNjQ_wZBA28"
+          title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
         <iframe width="100px" height="100px">GMap</iframe>
       </IonCol>
       <IonCol class="EventRightSideCol">
@@ -25,26 +48,46 @@
         <p>Full Address</p>
         <p>Add to The Calendar</p>
         <IonRow class="social-media-icons">
-          <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
-          <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
-          <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
-          <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
+          <IonButton size="small" fill="clear" class="social-button"
+            ><IonIcon :icon="logoLinkedin" class="linkedin-icon"
+          /></IonButton>
+          <IonButton size="small" fill="clear" class="social-button"
+            ><IonIcon :icon="logoGoogle" class="google-icon"
+          /></IonButton>
+          <IonButton size="small" fill="clear" class="social-button"
+            ><IonIcon :icon="logoFacebook" class="facebook-icon"
+          /></IonButton>
+          <IonButton size="small" fill="clear" class="social-button"
+            ><IonIcon :icon="logoTwitter" class="twitter-icon"
+          /></IonButton>
         </IonRow>
       </IonCol>
       <IonCol class="StateRow">
-        <IonButton href="/TheEventShowPage" color="success">Reservation</IonButton>
+        <IonButton href="/TheEventShowPage" color="success"
+          >Reservation</IonButton
+        >
         <IonRow class="Border">
-          <IonRow class="CenterPositions TotalAttendeesRevenueRow">Total Attendees Revenue</IonRow>
+          <IonRow class="CenterPositions TotalAttendeesRevenueRow"
+            >Total Attendees Revenue</IonRow
+          >
           <IonRow class="RevenueRow">
-            <IonCol class="CenterPositions ExhibitorsNumber">Exhibitors Number</IonCol>
-            <IonCol class="CenterPositions VisitorsNumber">Visitors Number</IonCol>
+            <IonCol class="CenterPositions ExhibitorsNumber"
+              >Exhibitors Number</IonCol
+            >
+            <IonCol class="CenterPositions VisitorsNumber"
+              >Visitors Number</IonCol
+            >
           </IonRow>
         </IonRow>
         <IonRow class="Border">
           <IonRow class="CenterPositions GoingRow">Going</IonRow>
           <IonRow class="GoingRow">
-            <IonCol class="CenterPositions ExhibitorsGoing">Exhibitors Going</IonCol>
-            <IonCol class="CenterPositions VisitorsGoing">Visitors Going</IonCol>
+            <IonCol class="CenterPositions ExhibitorsGoing"
+              >Exhibitors Going</IonCol
+            >
+            <IonCol class="CenterPositions VisitorsGoing"
+              >Visitors Going</IonCol
+            >
           </IonRow>
         </IonRow>
       </IonCol>
@@ -53,12 +96,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { IonGrid, IonRow, IonCol, IonIcon, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton } from '@ionic/vue';
-import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin } from 'ionicons/icons';
+import { defineComponent } from "vue";
+import {
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonIcon,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonButton,
+} from "@ionic/vue";
+import {
+  logoFacebook,
+  logoTwitter,
+  logoGoogle,
+  logoLinkedin,
+} from "ionicons/icons";
 
 export default defineComponent({
-  name: 'TheEventComponent',
+  name: "TheEventComponent",
   components: {
     IonGrid,
     IonRow,
@@ -67,16 +124,16 @@ export default defineComponent({
     IonCardHeader,
     IonCardTitle,
     IonCardSubtitle,
-    IonButton
+    IonButton,
   },
   setup() {
     return {
       logoFacebook,
       logoTwitter,
       logoLinkedin,
-      logoGoogle
+      logoGoogle,
     };
-  }
+  },
 });
 </script>
 
@@ -241,7 +298,7 @@ ion-button {
     width: 100%; /* Full width for images */
     height: auto; /* Maintain aspect ratio */
   }
- 
+
   .ContentGoMapSocialState {
     display: block;
     /* height: 100%; */

@@ -1,20 +1,20 @@
 <template>
   <IonCard>
-    <IonCardHeader class=" CenterPositions TitelSubTitle">
+    <IonCardHeader class="CenterPositions TitelSubTitle">
       <IonCardTitle>Card Title Company Name</IonCardTitle>
-      <IonCardSubtitle>Card Subtitle Person Name</IonCardSubTitle>
-      <IonCardSubtitle>Business Category</IonCardSubTitle>
+      <IonCardSubtitle>Card Subtitle Person Name</IonCardSubtitle>
+      <IonCardSubtitle>Business Category</IonCardSubtitle>
     </IonCardHeader>
-    <IonRow class=" CenterPositions Star%Img" >
+    <IonRow class="CenterPositions Star%Img">
       <IonCol> <span class="star">★</span> VIP</IonCol>
       <IonCol>%%%</IonCol>
-      <img alt="LEN Logo" height="100" width="150" src="/public/favicon.png" />
+      <img alt="LEN Logo" height="100" width="150" src="/favicon.png" />
     </IonRow>
 
     <!-- PositionSalaryVisitedExhibitedRow ########################## -->
-    <IonRow class="PositionSalaryVisitedExhibitedRow" >
+    <IonRow class="PositionSalaryVisitedExhibitedRow">
       <IonRow>Position: Comp Here</IonRow>
-      <IonRow class=" SalaryRow"  >Salary: Comp Here</IonRow>
+      <IonRow class="SalaryRow">Salary: Comp Here</IonRow>
       <IonRow>Visited: Comp Here</IonRow>
       <IonRow>Exhibited: Comp Here</IonRow>
       <IonRow>Investor: Comp Here</IonRow>
@@ -23,15 +23,18 @@
     </IonRow>
 
     <!-- ProvideNeedRow ########################## -->
-    <IonRow class="ProvideNeedRow" >
-      <IonRow>Provide: Comp Here. Our objective is to help the following groups</IonRow>
+    <IonRow class="ProvideNeedRow">
+      <IonRow
+        >Provide: Comp Here. Our objective is to help the following
+        groups</IonRow
+      >
       <IonRow>Need: Comp Here. At our networking events we give</IonRow>
     </IonRow>
 
     <!-- ColoredSection ########################## -->
     <IonCol class="ColoredSection">
-      <IonRow class=" CenterPositions RevenueRow" >Revenue Comp Here</IonRow>
-      <IonRow class="ColoredSectionLFont" >
+      <IonRow class="CenterPositions RevenueRow">Revenue Comp Here</IonRow>
+      <IonRow class="ColoredSectionLFont">
         <IonCol class="ColoredSectionLeftCol">
           <IonRow>Offers: 22</IonRow>
           <IonRow>Needs: 22</IonRow>
@@ -43,26 +46,56 @@
           <IonRow>Connections: 22</IonRow>
         </IonCol>
       </IonRow>
-      <IonButton size="small" fill="clear" class=" CenterPositions ConnectbtnRow">ConnectBTN</IonButton>
-      <IonRow class=" CenterPositions social-media-icons">
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoLinkedin" class="linkedin-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoGoogle" class="google-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoFacebook" class="facebook-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="logoTwitter" class="twitter-icon" /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"><IonIcon :icon="linkOutline" class="link-outline" /></IonButton>
+      <IonButton size="small" fill="clear" class="CenterPositions ConnectbtnRow"
+        >ConnectBTN</IonButton
+      >
+      <IonRow class="CenterPositions social-media-icons">
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="logoLinkedin" class="linkedin-icon"
+        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="logoGoogle" class="google-icon"
+        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="logoFacebook" class="facebook-icon"
+        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="logoTwitter" class="twitter-icon"
+        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button"
+          ><IonIcon :icon="linkOutline" class="link-outline"
+        /></IonButton>
       </IonRow>
-    </IonCOl>
-  
+    </IonCol>
   </IonCard>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonButton, IonIcon, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
-import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin, linkOutline } from 'ionicons/icons';
+import { defineComponent, ref } from "vue";
+import {
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonSegment,
+  IonSegmentButton,
+  IonButton,
+  IonIcon,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+} from "@ionic/vue";
+import {
+  logoFacebook,
+  logoTwitter,
+  logoGoogle,
+  logoLinkedin,
+  linkOutline,
+} from "ionicons/icons";
 
 export default defineComponent({
-  name: 'MiniProfileCardVIPComponent',
+  name: "MiniProfileCardVIPComponent",
   components: {
     IonGrid,
     IonRow,
@@ -78,7 +111,6 @@ export default defineComponent({
     IonCardTitle,
   },
   setup() {
-    
     return {
       logoFacebook,
       logoTwitter,
@@ -90,11 +122,7 @@ export default defineComponent({
 });
 </script>
 
-
-
 <style scoped>
-
-
 /* Limiting the size of the card#################### */
 ion-card {
   max-width: 270px; /* Maximum width of the card */
@@ -106,7 +134,7 @@ ion-card {
   box-shadow: 0 4px 8px rgba(142, 15, 226, 0.2); /* X-offset, Y-offset, blur radius, and color */
 }
 
-.star{
+.star {
   color: rgb(158, 121, 1);
   font-size: 30px;
 }
@@ -123,8 +151,8 @@ ion-card {
 .ColoredSection,
 .ColoredSectionLeftCol,
 .ColoredSectionRightCol {
- display: flex;
- flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .PositionSalaryVisitedExhibitedRow,
@@ -139,11 +167,22 @@ ion-card {
 }
 
 .ColoredSection {
-  background: linear-gradient(135deg, #fccd4d 0%, #f8b500 12%, #fad957 25%, #f0af0c 41%, #edac09 53%, #fad957 65%, #f5b40e 70%, #fccd4d 84%, #fbdf93 100%);
+  background: linear-gradient(
+    135deg,
+    #fccd4d 0%,
+    #f8b500 12%,
+    #fad957 25%,
+    #f0af0c 41%,
+    #edac09 53%,
+    #fad957 65%,
+    #f5b40e 70%,
+    #fccd4d 84%,
+    #fbdf93 100%
+  );
 }
 
 .RevenueRow {
-  font-weight:bold;
+  font-weight: bold;
   font-size: 20px;
   padding: 5px;
   color: red;
@@ -151,7 +190,7 @@ ion-card {
   border-radius: 8px;
 }
 .SalaryRow {
-  font-weight:bold;
+  font-weight: bold;
   font-size: 17px;
   padding-bottom: 5px;
   padding-top: 5px;
@@ -175,9 +214,8 @@ ion-card {
   color: rgb(255, 255, 255);
   padding: 8px;
   text-align: center;
-  font-weight:bold;
+  font-weight: bold;
 }
-
 
 /* Social media icon colors */
 .social-media-icons {
@@ -185,8 +223,8 @@ ion-card {
   padding: 4px 0;
 }
 .social-button {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 .linkedin-icon {
   color: #0077b5; /* LinkedIn blue */
