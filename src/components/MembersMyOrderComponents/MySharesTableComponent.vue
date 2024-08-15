@@ -5,7 +5,7 @@
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
-      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchEvents"></IonInput>
+      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchMembers"></IonInput>
 
       <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
         <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
@@ -18,31 +18,31 @@
       <IonRow class="scrollingRow" ref="scrollableContainer">
 
         <IonRow class="TitleRow"  >
-          <IonCol class="EventIDCol" @click="sortEvents('eventId')"> ID/No.<IonIcon :icon="sortIcon('eventId')" class="sort-icon" /></IonCol>
-          <IonCol class="dateCol" @click="sortEvents('date')">Date<IonIcon :icon="sortIcon('date')" class="sort-icon" /></IonCol>
-          <IonCol class="discountRewardPercentageCol" @click="sortEvents('sharePercentageOffer')">Share Percentage Offer<IonIcon :icon="sortIcon('sharePercentageOffer')" class="sort-icon" /></IonCol>
-          <IonCol class="actionsCol" @click="sortEvents('description')">Description<IonIcon :icon="sortIcon('description')" class="sort-icon" /></IonCol>
-          <IonCol class="numberOfActionsCol" @click="sortEvents('suggestedAmount')">Suggested Amount <IonIcon :icon="sortIcon('suggestedAmount')" class="sort-icon" /></IonCol>
-          <IonCol class="approvedNotApprovedDateCol" @click="sortEvents('approvedNotApprovedDate')">Approved NotApproved<IonIcon :icon="sortIcon('approvedNotApprovedDate')" class="sort-icon" /></IonCol>
+          <IonCol class="memberIdCol" @click="sortMembers('memberId')"> ID/No.<IonIcon :icon="sortIcon('memberId')" class="sort-icon" /></IonCol>
+          <IonCol class="dateCol" @click="sortMembers('date')">Date<IonIcon :icon="sortIcon('date')" class="sort-icon" /></IonCol>
+          <IonCol class="sharePercentageOfferCol" @click="sortMembers('sharePercentageOffer')">Share Percentage Offer<IonIcon :icon="sortIcon('sharePercentageOffer')" class="sort-icon" /></IonCol>
+          <IonCol class="actionsCol" @click="sortMembers('description')">Description<IonIcon :icon="sortIcon('description')" class="sort-icon" /></IonCol>
+          <IonCol class="numberOfActionsCol" @click="sortMembers('suggestedAmount')">Suggested Amount <IonIcon :icon="sortIcon('suggestedAmount')" class="sort-icon" /></IonCol>
+          <IonCol class="approvedNotApprovedDateCol" @click="sortMembers('approvedNotApprovedDate')">Approved NotApproved<IonIcon :icon="sortIcon('approvedNotApprovedDate')" class="sort-icon" /></IonCol>
           
         </IonRow>
 
         <!-- Data rows -->
-        <IonRow  v-for="event in paginatedEvents" :key="event.eventId" class="DataRow" :class="{ selected: selectedRow === event.eventId }" @click="selectRow(event.eventId)" >        
-          <IonCol class="EventIDCol">{{ event.eventId }}</IonCol>
-          <IonCol class="dateCol">{{ event.date }}</IonCol>
-          <IonCol class="discountRewardPercentageCol">{{ event.sharePercentageOffer }}</IonCol>
-          <IonCol class="actionsCol">{{ event.description }}</IonCol>
-          <IonCol class="numberOfActionsCol">{{ event.suggestedAmount }}</IonCol>
-          <IonCol class="approvedNotApprovedDateCol">{{ event.approvedNotApprovedDate }}</IonCol>
+        <IonRow  v-for="member in paginatedMembers" :key="member.memberId" class="DataRow" :class="{ selected: selectedRow === member.memberId }" @click="selectRow(member.memberId)" >        
+          <IonCol class="memberIdCol">{{ member.memberId }}</IonCol>
+          <IonCol class="dateCol">{{ member.date }}</IonCol>
+          <IonCol class="sharePercentageOfferCol">{{ member.sharePercentageOffer }}</IonCol>
+          <IonCol class="actionsCol">{{ member.description }}</IonCol>
+          <IonCol class="numberOfActionsCol">{{ member.suggestedAmount }}</IonCol>
+          <IonCol class="approvedNotApprovedDateCol">{{ member.approvedNotApprovedDate }}</IonCol>
 
         </IonRow>
 
         <!-- Total row -->
         <IonRow class="TotalRow"> 
-          <IonCol class="EventIDCol">Totals:</IonCol>
+          <IonCol class="memberIdCol">Totals:</IonCol>
           <IonCol class="dateCol"></IonCol>
-          <IonCol class="discountRewardPercentageCol"></IonCol>
+          <IonCol class="sharePercentageOfferCol"></IonCol>
           <IonCol class="actionsCol"></IonCol>
           <IonCol class="numberOfActionsCol"></IonCol>
           <IonCol class="approvedNotApprovedDateCol"></IonCol>
@@ -72,8 +72,8 @@ import { defineComponent, ref, computed, watch  } from 'vue';
 import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonCheckbox } from '@ionic/vue';
 import { close, arrowDownOutline, arrowUpOutline, create, trash, duplicate, ban, arrowBackCircle } from 'ionicons/icons';
 
-interface Event {
-  eventId: number;
+interface Member {
+  memberId: number;
   date: string;
   sharePercentageOffer: string;
   description: string;
@@ -86,9 +86,9 @@ export default defineComponent({
   name: 'MySharesTableComponent',
   components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonCheckbox },
   setup() {
-    const events = ref<Event[]>([
+    const members = ref<Member[]>([
       {
-        eventId: 3,
+        memberId: 3,
         date: '2023-01-01T12:00:00',
         sharePercentageOffer: 'Tech Conference',
         description: 'Convention Center',
@@ -97,7 +97,7 @@ export default defineComponent({
 
       },
       {
-        eventId: 2,
+        memberId: 2,
         date: '2023-01-01T12:00:00',
         sharePercentageOffer: 'Tech fdf Conference',
         description: 'Convention rfd Center',
@@ -106,7 +106,7 @@ export default defineComponent({
 
       },
       {
-        eventId: 1,
+        memberId: 1,
         date: '2023-01-01T12:00:00',
         sharePercentageOffer: 'Techeee Conference',
         description: 'e e     eee Convention Center',
@@ -124,16 +124,16 @@ export default defineComponent({
       checkbox1: false,
     });
 
-    const sortKey = ref<keyof Event | null>(null);
+    const sortKey = ref<keyof Member | null>(null);
     const sortAsc = ref(true);
        // making the selected row distinguishable
     const selectedRow = ref<number | null>(null);
     // Search Filed
     const searchQuery = ref<string>('');
-    const filteredEvents = ref(events.value);
+    const filteredMembers = ref(members.value);
 
     /**
-     * Sorts the events based on the provided key. 
+     * Sorts the members based on the provided key. 
      * If the key is the same as the current sortKey, it toggles the sort order.
      * Otherwise, it sets the new key and sorts in ascending order.
      * 
@@ -154,7 +154,7 @@ export default defineComponent({
 
 
 
-      const sortIcon = (key: keyof Event) => {
+      const sortIcon = (key: keyof Member) => {
         if (sortKey.value === key) {
           return sortAsc.value ? arrowUpOutline : arrowDownOutline;
         }
@@ -168,20 +168,20 @@ export default defineComponent({
       sortAsc.value = true;
     };
 
-    //  * Computes the sorted events based on the current sortKey and sort order.
-    const sortEvents = (key: keyof Event) => {
+    //  * Computes the sorted members based on the current sortKey and sort order.
+    const sortMembers = (key: keyof Member) => {
       if (sortKey.value === key) {
         sortAsc.value = !sortAsc.value;
       } else {
         sortKey.value = key;
         sortAsc.value = true;
         }
-      searchEvents();
+      searchMembers();
     };
-      const sortedEvents = computed(() => {
-        if (!sortKey.value) return filteredEvents.value;
+      const sortedMembers = computed(() => {
+        if (!sortKey.value) return filteredMembers.value;
 
-        return [...filteredEvents.value].sort((a, b) => {
+        return [...filteredMembers.value].sort((a, b) => {
           if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
           if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
           return 0;
@@ -191,14 +191,14 @@ export default defineComponent({
     const itemsPerPage = 20;
     const currentPage = ref(1);
 
-    //  * Computes the paginated events for the current page.
-      const paginatedEvents = computed(() => {
+    //  * Computes the paginated members for the current page.
+      const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
-        return sortedEvents.value.slice(start, start + itemsPerPage);
+        return sortedMembers.value.slice(start, start + itemsPerPage);
       });
 
-    //  * Computes the total number of pages based on the number of events and items per page.
-    const totalPages = computed(() => Math.ceil(filteredEvents.value.length / itemsPerPage));
+    //  * Computes the total number of pages based on the number of members and items per page.
+    const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
 
     //  * Navigates to the previous page, if possible.
@@ -218,9 +218,9 @@ export default defineComponent({
     //  * Exports the table data to a CSV file.
     const exportTable = () => {
       const csvContent = [
-        ['Event ID', 'date', 'sharePercentageOffer', 'description', 'suggestedAmount', 'approvedNotApprovedDate' ],
-        ...paginatedEvents.value.map(event => [
-          event.eventId, event.date, event.sharePercentageOffer, event.description, event.suggestedAmount, event.approvedNotApprovedDate, 
+        ['Member ID', 'date', 'sharePercentageOffer', 'description', 'suggestedAmount', 'approvedNotApprovedDate' ],
+        ...paginatedMembers.value.map(member => [
+          member.memberId, member.date, member.sharePercentageOffer, member.description, member.suggestedAmount, member.approvedNotApprovedDate, 
         ])
       ]
         .map(e => e.join(","))
@@ -229,7 +229,7 @@ export default defineComponent({
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = 'EventsList.csv';
+        link.download = 'MembersList.csv';
         link.click();
       };
 
@@ -264,7 +264,7 @@ export default defineComponent({
               .even-row {
                 background-color: #bceea5;
               }
-              .even-row .discountRewardPercentageCol {
+              .even-row .sharePercentageOfferCol {
                 background-color: aquamarine;
               }
               .TotalRow {
@@ -276,7 +276,7 @@ export default defineComponent({
             <table>
               <thead>
                 <tr>
-                  <th>Event ID</th>
+                  <th>Member ID</th>
                   <th>date</th>
                   <th>sharePercentageOffer</th>
                   <th>description</th>
@@ -286,12 +286,12 @@ export default defineComponent({
                 </tr>
               </thead>
               <tbody>
-                ${paginatedEvents.value.map((event, index) => `
+                ${paginatedMembers.value.map((member, index) => `
                   <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
-                    <td>${event.eventId}</td>
-                    <td>${event.date}</td>
-                    <td>${event.sharePercentageOffer}</td>
-                    <td>${event.description}</td>
+                    <td>${member.memberId}</td>
+                    <td>${member.date}</td>
+                    <td>${member.sharePercentageOffer}</td>
+                    <td>${member.description}</td>
                     <td></td>
                     <td></td>
 
@@ -328,28 +328,28 @@ export default defineComponent({
     };
 
         // Search Function
-    const searchEvents = () => {
+    const searchMembers = () => {
       if (searchQuery.value.trim() === '') {
-        filteredEvents.value = events.value;
+        filteredMembers.value = members.value;
       } else {
         const query = searchQuery.value.trim().toLowerCase();
-        filteredEvents.value = events.value.filter(event => 
-          Object.values(event).some(val => 
+        filteredMembers.value = members.value.filter(member => 
+          Object.values(member).some(val => 
             val.toString().toLowerCase().includes(query)
           )
         );
       }
     };
 
-    watch(searchQuery, searchEvents);
+    watch(searchQuery, searchMembers);
 
     return {
-      events,
+      members,
       sortKey,
       sortAsc,
       close,
-      paginatedEvents,
-      sortEvents,
+      paginatedMembers,
+      sortMembers,
       sortIcon,
       resetSorting,
       exportTable,
@@ -362,7 +362,7 @@ export default defineComponent({
       selectedRow,
       selectRow,
       searchQuery,
-      searchEvents,
+      searchMembers,
       create,
       trash,
       duplicate,
@@ -434,14 +434,14 @@ export default defineComponent({
     text-align: center; /* Center align for better presentation */
   }
 
-  .EventIDCol {
+  .memberIdCol {
     background-color: red;
     max-width: 100px;
   }
   .dateCol {
     max-width: 150px;
   }
-  .discountRewardPercentageCol {
+  .sharePercentageOfferCol {
     max-width: 100px;
   }
   .actionsCol {

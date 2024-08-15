@@ -1,10 +1,12 @@
 <template>
   <IonGrid>
-    <p class="CenterPositions">All Members Messages Here</p>
+    <p class="CenterPositions">Members Contacted Admin, Members Messaging, Rewards, Shares</p>
     <IonRow class="Tabs">
       <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
         <IonSegmentButton class="btn" value="membersContactUsMessagesTableAdminComponent">ContactedUs</IonSegmentButton>
-        <IonSegmentButton class="btn" value="InvestorsProfile">Investors Profile</IonSegmentButton>
+        <IonSegmentButton class="btn" value="MembersSharePurchaseProfileDetailAdminComponent">Shares Purchase Offer</IonSegmentButton>
+        
+        
         <IonSegmentButton class="btn" value="InvestmentApplication">Investment Application</IonSegmentButton>
         <IonSegmentButton class="btn" value="Offers">Offers</IonSegmentButton>
         <IonSegmentButton class="btn" value="Needs">Needs</IonSegmentButton>
@@ -17,8 +19,11 @@
         <membersContactUsMessagesTableAdminComponent />
       </IonCol>
       <!-- InvestorsProfile Tab here ####################################-->
-      <IonCol v-show="selectedTab === 'InvestorsProfile'" class="InvestorsProfile">
+      <IonCol v-show="selectedTab === 'MembersSharePurchaseProfileDetailAdminComponent'" class="MembersSharePurchaseProfileDetailAdminComponent">
+      <MembersSharePurchaseProfileDetailAdminComponent/>
       </IonCol>
+
+
       <!-- IInvestment Application  Tab here ####################################-->
       <IonCol v-show="selectedTab === 'InvestmentApplication'" class="InvestmentApplication">
       </IonCol>
@@ -46,6 +51,7 @@ import InvestmentApplicationMembersProfileDetailAdminComponent from '@/component
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
+import MembersSharePurchaseProfileDetailAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersSharePurchaseProfileDetailAdminComponent.vue';
 
 export default defineComponent({
   name: 'contactUsTABsAdminComponent',
@@ -61,6 +67,7 @@ export default defineComponent({
     MembersOfferDetailProfileDetailAdminComponent,
     MembersNeedDetailProfileDetailAdminComponent,
     MembersBestOfferDetailProfileDetailAdminComponent,
+    MembersSharePurchaseProfileDetailAdminComponent,
 
   },
   setup() {
@@ -89,6 +96,7 @@ export default defineComponent({
   flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
 }
 
+.MembersSharePurchaseProfileDetailAdminComponent,
 .membersContactedUsMessagesTableAdminComponent,
 .InvestorsProfile,
 .Offers,

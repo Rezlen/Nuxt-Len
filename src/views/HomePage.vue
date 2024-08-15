@@ -176,7 +176,7 @@
                 <p><a href="/MyPitchingsActivityTableComponent" class="Events-button" > MyPitchingsActivityTableComponent </a> </p>
                 <p><a href="/MembersSponsorshipPartnershipProfileDetailAdminComponent" class="Events-button" > MembersSponsorshipPartnershipProfileDetailAdminComponent </a> </p>
                 <p><a href="/MembersMembershipsProfileDetailAdminComponent" class="Events-button" > MembersMembershipsProfileDetailAdminComponent </a> </p>
-
+                <p><a href="/MembersSharePurchaseProfileDetailAdminComponent" class="Events-button" > MembersSharePurchaseProfileDetailAdminComponent </a> </p>
 
               
               </IonRow>

@@ -22,7 +22,7 @@
             <IonRow class="PaddingBorder sponsorshipPartnership" @click="showComponent('MembersSponsorshipPartnershipProfileDetailAdminComponent')">Sponsorship Partnership</IonRow>
             <IonRow class="PaddingBorder MembersMembershipsProfileDetailAdminComponent"  @click="showComponent('MembersMembershipsProfileDetailAdminComponent')">Memberships</IonRow>
             <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
-            <IonRow class="PaddingBorder contactUs" @click="showComponent('contactUsTABsAdminComponent')" >Contacted Us</IonRow>
+            <IonRow class="PaddingBorder contactUs" @click="showComponent('contactUsTABsAdminComponent')" >Contacted Us Messages Rewards Shares</IonRow>
             <IonRow class="PaddingBorder RewardsDiscounts">Rewards Discounts</IonRow>
             <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
 
