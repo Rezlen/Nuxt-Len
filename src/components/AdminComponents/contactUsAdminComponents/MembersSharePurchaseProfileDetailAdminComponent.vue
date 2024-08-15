@@ -23,12 +23,12 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-          <!-- Membership Purchase Section -->
-          <IonCol class="MembershipTypeCol topBorder" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="VIPMembershipCol topBorder" @click="sortMembers('VIPMembership')">VIP Membership <IonIcon :icon="sortIcon('VIPMembership')" class="sort-icon" /></IonCol>
-          <IonCol class="VVIPMembershipCol topBorder" @click="sortMembers('VVIPMembership')">VVIP Membership <IonIcon :icon="sortIcon('VVIPMembership')" class="sort-icon" /></IonCol>
-          <IonCol class="CostCol topBorder" @click="sortMembers('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
-          <!-- Membership Purchase Section -->
+          <!-- Members Shares Purchase Section -->
+          <IonCol class="sharePercentageOfferCol topBorder" @click="sortMembers('sharePercentageOffer')">Share Percentage Offer<IonIcon :icon="sortIcon('sharePercentageOffer')" class="sort-icon" /></IonCol>
+          <IonCol class="actionsCol topBorder" @click="sortMembers('description')">Description<IonIcon :icon="sortIcon('description')" class="sort-icon" /></IonCol>
+          <IonCol class="numberOfActionsCol topBorder" @click="sortMembers('suggestedAmount')">Suggested Amount <IonIcon :icon="sortIcon('suggestedAmount')" class="sort-icon" /></IonCol>
+          <IonCol class="approvedNotApprovedDateCol topBorder" @click="sortMembers('approvedNotApprovedDate')">Approved NotApproved<IonIcon :icon="sortIcon('approvedNotApprovedDate')" class="sort-icon" /></IonCol>
+          <!-- Members Shares Purchase Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -80,12 +80,12 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!-- Membership Purchase Section -->
-          <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
-          <IonCol class="VIPMembershipCol">{{ member.VIPMembership }}</IonCol>
-          <IonCol class="VVIPMembershipCol">{{ member.VVIPMembership }}</IonCol>
-          <IonCol class="CostCol">{{ member.cost }}</IonCol>
-          <!-- Membership Purchase Section -->
+          <!-- Members Share Purchase Section -->
+          <IonCol class="sharePercentageOfferCol">{{ member.sharePercentageOffer }}</IonCol>
+          <IonCol class="actionsCol">{{ member.description }}</IonCol>
+          <IonCol class="numberOfActionsCol">{{ member.suggestedAmount }}</IonCol>
+          <IonCol class="approvedNotApprovedDateCol">{{ member.approvedNotApprovedDate }}</IonCol>
+          <!-- Members Share Purchase Section -->
 
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -143,12 +143,12 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Membership Purchase Section -->
-          <IonCol class="MembershipTypeCol"></IonCol>
-          <IonCol class="VIPMembershipCol"></IonCol>
-          <IonCol class="VVIPMembershipCol"></IonCol>
-          <IonCol class="costCol"></IonCol>
-          <!-- Membership Purchase Section -->
+          <!-- Member Shares Purchase Section -->
+          <IonCol class="sharePercentageOfferCol"></IonCol>
+          <IonCol class="actionsCol"></IonCol>
+          <IonCol class="numberOfActionsCol"></IonCol>
+          <IonCol class="approvedNotApprovedDateCol"></IonCol>
+          <!-- Members Shares Purchase Section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -231,12 +231,12 @@
     totalMembershipSpent: number;
     totalSpent: number;
 
-    // Membership Purchase Section -->
-    membershipType: string;
-    VIPMembership: number;
-    VVIPMembership: number;
-    cost: number;
-    // Membership Purchase Section -->
+    // Members Shares Purchase Section -->
+    sharePercentageOffer: string;
+    description: string;
+    suggestedAmount: number;
+    approvedNotApprovedDate: number;
+    // Members Shares Purchase Section -->
 
     age: number;
     gender: string;
@@ -285,12 +285,12 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Membership Purchase Section -->
-          membershipType: 'Gold',
-          VIPMembership: 43,
-          VVIPMembership: 30,
-          cost: 100, // Added cost value
-          // Membership Purchase Section -->
+          // Members Shares Purchase Section -->
+          sharePercentageOffer: 'Tech Conference',
+          description: 'Convention Center',
+          suggestedAmount: 150,
+          approvedNotApprovedDate: 500,
+          // Members Shares Purchase Section -->
 
           age: 30,
           gender: 'Male',
@@ -333,12 +333,12 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Membership Purchase Section -->
-          membershipType: 'Silver',
-          VIPMembership: 2,
-          VVIPMembership: 30,
-          cost: 120, // Added cost value
-          // Membership Purchase Section -->
+          // Members Shares Purchase Section -->
+          sharePercentageOffer: 'Tech fdf Conference',
+          description: 'Convention rfd Center',
+          suggestedAmount: 15066,
+          approvedNotApprovedDate: 5006,
+          // Members Shares Purchase Section -->
 
           age: 30,
           gender: 'Male',
@@ -381,12 +381,12 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Membership Purchase Section -->
-          membershipType: 'Platinum',
-          VIPMembership: 7,
-          VVIPMembership: 30,
-          cost: 150, // Added cost value
-          // Membership Purchase Section -->
+          // Members Shares Purchase Section -->
+          sharePercentageOffer: 'Techeee Conference',
+          description: 'e e     eee Convention Center',
+          suggestedAmount: 1503,
+          approvedNotApprovedDate: 5003,
+          // Members Shares Purchase Section -->
 
           age: 30,
           gender: 'Male',
@@ -530,9 +530,9 @@
         const csvContent = [
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'TotalMembershipSpent', 'TotalSpent',
-            // Membership Section
-            'MembershipType', 'VIP Membership', 'VVIPMembership', 'Cost',
-            // Membership Section
+            // Members Shares Section
+            'sharePercentageOffer', 'description', 'suggestedAmount', 'approvedNotApprovedDate',
+            // Members Shares Section
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'ExpiringDate', 'TimeLeftTillExpiry','Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
@@ -540,9 +540,9 @@
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.totalMembershipSpent,  member.totalSpent, 
-            // Membership Section
-            member.membershipType, member.VIPMembership, member.VVIPMembership, member.cost,
-            // Membership Section
+            // Members Shares Section
+            member.sharePercentageOffer, member.description, member.suggestedAmount, member.approvedNotApprovedDate, 
+            // Members Shares Section
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
@@ -608,12 +608,12 @@
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
 
-                    <!-- Membership Section -->
-                    <th>Membership Type</th>
-                    <th>VIP Membership</th>
-                    <th>VVIPMembership</th>
-                    <th>Cost</th>
-                    <!-- Membership Section -->
+                    <!-- Members Shares Section -->
+                    <th>sharePercentageOffer</th>
+                    <th>description</th>
+                    <th>suggestedAmount</th>
+                    <th>approvedNotApprovedDate</th>
+                    <!-- Members Shares Section -->
 
                     <th>Age</th>
                     <th>Gender</th>
@@ -659,12 +659,12 @@
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
-                      // Membership Section
-                      <td>${member.membershipType}</td>
-                      <td>${member.VIPMembership}</td>
-                      <td>${member.VVIPMembership}</td>
-                      <td>${member.cost}</td>
-                      // Membership Section
+                      // Members Shares Section
+                      <td>${member.sharePercentageOffer}</td>
+                      <td>${member.description}</td>
+                      <td></td>
+                      <td></td>
+                      // Members Shares Section
                       
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -856,10 +856,10 @@
   .search {
     width: 100px;
   }
-  .MembershipTypeCol {
+  .sharePercentageOfferCol {
     Border-left: 2px red solid;
   }
-  .CostCol {
+  .approvedNotApprovedDateCol {
     Border-right: 2px red solid;
   }
   .topBorder {
