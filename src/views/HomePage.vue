@@ -177,11 +177,12 @@
                 <p><a href="/MembersSponsorshipPartnershipProfileDetailAdminComponent" class="Events-button" > MembersSponsorshipPartnershipProfileDetailAdminComponent </a> </p>
                 <p><a href="/MembersMembershipsProfileDetailAdminComponent" class="Events-button" > MembersMembershipsProfileDetailAdminComponent </a> </p>
                 <p><a href="/MembersSharePurchaseProfileDetailAdminComponent" class="Events-button" > MembersSharePurchaseProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersMessagingTableAdminComponent" class="Events-button" > membersMessagingTableAdminComponent </a> </p>
 
               
               </IonRow>
               
-              <!-- MiniProfilesRow #####  EmailImports.vue    MembersSponsorshipPartnershipProfileDetailAdminComponent -->
+              <!-- MiniProfilesRow #####  EmailImports.vue    membersMessagingTableAdminComponent -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">

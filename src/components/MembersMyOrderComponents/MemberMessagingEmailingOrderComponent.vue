@@ -6,7 +6,7 @@
       <IonButton fill="clear"  @click="resetSorting">RESET</IonButton>
       <IonButton fill="clear" @click="exportTable">EXPORT</IonButton>
       <IonButton fill="clear" @click="printTable">PRINT</IonButton>
-      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchTickets"></IonInput>
+      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchMembers"></IonInput>
       <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
         <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
       </IonButton>
@@ -15,124 +15,130 @@
     <IonRow class="NONscrollingRow">
     
       <IonRow class="scrollingRow" ref="scrollableContainer">
-          <!-- TitleRow with sorting functionality and icons -->
-          <IonRow class="TitleRow">
-            
-            <IonCol class="OrderIDCol" @click="sortTickets('id')">Order ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-            <IonCol class="BookingDateCol" @click="sortTickets('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
-            <IonCol class="MessageTitleCol" @click="sortTickets('messageTitle')">Email/Message Title <IonIcon :icon="sortIcon('messageTitle')" class="sort-icon" /></IonCol>
-            <IonCol class="CostCol" @click="sortTickets('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
-            <IonCol class="SelectedConnectionsCol" @click="sortTickets('selectedConnections')">Selected Connections <IonIcon :icon="sortIcon('selectedConnections')" class="sort-icon" /></IonCol>
-            <IonCol class="SelectedNonConnectionsCol" @click="sortTickets('selectedNonConnections')">Selected Non Connections <IonIcon :icon="sortIcon('selectedNonConnections')" class="sort-icon" /></IonCol>
-            <IonCol class="MessageOpenedCol" @click="sortTickets('messageOpened')">Message Opened/Seen <IonIcon :icon="sortIcon('messageOpened')" class="sort-icon" /></IonCol>
-            <IonCol class="PersonPicCol" @click="sortTickets('personPic')">Picture <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
-            <IonCol class="FirstNameCol" @click="sortTickets('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
-            <IonCol class="LastNameCol" @click="sortTickets('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
-            <IonCol class="MembershipTypeCol" @click="sortTickets('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-            <IonCol class="PitchTrainingCol" @click="sortTickets('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
-            <IonCol class="BusinessFundingAdviceCol" @click="sortTickets('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol" @click="sortTickets('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
-            <IonCol class="VideoOfPitchingCol" @click="sortTickets('videoOfPitching')">Video Of My Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
+        <!-- TitleRow with sorting functionality and icons -->
+        <IonRow class="TitleRow">
+          
+          <IonCol class="OrderIDCol" @click="sortMembers('id')">Order ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
+          <IonCol class="BookingDateCol" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+          <!-- Message section -->
+          <IonCol class="MessageTitleCol topBorder" @click="sortMembers('messageTitle')">Email/Message Title <IonIcon :icon="sortIcon('messageTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="CostCol topBorder" @click="sortMembers('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
+          <IonCol class="SelectedConnectionsCol topBorder" @click="sortMembers('selectedConnections')">Selected Connections <IonIcon :icon="sortIcon('selectedConnections')" class="sort-icon" /></IonCol>
+          <IonCol class="SelectedNonConnectionsCol topBorder" @click="sortMembers('selectedNonConnections')">Selected Non Connections <IonIcon :icon="sortIcon('selectedNonConnections')" class="sort-icon" /></IonCol>
+          <IonCol class="MessageOpenedCol topBorder" @click="sortMembers('messageOpened')">Message Opened/Seen <IonIcon :icon="sortIcon('messageOpened')" class="sort-icon" /></IonCol>
+          <!-- Message section -->
+          <IonCol class="PersonPicCol" @click="sortMembers('personPic')">Picture <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+          <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+          <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+          <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="PitchTrainingCol" @click="sortMembers('pitchTraining')">Pitch Training <IonIcon :icon="sortIcon('pitchTraining')" class="sort-icon" /></IonCol>
+          <IonCol class="BusinessFundingAdviceCol" @click="sortMembers('businessFundingAdvice')">Business Funding Advice <IonIcon :icon="sortIcon('businessFundingAdvice')" class="sort-icon" /></IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol" @click="sortMembers('freeBusinessFundingAdvice')">FREE Business Funding Advice <IonIcon :icon="sortIcon('freeBusinessFundingAdvice')" class="sort-icon" /></IonCol>
+          <IonCol class="VideoOfPitchingCol" @click="sortMembers('videoOfPitching')">Video Of My Pitching <IonIcon :icon="sortIcon('videoOfPitching')" class="sort-icon" /></IonCol>
 
-            <IonCol class="BusinessNameCol" @click="sortTickets('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
-            <IonCol class="BizCategoryCol" @click="sortTickets('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
-            <IonCol class="ExhibitedCol" @click="sortTickets('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
-            <IonCol class="VisitedCol" @click="sortTickets('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorTicketCol" @click="sortTickets('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentBrokerCol" @click="sortTickets('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestorsAdvertsCol" @click="sortTickets('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
-            <IonCol class="BizMentorCol" @click="sortTickets('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-            <IonCol class="TotalSpentCol" @click="sortTickets('totalSpent')">TotalSpent <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
-            <IonCol class="OneMinPitchingCol" @click="sortTickets('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="ThreeMinPitchingCol" @click="sortTickets('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="InvestmentPitchingCol" @click="sortTickets('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
-            <IonCol class="WorkshopCol" @click="sortTickets('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
-            <IonCol class="PresentationCol" @click="sortTickets('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
-            
-            
-            <IonCol class="LastLoggedInCol" @click="sortTickets('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
-            <IonCol class="ActionCol">Actions</IonCol>
-          </IonRow>
+          <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
+          <IonCol class="BizCategoryCol" @click="sortMembers('bizCategory')">BizCategory <IonIcon :icon="sortIcon('bizCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="ExhibitedCol" @click="sortMembers('exhibited')">Exhibited <IonIcon :icon="sortIcon('exhibited')" class="sort-icon" /></IonCol>
+          <IonCol class="VisitedCol" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorTicketCol" @click="sortMembers('investorTicket')">Investor Ticket <IonIcon :icon="sortIcon('investorTicket')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentBrokerCol" @click="sortMembers('investmentBroker')">Investment Broker <IonIcon :icon="sortIcon('investmentBroker')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestorsAdvertsCol" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
+          <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
+          <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">TotalSpent <IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="OneMinPitchingCol" @click="sortMembers('oneMinPitching')">1 Min Pitching <IonIcon :icon="sortIcon('oneMinPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="ThreeMinPitchingCol" @click="sortMembers('threeMinPitching')">3 Min Pitching <IonIcon :icon="sortIcon('threeMinPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="InvestmentPitchingCol" @click="sortMembers('investmentPitching')">Investment Pitching <IonIcon :icon="sortIcon('investmentPitching')" class="sort-icon" /></IonCol>
+          <IonCol class="WorkshopCol" @click="sortMembers('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
+          <IonCol class="PresentationCol" @click="sortMembers('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
+          
+          
+          <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+          <IonCol class="ActionCol">Actions</IonCol>
+        </IonRow>
 
-          <!-- Data rows -->
-          <IonRow v-for="ticket in paginatedTickets" :key="ticket.id" class="DataRow" :class="{ selected: selectedRow === ticket.id }" @click="selectRow(ticket.id)">
-            <IonCol class="OrderIDCol">{{ ticket.id }}</IonCol>
-            <IonCol class="BookingDateCol">{{ ticket.bookingDate }}</IonCol>
-            <IonCol class="TicketTitleCol">{{ ticket.messageTitle }}</IonCol>
-            <IonCol class="CostCol">{{ ticket.cost }}</IonCol>
-            <IonCol class="SelectedConnectionsCol">{{ ticket.selectedConnections }}</IonCol>
-            <IonCol class="SelectedNonConnectionsCol">{{ ticket.selectedNonConnections }}</IonCol>
-            <IonCol class="MessageOpenedCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-            <IonCol class="PersonPicCol"><img :src="ticket.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-            <IonCol class="FirstNameCol">{{ ticket.firstName }}</IonCol>
-            <IonCol class="LastNameCol">{{ ticket.lastName }}</IonCol>
-            <IonCol class="MembershipTypeCol">{{ ticket.membershipType }}</IonCol>
-            <IonCol class="PitchTrainingCol">{{ ticket.pitchTraining }}</IonCol>
-            <IonCol class="BusinessFundingAdviceCol">{{ ticket.businessFundingAdvice }}</IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol">{{ ticket.freeBusinessFundingAdvice }}</IonCol>
-            <IonCol class="VideoOfPitchingCol">{{ ticket.videoOfPitching }}</IonCol>
+        <!-- Data rows -->
+        <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
+          <IonCol class="OrderIDCol">{{ member.id }}</IonCol>
+          <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
+          <!-- Message section -->
+          <IonCol class="TicketTitleCol">{{ member.messageTitle }}</IonCol>
+          <IonCol class="CostCol">{{ member.cost }}</IonCol>
+          <IonCol class="SelectedConnectionsCol">{{ member.selectedConnections }}</IonCol>
+          <IonCol class="SelectedNonConnectionsCol">{{ member.selectedNonConnections }}</IonCol>
+          <IonCol class="MessageOpenedCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <!-- Message section -->
+          <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
+          <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
+          <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
+          <IonCol class="PitchTrainingCol">{{ member.pitchTraining }}</IonCol>
+          <IonCol class="BusinessFundingAdviceCol">{{ member.businessFundingAdvice }}</IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol">{{ member.freeBusinessFundingAdvice }}</IonCol>
+          <IonCol class="VideoOfPitchingCol">{{ member.videoOfPitching }}</IonCol>
 
-            <IonCol class="BusinessNameCol">{{ ticket.businessName }}</IonCol>
-            <IonCol class="BizCategoryCol">{{ ticket.bizCategory }}</IonCol>
-            <IonCol class="ExhibitedCol">{{ ticket.exhibited }}</IonCol>
-            <IonCol class="VisitedCol">{{ ticket.visited }}</IonCol>
-            <IonCol class="InvestorTicketCol">{{ ticket.investorTicket }}</IonCol>
-            <IonCol class="investmentBrokerCol">{{ ticket.investmentBroker }}</IonCol>
-            <IonCol class="InvestorsAdvertsCol">{{ ticket.investorsAdverts }}</IonCol>
-            <IonCol class="BizMentorCol">{{ ticket.bizMentor }}</IonCol>
-            <IonCol class="TotalSpentCol">{{ ticket.totalSpent }}</IonCol>
-            <IonCol class="OneMinPitchingCol">{{ ticket.oneMinPitching }}</IonCol>
-            <IonCol class="ThreeMinPitchingCol">{{ ticket.threeMinPitching }}</IonCol>
-            <IonCol class="InvestmentPitchingCol">{{ ticket.investmentPitching }}</IonCol>
-            <IonCol class="WorkshopCol">{{ ticket.workshop }}</IonCol>
-            <IonCol class="PresentationCol">{{ ticket.presentation }}</IonCol>
+          <IonCol class="BusinessNameCol">{{ member.businessName }}</IonCol>
+          <IonCol class="BizCategoryCol">{{ member.bizCategory }}</IonCol>
+          <IonCol class="ExhibitedCol">{{ member.exhibited }}</IonCol>
+          <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
+          <IonCol class="InvestorTicketCol">{{ member.investorTicket }}</IonCol>
+          <IonCol class="investmentBrokerCol">{{ member.investmentBroker }}</IonCol>
+          <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
+          <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
+          <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+          <IonCol class="OneMinPitchingCol">{{ member.oneMinPitching }}</IonCol>
+          <IonCol class="ThreeMinPitchingCol">{{ member.threeMinPitching }}</IonCol>
+          <IonCol class="InvestmentPitchingCol">{{ member.investmentPitching }}</IonCol>
+          <IonCol class="WorkshopCol">{{ member.workshop }}</IonCol>
+          <IonCol class="PresentationCol">{{ member.presentation }}</IonCol>
 
 
-            <IonCol class="LastLoggedInCol">{{ ticket.lastLoggedIn }}</IonCol>
-            <IonCol class="ActionCol">
-              <IonButton class="ActionCol" fill="clear" title="Close">
-                <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
-              </IonButton>
-            </IonCol>
-          </IonRow>
+          <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
+          <IonCol class="ActionCol">
+            <IonButton class="ActionCol" fill="clear" title="Close">
+              <IonIcon slot="icon-only" size="small" :icon="close"></IonIcon>
+            </IonButton>
+          </IonCol>
+        </IonRow>
 
-          <!-- Total row -->
-          <IonRow class="TotalRow">
-            <IonCol class="OrderIDCol">Totals:</IonCol>
-            <IonCol class="BookingDateCol"></IonCol>
-            <IonCol class="MessageTitleCol"></IonCol>
-            <IonCol class="costCol"></IonCol>
-            <IonCol class="SelectedConnectionsCol"></IonCol>
-            <IonCol class="SelectedNonConnectionsCol"></IonCol>
-            <IonCol class="MessageOpenedCol"></IonCol>
-            <IonCol class="PersonPicCol"></IonCol>
-            <IonCol class="FirstNameCol"></IonCol>
-            <IonCol class="LastNameCol"></IonCol>
-            <IonCol class="MembershipTypeCol"></IonCol>
-            <IonCol class="PitchTrainingCol"></IonCol>
-            <IonCol class="BusinessFundingAdviceCol"></IonCol>
-            <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
-            <IonCol class="VideoOfPitchingCol"></IonCol>
+        <!-- Total row -->
+        <IonRow class="TotalRow">
+          <IonCol class="OrderIDCol">Totals:</IonCol>
+          <IonCol class="BookingDateCol"></IonCol>
+          <!-- Message section -->
+          <IonCol class="MessageTitleCol"></IonCol>
+          <IonCol class="costCol"></IonCol>
+          <IonCol class="SelectedConnectionsCol"></IonCol>
+          <IonCol class="SelectedNonConnectionsCol"></IonCol>
+          <IonCol class="MessageOpenedCol"></IonCol>
+          <!-- Message section -->
+          <IonCol class="PersonPicCol"></IonCol>
+          <IonCol class="FirstNameCol"></IonCol>
+          <IonCol class="LastNameCol"></IonCol>
+          <IonCol class="MembershipTypeCol"></IonCol>
+          <IonCol class="PitchTrainingCol"></IonCol>
+          <IonCol class="BusinessFundingAdviceCol"></IonCol>
+          <IonCol class="FreeBusinessFundingAdviceCol"></IonCol>
+          <IonCol class="VideoOfPitchingCol"></IonCol>
 
-            <IonCol class="BusinessNameCol"></IonCol>
-            <IonCol class="BizCategoryCol"></IonCol>
-            <IonCol class="ExhibitedCol"></IonCol>
-            <IonCol class="VisitedCol"></IonCol>
-            <IonCol class="InvestorTicketCol"></IonCol>
-            <IonCol class="InvestmentBrokerCol"></IonCol>
-            <IonCol class="InvestorsAdvertsCol"></IonCol>
-            <IonCol class="BizMentorCol"></IonCol>
-            <IonCol class="TotalSpentCol">{{ total }}</IonCol>
-            <IonCol class="OneMinPitchingCol"></IonCol>
-            <IonCol class="threeMinPitchingCol"></IonCol>
-            <IonCol class="InvestmentPitchingCol"></IonCol>
-            <IonCol class="WorkshopCol"></IonCol>
-            <IonCol class="PresentationCol"></IonCol>
+          <IonCol class="BusinessNameCol"></IonCol>
+          <IonCol class="BizCategoryCol"></IonCol>
+          <IonCol class="ExhibitedCol"></IonCol>
+          <IonCol class="VisitedCol"></IonCol>
+          <IonCol class="InvestorTicketCol"></IonCol>
+          <IonCol class="InvestmentBrokerCol"></IonCol>
+          <IonCol class="InvestorsAdvertsCol"></IonCol>
+          <IonCol class="BizMentorCol"></IonCol>
+          <IonCol class="TotalSpentCol">{{ total }}</IonCol>
+          <IonCol class="OneMinPitchingCol"></IonCol>
+          <IonCol class="threeMinPitchingCol"></IonCol>
+          <IonCol class="InvestmentPitchingCol"></IonCol>
+          <IonCol class="WorkshopCol"></IonCol>
+          <IonCol class="PresentationCol"></IonCol>
 
-            
-            <IonCol class="LastLoggedInCol"></IonCol>
-            <IonCol class="ActionCol"></IonCol>
-          </IonRow>
+          
+          <IonCol class="LastLoggedInCol"></IonCol>
+          <IonCol class="ActionCol"></IonCol>
+        </IonRow>
       </IonRow>
 
     </IonRow>
@@ -157,14 +163,16 @@
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
   import { close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
 
-  interface Ticket {
+  interface Member {
     id: number;
     bookingDate: string;
+    // Message section -->
     messageTitle: string;
     cost: number;
     selectedConnections: number;
     selectedNonConnections: string;
     messageOpened: number;
+    // Message section -->
     personPic: string;
     firstName: string;
     lastName: string;
@@ -196,15 +204,17 @@
     name: 'MemberMessagingEmailingOrderComponent',
     components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
     setup() {
-      const tickets = ref<Ticket[]>([
+      const members = ref<Member[]>([
         {
           id: 3,
           bookingDate: '2023-01-01T12:00:00',
+          // Message section -->
           messageTitle: 'Event A',
           cost: 100, // Added cost value
           selectedConnections: 30,
           selectedNonConnections: 'red',
           messageOpened: 23,
+          // Message section -->
           personPic: 'pic_url_a',
           firstName: 'John',
           lastName: 'Doe',
@@ -213,7 +223,6 @@
           businessFundingAdvice: 34,
           freeBusinessFundingAdvice: 55,
           videoOfPitching: 55,
-
 
           businessName: 'JohnBusiness',
           bizCategory: 'IT',
@@ -235,11 +244,13 @@
         {
           id: 2,
           bookingDate: '2023-01-01T12:00:00',
+          // Message section -->
           messageTitle: 'Event B',
           cost: 120, // Added cost value
           selectedConnections: 30,
           selectedNonConnections: 'red',
           messageOpened: 23,
+          // Message section -->
           personPic: 'pic_url_b',
           firstName: 'Alice',
           lastName: 'Smith',
@@ -270,11 +281,13 @@
         {
           id: 1,
           bookingDate: '2023-01-01T12:00:00',
+          // Message section -->
           messageTitle: 'Event C',
           cost: 150, // Added cost value
           selectedConnections: 30,
           selectedNonConnections: 'red',
           messageOpened: 23,
+          // Message section -->
           personPic: 'pic_url_c',
           firstName: 'Bob',
           lastName: 'Brown',
@@ -303,7 +316,7 @@
         }
       ]);
 
-      const sortKey = ref<keyof Ticket | null>(null);
+      const sortKey = ref<keyof Member | null>(null);
       const sortAsc = ref(true);
       // making the selected row distinguishable
 
@@ -311,7 +324,7 @@
       // Search Filed
 
       const searchQuery = ref<string>('');
-      const filteredTickets = ref(tickets.value);
+      const filteredMembers = ref(members.value);
 
       // back button does not wor, fix itk
       const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
@@ -325,7 +338,7 @@
       // back button does not work
 
 
-      const sortTickets = (key: keyof Ticket) => {
+      const sortMembers = (key: keyof Member) => {
         if (sortKey.value === key) {
           sortAsc.value = !sortAsc.value;
         } else {
@@ -334,7 +347,7 @@
         }
       };
 
-      const sortIcon = (key: keyof Ticket) => {
+      const sortIcon = (key: keyof Member) => {
         if (sortKey.value === key) {
           return sortAsc.value ? arrowUpOutline : arrowDownOutline;
         }
@@ -349,11 +362,11 @@
       };
 
       
-      //  * Computes the sorted tickets based on the current sortKey and sort order.
-      const sortedTickets = computed(() => {
-        if (!sortKey.value) return filteredTickets.value;
+      //  * Computes the sorted members based on the current sortKey and sort order.
+      const sortedMembers = computed(() => {
+        if (!sortKey.value) return filteredMembers.value;
 
-        return [...filteredTickets.value].sort((a, b) => {
+        return [...filteredMembers.value].sort((a, b) => {
           if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
           if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
           return 0;
@@ -363,17 +376,17 @@
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-      //  * Computes the paginated tickets for the current page.
-      const paginatedTickets = computed(() => {
+      //  * Computes the paginated members for the current page.
+      const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
-        return sortedTickets.value.slice(start, start + itemsPerPage);
+        return sortedMembers.value.slice(start, start + itemsPerPage);
       });
 
-      //  * Computes the total number of pages based on the number of tickets and items per page.
-      const totalPages = computed(() => Math.ceil(filteredTickets.value.length / itemsPerPage));
+      //  * Computes the total number of pages based on the number of members and items per page.
+      const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
-      //  * Computes the total cost of all tickets.
-      const total = computed(() => filteredTickets.value.reduce((sum, ticket) => sum + ticket.totalSpent, 0));
+      //  * Computes the total cost of all members.
+      const total = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
 
       //  * Navigates to the previous page, if possible.
       const prevPage = () => {
@@ -393,14 +406,22 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Ticket ID',  'Booking Date', 'Message Title', 'Cost', 'SelectedConnections', 'Selected NonConnections', 'MessageOpened', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
+            'Member ID',  'Booking Date', 
+          // Message section -->
+            'Message Title', 'Cost', 'SelectedConnections', 'Selected NonConnections', 'MessageOpened', 
+          // Message section -->
+            'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorTicket', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn'
           ],
-          ...filteredTickets.value.map(ticket => [
-            ticket.id,  ticket.bookingDate, ticket.messageTitle, ticket.cost, ticket.selectedConnections, ticket.selectedNonConnections, ticket.personPic, ticket.messageOpened, ticket.firstName, ticket.lastName, ticket.membershipType, ticket.pitchTraining, ticket.businessFundingAdvice, ticket.freeBusinessFundingAdvice, ticket.videoOfPitching,
-            ticket.businessName, ticket.bizCategory, ticket.exhibited, ticket.visited, ticket.investorTicket, ticket.investmentBroker,
-            ticket.investorsAdverts, ticket.bizMentor, ticket.totalSpent, ticket.oneMinPitching, ticket.threeMinPitching, ticket.investmentPitching, ticket.workshop, ticket.presentation, ticket.bookingDate,  ticket.lastLoggedIn
+          ...filteredMembers.value.map(member => [
+            member.id,  member.bookingDate, 
+          // Message section -->
+            member.messageTitle, member.cost, member.selectedConnections, member.selectedNonConnections, 
+          // Message section -->
+            member.personPic, member.messageOpened, member.firstName, member.lastName, member.membershipType, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,
+            member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorTicket, member.investmentBroker,
+            member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn
           ])
         ]
           .map(e => e.join(","))
@@ -455,13 +476,17 @@
               <table>
                 <thead>
                   <tr>
-                    <th>Ticket ID</th>
+                    <th>Member ID</th>
                     <th>BookingDate</th>
+
+                    // Message section -->
                     <th>Message Title</th>
                     <th>Cost</th>
                     <th>SelectedConnections</th>
                     <th>Selected NonConnections</th>
                     <th>MessageOpened</th>
+                    // Message section -->
+
                     <th>Person Pic</th>
                     <th>First Name</th>
                     <th>Last Name</th>
@@ -489,39 +514,43 @@
                   </tr>
                 </thead>
                 <tbody>
-                  ${paginatedTickets.value.map((ticket, index) => `
+                  ${paginatedMembers.value.map((member, index) => `
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
-                      <td>${ticket.id}</td>
-                      <td>${ticket.bookingDate}</td>
-                      <td>${ticket.messageTitle}</td>
-                      <td>${ticket.cost}</td>
-                      <td>${ticket.selectedConnections}</td>
-                      <td>${ticket.selectedNonConnections}</td>
-                      <td>${ticket.messageOpened}</td>
-                      <td>${ticket.personPic}</td>
-                      <td>${ticket.firstName}</td>
-                      <td>${ticket.lastName}</td>
-                      <td>${ticket.membershipType}</td>
-                      <td>${ticket.pitchTraining}</td>
-                      <td>${ticket.businessFundingAdvice}</td>
-                      <td>${ticket.freeBusinessFundingAdvice}</td>
-                      <td>${ticket.videoOfPitching}</td>
+                      <td>${member.id}</td>
+                      <td>${member.bookingDate}</td>
 
-                      <td>${ticket.businessName}</td>
-                      <td>${ticket.bizCategory}</td>
-                      <td>${ticket.exhibited}</td>
-                      <td>${ticket.visited}</td>
-                      <td>${ticket.investorTicket}</td>
-                      <td>${ticket.investmentBroker}</td>
-                      <td>${ticket.investorsAdverts}</td>
-                      <td>${ticket.bizMentor}</td>
-                      <td>${ticket.totalSpent}</td>
-                      <td>${ticket.oneMinPitching}</td>
-                      <td>${ticket.threeMinPitching}</td>
-                      <td>${ticket.investmentPitching}</td>
-                      <td>${ticket.workshop}</td>
-                      <td>${ticket.presentation}</td>
-                      <td>${ticket.lastLoggedIn}</td>
+                      // Message section -->
+                      <td>${member.messageTitle}</td>
+                      <td>${member.cost}</td>
+                      <td>${member.selectedConnections}</td>
+                      <td>${member.selectedNonConnections}</td>
+                      <td>${member.messageOpened}</td>
+                      // Message section -->
+
+                      <td>${member.personPic}</td>
+                      <td>${member.firstName}</td>
+                      <td>${member.lastName}</td>
+                      <td>${member.membershipType}</td>
+                      <td>${member.pitchTraining}</td>
+                      <td>${member.businessFundingAdvice}</td>
+                      <td>${member.freeBusinessFundingAdvice}</td>
+                      <td>${member.videoOfPitching}</td>
+
+                      <td>${member.businessName}</td>
+                      <td>${member.bizCategory}</td>
+                      <td>${member.exhibited}</td>
+                      <td>${member.visited}</td>
+                      <td>${member.investorTicket}</td>
+                      <td>${member.investmentBroker}</td>
+                      <td>${member.investorsAdverts}</td>
+                      <td>${member.bizMentor}</td>
+                      <td>${member.totalSpent}</td>
+                      <td>${member.oneMinPitching}</td>
+                      <td>${member.threeMinPitching}</td>
+                      <td>${member.investmentPitching}</td>
+                      <td>${member.workshop}</td>
+                      <td>${member.presentation}</td>
+                      <td>${member.lastLoggedIn}</td>
                     </tr>
                   `).join('')}
                   <tr class="TotalRow">
@@ -550,33 +579,33 @@
       };
 
       // Search Function
-      const searchTickets = () => {
+      const searchMembers = () => {
         if (searchQuery.value.trim() === '') {
-          filteredTickets.value = tickets.value;
+          filteredMembers.value = members.value;
         } else {
           const query = searchQuery.value.trim().toLowerCase();
-          filteredTickets.value = tickets.value.filter(ticket => 
-            Object.values(ticket).some(val => 
+          filteredMembers.value = members.value.filter(member => 
+            Object.values(member).some(val => 
               val.toString().toLowerCase().includes(query)
             )
           );
         }
       };
 
-      watch(searchQuery, searchTickets);
+      watch(searchQuery, searchMembers);
 
       return {
-        tickets,
+        members,
         sortKey,
         sortAsc,
-        sortTickets,
+        sortMembers,
         sortIcon,
         resetSorting,
         selectRow,
         selectedRow,
         searchQuery,
-        searchTickets,
-        paginatedTickets,
+        searchMembers,
+        paginatedMembers,
         currentPage,
         totalPages,
         prevPage,
@@ -629,12 +658,7 @@
   .DataRow {
     cursor: pointer;
   }
-  .TitleRow .MessageTitleCol,
-  .TitleRow .MessageTitleCol,
-  .TitleRow .CostCol,
-  .TitleRow .SelectedConnectionsCol,
-  .TitleRow .SelectedNonConnectionsCol,
-  .TitleRow .MessageOpenedCol {
+  .topBorder {
     border-top: 3px solid red;
   }
   .MessageTitleCol{

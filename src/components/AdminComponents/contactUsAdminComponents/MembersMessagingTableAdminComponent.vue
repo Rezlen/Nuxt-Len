@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all 'ContactUs' messages</p>
+    <p class="TitleP">List of all messaging between the members</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -24,15 +24,15 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-          <!-- Message Section -->
-          <IonCol class="messageNoCol topBorder" @click="sortMembers('messageNo')">MessageNo <IonIcon :icon="sortIcon('messageNo')" class="sort-icon" /></IonCol>
-          <IonCol class="messageDescriptionCol topBorder" @click="sortMembers('messageDescription')">Message Description <IonIcon :icon="sortIcon('messageDescription')" class="sort-icon" /></IonCol>
-          <IonCol class="repliedCol topBorder" @click="sortMembers('replied')">Replied <IonIcon :icon="sortIcon('replied')" class="sort-icon" /></IonCol>
-          <IonCol class="messagedDateCol topBorder" @click="sortMembers('messagedDate')">Messaged Date <IonIcon :icon="sortIcon('messagedDate')" class="sort-icon" /></IonCol>
-          <IonCol class="repliedDateCol topBorder" @click="sortMembers('repliedDate')">Replied Date <IonIcon :icon="sortIcon('repliedDate')" class="sort-icon" /></IonCol>
-          <IonCol class="adminNameCol topBorder" @click="sortMembers('adminName')">Admin Name <IonIcon :icon="sortIcon('adminName')" class="sort-icon" /></IonCol>
-          <IonCol class="viewReplyCol topBorder" @click="sortMembers('viewReply')">View & Reply <IonIcon :icon="sortIcon('viewReply')" class="sort-icon" /></IonCol>
-          <!-- Message Section -->
+          <!--Messaging section -->
+          <IonCol class="MessageTitleCol topBorder" @click="sortMembers('messageTitle')">Email/Message Title <IonIcon :icon="sortIcon('messageTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="CostCol topBorder" @click="sortMembers('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
+          <IonCol class="SelectedConnectionsCol topBorder" @click="sortMembers('selectedConnections')">Selected Connections <IonIcon :icon="sortIcon('selectedConnections')" class="sort-icon" /></IonCol>
+          <IonCol class="SelectedNonConnectionsCol topBorder" @click="sortMembers('selectedNonConnections')">Selected Non Connections <IonIcon :icon="sortIcon('selectedNonConnections')" class="sort-icon" /></IonCol>
+          <IonCol class="MessageOpenedCol topBorder" @click="sortMembers('messageOpened')">Message Opened/Seen <IonIcon :icon="sortIcon('messageOpened')" class="sort-icon" /></IonCol>
+          <IonCol class="receiverSenderCol topBorder" @click="sortMembers('receiverSender')">Receiver Sender <IonIcon :icon="sortIcon('receiverSender')" class="sort-icon" /></IonCol>
+          <IonCol class="groupMessagedCol topBorder" @click="sortMembers('groupMessaged')">Group Messaged <IonIcon :icon="sortIcon('groupMessaged')" class="sort-icon" /></IonCol>
+          <!--Messaging section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -64,8 +64,8 @@
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="NoLoggedInCol" @click="sortMembers('noLoggedIn')">NoOf LoggedIn <IonIcon :icon="sortIcon('noLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="FullProfileSeenCol" @click="sortMembers('fullProfileSeen')">FullProfile Seen <IonIcon :icon="sortIcon('fullProfileSeen')" class="sort-icon" /></IonCol>
-
-          <IonCol class="ActionCol">Actions</IonCol>
+          <IonCol class="adminNameCol" @click="sortMembers('adminName')">Admin Name <IonIcon :icon="sortIcon('adminName')" class="sort-icon" /></IonCol>
+          <IonCol class="ActionCol">View Remove Edit Ban-Delete after 5 yrs</IonCol>
         </IonRow>
 
         <!-- Data rows -->
@@ -78,15 +78,15 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!-- Message Section -->
-          <IonCol class="messageNoCol">{{ member.messageNo }}</IonCol>
-          <IonCol class="messageDescriptionCol">{{ member.messageDescription }}</IonCol>
-          <IonCol class="repliedCol">{{ member.replied }}</IonCol>
-          <IonCol class="messagedDateCol">{{ member.messagedDate }}</IonCol>
-          <IonCol class="repliedDateCol">{{ member.repliedDate }}</IonCol>
-          <IonCol class="adminNameCol">{{ member.adminName }}</IonCol>
-          <IonCol class="viewReplyCol">{{ member.viewReply }}</IonCol>
-          <!-- Message Section -->
+          <!--Messaging section -->
+          <IonCol class="MessageTitleCol">{{ member.messageTitle }}</IonCol>
+          <IonCol class="CostCol">{{ member.cost }}</IonCol>
+          <IonCol class="SelectedConnectionsCol">{{ member.selectedConnections }}</IonCol>
+          <IonCol class="SelectedNonConnectionsCol">{{ member.selectedNonConnections }}</IonCol>
+          <IonCol class="MessageOpenedCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="receiverSenderCol">{{ member.receiverSender }}</IonCol>
+          <IonCol class="groupMessagedCol">{{ member.groupMessaged }}</IonCol>
+          <!--Messaging section -->
         
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -119,10 +119,11 @@
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
           <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
           <IonCol class="FullProfileSeenCol">{{ member.fullProfileSeen }}</IonCol>
+          <IonCol class="adminNameCol">{{ member.adminName }}</IonCol>
           <IonCol class="ActionCol">
             <IonButton class="ActionCol" fill="clear" title="Close">
-              <IonButton @click="openModal(member.id)" class="test" fill="clear" title="Edit This Profile"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
-              <IonButton class="test" fill="clear" title="Deactivate/Hide This Offer From Public" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
+              <IonButton @click="openModal(member.id)" class="test" fill="clear" title="View Remove Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
+              <IonButton class="test" fill="clear" title="Deactivate Ban This Messaging" > <IonIcon slot="icon-only" size="small" :icon="ban"></IonIcon></IonButton>
               <IonButton class="test" fill="clear" title="Delete This Offer After 5 Years, From Data Base" > <IonIcon slot="icon-only" size="small" :icon="trash"></IonIcon></IonButton>
             </IonButton>
           </IonCol>
@@ -138,15 +139,15 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Message Section -->
-          <IonCol class="messageNoCol"></IonCol>
-          <IonCol class="messageDescriptionCol"></IonCol>
-          <IonCol class="repliedCol"></IonCol>
-          <IonCol class="messagedDateCol"></IonCol>
-          <IonCol class="repliedDateCol"></IonCol>
-          <IonCol class="adminNameCol"></IonCol>
-          <IonCol class="viewReplyCol"></IonCol>
-          <!-- Message Section -->
+          <!-- Messaging section -->
+          <IonCol class="MessageTitleCol"></IonCol>
+          <IonCol class="costCol"></IonCol>
+          <IonCol class="SelectedConnectionsCol"></IonCol>
+          <IonCol class="SelectedNonConnectionsCol"></IonCol>
+          <IonCol class="MessageOpenedCol"></IonCol>
+          <IonCol class="receiverSenderCol"></IonCol>
+          <IonCol class="groupMessagedCol"></IonCol>
+          <!-- Messaging section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -178,8 +179,7 @@
           <IonCol class="LastLoggedInCol"></IonCol>
           <IonCol class="NoLoggedInCol"></IonCol>
           <IonCol class="FullProfileSeenCol"></IonCol>
-
-
+          <IonCol class="adminNameCol"></IonCol>
           <IonCol class="ActionCol"></IonCol>
         </IonRow>
       </IonRow>
@@ -223,14 +223,16 @@
     totalMembershipSpent: number;
     totalSpent: number;
 
-    // Pitching section
-    messageNo: '1MinPitching' | '3MinPitching' | 'InvestmentPitching';
-    messageDescription: string;
-    replied: string;
-    messagedDate: string;
-    repliedDate: string;
-    adminName: string;
-    viewReply: string;
+    // Message section -->
+    messageTitle: string;
+    cost: number;
+    selectedConnections: number;
+    selectedNonConnections: string;
+    messageOpened: number;
+    receiverSender: string;
+    groupMessaged: string;
+    // Messaging section
+
 
     age: number;
     gender: string;
@@ -262,10 +264,12 @@
     lastLoggedIn: string;
     noLoggedIn: number;
     fullProfileSeen: number;
+    adminName: string;
+
   }
 
   export default defineComponent({
-    name: 'membersContactUsMessagesTableAdminComponent',
+    name: 'MembersMessagingTableAdminComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([
@@ -278,14 +282,15 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Pitching Section
-          messageNo: '1MinPitching',
-          messageDescription: 'New Tech Pitch',
-          replied: 'New Tech Pitch',
-          messagedDate: 'New Tech Pitch',
-          repliedDate: 'Funding',
-          adminName: 'USA',
-          viewReply: 'New York',
+          // Messaging section
+          messageTitle: 'Event A',
+          cost: 100, // Added cost value
+          selectedConnections: 30,
+          selectedNonConnections: 'red',
+          messageOpened: 23,
+          receiverSender: 'USA',
+          groupMessaged: 'New York',
+          // Messaging section
 
           age: 30,
           gender: 'Male',
@@ -316,7 +321,9 @@
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
-          fullProfileSeen: 100
+          fullProfileSeen: 100,
+          adminName: 'USA',
+
         },
         {
           id: 2,
@@ -327,14 +334,15 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Pitching section
-          messageNo: '3MinPitching',
-          messageDescription: 'JohnBusiness',
-          replied: 'JohnBusiness',
-          messagedDate: 'New Tech Pitch',
-          repliedDate: 'Funding',
-          adminName: 'USA',
-          viewReply: 'New York',
+          // Messaging section
+          messageTitle: 'Event B',
+          cost: 120, // Added cost value
+          selectedConnections: 30,
+          selectedNonConnections: 'red',
+          messageOpened: 23,
+          receiverSender: 'USA',
+          groupMessaged: 'New York',
+          // Messaging section
 
           age: 30,
           gender: 'Male',
@@ -365,7 +373,9 @@
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
-          fullProfileSeen: 100
+          fullProfileSeen: 100,
+          adminName: 'deeen',
+
         },
         {
           id: 1,
@@ -376,14 +386,15 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Pitching section
-          messageNo: 'InvestmentPitching',
-          messageDescription: 'john.doe@example.com',
-          replied: 'john.doe@example.com',
-          messagedDate: 'New Tech Pitch',
-          repliedDate: 'Funding',
-          adminName: 'USA',
-          viewReply: 'New York',
+          // Messaging section
+          messageTitle: 'Event C',
+          cost: 150, // Added cost value
+          selectedConnections: 30,
+          selectedNonConnections: 'red',
+          messageOpened: 23,
+          receiverSender: 'USA',
+          groupMessaged: 'New York',
+          // Messaging section
 
           age: 30,
           gender: 'Male',
@@ -414,7 +425,9 @@
           joined: '2023-01-01',
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
-          fullProfileSeen: 100
+          fullProfileSeen: 100,
+          adminName: 'UteeA',
+
         },
         // Add more members as necessary
         
@@ -432,7 +445,7 @@
       const searchQuery = ref<string>('');
       const filteredMembers = ref(members.value);
 
-// back button does not wor, fix itk
+      // back button does not wor, fix itk
       const scrollableContainer = ref<HTMLDivElement | null>(null); // Ref for the scrollable container
 
       const scrollToLeft = () => {
@@ -441,15 +454,16 @@
         }
       };
 
-// back button does not work
+      // back button does not work
 
-      // Custom order for messageNo
-      const messageNoOrder: Record<Member['messageNo'], number> = {
-        'InvestmentPitching': 1,
-        '1MinPitching': 2,
-        '3MinPitching': 3
+      const sortMembers = (key: keyof Member) => {
+        if (sortKey.value === key) {
+          sortAsc.value = !sortAsc.value;
+        } else {
+          sortKey.value = key;
+          sortAsc.value = true;
+        }
       };
-
 
       const sortIcon = (key: keyof Member) => {
         if (sortKey.value === key) {
@@ -457,42 +471,25 @@
         }
         return undefined;
       };
-      
 
-    //  * Resets the sorting to the original state (default order).
+      
+      //  * Resets the sorting to the original state (default order).
       const resetSorting = () => {
         sortKey.value = 'bookingDate';
         sortAsc.value = true;
       };
 
+      
+      //  * Computes the sorted members based on the current sortKey and sort order.
+      const sortedMembers = computed(() => {
+        if (!sortKey.value) return filteredMembers.value;
 
-      //  * Computes the sorted members based on the current sortKey and sort order.      const sortMembers = (key: keyof Member) => {
-      const sortMembers = (key: keyof Member) => {
-      if (sortKey.value === key) {
-        sortAsc.value = !sortAsc.value;
-      } else {
-        sortKey.value = key;
-        sortAsc.value = true;
-      }
-      searchMembers();
-    };
-
-    const sortedMembers = computed(() => {
-      return [...filteredMembers.value].sort((a, b) => {
-        if (sortKey.value === 'messageNo') {
-          return sortAsc.value
-            ? messageNoOrder[a.messageNo] - messageNoOrder[b.messageNo]
-            : messageNoOrder[b.messageNo] - messageNoOrder[a.messageNo];
-        } else if (sortKey.value) {
-          if (a[sortKey.value] < b[sortKey.value]) return sortAsc.value ? -1 : 1;
-          if (a[sortKey.value] > b[sortKey.value]) return sortAsc.value ? 1 : -1;
-        }
-        return 0;
+        return [...filteredMembers.value].sort((a, b) => {
+          if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
+          if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
+          return 0;
+        });
       });
-    });
-
-    // Set default sorting by bookingDate
-      resetSorting();
 
       const itemsPerPage = 20;
       const currentPage = ref(1);
@@ -535,23 +532,23 @@
         const csvContent = [
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
-            // Pitching Section
-            'Pitching Kind', 'messageDescription', 'replied', 'messagedDate', 'repliedDate', 'adminName', 'LookingFor Summery',
-            // Pitching Section
+            // Messaging section
+            'Message Title', 'Cost', 'SelectedConnections', 'Selected NonConnections', 'MessageOpened', 
+            // Messaging section
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
+            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen','adminName',
             
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
-            // Pitching section
-            member.messageNo, member.messageDescription, member.replied, member.messagedDate, member.repliedDate, member.adminName, member.viewReply, 
-            // Pitching section
+            // Messaging section
+            member.messageTitle, member.cost, member.selectedConnections, member.selectedNonConnections, 
+            // Messaging section
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
-            member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
+            member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen, member.adminName,
           ])
         ]
           .map(e => e.join(","))
@@ -614,15 +611,15 @@
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
 
-                    // Pitching section
-
-                    <th>Pitching Kind</th>
-                    <th>messageDescription</th>
-                    <th>replied</th>
-                    <th>messagedDate</th>
-                    <th>repliedDate</th>
-                    <th>adminName</th>
-                    <th>viewReply</th>
+                    // Messaging section
+                    <th>Message Title</th>
+                    <th>Cost</th>
+                    <th>SelectedConnections</th>
+                    <th>Selected NonConnections</th>
+                    <th>MessageOpened</th>
+                    <th>receiverSender</th>
+                    <th>groupMessaged</th>
+                    // Messaging section
 
                     <th>Age</th>
                     <th>Gender</th>
@@ -654,6 +651,8 @@
                     <th>Last Logged In</th>
                     <th>No Logged In</th>
                     <th>Full Profile Seen</th>
+                    <th>adminName</th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -667,14 +666,15 @@
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
-                      // Pitching section
-                      <td>${member.messageNo}</td>
-                      <td>${member.messageDescription}</td>
-                      <td>${member.replied}</td>
-                      <td>${member.messagedDate}</td>
-                      <td>${member.repliedDate}</td>
-                      <td>${member.adminName}</td>
-                      <td>${member.viewReply}</td>
+                      // Messaging section
+                      <td>${member.messageTitle}</td>
+                      <td>${member.cost}</td>
+                      <td>${member.selectedConnections}</td>
+                      <td>${member.selectedNonConnections}</td>
+                      <td>${member.messageOpened}</td>
+                      <td>${member.receiverSender}</td>
+                      <td>${member.groupMessaged}</td>
+                      // Messaging section
                       
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -706,13 +706,15 @@
                       <td>${member.lastLoggedIn}</td>
                       <td>${member.noLoggedIn}</td>
                       <td>${member.fullProfileSeen}</td>
+                      <td>${member.adminName}</td>
+
                     </tr>
                   `).join('')}
                   <tr class="TotalRow">
                     <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
-                    // Pitching section
+                    // Messaging section
                     <td></td>
                     <td></td>
                     <td></td>
@@ -751,6 +753,8 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+
                   </tr>
                 </tbody>
               </table>
@@ -845,7 +849,7 @@
 
 
 
-  <style scoped>
+<style scoped>
   .TitleP{
     display: center;
     text-align: center;
@@ -855,10 +859,10 @@
   .search {
     width: 100px;
   }
-  .messageNoCol {
+  .MessageTitleCol {
     Border-left: 2px red solid;
   }
-  .viewReplyCol {
+  .groupMessagedCol {
     Border-right: 2px red solid;
   }
   .topBorder {
@@ -949,6 +953,7 @@
   }
     .ActionCol {
       overflow-x: visible;
+      color: red;
     }
     .ActionCol ion-button {
       margin: 0;
