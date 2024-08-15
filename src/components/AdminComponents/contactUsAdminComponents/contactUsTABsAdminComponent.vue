@@ -7,8 +7,8 @@
         <IonSegmentButton class="btn" value="MembersSharePurchaseProfileDetailAdminComponent">Shares Purchase Offer</IonSegmentButton>
         
         
-        <IonSegmentButton class="btn" value="InvestmentApplication">Investment Application</IonSegmentButton>
-        <IonSegmentButton class="btn" value="Offers">Offers</IonSegmentButton>
+        <IonSegmentButton class="btn" value="InvestmentApplication">Members Messaging</IonSegmentButton>
+        <IonSegmentButton class="btn" value="Offers">Members Rewards</IonSegmentButton>
         <IonSegmentButton class="btn" value="Needs">Needs</IonSegmentButton>
         <IonSegmentButton class="btn" value="BestOffers">BestOffers</IonSegmentButton>
       </IonSegment>
