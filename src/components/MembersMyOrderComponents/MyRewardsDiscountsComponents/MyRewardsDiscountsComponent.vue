@@ -50,6 +50,9 @@
 
 
 <style scoped>
+  ion-grid {
+    width: 100%;
+  }
   .rewardLine {
     font-size: 17px;
     text-align: center;

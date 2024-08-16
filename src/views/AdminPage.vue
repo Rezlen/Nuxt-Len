@@ -122,7 +122,6 @@ ion-grid {
 
 .bordered-section {
   border: 1px solid #000;
-  background-color: lightgray;
   padding: 0;
   margin: 0;
   z-index: 1;

@@ -26,17 +26,17 @@
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
           <!--Reward Discount Section -->
-          <IonCol class="dateEarnedCol" @click="sortMembers('dateEarned')">dateEarned<IonIcon :icon="sortIcon('dateEarned')" class="sort-icon" /></IonCol>
-          <IonCol class="earnedDiscountRewardPercentageCol" @click="sortMembers('earnedearnedDiscountRewardPercentage')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('earnedearnedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
-          <IonCol class="actionsCol" @click="sortMembers('earnedFrom')">earnedFrom<IonIcon :icon="sortIcon('earnedFrom')" class="sort-icon" /></IonCol>
-          <IonCol class="numberOfActionsCol" @click="sortMembers('numberOfActions')">Number Of Earned From<IonIcon :icon="sortIcon('numberOfActions')" class="sort-icon" /></IonCol>
-          <IonCol class="discountRewardPercentageEarnedCol" @click="sortMembers('discountRewardPercentageEarned')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="dateEarnedCol topBorder" @click="sortMembers('dateEarned')">dateEarned<IonIcon :icon="sortIcon('dateEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol topBorder" @click="sortMembers('earnedearnedDiscountRewardPercentage')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('earnedearnedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
+          <IonCol class="actionsCol topBorder" @click="sortMembers('earnedFrom')">earnedFrom<IonIcon :icon="sortIcon('earnedFrom')" class="sort-icon" /></IonCol>
+          <IonCol class="numberOfActionsCol topBorder" @click="sortMembers('numberOfActions')">Number Of Earned From<IonIcon :icon="sortIcon('numberOfActions')" class="sort-icon" /></IonCol>
+          <IonCol class="discountRewardPercentageEarnedCol topBorder" @click="sortMembers('discountRewardPercentageEarned')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
           
-          <IonCol class="dateUsedCol" @click="sortMembers('dateUsed')">Date Used<IonIcon :icon="sortIcon('dateUsed')" class="sort-icon" /></IonCol>
-          <IonCol class="usedDiscountRewardPercentageCol" @click="sortMembers('usedDiscountRewardPercentage')">Discount Reward Percentage Used<IonIcon :icon="sortIcon('usedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
-          <IonCol class="usedForCol" @click="sortMembers('usedFor')">Used your Rewards Discount for:<IonIcon :icon="sortIcon('usedFor')" class="sort-icon" /></IonCol>
-          <IonCol class="priceCol" @click="sortMembers('price')">Price<IonIcon :icon="sortIcon('price')" class="sort-icon" /></IonCol>
-          <IonCol class="savedAmountCol" @click="sortMembers('savedAmount')">Saved Amount<IonIcon :icon="sortIcon('savedAmount')" class="sort-icon" /></IonCol>
+          <IonCol class="dateUsedCol topBorder" @click="sortMembers('dateUsed')">Date Used<IonIcon :icon="sortIcon('dateUsed')" class="sort-icon" /></IonCol>
+          <IonCol class="usedDiscountRewardPercentageCol topBorder" @click="sortMembers('usedDiscountRewardPercentage')">Discount Reward Percentage Used<IonIcon :icon="sortIcon('usedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
+          <IonCol class="usedForCol topBorder" @click="sortMembers('usedFor')">Used your Rewards Discount for:<IonIcon :icon="sortIcon('usedFor')" class="sort-icon" /></IonCol>
+          <IonCol class="priceCol topBorder" @click="sortMembers('price')">Price<IonIcon :icon="sortIcon('price')" class="sort-icon" /></IonCol>
+          <IonCol class="savedAmountCol topBorder" @click="sortMembers('savedAmount')">Saved Amount<IonIcon :icon="sortIcon('savedAmount')" class="sort-icon" /></IonCol>
           <!--Reward Discount Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
@@ -240,16 +240,16 @@
 
     // Message section -->
     dateEarned: string;
-    earnedearnedDiscountRewardPercentage: string;
+    earnedearnedDiscountRewardPercentage: number;
     earnedFrom: string;
     numberOfActions: number;
     discountRewardPercentageEarned: number;
 
-    dateUsed: '2023-01-01T12:00:00',
-    usedDiscountRewardPercentage: 'Tech Conference',
-    usedFor: 'Convention Center',
-    price: 150,
-    savedAmount: 500,   
+    dateUsed: string,
+    usedDiscountRewardPercentage: number,
+    usedFor: string,
+    price: number,
+    savedAmount: number,   
     // Reward Discount Section
 
 
@@ -302,14 +302,14 @@
 
           // Reward Discount Section
           dateEarned: '2023-01-01T12:00:00',
-          earnedearnedDiscountRewardPercentage: 'Tech Conference',
+          earnedearnedDiscountRewardPercentage: 332,
           earnedFrom: 'Convention Center',
           numberOfActions: 150,
           discountRewardPercentageEarned: 500,
 
           dateUsed: '2023-01-01T12:00:00',
-          usedDiscountRewardPercentage: 'Tech fdf Conference',
-          usedFor: 'Convention rfd Center',
+          usedDiscountRewardPercentage: 776,
+          usedFor: 'Convention Center',
           price: 15066,
           savedAmount: 5006,
           // Reward Discount Section
@@ -357,13 +357,13 @@
 
           // Reward Discount Section
           dateEarned: '2023-01-01T12:00:00',
-          earnedearnedDiscountRewardPercentage: 'Tech fdf Conference',
+          earnedearnedDiscountRewardPercentage: 21,
           earnedFrom: 'Convention rfd Center',
           numberOfActions: 15066,
           discountRewardPercentageEarned: 5006,
 
           dateUsed: '2023-01-01T12:00:00',
-          usedDiscountRewardPercentage: 'Tech Conference',
+          usedDiscountRewardPercentage: 232,
           usedFor: 'Convention Center',
           price: 150,
           savedAmount: 500,          
@@ -412,14 +412,14 @@
 
           // Reward Discount Section
           dateEarned: '2023-01-01T12:00:00',
-          earnedearnedDiscountRewardPercentage: 'Techeee Conference',
+          earnedearnedDiscountRewardPercentage: 221,
           earnedFrom: 'ee eee Convention Center',
           numberOfActions: 1503,
           discountRewardPercentageEarned: 5003,
 
           dateUsed: '2023-01-01T12:00:00',
-          usedDiscountRewardPercentage: 'Techeee Conference',
-          usedFor: 'e e     eee Convention Center',
+          usedDiscountRewardPercentage: 4321,
+          usedFor: 'ee eee Convention Center',
           price: 1503,
           savedAmount: 5003,         
           // Reward Discount Section
@@ -907,6 +907,7 @@
 
 
 <style scoped>
+
   .TitleP{
     display: center;
     text-align: center;
@@ -916,10 +917,11 @@
   .search {
     width: 100px;
   }
-  .MessageTitleCol {
+  .dateEarnedCol,
+  .dateUsedCol {
     Border-left: 2px red solid;
   }
-  .groupMessagedCol {
+  .savedAmountCol {
     Border-right: 2px red solid;
   }
   .topBorder {
