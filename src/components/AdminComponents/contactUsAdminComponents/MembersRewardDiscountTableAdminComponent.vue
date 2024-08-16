@@ -29,17 +29,17 @@
           <IonCol class="dateEarnedCol topBorder" @click="sortMembers('dateEarned')">DateEarned<IonIcon :icon="sortIcon('dateEarned')" class="sort-icon" /></IonCol>
           <IonCol class="earnedDiscountRewardPercentageCol topBorder" @click="sortMembers('earnedDiscountRewardPercentage')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('earnedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
           <IonCol class="actionsCol topBorder" @click="sortMembers('earnedFrom')">Earned From<IonIcon :icon="sortIcon('earnedFrom')" class="sort-icon" /></IonCol>
-          <IonCol class="numberOfActionsCol topBorder" @click="sortMembers('numberOfActions')">Number Of Earned From<IonIcon :icon="sortIcon('numberOfActions')" class="sort-icon" /></IonCol>
+          <IonCol class="numberOfActionsCol topBorder redColor" @click="sortMembers('numberOfActions')">Number Of Earned From<IonIcon :icon="sortIcon('numberOfActions')" class="sort-icon" /></IonCol>
           <IonCol class="discountRewardPercentageEarnedCol topBorder" @click="sortMembers('discountRewardPercentageEarned')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
-          <IonCol class="allDiscountRewardPercentageEarnedCol topBorder" @click="sortMembers('allDiscountRewardPercentageEarned')">Total D&R % Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
-          <IonCol class="remainingDiscountRewardPercentageEarnedCol topBorder" @click="sortMembers('remainingDiscountRewardPercentageEarned')">Remaining D&R % Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="allDiscountRewardPercentageEarnedCol topBorder redColor" @click="sortMembers('allDiscountRewardPercentageEarned')">Total D&R % Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="remainingDiscountRewardPercentageEarnedCol topBorder redColor" @click="sortMembers('remainingDiscountRewardPercentageEarned')">Remaining D&R % Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
           
           <IonCol class="dateUsedCol topBorder" @click="sortMembers('dateUsed')">Date Used<IonIcon :icon="sortIcon('dateUsed')" class="sort-icon" /></IonCol>
           <IonCol class="usedDiscountRewardPercentageCol topBorder" @click="sortMembers('usedDiscountRewardPercentage')">Discount Reward Percentage Used<IonIcon :icon="sortIcon('usedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
           <IonCol class="usedForCol topBorder" @click="sortMembers('usedFor')">Used For:<IonIcon :icon="sortIcon('usedFor')" class="sort-icon" /></IonCol>
           <IonCol class="priceCol topBorder" @click="sortMembers('price')">Price<IonIcon :icon="sortIcon('price')" class="sort-icon" /></IonCol>
-          <IonCol class="savedAmountCol topBorder" @click="sortMembers('savedAmount')">Saved Amount<IonIcon :icon="sortIcon('savedAmount')" class="sort-icon" /></IonCol>
-          <IonCol class="allSavedAmountCol topBorder" @click="sortMembers('allSavedAmount')">Saved Amount<IonIcon :icon="sortIcon('allSavedAmount')" class="sort-icon" /></IonCol>
+          <IonCol class="savedAmountCol topBorder redColor" @click="sortMembers('savedAmount')">Saved Amount<IonIcon :icon="sortIcon('savedAmount')" class="sort-icon" /></IonCol>
+          <IonCol class="allSavedAmountCol topBorder redColor" @click="sortMembers('allSavedAmount')">Total Saved Amount<IonIcon :icon="sortIcon('allSavedAmount')" class="sort-icon" /></IonCol>
           <!--Reward Discount Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
@@ -969,6 +969,9 @@
   }
   .topBorder {
     border-top: 2px solid red;
+  }
+  .redColor {
+    color: red;
   }
   /* .arrowBackCircle {
     position: fixed;
