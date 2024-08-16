@@ -8,7 +8,7 @@
         
         
         <IonSegmentButton class="btn" value="MembersMessagingTableAdminComponent">Members Messaging</IonSegmentButton>
-        <IonSegmentButton class="btn" value="Offers">Members Rewards</IonSegmentButton>
+        <IonSegmentButton class="btn" value="MembersRewardDiscountTableAdminComponent">Members Rewards</IonSegmentButton>
         <IonSegmentButton class="btn" value="Needs">Needs</IonSegmentButton>
         <IonSegmentButton class="btn" value="BestOffers">BestOffers</IonSegmentButton>
       </IonSegment>
@@ -31,7 +31,8 @@
 
 
       <!-- Offers Tab here ####################################-->
-      <IonCol v-show="selectedTab === 'Offers'" class="Offers">
+      <IonCol v-show="selectedTab === 'MembersRewardDiscountTableAdminComponent'" class="MembersRewardDiscountTableAdminComponent">
+        <MembersRewardDiscountTableAdminComponent />
       </IonCol>
       <!-- Needs Tab here ####################################-->
       <IonCol v-show="selectedTab === 'Needs'" class="Needs">
@@ -56,6 +57,7 @@ import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComp
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 import MembersSharePurchaseProfileDetailAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersSharePurchaseProfileDetailAdminComponent.vue';
 import MembersMessagingTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersMessagingTableAdminComponent.vue';
+import MembersRewardDiscountTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersRewardDiscountTableAdminComponent.vue';
 
 export default defineComponent({
   name: 'contactUsTABsAdminComponent',
@@ -73,6 +75,7 @@ export default defineComponent({
     MembersBestOfferDetailProfileDetailAdminComponent,
     MembersSharePurchaseProfileDetailAdminComponent,
     MembersMessagingTableAdminComponent,
+    MembersRewardDiscountTableAdminComponent,
 
   },
   setup() {
@@ -91,37 +94,37 @@ export default defineComponent({
 
 <style scoped>
 
-/* <!-- tabs style --> */
-.TabSegment {
-  display: flex;
-  flex-wrap: wrap; /* Allow segment buttons to wrap */
-}
+  /* <!-- tabs style --> */
+  .TabSegment {
+    display: flex;
+    flex-wrap: wrap; /* Allow segment buttons to wrap */
+  }
 
-.TabSegment .btn {
-  flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
-}
+  .TabSegment .btn {
+    flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
+  }
 
-.MembersMessagingTableAdminComponent,
-.MembersSharePurchaseProfileDetailAdminComponent,
-.membersContactedUsMessagesTableAdminComponent,
-.InvestorsProfile,
-.Offers,
-.Needs,
-.BestOffers {
-  background-color: #f9f9f9;
-  width: auto;
-}
-/* <!--  tabs style ends --> */
+  .MembersMessagingTableAdminComponent,
+  .MembersSharePurchaseProfileDetailAdminComponent,
+  .membersContactedUsMessagesTableAdminComponent,
+  .InvestorsProfile,
+  .Offers,
+  .Needs,
+  .BestOffers {
+    background-color: #f9f9f9;
+    width: auto;
+  }
+  /* <!--  tabs style ends --> */
 
-ion-grid{
-  height: 100%;
-  overflow-y: auto;
-  width: 100%;
-}
+  ion-grid{
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+  }
 
-.CenterPositions {
-  text-align: center;
-  justify-content: center;
-  font-weight: bold;
-}
+  .CenterPositions {
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+  }
 </style>

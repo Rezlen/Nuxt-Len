@@ -72,6 +72,7 @@ export default defineComponent({
     contactUsTABsAdminComponent,
     MembersSponsorshipPartnershipProfileDetailAdminComponent,
     MembersMembershipsProfileDetailAdminComponent,
+    
 
     FooterComponent,
   },

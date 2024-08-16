@@ -95,10 +95,12 @@ import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/componen
 import MembersMembershipsProfileDetailAdminComponent from '@/components/AdminComponents/AdminMembershipsComponents/MembersMembershipsProfileDetailAdminComponent.vue';
 // Admin Members Share Purchase components
 import MembersSharePurchaseProfileDetailAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersSharePurchaseProfileDetailAdminComponent.vue';
-// Admin Members Share Purchase components
+// Admin Members Messaging components
 import MembersMessagingTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersMessagingTableAdminComponent.vue';
+// Admin Members Reward Discount Purchase components
+import MembersRewardDiscountTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersRewardDiscountTableAdminComponent.vue';
 
-// User/Member Account Section Comps  membersMessagingTableAdminComponent
+// User/Member Account Section Comps  MembersRewardDiscountTableAdminComponent
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
 import MessagingComponent from '@/components/MessagingComponents/MessagingComponent.vue';
 import MembersMyOrderTABsComponent from '@/components/MembersMyOrderComponents/MembersMyOrderTABsComponent.vue';
@@ -522,7 +524,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MembersMessagingTableAdminComponent',
     component: MembersMessagingTableAdminComponent
   },
-  // User Account section membersMessagingTableAdminComponent
+  {
+    path: '/membersRewardDiscountTableAdminComponent',
+    name: 'MembersRewardDiscountTableAdminComponent',
+    component: MembersRewardDiscountTableAdminComponent
+  },
+  // User Account section MembersRewardDiscountTableAdminComponent
 
 {
     path: '/emailWebsiteNotificationComponent',

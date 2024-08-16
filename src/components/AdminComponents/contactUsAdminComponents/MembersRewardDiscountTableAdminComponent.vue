@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all messaging between the members</p>
+    <p class="TitleP">List of all members' Gained or Used Rewards/Discounts</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -269,7 +269,7 @@
   }
 
   export default defineComponent({
-    name: 'MembersMessagingTableAdminComponent',
+    name: 'MembersRewardDiscountTableAdminComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([
