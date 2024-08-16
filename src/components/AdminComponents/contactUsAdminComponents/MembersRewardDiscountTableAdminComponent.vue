@@ -26,17 +26,20 @@
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
           <!--Reward Discount Section -->
-          <IonCol class="dateEarnedCol topBorder" @click="sortMembers('dateEarned')">dateEarned<IonIcon :icon="sortIcon('dateEarned')" class="sort-icon" /></IonCol>
-          <IonCol class="earnedDiscountRewardPercentageCol topBorder" @click="sortMembers('earnedearnedDiscountRewardPercentage')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('earnedearnedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
-          <IonCol class="actionsCol topBorder" @click="sortMembers('earnedFrom')">earnedFrom<IonIcon :icon="sortIcon('earnedFrom')" class="sort-icon" /></IonCol>
+          <IonCol class="dateEarnedCol topBorder" @click="sortMembers('dateEarned')">DateEarned<IonIcon :icon="sortIcon('dateEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol topBorder" @click="sortMembers('earnedDiscountRewardPercentage')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('earnedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
+          <IonCol class="actionsCol topBorder" @click="sortMembers('earnedFrom')">Earned From<IonIcon :icon="sortIcon('earnedFrom')" class="sort-icon" /></IonCol>
           <IonCol class="numberOfActionsCol topBorder" @click="sortMembers('numberOfActions')">Number Of Earned From<IonIcon :icon="sortIcon('numberOfActions')" class="sort-icon" /></IonCol>
           <IonCol class="discountRewardPercentageEarnedCol topBorder" @click="sortMembers('discountRewardPercentageEarned')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="allDiscountRewardPercentageEarnedCol topBorder" @click="sortMembers('allDiscountRewardPercentageEarned')">Total D&R % Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="remainingDiscountRewardPercentageEarnedCol topBorder" @click="sortMembers('remainingDiscountRewardPercentageEarned')">Remaining D&R % Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
           
           <IonCol class="dateUsedCol topBorder" @click="sortMembers('dateUsed')">Date Used<IonIcon :icon="sortIcon('dateUsed')" class="sort-icon" /></IonCol>
           <IonCol class="usedDiscountRewardPercentageCol topBorder" @click="sortMembers('usedDiscountRewardPercentage')">Discount Reward Percentage Used<IonIcon :icon="sortIcon('usedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
-          <IonCol class="usedForCol topBorder" @click="sortMembers('usedFor')">Used your Rewards Discount for:<IonIcon :icon="sortIcon('usedFor')" class="sort-icon" /></IonCol>
+          <IonCol class="usedForCol topBorder" @click="sortMembers('usedFor')">Used For:<IonIcon :icon="sortIcon('usedFor')" class="sort-icon" /></IonCol>
           <IonCol class="priceCol topBorder" @click="sortMembers('price')">Price<IonIcon :icon="sortIcon('price')" class="sort-icon" /></IonCol>
           <IonCol class="savedAmountCol topBorder" @click="sortMembers('savedAmount')">Saved Amount<IonIcon :icon="sortIcon('savedAmount')" class="sort-icon" /></IonCol>
+          <IonCol class="allSavedAmountCol topBorder" @click="sortMembers('allSavedAmount')">Saved Amount<IonIcon :icon="sortIcon('allSavedAmount')" class="sort-icon" /></IonCol>
           <!--Reward Discount Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
@@ -84,16 +87,19 @@
 
           <!--Reward Discount Section -->
           <IonCol class="dateEarnedCol">{{ member.dateEarned }}</IonCol>
-          <IonCol class="earnedDiscountRewardPercentageCol">{{ member.earnedearnedDiscountRewardPercentage }}</IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol">{{ member.earnedDiscountRewardPercentage }}</IonCol>
           <IonCol class="actionsCol">{{ member.earnedFrom }}</IonCol>
           <IonCol class="numberOfActionsCol">{{ member.numberOfActions }}</IonCol>
           <IonCol class="discountRewardPercentageEarnedCol">{{ member.discountRewardPercentageEarned }}</IonCol>
+          <IonCol class="allDiscountRewardPercentageEarnedCol">{{ member.allDiscountRewardPercentageEarned }}</IonCol>
+          <IonCol class="remainingDiscountRewardPercentageEarnedCol">{{ member.remainingDiscountRewardPercentageEarned }}</IonCol>
 
           <IonCol class="dateUsedCol">{{ member.dateUsed }}</IonCol>
           <IonCol class="usedDiscountRewardPercentageCol">{{ member.usedDiscountRewardPercentage }}</IonCol>
           <IonCol class="usedForCol">{{ member.usedFor }}</IonCol>
           <IonCol class="priceCol">{{ member.price }}</IonCol>
-          <IonCol class="savedAmountCol">{{ member.savedAmount }}</IonCol>     
+          <IonCol class="savedAmountCol">{{ member.savedAmount }}</IonCol>   
+          <IonCol class="allSavedAmountCol">{{ member.allSavedAmount }}</IonCol>     
           <!--Reward Discount Section -->
         
 
@@ -152,12 +158,15 @@
           <IonCol class="actionsCol"></IonCol>
           <IonCol class="numberOfActionsCol">{{ totalnumberOfActions }}</IonCol>
           <IonCol class="discountRewardPercentageEarnedCol">{{ totaldiscountRewardPercentageEarned }}</IonCol>
+          <IonCol class="allDiscountRewardPercentageEarnedCol">{{ totalallDiscountRewardPercentageEarned }}</IonCol>
+          <IonCol class="remainingDiscountRewardPercentageEarnedCol">{{ totalremainingDiscountRewardPercentageEarned }}</IonCol>
 
           <IonCol class="dateUsedCol"></IonCol>
           <IonCol class="usedDiscountRewardPercentageCol"></IonCol>
           <IonCol class="usedForCol"></IonCol>
           <IonCol class="priceCol">{{ totalprice }}</IonCol>
-          <IonCol class="savedAmountCol">{{ totalsavedAmount }}</IonCol>         
+          <IonCol class="savedAmountCol">{{ totalsavedAmount }}</IonCol>   
+          <IonCol class="allSavedAmountCol">{{ totalallSavedAmount }}</IonCol>         
           <!-- Reward Discount Section -->
 
           <IonCol class="AgeCol"></IonCol>
@@ -240,16 +249,20 @@
 
     // Message section -->
     dateEarned: string;
-    earnedearnedDiscountRewardPercentage: number;
+    earnedDiscountRewardPercentage: number;
     earnedFrom: string;
     numberOfActions: number;
     discountRewardPercentageEarned: number;
+    allDiscountRewardPercentageEarned: number;
+    remainingDiscountRewardPercentageEarned: number;
+
 
     dateUsed: string,
     usedDiscountRewardPercentage: number,
     usedFor: string,
     price: number,
     savedAmount: number,   
+    allSavedAmount: number,   
     // Reward Discount Section
 
 
@@ -302,16 +315,20 @@
 
           // Reward Discount Section
           dateEarned: '2023-01-01T12:00:00',
-          earnedearnedDiscountRewardPercentage: 332,
+          earnedDiscountRewardPercentage: 332,
           earnedFrom: 'Convention Center',
           numberOfActions: 150,
           discountRewardPercentageEarned: 500,
+          allDiscountRewardPercentageEarned: 500,
+          remainingDiscountRewardPercentageEarned: 500,
+
 
           dateUsed: '2023-01-01T12:00:00',
           usedDiscountRewardPercentage: 776,
           usedFor: 'Convention Center',
           price: 15066,
           savedAmount: 5006,
+          allSavedAmount: 5006,
           // Reward Discount Section
 
           age: 30,
@@ -357,16 +374,20 @@
 
           // Reward Discount Section
           dateEarned: '2023-01-01T12:00:00',
-          earnedearnedDiscountRewardPercentage: 21,
+          earnedDiscountRewardPercentage: 21,
           earnedFrom: 'Convention rfd Center',
           numberOfActions: 15066,
           discountRewardPercentageEarned: 5006,
+          allDiscountRewardPercentageEarned: 5006,
+          remainingDiscountRewardPercentageEarned: 5006,
+
 
           dateUsed: '2023-01-01T12:00:00',
           usedDiscountRewardPercentage: 232,
           usedFor: 'Convention Center',
           price: 150,
-          savedAmount: 500,          
+          savedAmount: 500, 
+          allSavedAmount: 500,          
           // Reward Discount Section
 
           age: 30,
@@ -412,16 +433,20 @@
 
           // Reward Discount Section
           dateEarned: '2023-01-01T12:00:00',
-          earnedearnedDiscountRewardPercentage: 221,
+          earnedDiscountRewardPercentage: 221,
           earnedFrom: 'ee eee Convention Center',
           numberOfActions: 1503,
           discountRewardPercentageEarned: 5003,
+          allDiscountRewardPercentageEarned: 5003,
+          remainingDiscountRewardPercentageEarned: 5003,
+
 
           dateUsed: '2023-01-01T12:00:00',
           usedDiscountRewardPercentage: 4321,
           usedFor: 'ee eee Convention Center',
           price: 1503,
-          savedAmount: 5003,         
+          savedAmount: 5003,        
+          allSavedAmount: 5003,         
           // Reward Discount Section
 
           age: 30,
@@ -537,9 +562,12 @@
       // Reward Discount section
       const totalnumberOfActions = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.numberOfActions, 0));
       const totaldiscountRewardPercentageEarned = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.discountRewardPercentageEarned, 0));
+      const totalallDiscountRewardPercentageEarned = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.allDiscountRewardPercentageEarned, 0));
+      const totalremainingDiscountRewardPercentageEarned = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.remainingDiscountRewardPercentageEarned, 0));
 
       const totalprice = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.price, 0));
       const totalsavedAmount = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.savedAmount, 0));  
+      const totalallSavedAmount = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.allSavedAmount, 0));  
       // Reward Discount section
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
@@ -568,9 +596,9 @@
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
             // Reward Discount Section
-            'dateEarned', 'earnedearnedDiscountRewardPercentage', 'earnedFrom', 'numberOfActions', 'discountRewardPercentageEarned',
+            'dateEarned', 'earnedDiscountRewardPercentage', 'earnedFrom', 'numberOfActions', 'discountRewardPercentageEarned','allDiscountRewardPercentageEarned', 'remainingDiscountRewardPercentageEarned',
 
-            'dateUsed', 'usedDiscountRewardPercentage', 'usedFor', 'price', 'savedAmount',
+            'dateUsed', 'usedDiscountRewardPercentage', 'usedFor', 'price', 'savedAmount','allSavedAmount',
             // Reward Discount Section
 
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
@@ -581,9 +609,9 @@
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
             // Reward Discount Section
-            member.dateEarned, member.earnedearnedDiscountRewardPercentage, member.earnedFrom,  member.numberOfActions, member.discountRewardPercentageEarned, 
+            member.dateEarned, member.earnedDiscountRewardPercentage, member.earnedFrom,  member.numberOfActions, member.discountRewardPercentageEarned, member.allDiscountRewardPercentageEarned, member.remainingDiscountRewardPercentageEarned,
 
-            member.dateUsed, member.usedDiscountRewardPercentage, member.usedFor, member.price, member.savedAmount,
+            member.dateUsed, member.usedDiscountRewardPercentage, member.usedFor, member.price, member.savedAmount, member.allSavedAmount,
             // Reward Discount Section
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
@@ -653,16 +681,22 @@
 
                     // Reward Discount Section
                     <th>dateEarned</th>
-                    <th>earnedearnedDiscountRewardPercentage</th>
+                    <th>earnedDiscountRewardPercentage</th>
                     <th>earnedFrom</th>
                     <th>numberOfActions</th>
                     <th>discountRewardPercentageEarned</th>
+                    <th>allDiscountRewardPercentageEarned</th>
+                    <th>remainingDiscountRewardPercentageEarned</th>
+
+
 
                     <th>dateUsed</th>
                     <th>usedDiscountRewardPercentage</th>
                     <th>usedFor</th>
                     <th>price</th>
                     <th>savedAmount</th>
+                    <th>allSavedAmount</th>
+
                     // Reward Discount Section
 
                     <th>Age</th>
@@ -711,16 +745,20 @@
 
                       // Reward Discount Section
                       <td>${member.dateEarned}</td>
-                      <td>${member.earnedearnedDiscountRewardPercentage}</td>
+                      <td>${member.earnedDiscountRewardPercentage}</td>
                       <td>${member.earnedFrom}</td>
                       <td>${member.numberOfActions}</td>
                       <td>${member.discountRewardPercentageEarned}</td>
+                      <td>${member.allDiscountRewardPercentageEarned}</td>
+                      <td>${member.remainingDiscountRewardPercentageEarned}</td>
+
 
                       <td>${member.dateUsed}</td>
                       <td>${member.usedDiscountRewardPercentage}</td>
                       <td>${member.usedFor}</td>
                       <td>${member.price}</td>
-                      <td>${member.savedAmount}</td>                    
+                      <td>${member.savedAmount}</td>   
+                      <td>${member.allSavedAmount}</td>                    
                       // Reward Discount Section
                       
                       <td>${member.age}</td>
@@ -764,15 +802,16 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>${totalnumberOfActions.value}</td>
+                    <td>${totaldiscountRewardPercentageEarned.value}</td>
+                    <td>${totalallDiscountRewardPercentageEarned.value}</td>
+                    <td>${totalremainingDiscountRewardPercentageEarned}</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td>${totalprice.value}</td>
                     <td>${totalsavedAmount.value}</td>
+                    <td>${totalallSavedAmount.value}</td>
                     // Reward Discount Section
 
                     <td></td>
@@ -873,9 +912,13 @@
         // Reward Discount Section
         totalnumberOfActions,
         totaldiscountRewardPercentageEarned,
+        totalallDiscountRewardPercentageEarned,
+        totalremainingDiscountRewardPercentageEarned,
+
 
         totalprice,
         totalsavedAmount,
+        totalallSavedAmount,
         // Reward Discount Section
 
         totalMembershipSpent,
@@ -921,7 +964,7 @@
   .dateUsedCol {
     Border-left: 2px red solid;
   }
-  .savedAmountCol {
+  .allSavedAmountCol {
     Border-right: 2px red solid;
   }
   .topBorder {
@@ -941,16 +984,16 @@
     height: 50px;
     align-items: top;
     text-align: top;
-    }
-    .NONscrollingRow {
-      overflow-x: auto;
-      /* border: 4px solid rgb(26, 185, 18); */
-    }
-    .scrollingRow {
-      min-width: 5000px;
-      /* border: 1px solid red; */
-      flex-direction: column;
-    }
+  }
+  .NONscrollingRow {
+    overflow-x: auto;
+    /* border: 4px solid rgb(26, 185, 18); */
+  }
+  .scrollingRow {
+    min-width: 5500px;
+    /* border: 1px solid red; */
+    flex-direction: column;
+  }
 
   .DataRow {
     cursor: pointer;
@@ -1010,14 +1053,14 @@
     --max-width: 90vw; /* Adjust max-width as needed */
     --max-height: 90vh; /* Adjust max-height as needed */
   }
-    .ActionCol {
-      overflow-x: visible;
-      color: red;
-    }
-    .ActionCol ion-button {
-      margin: 0;
-      padding: 0;
-    }
+  .ActionCol {
+    overflow-x: visible;
+    color: red;
+  }
+  .ActionCol ion-button {
+    margin: 0;
+    padding: 0;
+  }
   .PageInfo {
     display: flex;
     justify-content: center;
