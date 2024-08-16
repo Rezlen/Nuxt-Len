@@ -5,7 +5,7 @@
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
       <IonButton @click="printTable">PRINT</IonButton>
-      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchEvents"></IonInput>
+      <IonInput class="search" v-model="searchQuery" placeholder="Search..." @input="searchMembers"></IonInput>
 
       <IonButton class="arrowBackCircle" fill="clear" title="BackToLeft" @click="scrollToLeft"> 
         <IonIcon slot="icon-only" size="large" :icon="arrowBackCircle"></IonIcon>
@@ -18,34 +18,34 @@
       <IonRow class="scrollingRow" ref="scrollableContainer">
 
         <IonRow class="TitleRow"  >
-          <IonCol class="EventIDCol" @click="sortEvents('eventId')"> ID/No.<IonIcon :icon="sortIcon('eventId')" class="sort-icon" /></IonCol>
-          <IonCol class="dateCol" @click="sortEvents('date')">Date<IonIcon :icon="sortIcon('date')" class="sort-icon" /></IonCol>
-          <IonCol class="discountRewardPercentageCol" @click="sortEvents('discountRewardPercentage')">Discount Reward Percentage Gained<IonIcon :icon="sortIcon('discountRewardPercentage')" class="sort-icon" /></IonCol>
-          <IonCol class="actionsCol" @click="sortEvents('actions')">Actions<IonIcon :icon="sortIcon('actions')" class="sort-icon" /></IonCol>
-          <IonCol class="numberOfActionsCol" @click="sortEvents('numberOfActions')">Number Of Actions<IonIcon :icon="sortIcon('numberOfActions')" class="sort-icon" /></IonCol>
-          <IonCol class="discountRewardPercentageGainedCol" @click="sortEvents('discountRewardPercentageGained')">Discount Reward Percentage Gained<IonIcon :icon="sortIcon('discountRewardPercentageGained')" class="sort-icon" /></IonCol>
+          <IonCol class="earnedEventIdCol" @click="sortMembers('earnedEventId')"> Earned EventId<IonIcon :icon="sortIcon('earnedEventId')" class="sort-icon" /></IonCol>
+          <IonCol class="dateEarnedCol" @click="sortMembers('dateEarned')">Date Earned<IonIcon :icon="sortIcon('dateEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol" @click="sortMembers('earnedDiscountRewardPercentage')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('earnedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
+          <IonCol class="actionsCol" @click="sortMembers('earnedFrom')">Rewards/Discount Earned from:<IonIcon :icon="sortIcon('earnedFrom')" class="sort-icon" /></IonCol>
+          <IonCol class="numberOfActionsCol" @click="sortMembers('numberOfActions')">Number Of Earned From<IonIcon :icon="sortIcon('numberOfActions')" class="sort-icon" /></IonCol>
+          <IonCol class="discountRewardPercentageEarnedCol" @click="sortMembers('discountRewardPercentageEarned')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
           
         </IonRow>
 
         <!-- Data rows -->
-        <IonRow  v-for="event in paginatedEvents" :key="event.eventId" class="DataRow" :class="{ selected: selectedRow === event.eventId }" @click="selectRow(event.eventId)" >        
-          <IonCol class="EventIDCol">{{ event.eventId }}</IonCol>
-          <IonCol class="dateCol">{{ event.date }}</IonCol>
-          <IonCol class="discountRewardPercentageCol">{{ event.discountRewardPercentage }}</IonCol>
-          <IonCol class="actionsCol">{{ event.actions }}</IonCol>
-          <IonCol class="numberOfActionsCol">{{ event.numberOfActions }}</IonCol>
-          <IonCol class="discountRewardPercentageGainedCol">{{ event.discountRewardPercentageGained }}</IonCol>
+        <IonRow  v-for="member in paginatedMembers" :key="member.earnedEventId" class="DataRow" :class="{ selected: selectedRow === member.earnedEventId }" @click="selectRow(member.earnedEventId)" >        
+          <IonCol class="earnedEventIdCol">{{ member.earnedEventId }}</IonCol>
+          <IonCol class="dateEarnedCol">{{ member.dateEarned }}</IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol">{{ member.earnedDiscountRewardPercentage }}</IonCol>
+          <IonCol class="actionsCol">{{ member.earnedFrom }}</IonCol>
+          <IonCol class="numberOfActionsCol">{{ member.numberOfActions }}</IonCol>
+          <IonCol class="discountRewardPercentageEarnedCol">{{ member.discountRewardPercentageEarned }}</IonCol>
 
         </IonRow>
 
         <!-- Total row -->
         <IonRow class="TotalRow"> 
-          <IonCol class="EventIDCol">Totals:</IonCol>
-          <IonCol class="dateCol"></IonCol>
-          <IonCol class="discountRewardPercentageCol"></IonCol>
+          <IonCol class="earnedEventIdCol">Totals:</IonCol>
+          <IonCol class="dateEarnedCol"></IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol"></IonCol>
           <IonCol class="actionsCol"></IonCol>
           <IonCol class="numberOfActionsCol">{{ totalnumberOfActions }}</IonCol>
-          <IonCol class="discountRewardPercentageGainedCol">{{ totaldiscountRewardPercentageGained }}</IonCol>
+          <IonCol class="discountRewardPercentageEarnedCol">{{ totaldiscountRewardPercentageEarned }}</IonCol>
 
         </IonRow>
       </IonRow>
@@ -72,13 +72,13 @@ import { defineComponent, ref, computed, watch  } from 'vue';
 import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonCheckbox } from '@ionic/vue';
 import { close, arrowDownOutline, arrowUpOutline, create, trash, duplicate, ban, arrowBackCircle } from 'ionicons/icons';
 
-interface Event {
-  eventId: number;
-  date: string;
-  discountRewardPercentage: string;
-  actions: string;
+interface Member {
+  earnedEventId: number;
+  dateEarned: string;
+  earnedDiscountRewardPercentage: string;
+  earnedFrom: string;
   numberOfActions: number;
-  discountRewardPercentageGained: number;
+  discountRewardPercentageEarned: number;
 
 }
 
@@ -86,32 +86,32 @@ export default defineComponent({
   name: 'MyRewardsDiscountsEarnedTableComponent',
   components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonCheckbox },
   setup() {
-    const events = ref<Event[]>([
+    const members = ref<Member[]>([
       {
-        eventId: 3,
-        date: '2023-01-01T12:00:00',
-        discountRewardPercentage: 'Tech Conference',
-        actions: 'Convention Center',
+        earnedEventId: 3,
+        dateEarned: '2023-01-01T12:00:00',
+        earnedDiscountRewardPercentage: 'Tech Conference',
+        earnedFrom: 'Convention Center',
         numberOfActions: 150,
-        discountRewardPercentageGained: 500,
+        discountRewardPercentageEarned: 500,
 
       },
       {
-        eventId: 2,
-        date: '2023-01-01T12:00:00',
-        discountRewardPercentage: 'Tech fdf Conference',
-        actions: 'Convention rfd Center',
+        earnedEventId: 2,
+        dateEarned: '2023-01-01T12:00:00',
+        earnedDiscountRewardPercentage: 'Tech fdf Conference',
+        earnedFrom: 'Convention rfd Center',
         numberOfActions: 15066,
-        discountRewardPercentageGained: 5006,
+        discountRewardPercentageEarned: 5006,
 
       },
       {
-        eventId: 1,
-        date: '2023-01-01T12:00:00',
-        discountRewardPercentage: 'Techeee Conference',
-        actions: 'e e     eee Convention Center',
+        earnedEventId: 1,
+        dateEarned: '2023-01-01T12:00:00',
+        earnedDiscountRewardPercentage: 'Techeee Conference',
+        earnedFrom: 'e e     eee Convention Center',
         numberOfActions: 1503,
-        discountRewardPercentageGained: 5003,
+        discountRewardPercentageEarned: 5003,
 
       },
         // Add more members as necessary
@@ -124,16 +124,16 @@ export default defineComponent({
       checkbox1: false,
     });
 
-    const sortKey = ref<keyof Event | null>(null);
+    const sortKey = ref<keyof Member | null>(null);
     const sortAsc = ref(true);
        // making the selected row distinguishable
     const selectedRow = ref<number | null>(null);
     // Search Filed
     const searchQuery = ref<string>('');
-    const filteredEvents = ref(events.value);
+    const filteredMembers = ref(members.value);
 
     /**
-     * Sorts the events based on the provided key. 
+     * Sorts the members based on the provided key. 
      * If the key is the same as the current sortKey, it toggles the sort order.
      * Otherwise, it sets the new key and sorts in ascending order.
      * 
@@ -154,7 +154,7 @@ export default defineComponent({
 
 
 
-      const sortIcon = (key: keyof Event) => {
+      const sortIcon = (key: keyof Member) => {
         if (sortKey.value === key) {
           return sortAsc.value ? arrowUpOutline : arrowDownOutline;
         }
@@ -168,20 +168,20 @@ export default defineComponent({
       sortAsc.value = true;
     };
 
-    //  * Computes the sorted events based on the current sortKey and sort order.
-    const sortEvents = (key: keyof Event) => {
+    //  * Computes the sorted members based on the current sortKey and sort order.
+    const sortMembers = (key: keyof Member) => {
       if (sortKey.value === key) {
         sortAsc.value = !sortAsc.value;
       } else {
         sortKey.value = key;
         sortAsc.value = true;
         }
-      searchEvents();
+      searchMembers();
     };
-      const sortedEvents = computed(() => {
-        if (!sortKey.value) return filteredEvents.value;
+      const sortedMembers = computed(() => {
+        if (!sortKey.value) return filteredMembers.value;
 
-        return [...filteredEvents.value].sort((a, b) => {
+        return [...filteredMembers.value].sort((a, b) => {
           if (a[sortKey.value!] < b[sortKey.value!]) return sortAsc.value ? -1 : 1;
           if (a[sortKey.value!] > b[sortKey.value!]) return sortAsc.value ? 1 : -1;
           return 0;
@@ -191,18 +191,18 @@ export default defineComponent({
     const itemsPerPage = 20;
     const currentPage = ref(1);
 
-    //  * Computes the paginated events for the current page.
-      const paginatedEvents = computed(() => {
+    //  * Computes the paginated members for the current page.
+      const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
-        return sortedEvents.value.slice(start, start + itemsPerPage);
+        return sortedMembers.value.slice(start, start + itemsPerPage);
       });
 
-    //  * Computes the total number of pages based on the number of events and items per page.
-    const totalPages = computed(() => Math.ceil(filteredEvents.value.length / itemsPerPage));
+    //  * Computes the total number of pages based on the number of members and items per page.
+    const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
-    //  * Computes the total price of all events.
-    const totalnumberOfActions = computed(() => filteredEvents.value.reduce((sum, event) => sum + event.numberOfActions, 0));
-    const totaldiscountRewardPercentageGained = computed(() => filteredEvents.value.reduce((sum, event) => sum + event.discountRewardPercentageGained, 0));
+    //  * Computes the total price of all members.
+    const totalnumberOfActions = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.numberOfActions, 0));
+    const totaldiscountRewardPercentageEarned = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.discountRewardPercentageEarned, 0));
 
 
     //  * Navigates to the previous page, if possible.
@@ -222,12 +222,12 @@ export default defineComponent({
     //  * Exports the table data to a CSV file.
     const exportTable = () => {
       const csvContent = [
-        ['Event ID', 'date', 'discountRewardPercentage', 'actions', 'numberOfActions', 'discountRewardPercentageGained', 'Exhibitors', 'spentOnLEN',
+        ['Event ID', 'dateEarned', 'earnedDiscountRewardPercentage', 'earnedFrom', 'numberOfActions', 'discountRewardPercentageEarned', 'Exhibitors', 'spentOnLEN',
       '1MinPitchers', '3MinPitchers', 'Investment Pitchers', 'Investors', 'Biz Mentors', 'yourEarnedCommission'
     ],
-        ...paginatedEvents.value.map(event => [
-          event.eventId, event.date, event.discountRewardPercentage, event.actions,
-      event.numberOfActions, event.discountRewardPercentageGained, 
+        ...paginatedMembers.value.map(member => [
+          member.earnedEventId, member.dateEarned, member.earnedDiscountRewardPercentage, member.earnedFrom,
+      member.numberOfActions, member.discountRewardPercentageEarned, 
         ])
       ]
         .map(e => e.join(","))
@@ -236,7 +236,7 @@ export default defineComponent({
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = 'EventsList.csv';
+        link.download = 'MembersList.csv';
         link.click();
       };
 
@@ -271,7 +271,7 @@ export default defineComponent({
               .even-row {
                 background-color: #bceea5;
               }
-              .even-row .discountRewardPercentageCol {
+              .even-row .earnedDiscountRewardPercentageCol {
                 background-color: aquamarine;
               }
               .TotalRow {
@@ -284,23 +284,23 @@ export default defineComponent({
               <thead>
                 <tr>
                   <th>Event ID</th>
-                  <th>date</th>
-                  <th>discountRewardPercentage</th>
-                  <th>actions</th>
+                  <th>dateEarned</th>
+                  <th>earnedDiscountRewardPercentage</th>
+                  <th>earnedFrom</th>
                   <th>numberOfActions</th>
-                  <th>discountRewardPercentageGained</th>
+                  <th>discountRewardPercentageEarned</th>
 
                 </tr>
               </thead>
               <tbody>
-                ${paginatedEvents.value.map((event, index) => `
+                ${paginatedMembers.value.map((member, index) => `
                   <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
-                    <td>${event.eventId}</td>
-                    <td>${event.date}</td>
-                    <td>${event.discountRewardPercentage}</td>
-                    <td>${event.actions}</td>
-                    <td>${event.numberOfActions}</td>
-                    <td>${event.discountRewardPercentageGained}</td>
+                    <td>${member.earnedEventId}</td>
+                    <td>${member.dateEarned}</td>
+                    <td>${member.earnedDiscountRewardPercentage}</td>
+                    <td>${member.earnedFrom}</td>
+                    <td>${member.numberOfActions}</td>
+                    <td>${member.discountRewardPercentageEarned}</td>
 
                   </tr>
                 `).join('')}
@@ -311,7 +311,7 @@ export default defineComponent({
                     <td></td>
                     <td></td>
                     <td>${totalnumberOfActions.value}</td>
-                    <td>${totaldiscountRewardPercentageGained.value}</td>
+                    <td>${totaldiscountRewardPercentageEarned.value}</td>
 
                     <td></td>
                   </tr>
@@ -335,34 +335,34 @@ export default defineComponent({
     };
 
         // Search Function
-    const searchEvents = () => {
+    const searchMembers = () => {
       if (searchQuery.value.trim() === '') {
-        filteredEvents.value = events.value;
+        filteredMembers.value = members.value;
       } else {
         const query = searchQuery.value.trim().toLowerCase();
-        filteredEvents.value = events.value.filter(event => 
-          Object.values(event).some(val => 
+        filteredMembers.value = members.value.filter(member => 
+          Object.values(member).some(val => 
             val.toString().toLowerCase().includes(query)
           )
         );
       }
     };
 
-    watch(searchQuery, searchEvents);
+    watch(searchQuery, searchMembers);
 
     return {
-      events,
+      members,
       sortKey,
       sortAsc,
       close,
-      paginatedEvents,
-      sortEvents,
+      paginatedMembers,
+      sortMembers,
       sortIcon,
       resetSorting,
       exportTable,
       printTable,
       totalnumberOfActions,
-      totaldiscountRewardPercentageGained,
+      totaldiscountRewardPercentageEarned,
 
       currentPage,
       totalPages,
@@ -371,7 +371,7 @@ export default defineComponent({
       selectedRow,
       selectRow,
       searchQuery,
-      searchEvents,
+      searchMembers,
       create,
       trash,
       duplicate,
@@ -389,6 +389,10 @@ export default defineComponent({
 
 
 <style scoped>
+
+  ion-grid {
+    width: 100%;
+  }
   .tableTitle {
     text-align: center;
     font-weight: bold;
@@ -443,14 +447,14 @@ export default defineComponent({
     text-align: center; /* Center align for better presentation */
   }
 
-  .EventIDCol {
+  .earnedEventIdCol {
     background-color: red;
     max-width: 70px;
   }
-  .dateCol {
+  .dateEarnedCol {
     max-width: 150px;
   }
-  .discountRewardPercentageCol {
+  .earnedDiscountRewardPercentageCol {
     max-width: 100px;
   }
   .actionsCol {
@@ -459,7 +463,7 @@ export default defineComponent({
   .numberOfActionsCol {
     max-width: 150px;
   }
-  .discountRewardPercentageGainedCol {
+  .discountRewardPercentageEarnedCol {
     max-width: 150px;
   }
 
@@ -487,13 +491,6 @@ export default defineComponent({
   }
 
   @media (max-width: 600px) {
-    .arrowBackCircle {
-      position: fixed;
-      top: 55;
-      left: 0;
-      right: 0;
-      z-index: 1;
-    }
     .scrollingRow {
       min-width: 1150px;
     }

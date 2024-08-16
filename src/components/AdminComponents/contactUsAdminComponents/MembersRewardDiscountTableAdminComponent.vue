@@ -1,6 +1,7 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all members' Gained or Used Rewards/Discounts</p>
+
+    <p class="TitleP">List of all members' Earned or Used Rewards/Discounts</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -24,15 +25,19 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-          <!--Messaging section -->
-          <IonCol class="MessageTitleCol topBorder" @click="sortMembers('messageTitle')">Email/Message Title <IonIcon :icon="sortIcon('messageTitle')" class="sort-icon" /></IonCol>
-          <IonCol class="CostCol topBorder" @click="sortMembers('cost')">Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
-          <IonCol class="SelectedConnectionsCol topBorder" @click="sortMembers('selectedConnections')">Selected Connections <IonIcon :icon="sortIcon('selectedConnections')" class="sort-icon" /></IonCol>
-          <IonCol class="SelectedNonConnectionsCol topBorder" @click="sortMembers('selectedNonConnections')">Selected Non Connections <IonIcon :icon="sortIcon('selectedNonConnections')" class="sort-icon" /></IonCol>
-          <IonCol class="MessageOpenedCol topBorder" @click="sortMembers('messageOpened')">Message Opened/Seen <IonIcon :icon="sortIcon('messageOpened')" class="sort-icon" /></IonCol>
-          <IonCol class="receiverSenderCol topBorder" @click="sortMembers('receiverSender')">Receiver Sender <IonIcon :icon="sortIcon('receiverSender')" class="sort-icon" /></IonCol>
-          <IonCol class="groupMessagedCol topBorder" @click="sortMembers('groupMessaged')">Group Messaged <IonIcon :icon="sortIcon('groupMessaged')" class="sort-icon" /></IonCol>
-          <!--Messaging section -->
+          <!--Reward Discount Section -->
+          <IonCol class="dateEarnedCol" @click="sortMembers('dateEarned')">dateEarned<IonIcon :icon="sortIcon('dateEarned')" class="sort-icon" /></IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol" @click="sortMembers('earnedearnedDiscountRewardPercentage')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('earnedearnedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
+          <IonCol class="actionsCol" @click="sortMembers('earnedFrom')">earnedFrom<IonIcon :icon="sortIcon('earnedFrom')" class="sort-icon" /></IonCol>
+          <IonCol class="numberOfActionsCol" @click="sortMembers('numberOfActions')">Number Of Earned From<IonIcon :icon="sortIcon('numberOfActions')" class="sort-icon" /></IonCol>
+          <IonCol class="discountRewardPercentageEarnedCol" @click="sortMembers('discountRewardPercentageEarned')">Discount Reward Percentage Earned<IonIcon :icon="sortIcon('discountRewardPercentageEarned')" class="sort-icon" /></IonCol>
+          
+          <IonCol class="dateUsedCol" @click="sortMembers('dateUsed')">Date Used<IonIcon :icon="sortIcon('dateUsed')" class="sort-icon" /></IonCol>
+          <IonCol class="usedDiscountRewardPercentageCol" @click="sortMembers('usedDiscountRewardPercentage')">Discount Reward Percentage Used<IonIcon :icon="sortIcon('usedDiscountRewardPercentage')" class="sort-icon" /></IonCol>
+          <IonCol class="usedForCol" @click="sortMembers('usedFor')">Used your Rewards Discount for:<IonIcon :icon="sortIcon('usedFor')" class="sort-icon" /></IonCol>
+          <IonCol class="priceCol" @click="sortMembers('price')">Price<IonIcon :icon="sortIcon('price')" class="sort-icon" /></IonCol>
+          <IonCol class="savedAmountCol" @click="sortMembers('savedAmount')">Saved Amount<IonIcon :icon="sortIcon('savedAmount')" class="sort-icon" /></IonCol>
+          <!--Reward Discount Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -64,7 +69,6 @@
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="NoLoggedInCol" @click="sortMembers('noLoggedIn')">NoOf LoggedIn <IonIcon :icon="sortIcon('noLoggedIn')" class="sort-icon" /></IonCol>
           <IonCol class="FullProfileSeenCol" @click="sortMembers('fullProfileSeen')">FullProfile Seen <IonIcon :icon="sortIcon('fullProfileSeen')" class="sort-icon" /></IonCol>
-          <IonCol class="adminNameCol" @click="sortMembers('adminName')">Admin Name <IonIcon :icon="sortIcon('adminName')" class="sort-icon" /></IonCol>
           <IonCol class="ActionCol">View Remove Edit Ban-Delete after 5 yrs</IonCol>
         </IonRow>
 
@@ -78,15 +82,19 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!--Messaging section -->
-          <IonCol class="MessageTitleCol">{{ member.messageTitle }}</IonCol>
-          <IonCol class="CostCol">{{ member.cost }}</IonCol>
-          <IonCol class="SelectedConnectionsCol">{{ member.selectedConnections }}</IonCol>
-          <IonCol class="SelectedNonConnectionsCol">{{ member.selectedNonConnections }}</IonCol>
-          <IonCol class="MessageOpenedCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-          <IonCol class="receiverSenderCol">{{ member.receiverSender }}</IonCol>
-          <IonCol class="groupMessagedCol">{{ member.groupMessaged }}</IonCol>
-          <!--Messaging section -->
+          <!--Reward Discount Section -->
+          <IonCol class="dateEarnedCol">{{ member.dateEarned }}</IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol">{{ member.earnedearnedDiscountRewardPercentage }}</IonCol>
+          <IonCol class="actionsCol">{{ member.earnedFrom }}</IonCol>
+          <IonCol class="numberOfActionsCol">{{ member.numberOfActions }}</IonCol>
+          <IonCol class="discountRewardPercentageEarnedCol">{{ member.discountRewardPercentageEarned }}</IonCol>
+
+          <IonCol class="dateUsedCol">{{ member.dateUsed }}</IonCol>
+          <IonCol class="usedDiscountRewardPercentageCol">{{ member.usedDiscountRewardPercentage }}</IonCol>
+          <IonCol class="usedForCol">{{ member.usedFor }}</IonCol>
+          <IonCol class="priceCol">{{ member.price }}</IonCol>
+          <IonCol class="savedAmountCol">{{ member.savedAmount }}</IonCol>     
+          <!--Reward Discount Section -->
         
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -119,7 +127,6 @@
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
           <IonCol class="NoLoggedInCol">{{ member.noLoggedIn }}</IonCol>
           <IonCol class="FullProfileSeenCol">{{ member.fullProfileSeen }}</IonCol>
-          <IonCol class="adminNameCol">{{ member.adminName }}</IonCol>
           <IonCol class="ActionCol">
             <IonButton class="ActionCol" fill="clear" title="Close">
               <IonButton @click="openModal(member.id)" class="test" fill="clear" title="View Remove Edit"> <IonIcon slot="icon-only" size="small" :icon="create"></IonIcon></IonButton>
@@ -139,15 +146,19 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Messaging section -->
-          <IonCol class="MessageTitleCol"></IonCol>
-          <IonCol class="costCol"></IonCol>
-          <IonCol class="SelectedConnectionsCol"></IonCol>
-          <IonCol class="SelectedNonConnectionsCol"></IonCol>
-          <IonCol class="MessageOpenedCol"></IonCol>
-          <IonCol class="receiverSenderCol"></IonCol>
-          <IonCol class="groupMessagedCol"></IonCol>
-          <!-- Messaging section -->
+          <!-- Reward Discount Section -->
+          <IonCol class="dateEarnedCol"></IonCol>
+          <IonCol class="earnedDiscountRewardPercentageCol"></IonCol>
+          <IonCol class="actionsCol"></IonCol>
+          <IonCol class="numberOfActionsCol">{{ totalnumberOfActions }}</IonCol>
+          <IonCol class="discountRewardPercentageEarnedCol">{{ totaldiscountRewardPercentageEarned }}</IonCol>
+
+          <IonCol class="dateUsedCol"></IonCol>
+          <IonCol class="usedDiscountRewardPercentageCol"></IonCol>
+          <IonCol class="usedForCol"></IonCol>
+          <IonCol class="priceCol">{{ totalprice }}</IonCol>
+          <IonCol class="savedAmountCol">{{ totalsavedAmount }}</IonCol>         
+          <!-- Reward Discount Section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -179,7 +190,6 @@
           <IonCol class="LastLoggedInCol"></IonCol>
           <IonCol class="NoLoggedInCol"></IonCol>
           <IonCol class="FullProfileSeenCol"></IonCol>
-          <IonCol class="adminNameCol"></IonCol>
           <IonCol class="ActionCol"></IonCol>
         </IonRow>
       </IonRow>
@@ -199,6 +209,10 @@
       <IonButton @click="closeModal">Close</IonButton>
     </IonModal>
 
+    <!-- Displaying the frontpage (RewardDiscountPage.vue) Reward & its component her for admin, to know -->
+    <IonRow><MyRewardsDiscountsComponent/></IonRow>
+    <!-- Displaying the frontpage (RewardDiscountPage.vue) Reward & its component her for admin, to know -->
+
   </IonGrid>
 </template>
 
@@ -213,6 +227,7 @@
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, IonModal } from '@ionic/vue';
   import { create, trash, ban, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
   import TicketTABsPitchingUpSellingComponent from '@/components/PitchingComponents/TicketTABsPitchingUpSellingComponent.vue';
+  import MyRewardsDiscountsComponent from '@/components/MyRewardsDiscountsComponents-FrontDisplayOnly/MyRewardsDiscountsComponent.vue';
 
   interface Member {
     id: number;
@@ -224,14 +239,18 @@
     totalSpent: number;
 
     // Message section -->
-    messageTitle: string;
-    cost: number;
-    selectedConnections: number;
-    selectedNonConnections: string;
-    messageOpened: number;
-    receiverSender: string;
-    groupMessaged: string;
-    // Messaging section
+    dateEarned: string;
+    earnedearnedDiscountRewardPercentage: string;
+    earnedFrom: string;
+    numberOfActions: number;
+    discountRewardPercentageEarned: number;
+
+    dateUsed: '2023-01-01T12:00:00',
+    usedDiscountRewardPercentage: 'Tech Conference',
+    usedFor: 'Convention Center',
+    price: 150,
+    savedAmount: 500,   
+    // Reward Discount Section
 
 
     age: number;
@@ -264,13 +283,12 @@
     lastLoggedIn: string;
     noLoggedIn: number;
     fullProfileSeen: number;
-    adminName: string;
 
   }
 
   export default defineComponent({
     name: 'MembersRewardDiscountTableAdminComponent',
-    components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
+    components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, MyRewardsDiscountsComponent },
     setup() {
       const members = ref<Member[]>([
         {
@@ -282,15 +300,19 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Messaging section
-          messageTitle: 'Event A',
-          cost: 100, // Added cost value
-          selectedConnections: 30,
-          selectedNonConnections: 'red',
-          messageOpened: 23,
-          receiverSender: 'USA',
-          groupMessaged: 'New York',
-          // Messaging section
+          // Reward Discount Section
+          dateEarned: '2023-01-01T12:00:00',
+          earnedearnedDiscountRewardPercentage: 'Tech Conference',
+          earnedFrom: 'Convention Center',
+          numberOfActions: 150,
+          discountRewardPercentageEarned: 500,
+
+          dateUsed: '2023-01-01T12:00:00',
+          usedDiscountRewardPercentage: 'Tech fdf Conference',
+          usedFor: 'Convention rfd Center',
+          price: 15066,
+          savedAmount: 5006,
+          // Reward Discount Section
 
           age: 30,
           gender: 'Male',
@@ -322,7 +344,6 @@
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
           fullProfileSeen: 100,
-          adminName: 'USA',
 
         },
         {
@@ -334,15 +355,19 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Messaging section
-          messageTitle: 'Event B',
-          cost: 120, // Added cost value
-          selectedConnections: 30,
-          selectedNonConnections: 'red',
-          messageOpened: 23,
-          receiverSender: 'USA',
-          groupMessaged: 'New York',
-          // Messaging section
+          // Reward Discount Section
+          dateEarned: '2023-01-01T12:00:00',
+          earnedearnedDiscountRewardPercentage: 'Tech fdf Conference',
+          earnedFrom: 'Convention rfd Center',
+          numberOfActions: 15066,
+          discountRewardPercentageEarned: 5006,
+
+          dateUsed: '2023-01-01T12:00:00',
+          usedDiscountRewardPercentage: 'Tech Conference',
+          usedFor: 'Convention Center',
+          price: 150,
+          savedAmount: 500,          
+          // Reward Discount Section
 
           age: 30,
           gender: 'Male',
@@ -374,7 +399,6 @@
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
           fullProfileSeen: 100,
-          adminName: 'deeen',
 
         },
         {
@@ -386,15 +410,19 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // Messaging section
-          messageTitle: 'Event C',
-          cost: 150, // Added cost value
-          selectedConnections: 30,
-          selectedNonConnections: 'red',
-          messageOpened: 23,
-          receiverSender: 'USA',
-          groupMessaged: 'New York',
-          // Messaging section
+          // Reward Discount Section
+          dateEarned: '2023-01-01T12:00:00',
+          earnedearnedDiscountRewardPercentage: 'Techeee Conference',
+          earnedFrom: 'ee eee Convention Center',
+          numberOfActions: 1503,
+          discountRewardPercentageEarned: 5003,
+
+          dateUsed: '2023-01-01T12:00:00',
+          usedDiscountRewardPercentage: 'Techeee Conference',
+          usedFor: 'e e     eee Convention Center',
+          price: 1503,
+          savedAmount: 5003,         
+          // Reward Discount Section
 
           age: 30,
           gender: 'Male',
@@ -426,7 +454,6 @@
           lastLoggedIn: '2023-06-01',
           noLoggedIn: 20,
           fullProfileSeen: 100,
-          adminName: 'UteeA',
 
         },
         // Add more members as necessary
@@ -507,6 +534,14 @@
       const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
       const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
 
+      // Reward Discount section
+      const totalnumberOfActions = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.numberOfActions, 0));
+      const totaldiscountRewardPercentageEarned = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.discountRewardPercentageEarned, 0));
+
+      const totalprice = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.price, 0));
+      const totalsavedAmount = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.savedAmount, 0));  
+      // Reward Discount section
+
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
@@ -532,23 +567,28 @@
         const csvContent = [
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
-            // Messaging section
-            'Message Title', 'Cost', 'SelectedConnections', 'Selected NonConnections', 'MessageOpened', 
-            // Messaging section
+            // Reward Discount Section
+            'dateEarned', 'earnedearnedDiscountRewardPercentage', 'earnedFrom', 'numberOfActions', 'discountRewardPercentageEarned',
+
+            'dateUsed', 'usedDiscountRewardPercentage', 'usedFor', 'price', 'savedAmount',
+            // Reward Discount Section
+
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen','adminName',
+            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking dateEarned', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
             
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
-            // Messaging section
-            member.messageTitle, member.cost, member.selectedConnections, member.selectedNonConnections, 
-            // Messaging section
+            // Reward Discount Section
+            member.dateEarned, member.earnedearnedDiscountRewardPercentage, member.earnedFrom,  member.numberOfActions, member.discountRewardPercentageEarned, 
+
+            member.dateUsed, member.usedDiscountRewardPercentage, member.usedFor, member.price, member.savedAmount,
+            // Reward Discount Section
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
-            member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen, member.adminName,
+            member.connections, member.noEmployees, member.bookingDate, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen, 
           ])
         ]
           .map(e => e.join(","))
@@ -611,15 +651,19 @@
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
 
-                    // Messaging section
-                    <th>Message Title</th>
-                    <th>Cost</th>
-                    <th>SelectedConnections</th>
-                    <th>Selected NonConnections</th>
-                    <th>MessageOpened</th>
-                    <th>receiverSender</th>
-                    <th>groupMessaged</th>
-                    // Messaging section
+                    // Reward Discount Section
+                    <th>dateEarned</th>
+                    <th>earnedearnedDiscountRewardPercentage</th>
+                    <th>earnedFrom</th>
+                    <th>numberOfActions</th>
+                    <th>discountRewardPercentageEarned</th>
+
+                    <th>dateUsed</th>
+                    <th>usedDiscountRewardPercentage</th>
+                    <th>usedFor</th>
+                    <th>price</th>
+                    <th>savedAmount</th>
+                    // Reward Discount Section
 
                     <th>Age</th>
                     <th>Gender</th>
@@ -651,7 +695,6 @@
                     <th>Last Logged In</th>
                     <th>No Logged In</th>
                     <th>Full Profile Seen</th>
-                    <th>adminName</th>
 
                   </tr>
                 </thead>
@@ -666,15 +709,19 @@
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
-                      // Messaging section
-                      <td>${member.messageTitle}</td>
-                      <td>${member.cost}</td>
-                      <td>${member.selectedConnections}</td>
-                      <td>${member.selectedNonConnections}</td>
-                      <td>${member.messageOpened}</td>
-                      <td>${member.receiverSender}</td>
-                      <td>${member.groupMessaged}</td>
-                      // Messaging section
+                      // Reward Discount Section
+                      <td>${member.dateEarned}</td>
+                      <td>${member.earnedearnedDiscountRewardPercentage}</td>
+                      <td>${member.earnedFrom}</td>
+                      <td>${member.numberOfActions}</td>
+                      <td>${member.discountRewardPercentageEarned}</td>
+
+                      <td>${member.dateUsed}</td>
+                      <td>${member.usedDiscountRewardPercentage}</td>
+                      <td>${member.usedFor}</td>
+                      <td>${member.price}</td>
+                      <td>${member.savedAmount}</td>                    
+                      // Reward Discount Section
                       
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -706,7 +753,6 @@
                       <td>${member.lastLoggedIn}</td>
                       <td>${member.noLoggedIn}</td>
                       <td>${member.fullProfileSeen}</td>
-                      <td>${member.adminName}</td>
 
                     </tr>
                   `).join('')}
@@ -714,7 +760,7 @@
                     <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
-                    // Messaging section
+                    // Reward Discount Section
                     <td></td>
                     <td></td>
                     <td></td>
@@ -724,6 +770,10 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+                    <td>${totalprice.value}</td>
+                    <td>${totalsavedAmount.value}</td>
+                    // Reward Discount Section
 
                     <td></td>
                     <td>${totalBusinessRevenue.value}</td>
@@ -753,8 +803,6 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-
                   </tr>
                 </tbody>
               </table>
@@ -821,6 +869,15 @@
         nextPage,
         exportTable,
         printTable,
+
+        // Reward Discount Section
+        totalnumberOfActions,
+        totaldiscountRewardPercentageEarned,
+
+        totalprice,
+        totalsavedAmount,
+        // Reward Discount Section
+
         totalMembershipSpent,
         totalSpent,
         totalBusinessRevenue,

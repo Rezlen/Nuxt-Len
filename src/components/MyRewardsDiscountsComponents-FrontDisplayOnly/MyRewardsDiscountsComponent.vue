@@ -31,8 +31,8 @@
 <script lang="ts">
   import { defineComponent} from 'vue';
   import { IonCol, IonGrid, IonRow } from '@ionic/vue';
-  import MyRewardsDiscountsEarnedTableComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsEarnedTableComponent.vue';
-  import MyRewardsDiscountsUsedTableComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsUsedTableComponent.vue';
+  import MyRewardsDiscountsEarnedTableComponent from '@/components/MyRewardsDiscountsComponents-FrontDisplayOnly/MyRewardsDiscountsEarnedTableComponent.vue';
+  import MyRewardsDiscountsUsedTableComponent from '@/components/MyRewardsDiscountsComponents-FrontDisplayOnly/MyRewardsDiscountsUsedTableComponent.vue';
 
   export default defineComponent({
     name: 'MyRewardsDiscountsComponent',
@@ -50,6 +50,9 @@
 
 
 <style scoped>
+  ion-grid {
+    width: 100%;
+  }
   .rewardLine {
     font-size: 17px;
     text-align: center;
