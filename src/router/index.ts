@@ -99,6 +99,10 @@ import MembersSharePurchaseProfileDetailAdminComponent from '@/components/AdminC
 import MembersMessagingTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersMessagingTableAdminComponent.vue';
 // Admin Members Reward Discount Purchase components
 import MembersRewardDiscountTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/MembersRewardDiscountTableAdminComponent.vue';
+// Admin Members Business Advice Profile Detail AdminComponent
+import BusinessAdviceTABsComponent from '@/components/AdminComponents/AdminBusinessAdviceComponent/BusinessAdviceTABsComponent.vue';
+import MembersCEOBusinessAdviceProfileDetailAdminComponent from '@/components/AdminComponents/AdminBusinessAdviceComponent/MembersCEOBusinessAdviceProfileDetailAdminComponent.vue';
+import MembersBusinessAdviceProfileDetailAdminComponent from '@/components/AdminComponents/AdminBusinessAdviceComponent/MembersCEOBusinessAdviceProfileDetailAdminComponent.vue';
 
 // User/Member Account Section Comps  MembersRewardDiscountTableAdminComponent
 import EmailWebsiteNotificationComponent from '@/components/EmailWebsiteNotificationComponents/EmailWebsiteNotificationComponent.vue';
@@ -528,6 +532,22 @@ const routes: Array<RouteRecordRaw> = [
     path: '/membersRewardDiscountTableAdminComponent',
     name: 'MembersRewardDiscountTableAdminComponent',
     component: MembersRewardDiscountTableAdminComponent
+  },
+  // Biz advice
+  {
+    path: '/businessAdviceTABsComponent',
+    name: 'BusinessAdviceTABsComponent',
+    component: BusinessAdviceTABsComponent
+  },
+  {
+    path: '/membersCEOBusinessAdviceProfileDetailAdminComponent',
+    name: 'MembersCEOBusinessAdviceProfileDetailAdminComponent',
+    component: MembersCEOBusinessAdviceProfileDetailAdminComponent
+  },
+  {
+    path: '/membersBusinessAdviceProfileDetailAdminComponent',
+    name: 'MembersBusinessAdviceProfileDetailAdminComponent',
+    component: MembersBusinessAdviceProfileDetailAdminComponent
   },
   // User Account section MembersRewardDiscountTableAdminComponent
 

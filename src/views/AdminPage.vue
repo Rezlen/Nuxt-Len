@@ -23,7 +23,7 @@
             <IonRow class="PaddingBorder MembersMembershipsProfileDetailAdminComponent"  @click="showComponent('MembersMembershipsProfileDetailAdminComponent')">Memberships</IonRow>
             <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
             <IonRow class="PaddingBorder contactUs" @click="showComponent('contactUsTABsAdminComponent')" >Contacted Us Messages Rewards Shares</IonRow>
-            <IonRow class="PaddingBorder RewardsDiscounts">Rewards Discounts</IonRow>
+            <IonRow class="PaddingBorder BusinessAdviceTABsComponent" @click="showComponent('BusinessAdviceTABsComponent')">Business Advice</IonRow>
             <IonRow class="PaddingBorder Adverts">Adverts</IonRow>
 
           </IonRow>
@@ -55,6 +55,7 @@ import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents
 import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
 import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminComponents/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
 import MembersMembershipsProfileDetailAdminComponent from '@/components/AdminComponents/AdminMembershipsComponents/MembersMembershipsProfileDetailAdminComponent.vue';
+import BusinessAdviceTABsComponent from '@/components/AdminComponents/AdminBusinessAdviceComponent/BusinessAdviceTABsComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -72,6 +73,7 @@ export default defineComponent({
     contactUsTABsAdminComponent,
     MembersSponsorshipPartnershipProfileDetailAdminComponent,
     MembersMembershipsProfileDetailAdminComponent,
+    BusinessAdviceTABsComponent,
     
 
     FooterComponent,
@@ -99,6 +101,9 @@ export default defineComponent({
       }
       if (componentName === 'MembersMembershipsProfileDetailAdminComponent') {
         currentComponent.value = MembersMembershipsProfileDetailAdminComponent;
+      }
+      if (componentName === 'BusinessAdviceTABsComponent') {
+        currentComponent.value = BusinessAdviceTABsComponent;
       }
       // Add other cases as needed for other menu items
     };
@@ -152,7 +157,8 @@ ion-grid {
 .Profiles,
 .contactUs,
 .sponsorshipPartnership,
-.MembersMembershipsProfileDetailAdminComponent {
+.MembersMembershipsProfileDetailAdminComponent,
+.BusinessAdviceTABsComponent {
   font-weight: bold;
   color: red;
 }

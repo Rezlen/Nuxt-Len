@@ -179,6 +179,9 @@
                 <p><a href="/MembersSharePurchaseProfileDetailAdminComponent" class="Events-button" > MembersSharePurchaseProfileDetailAdminComponent </a> </p>
                 <p><a href="/MembersMessagingTableAdminComponent" class="Events-button" > membersMessagingTableAdminComponent </a> </p>
                 <p><a href="/MembersRewardDiscountTableAdminComponent" class="Events-button" > MembersRewardDiscountTableAdminComponent </a> </p>
+                <p><a href="/MembersCEOBusinessAdviceProfileDetailAdminComponent" class="Events-button" > MembersCEOBusinessAdviceProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersBusinessAdviceProfileDetailAdminComponent" class="Events-button" > MembersBusinessAdviceProfileDetailAdminComponent </a> </p>
+                <p><a href="/BusinessAdviceTABsComponent" class="Events-button" > BusinessAdviceTABsComponent </a> </p>
 
               
               </IonRow>
