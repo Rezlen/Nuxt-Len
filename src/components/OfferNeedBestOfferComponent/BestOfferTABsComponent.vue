@@ -84,7 +84,8 @@ export default defineComponent({
 
 .TabSegment .btn {
   flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
-  min-width: 150px; /* Minimum width for each button to ensure readability */
+  /* min-width: 150px;  */
+  /* Minimum width for each button to ensure readability */
 }
 
 .DisplayComponentRow {
@@ -118,14 +119,6 @@ export default defineComponent({
 }
 
 @media (max-width: 600px) {
-  .Marketing,
-  .Accounting,
-  .Investment,
-  .Law,
-  .BusinessAdvice,
-  .WebDevelopment,
-  .OfficeSpace {
-    flex: 1 1 100%; /* Make each tab content full width on small screens */
-  }
+
 }
 </style>
