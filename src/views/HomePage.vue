@@ -182,6 +182,7 @@
                 <p><a href="/MembersCEOBusinessAdviceProfileDetailAdminComponent" class="Events-button" > MembersCEOBusinessAdviceProfileDetailAdminComponent </a> </p>
                 <p><a href="/MembersBusinessAdviceProfileDetailAdminComponent" class="Events-button" > MembersBusinessAdviceProfileDetailAdminComponent </a> </p>
                 <p><a href="/BusinessAdviceTABsComponent" class="Events-button" > BusinessAdviceTABsComponent </a> </p>
+                <p><a href="/MembersBusinessAdviceTableComponent " class="Events-button" > MembersBusinessAdviceTableComponent  </a> </p>
 
               
               </IonRow>

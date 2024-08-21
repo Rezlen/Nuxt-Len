@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all your booked Business Advice between the members</p>
+    <p class="TitleP">List of all my booked Business Advice</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -65,8 +65,6 @@
           <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
           <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
           <IonCol class="BizMentorSpentCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
-          <IonCol class="MobileNoCol" @click="sortMembers('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
-          <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
           <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
           <IonCol class="BizCityCol" @click="sortMembers('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
           <IonCol class="ConnectionsCol" @click="sortMembers('connections')">Connections <IonIcon :icon="sortIcon('connections')" class="sort-icon" /></IonCol>
@@ -130,8 +128,6 @@
           <IonCol class="PitchingsCol">{{ member.pitchings }}</IonCol>
           <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
           <IonCol class="BizMentorSpentCol">{{ member.bizMentorSpent }}</IonCol>
-          <IonCol class="MobileNoCol">{{ member.mobileNo }}</IonCol>
-          <IonCol class="EmailCol">{{ member.email }}</IonCol>
           <IonCol class="BizCountryCol">{{ member.bizCountry }}</IonCol>
           <IonCol class="BizCityCol">{{ member.bizCity }}</IonCol>
           <IonCol class="ConnectionsCol">{{ member.connections }}</IonCol>
@@ -200,8 +196,6 @@
           <IonCol class="PitchingsCol"></IonCol>
           <IonCol class="BizMentorCol"></IonCol>
           <IonCol class="BizMentorSpentCol">{{ bizMentorSpent }}</IonCol>
-          <IonCol class="MobileNoCol"></IonCol>
-          <IonCol class="EmailCol"></IonCol>
           <IonCol class="BizCountryCol"></IonCol>
           <IonCol class="BizCityCol"></IonCol>
           <IonCol class="ConnectionsCol"></IonCol>
@@ -294,8 +288,6 @@
     pitchings: number;
     bizMentor: number;
     bizMentorSpent: number;
-    mobileNo: string;
-    email: string;
     bizCountry: string;
     bizCity: string;
     connections: number;
@@ -307,7 +299,7 @@
   }
 
   export default defineComponent({
-    name: 'MembersBusinessAdviceProfileDetailAdminComponent',
+    name: 'MembersBusinessAdviceTableComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([
@@ -361,8 +353,6 @@
           pitchings: 5,
           bizMentor: 30,
           bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -422,8 +412,6 @@
           pitchings: 5,
           bizMentor: 30,
           bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -483,8 +471,6 @@
           pitchings: 5,
           bizMentor: 30,
           bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -609,7 +595,7 @@
             //  Business Advice
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
+           'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
             
           ],
           ...filteredMembers.value.map(member => [
@@ -620,7 +606,7 @@
             //  Business Advice
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
-            member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
+            member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
           ])
         ]
@@ -726,8 +712,6 @@
                     <th>Pitchings</th>
                     <th>Biz Mentor</th>
                     <th>BizMentor Spent</th>
-                    <th>Mobile No</th>
-                    <th>Email</th>
                     <th>Biz Country</th>
                     <th>Biz City</th>
                     <th>Connections</th>
@@ -790,8 +774,6 @@
                       <td>${member.pitchings}</td>
                       <td>${member.bizMentor}</td>
                       <td>${member.bizMentorSpent}</td>
-                      <td>${member.mobileNo}</td>
-                      <td>${member.email}</td>
                       <td>${member.bizCountry}</td>
                       <td>${member.bizCity}</td>
                       <td>${member.connections}</td>
@@ -829,8 +811,6 @@
                     <td></td>
 
 
-                    <td></td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -960,6 +940,7 @@
 <style scoped>
   ion-grid {
     width: 100%;
+    height: fit-content;
   }
   .TitleP{
     display: center;
@@ -999,7 +980,7 @@
       /* border: 4px solid rgb(26, 185, 18); */
     }
     .scrollingRow {
-      min-width: 5900px;
+      min-width: 5500px;
       /* border: 1px solid red; */
       flex-direction: column;
     }
