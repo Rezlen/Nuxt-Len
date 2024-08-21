@@ -38,7 +38,7 @@
       <!-- MembersBusinessAdviceTableComponent ####################################-->
       <IonCol v-show="selectedTab === 'MembersBusinessAdviceTableComponent'" class="MembersBusinessAdviceTableComponent">
         <MembersBusinessAdviceTableComponent />
-        <!-- List of all Mentees of a Business advisor -->
+        <MenteesBusinessAdviceTableComponent/> <!-- List of all Mentees of a Business advisor -->
       </IonCol>
       <IonCol v-show="selectedTab === 'mySharesTableComponent'" class="mySharesTableComponent">
         <MySharesTableComponent />
@@ -56,6 +56,7 @@ import MemberMembershipOrderComponent from "@/components/MembersMyOrderComponent
 import SponsorshipPartnershipTableComponent from "@/components/MembersMyOrderComponents/SponsorshipPartnershipTableComponent.vue";
 import MySharesTableComponent from "@/components/MembersMyOrderComponents/MySharesTableComponent.vue";
 import MembersBusinessAdviceTableComponent from '@/components/MembersMyOrderComponents/MembersBusinessAdvices/MembersBusinessAdviceTableComponent.vue';
+import MenteesBusinessAdviceTableComponent from '@/components/MembersMyOrderComponents/MembersBusinessAdvices/MenteesBusinessAdviceTableComponent.vue';
 
 // MemberMembershipOrderComponent
 export default defineComponent({
@@ -72,6 +73,7 @@ export default defineComponent({
     SponsorshipPartnershipTableComponent,
     MySharesTableComponent,
     MembersBusinessAdviceTableComponent,
+    MenteesBusinessAdviceTableComponent,
   },
   setup() {
     const selectedTab = ref<string>(""); // MembersOfferDetailProfileDetailAdminComponent
