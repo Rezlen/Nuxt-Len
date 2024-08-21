@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all your booked Business Advice with the LEN's CEO</p>
+    <p class="TitleP">List of all your booked Business Advice</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -24,7 +24,7 @@
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
-          <!-- Sponsorship Partnership Section -->
+          <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol topBorder" @click="sortMembers('sessionTitle')">Session Title <IonIcon :icon="sortIcon('sessionTitle')" class="sort-icon" /></IonCol>
           <IonCol class="sessionDateTimeCol topBorder" @click="sortMembers('sessionDateTime')">Session Date Time <IonIcon :icon="sortIcon('sessionDateTime')" class="sort-icon" /></IonCol>
           <IonCol class="businessAdviceDescriptionCol topBorder" @click="sortMembers('businessAdviceDescription')">Business Advice Description<IonIcon :icon="sortIcon('businessAdviceDescription')" class="sort-icon" /></IonCol>
@@ -32,7 +32,19 @@
           <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')">Expiring Date<IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
           <IonCol class="TimeLeftTillExpiryCol topBorder" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
           <IonCol class="BookingDateCol topBorder" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
-          <!-- Sponsorship Partnership Section -->
+
+          <IonCol class="businessCategoryCol topBorder" @click="sortMembers('businessCategory')">Business Category <IonIcon :icon="sortIcon('businessCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="companyHouseRegNumberCol topBorder" @click="sortMembers('companyHouseRegNumber')">company House RegNumber<IonIcon :icon="sortIcon('companyHouseRegNumber')" class="sort-icon" /></IonCol>
+          <IonCol class="bizWebsiteLinkCol topBorder" @click="sortMembers('bizWebsiteLink')">Business Website Link<IonIcon :icon="sortIcon('bizWebsiteLink')" class="sort-icon" /></IonCol>
+          <IonCol class="positionInBusinessCol topBorder" @click="sortMembers('positionInBusiness')">Position InBusiness <IonIcon :icon="sortIcon('positionInBusiness')" class="sort-icon" /></IonCol>
+          <IonCol class="BizAgeCol topBorder" @click="sortMembers('BizAge')">Business Age <IonIcon :icon="sortIcon('BizAge')" class="sort-icon" /></IonCol>
+          <IonCol class="grossRevenuePerYearCol topBorder" @click="sortMembers('grossRevenuePerYear')">Gross Revenue PerYear <IonIcon :icon="sortIcon('grossRevenuePerYear')" class="sort-icon" /></IonCol>
+          <IonCol class="grossCostPerYearCol topBorder" @click="sortMembers('grossCostPerYear')">Gross Cost PerYear <IonIcon :icon="sortIcon('grossCostPerYear')" class="sort-icon" /></IonCol>
+          <IonCol class="grossProfitPerYearCol topBorder" @click="sortMembers('grossProfitPerYear')">Gross Profit PerYear <IonIcon :icon="sortIcon('grossProfitPerYear')" class="sort-icon" /></IonCol>
+          <IonCol class="paidAdvertisingCol topBorder" @click="sortMembers('paidAdvertising')">Paid Advertising <IonIcon :icon="sortIcon('paidAdvertising')" class="sort-icon" /></IonCol>
+          <IonCol class="customerDatabaseQuantityCol topBorder" @click="sortMembers('customerDatabaseQuantity')">Customer Database Quantity <IonIcon :icon="sortIcon('customerDatabaseQuantity')" class="sort-icon" /></IonCol>
+          <IonCol class="professionalIndemnityNumberCol topBorder" @click="sortMembers('professionalIndemnityNumber')">Professional Indemnity Number <IonIcon :icon="sortIcon('professionalIndemnityNumber')" class="sort-icon" /></IonCol>
+          <!-- Business Advice Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -77,7 +89,7 @@
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
 
-          <!-- Sponsorship Partnership Section -->
+          <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol">{{ member.sessionTitle }}</IonCol>
           <IonCol class="sessionDateTimeCol">{{ member.sessionDateTime }}</IonCol>
           <IonCol class="businessAdviceDescriptionCol">{{ member.businessAdviceDescription }}</IonCol>
@@ -85,7 +97,19 @@
           <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
           <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry}}</IonCol>
           <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
-          <!-- Sponsorship Partnership Section -->
+
+          <IonCol class="businessCategoryCol" @click="sortMembers('businessCategory')">BestOffer Image <IonIcon :icon="sortIcon('businessCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="companyHouseRegNumberCol" @click="sortMembers('companyHouseRegNumber')">BestOffer Wanted<IonIcon :icon="sortIcon('companyHouseRegNumber')" class="sort-icon" /></IonCol>
+          <IonCol class="bizWebsiteLinkCol" @click="sortMembers('bizWebsiteLink')">BestOffer Commission<IonIcon :icon="sortIcon('bizWebsiteLink')" class="sort-icon" /></IonCol>
+          <IonCol class="positionInBusinessCol" @click="sortMembers('positionInBusiness')">BestOffer Seen <IonIcon :icon="sortIcon('positionInBusiness')" class="sort-icon" /></IonCol>
+          <IonCol class="BizAgeCol" @click="sortMembers('BizAge')">BestOffer ListView <IonIcon :icon="sortIcon('BizAge')" class="sort-icon" /></IonCol>
+          <IonCol class="grossRevenuePerYearCol" @click="sortMembers('grossRevenuePerYear')">grossRevenuePerYear <IonIcon :icon="sortIcon('grossRevenuePerYear')" class="sort-icon" /></IonCol>
+          <IonCol class="grossCostPerYearCol" @click="sortMembers('grossCostPerYear')">grossCostPerYear <IonIcon :icon="sortIcon('grossCostPerYear')" class="sort-icon" /></IonCol>
+          <IonCol class="grossProfitPerYearCol" @click="sortMembers('grossProfitPerYear')">BestOffer Link <IonIcon :icon="sortIcon('grossProfitPerYear')" class="sort-icon" /></IonCol>
+          <IonCol class="paidAdvertisingCol" @click="sortMembers('paidAdvertising')">BestOffer Title <IonIcon :icon="sortIcon('paidAdvertising')" class="sort-icon" /></IonCol>
+          <IonCol class="customerDatabaseQuantityCol" @click="sortMembers('customerDatabaseQuantity')">BestOffer Category <IonIcon :icon="sortIcon('customerDatabaseQuantity')" class="sort-icon" /></IonCol>
+          <IonCol class="professionalIndemnityNumberCol" @click="sortMembers('professionalIndemnityNumber')">BestOffer Country <IonIcon :icon="sortIcon('professionalIndemnityNumber')" class="sort-icon" /></IonCol>
+          <!-- Business Advice Section -->
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
           <IonCol class="GenderCol">{{ member.gender }}</IonCol>
@@ -135,7 +159,7 @@
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
 
-          <!-- Sponsorship Partnership Section -->
+          <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol"></IonCol>
           <IonCol class="sessionDateTimeCol"></IonCol>
           <IonCol class="businessAdviceDescriptionCol"></IonCol>
@@ -143,7 +167,19 @@
           <IonCol class="expiringDateCol"></IonCol>
           <IonCol class="TimeLeftTillExpiryCol"></IonCol>
           <IonCol class="BookingDateCol"></IonCol>
-          <!-- Sponsorship Partnership Section -->
+
+          <IonCol class="businessCategoryCol"></IonCol>
+          <IonCol class="companyHouseRegNumberCol"></IonCol>
+          <IonCol class="bizWebsiteLinkCol"></IonCol>
+          <IonCol class="positionInBusinessCol"></IonCol>
+          <IonCol class="BizAgeCol"></IonCol>
+          <IonCol class="grossRevenuePerYearCol"></IonCol>
+          <IonCol class="grossCostPerYearCol"></IonCol>
+          <IonCol class="grossProfitPerYearCol"></IonCol>
+          <IonCol class="paidAdvertisingCol"></IonCol>
+          <IonCol class="customerDatabaseQuantityCol"></IonCol>
+          <IonCol class="professionalIndemnityNumberCol"></IonCol>
+          <!-- Business Advice Section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -217,7 +253,7 @@
     totalMembershipSpent: number;
     totalSpent: number;
 
-    // Sponsorship Partnership Section -->
+    // Business Advice Section -->
     sessionTitle: string;
     sessionDateTime: number;
     businessAdviceDescription: number;
@@ -225,7 +261,19 @@
     expiringDate: string;
     timeLeftTillExpiry: string;
     bookingDate: string;
-    // Sponsorship Partnership Section -->
+
+    businessCategory: string; // URL or path to the image
+    companyHouseRegNumber: number;
+    bizWebsiteLink: number;
+    positionInBusiness: number;
+    BizAge: number;
+    grossRevenuePerYear: number;
+    grossCostPerYear: number;
+    grossProfitPerYear: string;
+    paidAdvertising: string;
+    customerDatabaseQuantity: string;
+    professionalIndemnityNumber: string;
+    // Business Advice Section -->
 
     age: number;
     gender: string;
@@ -259,7 +307,7 @@
   }
 
   export default defineComponent({
-    name: 'MembersCEOBusinessAdviceProfileDetailAdminComponent',
+    name: 'MembersBusinessAdviceProfileDetailAdminComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([
@@ -272,15 +320,27 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // sponsorshipPartnership
-          sessionTitle: 'Amazing sponsorshipPartnership',
+          // Business Advice
+          sessionTitle: 'Amazing sponsorship Partnership',
           sessionDateTime: 200,
           businessAdviceDescription: 300,
           cost: 100, // Added cost value
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',          
           bookingDate: '2023-01-01T12:00:00',
-          // sponsorshipPartnership
+
+          businessCategory: 'https://example.com/image.jpg',
+          companyHouseRegNumber: 100,
+          bizWebsiteLink: 100,
+          positionInBusiness: 200,
+          BizAge: 300,
+          grossRevenuePerYear: 400,
+          grossCostPerYear: 500,
+          grossProfitPerYear: 'https://example.com/bestOffer',
+          paidAdvertising: 'Amazing BestOffer',
+          customerDatabaseQuantity: 'Real Estate',
+          professionalIndemnityNumber: 'USA',
+          // Business Advice
 
           age: 30,
           gender: 'Male',
@@ -321,15 +381,27 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // sponsorshipPartnership
-          sessionTitle: 'Exclusive sponsorshipPartnership',
+          // Business Advice
+          sessionTitle: 'Exclusive sponsorship and Partnership',
           sessionDateTime: 250,
           businessAdviceDescription: 350,
           cost: 120, // Added cost value
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           bookingDate: '2023-01-01T12:00:00',
-          // sponsorshipPartnership
+
+          businessCategory: 'https://example.com/image1.jpg',
+          companyHouseRegNumber: 150,
+          bizWebsiteLink: 100,
+          positionInBusiness: 250,
+          BizAge: 350,
+          grossRevenuePerYear: 450,
+          grossCostPerYear: 550,
+          grossProfitPerYear: 'https://example.com/bestOffer1',
+          paidAdvertising: 'Exclusive BestOffer',
+          customerDatabaseQuantity: 'Technology',
+          professionalIndemnityNumber: 'Canada',
+          // Business Advice
 
           age: 30,
           gender: 'Male',
@@ -370,15 +442,27 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
-          // sponsorshipPartnership
-          sessionTitle: 'Premium sponsorshipPartnership',
+          // Business Advice
+          sessionTitle: 'Premium sponsorship so Partnership',
           sessionDateTime: 300,
           businessAdviceDescription: 400,
           cost: 150, // Added cost value
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           bookingDate: '2023-01-01T12:00:00',
-          // sponsorshipPartnership
+
+          businessCategory: 'https://example.com/image2.jpg',
+          companyHouseRegNumber: 200,
+          bizWebsiteLink: 600,
+          positionInBusiness: 300,
+          BizAge: 400,
+          grossRevenuePerYear: 500,
+          grossCostPerYear: 600,
+          grossProfitPerYear: 'https://example.com/bestOffer2',
+          paidAdvertising: 'Premium BestOffer',
+          customerDatabaseQuantity: 'Healthcare',
+          professionalIndemnityNumber: 'UK',
+          // Business Advice
 
           age: 30,
           gender: 'Male',
@@ -519,9 +603,10 @@
         const csvContent = [
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
-            //  Sponsorship Partnership
-            'session Title', 'Sponsorship Partnership Seen', 'Sponsorship Partnership List View', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
-            //  Sponsorship Partnership
+            //  Business Advice
+            'session Title', 'Business Advice Seen', 'Business Advice List View', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
+            'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'grossRevenuePerYear', 'grossCostPerYear', 'grossProfitPerYear', 'paidAdvertising', 'customerDatabaseQuantity', 'professionalIndemnityNumber',
+            //  Business Advice
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
@@ -529,9 +614,10 @@
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
-            //  Sponsorship Partnership
+            //  Business Advice
             member.sessionTitle, member.sessionDateTime, member.businessAdviceDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
-            //  Sponsorship Partnership
+            member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge, member.grossRevenuePerYear, member.grossCostPerYear, member.grossProfitPerYear, member.paidAdvertising, member.customerDatabaseQuantity, member.professionalIndemnityNumber,
+            //  Business Advice
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
@@ -598,7 +684,7 @@
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
 
-                    // SponsorshipPartnership
+                    // Business Advice
                     <th>Session Title</th>
                     <td></td>
                     <td></td>
@@ -606,7 +692,19 @@
                     <th>ExpiringDate</th>
                     <th>timeLeftTillExpiry</th>
                     <th>BookingDate</th>
-                    // SponsorshipPartnership
+
+                    <th>BestOffer Image</th>
+                    <th>BestOffer Wanted</th>
+                    <th>BestOffer Commission</th>
+                    <th>BestOffer Seen</th>
+                    <th>BestOffer ListView</th>
+                    <th>BestOffer Renewed</th>
+                    <th>grossCostPerYear</th>
+                    <th>BestOffer Link</th>
+                    <th>BestOffer Title</th>
+                    <th>BestOffer Category</th>
+                    <th>BestOffer Country</th>
+                    // Business Advice
 
 
                     <th>Age</th>
@@ -651,7 +749,7 @@
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
-                      // Pitching section
+                      // Business Advice section
                       <td>${member.sessionTitle}</td>
                       <td>${member.sessionDateTime}</td>
                       <td>${member.businessAdviceDescription}</td>
@@ -659,7 +757,19 @@
                       <td>${member.expiringDate}</td>
                       <td>${member.timeLeftTillExpiry}</td>
                       <td>${member.bookingDate}</td>
-                      // Pitching section
+
+                      <td>${member.businessCategory}</td>
+                      <td>${member.companyHouseRegNumber}</td>
+                      <td>${member.bizWebsiteLink}</td>
+                      <td>${member.positionInBusiness}</td>
+                      <td>${member.BizAge}</td>
+                      <td>${member.grossRevenuePerYear}</td>
+                      <td>${member.grossCostPerYear}</td>
+                      <td>${member.grossProfitPerYear}</td>
+                      <td>${member.paidAdvertising}</td>
+                      <td>${member.customerDatabaseQuantity}</td>
+                      <td>${member.professionalIndemnityNumber}</td>
+                      // Business Advice section
                       
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -696,7 +806,18 @@
                     <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
-                    // Pitching section
+                      // Business Advice section
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -852,7 +973,7 @@
   .sessionTitleCol {
     Border-left: 2px red solid;
   }
-  .BookingDateCol {
+  .professionalIndemnityNumberCol {
     Border-right: 2px red solid;
   }
   .topBorder {
@@ -870,15 +991,15 @@
     font-weight: bold;
     cursor: pointer;
     height: 50px;
-      align-items: top;
-      text-align: top;
+    align-items: top;
+    text-align: top;
     }
     .NONscrollingRow {
       overflow-x: auto;
       /* border: 4px solid rgb(26, 185, 18); */
     }
     .scrollingRow {
-      min-width: 4700px;
+      min-width: 5900px;
       /* border: 1px solid red; */
       flex-direction: column;
     }

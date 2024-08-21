@@ -32,6 +32,18 @@
           <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')">Expiring Date<IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
           <IonCol class="TimeLeftTillExpiryCol topBorder" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
           <IonCol class="BookingDateCol topBorder" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+
+          <IonCol class="BestOfferImageCol topBorder" @click="sortMembers('bestOfferImage')">BestOffer Image <IonIcon :icon="sortIcon('bestOfferImage')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferWantedCol topBorder" @click="sortMembers('bestOfferWanted')">BestOffer Wanted<IonIcon :icon="sortIcon('bestOfferWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCommissionCol topBorder" @click="sortMembers('bestOfferCommission')">BestOffer Commission<IonIcon :icon="sortIcon('bestOfferCommission')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferSeenCol topBorder" @click="sortMembers('bestOfferSeen')">BestOffer Seen <IonIcon :icon="sortIcon('bestOfferSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferListViewCol topBorder" @click="sortMembers('bestOfferListView')">BestOffer ListView <IonIcon :icon="sortIcon('bestOfferListView')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferRenewedCol topBorder" @click="sortMembers('bestOfferRenewed')">BestOfferRenewed <IonIcon :icon="sortIcon('bestOfferRenewed')" class="sort-icon" /></IonCol>
+          <IonCol class="LikedCol topBorder" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferLinkCol topBorder" @click="sortMembers('bestOfferLink')">BestOffer Link <IonIcon :icon="sortIcon('bestOfferLink')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferTitleCol topBorder" @click="sortMembers('bestOfferTitle')">BestOffer Title <IonIcon :icon="sortIcon('bestOfferTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCategoryCol topBorder" @click="sortMembers('bestOfferCategory')">BestOffer Category <IonIcon :icon="sortIcon('bestOfferCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCountryCol topBorder" @click="sortMembers('bestOfferCountry')">BestOffer Country <IonIcon :icon="sortIcon('bestOfferCountry')" class="sort-icon" /></IonCol>
           <!-- Sponsorship Partnership Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
@@ -85,6 +97,19 @@
           <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
           <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry}}</IonCol>
           <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
+
+          <IonCol class="BestOfferImageCol" @click="sortMembers('bestOfferImage')">BestOffer Image <IonIcon :icon="sortIcon('bestOfferImage')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferWantedCol" @click="sortMembers('bestOfferWanted')">BestOffer Wanted<IonIcon :icon="sortIcon('bestOfferWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCommissionCol" @click="sortMembers('bestOfferCommission')">BestOffer Commission<IonIcon :icon="sortIcon('bestOfferCommission')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferSeenCol" @click="sortMembers('bestOfferSeen')">BestOffer Seen <IonIcon :icon="sortIcon('bestOfferSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferListViewCol" @click="sortMembers('bestOfferListView')">BestOffer ListView <IonIcon :icon="sortIcon('bestOfferListView')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferRenewedCol" @click="sortMembers('bestOfferRenewed')">BestOfferRenewed <IonIcon :icon="sortIcon('bestOfferRenewed')" class="sort-icon" /></IonCol>
+          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferLinkCol" @click="sortMembers('bestOfferLink')">BestOffer Link <IonIcon :icon="sortIcon('bestOfferLink')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferTitleCol" @click="sortMembers('bestOfferTitle')">BestOffer Title <IonIcon :icon="sortIcon('bestOfferTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCategoryCol" @click="sortMembers('bestOfferCategory')">BestOffer Category <IonIcon :icon="sortIcon('bestOfferCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCountryCol" @click="sortMembers('bestOfferCountry')">BestOffer Country <IonIcon :icon="sortIcon('bestOfferCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="BestOfferCityCol" @click="sortMembers('bestOfferCity')">BestOffer City <IonIcon :icon="sortIcon('bestOfferCity')" class="sort-icon" /></IonCol>
           <!-- Sponsorship Partnership Section -->
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -143,6 +168,18 @@
           <IonCol class="expiringDateCol"></IonCol>
           <IonCol class="TimeLeftTillExpiryCol"></IonCol>
           <IonCol class="BookingDateCol"></IonCol>
+
+          <IonCol class="BestOfferImageCol"></IonCol>
+          <IonCol class="BestOfferWantedCol">{{ totalBestOfferWanted }}</IonCol>
+          <IonCol class="BestOfferCommissionCol"></IonCol>
+          <IonCol class="BestOfferSeenCol">{{ totalBestOfferSeen }}</IonCol>
+          <IonCol class="BestOfferListViewCol">{{ totalBestOfferListView }}</IonCol>
+          <IonCol class="BestOfferRenewedCol">{{ totalBestOfferRenewed }}</IonCol>
+          <IonCol class="LikedCol">{{ totalLiked }}</IonCol>
+          <IonCol class="BestOfferLinkCol"></IonCol>
+          <IonCol class="BestOfferTitleCol"></IonCol>
+          <IonCol class="BestOfferCategoryCol"></IonCol>
+          <IonCol class="BestOfferCountryCol"></IonCol>
           <!-- Sponsorship Partnership Section -->
 
           <IonCol class="AgeCol"></IonCol>
@@ -225,6 +262,18 @@
     expiringDate: string;
     timeLeftTillExpiry: string;
     bookingDate: string;
+
+    bestOfferImage: string; // URL or path to the image
+    bestOfferWanted: number;
+    bestOfferCommission: number;
+    bestOfferSeen: number;
+    bestOfferListView: number;
+    bestOfferRenewed: number;
+    liked: number;
+    bestOfferLink: string;
+    bestOfferTitle: string;
+    bestOfferCategory: string;
+    bestOfferCountry: string;
     // Sponsorship Partnership Section -->
 
     age: number;
@@ -280,6 +329,18 @@
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',          
           bookingDate: '2023-01-01T12:00:00',
+
+          bestOfferImage: 'https://example.com/image.jpg',
+          bestOfferWanted: 100,
+          bestOfferCommission: 100,
+          bestOfferSeen: 200,
+          bestOfferListView: 300,
+          bestOfferRenewed: 400,
+          liked: 500,
+          bestOfferLink: 'https://example.com/bestOffer',
+          bestOfferTitle: 'Amazing BestOffer',
+          bestOfferCategory: 'Real Estate',
+          bestOfferCountry: 'USA',
           // sponsorshipPartnership
 
           age: 30,
@@ -329,6 +390,18 @@
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           bookingDate: '2023-01-01T12:00:00',
+
+          bestOfferImage: 'https://example.com/image1.jpg',
+          bestOfferWanted: 150,
+          bestOfferCommission: 100,
+          bestOfferSeen: 250,
+          bestOfferListView: 350,
+          bestOfferRenewed: 450,
+          liked: 550,
+          bestOfferLink: 'https://example.com/bestOffer1',
+          bestOfferTitle: 'Exclusive BestOffer',
+          bestOfferCategory: 'Technology',
+          bestOfferCountry: 'Canada',
           // sponsorshipPartnership
 
           age: 30,
@@ -378,6 +451,18 @@
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
           bookingDate: '2023-01-01T12:00:00',
+
+          bestOfferImage: 'https://example.com/image2.jpg',
+          bestOfferWanted: 200,
+          bestOfferCommission: 600,
+          bestOfferSeen: 300,
+          bestOfferListView: 400,
+          bestOfferRenewed: 500,
+          liked: 600,
+          bestOfferLink: 'https://example.com/bestOffer2',
+          bestOfferTitle: 'Premium BestOffer',
+          bestOfferCategory: 'Healthcare',
+          bestOfferCountry: 'UK',
           // sponsorshipPartnership
 
           age: 30,
@@ -521,6 +606,7 @@
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
             //  Sponsorship Partnership
             'session Title', 'Sponsorship Partnership Seen', 'Sponsorship Partnership List View', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
+            'BestOfferImage', 'BestOfferWanted', 'BestOfferCommission', 'BestOfferSeen', 'BestOfferListView', 'BestOfferRenewed', 'Liked', 'BestOfferLink', 'BestOfferTitle', 'BestOfferCategory', 'BestOfferCountry',
             //  Sponsorship Partnership
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
@@ -531,6 +617,7 @@
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
             //  Sponsorship Partnership
             member.sessionTitle, member.sessionDateTime, member.businessAdviceDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
+            member.bestOfferImage, member.bestOfferWanted, member.bestOfferCommission, member.bestOfferSeen, member.bestOfferListView, member.bestOfferRenewed, member.liked, member.bestOfferLink, member.bestOfferTitle, member.bestOfferCategory, member.bestOfferCountry,
             //  Sponsorship Partnership
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
@@ -606,6 +693,18 @@
                     <th>ExpiringDate</th>
                     <th>timeLeftTillExpiry</th>
                     <th>BookingDate</th>
+
+                    <th>BestOffer Image</th>
+                    <th>BestOffer Wanted</th>
+                    <th>BestOffer Commission</th>
+                    <th>BestOffer Seen</th>
+                    <th>BestOffer ListView</th>
+                    <th>BestOffer Renewed</th>
+                    <th>Liked</th>
+                    <th>BestOffer Link</th>
+                    <th>BestOffer Title</th>
+                    <th>BestOffer Category</th>
+                    <th>BestOffer Country</th>
                     // SponsorshipPartnership
 
 
@@ -651,7 +750,7 @@
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
 
-                      // Pitching section
+                      // Business Advice section
                       <td>${member.sessionTitle}</td>
                       <td>${member.sessionDateTime}</td>
                       <td>${member.businessAdviceDescription}</td>
@@ -659,7 +758,19 @@
                       <td>${member.expiringDate}</td>
                       <td>${member.timeLeftTillExpiry}</td>
                       <td>${member.bookingDate}</td>
-                      // Pitching section
+
+                      <td>${member.bestOfferImage}</td>
+                      <td>${member.bestOfferWanted}</td>
+                      <td>${member.bestOfferCommission}</td>
+                      <td>${member.bestOfferSeen}</td>
+                      <td>${member.bestOfferListView}</td>
+                      <td>${member.bestOfferRenewed}</td>
+                      <td>${member.liked}</td>
+                      <td>${member.bestOfferLink}</td>
+                      <td>${member.bestOfferTitle}</td>
+                      <td>${member.bestOfferCategory}</td>
+                      <td>${member.bestOfferCountry}</td>
+                      // Business Advice section
                       
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -696,7 +807,18 @@
                     <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
-                    // Pitching section
+                      // Business Advice section
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -852,7 +974,7 @@
   .sessionTitleCol {
     Border-left: 2px red solid;
   }
-  .BookingDateCol {
+  .BestOfferCountryCol {
     Border-right: 2px red solid;
   }
   .topBorder {
