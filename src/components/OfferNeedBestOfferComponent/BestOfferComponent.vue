@@ -1,40 +1,32 @@
 <template>
   <IonCard>
     <IonCardHeader class="CenterPositions TitelSubTitle">
-      <IonCardSubtitle class="OfferSubTitle"
-        >Card Subtitle Person Name</IonCardSubtitle
-      >
+      <IonCardSubtitle class="OfferSubTitle">
+        Card Subtitle Person Name</IonCardSubtitle>
       <IonCardTitle class="OfferTitle">Card Title Company Name</IonCardTitle>
     </IonCardHeader>
     <IonRow class="CenterPositions ImgSocialButtonRow">
-      <img alt="LEN Logo" height="100" width="150" src="/favicon.png" />
+      <img alt="LEN Logo" height="100" width="150" src="/favicon.png"/>
       <IonButton>I want to Satisfy/Provide this Need</IonButton>
       <IonRow class="CenterPositions social-media-icons">
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="logoLinkedin" class="linkedin-icon"
-        /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="logoGoogle" class="google-icon"
-        /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="logoFacebook" class="facebook-icon"
-        /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="logoTwitter" class="twitter-icon"
-        /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="linkOutline" class="link-outline"
-        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="logoLinkedin" class="linkedin-icon"/>
+        </IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="logoGoogle" class="google-icon"/>
+        </IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="logoFacebook" class="facebook-icon" />
+        </IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="logoTwitter" class="twitter-icon"/>
+        </IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="linkOutline" class="link-outline"/>
+        </IonButton>
       </IonRow>
-      <p>
-        Want to create a FREE advert like this?
-        <a href="/home" class="Events-button"> Click HERE </a> & fill the form,
-        simple!
-      </p>
-      <IonRow>
-        Category: OFFICE SPACE Wanted: 1 Seen: 1370 List Viewed: 987 Renewed: 1
-        Like: 2987
-      </IonRow>
+      <p> Want to create a FREE advert like this?<a href="/home" class="Events-button"> Click HERE </a> & fill the form, simple! </p>
+      <IonRow> Category: OFFICE SPACE Wanted: 1 Seen: 1370 List Viewed: 987 Renewed: 1 Like: 2987  </IonRow>
     </IonRow>
     <IonCardContent class="ContentSection">
       <p>
@@ -45,31 +37,17 @@
       </p>
     </IonCardContent>
   </IonCard>
+  <IonRow> <!-- This component is for after clicking on the BUTTON for members to fill the form-->
+    <BusinessAdviceBestOffers7CategoriesFormComponents/>
+  </IonRow>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import {
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonIcon,
-  IonCard,
-  IonButton,
-  IonCardHeader,
-  IonCardContent,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonSegment,
-  IonSegmentButton,
-} from "@ionic/vue";
-import {
-  logoFacebook,
-  logoTwitter,
-  logoGoogle,
-  logoLinkedin,
-  linkOutline,
-} from "ionicons/icons";
+import { IonGrid, IonRow, IonCol, IonIcon, IonCard, IonButton, IonCardHeader, IonCardContent, IonCardSubtitle, IonCardTitle, IonSegment, IonSegmentButton,} from "@ionic/vue";
+import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin, linkOutline,} from "ionicons/icons";
+import BusinessAdviceBestOffers7CategoriesFormComponents from '@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/BusinessAdviceBestOffers7CategoriesFormComponent.vue';
+
 
 export default defineComponent({
   name: "BestOfferComponent",
@@ -86,6 +64,7 @@ export default defineComponent({
     IonCardTitle,
     IonSegment,
     IonSegmentButton,
+    BusinessAdviceBestOffers7CategoriesFormComponents,
   },
   setup() {
     const selectedTab = ref<string>("Marketing"); // Initialize with the default tab
