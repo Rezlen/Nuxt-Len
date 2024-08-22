@@ -23,6 +23,15 @@
           <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
           <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          
+          <!-- Biz Mentor Section -->
+          <IonCol class="mentorPicCol topBorder" @click="sortMembers('mentorPic')">MentorPic <IonIcon :icon="sortIcon('mentorPic')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorFirstNameCol topBorder" @click="sortMembers('mentorFirstName')">Mentor First Name <IonIcon :icon="sortIcon('mentorFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorSalaryCol topBorder" @click="sortMembers('mentorSalary')">Mentor Salary <IonIcon :icon="sortIcon('mentorSalary')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorBizRevenueCol topBorder" @click="sortMembers('mentorBizRevenue')">Mentor Membership Type <IonIcon :icon="sortIcon('mentorBizRevenue')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorTotalMembershipSpentCol topBorder" @click="sortMembers('mentorTotalMembershipSpent')">Mentor Total Membership Spent<IonIcon :icon="sortIcon('mentorTotalMembershipSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorTotalSpentCol topBorder" @click="sortMembers('mentorTotalSpent')">Mentor Total Spent<IonIcon :icon="sortIcon('mentorTotalSpent')" class="sort-icon" /></IonCol>
+          <!-- Biz Mentor Section -->
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol topBorder" @click="sortMembers('sessionTitle')">Session Title <IonIcon :icon="sortIcon('sessionTitle')" class="sort-icon" /></IonCol>
@@ -34,7 +43,7 @@
           <IonCol class="BookingDateCol topBorder" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
 
           <IonCol class="businessCategoryCol topBorder" @click="sortMembers('businessCategory')">Business Category <IonIcon :icon="sortIcon('businessCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="companyHouseRegNumberCol topBorder" @click="sortMembers('companyHouseRegNumber')">company House RegNumber<IonIcon :icon="sortIcon('companyHouseRegNumber')" class="sort-icon" /></IonCol>
+          <IonCol class="companyHouseRegNumberCol topBorder" @click="sortMembers('companyHouseRegNumber')">Company House RegNumber<IonIcon :icon="sortIcon('companyHouseRegNumber')" class="sort-icon" /></IonCol>
           <IonCol class="bizWebsiteLinkCol topBorder" @click="sortMembers('bizWebsiteLink')">Business Website Link<IonIcon :icon="sortIcon('bizWebsiteLink')" class="sort-icon" /></IonCol>
           <IonCol class="positionInBusinessCol topBorder" @click="sortMembers('positionInBusiness')">Position InBusiness <IonIcon :icon="sortIcon('positionInBusiness')" class="sort-icon" /></IonCol>
           <IonCol class="BizAgeCol topBorder" @click="sortMembers('BizAge')">Business Age <IonIcon :icon="sortIcon('BizAge')" class="sort-icon" /></IonCol>
@@ -88,6 +97,14 @@
           <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
           <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+          <!-- Biz Mentor Section -->
+          <IonCol class="mentorPicCol"><img :src="member.mentorPic" alt="mentorPic" class="mentorPic"/></IonCol>
+          <IonCol class="mentorFirstNameCol">{{ member.mentorFirstName }}</IonCol>
+          <IonCol class="mentorSalaryCol">{{ member.mentorSalary }}</IonCol>
+          <IonCol class="mentorBizRevenueCol">{{ member.mentorBizRevenue }}</IonCol>
+          <IonCol class="mentorTotalMembershipSpentCol">{{ member.mentorTotalMembershipSpent }}</IonCol>
+          <IonCol class="mentorTotalSpentCol">{{ member.mentorTotalSpent }}</IonCol>
+          <!-- Biz Mentor Section -->
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol">{{ member.sessionTitle }}</IonCol>
@@ -158,6 +175,14 @@
           <IonCol class="MembershipTypeCol"></IonCol>
           <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
           <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
+          <!-- Biz Mentor Section -->
+          <IonCol class="mentorPicCol"></IonCol>
+          <IonCol class="mentorFirstNameCol"></IonCol>
+          <IonCol class="mentorSalaryCol"></IonCol>
+          <IonCol class="mentorBizRevenueCol"></IonCol>
+          <IonCol class="mentorTotalMembershipSpentCol">{{ mentorTotalMembershipSpent }}</IonCol>
+          <IonCol class="mentorTotalSpentCol">{{ mentorTotalSpent }}</IonCol>
+          <!-- Biz Mentor Section -->
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol"></IonCol>
@@ -253,6 +278,15 @@
     totalMembershipSpent: number;
     totalSpent: number;
 
+    // Biz Mentor Section 
+    mentorPic: string;
+    mentorFirstName: string;
+    mentorSalary: string;
+    mentorBizRevenue: string;
+    mentorTotalMembershipSpent: number;
+    mentorTotalSpent: number;
+    // Biz Mentor Section 
+
     // Business Advice Section -->
     sessionTitle: string;
     sessionDateTime: number;
@@ -319,6 +353,15 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
+          // Biz Mentor Section 
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'Johneee',
+          mentorSalary: 'Doe',
+          mentorBizRevenue: 'Gold',
+          mentorTotalMembershipSpent: 500,
+          mentorTotalSpent: 150,
+          // Biz Mentor Section 
+
 
           // Business Advice
           sessionTitle: 'Amazing sponsorship Partnership',
@@ -381,6 +424,16 @@
           totalMembershipSpent: 500,
           totalSpent: 150,
 
+          // Biz Mentor Section 
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'res',
+          mentorSalary: 'Doe',
+          mentorBizRevenue: 'Gold',
+          mentorTotalMembershipSpent: 500,
+          mentorTotalSpent: 150,
+          // Biz Mentor Section 
+
+
           // Business Advice
           sessionTitle: 'Exclusive sponsorship and Partnership',
           sessionDateTime: 250,
@@ -441,6 +494,15 @@
           membershipType: 'Gold',
           totalMembershipSpent: 500,
           totalSpent: 150,
+          // Biz Mentor Section 
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'John',
+          mentorSalary: 'Doe',
+          mentorBizRevenue: 'Gold',
+          mentorTotalMembershipSpent: 500,
+          mentorTotalSpent: 150,
+          // Biz Mentor Section 
+
 
           // Business Advice
           sessionTitle: 'Premium sponsorship so Partnership',
@@ -540,14 +602,14 @@
       };
       
 
-    //  * Resets the sorting to the original state (default order).
+      //  * Resets the sorting to the original state (default order).
       const resetSorting = () => {
         sortKey.value = 'bookingDate';
         sortAsc.value = true;
       };
 
 
-    //  * Computes the sorted members based on the current sortKey and sort order.
+      //  * Computes the sorted members based on the current sortKey and sort order.
       const sortedMembers = computed(() => {
         if (!sortKey.value) return filteredMembers.value;
 
@@ -559,25 +621,30 @@
       });
 
 
-    // Set default sorting by bookingDate
+      // Set default sorting by bookingDate
       resetSorting();
 
       const itemsPerPage = 20;
       const currentPage = ref(1);
 
-    //  Computes the paginated members for the current page.
+      //  Computes the paginated members for the current page.
       const paginatedMembers = computed(() => {
         const start = (currentPage.value - 1) * itemsPerPage;
         return sortedMembers.value.slice(start, start + itemsPerPage);
       });
 
-    //  * Computes the total number of pages based on the number of members and items per page.
+      //  * Computes the total number of pages based on the number of members and items per page.
       const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
-    //  * Computes the total price of all members.
+      //  * Computes the total price of all members.
       const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
       const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
-
+      // Biz Mentor Section 
+      const mentorTotalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.mentorTotalMembershipSpent, 0));
+      const mentorTotalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.mentorTotalSpent, 0));
+      // Biz Mentor Section 
+      
+      
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
@@ -591,18 +658,22 @@
         }
       };
 
-    //  * Navigates to the next page, if possible.
+      //  * Navigates to the next page, if possible.
       const nextPage = () => {
         if (currentPage.value < totalPages.value) {
           currentPage.value += 1;
         }
       };
 
-    //  * Exports the table data to a CSV file.
+      //  * Exports the table data to a CSV file.
       const exportTable = () => {
         const csvContent = [
           [
             'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
+            // Biz Mentor Section 
+            'mentorPic', 'mentorFirstName', 'mentorSalary', 'mentorBizRevenue', 'mentorTotalMembershipSpent', 'mentorTotalSpent',
+            // Biz Mentor Section 
+
             //  Business Advice
             'session Title', 'Business Advice Seen', 'Business Advice List View', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
             'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'grossRevenuePerYear', 'grossCostPerYear', 'grossProfitPerYear', 'paidAdvertising', 'customerDatabaseQuantity', 'professionalIndemnityNumber',
@@ -614,6 +685,10 @@
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
+            // Biz Mentor Section 
+            member.mentorPic, member.mentorFirstName, member.mentorSalary, member.mentorBizRevenue, member.mentorTotalMembershipSpent,  member.mentorTotalSpent, 
+            // Biz Mentor Section 
+
             //  Business Advice
             member.sessionTitle, member.sessionDateTime, member.businessAdviceDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
             member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge, member.grossRevenuePerYear, member.grossCostPerYear, member.grossProfitPerYear, member.paidAdvertising, member.customerDatabaseQuantity, member.professionalIndemnityNumber,
@@ -684,6 +759,17 @@
                     <th>Total Membership Spent</th>
                     <th>Total Spent</th>
 
+                    // Biz Mentor Section 
+                    <th>Person Pic</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Membership Type</th>
+                    <th>Total Membership Spent</th>
+                    <th>Total Spent</th>
+                    // Biz Mentor Section 
+
+
+
                     // Business Advice
                     <th>Session Title</th>
                     <td></td>
@@ -748,6 +834,15 @@
                       <td>${member.membershipType}</td>
                       <td>${member.totalMembershipSpent}</td>
                       <td>${member.totalSpent}</td>
+                    // Biz Mentor Section 
+                      <td>${member.mentorPic}</td>
+                      <td>${member.mentorFirstName}</td>
+                      <td>${member.mentorSalary}</td>
+                      <td>${member.mentorBizRevenue}</td>
+                      <td>${member.mentorTotalMembershipSpent}</td>
+                      <td>${member.mentorTotalSpent}</td>
+                    // Biz Mentor Section 
+
 
                       // Business Advice section
                       <td>${member.sessionTitle}</td>
@@ -806,7 +901,15 @@
                     <td colspan="5">Totals</td>
                     <td>${totalMembershipSpent.value}</td>
                     <td>${totalSpent.value}</td>
-                      // Business Advice section
+
+                    // Biz Mentor Section 
+                    <td colspan="4"></td>
+                    <td>${mentorTotalMembershipSpent.value}</td>
+                    <td>${mentorTotalSpent.value}</td>
+                    // Biz Mentor Section 
+
+
+                    // Business Advice section
                     <td></td>
                     <td></td>
                     <td></td>
@@ -931,6 +1034,11 @@
         printTable,
         totalMembershipSpent,
         totalSpent,
+        // Biz Mentor Section
+        mentorTotalMembershipSpent,
+        mentorTotalSpent,
+        // Biz Mentor Section
+
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -970,10 +1078,12 @@
   .search {
     width: 100px;
   }
-  .sessionTitleCol {
+  .sessionTitleCol,
+  .mentorPicCol {
     Border-left: 2px red solid;
   }
-  .professionalIndemnityNumberCol {
+  .professionalIndemnityNumberCol,
+  .mentorTotalSpentCol {
     Border-right: 2px red solid;
   }
   .topBorder {

@@ -113,7 +113,7 @@ import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderCo
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MySharesTableComponent from '@/components/MembersMyOrderComponents/MySharesTableComponent.vue';
 import MembersBusinessAdviceTableComponent from '@/components/MembersMyOrderComponents/MembersBusinessAdvices/MembersBusinessAdviceTableComponent.vue';
-import MenteesBusinessAdviceTableComponent from '@/components/MembersMyOrderComponents/MembersBusinessAdvices/MenteesBusinessAdviceTableComponent.vue';
+import MentorsMenteeBusinessAdviceTableComponent from '@/components/MembersMyOrderComponents/MembersBusinessAdvices/MentorsMenteeBusinessAdviceTableComponent.vue';
 
 // My Rewards Discounts
 import MyRewardsDiscountsComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsComponent.vue';
@@ -600,9 +600,9 @@ const routes: Array<RouteRecordRaw> = [
     component: MembersBusinessAdviceTableComponent
   },
   {
-    path: '/menteesBusinessAdviceTableComponent',
-    name: 'MenteesBusinessAdviceTableComponent',
-    component: MenteesBusinessAdviceTableComponent
+    path: '/mentorsMenteeBusinessAdviceTableComponent',
+    name: 'MentorsMenteeBusinessAdviceTableComponent',
+    component: MentorsMenteeBusinessAdviceTableComponent
   },
   // MyRewardsDiscountsComponents 
   {
