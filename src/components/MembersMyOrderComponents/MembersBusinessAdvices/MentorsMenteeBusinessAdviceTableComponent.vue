@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all your Mentees (members) who booked a Business Advice Session with you</p>
+    <p class="TitleP">If You are a Business Mentor/Advisor, here is the list of all your Mentees (members) who booked a Business Advice Session with you</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -17,12 +17,11 @@
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-          <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
-          <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
-          <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
-          <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="menteePicCol" @click="sortMembers('menteePic')">Mentee Pic <IonIcon :icon="sortIcon('menteePic')" class="sort-icon" /></IonCol>
+          <IonCol class="menteeFirstNameCol" @click="sortMembers('menteeFirstName')">Mentee First Name <IonIcon :icon="sortIcon('menteeFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="menteeLastNameCol" @click="sortMembers('menteeLastName')">Mentee Last Name <IonIcon :icon="sortIcon('menteeLastName')" class="sort-icon" /></IonCol>
+          <IonCol class="menteeMembershipTypeCol" @click="sortMembers('menteeMembershipType')">Mentee Membership Type <IonIcon :icon="sortIcon('menteeMembershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="menteeTotalSpentCol" @click="sortMembers('menteeTotalSpent')">Mentee Total Spent<IonIcon :icon="sortIcon('menteeTotalSpent')" class="sort-icon" /></IonCol>
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol topBorder" @click="sortMembers('sessionTitle')">Session Title <IonIcon :icon="sortIcon('sessionTitle')" class="sort-icon" /></IonCol>
@@ -82,12 +81,11 @@
         <!-- Data rows -->
         <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
           <IonCol class="MemberIDCol">{{ member.id }}</IonCol>
-          <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-          <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
-          <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
-          <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
-          <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
-          <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+          <IonCol class="menteePicCol"><img :src="member.menteePic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="menteeFirstNameCol">{{ member.menteeFirstName }}</IonCol>
+          <IonCol class="menteeLastNameCol">{{ member.menteeLastName }}</IonCol>
+          <IonCol class="menteeMembershipTypeCol">{{ member.menteeMembershipType }}</IonCol>
+          <IonCol class="menteeTotalSpentCol">{{ member.menteeTotalSpent }}</IonCol>
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol">{{ member.sessionTitle }}</IonCol>
@@ -152,12 +150,11 @@
         <!-- Total row -->
         <IonRow class="TotalRow">
           <IonCol class="MemberIDCol">Totals:</IonCol>
-          <IonCol class="PersonPicCol"></IonCol>
-          <IonCol class="FirstNameCol"></IonCol>
-          <IonCol class="LastNameCol"></IonCol>
-          <IonCol class="MembershipTypeCol"></IonCol>
-          <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
-          <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
+          <IonCol class="menteePicCol"></IonCol>
+          <IonCol class="menteeFirstNameCol"></IonCol>
+          <IonCol class="menteeLastNameCol"></IonCol>
+          <IonCol class="menteeMembershipTypeCol"></IonCol>
+          <IonCol class="menteeTotalSpentCol">{{ menteeTotalSpent }}</IonCol>
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol"></IonCol>
@@ -246,12 +243,11 @@
 
   interface Member {
     id: number;
-    personPic: string;
-    firstName: string;
-    lastName: string;
-    membershipType: string;
-    totalMembershipSpent: number;
-    totalSpent: number;
+    menteePic: string;
+    menteeFirstName: string;
+    menteeLastName: string;
+    menteeMembershipType: string;
+    menteeTotalSpent: number;
 
     // Business Advice Section -->
     sessionTitle: string;
@@ -313,12 +309,11 @@
       const members = ref<Member[]>([
         {
           id: 3,
-          personPic: 'pic_url_a',
-          firstName: 'Johneee',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
+          menteePic: 'pic_url_a',
+          menteeFirstName: 'Johneee',
+          menteeLastName: 'Doe',
+          menteeMembershipType: 'Gold',
+          menteeTotalSpent: 150,
 
           // Business Advice
           sessionTitle: 'Amazing sponsorship Partnership',
@@ -374,12 +369,11 @@
         },
         {
           id: 2,
-          personPic: 'pic_url_a',
-          firstName: 'res',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
+          menteePic: 'pic_url_a',
+          menteeFirstName: 'res',
+          menteeLastName: 'Doe',
+          menteeMembershipType: 'Gold',
+          menteeTotalSpent: 150,
 
           // Business Advice
           sessionTitle: 'Exclusive sponsorship and Partnership',
@@ -435,12 +429,11 @@
         },
         {
           id: 1,
-          personPic: 'pic_url_a',
-          firstName: 'John',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
+          menteePic: 'pic_url_a',
+          menteeFirstName: 'John',
+          menteeLastName: 'Doe',
+          menteeMembershipType: 'Gold',
+          menteeTotalSpent: 150,
 
           // Business Advice
           sessionTitle: 'Premium sponsorship so Partnership',
@@ -575,8 +568,7 @@
       const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
     //  * Computes the total price of all members.
-      const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
-      const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
+      const menteeTotalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.menteeTotalSpent, 0));
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
@@ -602,7 +594,7 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
+            'Member ID', 'menteePic', 'menteeFirstName', 'menteeLastName', 'menteeMembershipType', 'menteeTotalSpent',
             //  Business Advice
             'session Title', 'Business Advice Seen', 'Business Advice List View', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
             'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'grossRevenuePerYear', 'grossCostPerYear', 'grossProfitPerYear', 'paidAdvertising', 'customerDatabaseQuantity', 'professionalIndemnityNumber',
@@ -613,7 +605,7 @@
             
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
+            member.id, member.menteePic, member.menteeFirstName, member.menteeLastName, member.menteeMembershipType,  member.menteeTotalSpent, 
             //  Business Advice
             member.sessionTitle, member.sessionDateTime, member.businessAdviceDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
             member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge, member.grossRevenuePerYear, member.grossCostPerYear, member.grossProfitPerYear, member.paidAdvertising, member.customerDatabaseQuantity, member.professionalIndemnityNumber,
@@ -677,12 +669,12 @@
                 <thead>
                   <tr>
                     <th>Member ID</th>
-                    <th>Person Pic</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Membership Type</th>
-                    <th>Total Membership Spent</th>
-                    <th>Total Spent</th>
+                    <th>Mentee Pic</th>
+                    <th>Mentee First Name</th>
+                    <th>Mentee Last Name</th>
+                    <th>Mentee Membership Type</th>
+                    <th>Mentee Total Membership Spent</th>
+                    <th>Mentee Total Spent</th>
 
                     // Business Advice
                     <th>Session Title</th>
@@ -742,12 +734,11 @@
                   ${paginatedMembers.value.map((member, index) => `
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                       <td>${member.id}</td>
-                      <td>${member.personPic}</td>
-                      <td>${member.firstName}</td>
-                      <td>${member.lastName}</td>
-                      <td>${member.membershipType}</td>
-                      <td>${member.totalMembershipSpent}</td>
-                      <td>${member.totalSpent}</td>
+                      <td>${member.menteePic}</td>
+                      <td>${member.menteeFirstName}</td>
+                      <td>${member.menteeLastName}</td>
+                      <td>${member.menteeMembershipType}</td>
+                      <td>${member.menteeTotalSpent}</td>
 
                       // Business Advice section
                       <td>${member.sessionTitle}</td>
@@ -804,8 +795,7 @@
                   `).join('')}
                   <tr class="TotalRow">
                     <td colspan="5">Totals</td>
-                    <td>${totalMembershipSpent.value}</td>
-                    <td>${totalSpent.value}</td>
+                    <td>${menteeTotalSpent.value}</td>
                       // Business Advice section
                     <td></td>
                     <td></td>
@@ -929,8 +919,7 @@
         nextPage,
         exportTable,
         printTable,
-        totalMembershipSpent,
-        totalSpent,
+        menteeTotalSpent,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,

@@ -17,12 +17,11 @@
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-          <IonCol class="PersonPicCol" @click="sortMembers('personPic')">PersonPic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
-          <IonCol class="FirstNameCol" @click="sortMembers('firstName')">FirstName <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
-          <IonCol class="LastNameCol" @click="sortMembers('lastName')">LastName <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
-          <IonCol class="MembershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalMembershipSpentCol" @click="sortMembers('totalMembershipSpent')">Total Membership Spent<IonIcon :icon="sortIcon('totalMembershipSpent')" class="sort-icon" /></IonCol>
-          <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorPicCol" @click="sortMembers('mentorPic')">Mentor Pic <IonIcon :icon="sortIcon('mentorPic')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorFirstNameCol" @click="sortMembers('mentorFirstName')">Mentor First Name <IonIcon :icon="sortIcon('mentorFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorLastNameCol" @click="sortMembers('mentorLastName')">Mentor Last Name <IonIcon :icon="sortIcon('mentorLastName')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorMembershipTypeCol" @click="sortMembers('mentorMembershipType')">Mentor Membership Type <IonIcon :icon="sortIcon('mentorMembershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorTotalSpentCol" @click="sortMembers('mentorTotalSpent')">Mentor Total Spent<IonIcon :icon="sortIcon('mentorTotalSpent')" class="sort-icon" /></IonCol>
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol topBorder" @click="sortMembers('sessionTitle')">Session Title <IonIcon :icon="sortIcon('sessionTitle')" class="sort-icon" /></IonCol>
@@ -58,13 +57,11 @@
           <IonCol class="VisitedCol" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
           <IonCol class="ListedNeedsCol" @click="sortMembers('listedNeeds')">Listed Needs <IonIcon :icon="sortIcon('listedNeeds')" class="sort-icon" /></IonCol>
           <IonCol class="ListedOffersCol" @click="sortMembers('listedOffers')">Listed Offers <IonIcon :icon="sortIcon('listedOffers')" class="sort-icon" /></IonCol>
-          <IonCol class="AdvertSpentCol" @click="sortMembers('advertSpent')">Advert Spent <IonIcon :icon="sortIcon('advertSpent')" class="sort-icon" /></IonCol>
           <IonCol class="PeopleSatisfiedNeedsCol" @click="sortMembers('peopleSatisfiedNeeds')">People SatisfiedNeeds <IonIcon :icon="sortIcon('peopleSatisfiedNeeds')" class="sort-icon" /></IonCol>
           <IonCol class="PeopleRequestedOffersCol" @click="sortMembers('peopleRequestedOffers')">People RequestedOffers <IonIcon :icon="sortIcon('peopleRequestedOffers')" class="sort-icon" /></IonCol>
           <IonCol class="InvestorsAdvertsCol" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
           <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
           <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-          <IonCol class="BizMentorSpentCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
           <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
           <IonCol class="BizCityCol" @click="sortMembers('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
           <IonCol class="ConnectionsCol" @click="sortMembers('connections')">Connections <IonIcon :icon="sortIcon('connections')" class="sort-icon" /></IonCol>
@@ -80,12 +77,11 @@
         <!-- Data rows -->
         <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
           <IonCol class="MemberIDCol">{{ member.id }}</IonCol>
-          <IonCol class="PersonPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
-          <IonCol class="FirstNameCol">{{ member.firstName }}</IonCol>
-          <IonCol class="LastNameCol">{{ member.lastName }}</IonCol>
-          <IonCol class="MembershipTypeCol">{{ member.membershipType }}</IonCol>
-          <IonCol class="TotalMembershipSpentCol">{{ member.totalMembershipSpent }}</IonCol>
-          <IonCol class="TotalSpentCol">{{ member.totalSpent }}</IonCol>
+          <IonCol class="mentorPicCol"><img :src="member.mentorPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="mentorFirstNameCol">{{ member.mentorFirstName }}</IonCol>
+          <IonCol class="mentorLastNameCol">{{ member.mentorLastName }}</IonCol>
+          <IonCol class="mentorMembershipTypeCol">{{ member.mentorMembershipType }}</IonCol>
+          <IonCol class="mentorTotalSpentCol">{{ member.mentorTotalSpent }}</IonCol>
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol">{{ member.sessionTitle }}</IonCol>
@@ -121,13 +117,11 @@
           <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
           <IonCol class="ListedNeedsCol">{{ member.listedNeeds }}</IonCol>
           <IonCol class="ListedOffersCol">{{ member.listedOffers }}</IonCol>
-          <IonCol class="AdvertSpentCol">{{ member.advertSpent }}</IonCol>
           <IonCol class="PeopleSatisfiedNeedsCol">{{ member.peopleSatisfiedNeeds }}</IonCol>
           <IonCol class="PeopleRequestedOffersCol">{{ member.peopleRequestedOffers }}</IonCol>
           <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
           <IonCol class="PitchingsCol">{{ member.pitchings }}</IonCol>
           <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
-          <IonCol class="BizMentorSpentCol">{{ member.bizMentorSpent }}</IonCol>
           <IonCol class="BizCountryCol">{{ member.bizCountry }}</IonCol>
           <IonCol class="BizCityCol">{{ member.bizCity }}</IonCol>
           <IonCol class="ConnectionsCol">{{ member.connections }}</IonCol>
@@ -148,12 +142,11 @@
         <!-- Total row -->
         <IonRow class="TotalRow">
           <IonCol class="MemberIDCol">Totals:</IonCol>
-          <IonCol class="PersonPicCol"></IonCol>
-          <IonCol class="FirstNameCol"></IonCol>
-          <IonCol class="LastNameCol"></IonCol>
-          <IonCol class="MembershipTypeCol"></IonCol>
-          <IonCol class="TotalMembershipSpentCol">{{ totalMembershipSpent }}</IonCol>
-          <IonCol class="TotalSpentCol">{{ totalSpent }}</IonCol>
+          <IonCol class="mentorPicCol"></IonCol>
+          <IonCol class="mentorFirstNameCol"></IonCol>
+          <IonCol class="mentorLastNameCol"></IonCol>
+          <IonCol class="mentorMembershipTypeCol"></IonCol>
+          <IonCol class="mentorTotalSpentCol">{{ mentorTotalSpent }}</IonCol>
 
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol"></IonCol>
@@ -189,13 +182,11 @@
           <IonCol class="VisitedCol"></IonCol>
           <IonCol class="ListedNeedsCol"></IonCol>
           <IonCol class="ListedOffersCol"></IonCol>
-          <IonCol class="AdvertSpentCol">{{ totalAdvertSpent }}</IonCol>
           <IonCol class="PeopleSatisfiedNeedsCol"></IonCol>
           <IonCol class="PeopleRequestedOffersCol"></IonCol>
           <IonCol class="InvestorsAdvertsCol"></IonCol>
           <IonCol class="PitchingsCol"></IonCol>
           <IonCol class="BizMentorCol"></IonCol>
-          <IonCol class="BizMentorSpentCol">{{ bizMentorSpent }}</IonCol>
           <IonCol class="BizCountryCol"></IonCol>
           <IonCol class="BizCityCol"></IonCol>
           <IonCol class="ConnectionsCol"></IonCol>
@@ -240,12 +231,11 @@
 
   interface Member {
     id: number;
-    personPic: string;
-    firstName: string;
-    lastName: string;
-    membershipType: string;
-    totalMembershipSpent: number;
-    totalSpent: number;
+    mentorPic: string;
+    mentorFirstName: string;
+    mentorLastName: string;
+    mentorMembershipType: string;
+    mentorTotalSpent: number;
 
     // Business Advice Section -->
     sessionTitle: string;
@@ -281,13 +271,11 @@
     visited: number;
     listedNeeds: number;
     listedOffers: number;
-    advertSpent: number;
     peopleSatisfiedNeeds: number;
     peopleRequestedOffers: number;
     investorsAdverts: number;
     pitchings: number;
     bizMentor: number;
-    bizMentorSpent: number;
     bizCountry: string;
     bizCity: string;
     connections: number;
@@ -305,12 +293,11 @@
       const members = ref<Member[]>([
         {
           id: 3,
-          personPic: 'pic_url_a',
-          firstName: 'Johneee',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'Johneee',
+          mentorLastName: 'Doe',
+          mentorMembershipType: 'Gold',
+          mentorTotalSpent: 150,
 
           // Business Advice
           sessionTitle: 'Amazing sponsorship Partnership',
@@ -346,13 +333,11 @@
           visited: 30,
           listedNeeds: 5,
           listedOffers: 3,
-          advertSpent: 500,
           peopleSatisfiedNeeds: 5,
           peopleRequestedOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          bizMentorSpent: 150,
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -364,12 +349,11 @@
         },
         {
           id: 2,
-          personPic: 'pic_url_a',
-          firstName: 'res',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'res',
+          mentorLastName: 'Doe',
+          mentorMembershipType: 'Gold',
+          mentorTotalSpent: 150,
 
           // Business Advice
           sessionTitle: 'Exclusive sponsorship and Partnership',
@@ -405,13 +389,11 @@
           visited: 30,
           listedNeeds: 5,
           listedOffers: 3,
-          advertSpent: 500,
           peopleSatisfiedNeeds: 5,
           peopleRequestedOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          bizMentorSpent: 150,
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -423,12 +405,11 @@
         },
         {
           id: 1,
-          personPic: 'pic_url_a',
-          firstName: 'John',
-          lastName: 'Doe',
-          membershipType: 'Gold',
-          totalMembershipSpent: 500,
-          totalSpent: 150,
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'John',
+          mentorLastName: 'Doe',
+          mentorMembershipType: 'Gold',
+          mentorTotalSpent: 150,
 
           // Business Advice
           sessionTitle: 'Premium sponsorship so Partnership',
@@ -464,13 +445,11 @@
           visited: 30,
           listedNeeds: 5,
           listedOffers: 3,
-          advertSpent: 500,
           peopleSatisfiedNeeds: 5,
           peopleRequestedOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          bizMentorSpent: 150,
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -561,14 +540,11 @@
       const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
     //  * Computes the total price of all members.
-      const totalMembershipSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalMembershipSpent, 0));
-      const totalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.totalSpent, 0));
+      const mentorTotalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.mentorTotalSpent, 0));
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
-      const totalAdvertSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.advertSpent, 0));
-      const bizMentorSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bizMentorSpent, 0));
       const totalEmployees = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.noEmployees, 0));
 
       const prevPage = () => {
@@ -588,25 +564,25 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'PersonPic', 'FirstName', 'LastName', 'MembershipType', 'TotalMembershipSpent', 'TotalSpent',
+            'Member ID', 'mentorPic', 'mentorFirstName', 'mentorLastName', 'mentorMembershipType', 'mentorTotalSpent',
             //  Business Advice
             'session Title', 'Business Advice Seen', 'Business Advice List View', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
             'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'grossRevenuePerYear', 'grossCostPerYear', 'grossProfitPerYear', 'paidAdvertising', 'customerDatabaseQuantity', 'professionalIndemnityNumber',
             //  Business Advice
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
-            'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
+            'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 
            'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
             
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.personPic, member.firstName, member.lastName, member.membershipType, member.totalMembershipSpent,  member.totalSpent, 
+            member.id, member.mentorPic, member.mentorFirstName, member.mentorLastName, member.mentorMembershipType,  member.mentorTotalSpent, 
             //  Business Advice
             member.sessionTitle, member.sessionDateTime, member.businessAdviceDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
             member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge, member.grossRevenuePerYear, member.grossCostPerYear, member.grossProfitPerYear, member.paidAdvertising, member.customerDatabaseQuantity, member.professionalIndemnityNumber,
             //  Business Advice
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
-            member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.bizCountry, member.bizCity,
+            member.investorsAdverts, member.pitchings, member.bizMentor, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
           ])
         ]
@@ -663,12 +639,11 @@
                 <thead>
                   <tr>
                     <th>Member ID</th>
-                    <th>Person Pic</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Membership Type</th>
-                    <th>Total Membership Spent</th>
-                    <th>Total Spent</th>
+                    <th>Mentor Pic</th>
+                    <th>Mentor First Name</th>
+                    <th>Mentor Last Name</th>
+                    <th>Mentor Membership Type</th>
+                    <th>Mentor Total Spent</th>
 
                     // Business Advice
                     <th>Session Title</th>
@@ -705,7 +680,6 @@
                     <th>Visited</th>
                     <th>Listed Needs</th>
                     <th>Listed Offers</th>
-                    <th>Advert Spent</th>
                     <th>People Satisfied Needs</th>
                     <th>People Requested Offers</th>
                     <th>Investors Adverts</th>
@@ -726,12 +700,11 @@
                   ${paginatedMembers.value.map((member, index) => `
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                       <td>${member.id}</td>
-                      <td>${member.personPic}</td>
-                      <td>${member.firstName}</td>
-                      <td>${member.lastName}</td>
-                      <td>${member.membershipType}</td>
-                      <td>${member.totalMembershipSpent}</td>
-                      <td>${member.totalSpent}</td>
+                      <td>${member.mentorPic}</td>
+                      <td>${member.mentorFirstName}</td>
+                      <td>${member.mentorLastName}</td>
+                      <td>${member.mentorMembershipType}</td>
+                      <td>${member.mentorTotalSpent}</td>
 
                       // Business Advice section
                       <td>${member.sessionTitle}</td>
@@ -767,13 +740,11 @@
                       <td>${member.visited}</td>
                       <td>${member.listedNeeds}</td>
                       <td>${member.listedOffers}</td>
-                      <td>${member.advertSpent}</td>
                       <td>${member.peopleSatisfiedNeeds}</td>
                       <td>${member.peopleRequestedOffers}</td>
                       <td>${member.investorsAdverts}</td>
                       <td>${member.pitchings}</td>
                       <td>${member.bizMentor}</td>
-                      <td>${member.bizMentorSpent}</td>
                       <td>${member.bizCountry}</td>
                       <td>${member.bizCity}</td>
                       <td>${member.connections}</td>
@@ -786,8 +757,7 @@
                   `).join('')}
                   <tr class="TotalRow">
                     <td colspan="5">Totals</td>
-                    <td>${totalMembershipSpent.value}</td>
-                    <td>${totalSpent.value}</td>
+                    <td>${mentorTotalSpent.value}</td>
                       // Business Advice section
                     <td></td>
                     <td></td>
@@ -823,13 +793,11 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>${totalAdvertSpent.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>${bizMentorSpent.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -909,13 +877,10 @@
         nextPage,
         exportTable,
         printTable,
-        totalMembershipSpent,
-        totalSpent,
+        mentorTotalSpent,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
-        totalAdvertSpent,
-        bizMentorSpent,
         totalEmployees,
         create, trash, ban,
         arrowBackCircle,
