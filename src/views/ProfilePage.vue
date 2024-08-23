@@ -230,98 +230,98 @@ export default defineComponent({
 <style scoped>
 
 
-.bordered-section {
-  padding: 0;
-  margin: 0;
-  z-index: 1;
-  /* gap: 100px; */
-}
-
-@media (min-width: 768px) {
-  .main-content-row ion-col {
-    margin-bottom: 0; /* Reset margin for larger screens */
+  .bordered-section {
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    /* gap: 100px; */
   }
-}
 
-/* Floating sidebar starts here ##################################################### */
+  @media (min-width: 768px) {
+    .main-content-row ion-col {
+      margin-bottom: 0; /* Reset margin for larger screens */
+    }
+  }
 
-.Sidebar {
-  font-size: 20px;
-  cursor: pointer;
-  padding: 10px;
-  position: fixed; /* Keep hamburger menu fixed floating */
-  z-index: 1100; /* Ensure it stays on top of the sidebar */
-  background-color: yellow;
-  top: 10px; /* Adjust positioning as needed */
-  left: 10px; /* Adjust positioning as needed */
-  margin-top: 40px;
-}
+  /* Floating sidebar starts here ##################################################### */
 
-.MainOptions, 
-.UpgradeVIP {
-  font-weight: bold;
-  /* padding: 5px; */
-}
-.MessageRemaining {
-  font-size: 13px;;
-}
-.buyMore {
-  --background: #7cdd06;
-}
-.remainingMessageNo {
-  color: red;
-  font-weight: bold;
-}
-.PaddingBorder{
-  border-bottom: 1px gray solid;
-  padding: 3px 0;
-  cursor: pointer;
-}
-
-.sidebar-menu {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  overflow-y: auto; /* Ensure the content is scrollable */
-  width: 180px; /* Make width fit-content */
-  height: fit-content; /* Make height fit-content */
-  position: fixed; 
-  z-index: 1099; /* Ensure it stays below the hamburger menu */
-  background-color: white;
-  top: 60px; /* Adjust top position to be below the hamburger menu */
-  left: 10px;
-  margin-top: 40px;
-  box-shadow: 0 4px 8px rgba(142, 15, 226, 1.2); /* X-offset, Y-offset, blur radius, and color */
-  font-size: 14px;
-}
-
-.sidebar-menu-hidden {
-  display: none; /* Hide sidebar by default on mobile */
-}
-/* This makes the sidebar floating beautifully */
-.floating-sidebar {
-  position: absolute;
-  /* z-index: 1000; */    /* Ensure it is above other content */
-}
-.bold {
-  font-weight: bold;
-}
-@media (max-width: 600px) {
   .Sidebar {
-    display: flex; /* Show hamburger menu on mobile */
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed; /* Keep hamburger menu fixed floating */
+    z-index: 1100; /* Ensure it stays on top of the sidebar */
+    background-color: yellow;
+    top: 10px; /* Adjust positioning as needed */
+    left: 10px; /* Adjust positioning as needed */
+    margin-top: 40px;
   }
-  .RightAdvertComponent,
-  .LeftAdvertComponent {
-    display: none;
+
+  .MainOptions, 
+  .UpgradeVIP {
+    font-weight: bold;
+    /* padding: 5px; */
   }
-  .sidebar-menu.sidebar-menu-hidden {
-    display: none; /* Show sidebar when menu is open */
+  .MessageRemaining {
+    font-size: 13px;;
   }
-  .ion-item {
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word;
+  .buyMore {
+    --background: #7cdd06;
   }
-}
+  .remainingMessageNo {
+    color: red;
+    font-weight: bold;
+  }
+  .PaddingBorder{
+    border-bottom: 1px gray solid;
+    padding: 3px 0;
+    cursor: pointer;
+  }
+
+  .sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto; /* Ensure the content is scrollable */
+    width: 180px; /* Make width fit-content */
+    height: fit-content; /* Make height fit-content */
+    position: fixed; 
+    z-index: 1099; /* Ensure it stays below the hamburger menu */
+    background-color: white;
+    top: 60px; /* Adjust top position to be below the hamburger menu */
+    left: 10px;
+    margin-top: 40px;
+    box-shadow: 0 4px 8px rgba(142, 15, 226, 1.2); /* X-offset, Y-offset, blur radius, and color */
+    font-size: 14px;
+  }
+
+  .sidebar-menu-hidden {
+    display: none; /* Hide sidebar by default on mobile */
+  }
+  /* This makes the sidebar floating beautifully */
+  .floating-sidebar {
+    position: absolute;
+    /* z-index: 1000; */    /* Ensure it is above other content */
+  }
+  .bold {
+    font-weight: bold;
+  }
+  @media (max-width: 600px) {
+    .Sidebar {
+      display: flex; /* Show hamburger menu on mobile */
+    }
+    .RightAdvertComponent,
+    .LeftAdvertComponent {
+      display: none;
+    }
+    .sidebar-menu.sidebar-menu-hidden {
+      display: none; /* Show sidebar when menu is open */
+    }
+    .ion-item {
+      white-space: normal; /* Allow text to wrap */
+      word-wrap: break-word;
+    }
+  }
 
 /* Floating SideBar end here ##################################################### */
 </style>
