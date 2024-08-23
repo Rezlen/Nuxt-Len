@@ -6,7 +6,7 @@
     </IonCardHeader>
     <IonRow class="CenterPositions ImgSocialButtonRow">
       <img alt="LEN Logo" height="100" width="150" src="/favicon.png" />
-      <IonButton class="iWantBTN" @click="toggleFormComponent">I want to Satisfy/Provide this Need</IonButton>
+      <IonButton class="iWantBTN" @click="toggleFormComponent">I want to Satisfy/Provide this Offer</IonButton>
       <IonRow class="CenterPositions social-media-icons">
         <IonButton size="small" fill="clear" class="social-button">
           <IonIcon :icon="logoLinkedin" class="linkedin-icon" />
@@ -41,22 +41,16 @@
     </IonCardContent>
     
   </IonCard>
-  <!-- This component is displayed only after clicking the button -->
-  <IonRow v-if="showFormComponent"  class="bizForm">
-    <BusinessAdviceBestOffers7CategoriesFormComponents />
-  </IonRow>
-
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { IonCard, IonRow, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton, IonIcon} from "@ionic/vue";
 import { logoFacebook, logoTwitter, logoGoogle, logoLinkedin, linkOutline} from "ionicons/icons";
-import BusinessAdviceBestOffers7CategoriesFormComponents from "@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/BusinessAdviceBestOffers7CategoriesFormComponent.vue";
 
 export default defineComponent({
   name: "BestOfferComponent",
-  components: { IonCard, IonRow, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton, IonIcon, BusinessAdviceBestOffers7CategoriesFormComponents },  setup() {
+  components: { IonCard, IonRow, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonButton, IonIcon },  setup() {
     const showFormComponent = ref(false); // State to control form component visibility
 
     const toggleFormComponent = () => {

@@ -158,82 +158,63 @@ export default defineComponent({
 
 <style scoped>
 
-/* ion-grid {
-  padding: 0;
-  margin: 0;
-} */
-
-.bordered-section {
-  padding: 0;
-  margin: 0;
-  z-index: 1;
-  /* gap: 100px; */
-}
-
-/* Updated for new tab names and mobile responsiveness */
-
-.MiniProfilesRow {
-  padding: 10px;
-}
-
-.Tabs4AllBusinessProfilesAllOffersAllNeedsBestOffersAdvertiseForFree {
-  display: flex;
-  flex-wrap: wrap; /* Allow tabs to wrap to the next row */
-  margin-bottom: 10px;
-}
-
-.TabSegment {
-  display: flex;
-  flex-wrap: wrap; /* Allow segment buttons to wrap */
-  width: 100%;
-}
-
-.TabSegment .btn {
-  flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
-  min-width: 150px; /* Minimum width for each button to ensure readability */
-  letter-spacing: 0.5px;
-}
-
-.DisplayComponentRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.AllBusinessProfiles,
-.AllOffers,
-.AllNeeds,
-.BestOffers,
-.AdvertiseForFree {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
-  margin: 10px;
-}
-
-/* This makes the sidebar floating beautifully */
-.floating-sidebar {
-  position: absolute;
-  /* z-index: 1000; */    /* Ensure it is above other content */
-}
-
-@media (max-width: 768px) {
+  .bordered-section {
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    /* gap: 100px; */
+  }
+  .MiniProfilesRow {
+    padding: 10px;
+  }
+  .Tabs4AllBusinessProfilesAllOffersAllNeedsBestOffersAdvertiseForFree {
+    display: flex;
+    flex-wrap: wrap; /* Allow tabs to wrap to the next row */
+    margin-bottom: 10px;
+  }
+  .TabSegment {
+    display: flex;
+    flex-wrap: wrap; /* Allow segment buttons to wrap */
+    width: 100%;
+  }
+  .TabSegment .btn {
+    flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
+    min-width: 150px; /* Minimum width for each button to ensure readability */
+    letter-spacing: 0.5px;
+  }
+  .DisplayComponentRow {
+    justify-content: center;
+  }
   .AllBusinessProfiles,
   .AllOffers,
   .AllNeeds,
   .BestOffers,
   .AdvertiseForFree {
-    flex: 1 1 100%; /* Make each tab content full width on small screens */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
+    margin: 10px;
   }
-
-    /* if you can try to make the advert disolaywithin componentts in mobile view */
-  .RightAdvertComponent,
-  .LeftAdvertComponent {
-    display: none;
+  /* This makes the sidebar floating beautifully */
+  .floating-sidebar {
+    position: absolute;
+    /* z-index: 1000; */    /* Ensure it is above other content */
   }
-}
+  @media (max-width: 768px) {
+    .AllBusinessProfiles,
+    .AllOffers,
+    .AllNeeds,
+    .BestOffers,
+    .AdvertiseForFree {
+      flex: 1 1 100%; /* Make each tab content full width on small screens */
+    }
+      /* if you can try to make the advert disolaywithin componentts in mobile view */
+    .RightAdvertComponent,
+    .LeftAdvertComponent {
+      display: none;
+    }
+  }
 </style>
 

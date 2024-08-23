@@ -1,6 +1,6 @@
 <template>
   <IonCard>
-    <IonCardHeader class="CenterPositions TitelSubTitle">
+    <IonCardHeader class="CenterPositions TitleSubTitle">
       <IonCardTitle class="OfferTitle">Card Title Company Name</IonCardTitle>
       <IonCardSubtitle class="OfferSubTitle"
         >Card Subtitle Person Name</IonCardSubtitle
@@ -124,11 +124,7 @@ ion-card {
   align-content: center;
   text-align: center;
 }
-.TitelSubTitle {
-  border: solid 1px black;
-}
-
-.TitelSubTitle,
+.TitleSubTitle,
 .ImgSocialButtonRow,
 .ContentSection {
   border: solid 1px rgb(148, 138, 138);

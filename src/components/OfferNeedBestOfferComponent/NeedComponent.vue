@@ -1,30 +1,28 @@
 <template>
   <IonCard>
-    <IonCardHeader class="CenterPositions TitelSubTitle">
+    <IonCardHeader class="CenterPositions TitleSubTitle">
       <IonCardTitle class="OfferTitle">Card Title Company Name</IonCardTitle>
-      <IonCardSubtitle class="OfferSubTitle"
-        >Card Subtitle Person Name</IonCardSubtitle
-      >
+      <IonCardSubtitle class="OfferSubTitle">Card Subtitle Person Name</IonCardSubtitle>
     </IonCardHeader>
     <IonRow class="CenterPositions ImgSocialButtonRow">
       <img alt="LEN Logo" height="100" width="150" src="/favicon.png" />
       <IonButton>I want to Satisfy/Provide this Need</IonButton>
       <IonRow class="CenterPositions social-media-icons">
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="logoLinkedin" class="linkedin-icon"
-        /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="logoGoogle" class="google-icon"
-        /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="logoFacebook" class="facebook-icon"
-        /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="logoTwitter" class="twitter-icon"
-        /></IonButton>
-        <IonButton size="small" fill="clear" class="social-button"
-          ><IonIcon :icon="linkOutline" class="link-outline"
-        /></IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="logoLinkedin" class="linkedin-icon"/>
+        </IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="logoGoogle" class="google-icon"/>
+        </IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="logoFacebook" class="facebook-icon"/>
+        </IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="logoTwitter" class="twitter-icon"/>
+        </IonButton>
+        <IonButton size="small" fill="clear" class="social-button">
+          <IonIcon :icon="linkOutline" class="link-outline"/>
+        </IonButton>
       </IonRow>
       <p>
         Want to create a FREE advert like this?
@@ -123,7 +121,7 @@ ion-card {
   text-align: center;
 }
 
-.TitelSubTitle,
+.TitleSubTitle,
 .ImgSocialButtonRow,
 .ContentSection {
   border: solid 1px rgb(148, 138, 138);
