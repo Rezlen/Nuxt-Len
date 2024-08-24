@@ -23,11 +23,6 @@
         <IonSegmentButton class="btn" value="ServiceProductExchange"
           >Service Product Exchange</IonSegmentButton
         >
-        <IonSegmentButton
-          class="btn"
-          value="MembersBusinessAdviceTableComponent"
-          >Business Advice</IonSegmentButton
-        >
         <IonSegmentButton class="btn" value="mySharesTableComponent"
           >My Shares</IonSegmentButton
         >
@@ -64,15 +59,7 @@
         class="ServiceProductExchange"
       >
       </IonCol>
-      <!-- MembersBusinessAdviceTableComponent ####################################-->
-      <IonCol
-        v-show="selectedTab === 'MembersBusinessAdviceTableComponent'"
-        class="MembersBusinessAdviceTableComponent"
-      >
-        <MembersBusinessAdviceTableComponent />
-        <MentorsMenteeBusinessAdviceTableComponent />
-        <!-- List of all Mentees of a Business advisor -->
-      </IonCol>
+
       <IonCol
         v-show="selectedTab === 'mySharesTableComponent'"
         class="mySharesTableComponent"
@@ -97,8 +84,6 @@ import MemberMessagingEmailingOrderComponent from "@/components/MembersMyOrderCo
 import MemberMembershipOrderComponent from "@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue";
 import SponsorshipPartnershipTableComponent from "@/components/MembersMyOrderComponents/SponsorshipPartnershipTableComponent.vue";
 import MySharesTableComponent from "@/components/MembersMyOrderComponents/MySharesTableComponent.vue";
-import MembersBusinessAdviceTableComponent from "@/components/MembersMyOrderComponents/MembersBusinessAdvices/MembersBusinessAdviceTableComponent.vue";
-import MentorsMenteeBusinessAdviceTableComponent from "@/components/MembersMyOrderComponents/MembersBusinessAdvices/MentorsMenteeBusinessAdviceTableComponent.vue";
 
 // MemberMembershipOrderComponent
 export default defineComponent({
@@ -114,8 +99,6 @@ export default defineComponent({
     MemberMembershipOrderComponent,
     SponsorshipPartnershipTableComponent,
     MySharesTableComponent,
-    MembersBusinessAdviceTableComponent,
-    MentorsMenteeBusinessAdviceTableComponent,
   },
   setup() {
     const selectedTab = ref<string>(""); // MembersOfferDetailProfileDetailAdminComponent
@@ -128,10 +111,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.MembersBusinessAdviceTableComponent {
-  height: fit-content;
-}
-
 .TabSegment {
   display: flex;
   flex-wrap: wrap; /* Allow segment buttons to wrap */

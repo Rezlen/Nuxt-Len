@@ -218,7 +218,6 @@
       <IonButton @click="nextPage">Next</IonButton>
     </IonRow>
     <IonRow class="editingRow">
-      <BestOfferTABsComponent/>
     </IonRow>
 
   </IonGrid>
@@ -233,7 +232,6 @@
   import { defineComponent, ref, computed, watch } from 'vue';
   import { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput } from '@ionic/vue';
   import { create, close, arrowDownOutline, arrowUpOutline, arrowBackCircle } from 'ionicons/icons';
-  import BestOfferTABsComponent from '@/components/OfferNeedBestOfferComponent/BestOfferTABsComponent.vue';
 
   interface Member {
     id: number;
@@ -296,8 +294,8 @@
   }
 
   export default defineComponent({
-    name: 'MybestOffersActivityTableComponent',
-    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, BestOfferTABsComponent, },
+    name: 'MyBestOffersActivityTableComponent',
+    components: { IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput },
     setup() {
       const members = ref<Member[]>([
         {

@@ -11,7 +11,7 @@
       <IonItem class="Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox1"></IonCheckbox>
         <IonCol class="title label">
-          30 Minutes FREE Accounting Advice & how I can help you
+          30 Minutes FREE Accounting Advice & how we can help you
         </IonCol>
         <IonCol class="DatePrice">
           <IonCol class="price">FREE</IonCol>
@@ -25,7 +25,7 @@
         </IonCol>
         <IonCol class="description label">
           <li>
-            Answering your question & seeing how we can help you the best.          </li>
+            Answering your question & seeing how we can help you the best.</li>
         </IonCol>
       </IonItem>
 

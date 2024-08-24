@@ -118,9 +118,9 @@ import MemberTicketsComponent from '@/components/MembersMyOrderComponents/Member
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MySharesTableComponent from '@/components/MembersMyOrderComponents/MySharesTableComponent.vue';
-import MembersBusinessAdviceTableComponent from '@/components/MembersMyOrderComponents/MembersBusinessAdvices/MembersBusinessAdviceTableComponent.vue';
-import MentorsMenteeBusinessAdviceTableComponent from '@/components/MembersMyOrderComponents/MembersBusinessAdvices/MentorsMenteeBusinessAdviceTableComponent.vue';
-
+import MembersBusinessAdviceTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MembersBusinessAdviceTableComponent.vue';
+import MentorsMenteeBusinessAdviceTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MentorsMenteeBusinessAdviceTableComponent.vue';
+//  MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices
 // My Rewards Discounts
 import MyRewardsDiscountsComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsComponent.vue';
 import MyRewardsDiscountsEarnedTableComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsEarnedTableComponent.vue';
@@ -144,8 +144,10 @@ import SharesTableComponent from '@/components/SharesComponents/SharesTableCompo
 // Contact Us
 import ContactUsFormComponent from '@/components/ContactUsComponents/ContactUsFormComponent.vue';
 // My Offers, Need BestOffers ActivityTableComponent
+import MyBestOfferTABsComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOfferTABsComponent.vue';
+
 import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
-import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTableComponent.vue';
+import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersActivityTableComponent.vue';
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
 // MyInvestmentApplicationComponent 
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
@@ -692,11 +694,16 @@ const routes: Array<RouteRecordRaw> = [
     component: ContactUsFormComponent
   },
 
-// My Offers Best Offers, Needs components
+  // My Offers Best Offers, Needs components
   {
     path: '/myOffersActivityTableComponent',
     name: 'MyOffersActivityTableComponent',
     component: MyOffersActivityTableComponent
+  },
+  {
+    path: '/myBestOfferTABsComponent',
+    name: 'MyBestOfferTABsComponent',
+    component: MyBestOfferTABsComponent
   },
   {
     path: '/myNeedsActivityTableComponent',

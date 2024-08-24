@@ -24,7 +24,7 @@
           </IonCol>
         </IonCol>
         <IonCol class="description label">
-          <li> Answering your question & the best office space for you.</li>
+          <li> Answering your question & finding the best office space for you.</li>
         </IonCol>
       </IonItem>
 
