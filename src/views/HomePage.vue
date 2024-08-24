@@ -186,6 +186,7 @@
                 <p><a href="/MenteesBusinessAdviceTableComponent " class="Events-button" > MenteesBusinessAdviceTableComponent  </a> </p>
                 <p><a href="/BusinessAdviceBestOffers7CategoriesFormComponents" class="Events-button" > BusinessAdviceBestOffers7CategoriesFormComponents </a> </p>
                 <p><a href="/AccountingBestOffers7CategoriesFormComponent" class="Events-button" > AccountingBestOffers7CategoriesFormComponent </a> </p>
+                <p><a href="/OfficeSpaceBestOffers7CategoriesFormComponent" class="Events-button" > OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
 
               
               </IonRow>

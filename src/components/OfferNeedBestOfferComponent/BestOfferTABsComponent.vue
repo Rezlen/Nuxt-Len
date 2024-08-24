@@ -35,6 +35,7 @@
           </IonCol>
           <IonCol v-show="selectedTab === 'OfficeSpace'" class="OfficeSpace">
             <BestOfferComponent />
+            <OfficeSpaceBestOffers7CategoriesFormComponent/>
           </IonCol>
         </IonRow>
       </IonGrid>
@@ -47,6 +48,7 @@ import { IonPage, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentBut
 import BestOfferComponent from '@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue';
 import BusinessAdviceBestOffers7CategoriesFormComponents from '@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/BusinessAdviceBestOffers7CategoriesFormComponent.vue';
 import AccountingBestOffers7CategoriesFormComponent from '@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/AccountingBestOffers7CategoriesFormComponent.vue';
+import OfficeSpaceBestOffers7CategoriesFormComponent from '@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/OfficeSpaceBestOffers7CategoriesFormComponent.vue';
 
 export default defineComponent({
   name: 'BizOfferNeedPage',
@@ -61,6 +63,7 @@ export default defineComponent({
     BestOfferComponent,
     BusinessAdviceBestOffers7CategoriesFormComponents,
     AccountingBestOffers7CategoriesFormComponent,
+    OfficeSpaceBestOffers7CategoriesFormComponent,
   },
   setup() {
     const selectedTab = ref<string>('Marketing'); // Initialize with the default tab

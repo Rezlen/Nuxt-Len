@@ -11,7 +11,7 @@
       <IonItem class="Head">
         <IonCheckbox slot="start" v-model="checkboxStates.checkbox1"></IonCheckbox>
         <IonCol class="title label">
-          30 Minutes FREE Accounting Advice & how I can help you
+          30 Minutes FREE consultation on how we can help you
         </IonCol>
         <IonCol class="DatePrice">
           <IonCol class="price">FREE</IonCol>
@@ -24,43 +24,14 @@
           </IonCol>
         </IonCol>
         <IonCol class="description label">
-          <li>
-            Answering your question & seeing how we can help you the best.          </li>
+          <li> Answering your question & the best office space for you.</li>
         </IonCol>
       </IonItem>
 
-      <IonItem class="Head">
-        <IonCheckbox slot="start" v-model="checkboxStates.checkbox2"></IonCheckbox>
-        <IonCol class="title label boxNumber ">
-          <IonInput class="numberInput" type="number" :maxlength="2" placeholder="00" required></IonInput>
-          Hour(s) Accounting Advice Session</IonCol>
-        <IonCol class="DatePrice">
-          <IonCol class="price">£100</IonCol>
-          <IonCol class="date">ChooseDate</IonCol>
-          <IonCol>
-            <IonDatetimeButton datetime="datetime1"></IonDatetimeButton>
-            <IonModal :keep-contents-mounted="true">
-              <IonDatetime id="datetime1"></IonDatetime>
-            </IonModal>
-          </IonCol>
-        </IonCol>
-        <IonCol class="description label">
-          <li>
-            Accounting Advice session or any accounting conversation.
-            It can be conducted either in person in our offices, via skype or other means. 
-          </li>
-          <li>
-            Arrangeable to advice or conversation conducted in your chosen location.
-          </li>
-          <li>
-            Arrangeable FULL Accounting services (Personal & Business Accounting & Tax) Audits, Compilations and reviews, Tax planning and consultingTax preparation, Valuation, Provision bookkeeping.
-          </li>
-        </IonCol>
-      </IonItem>
     </IonRow>
 
     <p class="Header">
-      Saving your time; provide the following information, otherwise the accountants will ask the same in your first session;
+      Saves your time to provide the following information, otherwise the accountants will ask the same in your first session;
     </p>
 
     <IonRow class="fields">
@@ -93,25 +64,13 @@
           <IonInput class="inputFields" v-model="sanitizedBusinessYears" type="number" label="How many years has your business been running?" label-placement="floating" :counter="true" :maxlength="3"></IonInput>
         </IonItem>
         <IonItem>
-          <IonInput class="inputFields" v-model="sanitizedGrossRevenue" type="number" label="If has Gross Revenue, how much per year?" label-placement="floating" :counter="true" :maxlength="15"></IonInput>
-        </IonItem>
-      </IonCol>
-
-      <IonCol class="col">
-        <IonItem>
-          <IonInput class="inputFields" v-model="sanitizedGrossCost" type="number" label="If has Gross Cost, how much per year?" label-placement="floating" :counter="true" :maxlength="15"></IonInput>
-        </IonItem>
-        <IonItem>
-          <IonInput class="inputFields" v-model="sanitizedGrossProfit" type="number" label="If has Gross Profit, how much per year?" label-placement="floating" :counter="true" :maxlength="15"></IonInput>
-        </IonItem>
-        <IonItem>
           <IonInput class="inputFields" v-model="sanitizedPaidAdvertising" type="text" label="If you have employees; how many?" label-placement="floating" :counter="true" :maxlength="10"></IonInput>
         </IonItem>
         <IonItem>
-          <IonSelect v-model="selectedPosition" label="Do you need FULL Accounting services (Personal & Business Accounting & Tax) Audits, Compilations and reviews, Tax planning and consultingTax preparation, Valuation, Provision bookkeeping?" fill="outline">
+          <IonSelect v-model="selectedPosition" placeholder="Do you need FULL office services; Storage, Letter Collection/Forwarding, DataCenter, MeetingRoom, EventSpace, Catering?" fill="outline">
             <IonSelectOption value="Owner">Yes</IonSelectOption>
             <IonSelectOption value="Manager">No</IonSelectOption>
-          </IonSelect>        
+          </IonSelect>
         </IonItem>
       </IonCol>
 
@@ -149,7 +108,7 @@ const urlPattern = new RegExp(
 );
 
 export default defineComponent({
-  name: 'AccountingBestOffers7CategoriesFormComponent',
+  name: 'OfficeSpaceBestOffers7CategoriesFormComponent',
   components: {
     IonInput,
     IonItem,
