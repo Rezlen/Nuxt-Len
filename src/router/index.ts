@@ -56,6 +56,7 @@ import PostBestOfferComponent from '@/components/OfferNeedBestOfferComponent/Pos
 import PostOfferNeedBestOfferComponent from '@/components/OfferNeedBestOfferComponent/PostOfferNeedBestOfferComponent.vue';
 // BestOffers7CategoriesFormComponents
 import BusinessAdviceBestOffers7CategoriesFormComponents from '@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/BusinessAdviceBestOffers7CategoriesFormComponent.vue';
+import AccountingBestOffers7CategoriesFormComponent from '@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/AccountingBestOffers7CategoriesFormComponent.vue';
 
 
 // Events comp BusinessAdviceBestOffers7CategoriesFormComponents
@@ -362,8 +363,13 @@ const routes: Array<RouteRecordRaw> = [
     name: 'BusinessAdviceBestOffers7CategoriesFormComponents',
     component: BusinessAdviceBestOffers7CategoriesFormComponents
   },
+  {
+    path: '/accountingBestOffers7CategoriesFormComponent',
+    name: 'AccountingBestOffers7CategoriesFormComponent',
+    component: AccountingBestOffers7CategoriesFormComponent
+  },
 
-  // Event, Ticket, Pitching section
+  // Event, Ticket, Pitching section AccountingBestOffers7CategoriesFormComponent
 
   {
     path: '/theEventComponent',

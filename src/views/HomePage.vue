@@ -185,11 +185,12 @@
                 <p><a href="/MembersBusinessAdviceTableComponent " class="Events-button" > MembersBusinessAdviceTableComponent  </a> </p>
                 <p><a href="/MenteesBusinessAdviceTableComponent " class="Events-button" > MenteesBusinessAdviceTableComponent  </a> </p>
                 <p><a href="/BusinessAdviceBestOffers7CategoriesFormComponents" class="Events-button" > BusinessAdviceBestOffers7CategoriesFormComponents </a> </p>
+                <p><a href="/AccountingBestOffers7CategoriesFormComponent" class="Events-button" > AccountingBestOffers7CategoriesFormComponent </a> </p>
 
               
               </IonRow>
               
-              <!-- MiniProfilesRow #####  MembersRewardDiscountTableAdminComponent.vue   membersMessagingTableAdminComponent -->
+              <!-- MiniProfilesRow #####     membersMessagingTableAdminComponent -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
                   <IonSegment v-model="selectedTab" class="TabSegment" color="primary">
