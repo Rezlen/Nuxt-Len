@@ -118,8 +118,6 @@ import MemberTicketsComponent from '@/components/MembersMyOrderComponents/Member
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MySharesTableComponent from '@/components/MembersMyOrderComponents/MySharesTableComponent.vue';
-import MembersBusinessAdviceTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MembersBusinessAdviceTableComponent.vue';
-import MentorsMenteeBusinessAdviceTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MentorsMenteeBusinessAdviceTableComponent.vue';
 //  MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices
 // My Rewards Discounts
 import MyRewardsDiscountsComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsComponent.vue';
@@ -149,6 +147,9 @@ import MyBestOfferTABsComponent from '@/components/MyOffersNeedsBestOffersCompon
 import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
 import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersActivityTableComponent.vue';
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
+import MyBestOfferMenteesBusinessAdviceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MyBestOfferMenteesBusinessAdviceActivityTableComponent.vue';
+import MentorsMenteeBusinessAdviceTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MentorsMenteeBusinessAdviceTableComponent.vue';
+
 // MyInvestmentApplicationComponent 
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
 import MyInvestmentAdsComponent from '@/components/MyInvestmentComponents/MyInvestmentAdsComponent.vue';
@@ -620,9 +621,9 @@ const routes: Array<RouteRecordRaw> = [
   },
   // MembersBusinessAdviceTableComponent  MenteesBusinessAdviceTableComponent
   {
-    path: '/membersBusinessAdviceTableComponent',
-    name: 'MembersBusinessAdviceTableComponent',
-    component: MembersBusinessAdviceTableComponent
+    path: '/myBestOfferMenteesBusinessAdviceActivityTableComponent',
+    name: 'MyBestOfferMenteesBusinessAdviceActivityTableComponent',
+    component: MyBestOfferMenteesBusinessAdviceActivityTableComponent
   },
   {
     path: '/mentorsMenteeBusinessAdviceTableComponent',
