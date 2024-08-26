@@ -35,6 +35,8 @@
         <MyBestOffersActivityTableComponent />
       </IonCol>
       <IonCol v-show="selectedTab === 'Accounting'" class="Accounting">
+        <MyBestOfferAccountingActivityTableComponent/>
+        <MyBestOfferAccountingCustomersActivityTableComponent/>
         <BestOfferComponent />
         <AccountingBestOffers7CategoriesFormComponent />
       </IonCol>
@@ -88,6 +90,9 @@ import MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent from "@/com
 import MyBestOfferOfficeSpaceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceActivityTableComponent.vue';
 import MyBestOfferOfficeSpaceCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceCustomersActivityTableComponent.vue';
 
+import MyBestOfferAccountingActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersAccountingActivityTablesComponents/MyBestOfferAccountingActivityTableComponent.vue';
+import MyBestOfferAccountingCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersAccountingActivityTablesComponents/MyBestOfferAccountingCustomersActivityTableComponent.vue';
+
 
 export default defineComponent({
   name: "MyBestOfferTABsComponent",
@@ -108,6 +113,8 @@ export default defineComponent({
     MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent,
     MyBestOfferOfficeSpaceActivityTableComponent,
     MyBestOfferOfficeSpaceCustomersActivityTableComponent,
+    MyBestOfferAccountingActivityTableComponent,
+    MyBestOfferAccountingCustomersActivityTableComponent,
   },
   setup() {
     const selectedTab = ref<string>("Marketing"); // Initialize with the default tab

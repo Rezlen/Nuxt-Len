@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">If You are a Business Mentor/Advisor, here is the list of all your Mentees (members) who booked a Business Advice Session with you</p>
+    <p class="TitleP">If you are a Accountant/Accounting Service provider provider, here is the list of all your customers</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -17,17 +17,17 @@
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-          <IonCol class="menteePicCol" @click="sortMembers('menteePic')">Mentee Pic <IonIcon :icon="sortIcon('menteePic')" class="sort-icon" /></IonCol>
-          <IonCol class="menteeFirstNameCol" @click="sortMembers('menteeFirstName')">Mentee First Name <IonIcon :icon="sortIcon('menteeFirstName')" class="sort-icon" /></IonCol>
-          <IonCol class="menteeLastNameCol" @click="sortMembers('menteeLastName')">Mentee Last Name <IonIcon :icon="sortIcon('menteeLastName')" class="sort-icon" /></IonCol>
-          <IonCol class="menteeMembershipTypeCol" @click="sortMembers('menteeMembershipType')">Mentee Membership Type <IonIcon :icon="sortIcon('menteeMembershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="menteeTotalSpentCol" @click="sortMembers('menteeTotalSpent')">Mentee Total Spent<IonIcon :icon="sortIcon('menteeTotalSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="personPicCol" @click="sortMembers('personPic')">Person Pic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+          <IonCol class="firstNameCol" @click="sortMembers('firstName')">First Name <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+          <IonCol class="lastNameCol" @click="sortMembers('lastName')">Last Name <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+          <IonCol class="membershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="allSpentCol" @click="sortMembers('allSpent')">Total Spent<IonIcon :icon="sortIcon('allSpent')" class="sort-icon" /></IonCol>
 
-          <!-- Business Advice Section -->
-          <IonCol class="sessionTitleCol topBorder" @click="sortMembers('sessionTitle')">Session Title <IonIcon :icon="sortIcon('sessionTitle')" class="sort-icon" /></IonCol>
-          <IonCol class="sessionDateTimeCol topBorder" @click="sortMembers('sessionDateTime')">Session Date Time <IonIcon :icon="sortIcon('sessionDateTime')" class="sort-icon" /></IonCol>
-          <IonCol class="businessAdviceDescriptionCol topBorder" @click="sortMembers('businessAdviceDescription')">Business Advice Description<IonIcon :icon="sortIcon('businessAdviceDescription')" class="sort-icon" /></IonCol>
-          <IonCol class="CostCol topBorder" @click="sortMembers('cost')">Business Advice Cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
+          <!-- Office Space Section -->
+          <IonCol class="sessionTitleCol topBorder" @click="sortMembers('sessionTitle')"> Session Title <IonIcon :icon="sortIcon('sessionTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="sessionDateTimeCol topBorder" @click="sortMembers('sessionDateTime')"> Session Date Time <IonIcon :icon="sortIcon('sessionDateTime')" class="sort-icon" /></IonCol>
+          <IonCol class="sessionDescriptionCol topBorder" @click="sortMembers('sessionDescription')">Session Description<IonIcon :icon="sortIcon('sessionDescription')" class="sort-icon" /></IonCol>
+          <IonCol class="CostCol topBorder" @click="sortMembers('cost')">cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
           <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')">Expiring Date<IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
           <IonCol class="TimeLeftTillExpiryCol topBorder" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
           <IonCol class="BookingDateCol topBorder" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
@@ -40,10 +40,9 @@
           <IonCol class="grossRevenuePerYearCol topBorder" @click="sortMembers('grossRevenuePerYear')">Gross Revenue PerYear <IonIcon :icon="sortIcon('grossRevenuePerYear')" class="sort-icon" /></IonCol>
           <IonCol class="grossCostPerYearCol topBorder" @click="sortMembers('grossCostPerYear')">Gross Cost PerYear <IonIcon :icon="sortIcon('grossCostPerYear')" class="sort-icon" /></IonCol>
           <IonCol class="grossProfitPerYearCol topBorder" @click="sortMembers('grossProfitPerYear')">Gross Profit PerYear <IonIcon :icon="sortIcon('grossProfitPerYear')" class="sort-icon" /></IonCol>
-          <IonCol class="paidAdvertisingCol topBorder" @click="sortMembers('paidAdvertising')">Paid Advertising <IonIcon :icon="sortIcon('paidAdvertising')" class="sort-icon" /></IonCol>
-          <IonCol class="customerDatabaseQuantityCol topBorder" @click="sortMembers('customerDatabaseQuantity')">Customer Database Quantity <IonIcon :icon="sortIcon('customerDatabaseQuantity')" class="sort-icon" /></IonCol>
-          <IonCol class="professionalIndemnityNumberCol topBorder" @click="sortMembers('professionalIndemnityNumber')">Professional Indemnity Number <IonIcon :icon="sortIcon('professionalIndemnityNumber')" class="sort-icon" /></IonCol>
-          <!-- Business Advice Section -->
+          <IonCol class="numberOfEmployeesCol topBorder" @click="sortMembers('numberOfEmployees')">Number Of Employees <IonIcon :icon="sortIcon('numberOfEmployees')" class="sort-icon" /></IonCol>
+          <IonCol class="fullAccountingServiceNeededCol topBorder" @click="sortMembers('fullAccountingServiceNeeded')">Full Accounting Service Needed <IonIcon :icon="sortIcon('fullAccountingServiceNeeded')" class="sort-icon" /></IonCol>
+          <!-- Office Space Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
@@ -57,15 +56,11 @@
           <IonCol class="VisitedCol" @click="sortMembers('visited')">Visited <IonIcon :icon="sortIcon('visited')" class="sort-icon" /></IonCol>
           <IonCol class="ListedNeedsCol" @click="sortMembers('listedNeeds')">Listed Needs <IonIcon :icon="sortIcon('listedNeeds')" class="sort-icon" /></IonCol>
           <IonCol class="ListedOffersCol" @click="sortMembers('listedOffers')">Listed Offers <IonIcon :icon="sortIcon('listedOffers')" class="sort-icon" /></IonCol>
-          <IonCol class="AdvertSpentCol" @click="sortMembers('advertSpent')">Advert Spent <IonIcon :icon="sortIcon('advertSpent')" class="sort-icon" /></IonCol>
           <IonCol class="PeopleSatisfiedNeedsCol" @click="sortMembers('peopleSatisfiedNeeds')">People SatisfiedNeeds <IonIcon :icon="sortIcon('peopleSatisfiedNeeds')" class="sort-icon" /></IonCol>
           <IonCol class="PeopleRequestedOffersCol" @click="sortMembers('peopleRequestedOffers')">People RequestedOffers <IonIcon :icon="sortIcon('peopleRequestedOffers')" class="sort-icon" /></IonCol>
           <IonCol class="InvestorsAdvertsCol" @click="sortMembers('investorsAdverts')">Investors Adverts <IonIcon :icon="sortIcon('investorsAdverts')" class="sort-icon" /></IonCol>
           <IonCol class="PitchingsCol" @click="sortMembers('pitchings')">Pitchings <IonIcon :icon="sortIcon('pitchings')" class="sort-icon" /></IonCol>
           <IonCol class="BizMentorCol" @click="sortMembers('bizMentor')">BizMentor <IonIcon :icon="sortIcon('bizMentor')" class="sort-icon" /></IonCol>
-          <IonCol class="BizMentorSpentCol" @click="sortMembers('bizMentorSpent')">BizMentor Spent <IonIcon :icon="sortIcon('bizMentorSpent')" class="sort-icon" /></IonCol>
-          <IonCol class="MobileNoCol" @click="sortMembers('mobileNo')">MobileNo <IonIcon :icon="sortIcon('mobileNo')" class="sort-icon" /></IonCol>
-          <IonCol class="EmailCol" @click="sortMembers('email')">Email <IonIcon :icon="sortIcon('email')" class="sort-icon" /></IonCol>
           <IonCol class="BizCountryCol" @click="sortMembers('bizCountry')">BizCountry <IonIcon :icon="sortIcon('bizCountry')" class="sort-icon" /></IonCol>
           <IonCol class="BizCityCol" @click="sortMembers('bizCity')">BizCity <IonIcon :icon="sortIcon('bizCity')" class="sort-icon" /></IonCol>
           <IonCol class="ConnectionsCol" @click="sortMembers('connections')">Connections <IonIcon :icon="sortIcon('connections')" class="sort-icon" /></IonCol>
@@ -81,16 +76,16 @@
         <!-- Data rows -->
         <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
           <IonCol class="MemberIDCol">{{ member.id }}</IonCol>
-          <IonCol class="menteePicCol"><img :src="member.menteePic" alt="Person Pic" class="person-pic"/></IonCol>
-          <IonCol class="menteeFirstNameCol">{{ member.menteeFirstName }}</IonCol>
-          <IonCol class="menteeLastNameCol">{{ member.menteeLastName }}</IonCol>
-          <IonCol class="menteeMembershipTypeCol">{{ member.menteeMembershipType }}</IonCol>
-          <IonCol class="menteeTotalSpentCol">{{ member.menteeTotalSpent }}</IonCol>
+          <IonCol class="personPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="firstNameCol">{{ member.firstName }}</IonCol>
+          <IonCol class="lastNameCol">{{ member.lastName }}</IonCol>
+          <IonCol class="membershipTypeCol">{{ member.membershipType }}</IonCol>
+          <IonCol class="allSpentCol">{{ member.allSpent }}</IonCol>
 
-          <!-- Business Advice Section -->
+          <!-- Office Space Section -->
           <IonCol class="sessionTitleCol">{{ member.sessionTitle }}</IonCol>
           <IonCol class="sessionDateTimeCol">{{ member.sessionDateTime }}</IonCol>
-          <IonCol class="businessAdviceDescriptionCol">{{ member.businessAdviceDescription }}</IonCol>
+          <IonCol class="sessionDescriptionCol">{{ member.sessionDescription }}</IonCol>
           <IonCol class="CostCol">{{ member.cost }}</IonCol>
           <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
           <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry }}</IonCol>
@@ -104,10 +99,9 @@
           <IonCol class="grossRevenuePerYearCol">{{ member.grossRevenuePerYear }}</IonCol>
           <IonCol class="grossCostPerYearCol">{{ member.grossCostPerYear }}</IonCol>
           <IonCol class="grossProfitPerYearCol">{{ member.grossProfitPerYear }}</IonCol>
-          <IonCol class="paidAdvertisingCol">{{ member.paidAdvertising }}</IonCol>
-          <IonCol class="customerDatabaseQuantityCol">{{ member.customerDatabaseQuantity }}</IonCol>
-          <IonCol class="professionalIndemnityNumberCol">{{ member.professionalIndemnityNumber }}</IonCol>
-          <!-- Business Advice Section -->
+          <IonCol class="numberOfEmployeesCol">{{ member.numberOfEmployees }}</IonCol>
+          <IonCol class="fullAccountingServiceNeededCol">{{ member.fullAccountingServiceNeeded }}</IonCol>
+          <!-- Office Space Section -->
 
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
@@ -122,15 +116,11 @@
           <IonCol class="VisitedCol">{{ member.visited }}</IonCol>
           <IonCol class="ListedNeedsCol">{{ member.listedNeeds }}</IonCol>
           <IonCol class="ListedOffersCol">{{ member.listedOffers }}</IonCol>
-          <IonCol class="AdvertSpentCol">{{ member.advertSpent }}</IonCol>
           <IonCol class="PeopleSatisfiedNeedsCol">{{ member.peopleSatisfiedNeeds }}</IonCol>
           <IonCol class="PeopleRequestedOffersCol">{{ member.peopleRequestedOffers }}</IonCol>
           <IonCol class="InvestorsAdvertsCol">{{ member.investorsAdverts }}</IonCol>
           <IonCol class="PitchingsCol">{{ member.pitchings }}</IonCol>
           <IonCol class="BizMentorCol">{{ member.bizMentor }}</IonCol>
-          <IonCol class="BizMentorSpentCol">{{ member.bizMentorSpent }}</IonCol>
-          <IonCol class="MobileNoCol">{{ member.mobileNo }}</IonCol>
-          <IonCol class="EmailCol">{{ member.email }}</IonCol>
           <IonCol class="BizCountryCol">{{ member.bizCountry }}</IonCol>
           <IonCol class="BizCityCol">{{ member.bizCity }}</IonCol>
           <IonCol class="ConnectionsCol">{{ member.connections }}</IonCol>
@@ -151,16 +141,16 @@
         <!-- Total row -->
         <IonRow class="TotalRow">
           <IonCol class="MemberIDCol">Totals:</IonCol>
-          <IonCol class="menteePicCol"></IonCol>
-          <IonCol class="menteeFirstNameCol"></IonCol>
-          <IonCol class="menteeLastNameCol"></IonCol>
-          <IonCol class="menteeMembershipTypeCol"></IonCol>
-          <IonCol class="menteeTotalSpentCol">{{ menteeTotalSpent }}</IonCol>
+          <IonCol class="personPicCol"></IonCol>
+          <IonCol class="firstNameCol"></IonCol>
+          <IonCol class="lastNameCol"></IonCol>
+          <IonCol class="membershipTypeCol"></IonCol>
+          <IonCol class="allSpentCol">{{ allSpent }}</IonCol>
 
-          <!-- Business Advice Section -->
+          <!-- Office Space Section -->
           <IonCol class="sessionTitleCol"></IonCol>
           <IonCol class="sessionDateTimeCol"></IonCol>
-          <IonCol class="businessAdviceDescriptionCol"></IonCol>
+          <IonCol class="sessionDescriptionCol"></IonCol>
           <IonCol class="costCol"></IonCol>
           <IonCol class="expiringDateCol"></IonCol>
           <IonCol class="TimeLeftTillExpiryCol"></IonCol>
@@ -174,10 +164,9 @@
           <IonCol class="grossRevenuePerYearCol"></IonCol>
           <IonCol class="grossCostPerYearCol"></IonCol>
           <IonCol class="grossProfitPerYearCol"></IonCol>
-          <IonCol class="paidAdvertisingCol"></IonCol>
-          <IonCol class="customerDatabaseQuantityCol"></IonCol>
-          <IonCol class="professionalIndemnityNumberCol"></IonCol>
-          <!-- Business Advice Section -->
+          <IonCol class="numberOfEmployeesCol"></IonCol>
+          <IonCol class="fullAccountingServiceNeededCol"></IonCol>
+          <!-- Office Space Section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -191,15 +180,11 @@
           <IonCol class="VisitedCol"></IonCol>
           <IonCol class="ListedNeedsCol"></IonCol>
           <IonCol class="ListedOffersCol"></IonCol>
-          <IonCol class="AdvertSpentCol">{{ totalAdvertSpent }}</IonCol>
           <IonCol class="PeopleSatisfiedNeedsCol"></IonCol>
           <IonCol class="PeopleRequestedOffersCol"></IonCol>
           <IonCol class="InvestorsAdvertsCol"></IonCol>
           <IonCol class="PitchingsCol"></IonCol>
           <IonCol class="BizMentorCol"></IonCol>
-          <IonCol class="BizMentorSpentCol">{{ bizMentorSpent }}</IonCol>
-          <IonCol class="MobileNoCol"></IonCol>
-          <IonCol class="EmailCol"></IonCol>
           <IonCol class="BizCountryCol"></IonCol>
           <IonCol class="BizCityCol"></IonCol>
           <IonCol class="ConnectionsCol"></IonCol>
@@ -244,16 +229,16 @@
 
   interface Member {
     id: number;
-    menteePic: string;
-    menteeFirstName: string;
-    menteeLastName: string;
-    menteeMembershipType: string;
-    menteeTotalSpent: number;
+    personPic: string;
+    firstName: string;
+    lastName: string;
+    membershipType: string;
+    allSpent: number;
 
-    // Business Advice Section -->
+    // Office Space Section -->
     sessionTitle: string;
     sessionDateTime: number;
-    businessAdviceDescription: number;
+    sessionDescription: number;
     cost: number;
     expiringDate: string;
     timeLeftTillExpiry: string;
@@ -267,10 +252,9 @@
     grossRevenuePerYear: number;
     grossCostPerYear: number;
     grossProfitPerYear: string;
-    paidAdvertising: string;
-    customerDatabaseQuantity: string;
-    professionalIndemnityNumber: string;
-    // Business Advice Section -->
+    numberOfEmployees: number;
+    fullAccountingServiceNeeded: number;
+    // Office Space Section -->
 
     age: number;
     gender: string;
@@ -284,15 +268,11 @@
     visited: number;
     listedNeeds: number;
     listedOffers: number;
-    advertSpent: number;
     peopleSatisfiedNeeds: number;
     peopleRequestedOffers: number;
     investorsAdverts: number;
     pitchings: number;
     bizMentor: number;
-    bizMentorSpent: number;
-    mobileNo: string;
-    email: string;
     bizCountry: string;
     bizCity: string;
     connections: number;
@@ -304,22 +284,22 @@
   }
 
   export default defineComponent({
-    name: 'MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent',
+    name: 'MyBestOfferAccountingCustomersActivityTableComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([
         {
           id: 3,
-          menteePic: 'pic_url_a',
-          menteeFirstName: 'Johneee',
-          menteeLastName: 'Doe',
-          menteeMembershipType: 'Gold',
-          menteeTotalSpent: 150,
+          personPic: 'pic_url_a',
+          firstName: 'Johneee',
+          lastName: 'Doe',
+          membershipType: 'Gold',
+          allSpent: 150,
 
-          // Business Advice
+          // Office Space Section
           sessionTitle: 'Amazing sponsorship Partnership',
           sessionDateTime: 200,
-          businessAdviceDescription: 300,
+          sessionDescription: 300,
           cost: 100, // Added cost value
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',          
@@ -333,10 +313,9 @@
           grossRevenuePerYear: 400,
           grossCostPerYear: 500,
           grossProfitPerYear: 'https://example.com/bestOffer',
-          paidAdvertising: 'Amazing BestOffer',
-          customerDatabaseQuantity: 'Real Estate',
-          professionalIndemnityNumber: 'USA',
-          // Business Advice
+          numberOfEmployees: 400,
+          fullAccountingServiceNeeded: 500,
+          // Office Space Section
 
           age: 30,
           gender: 'Male',
@@ -350,15 +329,11 @@
           visited: 30,
           listedNeeds: 5,
           listedOffers: 3,
-          advertSpent: 500,
           peopleSatisfiedNeeds: 5,
           peopleRequestedOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -370,16 +345,16 @@
         },
         {
           id: 2,
-          menteePic: 'pic_url_a',
-          menteeFirstName: 'res',
-          menteeLastName: 'Doe',
-          menteeMembershipType: 'Gold',
-          menteeTotalSpent: 150,
+          personPic: 'pic_url_a',
+          firstName: 'res',
+          lastName: 'Doe',
+          membershipType: 'Gold',
+          allSpent: 150,
 
-          // Business Advice
+          // Office Space Section
           sessionTitle: 'Exclusive sponsorship and Partnership',
           sessionDateTime: 250,
-          businessAdviceDescription: 350,
+          sessionDescription: 350,
           cost: 120, // Added cost value
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
@@ -393,10 +368,9 @@
           grossRevenuePerYear: 450,
           grossCostPerYear: 550,
           grossProfitPerYear: 'https://example.com/bestOffer1',
-          paidAdvertising: 'Exclusive BestOffer',
-          customerDatabaseQuantity: 'Technology',
-          professionalIndemnityNumber: 'Canada',
-          // Business Advice
+          numberOfEmployees: 450,
+          fullAccountingServiceNeeded: 550,
+          // Office Space Section
 
           age: 30,
           gender: 'Male',
@@ -410,15 +384,11 @@
           visited: 30,
           listedNeeds: 5,
           listedOffers: 3,
-          advertSpent: 500,
           peopleSatisfiedNeeds: 5,
           peopleRequestedOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -430,16 +400,16 @@
         },
         {
           id: 1,
-          menteePic: 'pic_url_a',
-          menteeFirstName: 'John',
-          menteeLastName: 'Doe',
-          menteeMembershipType: 'Gold',
-          menteeTotalSpent: 150,
+          personPic: 'pic_url_a',
+          firstName: 'John',
+          lastName: 'Doe',
+          membershipType: 'Gold',
+          allSpent: 150,
 
-          // Business Advice
+          // Office Space Section
           sessionTitle: 'Premium sponsorship so Partnership',
           sessionDateTime: 300,
-          businessAdviceDescription: 400,
+          sessionDescription: 400,
           cost: 150, // Added cost value
           expiringDate: '2023-01-01T12:00:00',
           timeLeftTillExpiry: 'MonthsDaysHoursMinSeconds',
@@ -453,10 +423,9 @@
           grossRevenuePerYear: 500,
           grossCostPerYear: 600,
           grossProfitPerYear: 'https://example.com/bestOffer2',
-          paidAdvertising: 'Premium BestOffer',
-          customerDatabaseQuantity: 'Healthcare',
-          professionalIndemnityNumber: 'UK',
-          // Business Advice
+          numberOfEmployees: 500,
+          fullAccountingServiceNeeded: 600,
+          // Office Space Section
 
           age: 30,
           gender: 'Male',
@@ -470,15 +439,11 @@
           visited: 30,
           listedNeeds: 5,
           listedOffers: 3,
-          advertSpent: 500,
           peopleSatisfiedNeeds: 5,
           peopleRequestedOffers: 3,
           investorsAdverts: 2,
           pitchings: 5,
           bizMentor: 30,
-          bizMentorSpent: 150,
-          mobileNo: '1234567890',
-          email: 'john.doe@example.com',
           bizCountry: 'USA',
           bizCity: 'New York',
           connections: 100,
@@ -569,13 +534,11 @@
       const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
     //  * Computes the total price of all members.
-      const menteeTotalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.menteeTotalSpent, 0));
+      const allSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.allSpent, 0));
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
-      const totalAdvertSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.advertSpent, 0));
-      const bizMentorSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.bizMentorSpent, 0));
       const totalEmployees = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.noEmployees, 0));
 
       const prevPage = () => {
@@ -595,25 +558,25 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'menteePic', 'menteeFirstName', 'menteeLastName', 'menteeMembershipType', 'menteeTotalSpent',
-            //  Business Advice
-            'session Title', 'Business Advice Seen', 'Business Advice List View', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
-            'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'grossRevenuePerYear', 'grossCostPerYear', 'grossProfitPerYear', 'paidAdvertising', 'customerDatabaseQuantity', 'professionalIndemnityNumber',
-            //  Business Advice
+            'Member ID', 'personPic', 'firstName', 'lastName', 'membershipType', 'allSpent',
+            //  Office Space Section
+            'sessionTitle', 'SessionDateTime', 'sessionDescription', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
+            'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'grossRevenuePerYear', 'grossCostPerYear', 'grossProfitPerYear','numberOfEmployees', 'fullAccountingServiceNeeded',
+            //  Office Space Section
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
-            'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
-            'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
+            'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 
+           'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
             
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.menteePic, member.menteeFirstName, member.menteeLastName, member.menteeMembershipType,  member.menteeTotalSpent, 
-            //  Business Advice
-            member.sessionTitle, member.sessionDateTime, member.businessAdviceDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
-            member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge, member.grossRevenuePerYear, member.grossCostPerYear, member.grossProfitPerYear, member.paidAdvertising, member.customerDatabaseQuantity, member.professionalIndemnityNumber,
-            //  Business Advice
+            member.id, member.personPic, member.firstName, member.lastName, member.membershipType,  member.allSpent, 
+            //  Office Space Section
+            member.sessionTitle, member.sessionDateTime, member.sessionDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
+            member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge,  member.grossRevenuePerYear, member.grossCostPerYear, member.grossProfitPerYear, member.numberOfEmployees, member.fullAccountingServiceNeeded,
+            //  Office Space Section
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
-            member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
+            member.investorsAdverts, member.pitchings, member.bizMentor, member.bizCountry, member.bizCity,
             member.connections, member.noEmployees, member.joined, member.lastLoggedIn, member.noLoggedIn, member.fullProfileSeen
           ])
         ]
@@ -670,34 +633,33 @@
                 <thead>
                   <tr>
                     <th>Member ID</th>
-                    <th>Mentee Pic</th>
-                    <th>Mentee First Name</th>
-                    <th>Mentee Last Name</th>
-                    <th>Mentee Membership Type</th>
-                    <th>Mentee Total Membership Spent</th>
-                    <th>Mentee Total Spent</th>
+                    <th>personPic</th>
+                    <th>Tenant First Name</th>
+                    <th>lastName</th>
+                    <th>Membership Type</th>
+                    <th>Tenant Total Spent</th>
 
-                    // Business Advice
-                    <th>Session Title</th>
-                    <td></td>
-                    <td></td>
+                    <!-- Office Space Section -->
+                    <th>Office Space Title</th>
+                    <th>Session Date Time</th>
+                    <th>Office Space Description</th>
                     <th>Cost</th>
-                    <th>ExpiringDate</th>
-                    <th>timeLeftTillExpiry</th>
-                    <th>BookingDate</th>
+                    <th>Expiring Date</th>
+                    <th>Time Left Till Expiry</th>
+                    <th>Booking Date</th>
 
-                    <th>BestOffer Image</th>
-                    <th>BestOffer Wanted</th>
-                    <th>BestOffer Commission</th>
-                    <th>BestOffer Seen</th>
-                    <th>BestOffer ListView</th>
-                    <th>BestOffer Renewed</th>
+                    <th>Business Category</th>
+                    <th>Company House Reg Number</th>
+                    <th>Business Website Link</th>
+                    <th>Position In Business</th>
+                    <th>Business Age</th>
+                    <th>grossRevenuePerYear</th>
                     <th>grossCostPerYear</th>
-                    <th>BestOffer Link</th>
-                    <th>BestOffer Title</th>
-                    <th>BestOffer Category</th>
-                    <th>BestOffer Country</th>
-                    // Business Advice
+                    <th>grossProfitPerYear</th>
+                    <th>Number Of Employees</th>
+                    <th>Full Office Service Needed</th>
+                    <!-- Office Space Section -->
+
 
 
                     <th>Age</th>
@@ -712,15 +674,12 @@
                     <th>Visited</th>
                     <th>Listed Needs</th>
                     <th>Listed Offers</th>
-                    <th>Advert Spent</th>
                     <th>People Satisfied Needs</th>
                     <th>People Requested Offers</th>
                     <th>Investors Adverts</th>
                     <th>Pitchings</th>
                     <th>Biz Mentor</th>
                     <th>BizMentor Spent</th>
-                    <th>Mobile No</th>
-                    <th>Email</th>
                     <th>Biz Country</th>
                     <th>Biz City</th>
                     <th>Connections</th>
@@ -735,16 +694,16 @@
                   ${paginatedMembers.value.map((member, index) => `
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                       <td>${member.id}</td>
-                      <td>${member.menteePic}</td>
-                      <td>${member.menteeFirstName}</td>
-                      <td>${member.menteeLastName}</td>
-                      <td>${member.menteeMembershipType}</td>
-                      <td>${member.menteeTotalSpent}</td>
+                      <td>${member.personPic}</td>
+                      <td>${member.firstName}</td>
+                      <td>${member.lastName}</td>
+                      <td>${member.membershipType}</td>
+                      <td>${member.allSpent}</td>
 
-                      // Business Advice section
+                      // Office Space Section
                       <td>${member.sessionTitle}</td>
                       <td>${member.sessionDateTime}</td>
-                      <td>${member.businessAdviceDescription}</td>
+                      <td>${member.sessionDescription}</td>
                       <td>${member.cost}</td>
                       <td>${member.expiringDate}</td>
                       <td>${member.timeLeftTillExpiry}</td>
@@ -758,10 +717,9 @@
                       <td>${member.grossRevenuePerYear}</td>
                       <td>${member.grossCostPerYear}</td>
                       <td>${member.grossProfitPerYear}</td>
-                      <td>${member.paidAdvertising}</td>
-                      <td>${member.customerDatabaseQuantity}</td>
-                      <td>${member.professionalIndemnityNumber}</td>
-                      // Business Advice section
+                      <td>${member.numberOfEmployees}</td>
+                      <td>${member.fullAccountingServiceNeeded}</td>
+                      // Office Space Section
                       
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
@@ -775,15 +733,11 @@
                       <td>${member.visited}</td>
                       <td>${member.listedNeeds}</td>
                       <td>${member.listedOffers}</td>
-                      <td>${member.advertSpent}</td>
                       <td>${member.peopleSatisfiedNeeds}</td>
                       <td>${member.peopleRequestedOffers}</td>
                       <td>${member.investorsAdverts}</td>
                       <td>${member.pitchings}</td>
                       <td>${member.bizMentor}</td>
-                      <td>${member.bizMentorSpent}</td>
-                      <td>${member.mobileNo}</td>
-                      <td>${member.email}</td>
                       <td>${member.bizCountry}</td>
                       <td>${member.bizCity}</td>
                       <td>${member.connections}</td>
@@ -796,8 +750,8 @@
                   `).join('')}
                   <tr class="TotalRow">
                     <td colspan="5">Totals</td>
-                    <td>${menteeTotalSpent.value}</td>
-                      // Business Advice section
+                    <td>${allSpent.value}</td>
+                      // Office Space Section
                     <td></td>
                     <td></td>
                     <td></td>
@@ -814,14 +768,9 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    
 
 
-                    <td></td>
-                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -834,13 +783,11 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>${totalAdvertSpent.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>${bizMentorSpent.value}</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -920,12 +867,10 @@
         nextPage,
         exportTable,
         printTable,
-        menteeTotalSpent,
+        allSpent,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
-        totalAdvertSpent,
-        bizMentorSpent,
         totalEmployees,
         create, trash, ban,
         arrowBackCircle,
@@ -950,6 +895,7 @@
 <style scoped>
   ion-grid {
     width: 100%;
+    height: fit-content;
   }
   .TitleP{
     display: center;
@@ -963,7 +909,7 @@
   .sessionTitleCol {
     Border-left: 2px red solid;
   }
-  .professionalIndemnityNumberCol {
+  .fullAccountingServiceNeededCol {
     Border-right: 2px red solid;
   }
   .topBorder {
@@ -989,7 +935,7 @@
       /* border: 4px solid rgb(26, 185, 18); */
     }
     .scrollingRow {
-      min-width: 5900px;
+      min-width: 5500px;
       /* border: 1px solid red; */
       flex-direction: column;
     }

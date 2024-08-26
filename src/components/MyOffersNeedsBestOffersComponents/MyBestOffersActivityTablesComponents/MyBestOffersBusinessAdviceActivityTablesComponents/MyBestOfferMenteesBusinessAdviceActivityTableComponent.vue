@@ -89,21 +89,22 @@
           <IonCol class="businessAdviceDescriptionCol">{{ member.businessAdviceDescription }}</IonCol>
           <IonCol class="CostCol">{{ member.cost }}</IonCol>
           <IonCol class="ExpiringDateCol">{{ member.expiringDate }}</IonCol>
-          <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry}}</IonCol>
+          <IonCol class="TimeLeftTillExpiryCol">{{ member.timeLeftTillExpiry }}</IonCol>
           <IonCol class="BookingDateCol">{{ member.bookingDate }}</IonCol>
 
-          <IonCol class="businessCategoryCol" @click="sortMembers('businessCategory')">BestOffer Image <IonIcon :icon="sortIcon('businessCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="companyHouseRegNumberCol" @click="sortMembers('companyHouseRegNumber')">BestOffer Wanted<IonIcon :icon="sortIcon('companyHouseRegNumber')" class="sort-icon" /></IonCol>
-          <IonCol class="bizWebsiteLinkCol" @click="sortMembers('bizWebsiteLink')">BestOffer Commission<IonIcon :icon="sortIcon('bizWebsiteLink')" class="sort-icon" /></IonCol>
-          <IonCol class="positionInBusinessCol" @click="sortMembers('positionInBusiness')">BestOffer Seen <IonIcon :icon="sortIcon('positionInBusiness')" class="sort-icon" /></IonCol>
-          <IonCol class="BizAgeCol" @click="sortMembers('BizAge')">BestOffer ListView <IonIcon :icon="sortIcon('BizAge')" class="sort-icon" /></IonCol>
-          <IonCol class="grossRevenuePerYearCol" @click="sortMembers('grossRevenuePerYear')">grossRevenuePerYear <IonIcon :icon="sortIcon('grossRevenuePerYear')" class="sort-icon" /></IonCol>
-          <IonCol class="grossCostPerYearCol" @click="sortMembers('grossCostPerYear')">grossCostPerYear <IonIcon :icon="sortIcon('grossCostPerYear')" class="sort-icon" /></IonCol>
-          <IonCol class="grossProfitPerYearCol" @click="sortMembers('grossProfitPerYear')">BestOffer Link <IonIcon :icon="sortIcon('grossProfitPerYear')" class="sort-icon" /></IonCol>
-          <IonCol class="paidAdvertisingCol" @click="sortMembers('paidAdvertising')">BestOffer Title <IonIcon :icon="sortIcon('paidAdvertising')" class="sort-icon" /></IonCol>
-          <IonCol class="customerDatabaseQuantityCol" @click="sortMembers('customerDatabaseQuantity')">BestOffer Category <IonIcon :icon="sortIcon('customerDatabaseQuantity')" class="sort-icon" /></IonCol>
-          <IonCol class="professionalIndemnityNumberCol" @click="sortMembers('professionalIndemnityNumber')">BestOffer Country <IonIcon :icon="sortIcon('professionalIndemnityNumber')" class="sort-icon" /></IonCol>
+          <IonCol class="businessCategoryCol">{{ member.businessCategory }}</IonCol>
+          <IonCol class="companyHouseRegNumberCol">{{ member.companyHouseRegNumber }}</IonCol>
+          <IonCol class="bizWebsiteLinkCol">{{ member.bizWebsiteLink }}</IonCol>
+          <IonCol class="positionInBusinessCol">{{ member.positionInBusiness }}</IonCol>
+          <IonCol class="BizAgeCol">{{ member.BizAge }}</IonCol>
+          <IonCol class="grossRevenuePerYearCol">{{ member.grossRevenuePerYear }}</IonCol>
+          <IonCol class="grossCostPerYearCol">{{ member.grossCostPerYear }}</IonCol>
+          <IonCol class="grossProfitPerYearCol">{{ member.grossProfitPerYear }}</IonCol>
+          <IonCol class="paidAdvertisingCol">{{ member.paidAdvertising }}</IonCol>
+          <IonCol class="customerDatabaseQuantityCol">{{ member.customerDatabaseQuantity }}</IonCol>
+          <IonCol class="professionalIndemnityNumberCol">{{ member.professionalIndemnityNumber }}</IonCol>
           <!-- Business Advice Section -->
+
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
           <IonCol class="GenderCol">{{ member.gender }}</IonCol>

@@ -152,8 +152,9 @@ import MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent from '@/com
 
 import MyBestOfferOfficeSpaceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceActivityTableComponent.vue';
 import MyBestOfferOfficeSpaceCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceCustomersActivityTableComponent.vue';
-
-
+// MyBestOffersAccountingActivityTablesComponents
+import MyBestOfferAccountingActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersAccountingActivityTablesComponents/MyBestOfferAccountingActivityTableComponent.vue';
+import MyBestOfferAccountingCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersAccountingActivityTablesComponents/MyBestOfferAccountingCustomersActivityTableComponent.vue';
 
 // MyInvestmentApplicationComponent 
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
@@ -644,6 +645,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/myBestOfferOfficeSpaceCustomersActivityTableComponent',
     name: 'MyBestOfferOfficeSpaceCustomersActivityTableComponent',
     component: MyBestOfferOfficeSpaceCustomersActivityTableComponent
+  },
+  {
+    path: '/myBestOfferAccountingActivityTableComponent',
+    name: 'MyBestOfferAccountingActivityTableComponent',
+    component: MyBestOfferAccountingActivityTableComponent
+  },
+  {
+    path: '/myBestOfferAccountingCustomersActivityTableComponent',
+    name: 'MyBestOfferAccountingCustomersActivityTableComponent',
+    component: MyBestOfferAccountingCustomersActivityTableComponent
   },
   // MyRewardsDiscountsComponents 
   {
