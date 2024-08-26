@@ -31,38 +31,34 @@
     </IonRow>
     <IonRow class="DisplayComponentRow">
       <IonCol v-show="selectedTab === 'Marketing'" class="Marketing">
-        <BestOfferComponent />
-        <MyBestOffersActivityTableComponent />
+        <MembersBestOfferDetailProfileDetailAdminComponent />
       </IonCol>
+
+
       <IonCol v-show="selectedTab === 'Accounting'" class="Accounting">
-        <MyBestOfferAccountingActivityTableComponent/>
-        <MyBestOfferAccountingCustomersActivityTableComponent/>
-        <BestOfferComponent />
-        <AccountingBestOffers7CategoriesFormComponent />
       </IonCol>
+
+
       <IonCol v-show="selectedTab === 'Investment'" class="Investment">
-        <BestOfferComponent />
+        <MembersBestOfferDetailProfileDetailAdminComponent />
       </IonCol>
       <IonCol v-show="selectedTab === 'Law'" class="Law">
-        <BestOfferComponent />
-        <MyBestOffersActivityTableComponent />
+        <MembersBestOfferDetailProfileDetailAdminComponent />
       </IonCol>
+
+
       <IonCol v-show="selectedTab === 'BusinessAdvice'" class="BusinessAdvice">
-        <MyBestOfferMenteesBusinessAdviceActivityTableComponent />
-        <MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent />
-        <BestOfferComponent />
-        <BusinessAdviceBestOffers7CategoriesFormComponents />
       </IonCol>
+
+      
       <IonCol v-show="selectedTab === 'WebDevelopment'" class="WebDevelopment">
-        <BestOfferComponent />
-        <MyBestOffersActivityTableComponent />
+        <MembersBestOfferDetailProfileDetailAdminComponent />
       </IonCol>
+
+
       <IonCol v-show="selectedTab === 'OfficeSpace'" class="OfficeSpace">
-        <MyBestOfferOfficeSpaceActivityTableComponent/>
-        <MyBestOfferOfficeSpaceCustomersActivityTableComponent/>
-        <BestOfferComponent />
-        <OfficeSpaceBestOffers7CategoriesFormComponent />
       </IonCol>
+
     </IonRow>
   </IonGrid>
 </template>
@@ -77,7 +73,11 @@
     IonContent,
     IonSegment,
     IonSegmentButton,
-  } from "@ionic/vue";
+} from "@ionic/vue";
+  
+  import MembersBestOfferDetailProfileDetailAdminComponent from "@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue";
+
+
   import BestOfferComponent from "@/components/OfferNeedBestOfferComponent/BestOfferComponent.vue";
   import BusinessAdviceBestOffers7CategoriesFormComponents from "@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/BusinessAdviceBestOffers7CategoriesFormComponent.vue";
   import AccountingBestOffers7CategoriesFormComponent from "@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/AccountingBestOffers7CategoriesFormComponent.vue";
@@ -104,6 +104,10 @@
       IonContent,
       IonSegment,
       IonSegmentButton,
+
+      MembersBestOfferDetailProfileDetailAdminComponent,
+
+
       BestOfferComponent,
       BusinessAdviceBestOffers7CategoriesFormComponents,
       AccountingBestOffers7CategoriesFormComponent,
