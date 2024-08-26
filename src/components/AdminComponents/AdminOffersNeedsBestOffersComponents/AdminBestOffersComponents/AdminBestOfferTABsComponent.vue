@@ -95,7 +95,7 @@
 
 
   export default defineComponent({
-    name: "MyBestOfferTABsComponent",
+    name: "AdminBestOfferTABsComponent",
     components: {
       IonPage,
       IonGrid,

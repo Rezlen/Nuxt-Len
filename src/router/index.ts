@@ -90,11 +90,15 @@ import MembersProfileDetailTABsAdminComponent from '@/components/AdminComponents
 import MembersPitchingProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersPitchingProfileDetailAdminComponent.vue';
 import InvestorsProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestorsProfileDetailAdminComponent.vue';
 import InvestmentApplicationMembersProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/InvestmentApplicationMembersProfileDetailAdminComponent.vue';
+import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
+import membersContactUsMessagesTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/membersContactUsMessagesTableAdminComponent.vue';
+// Admin Offers Needs bestOffers
+import AdminBestOfferTABsComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOfferTABsComponent.vue';
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/MembersProfileAdminComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
-import contactUsTABsAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/contactUsTABsAdminComponent.vue';
-import membersContactUsMessagesTableAdminComponent from '@/components/AdminComponents/contactUsAdminComponents/membersContactUsMessagesTableAdminComponent.vue';
+
+
 //  Admin Sponsorship Partnership comps MembersSponsorshipPartnershipProfileDetailAdminComponent
 import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminComponents/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
 // Admin membership components
@@ -512,6 +516,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/investmentApplicationMembersProfileDetailAdminComponent',
     name: 'InvestmentApplicationMembersProfileDetailAdminComponent',
     component: InvestmentApplicationMembersProfileDetailAdminComponent
+  },
+  {
+    path: '/adminBestOfferTABsComponent',
+    name: 'AdminBestOfferTABsComponent',
+    component: AdminBestOfferTABsComponent
   },
   {
     path: '/membersOfferDetailProfileDetailAdminComponent',
