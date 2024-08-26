@@ -47,7 +47,7 @@
       </IonCol>
       <IonCol v-show="selectedTab === 'BusinessAdvice'" class="BusinessAdvice">
         <MyBestOfferMenteesBusinessAdviceActivityTableComponent />
-        <MentorsMenteeBusinessAdviceTableComponent />
+        <MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent />
         <BestOfferComponent />
         <BusinessAdviceBestOffers7CategoriesFormComponents />
       </IonCol>
@@ -56,6 +56,8 @@
         <MyBestOffersActivityTableComponent />
       </IonCol>
       <IonCol v-show="selectedTab === 'OfficeSpace'" class="OfficeSpace">
+        <MyBestOfferOfficeSpaceActivityTableComponent/>
+        <MyBestOfferOfficeSpaceCustomersActivityTableComponent/>
         <BestOfferComponent />
         <OfficeSpaceBestOffers7CategoriesFormComponent />
       </IonCol>
@@ -80,8 +82,12 @@ import AccountingBestOffers7CategoriesFormComponent from "@/components/OfferNeed
 import OfficeSpaceBestOffers7CategoriesFormComponent from "@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/OfficeSpaceBestOffers7CategoriesFormComponent.vue";
 
 import MyBestOffersActivityTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersActivityTableComponent.vue";
-import MembersBusinessAdviceTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MyBestOfferMenteesBusinessAdviceActivityTableComponent.vue";
-import MentorsMenteeBusinessAdviceTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MentorsMenteeBusinessAdviceTableComponent.vue";
+import MyBestOfferMenteesBusinessAdviceActivityTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMenteesBusinessAdviceActivityTableComponent.vue";
+import MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent.vue";
+
+import MyBestOfferOfficeSpaceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceActivityTableComponent.vue';
+import MyBestOfferOfficeSpaceCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceCustomersActivityTableComponent.vue';
+
 
 export default defineComponent({
   name: "MyBestOfferTABsComponent",
@@ -98,8 +104,10 @@ export default defineComponent({
     AccountingBestOffers7CategoriesFormComponent,
     OfficeSpaceBestOffers7CategoriesFormComponent,
     MyBestOffersActivityTableComponent,
-    MembersBusinessAdviceTableComponent,
-    MentorsMenteeBusinessAdviceTableComponent,
+    MyBestOfferMenteesBusinessAdviceActivityTableComponent,
+    MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent,
+    MyBestOfferOfficeSpaceActivityTableComponent,
+    MyBestOfferOfficeSpaceCustomersActivityTableComponent,
   },
   setup() {
     const selectedTab = ref<string>("Marketing"); // Initialize with the default tab

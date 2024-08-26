@@ -303,7 +303,7 @@
   }
 
   export default defineComponent({
-    name: 'MentorsMenteeBusinessAdviceTableComponent',
+    name: 'MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([

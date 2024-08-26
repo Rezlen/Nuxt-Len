@@ -118,7 +118,7 @@ import MemberTicketsComponent from '@/components/MembersMyOrderComponents/Member
 import MemberMessagingEmailingOrderComponent from '@/components/MembersMyOrderComponents/MemberMessagingEmailingOrderComponent.vue';
 import MemberMembershipOrderComponent from '@/components/MembersMyOrderComponents/MemberMembershipOrderComponent.vue';
 import MySharesTableComponent from '@/components/MembersMyOrderComponents/MySharesTableComponent.vue';
-//  MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices
+//  MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents
 // My Rewards Discounts
 import MyRewardsDiscountsComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsComponent.vue';
 import MyRewardsDiscountsEarnedTableComponent from '@/components/MembersMyOrderComponents/MyRewardsDiscountsComponents/MyRewardsDiscountsEarnedTableComponent.vue';
@@ -147,8 +147,13 @@ import MyBestOfferTABsComponent from '@/components/MyOffersNeedsBestOffersCompon
 import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
 import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersActivityTableComponent.vue';
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
-import MyBestOfferMenteesBusinessAdviceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MyBestOfferMenteesBusinessAdviceActivityTableComponent.vue';
-import MentorsMenteeBusinessAdviceTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MembersBusinessAdvices/MentorsMenteeBusinessAdviceTableComponent.vue';
+import MyBestOfferMenteesBusinessAdviceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMenteesBusinessAdviceActivityTableComponent.vue';
+import MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent.vue';
+
+import MyBestOfferOfficeSpaceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceActivityTableComponent.vue';
+import MyBestOfferOfficeSpaceCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceCustomersActivityTableComponent.vue';
+
+
 
 // MyInvestmentApplicationComponent 
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
@@ -619,16 +624,26 @@ const routes: Array<RouteRecordRaw> = [
     name: 'SponsorshipPartnershipTableComponent',
     component: SponsorshipPartnershipTableComponent
   },
-  // MembersBusinessAdviceTableComponent  MenteesBusinessAdviceTableComponent
+  // MyBestOfferMenteesBusinessAdviceActivityTableComponent  MenteesBusinessAdviceTableComponent
   {
     path: '/myBestOfferMenteesBusinessAdviceActivityTableComponent',
     name: 'MyBestOfferMenteesBusinessAdviceActivityTableComponent',
     component: MyBestOfferMenteesBusinessAdviceActivityTableComponent
   },
   {
-    path: '/mentorsMenteeBusinessAdviceTableComponent',
-    name: 'MentorsMenteeBusinessAdviceTableComponent',
-    component: MentorsMenteeBusinessAdviceTableComponent
+    path: '/myBestOfferMentorsMenteesBusinessAdviceActivityTableComponent',
+    name: 'MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent',
+    component: MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent
+  },
+  {
+    path: '/myBestOfferOfficeSpaceActivityTableComponent',
+    name: 'MyBestOfferOfficeSpaceActivityTableComponent',
+    component: MyBestOfferOfficeSpaceActivityTableComponent
+  },
+  {
+    path: '/myBestOfferOfficeSpaceCustomersActivityTableComponent',
+    name: 'MyBestOfferOfficeSpaceCustomersActivityTableComponent',
+    component: MyBestOfferOfficeSpaceCustomersActivityTableComponent
   },
   // MyRewardsDiscountsComponents 
   {

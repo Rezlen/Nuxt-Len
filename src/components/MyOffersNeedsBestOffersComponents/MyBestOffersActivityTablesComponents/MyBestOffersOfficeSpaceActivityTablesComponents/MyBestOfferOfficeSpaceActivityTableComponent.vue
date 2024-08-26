@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all my booked Business Advice</p>
+    <p class="TitleP">List of all my rented Office Spaces</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -287,7 +287,7 @@
   }
 
   export default defineComponent({
-    name: 'MembersBusinessAdviceTableComponent',
+    name: 'MyBestOfferOfficeSpaceAdviceActivityTableComponent',
     components: {IonModal, IonIcon, IonGrid, IonRow, IonCol, IonButton, IonInput, TicketTABsPitchingUpSellingComponent, },
     setup() {
       const members = ref<Member[]>([
