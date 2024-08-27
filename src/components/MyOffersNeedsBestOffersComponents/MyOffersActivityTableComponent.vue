@@ -60,20 +60,28 @@
           <IonCol class="WorkshopCol purple" @click="sortMembers('workshop')">workshop <IonIcon :icon="sortIcon('workshop')" class="sort-icon" /></IonCol>
           <IonCol class="PresentationCol purple" @click="sortMembers('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
+          <!-- Offer Provider Section -->
+          <IonCol class="offerProviderPicCol topBorder" @click="sortMembers('offerProviderPic')">Offer Provider Pic <IonIcon :icon="sortIcon('offerProviderPic')" class="sort-icon" /></IonCol>
+          <IonCol class="offerProviderFirstNameCol topBorder" @click="sortMembers('offerProviderFirstName')">Offer Provider First Name <IonIcon :icon="sortIcon('offerProviderFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="offerProviderBizNameCol topBorder" @click="sortMembers('offerProviderBizName')">Offer Provider Business Name <IonIcon :icon="sortIcon('offerProviderBizName')" class="sort-icon" /></IonCol>
+          <IonCol class="offerProviderMembershipTypeCol topBorder" @click="sortMembers('offerProviderMembershipType')">Offer Provider Membership Type  <IonIcon :icon="sortIcon('offerProviderMembershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="offerProviderBizRevenueCol topBorder" @click="sortMembers('offerProviderBizRevenue')">Offer Provider Business Revenue<IonIcon :icon="sortIcon('offerProviderBizRevenue')" class="sort-icon" /></IonCol>
+          <IonCol class="offerProviderAllSpentCol topBorder" @click="sortMembers('offerProviderAllSpent')">Offer Provider All Spent<IonIcon :icon="sortIcon('offerProviderAllSpent')" class="sort-icon" /></IonCol>
+          <!-- Offer Provider Section -->
           <!-- Offer Data -->
-          <IonCol class="OfferImageCol" @click="sortMembers('offerImage')">OfferImage <IonIcon :icon="sortIcon('offerImage')" class="sort-icon" /></IonCol>
-          <IonCol class="offerWantedAllCol" @click="sortMembers('offerWantedAll')">Offer Wanted All<IonIcon :icon="sortIcon('offerWantedAll')" class="sort-icon" /></IonCol>
-          <IonCol class="offerSeenAllCol" @click="sortMembers('offerSeenAll')">Offer Seen All <IonIcon :icon="sortIcon('offerSeenAll')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferListViewCol" @click="sortMembers('offerListView')">OfferListView <IonIcon :icon="sortIcon('offerListView')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferRenewedCol" @click="sortMembers('offerRenewed')">OfferRenewed <IonIcon :icon="sortIcon('offerRenewed')" class="sort-icon" /></IonCol>
-          <IonCol class="likedAllCol" @click="sortMembers('likedAll')">Liked All <IonIcon :icon="sortIcon('likedAll')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferLinkCol" @click="sortMembers('offerLink')">OfferLink <IonIcon :icon="sortIcon('offerLink')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferTitleCol" @click="sortMembers('offerTitle')">OfferTitle <IonIcon :icon="sortIcon('offerTitle')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferCategoryCol" @click="sortMembers('offerCategory')">OfferCategory <IonIcon :icon="sortIcon('offerCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferCountryCol" @click="sortMembers('offerCountry')">OfferCountry <IonIcon :icon="sortIcon('offerCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferCityCol" @click="sortMembers('offerCity')">OfferCity <IonIcon :icon="sortIcon('offerCity')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferDurationCol" @click="sortMembers('offerDuration')">OfferDuration <IonIcon :icon="sortIcon('offerDuration')" class="sort-icon" /></IonCol>
-          <IonCol class="OfferContentCol" @click="sortMembers('offerContent')">OfferContent <IonIcon :icon="sortIcon('offerContent')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferImageCol topBorder" @click="sortMembers('offerImage')">OfferImage <IonIcon :icon="sortIcon('offerImage')" class="sort-icon" /></IonCol>
+          <IonCol class="offerWantedAllCol topBorder" @click="sortMembers('offerWantedAll')">Offer Wanted All<IonIcon :icon="sortIcon('offerWantedAll')" class="sort-icon" /></IonCol>
+          <IonCol class="offerSeenAllCol topBorder" @click="sortMembers('offerSeenAll')">Offer Seen All <IonIcon :icon="sortIcon('offerSeenAll')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferListViewCol topBorder" @click="sortMembers('offerListView')">OfferListView <IonIcon :icon="sortIcon('offerListView')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferRenewedCol topBorder" @click="sortMembers('offerRenewed')">OfferRenewed <IonIcon :icon="sortIcon('offerRenewed')" class="sort-icon" /></IonCol>
+          <IonCol class="likedAllCol topBorder" @click="sortMembers('likedAll')">Liked All <IonIcon :icon="sortIcon('likedAll')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferLinkCol topBorder" @click="sortMembers('offerLink')">OfferLink <IonIcon :icon="sortIcon('offerLink')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferTitleCol topBorder" @click="sortMembers('offerTitle')">OfferTitle <IonIcon :icon="sortIcon('offerTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferCategoryCol topBorder" @click="sortMembers('offerCategory')">OfferCategory <IonIcon :icon="sortIcon('offerCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferCountryCol topBorder" @click="sortMembers('offerCountry')">OfferCountry <IonIcon :icon="sortIcon('offerCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferCityCol topBorder" @click="sortMembers('offerCity')">OfferCity <IonIcon :icon="sortIcon('offerCity')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferDurationCol topBorder" @click="sortMembers('offerDuration')">OfferDuration <IonIcon :icon="sortIcon('offerDuration')" class="sort-icon" /></IonCol>
+          <IonCol class="OfferContentCol topBorder" @click="sortMembers('offerContent')">OfferContent <IonIcon :icon="sortIcon('offerContent')" class="sort-icon" /></IonCol>
           <IonCol class="ActionCol">Hide, Edit</IonCol>
         </IonRow>
           
@@ -122,6 +130,14 @@
           <IonCol class="WorkshopCol">{{ member.workshop }}</IonCol>
           <IonCol class="PresentationCol">{{ member.presentation }}</IonCol>
           <IonCol class="LastLoggedInCol">{{ member.lastLoggedIn }}</IonCol>
+          <!-- Offer Provider Section -->
+          <IonCol class="offerProviderPicCol"><img :src="member.offerProviderPic" alt="offerProviderPic" class="offerProviderPic"/></IonCol>
+          <IonCol class="offerProviderFirstNameCol">{{ member.offerProviderFirstName }}</IonCol>
+          <IonCol class="offerProviderBizNameCol">{{ member.offerProviderBizName }}</IonCol>
+          <IonCol class="offerProviderMembershipTypeCol">{{ member.offerProviderMembershipType }}</IonCol>
+          <IonCol class="offerProviderBizRevenueCol">{{ member.offerProviderBizRevenue }}</IonCol>
+          <IonCol class="offerProviderAllSpentCol">{{ member.offerProviderAllSpent }}</IonCol>
+          <!-- Offer Provider Section -->
           <!-- Offer Data -->
           <IonCol class="OfferImageCol">{{ member.offerImage }}</IonCol>
           <IonCol class="offerWantedAllCol">{{ member.offerWantedAll }}</IonCol>
@@ -190,6 +206,14 @@
           <IonCol class="PresentationCol"></IonCol>
           
           <IonCol class="LastLoggedInCol"></IonCol>
+          <!-- Offer Provider Section -->
+          <IonCol class="offerProviderPicCol"></IonCol>
+          <IonCol class="offerProviderFirstNameCol"></IonCol>
+          <IonCol class="offerProviderBizNameCol"></IonCol>
+          <IonCol class="offerProviderMembershipTypeCol"></IonCol>
+          <IonCol class="offerProviderBizRevenueCol">{{ offerProviderBizRevenue }}</IonCol>
+          <IonCol class="offerProviderAllSpentCol">{{ offerProviderAllSpent }}</IonCol>
+          <!-- Offer Provider Section -->
           <!-- Offer Data -->
           <IonCol class="OfferImageCol"></IonCol>
           <IonCol class="offerWantedAllCol">{{ totalofferWantedAll }}</IonCol>
@@ -278,7 +302,15 @@
     presentation: number;
 
     lastLoggedIn: string;
-    // OfferDetails section
+    // Offer Provider Section 
+    offerProviderPic: string;
+    offerProviderFirstName: string;
+    offerProviderBizName: string;
+    offerProviderMembershipType: string;
+    offerProviderBizRevenue: number;
+    offerProviderAllSpent: number;
+    // Offer Provider Section 
+    // Offer Data
     offerImage: string; // URL or path to the image
     offerWantedAll: number;
     offerSeenAll: number;
@@ -341,7 +373,15 @@
           workshop: 22,
           presentation: 22,
           lastLoggedIn: '2023-06-01',
-          // OfferDetails section
+          // Offer Provider Section 
+          offerProviderPic: 'pic_url_a',
+          offerProviderFirstName: 'Johneee',
+          offerProviderBizName: 'Doe',
+          offerProviderMembershipType: 'Gold',
+          offerProviderBizRevenue: 500,
+          offerProviderAllSpent: 150,
+          // Offer Provider Section 
+          // Offer Data
           offerImage: 'https://example.com/image.jpg',
           offerWantedAll: 100,
           offerSeenAll: 200,
@@ -398,7 +438,15 @@
           workshop: 22,
           presentation: 22,
           lastLoggedIn: '2023-07-01',
-          // OfferDetails section
+          // Offer Provider Section 
+          offerProviderPic: 'pic_url_a',
+          offerProviderFirstName: 'res',
+          offerProviderBizName: 'Doe',
+          offerProviderMembershipType: 'Gold',
+          offerProviderBizRevenue: 500,
+          offerProviderAllSpent: 150,
+          // Offer Provider Section 
+          // Offer Data
           offerImage: 'https://example.com/image1.jpg',
           offerWantedAll: 150,
           offerSeenAll: 250,
@@ -455,7 +503,15 @@
           workshop: 22,
           presentation: 22,
           lastLoggedIn: '2023-08-01',
-          // OfferDetails section
+          // Offer Provider Section 
+          offerProviderPic: 'pic_url_a',
+          offerProviderFirstName: 'John',
+          offerProviderBizName: 'Doe',
+          offerProviderMembershipType: 'Gold',
+          offerProviderBizRevenue: 500,
+          offerProviderAllSpent: 150,
+          // Offer Provider Section 
+          // Offer Data
           offerImage: 'https://example.com/image2.jpg',
           offerWantedAll: 200,
           offerSeenAll: 300,
@@ -548,7 +604,10 @@
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
-
+      // Offer Provider Section 
+      const offerProviderBizRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerProviderBizRevenue, 0));
+      const offerProviderAllSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerProviderAllSpent, 0));
+      // Biz Mentor Section
       // Offer Totals
       const totalofferWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerWanted, 0));
       const totalofferSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.offerSeen, 0));
@@ -582,17 +641,23 @@
             'Member ID',  'Booking Date','ExpiringDate', 'TimeLeftTillExpiry','PersonPic', 'FirstName', 'LastName', 'Email', 'offerWanted', 'offerSeen', 'liked',  'MembershipType', 'VIP Membership', 'VVIPMembership',    'Response To Your Offers', 'Response To Your Offers', 'ResponseToYourBestOffers', 'PitchTraining', 'BusinessFundingAdvice','FreeBusinessFundingAdvice', 'VideoOfPitching', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'BusinessName', 
             'BizCategory', 'Exhibited', 'Visited', 'InvestorMember', 'InvestmentBroker', 'InvestorsAdverts', 'BizMentor',
             'TotalSpent', 'OneMinPitching', 'ThreeMinPitching', 'InvestmentPitching', 'Workshop', 'Presentation', 'LastLoggedIn',
-            // Offer section
+            // Offer Provider Section 
+            'offerProviderPic', 'offerProviderFirstName', 'offerProviderBizName', 'offerProviderMembershipType', 'offerProviderBizRevenue', 'offerProviderAllSpent',
+            // Offer Provider Section 
+            // Offer Data
             'OfferImage', 'offerWantedAll', 'offerSeenAll', 'OfferListView', 'OfferRenewed', 'likedAll', 'OfferLink', 'OfferTitle', 'OfferCategory', 'OfferCountry', 'OfferCity', 'OfferDuration', 'OfferContent',
-            // Offer section
+            // Offer Data
           ],
           ...filteredMembers.value.map(member => [
             member.id,  member.bookingDate, member.expiringDate, member.timeLeftTillExpiry, member.personPic, member.firstName, member.lastName, member.email, member.offerWanted, member.offerSeen, member.liked, member.membershipType, member.VIPMembership, member.VVIPMembership,  member.responseToYourNeeds, member.responseToYourOffers, member.responseToYourBestOffers, member.pitchTraining, member.businessFundingAdvice, member.freeBusinessFundingAdvice, member.videoOfPitching,member.businessRevenue, member.jobPosition, member.salary,
             member.businessName, member.bizCategory, member.exhibited, member.visited, member.investorMember, member.investmentBroker,
             member.investorsAdverts, member.bizMentor, member.totalSpent, member.oneMinPitching, member.threeMinPitching, member.investmentPitching, member.workshop, member.presentation, member.bookingDate,  member.lastLoggedIn,
-            // Offer section
+            // Offer Provider Section 
+            member.offerProviderPic, member.offerProviderFirstName, member.offerProviderBizName, member.offerProviderMembershipType, member.offerProviderBizRevenue,  member.offerProviderAllSpent, 
+            // Offer Provider Section 
+            // Offer Data
             member.offerImage, member.offerWantedAll, member.offerSeenAll, member.offerListView, member.offerRenewed, member.likedAll, member.offerLink, member.offerTitle, member.offerCategory, member.offerCountry, member.offerCity, member.offerDuration, member.offerContent,
-            // Offer section
+            // Offer Data
           ])
         ]
           .map(e => e.join(","))
@@ -688,7 +753,16 @@
                     <th>Presentation</th>
                     <th>Last Logged In</th>
 
-                    // Offer section
+                    // Offer Provider Section 
+                    <th>Person Pic</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Membership Type</th>
+                    <th>Total Membership Spent</th>
+                    <th>Total Spent</th>
+                    // Offer Provider Section
+                    
+                    // Offer Data
 
                     <th>Offer Image</th>
                     <th>offerWantedAll</th>
@@ -749,7 +823,16 @@
                       <td>${member.presentation}</td>
                       <td>${member.lastLoggedIn}</td>
 
-                      // Offer Section
+
+                      // Offer Provider Section 
+                      <td>${member.offerProviderPic}</td>
+                      <td>${member.offerProviderFirstName}</td>
+                      <td>${member.offerProviderBizName}</td>
+                      <td>${member.offerProviderMembershipType}</td>
+                      <td>${member.offerProviderBizRevenue}</td>
+                      <td>${member.offerProviderAllSpent}</td>
+                      // Offer Provider Section 
+                      // Offer Data
                       <td>${member.offerImage}</td>
                       <td>${member.offerWantedAll}</td>
                       <td>${member.offerSeenAll}</td>
@@ -806,7 +889,13 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    // Offer section
+
+                    // Offer Provider Section 
+                    <td colspan="4"></td>
+                    <td>${offerProviderBizRevenue.value}</td>
+                    <td>${offerProviderAllSpent.value}</td>
+                    // Offer Provider Section 
+                    // Offer Data
                     <td>${totalofferWantedAll.value}</td>
                     <td>${totalofferSeenAll.value}</td>
                     <td>${totalOfferListView.value}</td>
@@ -878,7 +967,11 @@
         totalBusinessRevenue,
         totalSalary,
 
-        // Offer section
+        // Offer Provider Section
+        offerProviderBizRevenue,
+        offerProviderAllSpent,
+        // Offer Provider Section
+        // Offer Data
         totalofferWanted,
         totalofferSeen,
         totalliked,
@@ -914,27 +1007,16 @@
   .search{
     width: 100px;
   }
-  .OfferImageCol {
+  .OfferImageCol,
+  .offerProviderPicCol {
   Border-left: 2px red solid;
-}
-.OfferContentCol {
-  Border-right: 2px red solid;
-}
-.TitleRow .OfferImageCol,
-.TitleRow .offerWantedAllCol,
-.TitleRow .offerSeenAllCol,
-.TitleRow .OfferListViewCol,
-.TitleRow .OfferRenewedCol,
-.TitleRow .likedAllCol,
-.TitleRow .OfferLinkCol,
-.TitleRow .OfferTitleCol,
-.TitleRow .OfferCategoryCol,
-.TitleRow .OfferCountryCol,
-.TitleRow .OfferCityCol,
-.TitleRow .OfferDurationCol,
-.TitleRow .OfferContentCol {
-  border-top: 3px solid red;
-}
+  }
+  .OfferContentCol {
+    Border-right: 2px red solid;
+  }
+  .topBorder {
+    border-top: 3px solid red;
+  }
   /* .arrowBackCircle {
     position: fixed;
     top: 55;
@@ -965,7 +1047,7 @@
     /* border: 4px solid rgb(26, 185, 18); */
   }
   .scrollingRow {
-    min-width: 5500px;
+    min-width: 6000px;
     /* border: 1px solid red; */
     flex-direction: column;
   }

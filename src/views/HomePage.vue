@@ -190,7 +190,6 @@
                 <p><a href="/MyBestOfferOfficeSpaceActivityTableComponent" class="Events-button" > OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
                 <p><a href="/MyBestOfferOfficeSpaceCustomersActivityTableComponent" class="Events-button" > OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
                 <p><a href="/MyBestOfferAccountingActivityTableComponent" class="Events-button" >MyBestOfferAccountingActivityTableComponent </a> </p>
-                <p><a href="/MyBestOfferAccountingCustomersActivityTableComponent" class="Events-button" > OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
 
               
               </IonRow>

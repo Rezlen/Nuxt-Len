@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all my Accountants/Accounting Service providers</p>
+    <p class="TitleP">List of all my Accountants/Accounting Service providers and Accounting Offers</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -17,28 +17,37 @@
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-          <IonCol class="accountantPicCol" @click="sortMembers('accountantPic')">Accountant Pic <IonIcon :icon="sortIcon('accountantPic')" class="sort-icon" /></IonCol>
-          <IonCol class="accountantFirstNameCol" @click="sortMembers('accountantFirstName')">Accountant First Name <IonIcon :icon="sortIcon('accountantFirstName')" class="sort-icon" /></IonCol>
-          <IonCol class="accountantLastNameCol" @click="sortMembers('accountantLastName')">Accountant Last Name <IonIcon :icon="sortIcon('accountantLastName')" class="sort-icon" /></IonCol>
-          <IonCol class="accountantMembershipTypeCol" @click="sortMembers('accountantMembershipType')">Accountant Membership Type <IonIcon :icon="sortIcon('accountantMembershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="accountantAllSpentCol" @click="sortMembers('accountantAllSpent')">Accountant Total Spent<IonIcon :icon="sortIcon('accountantAllSpent')" class="sort-icon" /></IonCol>
-
+          <IonCol class="personPicCol" @click="sortMembers('personPic')">Person Pic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
+          <IonCol class="firstNameCol" @click="sortMembers('firstName')">First Name <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
+          <IonCol class="lastNameCol" @click="sortMembers('lastName')">Last Name <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
+          <IonCol class="membershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="allSpentCol" @click="sortMembers('allSpent')">Total Spent<IonIcon :icon="sortIcon('allSpent')" class="sort-icon" /></IonCol>
+          <!-- Accountant Section -->
+          <IonCol class="accountantPicCol topBorder" @click="sortMembers('accountantPic')">Accountant Pic <IonIcon :icon="sortIcon('accountantPic')" class="sort-icon" /></IonCol>
+          <IonCol class="accountantFirstNameCol topBorder" @click="sortMembers('accountantFirstName')">Accountant First Name <IonIcon :icon="sortIcon('accountantFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="accountantBizNameCol topBorder" @click="sortMembers('accountantBizName')">Accountant Business Name <IonIcon :icon="sortIcon('accountantBizName')" class="sort-icon" /></IonCol>
+          <IonCol class="accountantMembershipTypeCol topBorder" @click="sortMembers('accountantMembershipType')">Accountant Membership Type <IonIcon :icon="sortIcon('accountantMembershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="accountantBizRevenueCol topBorder" @click="sortMembers('accountantBizRevenue')">Accountant Business Revenue<IonIcon :icon="sortIcon('accountantBizRevenue')" class="sort-icon" /></IonCol>
+          <!-- Accountant Section -->
           <!-- Office Space Section -->
           <IonCol class="sessionTitleCol topBorder" @click="sortMembers('sessionTitle')"> Session Title <IonIcon :icon="sortIcon('sessionTitle')" class="sort-icon" /></IonCol>
           <IonCol class="sessionDateTimeCol topBorder" @click="sortMembers('sessionDateTime')"> Session Date Time <IonIcon :icon="sortIcon('sessionDateTime')" class="sort-icon" /></IonCol>
           <IonCol class="sessionDescriptionCol topBorder" @click="sortMembers('sessionDescription')">Session Description<IonIcon :icon="sortIcon('sessionDescription')" class="sort-icon" /></IonCol>
-          <IonCol class="CostCol topBorder" @click="sortMembers('cost')"> cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
-          <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')"> Expiring Date<IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
+          <IonCol class="CostCol topBorder" @click="sortMembers('cost')">cost <IonIcon :icon="sortIcon('cost')" class="sort-icon" /></IonCol>
+          <IonCol class="ExpiringDateCol topBorder" @click="sortMembers('expiringDate')">Expiring Date<IonIcon :icon="sortIcon('expiringDate')" class="sort-icon" /></IonCol>
           <IonCol class="TimeLeftTillExpiryCol topBorder" @click="sortMembers('timeLeftTillExpiry')">Time Left Till Expiry <IonIcon :icon="sortIcon('timeLeftTillExpiry')" class="sort-icon" /></IonCol>
-          <IonCol class="BookingDateCol topBorder" @click="sortMembers('bookingDate')"> BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
+          <IonCol class="BookingDateCol topBorder" @click="sortMembers('bookingDate')">BookingDate <IonIcon :icon="sortIcon('bookingDate')" class="sort-icon" /></IonCol>
 
           <IonCol class="businessCategoryCol topBorder" @click="sortMembers('businessCategory')">Business Category <IonIcon :icon="sortIcon('businessCategory')" class="sort-icon" /></IonCol>
           <IonCol class="companyHouseRegNumberCol topBorder" @click="sortMembers('companyHouseRegNumber')">company House RegNumber<IonIcon :icon="sortIcon('companyHouseRegNumber')" class="sort-icon" /></IonCol>
           <IonCol class="bizWebsiteLinkCol topBorder" @click="sortMembers('bizWebsiteLink')">Business Website Link<IonIcon :icon="sortIcon('bizWebsiteLink')" class="sort-icon" /></IonCol>
           <IonCol class="positionInBusinessCol topBorder" @click="sortMembers('positionInBusiness')">Position InBusiness <IonIcon :icon="sortIcon('positionInBusiness')" class="sort-icon" /></IonCol>
           <IonCol class="BizAgeCol topBorder" @click="sortMembers('BizAge')">Business Age <IonIcon :icon="sortIcon('BizAge')" class="sort-icon" /></IonCol>
+          <IonCol class="grossRevenuePerYearCol topBorder" @click="sortMembers('grossRevenuePerYear')">Gross Revenue PerYear <IonIcon :icon="sortIcon('grossRevenuePerYear')" class="sort-icon" /></IonCol>
+          <IonCol class="grossCostPerYearCol topBorder" @click="sortMembers('grossCostPerYear')">Gross Cost PerYear <IonIcon :icon="sortIcon('grossCostPerYear')" class="sort-icon" /></IonCol>
+          <IonCol class="grossProfitPerYearCol topBorder" @click="sortMembers('grossProfitPerYear')">Gross Profit PerYear <IonIcon :icon="sortIcon('grossProfitPerYear')" class="sort-icon" /></IonCol>
           <IonCol class="numberOfEmployeesCol topBorder" @click="sortMembers('numberOfEmployees')">Number Of Employees <IonIcon :icon="sortIcon('numberOfEmployees')" class="sort-icon" /></IonCol>
-          <IonCol class="fullOfficeServiceNeededCol topBorder" @click="sortMembers('fullOfficeServiceNeeded')">Full Office Service Needed <IonIcon :icon="sortIcon('fullOfficeServiceNeeded')" class="sort-icon" /></IonCol>
+          <IonCol class="fullAccountingServiceNeededCol topBorder" @click="sortMembers('fullAccountingServiceNeeded')">Full Accounting Service Needed <IonIcon :icon="sortIcon('fullAccountingServiceNeeded')" class="sort-icon" /></IonCol>
           <!-- Office Space Section -->
 
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
@@ -73,12 +82,18 @@
         <!-- Data rows -->
         <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
           <IonCol class="MemberIDCol">{{ member.id }}</IonCol>
+          <IonCol class="personPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="firstNameCol">{{ member.firstName }}</IonCol>
+          <IonCol class="lastNameCol">{{ member.lastName }}</IonCol>
+          <IonCol class="membershipTypeCol">{{ member.membershipType }}</IonCol>
+          <IonCol class="allSpentCol">{{ member.allSpent }}</IonCol>
+          <!-- Accountant Section -->
           <IonCol class="accountantPicCol"><img :src="member.accountantPic" alt="Person Pic" class="person-pic"/></IonCol>
           <IonCol class="accountantFirstNameCol">{{ member.accountantFirstName }}</IonCol>
-          <IonCol class="accountantLastNameCol">{{ member.accountantLastName }}</IonCol>
+          <IonCol class="accountantBizNameCol">{{ member.accountantBizName }}</IonCol>
           <IonCol class="accountantMembershipTypeCol">{{ member.accountantMembershipType }}</IonCol>
-          <IonCol class="accountantAllSpentCol">{{ member.accountantAllSpent }}</IonCol>
-
+          <IonCol class="accountantBizRevenueCol">{{ member.accountantBizRevenue }}</IonCol>
+          <!-- Accountant Section -->
           <!-- Office Space Section -->
           <IonCol class="sessionTitleCol">{{ member.sessionTitle }}</IonCol>
           <IonCol class="sessionDateTimeCol">{{ member.sessionDateTime }}</IonCol>
@@ -93,8 +108,11 @@
           <IonCol class="bizWebsiteLinkCol">{{ member.bizWebsiteLink }}</IonCol>
           <IonCol class="positionInBusinessCol">{{ member.positionInBusiness }}</IonCol>
           <IonCol class="BizAgeCol">{{ member.BizAge }}</IonCol>
+          <IonCol class="grossRevenuePerYearCol">{{ member.grossRevenuePerYear }}</IonCol>
+          <IonCol class="grossCostPerYearCol">{{ member.grossCostPerYear }}</IonCol>
+          <IonCol class="grossProfitPerYearCol">{{ member.grossProfitPerYear }}</IonCol>
           <IonCol class="numberOfEmployeesCol">{{ member.numberOfEmployees }}</IonCol>
-          <IonCol class="fullOfficeServiceNeededCol">{{ member.fullOfficeServiceNeeded }}</IonCol>
+          <IonCol class="fullAccountingServiceNeededCol">{{ member.fullAccountingServiceNeeded }}</IonCol>
           <!-- Office Space Section -->
 
 
@@ -135,12 +153,18 @@
         <!-- Total row -->
         <IonRow class="TotalRow">
           <IonCol class="MemberIDCol">Totals:</IonCol>
+          <IonCol class="personPicCol"></IonCol>
+          <IonCol class="firstNameCol"></IonCol>
+          <IonCol class="lastNameCol"></IonCol>
+          <IonCol class="membershipTypeCol"></IonCol>
+          <IonCol class="allSpentCol">{{ allSpent }}</IonCol>
+          <!-- Accountant Section -->
           <IonCol class="accountantPicCol"></IonCol>
           <IonCol class="accountantFirstNameCol"></IonCol>
-          <IonCol class="accountantLastNameCol"></IonCol>
+          <IonCol class="accountantBizNameCol"></IonCol>
           <IonCol class="accountantMembershipTypeCol"></IonCol>
-          <IonCol class="accountantAllSpentCol">{{ accountantAllSpent }}</IonCol>
-
+          <IonCol class="accountantBizRevenueCol">{{ accountantBizRevenue }}</IonCol>
+          <!-- Accountant Section -->
           <!-- Office Space Section -->
           <IonCol class="sessionTitleCol"></IonCol>
           <IonCol class="sessionDateTimeCol"></IonCol>
@@ -155,8 +179,11 @@
           <IonCol class="bizWebsiteLinkCol"></IonCol>
           <IonCol class="positionInBusinessCol"></IonCol>
           <IonCol class="BizAgeCol"></IonCol>
+          <IonCol class="grossRevenuePerYearCol"></IonCol>
+          <IonCol class="grossCostPerYearCol"></IonCol>
+          <IonCol class="grossProfitPerYearCol"></IonCol>
           <IonCol class="numberOfEmployeesCol"></IonCol>
-          <IonCol class="fullOfficeServiceNeededCol"></IonCol>
+          <IonCol class="fullAccountingServiceNeededCol"></IonCol>
           <!-- Office Space Section -->
 
           <IonCol class="AgeCol"></IonCol>
@@ -220,12 +247,18 @@
 
   interface Member {
     id: number;
+    personPic: string;
+    firstName: string;
+    lastName: string;
+    membershipType: string;
+    allSpent: number;
+    // <!-- Accountant Section -->
     accountantPic: string;
     accountantFirstName: string;
-    accountantLastName: string;
+    accountantBizName: string;
     accountantMembershipType: string;
-    accountantAllSpent: number;
-
+    accountantBizRevenue: number;
+    // <!-- Accountant Section -->
     // Office Space Section -->
     sessionTitle: string;
     sessionDateTime: number;
@@ -240,8 +273,11 @@
     bizWebsiteLink: number;
     positionInBusiness: number;
     BizAge: number;
+    grossRevenuePerYear: number;
+    grossCostPerYear: number;
+    grossProfitPerYear: string;
     numberOfEmployees: number;
-    fullOfficeServiceNeeded: number;
+    fullAccountingServiceNeeded: number;
     // Office Space Section -->
 
     age: number;
@@ -278,12 +314,18 @@
       const members = ref<Member[]>([
         {
           id: 3,
+          personPic: 'pic_url_a',
+          firstName: 'Johneee',
+          lastName: 'Doe',
+          membershipType: 'Gold',
+          allSpent: 150,
+          // <!-- Accountant Section -->
           accountantPic: 'pic_url_a',
           accountantFirstName: 'Johneee',
-          accountantLastName: 'Doe',
+          accountantBizName: 'Doe',
           accountantMembershipType: 'Gold',
-          accountantAllSpent: 150,
-
+          accountantBizRevenue: 150,
+          // <!-- Accountant Section -->
           // Office Space Section
           sessionTitle: 'Amazing sponsorship Partnership',
           sessionDateTime: 200,
@@ -298,8 +340,11 @@
           bizWebsiteLink: 100,
           positionInBusiness: 200,
           BizAge: 300,
+          grossRevenuePerYear: 400,
+          grossCostPerYear: 500,
+          grossProfitPerYear: 'https://example.com/bestOffer',
           numberOfEmployees: 400,
-          fullOfficeServiceNeeded: 500,
+          fullAccountingServiceNeeded: 500,
           // Office Space Section
 
           age: 30,
@@ -330,12 +375,19 @@
         },
         {
           id: 2,
+          personPic: 'pic_url_a',
+          firstName: 'res',
+          lastName: 'Doe',
+          membershipType: 'Gold',
+          allSpent: 150,
+
+          // <!-- Accountant Section -->
           accountantPic: 'pic_url_a',
           accountantFirstName: 'res',
-          accountantLastName: 'Doe',
+          accountantBizName: 'Doe',
           accountantMembershipType: 'Gold',
-          accountantAllSpent: 150,
-
+          accountantBizRevenue: 150,
+          // <!-- Accountant Section -->
           // Office Space Section
           sessionTitle: 'Exclusive sponsorship and Partnership',
           sessionDateTime: 250,
@@ -350,8 +402,11 @@
           bizWebsiteLink: 100,
           positionInBusiness: 250,
           BizAge: 350,
+          grossRevenuePerYear: 450,
+          grossCostPerYear: 550,
+          grossProfitPerYear: 'https://example.com/bestOffer1',
           numberOfEmployees: 450,
-          fullOfficeServiceNeeded: 550,
+          fullAccountingServiceNeeded: 550,
           // Office Space Section
 
           age: 30,
@@ -382,12 +437,18 @@
         },
         {
           id: 1,
+          personPic: 'pic_url_a',
+          firstName: 'John',
+          lastName: 'Doe',
+          membershipType: 'Gold',
+          allSpent: 150,
+          // <!-- Accountant Section -->
           accountantPic: 'pic_url_a',
           accountantFirstName: 'John',
-          accountantLastName: 'Doe',
+          accountantBizName: 'Doe',
           accountantMembershipType: 'Gold',
-          accountantAllSpent: 150,
-
+          accountantBizRevenue: 150,
+          // <!-- Accountant Section -->
           // Office Space Section
           sessionTitle: 'Premium sponsorship so Partnership',
           sessionDateTime: 300,
@@ -402,8 +463,11 @@
           bizWebsiteLink: 600,
           positionInBusiness: 300,
           BizAge: 400,
+          grossRevenuePerYear: 500,
+          grossCostPerYear: 600,
+          grossProfitPerYear: 'https://example.com/bestOffer2',
           numberOfEmployees: 500,
-          fullOfficeServiceNeeded: 600,
+          fullAccountingServiceNeeded: 600,
           // Office Space Section
 
           age: 30,
@@ -513,7 +577,11 @@
       const totalPages = computed(() => Math.ceil(filteredMembers.value.length / itemsPerPage));
 
     //  * Computes the total price of all members.
-      const accountantAllSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.accountantAllSpent, 0));
+      const allSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.allSpent, 0));
+
+      // <!-- Accountant Section -->
+      const accountantBizRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.accountantBizRevenue, 0));
+      // <!-- Accountant Section -->
 
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
@@ -537,10 +605,14 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'accountantPic', 'accountantFirstName', 'accountantLastName', 'accountantMembershipType', 'accountantAllSpent',
+            'Member ID', 'personPic', 'firstName', 'lastName', 'membershipType', 'allSpent',
+            // <!-- Accountant Section-->
+              'accountantPic', 'accountantFirstName', 'accountantBizName', 'accountantMembershipType', 'accountantBizRevenue',
+            // <!-- Accountant Section-->
+            
             //  Office Space Section
             'sessionTitle', 'SessionDateTime', 'sessionDescription', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
-            'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'numberOfEmployees', 'fullOfficeServiceNeeded',
+            'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'grossRevenuePerYear', 'grossCostPerYear', 'grossProfitPerYear','numberOfEmployees', 'fullAccountingServiceNeeded',
             //  Office Space Section
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'ListedOffers',
             'PeopleSatisfiedNeeds', 'PeopleRequestedOffers', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 
@@ -548,10 +620,13 @@
             
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.accountantPic, member.accountantFirstName, member.accountantLastName, member.accountantMembershipType,  member.accountantAllSpent, 
+            member.id, member.personPic, member.firstName, member.lastName, member.membershipType,  member.allSpent, 
+            // <!-- Accountant Section-->
+            member.accountantPic, member.accountantFirstName, member.accountantBizName, member.accountantMembershipType,  member.accountantBizRevenue, 
+            // <!-- Accountant Section-->
             //  Office Space Section
             member.sessionTitle, member.sessionDateTime, member.sessionDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
-            member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge, member.numberOfEmployees, member.fullOfficeServiceNeeded,
+            member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge,  member.grossRevenuePerYear, member.grossCostPerYear, member.grossProfitPerYear, member.numberOfEmployees, member.fullAccountingServiceNeeded,
             //  Office Space Section
 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent, 
@@ -612,12 +687,18 @@
                 <thead>
                   <tr>
                     <th>Member ID</th>
-                    <th>accountantPic</th>
+                    <th>personPic</th>
                     <th>First Name</th>
-                    <th>accountantLastName</th>
+                    <th>lastName</th>
                     <th>Membership Type</th>
-                    <th>Mentor Total Spent</th>
-
+                    <th>allSpent</th>
+                    // Accountant Section
+                    <th>accountantPic</th>
+                    <th>accountantFirstName</th>
+                    <th>accountantBizName</th>
+                    <th>accountantMembership Type</th>
+                    <th>accountantTotalSpent</th>
+                    // Accountant Section
                     <!-- Office Space Section -->
                     <th>Office Space Title</th>
                     <th>Session Date Time</th>
@@ -632,6 +713,9 @@
                     <th>Business Website Link</th>
                     <th>Position In Business</th>
                     <th>Business Age</th>
+                    <th>grossRevenuePerYear</th>
+                    <th>grossCostPerYear</th>
+                    <th>grossProfitPerYear</th>
                     <th>Number Of Employees</th>
                     <th>Full Office Service Needed</th>
                     <!-- Office Space Section -->
@@ -670,11 +754,18 @@
                   ${paginatedMembers.value.map((member, index) => `
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                       <td>${member.id}</td>
+                      <td>${member.personPic}</td>
+                      <td>${member.firstName}</td>
+                      <td>${member.lastName}</td>
+                      <td>${member.membershipType}</td>
+                      <td>${member.allSpent}</td>
+                      // Accountant Section
                       <td>${member.accountantPic}</td>
                       <td>${member.accountantFirstName}</td>
-                      <td>${member.accountantLastName}</td>
+                      <td>${member.accountantBizName}</td>
                       <td>${member.accountantMembershipType}</td>
-                      <td>${member.accountantAllSpent}</td>
+                      <td>${member.accountantBizRevenue}</td>
+                      // Accountant Section
 
                       // Office Space Section
                       <td>${member.sessionTitle}</td>
@@ -690,8 +781,11 @@
                       <td>${member.bizWebsiteLink}</td>
                       <td>${member.positionInBusiness}</td>
                       <td>${member.BizAge}</td>
+                      <td>${member.grossRevenuePerYear}</td>
+                      <td>${member.grossCostPerYear}</td>
+                      <td>${member.grossProfitPerYear}</td>
                       <td>${member.numberOfEmployees}</td>
-                      <td>${member.fullOfficeServiceNeeded}</td>
+                      <td>${member.fullAccountingServiceNeeded}</td>
                       // Office Space Section
                       
                       <td>${member.age}</td>
@@ -723,8 +817,15 @@
                   `).join('')}
                   <tr class="TotalRow">
                     <td colspan="5">Totals</td>
-                    <td>${accountantAllSpent.value}</td>
-                      // Office Space Section
+                    <td>${allSpent.value}</td>
+                    // Accountant Section
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    // Accountant Section
+                    // Office Space Section
                     <td></td>
                     <td></td>
                     <td></td>
@@ -840,7 +941,8 @@
         nextPage,
         exportTable,
         printTable,
-        accountantAllSpent,
+        allSpent,
+        accountantBizRevenue,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -879,10 +981,11 @@
   .search {
     width: 100px;
   }
-  .sessionTitleCol {
+  .sessionTitleCol,
+  .accountantPicCol {
     Border-left: 2px red solid;
   }
-  .fullOfficeServiceNeededCol {
+  .fullAccountingServiceNeededCol {
     Border-right: 2px red solid;
   }
   .topBorder {

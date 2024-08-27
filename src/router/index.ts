@@ -157,7 +157,6 @@ import MyBestOfferOfficeSpaceActivityTableComponent from '@/components/MyOffersN
 import MyBestOfferOfficeSpaceCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceCustomersActivityTableComponent.vue';
 // MyBestOffersAccountingActivityTablesComponents
 import MyBestOfferAccountingActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersAccountingActivityTablesComponents/MyBestOfferAccountingActivityTableComponent.vue';
-import MyBestOfferAccountingCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersAccountingActivityTablesComponents/MyBestOfferAccountingCustomersActivityTableComponent.vue';
 
 // MyInvestmentApplicationComponent 
 import MyInvestmentApplicationComponent from '@/components/MyInvestmentComponents/MyInvestmentApplicationComponent.vue';
@@ -654,11 +653,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MyBestOfferAccountingActivityTableComponent',
     component: MyBestOfferAccountingActivityTableComponent
   },
-  {
-    path: '/myBestOfferAccountingCustomersActivityTableComponent',
-    name: 'MyBestOfferAccountingCustomersActivityTableComponent',
-    component: MyBestOfferAccountingCustomersActivityTableComponent
-  },
+
   // MyRewardsDiscountsComponents 
   {
     path: '/myRewardsDiscountsComponent',
