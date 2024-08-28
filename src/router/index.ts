@@ -150,7 +150,6 @@ import MyBestOfferTABsComponent from '@/components/MyOffersNeedsBestOffersCompon
 import MyOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyOffersActivityTableComponent.vue';
 import MyBestOffersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersActivityTableComponent.vue';
 import MyNeedsActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyNeedsActivityTableComponent.vue';
-import MyBestOfferMenteesBusinessAdviceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMenteesBusinessAdviceActivityTableComponent.vue';
 import MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent.vue';
 
 import MyBestOfferOfficeSpaceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceActivityTableComponent.vue';
@@ -626,12 +625,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'SponsorshipPartnershipTableComponent',
     component: SponsorshipPartnershipTableComponent
   },
-  // MyBestOfferMenteesBusinessAdviceActivityTableComponent  MenteesBusinessAdviceTableComponent
-  {
-    path: '/myBestOfferMenteesBusinessAdviceActivityTableComponent',
-    name: 'MyBestOfferMenteesBusinessAdviceActivityTableComponent',
-    component: MyBestOfferMenteesBusinessAdviceActivityTableComponent
-  },
+  // MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent
   {
     path: '/myBestOfferMentorsMenteesBusinessAdviceActivityTableComponent',
     name: 'MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent',

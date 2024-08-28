@@ -47,7 +47,6 @@
         <MyBestOffersActivityTableComponent />
       </IonCol>
       <IonCol v-show="selectedTab === 'BusinessAdvice'" class="BusinessAdvice">
-        <MyBestOfferMenteesBusinessAdviceActivityTableComponent />
         <MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent />
         <BestOfferComponent />
         <BusinessAdviceBestOffers7CategoriesFormComponents />
@@ -82,7 +81,6 @@
   import OfficeSpaceBestOffers7CategoriesFormComponent from "@/components/OfferNeedBestOfferComponent/BestOffers7CategoriesFormComponents/OfficeSpaceBestOffers7CategoriesFormComponent.vue";
 
   import MyBestOffersActivityTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersActivityTableComponent.vue";
-  import MyBestOfferMenteesBusinessAdviceActivityTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMenteesBusinessAdviceActivityTableComponent.vue";
   import MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent.vue";
 
   import MyBestOfferOfficeSpaceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceActivityTableComponent.vue';
@@ -105,7 +103,6 @@
       AccountingBestOffers7CategoriesFormComponent,
       OfficeSpaceBestOffers7CategoriesFormComponent,
       MyBestOffersActivityTableComponent,
-      MyBestOfferMenteesBusinessAdviceActivityTableComponent,
       MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent,
       MyBestOfferOfficeSpaceActivityTableComponent,
       MyBestOfferAccountingActivityTableComponent,

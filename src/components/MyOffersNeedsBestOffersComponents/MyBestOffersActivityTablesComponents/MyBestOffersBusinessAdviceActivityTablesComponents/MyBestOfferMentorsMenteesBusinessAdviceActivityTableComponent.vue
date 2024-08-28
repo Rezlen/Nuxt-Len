@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">If You are a Business Mentor/Advisor, here is the list of all your Mentees (members) who booked a Business Advice Session with you</p>
+    <p class="TitleP">Your business advice sessions & Business Mentors/advisors listed here</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -22,7 +22,13 @@
           <IonCol class="menteeLastNameCol" @click="sortMembers('menteeLastName')">Mentee Last Name <IonIcon :icon="sortIcon('menteeLastName')" class="sort-icon" /></IonCol>
           <IonCol class="menteeMembershipTypeCol" @click="sortMembers('menteeMembershipType')">Mentee Membership Type <IonIcon :icon="sortIcon('menteeMembershipType')" class="sort-icon" /></IonCol>
           <IonCol class="menteeTotalSpentCol" @click="sortMembers('menteeTotalSpent')">Mentee Total Spent<IonIcon :icon="sortIcon('menteeTotalSpent')" class="sort-icon" /></IonCol>
-
+          <!-- Accountant Section -->
+          <IonCol class="mentorPicCol topBorder" @click="sortMembers('mentorPic')">Mentor Pic <IonIcon :icon="sortIcon('mentorPic')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorFirstNameCol topBorder" @click="sortMembers('mentorFirstName')">Mentor First Name <IonIcon :icon="sortIcon('mentorFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorBizNameCol topBorder" @click="sortMembers('mentorBizName')">Mentor Business Name <IonIcon :icon="sortIcon('mentorBizName')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorMembershipTypeCol topBorder" @click="sortMembers('mentorMembershipType')">Mentor Membership Type <IonIcon :icon="sortIcon('mentorMembershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="mentorBizRevenueCol topBorder" @click="sortMembers('mentorBizRevenue')">Mentor Business Revenue<IonIcon :icon="sortIcon('mentorBizRevenue')" class="sort-icon" /></IonCol>
+          <!-- Accountant Section -->
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol topBorder" @click="sortMembers('sessionTitle')">Session Title <IonIcon :icon="sortIcon('sessionTitle')" class="sort-icon" /></IonCol>
           <IonCol class="sessionDateTimeCol topBorder" @click="sortMembers('sessionDateTime')">Session Date Time <IonIcon :icon="sortIcon('sessionDateTime')" class="sort-icon" /></IonCol>
@@ -86,7 +92,13 @@
           <IonCol class="menteeLastNameCol">{{ member.menteeLastName }}</IonCol>
           <IonCol class="menteeMembershipTypeCol">{{ member.menteeMembershipType }}</IonCol>
           <IonCol class="menteeTotalSpentCol">{{ member.menteeTotalSpent }}</IonCol>
-
+          <!-- Accountant Section -->
+          <IonCol class="mentorPicCol"><img :src="member.mentorPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="mentorFirstNameCol">{{ member.mentorFirstName }}</IonCol>
+          <IonCol class="mentorBizNameCol">{{ member.mentorBizName }}</IonCol>
+          <IonCol class="mentorMembershipTypeCol">{{ member.mentorMembershipType }}</IonCol>
+          <IonCol class="mentorBizRevenueCol">{{ member.mentorBizRevenue }}</IonCol>
+          <!-- Accountant Section -->
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol">{{ member.sessionTitle }}</IonCol>
           <IonCol class="sessionDateTimeCol">{{ member.sessionDateTime }}</IonCol>
@@ -156,7 +168,13 @@
           <IonCol class="menteeLastNameCol"></IonCol>
           <IonCol class="menteeMembershipTypeCol"></IonCol>
           <IonCol class="menteeTotalSpentCol">{{ menteeTotalSpent }}</IonCol>
-
+          <!-- Accountant Section -->
+          <IonCol class="mentorPicCol"></IonCol>
+          <IonCol class="mentorFirstNameCol"></IonCol>
+          <IonCol class="mentorBizNameCol"></IonCol>
+          <IonCol class="mentorMembershipTypeCol"></IonCol>
+          <IonCol class="mentorBizRevenueCol">{{ mentorBizRevenue }}</IonCol>
+          <!-- Accountant Section -->
           <!-- Business Advice Section -->
           <IonCol class="sessionTitleCol"></IonCol>
           <IonCol class="sessionDateTimeCol"></IonCol>
@@ -249,7 +267,13 @@
     menteeLastName: string;
     menteeMembershipType: string;
     menteeTotalSpent: number;
-
+    // <!-- Accountant Section -->
+    mentorPic: string;
+    mentorFirstName: string;
+    mentorBizName: string;
+    mentorMembershipType: string;
+    mentorBizRevenue: number;
+    // <!-- Accountant Section -->
     // Business Advice Section -->
     sessionTitle: string;
     sessionDateTime: number;
@@ -315,7 +339,13 @@
           menteeLastName: 'Doe',
           menteeMembershipType: 'Gold',
           menteeTotalSpent: 150,
-
+          // <!-- Accountant Section -->
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'Johneee',
+          mentorBizName: 'Doe',
+          mentorMembershipType: 'Gold',
+          mentorBizRevenue: 150,
+          // <!-- Accountant Section -->
           // Business Advice
           sessionTitle: 'Amazing sponsorship Partnership',
           sessionDateTime: 200,
@@ -375,7 +405,13 @@
           menteeLastName: 'Doe',
           menteeMembershipType: 'Gold',
           menteeTotalSpent: 150,
-
+          // <!-- Accountant Section -->
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'res',
+          mentorBizName: 'Doe',
+          mentorMembershipType: 'Gold',
+          mentorBizRevenue: 150,
+          // <!-- Accountant Section -->
           // Business Advice
           sessionTitle: 'Exclusive sponsorship and Partnership',
           sessionDateTime: 250,
@@ -435,7 +471,13 @@
           menteeLastName: 'Doe',
           menteeMembershipType: 'Gold',
           menteeTotalSpent: 150,
-
+          // <!-- Accountant Section -->
+          mentorPic: 'pic_url_a',
+          mentorFirstName: 'John',
+          mentorBizName: 'Doe',
+          mentorMembershipType: 'Gold',
+          mentorBizRevenue: 150,
+          // <!-- Accountant Section -->
           // Business Advice
           sessionTitle: 'Premium sponsorship so Partnership',
           sessionDateTime: 300,
@@ -570,7 +612,9 @@
 
     //  * Computes the total price of all members.
       const menteeTotalSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.menteeTotalSpent, 0));
-
+      // <!-- Accountant Section -->
+      const mentorBizRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.mentorBizRevenue, 0));
+      // <!-- Accountant Section -->
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
@@ -596,6 +640,9 @@
         const csvContent = [
           [
             'Member ID', 'menteePic', 'menteeFirstName', 'menteeLastName', 'menteeMembershipType', 'menteeTotalSpent',
+            // <!-- Accountant Section-->
+              'mentorPic', 'mentorFirstName', 'mentorBizName', 'mentorMembershipType', 'mentorBizRevenue',
+            // <!-- Accountant Section-->
             //  Business Advice
             'session Title', 'Business Advice Seen', 'Business Advice List View', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
             'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'grossRevenuePerYear', 'grossCostPerYear', 'grossProfitPerYear', 'paidAdvertising', 'customerDatabaseQuantity', 'professionalIndemnityNumber',
@@ -607,6 +654,9 @@
           ],
           ...filteredMembers.value.map(member => [
             member.id, member.menteePic, member.menteeFirstName, member.menteeLastName, member.menteeMembershipType,  member.menteeTotalSpent, 
+            // <!-- Accountant Section-->
+            member.mentorPic, member.mentorFirstName, member.mentorBizName, member.mentorMembershipType,  member.mentorBizRevenue, 
+            // <!-- Accountant Section-->
             //  Business Advice
             member.sessionTitle, member.sessionDateTime, member.businessAdviceDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
             member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge, member.grossRevenuePerYear, member.grossCostPerYear, member.grossProfitPerYear, member.paidAdvertising, member.customerDatabaseQuantity, member.professionalIndemnityNumber,
@@ -676,7 +726,13 @@
                     <th>Mentee Membership Type</th>
                     <th>Mentee Total Membership Spent</th>
                     <th>Mentee Total Spent</th>
-
+                    // Accountant Section
+                    <th>mentorPic</th>
+                    <th>mentorFirstName</th>
+                    <th>mentorBizName</th>
+                    <th>accountantMembership Type</th>
+                    <th>accountantTotalSpent</th>
+                    // Accountant Section
                     // Business Advice
                     <th>Session Title</th>
                     <td></td>
@@ -740,7 +796,13 @@
                       <td>${member.menteeLastName}</td>
                       <td>${member.menteeMembershipType}</td>
                       <td>${member.menteeTotalSpent}</td>
-
+                      // Accountant Section
+                      <td>${member.mentorPic}</td>
+                      <td>${member.mentorFirstName}</td>
+                      <td>${member.mentorBizName}</td>
+                      <td>${member.mentorMembershipType}</td>
+                      <td>${member.mentorBizRevenue}</td>
+                      // Accountant Section
                       // Business Advice section
                       <td>${member.sessionTitle}</td>
                       <td>${member.sessionDateTime}</td>
@@ -797,6 +859,13 @@
                   <tr class="TotalRow">
                     <td colspan="5">Totals</td>
                     <td>${menteeTotalSpent.value}</td>
+                                        // Accountant Section
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    // Accountant Section
                       // Business Advice section
                     <td></td>
                     <td></td>
@@ -921,6 +990,7 @@
         exportTable,
         printTable,
         menteeTotalSpent,
+        mentorBizRevenue,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -960,7 +1030,8 @@
   .search {
     width: 100px;
   }
-  .sessionTitleCol {
+  .sessionTitleCol,
+  .mentorPicCol {
     Border-left: 2px red solid;
   }
   .professionalIndemnityNumberCol {
