@@ -96,7 +96,9 @@ import membersContactUsMessagesTableAdminComponent from '@/components/AdminCompo
 import AdminBestOfferTABsComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOfferTABsComponent.vue';
 import MembersOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/MembersOfferDetailProfileDetailAdminComponent.vue';
 import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/MembersNeedDetailProfileDetailAdminComponent.vue';
+// Admin Best Offers
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
+import MembersAccountingActivityProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersAccountingActivityTablesComponents/MembersAccountingActivityProfileDetailAdminComponent.vue';
 import MembersBusinessAdviceProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBusinessAdviceProfileDetailAdminComponent.vue';
 
 
@@ -528,12 +530,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MembersNeedDetailProfileDetailAdminComponent',
     component: MembersNeedDetailProfileDetailAdminComponent
   },
-  {
+    {
     path: '/membersBestOfferDetailProfileDetailAdminComponent',
     name: 'MembersBestOfferDetailProfileDetailAdminComponent',
     component: MembersBestOfferDetailProfileDetailAdminComponent
   },
-  // Admin Contact Us
+  // Admin Contact Us 
   {
     path: '/contactUsTABsAdminComponent',
     name: 'contactUsTABsAdminComponent',
@@ -577,6 +579,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/membersCEOBusinessAdviceProfileDetailAdminComponent',
     name: 'MembersCEOBusinessAdviceProfileDetailAdminComponent',
     component: MembersCEOBusinessAdviceProfileDetailAdminComponent
+  },
+  // Best Offers Admin
+  {
+    path: '/membersAccountingActivityProfileDetailAdminComponent',
+    name: 'MembersAccountingActivityProfileDetailAdminComponent',
+    component: MembersAccountingActivityProfileDetailAdminComponent
   },
   {
     path: '/membersBusinessAdviceProfileDetailAdminComponent',

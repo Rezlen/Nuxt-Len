@@ -17,7 +17,7 @@
 
           <!-- Sidebar Menu -->
           <IonRow :class="{ 'sidebar-menu': true, 'sidebar-menu-hidden': !isMenuOpen }">
-            <IonRow class="PaddingBorder Profiles" @click="showComponent('profiles')">Profiles</IonRow>
+            <IonRow class="PaddingBorder Profiles" @click="showComponent('profiles')">Profiles,Offers,Needs</IonRow>
             <IonRow class="PaddingBorder Events" @click="showComponent('events')" >Events</IonRow>
             <IonRow class="PaddingBorder sponsorshipPartnership" @click="showComponent('MembersSponsorshipPartnershipProfileDetailAdminComponent')">Sponsorship Partnership</IonRow>
             <IonRow class="PaddingBorder MembersMembershipsProfileDetailAdminComponent"  @click="showComponent('MembersMembershipsProfileDetailAdminComponent')">Memberships</IonRow>

@@ -36,6 +36,7 @@
 
 
       <IonCol v-show="selectedTab === 'Accounting'" class="Accounting">
+        <MembersAccountingActivityProfileDetailAdminComponent />
       </IonCol>
 
 
@@ -74,35 +75,35 @@
     IonContent,
     IonSegment,
     IonSegmentButton,
-} from "@ionic/vue";
-  
-  import MembersBestOfferDetailProfileDetailAdminComponent from "@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue";
-  import MembersBusinessAdviceProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBusinessAdviceProfileDetailAdminComponent.vue';
+  } from "@ionic/vue";
+    import MembersBestOfferDetailProfileDetailAdminComponent from "@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue";
+    import MembersAccountingActivityProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersAccountingActivityTablesComponents/MembersAccountingActivityProfileDetailAdminComponent.vue';
+    import MembersBusinessAdviceProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBusinessAdviceProfileDetailAdminComponent.vue';
 
 
-  export default defineComponent({
-    name: "AdminBestOfferTABsComponent",
-    components: {
-      IonPage,
-      IonGrid,
-      IonRow,
-      IonCol,
-      IonContent,
-      IonSegment,
-      IonSegmentButton,
+    export default defineComponent({
+      name: "AdminBestOfferTABsComponent",
+      components: {
+        IonPage,
+        IonGrid,
+        IonRow,
+        IonCol,
+        IonContent,
+        IonSegment,
+        IonSegmentButton,
+        MembersAccountingActivityProfileDetailAdminComponent,
+        MembersBestOfferDetailProfileDetailAdminComponent,
+        MembersBusinessAdviceProfileDetailAdminComponent,
 
-      MembersBestOfferDetailProfileDetailAdminComponent,
-      MembersBusinessAdviceProfileDetailAdminComponent,
+      },
+      setup() {
+        const selectedTab = ref<string>("Marketing"); // Initialize with the default tab
 
-    },
-    setup() {
-      const selectedTab = ref<string>("Marketing"); // Initialize with the default tab
-
-      return {
-        selectedTab,
-      };
-    },
-  });
+        return {
+          selectedTab,
+        };
+      },
+    });
 </script>
 
 <style scoped>
@@ -115,26 +116,22 @@
     flex-wrap: wrap; /* Allow tabs to wrap to the next row */
     margin-bottom: 10px;
   }
-
   .TabSegment {
     display: flex;
     flex-wrap: wrap; /* Allow segment buttons to wrap */
     width: 100%;
   }
-
   .TabSegment .btn {
     flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
     /* min-width: 150px;  */
     /* Minimum width for each button to ensure readability */
   }
-
   .DisplayComponentRow {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
   }
-
   .Marketing,
   .Accounting,
   .Investment,
@@ -149,7 +146,6 @@
     flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
     margin: 10px;
   }
-
   .CenterPositions {
     display: flex;
     justify-content: center;
@@ -157,7 +153,6 @@
     align-content: center;
     text-align: center;
   }
-
   @media (max-width: 600px) {
   }
 </style>
