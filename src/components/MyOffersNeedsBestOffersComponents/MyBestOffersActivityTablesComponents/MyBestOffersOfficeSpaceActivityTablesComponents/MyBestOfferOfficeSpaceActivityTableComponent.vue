@@ -1,6 +1,6 @@
 <template>
   <IonGrid>
-    <p class="TitleP">List of all my rented Office Spaces</p>
+    <p class="TitleP">List of all my rented Office Spaces & office providers</p>
     <IonRow class="ButtonRow">
       <IonButton @click="resetSorting">RESET</IonButton>
       <IonButton @click="exportTable">EXPORT</IonButton>
@@ -17,12 +17,18 @@
         <!-- TitleRow with sorting functionality and icons -->
         <IonRow class="TitleRow">
           <IonCol class="MemberIDCol" @click="sortMembers('id')">Member ID <IonIcon :icon="sortIcon('id')" class="sort-icon" /></IonCol>
-          <IonCol class="officeProviderPicCol" @click="sortMembers('officeProviderPic')">Office Provider Pic <IonIcon :icon="sortIcon('officeProviderPic')" class="sort-icon" /></IonCol>
+          <IonCol class="personPicCol" @click="sortMembers('personPic')">Person Pic <IonIcon :icon="sortIcon('personPic')" class="sort-icon" /></IonCol>
           <IonCol class="firstNameCol" @click="sortMembers('firstName')">First Name <IonIcon :icon="sortIcon('firstName')" class="sort-icon" /></IonCol>
           <IonCol class="lastNameCol" @click="sortMembers('lastName')">Last Name <IonIcon :icon="sortIcon('lastName')" class="sort-icon" /></IonCol>
           <IonCol class="membershipTypeCol" @click="sortMembers('membershipType')">Membership Type <IonIcon :icon="sortIcon('membershipType')" class="sort-icon" /></IonCol>
           <IonCol class="allSpentCol" @click="sortMembers('allSpent')">Total Spent<IonIcon :icon="sortIcon('allSpent')" class="sort-icon" /></IonCol>
-
+          <!-- Office Provider Section -->
+          <IonCol class="officeProviderPicCol topBorder" @click="sortMembers('officeProviderPic')">Office Provider Pic <IonIcon :icon="sortIcon('officeProviderPic')" class="sort-icon" /></IonCol>
+          <IonCol class="officeProviderFirstNameCol topBorder" @click="sortMembers('officeProviderFirstName')">Office Provider First Name <IonIcon :icon="sortIcon('officeProviderFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="officeProviderBizNameCol topBorder" @click="sortMembers('officeProviderBizName')">Office Provider Business Name <IonIcon :icon="sortIcon('officeProviderBizName')" class="sort-icon" /></IonCol>
+          <IonCol class="officeProviderMembershipTypeCol topBorder" @click="sortMembers('officeProviderMembershipType')">Office Provider Membership Type <IonIcon :icon="sortIcon('officeProviderMembershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="officeProviderBizRevenueCol topBorder" @click="sortMembers('officeProviderBizRevenue')">Office Provider Business Revenue<IonIcon :icon="sortIcon('officeProviderBizRevenue')" class="sort-icon" /></IonCol>
+          <!-- Office Provider Section -->
           <!-- Office Space Section -->
           <IonCol class="officeSpaceTitleCol topBorder" @click="sortMembers('officeSpaceTitle')"> Office Space Title <IonIcon :icon="sortIcon('officeSpaceTitle')" class="sort-icon" /></IonCol>
           <IonCol class="sessionDateTimeCol topBorder" @click="sortMembers('sessionDateTime')"> Session Date Time <IonIcon :icon="sortIcon('sessionDateTime')" class="sort-icon" /></IonCol>
@@ -73,12 +79,18 @@
         <!-- Data rows -->
         <IonRow v-for="member in paginatedMembers" :key="member.id" class="DataRow" :class="{ selected: selectedRow === member.id }" @click="selectRow(member.id)">
           <IonCol class="MemberIDCol">{{ member.id }}</IonCol>
-          <IonCol class="officeProviderPicCol"><img :src="member.officeProviderPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="personPicCol"><img :src="member.personPic" alt="Person Pic" class="person-pic"/></IonCol>
           <IonCol class="firstNameCol">{{ member.firstName }}</IonCol>
           <IonCol class="lastNameCol">{{ member.lastName }}</IonCol>
           <IonCol class="membershipTypeCol">{{ member.membershipType }}</IonCol>
           <IonCol class="allSpentCol">{{ member.allSpent }}</IonCol>
-
+          <!-- Office Provider Section -->
+          <IonCol class="officeProviderPicCol"><img :src="member.officeProviderPic" alt="Person Pic" class="person-pic"/></IonCol>
+          <IonCol class="officeProviderFirstNameCol">{{ member.officeProviderFirstName }}</IonCol>
+          <IonCol class="officeProviderBizNameCol">{{ member.officeProviderBizName }}</IonCol>
+          <IonCol class="officeProviderMembershipTypeCol">{{ member.officeProviderMembershipType }}</IonCol>
+          <IonCol class="officeProviderBizRevenueCol">{{ member.officeProviderBizRevenue }}</IonCol>
+          <!-- Office Provider Section -->
           <!-- Office Space Section -->
           <IonCol class="officeSpaceTitleCol">{{ member.officeSpaceTitle }}</IonCol>
           <IonCol class="sessionDateTimeCol">{{ member.sessionDateTime }}</IonCol>
@@ -135,12 +147,18 @@
         <!-- Total row -->
         <IonRow class="TotalRow">
           <IonCol class="MemberIDCol">Totals:</IonCol>
-          <IonCol class="officeProviderPicCol"></IonCol>
+          <IonCol class="personPicCol"></IonCol>
           <IonCol class="firstNameCol"></IonCol>
           <IonCol class="lastNameCol"></IonCol>
           <IonCol class="membershipTypeCol"></IonCol>
           <IonCol class="allSpentCol">{{ allSpent }}</IonCol>
-
+          <!-- Office Provider Section -->
+          <IonCol class="officeProviderPicCol"></IonCol>
+          <IonCol class="officeProviderFirstNameCol"></IonCol>
+          <IonCol class="officeProviderBizNameCol"></IonCol>
+          <IonCol class="officeProviderMembershipTypeCol"></IonCol>
+          <IonCol class="officeProviderBizRevenueCol">{{ officeProviderBizRevenue }}</IonCol>
+          <!-- Office Provider Section -->
           <!-- Office Space Section -->
           <IonCol class="officeSpaceTitleCol"></IonCol>
           <IonCol class="sessionDateTimeCol"></IonCol>
@@ -220,12 +238,18 @@
 
   interface Member {
     id: number;
-    officeProviderPic: string;
+    personPic: string;
     firstName: string;
     lastName: string;
     membershipType: string;
     allSpent: number;
-
+    // <!-- Office Provider Section -->
+    officeProviderPic: string;
+    officeProviderFirstName: string;
+    officeProviderBizName: string;
+    officeProviderMembershipType: string;
+    officeProviderBizRevenue: number;
+    // <!-- Office Provider Section -->
     // Office Space Section -->
     officeSpaceTitle: string;
     sessionDateTime: number;
@@ -278,12 +302,18 @@
       const members = ref<Member[]>([
         {
           id: 3,
-          officeProviderPic: 'pic_url_a',
+          personPic: 'pic_url_a',
           firstName: 'Johneee',
           lastName: 'Doe',
           membershipType: 'Gold',
           allSpent: 150,
-
+          // <!-- Office Provider Section -->
+          officeProviderPic: 'pic_url_a',
+          officeProviderFirstName: 'Johneee',
+          officeProviderBizName: 'Doe',
+          officeProviderMembershipType: 'Gold',
+          officeProviderBizRevenue: 150,
+          // <!-- Office Provider Section -->
           // Office Space Section
           officeSpaceTitle: 'Amazing sponsorship Partnership',
           sessionDateTime: 200,
@@ -330,12 +360,18 @@
         },
         {
           id: 2,
-          officeProviderPic: 'pic_url_a',
+          personPic: 'pic_url_a',
           firstName: 'res',
           lastName: 'Doe',
           membershipType: 'Gold',
           allSpent: 150,
-
+          // <!-- Office Provider Section -->
+          officeProviderPic: 'pic_url_a',
+          officeProviderFirstName: 'res',
+          officeProviderBizName: 'Doe',
+          officeProviderMembershipType: 'Gold',
+          officeProviderBizRevenue: 150,
+          // <!-- Office Provider Section -->
           // Office Space Section
           officeSpaceTitle: 'Exclusive sponsorship and Partnership',
           sessionDateTime: 250,
@@ -382,12 +418,18 @@
         },
         {
           id: 1,
-          officeProviderPic: 'pic_url_a',
+          personPic: 'pic_url_a',
           firstName: 'John',
           lastName: 'Doe',
           membershipType: 'Gold',
           allSpent: 150,
-
+          // <!-- Office Provider Section -->
+          officeProviderPic: 'pic_url_a',
+          officeProviderFirstName: 'John',
+          officeProviderBizName: 'Doe',
+          officeProviderMembershipType: 'Gold',
+          officeProviderBizRevenue: 150,
+          // <!-- Office Provider Section -->
           // Office Space Section
           officeSpaceTitle: 'Premium sponsorship so Partnership',
           sessionDateTime: 300,
@@ -515,6 +557,10 @@
     //  * Computes the total price of all members.
       const allSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.allSpent, 0));
 
+      // <!-- Office Provider Section -->
+      const officeProviderBizRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.officeProviderBizRevenue, 0));
+      // <!-- Office Provider Section -->
+
       const totalBusinessRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.businessRevenue, 0));
       const totalSalary = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.salary, 0));
       const totalEventSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.eventSpent, 0));
@@ -537,7 +583,11 @@
       const exportTable = () => {
         const csvContent = [
           [
-            'Member ID', 'officeProviderPic', 'firstName', 'lastName', 'membershipType', 'allSpent',
+            'Member ID', 'personPic', 'firstName', 'lastName', 'membershipType', 'allSpent',
+            // <!-- Office Provider Section-->
+              'officeProviderPic', 'officeProviderFirstName', 'officeProviderBizName', 'officeProviderMembershipType', 'officeProviderBizRevenue',
+            // <!-- Office Provider Section-->
+                        
             //  Office Space Section
             'officeSpaceTitle', 'SessionDateTime', 'OfficeSpaceDescription', 'Cost','ExpiringDate', 'TimeLeftTillExpiry','Booking Date',
             'Business Category', 'companyHouseRegNumber', 'bizWebsiteLink', 'positionInBusiness', 'BizAge', 'numberOfEmployees', 'fullOfficeServiceNeeded',
@@ -548,7 +598,10 @@
             
           ],
           ...filteredMembers.value.map(member => [
-            member.id, member.officeProviderPic, member.firstName, member.lastName, member.membershipType,  member.allSpent, 
+            member.id, member.personPic, member.firstName, member.lastName, member.membershipType,  member.allSpent, 
+            // <!-- Office Provider Section-->
+            member.officeProviderPic, member.officeProviderFirstName, member.officeProviderBizName, member.officeProviderMembershipType,  member.officeProviderBizRevenue, 
+            // <!-- Office Provider Section-->           
             //  Office Space Section
             member.officeSpaceTitle, member.sessionDateTime, member.officeSpaceDescription, member.cost, member.expiringDate, member.timeLeftTillExpiry, member.bookingDate,
             member.businessCategory, member.companyHouseRegNumber, member.bizWebsiteLink, member.positionInBusiness, member.BizAge, member.numberOfEmployees, member.fullOfficeServiceNeeded,
@@ -612,11 +665,19 @@
                 <thead>
                   <tr>
                     <th>Member ID</th>
-                    <th>officeProviderPic</th>
+                    <th>personPic</th>
                     <th>First Name</th>
                     <th>lastName</th>
                     <th>Membership Type</th>
                     <th>Mentor Total Spent</th>
+
+                    // Office Provider Section
+                    <th>officeProviderPic</th>
+                    <th>officeProviderFirstName</th>
+                    <th>officeProviderBizName</th>
+                    <th>accountantMembership Type</th>
+                    <th>accountantTotalSpent</th>
+                    // Office Provider Section
 
                     <!-- Office Space Section -->
                     <th>Office Space Title</th>
@@ -670,11 +731,19 @@
                   ${paginatedMembers.value.map((member, index) => `
                     <tr class="${index % 2 === 0 ? 'even-row' : 'odd-row'}">
                       <td>${member.id}</td>
-                      <td>${member.officeProviderPic}</td>
+                      <td>${member.personPic}</td>
                       <td>${member.firstName}</td>
                       <td>${member.lastName}</td>
                       <td>${member.membershipType}</td>
                       <td>${member.allSpent}</td>
+                      // Office Provider Section
+                      <td>${member.officeProviderPic}</td>
+                      <td>${member.officeProviderFirstName}</td>
+                      <td>${member.officeProviderBizName}</td>
+                      <td>${member.officeProviderMembershipType}</td>
+                      <td>${member.officeProviderBizRevenue}</td>
+                      // Office Provider Section
+
 
                       // Office Space Section
                       <td>${member.officeSpaceTitle}</td>
@@ -724,6 +793,13 @@
                   <tr class="TotalRow">
                     <td colspan="5">Totals</td>
                     <td>${allSpent.value}</td>
+                    // Office Provider Section
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    // Office Provider Section                    
                       // Office Space Section
                     <td></td>
                     <td></td>
@@ -841,6 +917,7 @@
         exportTable,
         printTable,
         allSpent,
+        officeProviderBizRevenue,
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -879,7 +956,8 @@
   .search {
     width: 100px;
   }
-  .officeSpaceTitleCol {
+  .officeSpaceTitleCol,
+  .officeProviderPicCol {
     Border-left: 2px red solid;
   }
   .fullOfficeServiceNeededCol {

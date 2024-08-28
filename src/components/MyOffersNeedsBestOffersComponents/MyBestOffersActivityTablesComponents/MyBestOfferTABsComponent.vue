@@ -58,7 +58,6 @@
       </IonCol>
       <IonCol v-show="selectedTab === 'OfficeSpace'" class="OfficeSpace">
         <MyBestOfferOfficeSpaceActivityTableComponent/>
-        <MyBestOfferOfficeSpaceCustomersActivityTableComponent/>
         <BestOfferComponent />
         <OfficeSpaceBestOffers7CategoriesFormComponent />
       </IonCol>
@@ -87,7 +86,6 @@
   import MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent from "@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersBusinessAdviceActivityTablesComponents/MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent.vue";
 
   import MyBestOfferOfficeSpaceActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceActivityTableComponent.vue';
-  import MyBestOfferOfficeSpaceCustomersActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersOfficeSpaceActivityTablesComponents/MyBestOfferOfficeSpaceCustomersActivityTableComponent.vue';
 
   import MyBestOfferAccountingActivityTableComponent from '@/components/MyOffersNeedsBestOffersComponents/MyBestOffersActivityTablesComponents/MyBestOffersAccountingActivityTablesComponents/MyBestOfferAccountingActivityTableComponent.vue';
 
@@ -110,7 +108,6 @@
       MyBestOfferMenteesBusinessAdviceActivityTableComponent,
       MyBestOfferMentorsMenteesBusinessAdviceActivityTableComponent,
       MyBestOfferOfficeSpaceActivityTableComponent,
-      MyBestOfferOfficeSpaceCustomersActivityTableComponent,
       MyBestOfferAccountingActivityTableComponent,
     },
     setup() {
