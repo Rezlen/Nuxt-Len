@@ -26,22 +26,29 @@
           <IonCol class="TotalSpentCol" @click="sortMembers('totalSpent')">Total Spent<IonIcon :icon="sortIcon('totalSpent')" class="sort-icon" /></IonCol>
 
           <!-- Need Data -->
-          <IonCol class="NeedImageCol" @click="sortMembers('needImage')">NeedImage <IonIcon :icon="sortIcon('needImage')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedWantedCol" @click="sortMembers('needWanted')">NeedWanted<IonIcon :icon="sortIcon('needWanted')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedSeenCol" @click="sortMembers('needSeen')">NeedSeen <IonIcon :icon="sortIcon('needSeen')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedListViewCol" @click="sortMembers('needListView')">NeedListView <IonIcon :icon="sortIcon('needListView')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedRenewedCol" @click="sortMembers('needRenewed')">NeedRenewed <IonIcon :icon="sortIcon('needRenewed')" class="sort-icon" /></IonCol>
-          <IonCol class="LikedCol" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedLinkCol" @click="sortMembers('needLink')">NeedLink <IonIcon :icon="sortIcon('needLink')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedTitleCol" @click="sortMembers('needTitle')">NeedTitle <IonIcon :icon="sortIcon('needTitle')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCategoryCol" @click="sortMembers('needCategory')">NeedCategory <IonIcon :icon="sortIcon('needCategory')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCountryCol" @click="sortMembers('needCountry')">NeedCountry <IonIcon :icon="sortIcon('needCountry')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedCityCol" @click="sortMembers('needCity')">NeedCity <IonIcon :icon="sortIcon('needCity')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedDurationCol" @click="sortMembers('needDuration')">NeedDuration <IonIcon :icon="sortIcon('needDuration')" class="sort-icon" /></IonCol>
-          <IonCol class="NeedContentCol" @click="sortMembers('needContent')">NeedContent <IonIcon :icon="sortIcon('needContent')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedImageCol topBorder" @click="sortMembers('needImage')">NeedImage <IonIcon :icon="sortIcon('needImage')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedWantedCol topBorder" @click="sortMembers('needWanted')">NeedWanted<IonIcon :icon="sortIcon('needWanted')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedSeenCol topBorder" @click="sortMembers('needSeen')">NeedSeen <IonIcon :icon="sortIcon('needSeen')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedListViewCol topBorder" @click="sortMembers('needListView')">NeedListView <IonIcon :icon="sortIcon('needListView')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedRenewedCol topBorder" @click="sortMembers('needRenewed')">NeedRenewed <IonIcon :icon="sortIcon('needRenewed')" class="sort-icon" /></IonCol>
+          <IonCol class="LikedCol topBorder" @click="sortMembers('liked')">Liked <IonIcon :icon="sortIcon('liked')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedLinkCol topBorder" @click="sortMembers('needLink')">NeedLink <IonIcon :icon="sortIcon('needLink')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedTitleCol topBorder" @click="sortMembers('needTitle')">NeedTitle <IonIcon :icon="sortIcon('needTitle')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedCategoryCol topBorder" @click="sortMembers('needCategory')">Need Category <IonIcon :icon="sortIcon('needCategory')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedCountryCol topBorder" @click="sortMembers('needCountry')">Need Country <IonIcon :icon="sortIcon('needCountry')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedCityCol topBorder" @click="sortMembers('needCity')">Need City <IonIcon :icon="sortIcon('needCity')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedDurationCol topBorder" @click="sortMembers('needDuration')">NeedDuration <IonIcon :icon="sortIcon('needDuration')" class="sort-icon" /></IonCol>
+          <IonCol class="NeedContentCol topBorder" @click="sortMembers('needContent')">Need Content <IonIcon :icon="sortIcon('needContent')" class="sort-icon" /></IonCol>
 
           <!-- Need Data -->
-
+          <!-- need Provider Section -->
+          <IonCol class="needProviderPicCol topBorder" @click="sortMembers('needProviderPic')">Need Provider Pic <IonIcon :icon="sortIcon('needProviderPic')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderFirstNameCol topBorder" @click="sortMembers('needProviderFirstName')">Need Provider First Name <IonIcon :icon="sortIcon('needProviderFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderBizNameCol topBorder" @click="sortMembers('needProviderBizName')">Need Provider Business Name <IonIcon :icon="sortIcon('needProviderBizName')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderMembershipTypeCol topBorder" @click="sortMembers('needProviderMembershipType')">Need Provider Membership Type  <IonIcon :icon="sortIcon('needProviderMembershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderBizRevenueCol topBorder" @click="sortMembers('needProviderBizRevenue')">Need Provider Business Revenue<IonIcon :icon="sortIcon('needProviderBizRevenue')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderAllSpentCol topBorder" @click="sortMembers('needProviderAllSpent')">Need Provider All Spent<IonIcon :icon="sortIcon('needProviderAllSpent')" class="sort-icon" /></IonCol>
+          <!-- need Provider Section -->
           <IonCol class="AgeCol" @click="sortMembers('age')">Age <IonIcon :icon="sortIcon('age')" class="sort-icon" /></IonCol>
           <IonCol class="GenderCol" @click="sortMembers('gender')">Gender <IonIcon :icon="sortIcon('gender')" class="sort-icon" /></IonCol>
           <IonCol class="BusinessNameCol" @click="sortMembers('businessName')">Business Name <IonIcon :icon="sortIcon('businessName')" class="sort-icon" /></IonCol>
@@ -107,7 +114,14 @@
           <IonCol class="NeedDurationCol">{{ member.needDuration }}</IonCol>
           <IonCol class="NeedContentCol">{{ member.needContent }}</IonCol>
           <!-- Need &  Profile Data -->
-
+          <!-- need Provider Section -->
+          <IonCol class="needProviderPicCol"><img :src="member.needProviderPic" alt="needProviderPic" class="needProviderPic"/></IonCol>
+          <IonCol class="needProviderFirstNameCol">{{ member.needProviderFirstName }}</IonCol>
+          <IonCol class="needProviderBizNameCol">{{ member.needProviderBizName }}</IonCol>
+          <IonCol class="needProviderMembershipTypeCol">{{ member.needProviderMembershipType }}</IonCol>
+          <IonCol class="needProviderBizRevenueCol">{{ member.needProviderBizRevenue }}</IonCol>
+          <IonCol class="needProviderAllSpentCol">{{ member.needProviderAllSpent }}</IonCol>
+          <!-- need Provider Section -->
 
           <IonCol class="AgeCol">{{ member.age }}</IonCol>
           <IonCol class="GenderCol">{{ member.gender }}</IonCol>
@@ -179,7 +193,14 @@
           <IonCol class="NeedDurationCol"></IonCol>
           <IonCol class="NeedContentCol"></IonCol>
 
-
+          <!-- need Provider Section -->
+          <IonCol class="needProviderPicCol"></IonCol>
+          <IonCol class="needProviderFirstNameCol"></IonCol>
+          <IonCol class="needProviderBizNameCol"></IonCol>
+          <IonCol class="needProviderMembershipTypeCol"></IonCol>
+          <IonCol class="needProviderBizRevenueCol">{{ needProviderBizRevenue }}</IonCol>
+          <IonCol class="needProviderAllSpentCol">{{ needProviderAllSpent }}</IonCol>
+          <!-- need Provider Section -->
 
           <IonCol class="AgeCol"></IonCol>
           <IonCol class="GenderCol"></IonCol>
@@ -277,7 +298,14 @@ interface Member {
     needCity: string;
     needDuration: string;
     needContent: string;
-
+    // need Provider Section 
+    needProviderPic: string;
+    needProviderFirstName: string;
+    needProviderBizName: string;
+    needProviderMembershipType: string;
+    needProviderBizRevenue: number;
+    needProviderAllSpent: number;
+    // need Provider Section
 
     age: number;
     gender: string;
@@ -339,7 +367,14 @@ interface Member {
           needCity: 'New York',
           needDuration: '1 Year',
           needContent: 'This is a great need that you do not want to miss.',
-
+          // need Provider Section 
+          needProviderPic: 'pic_url_a',
+          needProviderFirstName: 'Johneee',
+          needProviderBizName: 'Doe',
+          needProviderMembershipType: 'Gold',
+          needProviderBizRevenue: 500,
+          needProviderAllSpent: 150,
+          // need Provider Section 
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -395,7 +430,14 @@ interface Member {
           needCity: 'Toronto',
           needDuration: '6 Months',
           needContent: 'An exclusive need for tech enthusiasts looking to invest in cutting-edge startups.',
-
+          // need Provider Section 
+          needProviderPic: 'pic_url_a',
+          needProviderFirstName: 'res',
+          needProviderBizName: 'Doe',
+          needProviderMembershipType: 'Gold',
+          needProviderBizRevenue: 500,
+          needProviderAllSpent: 150,
+          // need Provider Section 
 
           age: 30,
           gender: 'Male',
@@ -453,7 +495,14 @@ interface Member {
           needDuration: '2 Years',
           needContent: 'A premium need in the healthcare sector, perfect for investors looking to support innovative health solutions.',
 
-
+          // need Provider Section 
+          needProviderPic: 'pic_url_a',
+          needProviderFirstName: 'John',
+          needProviderBizName: 'Doe',
+          needProviderMembershipType: 'Gold',
+          needProviderBizRevenue: 500,
+          needProviderAllSpent: 150,
+          // need Provider Section 
           age: 30,
           gender: 'Male',
           businessName: 'JohnBusiness',
@@ -569,6 +618,12 @@ resetSorting();
       // Need Totals
       const totalNeedWanted = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needWanted, 0));
       const totalNeedSeen = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needSeen, 0));
+
+            // need Provider Section 
+      const needProviderBizRevenue = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needProviderBizRevenue, 0));
+      const needProviderAllSpent = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needProviderAllSpent, 0));
+      // Biz Mentor Section
+
       const totalNeedListView = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needListView, 0));
       const totalNeedRenewed = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.needRenewed, 0));
       const totalLiked = computed(() => filteredMembers.value.reduce((sum, member) => sum + member.liked, 0));
@@ -601,7 +656,9 @@ resetSorting();
             // Need section
             'NeedImage', 'NeedWanted', 'NeedSeen', 'NeedListView', 'NeedRenewed', 'Liked', 'NeedLink', 'NeedTitle', 'NeedCategory', 'NeedCountry', 'NeedCity', 'NeedDuration', 'NeedContent',
             // Need section
-
+            // need Provider Section 
+            'needProviderPic', 'needProviderFirstName', 'needProviderBizName', 'needProviderMembershipType', 'needProviderBizRevenue', 'needProviderAllSpent',
+            // need Provider Section 
             'Age', 'Gender', 'BusinessName', 'BusinessRevenue', 'JobPosition', 'Salary', 'BizCategory', 'Exhibited', 'EventSpent', 'Visited', 'ListedNeeds', 'listedOffers',
             'AdvertSpent', 'PeopleSatisfiedNeeds', 'PeopleRequestedNeeds', 'InvestorsAdverts', 'Pitchings', 'BizMentor', 'BizMentorSpent',
             'MobileNo', 'Email', 'BizCountry', 'BizCity', 'Connections', 'NoEmployees', 'Booking Date', 'Joined', 'LastLoggedIn', 'NoLoggedIn', 'FullProfileSeen',
@@ -612,7 +669,9 @@ resetSorting();
             // Need section
             member.needImage, member.needWanted, member.needSeen, member.needListView, member.needRenewed, member.liked, member.needLink, member.needTitle, member.needCategory, member.needCountry, member.needCity, member.needDuration, member.needContent,
             // Need section
-
+            // need Provider Section 
+            member.needProviderPic, member.needProviderFirstName, member.needProviderBizName, member.needProviderMembershipType, member.needProviderBizRevenue,  member.needProviderAllSpent, 
+            // need Provider Section 
             member.age, member.gender, member.businessName, member.businessRevenue, member.jobPosition, member.salary, member.bizCategory, member.exhibited, member.eventSpent,
             member.visited, member.listedNeeds, member.listedOffers, member.advertSpent, member.peopleSatisfiedNeeds, member.peopleRequestedNeeds,
             member.investorsAdverts, member.pitchings, member.bizMentor, member.bizMentorSpent, member.mobileNo, member.email, member.bizCountry, member.bizCity,
@@ -695,7 +754,14 @@ resetSorting();
                     <th>Need Duration</th>
                     <th>Need Content</th>
 
-
+                    // need Provider Section 
+                    <th>Person Pic</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Membership Type</th>
+                    <th>Total Membership Spent</th>
+                    <th>Total Spent</th>
+                    // need Provider Section
                     <th>Age</th>
                     <th>Gender</th>
                     <th>Business Name</th>
@@ -753,7 +819,14 @@ resetSorting();
                       <td>${member.needCity}</td>
                       <td>${member.needDuration}</td>
                       <td>${member.needContent}</td>
-
+                      // need Provider Section 
+                      <td>${member.needProviderPic}</td>
+                      <td>${member.needProviderFirstName}</td>
+                      <td>${member.needProviderBizName}</td>
+                      <td>${member.needProviderMembershipType}</td>
+                      <td>${member.needProviderBizRevenue}</td>
+                      <td>${member.needProviderAllSpent}</td>
+                      // need Provider Section 
                       <td>${member.age}</td>
                       <td>${member.gender}</td>
                       <td>${member.businessName}</td>
@@ -804,7 +877,11 @@ resetSorting();
                     <td></td>
                     <td></td>
                     <td></td>
-                    
+                    // need Provider Section 
+                    <td colspan="4"></td>
+                    <td>${needProviderBizRevenue.value}</td>
+                    <td>${needProviderAllSpent.value}</td>
+                    // need Provider Section 
 
                     <td></td>
                     <td></td>
@@ -910,7 +987,10 @@ resetSorting();
         totalNeedListView,
         totalNeedRenewed,
         totalLiked,
-
+        // need Provider Section
+        needProviderBizRevenue,
+        needProviderAllSpent,
+        // need Provider Section
         totalBusinessRevenue,
         totalSalary,
         totalEventSpent,
@@ -950,22 +1030,11 @@ resetSorting();
 .NeedImageCol {
   Border-left: 2px red solid;
 }
-.NeedContentCol {
+.NeedContentCol,
+.needProviderAllSpentCol {
   Border-right: 2px red solid;
 }
-.TitleRow .NeedImageCol,
-.TitleRow .NeedWantedCol,
-.TitleRow .NeedSeenCol,
-.TitleRow .NeedListViewCol,
-.TitleRow .NeedRenewedCol,
-.TitleRow .LikedCol,
-.TitleRow .NeedLinkCol,
-.TitleRow .NeedTitleCol,
-.TitleRow .NeedCategoryCol,
-.TitleRow .NeedCountryCol,
-.TitleRow .NeedCityCol,
-.TitleRow .NeedDurationCol,
-.TitleRow .NeedContentCol {
+.topBorder {
   border-top: 3px solid red;
 }
 /* .arrowBackCircle {
@@ -988,7 +1057,7 @@ resetSorting();
   /* border: 4px solid rgb(26, 185, 18); */
 }
 .scrollingRow {
-  min-width: 5500px;
+  min-width: 6000px;
   /* border: 1px solid red; */
   flex-direction: column;
 }

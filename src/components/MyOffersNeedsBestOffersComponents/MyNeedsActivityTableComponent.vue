@@ -61,12 +61,12 @@
           <IonCol class="PresentationCol purple" @click="sortMembers('presentation')"> Presentation <IonIcon :icon="sortIcon('presentation')" class="sort-icon" /></IonCol>
           <IonCol class="LastLoggedInCol" @click="sortMembers('lastLoggedIn')">LastLoggedIn <IonIcon :icon="sortIcon('lastLoggedIn')" class="sort-icon" /></IonCol>
           <!-- need Provider Section -->
-          <IonCol class="needProviderPicCol topBorder" @click="sortMembers('needProviderPic')">need Provider Pic <IonIcon :icon="sortIcon('needProviderPic')" class="sort-icon" /></IonCol>
-          <IonCol class="needProviderFirstNameCol topBorder" @click="sortMembers('needProviderFirstName')">need Provider First Name <IonIcon :icon="sortIcon('needProviderFirstName')" class="sort-icon" /></IonCol>
-          <IonCol class="needProviderBizNameCol topBorder" @click="sortMembers('needProviderBizName')">need Provider Business Name <IonIcon :icon="sortIcon('needProviderBizName')" class="sort-icon" /></IonCol>
-          <IonCol class="needProviderMembershipTypeCol topBorder" @click="sortMembers('needProviderMembershipType')">need Provider Membership Type  <IonIcon :icon="sortIcon('needProviderMembershipType')" class="sort-icon" /></IonCol>
-          <IonCol class="needProviderBizRevenueCol topBorder" @click="sortMembers('needProviderBizRevenue')">need Provider Business Revenue<IonIcon :icon="sortIcon('needProviderBizRevenue')" class="sort-icon" /></IonCol>
-          <IonCol class="needProviderAllSpentCol topBorder" @click="sortMembers('needProviderAllSpent')">need Provider All Spent<IonIcon :icon="sortIcon('needProviderAllSpent')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderPicCol topBorder" @click="sortMembers('needProviderPic')">Need Provider Pic <IonIcon :icon="sortIcon('needProviderPic')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderFirstNameCol topBorder" @click="sortMembers('needProviderFirstName')">Need Provider First Name <IonIcon :icon="sortIcon('needProviderFirstName')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderBizNameCol topBorder" @click="sortMembers('needProviderBizName')">Need Provider Business Name <IonIcon :icon="sortIcon('needProviderBizName')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderMembershipTypeCol topBorder" @click="sortMembers('needProviderMembershipType')">Need Provider Membership Type  <IonIcon :icon="sortIcon('needProviderMembershipType')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderBizRevenueCol topBorder" @click="sortMembers('needProviderBizRevenue')">Need Provider Business Revenue<IonIcon :icon="sortIcon('needProviderBizRevenue')" class="sort-icon" /></IonCol>
+          <IonCol class="needProviderAllSpentCol topBorder" @click="sortMembers('needProviderAllSpent')">Need Provider All Spent<IonIcon :icon="sortIcon('needProviderAllSpent')" class="sort-icon" /></IonCol>
           <!-- need Provider Section -->
           <!-- Need Data -->
           <IonCol class="NeedImageCol topBorder" @click="sortMembers('needImage')">NeedImage <IonIcon :icon="sortIcon('needImage')" class="sort-icon" /></IonCol>
