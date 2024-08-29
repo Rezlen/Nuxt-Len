@@ -99,8 +99,8 @@ import MembersNeedDetailProfileDetailAdminComponent from '@/components/AdminComp
 // Admin Best Offers
 import MembersBestOfferDetailProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue';
 import MembersAccountingActivityProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersAccountingActivityTablesComponents/MembersAccountingActivityProfileDetailAdminComponent.vue';
-import MembersBusinessAdviceProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBusinessAdviceProfileDetailAdminComponent.vue';
-
+import MembersBusinessAdviceProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersBusinessAdviceActivityTablesComponents/MembersBusinessAdviceProfileDetailAdminComponent.vue';
+import MembersOfficeSpaceProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersOfficeSpaceActivityTablesComponents/MembersOfficeSpaceProfileDetailAdminComponent.vue';
 
 //  Admin Sponsorship Partnership comps MembersSponsorshipPartnershipProfileDetailAdminComponent
 import MembersSponsorshipPartnershipProfileDetailAdminComponent from '@/components/AdminComponents/AdminSponsorshipPartnershipComponents/MembersSponsorshipPartnershipProfileDetailAdminComponent.vue';
@@ -580,7 +580,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MembersCEOBusinessAdviceProfileDetailAdminComponent',
     component: MembersCEOBusinessAdviceProfileDetailAdminComponent
   },
-  // Best Offers Admin
+  // Best Offers Admin MembersOfficeSpaceProfileDetailAdminComponent
   {
     path: '/membersAccountingActivityProfileDetailAdminComponent',
     name: 'MembersAccountingActivityProfileDetailAdminComponent',
@@ -591,7 +591,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MembersBusinessAdviceProfileDetailAdminComponent',
     component: MembersBusinessAdviceProfileDetailAdminComponent
   },
-  // User Account section MembersRewardDiscountTableAdminComponent
+  {
+    path: '/membersOfficeSpaceProfileDetailAdminComponent',
+    name: 'MembersOfficeSpaceProfileDetailAdminComponent',
+    component: MembersOfficeSpaceProfileDetailAdminComponent
+  },
+  // User Account section MembersRewardDiscountTableAdminComponent 
 
 {
     path: '/emailWebsiteNotificationComponent',

@@ -34,11 +34,9 @@
         <MembersBestOfferDetailProfileDetailAdminComponent />
       </IonCol>
 
-
       <IonCol v-show="selectedTab === 'Accounting'" class="Accounting">
         <MembersAccountingActivityProfileDetailAdminComponent />
       </IonCol>
-
 
       <IonCol v-show="selectedTab === 'Investment'" class="Investment">
         <MembersBestOfferDetailProfileDetailAdminComponent />
@@ -47,27 +45,40 @@
         <MembersBestOfferDetailProfileDetailAdminComponent />
       </IonCol>
 
-
       <IonCol v-show="selectedTab === 'BusinessAdvice'" class="BusinessAdvice">
-        <MembersBusinessAdviceProfileDetailAdminComponent/>
+        <MembersBusinessAdviceProfileDetailAdminComponent />
       </IonCol>
 
-      
       <IonCol v-show="selectedTab === 'WebDevelopment'" class="WebDevelopment">
         <MembersBestOfferDetailProfileDetailAdminComponent />
       </IonCol>
 
-
       <IonCol v-show="selectedTab === 'OfficeSpace'" class="OfficeSpace">
+        <MembersOfficeSpaceProfileDetailAdminComponent/>
       </IonCol>
-
     </IonRow>
   </IonGrid>
 </template>
 
 <script lang="ts">
-  import { defineComponent, ref } from "vue";
-  import {
+import { defineComponent, ref } from "vue";
+import {
+  IonPage,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonContent,
+  IonSegment,
+  IonSegmentButton,
+} from "@ionic/vue";
+import MembersBestOfferDetailProfileDetailAdminComponent from "@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue";
+import MembersAccountingActivityProfileDetailAdminComponent from "@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersAccountingActivityTablesComponents/MembersAccountingActivityProfileDetailAdminComponent.vue";
+import MembersBusinessAdviceProfileDetailAdminComponent from "@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersBusinessAdviceActivityTablesComponents/MembersBusinessAdviceProfileDetailAdminComponent.vue";
+import MembersOfficeSpaceProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersOfficeSpaceActivityTablesComponents/MembersOfficeSpaceProfileDetailAdminComponent.vue';
+
+export default defineComponent({
+  name: "AdminBestOfferTABsComponent",
+  components: {
     IonPage,
     IonGrid,
     IonRow,
@@ -75,84 +86,68 @@
     IonContent,
     IonSegment,
     IonSegmentButton,
-  } from "@ionic/vue";
-    import MembersBestOfferDetailProfileDetailAdminComponent from "@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBestOfferDetailProfileDetailAdminComponent.vue";
-    import MembersAccountingActivityProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/AdminBestOffersAccountingActivityTablesComponents/MembersAccountingActivityProfileDetailAdminComponent.vue';
-    import MembersBusinessAdviceProfileDetailAdminComponent from '@/components/AdminComponents/AdminOffersNeedsBestOffersComponents/AdminBestOffersComponents/MembersBusinessAdviceProfileDetailAdminComponent.vue';
+    MembersAccountingActivityProfileDetailAdminComponent,
+    MembersBestOfferDetailProfileDetailAdminComponent,
+    MembersBusinessAdviceProfileDetailAdminComponent,
+    MembersOfficeSpaceProfileDetailAdminComponent,
+  },
+  setup() {
+    const selectedTab = ref<string>("Marketing"); // Initialize with the default tab
 
-
-    export default defineComponent({
-      name: "AdminBestOfferTABsComponent",
-      components: {
-        IonPage,
-        IonGrid,
-        IonRow,
-        IonCol,
-        IonContent,
-        IonSegment,
-        IonSegmentButton,
-        MembersAccountingActivityProfileDetailAdminComponent,
-        MembersBestOfferDetailProfileDetailAdminComponent,
-        MembersBusinessAdviceProfileDetailAdminComponent,
-
-      },
-      setup() {
-        const selectedTab = ref<string>("Marketing"); // Initialize with the default tab
-
-        return {
-          selectedTab,
-        };
-      },
-    });
+    return {
+      selectedTab,
+    };
+  },
+});
 </script>
 
 <style scoped>
-  /* Updated for new tab names and mobile responsiveness */
-  ion-grid {
-    width: 100%;
-  }
-  .Tabs7_MarketingAccountingInvestmentLawBusinessAdviceWebDevelopmentOfficeSpace {
-    display: flex;
-    flex-wrap: wrap; /* Allow tabs to wrap to the next row */
-    margin-bottom: 10px;
-  }
-  .TabSegment {
-    display: flex;
-    flex-wrap: wrap; /* Allow segment buttons to wrap */
-    width: 100%;
-  }
-  .TabSegment .btn {
-    flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
-    /* min-width: 150px;  */
-    /* Minimum width for each button to ensure readability */
-  }
-  .DisplayComponentRow {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .Marketing,
-  .Accounting,
-  .Investment,
-  .Law,
-  .BusinessAdvice,
-  .WebDevelopment,
-  .OfficeSpace {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
-    margin: 10px;
-  }
-  .CenterPositions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-  }
-  @media (max-width: 600px) {
-  }
+/* Updated for new tab names and mobile responsiveness */
+ion-grid {
+  width: 100%;
+}
+.Tabs7_MarketingAccountingInvestmentLawBusinessAdviceWebDevelopmentOfficeSpace {
+  display: flex;
+  flex-wrap: wrap; /* Allow tabs to wrap to the next row */
+  margin-bottom: 10px;
+}
+.TabSegment {
+  display: flex;
+  flex-wrap: wrap; /* Allow segment buttons to wrap */
+  width: 100%;
+}
+.TabSegment .btn {
+  flex: 1 1 auto; /* Ensure buttons are flexible and wrap appropriately */
+  /* min-width: 150px;  */
+  /* Minimum width for each button to ensure readability */
+}
+.DisplayComponentRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.Marketing,
+.Accounting,
+.Investment,
+.Law,
+.BusinessAdvice,
+.WebDevelopment,
+.OfficeSpace {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  flex: 1 1 calc(50% - 20px); /* Ensure columns are responsive */
+  margin: 10px;
+}
+.CenterPositions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+@media (max-width: 600px) {
+}
 </style>
