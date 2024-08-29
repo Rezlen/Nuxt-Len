@@ -26,10 +26,6 @@
           value="MembersRewardDiscountTableAdminComponent"
           >Members Rewards</IonSegmentButton
         >
-        <IonSegmentButton class="btn" value="Needs">Needs</IonSegmentButton>
-        <IonSegmentButton class="btn" value="BestOffers"
-          >BestOffers</IonSegmentButton
-        >
       </IonSegment>
     </IonRow>
     <IonRow class="DisplayComponentRow">
@@ -65,11 +61,7 @@
       >
         <MembersRewardDiscountTableAdminComponent />
       </IonCol>
-      <!-- Needs Tab here ####################################-->
-      <IonCol v-show="selectedTab === 'Needs'" class="Needs"> </IonCol>
-      <!-- BestOffers ####################################-->
-      <IonCol v-show="selectedTab === 'BestOffers'" class="BestOffers">
-      </IonCol>
+
     </IonRow>
   </IonGrid>
 </template>
