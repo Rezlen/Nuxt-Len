@@ -21,7 +21,7 @@ import FAQPage from '../views/FAQPage.vue';
 import SharesPage from '../views/SharesPage.vue';
 import ContactUsPage from '../views/ContactUsPage.vue';
 import RewardDiscountPage from '../views/RewardDiscountPage.vue';
-
+import AdvertsPage from '../views/AdvertsPage.vue';
 
 
 
@@ -164,6 +164,10 @@ import MyInvestmentAdsComponent from '@/components/MyInvestmentComponents/MyInve
 // my pitchings
 import MyPitchingsActivityTableComponent from '@/components/MyPitchingsComponents/MyPitchingsActivityTableComponent.vue';
 
+// Adverts 
+import SimpleAdvertisingComponent from '@/components/AdvertsComponents/SimpleAdvertisingComponent.vue';
+import AdvanceAdvertisingComponent from '@/components/AdvertsComponents/AdvanceAdvertisingComponent.vue';
+
 
 
 // MemberMembershipOrderComponent
@@ -268,6 +272,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/rewardDiscountPage',
     name: 'RewardDiscountPage',
     component: RewardDiscountPage
+  },
+  {
+    path: '/advertsPage',
+    name: 'AdvertsPage',
+    component: AdvertsPage
   },
   
   // pages end here SponsorsPartnersPage
@@ -758,6 +767,17 @@ const routes: Array<RouteRecordRaw> = [
     name: 'MyPitchingsActivityTableComponent',
     component: MyPitchingsActivityTableComponent
   },
+  {
+    path: '/simpleAdvertisingComponent',
+    name: 'SimpleAdvertisingComponent',
+    component: SimpleAdvertisingComponent
+  },
+  {
+    path: '/advanceAdvertisingComponent',
+    name: 'AdvanceAdvertisingComponent',
+    component: AdvanceAdvertisingComponent
+  },
+  
 
 // Left & Right Adverts starts here  MemberInvestmentApplicationComponent
 {

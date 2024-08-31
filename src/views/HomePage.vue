@@ -189,6 +189,8 @@
                 <p><a href="/MyBestOfferOfficeSpaceActivityTableComponent" class="Events-button" > OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
                 <p><a href="/MyBestOfferAccountingActivityTableComponent" class="Events-button" >MyBestOfferAccountingActivityTableComponent </a> </p>
                 <p><a href="/MembersOfficeSpaceProfileDetailAdminComponent" class="Events-button" >MembersOfficeSpaceProfileDetailAdminComponent </a> </p>
+                <p><a href="/SimpleAdvertisingComponent" class="Events-button" >SimpleAdvertisingComponent </a> </p>
+                <p><a href="/AdvanceAdvertisingComponent" class="Events-button" >AdvanceAdvertisingComponent </a> </p>
 
               
               </IonRow>

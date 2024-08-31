@@ -18,22 +18,9 @@
           <IonRow @click="toggleMenu" class="Sidebar"> ☰ Sidebar </IonRow>
 
           <!-- Sidebar Menu -->
-          <IonRow
-            :class="{
-              'sidebar-menu': true,
-              'sidebar-menu-hidden': !isMenuOpen,
-            }"
-          >
-            <IonRow
-              class="PaddingBorder bold"
-              @click="showComponent('ProfilePublicSectionComponent')"
-              >My Account</IonRow
-            >
-            <IonRow
-              class="PaddingBorder bold"
-              @click="showComponent('MyRewardsDiscountsComponent')"
-              >Reward/Discount: 0%</IonRow
-            >
+          <IonRow :class="{'sidebar-menu': true,'sidebar-menu-hidden': !isMenuOpen,}">
+            <IonRow class="PaddingBorder bold" @click="showComponent('ProfilePublicSectionComponent')">My Account</IonRow>
+            <IonRow class="PaddingBorder bold" @click="showComponent('MyRewardsDiscountsComponent')">Reward/Discount: 0%</IonRow>
             <IonRow class="PaddingBorder bold"
               >{Profile Pic}+Upgrade to VIP</IonRow
             >
@@ -115,15 +102,8 @@
 
         <!-- Main Content Section with Adverts and Middle Content -->
         <IonRow class="main-content-row">
-          <!-- Floating Profile Left Sidebar -->
-          <ProfileLeftSideBarComponent class="floating-sidebar" />
-          <!--I placed the Left SideBar/menu here so it is NOT hidden in mobile view -->
           <!-- Left Advert Section -->
-          <IonCol
-            size="12"
-            size-md="1.5"
-            class="bordered-section LeftAdvertComponent"
-          >
+          <IonCol size="12" size-md="1.5"  class="bordered-section LeftAdvertComponent">
             <LeftAd1Component />
             <LeftAd2Component />
             <LeftAd3Component />
@@ -169,14 +149,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, Ref } from "vue";
-import {
-  IonPage,
-  IonGrid,
-  IonRow,
-  IonCol,
-  IonContent,
-  IonButton,
-} from "@ionic/vue";
+import { IonPage,IonGrid, IonRow, IonCol, IonContent, IonButton,} from "@ionic/vue";
 import MenuComponent from "@/components/6TempComponents/MenuComponent.vue";
 import SocialMediaBarComponent from "@/components/6TempComponents/SocialMediaBarComponent.vue";
 import LeftAd1Component from "@/components/6TempComponents/LeftRightAds/LeftAd1Component.vue";
