@@ -232,7 +232,7 @@ export default defineComponent({
 
     const submitContent = () => {
       const sanitizedData = {
-                checkboxStates: {
+          checkboxStates: {
           checkbox1: checkboxStates.value.checkbox1,
           checkbox2: checkboxStates.value.checkbox2,
         },

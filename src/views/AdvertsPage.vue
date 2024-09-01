@@ -63,6 +63,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
   /* ion-content {
     align-items: center;
     align-content: center;
