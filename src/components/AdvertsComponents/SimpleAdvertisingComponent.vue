@@ -59,10 +59,10 @@
             <IonCol class="simpleLeftRightAdRowTitle">
 
               Simple Left & Right Advertising
-              <!-- <IonButton class="addCircle" fill="outline" title="BackToLeft">  -->
+              <!-- <IonButton class="addCircleOutline" fill="outline" title="BackToLeft">  -->
               <!-- </IonButton>    -->
-              <IonIcon :icon="addCircle" size="large"></IonIcon>   
-              <ion-icon :icon="closeCircle" size="large"></ion-icon>
+              <IonIcon :icon="addCircleOutline" ></IonIcon>   
+              <ion-icon :icon="closeCircleOutline" ></ion-icon>
             </IonCol>
 
             <IonRow class="simpleLeftRightAdFields">
@@ -114,10 +114,10 @@
           <IonRow class="simpleLeftRightAdRow">
             <IonCol class="simpleLeftRightAdRowTitle">
               Simple Pinning Offers & Needs
-              <!-- <IonButton class="addCircle" fill="outline" title="BackToLeft">  -->
+              <!-- <IonButton class="addCircleOutline" fill="outline" title="BackToLeft">  -->
               <!-- </IonButton>    -->
-              <IonIcon :icon="addCircle" size="large"></IonIcon> 
-              <ion-icon :icon="closeCircle" size="large"></ion-icon>
+              <IonIcon :icon="addCircleOutline" ></IonIcon> 
+              <ion-icon :icon="closeCircleOutline" ></ion-icon>
 
             </IonCol>
 
@@ -164,10 +164,10 @@
           <IonRow class="simpleLeftRightAdRow">
             <IonCol class="simpleLeftRightAdRowTitle">
               Simple Pinning Mini Profile
-              <!-- <IonButton class="addCircle" fill="outline" title="BackToLeft">  -->
+              <!-- <IonButton class="addCircleOutline" fill="outline" title="BackToLeft">  -->
               <!-- </IonButton>    -->
-              <IonIcon :icon="addCircle" size="large"></IonIcon>   
-              <ion-icon :icon="closeCircle" size="large"></ion-icon>
+              <IonIcon :icon="addCircleOutline" ></IonIcon>   
+              <ion-icon :icon="closeCircleOutline" ></ion-icon>
             </IonCol>
 
             <IonRow class="simpleLeftRightAdFields">
@@ -198,18 +198,27 @@
           
 
           </IonRow>
-            <h4>Total Payment is: £</h4>
+
+          <IonRow class="advanceAdvertising CenterPositions bold "></IonRow>
+          <IonButton class="expandAdvanceAdvertisingBTN" expand="block" fill="clear" title="expandAdvanceAdvertisingBTN" @click=""> Or Choose Advance Targeted Advertising</IonButton>
+          <AdvanceAdvertisingComponent/>
+          <!-- fill="outline" -->
+
+
+          <h4>Total Payment is: £</h4>
+          <IonRow class="termBTN">
             <p class="terms">
               By clicking on Pay, you agree to London Entrepreneurs Network's 
               <a href="/TermsConditionsPage" class="terms-link">TERMS & CONDITIONS</a> and 
               <a href="/PrivacyPolicyPage" class="terms-link">PRIVACY POLICY</a>.
             </p>
             <img src="/src/views/WebAssets/paypal.png" class="payPalImg">
-            <IonButton class="PayBTN" size="large" expand="block" title="PayBTN" @click="submitContent">Pay</IonButton>
+            <IonButton class="PayBTN" expand="block"  title="PayBTN" @click="submitContent">Pay</IonButton>
+            <!-- expand="block" -->
+          </IonRow>
         </IonCol>
 
 
-        <IonRow class="advanceAdvertising CenterPositions bold ">Advance Advertising Section for its component</IonRow>
       </IonCol>
 
 
@@ -233,7 +242,8 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 import { IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton, IonButton, IonInput, IonSelect, IonSelectOption, IonDatetime, IonDatetimeButton, IonModal, IonLabel, IonItem, IonIcon } from '@ionic/vue';
-import {addCircle, closeCircle } from 'ionicons/icons';
+import {addCircleOutline, closeCircleOutline } from 'ionicons/icons';
+import AdvanceAdvertisingComponent from '@/components/AdvertsComponents/AdvanceAdvertisingComponent.vue';
 
 // Utility functions for sanitization and URL validation
 const sanitizeInput = (input: string): string => {
@@ -273,6 +283,7 @@ export default defineComponent({
     IonLabel,
     IonItem,
     IonIcon,
+    AdvanceAdvertisingComponent,
   },
   setup() {
     const selectedTab = ref<string>('Marketing'); // Initialize with the default tab
@@ -315,8 +326,8 @@ export default defineComponent({
       validateWebsite,
       customerDataBase,
       sanitizedCustomerDataBase,
-      addCircle,
-      closeCircle,
+      addCircleOutline,
+      closeCircleOutline,
       submitContent,
     };
   },
@@ -375,14 +386,14 @@ export default defineComponent({
       border-radius: 4px;
     }
     .simpleLeftRightAdRow {
-      border: solid rgb(112, 124, 236) 2px;
+      border: solid rgb(160, 168, 243) 2px;
       margin: 15px 0;
       border-radius: 4px;
-      background-color: rgb(241, 251, 251);
+      background-color: rgb(225, 240, 225);
     }
     .simpleLeftRightAdRowTitle {
-      color: white;
-      Background-color: rgb(122, 122, 241);
+      /* color: white; */
+      Background-color: rgb(217, 217, 247);
       font-weight: bold;
       text-align: center;
       /* justify-content: center;
@@ -393,7 +404,17 @@ export default defineComponent({
     .terms {
       font-size: 11px;
     }
+    .PayBTN {
+      width: 100%;
+    }
+    .termBTN {
+      justify-content: center;
+      align-items: center;
+    }
 
+    .expandAdvanceAdvertisingBTN {
+      color: black;
+    }
   /* This makes the sidebar floating beautifully */
 
 

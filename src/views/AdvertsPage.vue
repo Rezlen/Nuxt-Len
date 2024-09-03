@@ -15,7 +15,6 @@
           <!-- Middle Content Section -->
           <IonCol class="bordered-section SignInSignUpComponent">
             <SimpleAdvertisingComponent />
-            <AdvanceAdvertisingComponent />
           </IonCol>
 
         </IonRow>
@@ -38,7 +37,6 @@ import MenuComponent from '@/components/6TempComponents/MenuComponent.vue';
 import SocialMediaBarComponent from '@/components/6TempComponents/SocialMediaBarComponent.vue';
 
 import SimpleAdvertisingComponent from '@/components/AdvertsComponents/SimpleAdvertisingComponent.vue';
-import AdvanceAdvertisingComponent from '@/components/AdvertsComponents/AdvanceAdvertisingComponent.vue';
 
 import FooterComponent from '@/components/6TempComponents/FooterComponent.vue';
 
@@ -55,7 +53,6 @@ export default defineComponent({
     SocialMediaBarComponent,
 
     SimpleAdvertisingComponent,
-    AdvanceAdvertisingComponent,
 
     FooterComponent,
   },
