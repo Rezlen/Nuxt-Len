@@ -6,7 +6,7 @@
 
     <!-- Section Headers with Toggle Functionality -->
     <IonRow>
-      
+      <!--//////////////// Show your advert to people who NEED:://///////////////////////// -->
       <IonRow class="Head">
         <div class="label" @click="toggleSection('section1')">
           Show your advert to people who NEED:
@@ -179,18 +179,9 @@
 
 
         </IonRow>
-
-
       </IonRow>
 
-
-
-
-
-
-
-
-
+      <!--//////////////// Show your advert to people with General & Financial Activities://///////////////////////// -->
       <IonRow class="Head">
         <div class="label" @click="toggleSection('section2')">
           Show your advert to people with General & Financial Activities:
@@ -198,30 +189,139 @@
         
         <!-- Conditional rendering based on section visibility -->
         <IonRow v-if="isSectionVisible('section2')">
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox23"></IonCheckbox>
-            <div class="label">Business Category List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox24"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox25"></IonCheckbox>
-            <div class="label">Country List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox26"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox27"></IonCheckbox>
-            <div class="label">City List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox28"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox29"></IonCheckbox>
-            <div class="label">Job Title</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox30"></IonCheckbox>
-          </IonItem>
+
+
+          <IonCol class="threeColDivision">
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft">
+                  <IonItem class="checkBoxInputFields">
+                    <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Membership Normal[17]</IonCheckbox>
+                    <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">VIP[55]</IonCheckbox>
+                    <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">VVIP[67]</IonCheckbox>
+
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" placeholder="Exhibited[17] more than:"></IonInput>&/or
+                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"  placeholder="Visited[17] more than:"></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="EXHIBITORS[23] who paid more than £"></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PURCHASED on LEN website[343] more than £"></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+            
+          </IonCol>
+
+          <IonCol class="threeColDivision">
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PROFILEs visited[33] more than"></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PROFILEs [44k] % completion is above %"></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="Members [333k] with CONNECTION more than"></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="Logged into [333k] their profile more than"></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+          </IonCol>
+
+          <IonCol class="threeColDivision">
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft">
+                  <IonItem class="checkBoxInputFields">
+                    <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">NOT PURCHASED anything on LEN website[17]</IonCheckbox>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft">
+                  <IonSelect v-model="selectedCountry" interface="popover" label="(Investees) Posted 'APPLY FOR INVESTMENT' form, in" placeholder="Category" :multiple="true" >
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft">
+                  <IonSelect v-model="selectedCountry" interface="popover" label="(Investors) Posted 'Provide INVESTMENT' form, in" placeholder="Category" :multiple="true" >
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+            
+          </IonCol>
+
+
         </IonRow>
       </IonRow>
 
-
+      <!--//////////////// Show your advert to people with Personal Specifications://///////////////////////// -->
       <IonRow class="Head">
         <div class="label" @click="toggleSection('section3')">
           Show your advert to people with Personal Specifications:
@@ -229,6 +329,32 @@
         
         <!-- Conditional rendering based on section visibility -->
         <IonRow v-if="isSectionVisible('section3')">
+
+          <IonCol class="threeColDivision">
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" placeholder="Males[17] Age from:"></IonInput>to
+                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" ></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft ">
+                  <IonItem class="checkBoxInputFields">
+                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" placeholder="Females[17] Age from:"></IonInput>to
+                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" ></IonInput>
+                  </IonItem>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+          </IonCol>
+
+
           <IonItem>
             <IonCheckbox slot="start" v-model="checkboxStates.checkbox31"></IonCheckbox>
             <div class="label">Business Category List</div>
@@ -252,7 +378,7 @@
         </IonRow>
       </IonRow>
 
-
+      <!--//////////////// Show your advert to people with Business or Company Specifications://///////////////////////// -->
       <IonRow class="Head">
         <div class="label" @click="toggleSection('section4')">
           Show your advert to people with Business or Company Specifications:
@@ -292,8 +418,18 @@
 
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { IonItem, IonCheckbox, IonGrid, IonRow, IonCol, IonButton, IonSelectOption, IonSelect } from '@ionic/vue';
+import { defineComponent, ref, computed } from 'vue';
+import { IonItem, IonCheckbox, IonGrid, IonRow, IonCol, IonButton, IonSelectOption, IonSelect, IonInput } from '@ionic/vue';
+
+// Utility functions for sanitization and URL validation
+const sanitizeInput = (input: string): string => {
+  return input
+    .replace(/<script.*?>.*?<\/script>/gi, '') // Remove script tags
+    .replace(/<[\/\!]*?[^<>]*?>/gi, '')       // Remove HTML tags
+    .replace(/&(?:lt|gt|amp|quot|#39);/g, '') // Remove HTML entities
+    .replace(/[<>\/\\'";]/g, '');             // Remove potentially harmful characters
+};
+
 
 export default defineComponent({
   name: 'AdvanceAdvertisingComponent',
@@ -306,9 +442,10 @@ export default defineComponent({
     IonButton,
     IonSelectOption,
     IonSelect,
+    IonInput,
   },
   setup() {
-    // Create a state object to manage all checkbox states
+    // Create a state object to manage all checkBoxInputFields states
     const checkboxStates = ref({
       checkbox1: false,
       checkbox2: false,
@@ -423,7 +560,10 @@ export default defineComponent({
 
     const selectedCountry = ref<string | null>(null);
     const selectedCity = ref<string | null>(null);
-
+    const website = ref<string>('');
+    const sanitizedWebsite = computed<string>(() => {
+      return sanitizeInput(website.value);
+    });
 
     // State to manage visibility of sections
     const sectionVisibility = ref<{ [key: string]: boolean }>({
@@ -444,6 +584,8 @@ export default defineComponent({
       // Your code to handle the button click
       console.log('Submit button clicked');
     };
+
+    
     return {
       checkboxStates,
       toggleSection,
@@ -451,6 +593,8 @@ export default defineComponent({
       submitContent,
       selectedCountry,
       selectedCity,
+      sanitizedWebsite,
+      website,
     };
   },
 });
@@ -517,8 +661,13 @@ export default defineComponent({
   .UpdateBTN {
     width: 100%;
   }
-  .advanceCol{
+  .advanceCol {
     font-size: 12px;
+  }
+  .checkBoxInputFields {
+    font-size: 12px;
+    overflow-x: auto;
+    max-width: fit-content;
   }
   .advanceRowsBorder {
     border: 1px lightgray solid;
@@ -532,7 +681,10 @@ export default defineComponent({
     padding: 0; */
     max-width: fit-content;
   }
+  .inputFields{
+    max-width: 100%;
 
+  }
 
 
   @media (max-width: 600px) {

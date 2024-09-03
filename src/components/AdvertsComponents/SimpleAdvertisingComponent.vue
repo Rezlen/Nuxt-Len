@@ -67,21 +67,21 @@
 
             <IonRow class="simpleLeftRightAdFields">
               <IonCol>
-                <IonSelect placeholder="Choose the page you want to advertise on:" fill="outline">
+                <IonSelect label="Choose the page you want to advertise on:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
                   <IonSelectOption value="category2">Category 2</IonSelectOption>
                   <IonSelectOption value="category3">Category 3</IonSelectOption>
                 </IonSelect>
               </IonCol>
               <IonCol>
-                <IonSelect placeholder="Choose the location you want to advertise on:" fill="outline">
+                <IonSelect label="Choose the location you want to advertise on:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
                   <IonSelectOption value="category2">Category 2</IonSelectOption>
                   <IonSelectOption value="category3">Category 3</IonSelectOption>
                 </IonSelect>
               </IonCol>
               <IonCol>
-                <IonSelect placeholder="Choose the Time & Payment Amount:" fill="outline">
+                <IonSelect label="Choose the Time & Payment Amount:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
                   <IonSelectOption value="category2">Category 2</IonSelectOption>
                   <IonSelectOption value="category3">Category 3</IonSelectOption>
@@ -123,27 +123,27 @@
 
             <IonRow class="simpleLeftRightAdFields">
               <IonCol>
-                <IonSelect placeholder="Choose Your Offer to Pin:" fill="outline">
+                <IonSelect label="Choose Your Offer to Pin:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
                   <IonSelectOption value="category2">Category 2</IonSelectOption>
                   <IonSelectOption value="category3">Category 3</IonSelectOption>
                 </IonSelect>
               </IonCol>
               <IonCol>
-                <IonSelect placeholder="Choose Your Need to Pin:" fill="outline">
+                <IonSelect label="Choose Your Need to Pin:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
                   <IonSelectOption value="category2">Category 2</IonSelectOption>
                   <IonSelectOption value="category3">Category 3</IonSelectOption>
                 </IonSelect>
               </IonCol>
               <IonCol>
-                <IonSelect placeholder="Choose the Location To Pin:" fill="outline">
+                <IonSelect label="Choose the Location To Pin:" fill="outline">
                   <IonSelectOption value="category1">First Location</IonSelectOption>
                   <IonSelectOption value="category2">Second Location</IonSelectOption>
                 </IonSelect>
               </IonCol>
               <IonCol>
-                <IonSelect placeholder="Choose the Time & Payment Amount:" fill="outline">
+                <IonSelect label="Choose the Time & Payment Amount:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
                   <IonSelectOption value="category2">Category 2</IonSelectOption>
                   <IonSelectOption value="category3">Category 3</IonSelectOption>
@@ -173,7 +173,7 @@
             <IonRow class="simpleLeftRightAdFields">
 
               <IonCol>
-                <IonSelect placeholder="Choose the Location To Pin:" fill="outline">
+                <IonSelect label="Choose the Location To Pin:" fill="outline">
                   <IonSelectOption value="category1">First Location</IonSelectOption>
                   <IonSelectOption value="category2">Second Location</IonSelectOption>
                   <IonSelectOption value="category1">Third Location</IonSelectOption>
@@ -181,7 +181,7 @@
                 </IonSelect>
               </IonCol>
               <IonCol>
-                <IonSelect placeholder="Choose the Time & Payment Amount:" fill="outline">
+                <IonSelect label="Choose the Time & Payment Amount:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
                   <IonSelectOption value="category2">Category 2</IonSelectOption>
                   <IonSelectOption value="category3">Category 3</IonSelectOption>
@@ -390,6 +390,7 @@ export default defineComponent({
       margin: 15px 0;
       border-radius: 4px;
       background-color: rgb(225, 240, 225);
+      
     }
     .simpleLeftRightAdRowTitle {
       /* color: white; */
@@ -458,6 +459,9 @@ export default defineComponent({
       margin-top: 40px;
       box-shadow: 0 4px 8px rgba(142, 15, 226, 1.2); /* X-offset, Y-offset, blur radius, and color */
       font-size: 14px;
+    }
+    .simpleLeftRightAdFields {
+      width: 100%;
     }
 
   };
