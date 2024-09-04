@@ -14,7 +14,7 @@
         </div>
 
         <!-- Conditional rendering based on section visibility -->
-        <IonRow v-if="isSectionVisible('section1')">
+        <IonRow v-if="isSectionVisible('section1')" class="advance4Rows">
 
           <IonCol class="threeColDivision">
             <IonCol class="advanceCol">
@@ -329,7 +329,7 @@
         </div>
 
         <!-- Conditional rendering based on section visibility -->
-        <IonRow v-if="isSectionVisible('section3')">
+        <IonRow v-if="isSectionVisible('section3')" class="advance4Rows">
 
           <IonCol class="threeColDivision">
             <IonRow class="advanceRowsBorder">
@@ -409,8 +409,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with PERSONAL
-                    LandLine[333]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">PERSONAL
+                      LandLine</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -418,8 +418,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with PERSONAL
-                    Mobile[333]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">PERSONAL
+                      Mobile</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -427,8 +427,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with PERSONAL
-                    Profile Image[333]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">PERSONAL
+                      Profile Image</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -460,13 +460,14 @@
         </div>
 
         <!-- Conditional rendering based on section visibility -->
-        <IonRow v-if="isSectionVisible('section4')">
+        <IonRow v-if="isSectionVisible('section4')" class="advance4Rows">
 
           <IonCol class="threeColDivision">
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with "WHO WE ARE, WHAT WE DO"[333]
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">"WHO WE
+                      ARE, WHAT WE DO£</span>[333]
                   </IonCheckbox>
                 </IonItem>
               </IonCol>
@@ -475,7 +476,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with "WHAT WE ARE LOOKING FOR"[333]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">"WHAT WE
+                      ARE LOOKING FOR"</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -483,7 +485,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with "WHAT WE PROVIDE"[333]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">"WHAT WE
+                      PROVIDE"</span>[333]
+                  </IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -557,8 +561,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with Company/Business
-                    LandLine[333]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span
+                      class="bold">Company/Business
+                      LandLine</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -566,8 +571,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with Company/Business
-                    Mobile[333]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span
+                      class="bold">Company/Business
+                      Mobile</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -575,8 +581,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with Company/Business
-                    Profile Image[333]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span
+                      class="bold">Company/Business
+                      Profile Image</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -813,11 +820,16 @@ export default defineComponent({
     width: 100%;
   }
 
+  .bold {
+    font-weight: bold;
+  }
+
 
   .Head {
     cursor: pointer; /* Show cursor pointer on hover */
-    border: 1px lightgray solid;
+    border: 2px rgb(59, 25, 196) solid;
     border-radius: 10px;
+    
   }
   .Head ion-col {
     margin-top: 0;
@@ -831,6 +843,8 @@ export default defineComponent({
     flex: 1;
     padding: 10px;
     font-weight: bold;
+    background-color: lightblue;
+    border-radius: 10px;
   }
 
   .Title {
@@ -866,7 +880,7 @@ export default defineComponent({
     /* height: 50px; */
   }
   .advance4Rows {
-    padding-top: 10px;
+    margin-bottom: 20px;
   }
   ion-input.custom .input-bottom .counter {
     --color: red;
