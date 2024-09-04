@@ -75,7 +75,6 @@
           </IonCol>
 
 
-
           <IonCol class="threeColDivision">
             <IonCol class="advanceCol">
               <IonRow class="advanceRowsBorder">
@@ -188,132 +187,113 @@
         </div>
         
         <!-- Conditional rendering based on section visibility -->
-        <IonRow v-if="isSectionVisible('section2')">
+        <IonRow v-if="isSectionVisible('section2')" class="advance4Rows">
 
 
           <IonCol class="threeColDivision">
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft">
-                  <IonItem class="checkBoxInputFields">
-                    <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Membership Normal[17]</IonCheckbox>
-                    <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">VIP[55]</IonCheckbox>
-                    <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">VVIP[67]</IonCheckbox>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Membership Normal[17]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">VIP[55]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">VVIP[67]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
 
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" placeholder="Exhibited[17] more than:"></IonInput>&/or
+                  <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"  placeholder="Visited[17] more than:"></IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
 
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" placeholder="Exhibited[17] more than:"></IonInput>&/or
-                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"  placeholder="Visited[17] more than:"></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
-
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="EXHIBITORS[23] who paid more than £"></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PURCHASED on LEN website[343] more than £"></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" class="custom" :counter="true" :maxlength="5" label-placement="floating" label="EXHIBITORS[23] who paid more than £"></IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PURCHASED on LEN website[343] more than £"></IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
             
           </IonCol>
 
           <IonCol class="threeColDivision">
 
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PROFILEs visited[33] more than"></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PROFILEs visited[33] more than"></IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
 
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PROFILEs [44k] % completion is above %"></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PROFILEs [44k] % completion is above %"></IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
 
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="Members [333k] with CONNECTION more than"></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="Members [333k] with CONNECTION more than"></IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
 
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="Logged into [333k] their profile more than"></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="Logged into [333k] their profile more than"></IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
 
           </IonCol>
 
           <IonCol class="threeColDivision">
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft">
-                  <IonItem class="checkBoxInputFields">
-                    <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">NOT PURCHASED anything on LEN website[17]</IonCheckbox>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">NOT PURCHASED anything on LEN website[17]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
 
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="(Investees) Posted 'APPLY FOR INVESTMENT' form, in" placeholder="Category" :multiple="true" >
-                    <IonSelectOption value="Week">Week</IonSelectOption>
-                    <IonSelectOption value="Month">Month</IonSelectOption>
-                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                  </IonSelect>
-                </IonCol>
-              </IonRow>
-            </IonCol>
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="(Investors) Posted 'Provide INVESTMENT' form, in" placeholder="Category" :multiple="true" >
-                    <IonSelectOption value="Week">Week</IonSelectOption>
-                    <IonSelectOption value="Month">Month</IonSelectOption>
-                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                  </IonSelect>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                <IonSelect v-model="selectedCountry" interface="popover" label="(Investees) Posted 'APPLY FOR INVESTMENT' form, in" placeholder="Category" :multiple="true" >
+                  <IonSelectOption value="Week">Week</IonSelectOption>
+                  <IonSelectOption value="Month">Month</IonSelectOption>
+                  <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                </IonSelect>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                <IonSelect v-model="selectedCountry" interface="popover" label="(Investors) Posted 'Provide INVESTMENT' form, in" placeholder="Category" :multiple="true" >
+                  <IonSelectOption value="Week">Week</IonSelectOption>
+                  <IonSelectOption value="Month">Month</IonSelectOption>
+                  <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                </IonSelect>
+                </IonItem>
+              </IonCol>
+            </IonRow>
             
           </IonCol>
 
@@ -621,22 +601,22 @@ export default defineComponent({
 
 
   .Head {
-    font-weight: bold;
     cursor: pointer; /* Show cursor pointer on hover */
-    padding: 10px 0;
     border: 1px lightgray solid;
     border-radius: 10px;
   }
-    .Head ion-col {
-      margin-top: 0;
-      margin-bottom: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+  .Head ion-col {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
   .label {
     /* text-align: center; */
     flex: 1;
+    padding: 10px;
+    font-weight: bold;
   }
 
   .Title {
@@ -661,6 +641,7 @@ export default defineComponent({
   .UpdateBTN {
     width: 100%;
   }
+
   .advanceCol {
     font-size: 12px;
   }
@@ -668,6 +649,13 @@ export default defineComponent({
     font-size: 12px;
     overflow-x: auto;
     max-width: fit-content;
+    /* height: 50px; */
+  }
+  .advance4Rows {
+    padding-top: 10px;
+  }
+  ion-input.custom .input-bottom .counter {
+    --color: red;
   }
   .advanceRowsBorder {
     border: 1px lightgray solid;
