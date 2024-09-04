@@ -1,8 +1,9 @@
 <template>
   <IonGrid>
     <!-- Header text -->
-    <p class="Header">You can choose to show your advert to people or businesses with one or many specification listed below:</p>
-      
+    <p class="Header">You can choose to show your advert to people or businesses with one or many specification listed
+      below:</p>
+
 
     <!-- Section Headers with Toggle Functionality -->
     <IonRow>
@@ -11,7 +12,7 @@
         <div class="label" @click="toggleSection('section1')">
           Show your advert to people who NEED:
         </div>
-        
+
         <!-- Conditional rendering based on section visibility -->
         <IonRow v-if="isSectionVisible('section1')">
 
@@ -19,33 +20,15 @@
             <IonCol class="advanceCol">
               <IonRow class="advanceRowsBorder">
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="Investment in" placeholder="Country" :multiple="true" >
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Investment in" placeholder="Country"
+                    :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
                   </IonSelect>
                 </IonCol>
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true" >
-                    <IonSelectOption value="Week">Week</IonSelectOption>
-                    <IonSelectOption value="Month">Month</IonSelectOption>
-                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                  </IonSelect>
-                </IonCol>
-              </IonRow>
-            </IonCol>
-
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="Marketing in" placeholder="Country" :multiple="true" >
-                    <IonSelectOption value="Week">Week</IonSelectOption>
-                    <IonSelectOption value="Month">Month</IonSelectOption>
-                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                  </IonSelect>
-                </IonCol>
-                <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true" >
+                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
@@ -57,36 +40,15 @@
             <IonCol class="advanceCol">
               <IonRow class="advanceRowsBorder">
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="Business Advice in" placeholder="Country" :multiple="true" >
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Marketing in" placeholder="Country"
+                    :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
                   </IonSelect>
                 </IonCol>
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true" >
-                    <IonSelectOption value="Week">Week</IonSelectOption>
-                    <IonSelectOption value="Month">Month</IonSelectOption>
-                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                  </IonSelect>
-                </IonCol>
-              </IonRow>
-            </IonCol>
-          </IonCol>
-
-
-          <IonCol class="threeColDivision">
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="Accounting in" placeholder="Country" :multiple="true" >
-                    <IonSelectOption value="Week">Week</IonSelectOption>
-                    <IonSelectOption value="Month">Month</IonSelectOption>
-                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                  </IonSelect>
-                </IonCol>
-                <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true" >
+                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
@@ -98,33 +60,15 @@
             <IonCol class="advanceCol">
               <IonRow class="advanceRowsBorder">
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="Legal Help in" placeholder="Country" :multiple="true" >
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Business Advice in"
+                    placeholder="Country" :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
                   </IonSelect>
                 </IonCol>
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true" >
-                    <IonSelectOption value="Week">Week</IonSelectOption>
-                    <IonSelectOption value="Month">Month</IonSelectOption>
-                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                  </IonSelect>
-                </IonCol>
-              </IonRow>
-            </IonCol>
-
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="Development, Website, App in" placeholder="Country" :multiple="true" >
-                    <IonSelectOption value="Week">Week</IonSelectOption>
-                    <IonSelectOption value="Month">Month</IonSelectOption>
-                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                  </IonSelect>
-                </IonCol>
-                <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true" >
+                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
@@ -139,14 +83,15 @@
             <IonCol class="advanceCol">
               <IonRow class="advanceRowsBorder">
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="Office Space in" placeholder="Country" :multiple="true" >
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Accounting in" placeholder="Country"
+                    :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
                   </IonSelect>
                 </IonCol>
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true" >
+                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
@@ -158,14 +103,78 @@
             <IonCol class="advanceCol">
               <IonRow class="advanceRowsBorder">
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCountry" interface="popover" label="Video Production in" placeholder="Country" :multiple="true" >
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Legal Help in" placeholder="Country"
+                    :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
                   </IonSelect>
                 </IonCol>
                 <IonCol class="pushColToLeft">
-                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true" >
+                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft">
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Development, Website, App in"
+                    placeholder="Country" :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+                <IonCol class="pushColToLeft">
+                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+          </IonCol>
+
+
+          <IonCol class="threeColDivision">
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft">
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Office Space in" placeholder="Country"
+                    :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+                <IonCol class="pushColToLeft">
+                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+              </IonRow>
+            </IonCol>
+
+            <IonCol class="advanceCol">
+              <IonRow class="advanceRowsBorder">
+                <IonCol class="pushColToLeft">
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Video Production in"
+                    placeholder="Country" :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+                <IonCol class="pushColToLeft">
+                  <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
                     <IonSelectOption value="Week">Week</IonSelectOption>
                     <IonSelectOption value="Month">Month</IonSelectOption>
                     <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
@@ -185,7 +194,7 @@
         <div class="label" @click="toggleSection('section2')">
           Show your advert to people with General & Financial Activities:
         </div>
-        
+
         <!-- Conditional rendering based on section visibility -->
         <IonRow v-if="isSectionVisible('section2')" class="advance4Rows">
 
@@ -204,8 +213,10 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" placeholder="Exhibited[17] more than:"></IonInput>&/or
-                  <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"  placeholder="Visited[17] more than:"></IonInput>
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                    placeholder="Exhibited[17] more than:"></IonInput>&/or
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                    placeholder="Visited[17] more than:"></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -213,18 +224,20 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" class="custom" :counter="true" :maxlength="5" label-placement="floating" label="EXHIBITORS[23] who paid more than £"></IonInput>
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" class="custom" :counter="true"
+                    :maxlength="5" label-placement="floating" label="EXHIBITORS[23] who paid more than £"></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PURCHASED on LEN website[343] more than £"></IonInput>
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                    label-placement="floating" label="PURCHASED on LEN website[343] more than £"></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
-            
+
           </IonCol>
 
           <IonCol class="threeColDivision">
@@ -232,7 +245,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PROFILEs visited[33] more than"></IonInput>
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                    label-placement="floating" label="PROFILEs visited[33] more than"></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -240,7 +254,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="PROFILEs [44k] % completion is above %"></IonInput>
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                    label-placement="floating" label="PROFILEs [44k] % completion is above %"></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -248,7 +263,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="Members [333k] with CONNECTION more than"></IonInput>
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                    label-placement="floating" label="Members [333k] with CONNECTION more than"></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -256,7 +272,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5" label-placement="floating" label="Logged into [333k] their profile more than"></IonInput>
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                    label-placement="floating" label="Logged into [333k] their profile more than"></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -267,7 +284,8 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">NOT PURCHASED anything on LEN website[17]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">NOT PURCHASED[17k] anything on LEN
+                    website</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -275,26 +293,29 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                <IonSelect v-model="selectedCountry" interface="popover" label="(Investees) Posted 'APPLY FOR INVESTMENT' form, in" placeholder="Category" :multiple="true" >
-                  <IonSelectOption value="Week">Week</IonSelectOption>
-                  <IonSelectOption value="Month">Month</IonSelectOption>
-                  <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                </IonSelect>
+                  <IonSelect v-model="selectedCountry" interface="popover"
+                    label="Investees[44] Posted 'APPLY FOR INVESTMENT' form, in" placeholder="Category"
+                    :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
                 </IonItem>
               </IonCol>
             </IonRow>
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                <IonSelect v-model="selectedCountry" interface="popover" label="(Investors) Posted 'Provide INVESTMENT' form, in" placeholder="Category" :multiple="true" >
-                  <IonSelectOption value="Week">Week</IonSelectOption>
-                  <IonSelectOption value="Month">Month</IonSelectOption>
-                  <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
-                </IonSelect>
+                  <IonSelect v-model="selectedCountry" interface="popover"
+                    label="Investors[33] Posted 'Provide INVESTMENT' form, in" placeholder="Category" :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
                 </IonItem>
               </IonCol>
             </IonRow>
-            
+
           </IonCol>
 
 
@@ -306,55 +327,129 @@
         <div class="label" @click="toggleSection('section3')">
           Show your advert to people with Personal Specifications:
         </div>
-        
+
         <!-- Conditional rendering based on section visibility -->
         <IonRow v-if="isSectionVisible('section3')">
 
           <IonCol class="threeColDivision">
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" placeholder="Males[17] Age from:"></IonInput>to
-                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" ></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                    placeholder="Males[17] Age from:"></IonInput>to
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2">
+                  </IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
 
-            <IonCol class="advanceCol">
-              <IonRow class="advanceRowsBorder">
-                <IonCol class="pushColToLeft ">
-                  <IonItem class="checkBoxInputFields">
-                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" placeholder="Females[17] Age from:"></IonInput>to
-                    <IonInput  v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2" ></IonInput>
-                  </IonItem>
-                </IonCol>
-              </IonRow>
-            </IonCol>
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                    placeholder="Females[19] Age from:"></IonInput>to
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2">
+                  </IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                    placeholder="Salary[17] from:"></IonInput>to
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5">
+                  </IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+          </IonCol>
+
+          <IonCol class="threeColDivision">
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Job[44]" placeholder="Category"
+                    :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+
+
+
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonSelect v-model="selectedCountry" interface="popover" label="Personal" placeholder="Country"
+                  :multiple="true">
+                  <IonSelectOption value="Week">Week</IonSelectOption>
+                  <IonSelectOption value="Month">Month</IonSelectOption>
+                  <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                </IonSelect>
+              </IonCol>
+              <IonCol class="pushColToLeft">
+                <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
+                  <IonSelectOption value="Week">Week</IonSelectOption>
+                  <IonSelectOption value="Month">Month</IonSelectOption>
+                  <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                </IonSelect>
+              </IonCol>
+            </IonRow>
           </IonCol>
 
 
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox31"></IonCheckbox>
-            <div class="label">Business Category List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox32"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox33"></IonCheckbox>
-            <div class="label">Country List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox34"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox35"></IonCheckbox>
-            <div class="label">City List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox36"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox37"></IonCheckbox>
-            <div class="label">Equity or Loan</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox38"></IonCheckbox>
-          </IonItem>
+          <IonCol class="threeColDivision">
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with PERSONAL
+                    LandLine[333]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with PERSONAL
+                    Mobile[333]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with PERSONAL
+                    Profile Image[333]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+          </IonCol>
+
+
+          <IonRow class="advanceRowsBorder">
+            <IonCol class="pushColToLeft">
+              <IonItem class="checkBoxInputFields">
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with personal FaceBook Link[17]
+                </IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">Linked Link[55]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Instagram Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Twitter/X Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">YouTube Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Website Link[67]</IonCheckbox>
+
+              </IonItem>
+            </IonCol>
+          </IonRow>
         </IonRow>
       </IonRow>
 
@@ -363,36 +458,155 @@
         <div class="label" @click="toggleSection('section4')">
           Show your advert to people with Business or Company Specifications:
         </div>
-        
+
         <!-- Conditional rendering based on section visibility -->
         <IonRow v-if="isSectionVisible('section4')">
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox39"></IonCheckbox>
-            <div class="label">Business Category List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox40"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox41"></IonCheckbox>
-            <div class="label">Country List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox42"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox43"></IonCheckbox>
-            <div class="label">City List</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox44"></IonCheckbox>
-          </IonItem>
-          <IonItem>
-            <IonCheckbox slot="start" v-model="checkboxStates.checkbox45"></IonCheckbox>
-            <div class="label">Equity or Loan</div>
-            <IonCheckbox slot="end" v-model="checkboxStates.checkbox46"></IonCheckbox>
-          </IonItem>
+
+          <IonCol class="threeColDivision">
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with "WHO WE ARE, WHAT WE DO"[333]
+                  </IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with "WHAT WE ARE LOOKING FOR"[333]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with "WHAT WE PROVIDE"[333]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+
+
+
+          </IonCol>
+
+          <IonCol class="threeColDivision">
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                    placeholder="No. of Employee[17] from:"></IonInput>to
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2">
+                  </IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft ">
+                <IonItem class="checkBoxInputFields">
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                    placeholder="Revenue[19] from:"></IonInput>to
+                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2">
+                  </IonInput>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonSelect v-model="selectedCountry" interface="popover" label="Company/Business[44]"
+                    placeholder="Category" :multiple="true">
+                    <IonSelectOption value="Week">Week</IonSelectOption>
+                    <IonSelectOption value="Month">Month</IonSelectOption>
+                    <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                  </IonSelect>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonSelect v-model="selectedCountry" interface="popover" label="Company/Business" placeholder="Country"
+                  :multiple="true">
+                  <IonSelectOption value="Week">Week</IonSelectOption>
+                  <IonSelectOption value="Month">Month</IonSelectOption>
+                  <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                </IonSelect>
+              </IonCol>
+              <IonCol class="pushColToLeft">
+                <IonSelect v-model="selectedCity" interface="popover" placeholder="City" :multiple="true">
+                  <IonSelectOption value="Week">Week</IonSelectOption>
+                  <IonSelectOption value="Month">Month</IonSelectOption>
+                  <IonSelectOption value="Every 2 Months">Every 2 Months</IonSelectOption>
+                </IonSelect>
+              </IonCol>
+            </IonRow>
+          </IonCol>
+
+
+
+          <IonCol class="threeColDivision">
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with Company/Business
+                    LandLine[333]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with Company/Business
+                    Mobile[333]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+            <IonRow class="advanceRowsBorder">
+              <IonCol class="pushColToLeft">
+                <IonItem class="checkBoxInputFields">
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with Company/Business
+                    Profile Image[333]</IonCheckbox>
+                </IonItem>
+              </IonCol>
+            </IonRow>
+
+          </IonCol>
+
+
+          <IonRow class="advanceRowsBorder">
+            <IonCol class="pushColToLeft">
+              <IonItem class="checkBoxInputFields">
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with company/business FaceBook
+                  Link[17]
+                </IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">Linked Link[55]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Instagram Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Twitter/X Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">YouTube Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Website Link[67]</IonCheckbox>
+
+              </IonItem>
+            </IonCol>
+          </IonRow>
         </IonRow>
       </IonRow>
 
-      <IonButton class="UpdateBTN" size="large" expand="block" title="SubmitBTN" @click="submitContent">Update</IonButton>
+      <IonButton class="UpdateBTN" size="large" expand="block" title="SubmitBTN" @click="submitContent">Update
+      </IonButton>
 
 
-        </IonRow>
+    </IonRow>
   </IonGrid>
 </template>
 
