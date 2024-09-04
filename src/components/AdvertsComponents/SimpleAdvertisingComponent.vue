@@ -199,10 +199,9 @@
 
           </IonRow>
 
-          <IonRow class="advanceAdvertising CenterPositions bold "></IonRow>
-          <IonButton class="expandAdvanceAdvertisingBTN" expand="block" fill="clear" title="expandAdvanceAdvertisingBTN" @click=""> Or Choose Advance Targeted Advertising</IonButton>
-          <AdvanceAdvertisingComponent/>
-          <!-- fill="outline" -->
+          <IonButton class="expandAdvanceAdvertisingBTN" expand="block" color="warning"  title="expandAdvanceAdvertisingBTN" @click="toggleAdvanceAdvertising"> Or Choose Advance Targeted Advertising</IonButton>
+          <!-- Conditionally render the AdvanceAdvertisingComponent -->
+          <AdvanceAdvertisingComponent v-if="showAdvanceAdvertising" />
 
 
           <h4>Total Payment is: £</h4>
@@ -291,8 +290,12 @@ export default defineComponent({
     const customerDataBase = ref<number | null>(null);
     const website = ref<string>('');
     const isWebsiteValid = ref<boolean>(true);
+    const showAdvanceAdvertising = ref<boolean>(false); // Track visibility of AdvanceAdvertisingComponent
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value;
+    };
+    const toggleAdvanceAdvertising = () => {
+      showAdvanceAdvertising.value = !showAdvanceAdvertising.value;
     };
     const sanitizedWebsite = computed<string>(() => {
       return sanitizeInput(website.value);
@@ -329,6 +332,8 @@ export default defineComponent({
       addCircleOutline,
       closeCircleOutline,
       submitContent,
+      showAdvanceAdvertising, // Return to be used in the template
+      toggleAdvanceAdvertising, // Return to be used in the template
     };
   },
 });

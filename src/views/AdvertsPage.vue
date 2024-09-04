@@ -70,7 +70,7 @@ export default defineComponent({
     background-color: red;
   } */
   .bordered-section {
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     padding: 0;
     margin: 0;
     z-index: 1;
