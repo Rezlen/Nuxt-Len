@@ -203,9 +203,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Membership Normal[17]</IonCheckbox>
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">VIP[55]</IonCheckbox>
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">VVIP[67]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox1">Membership Normal[17]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox2">VIP[55]</IonCheckbox>
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox3">VVIP[67]</IonCheckbox>
                 </IonItem>
               </IonCol>
             </IonRow>
@@ -284,7 +284,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">NOT PURCHASED[17k] anything on LEN
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox4">NOT PURCHASED[17k] anything on LEN
                     website</IonCheckbox>
                 </IonItem>
               </IonCol>
@@ -409,7 +409,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">PERSONAL
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox5">Members with <span class="bold">PERSONAL
                       LandLine</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
@@ -418,7 +418,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">PERSONAL
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox6">Members with <span class="bold">PERSONAL
                       Mobile</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
@@ -427,7 +427,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">PERSONAL
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox7">Members with <span class="bold">PERSONAL
                       Profile Image</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
@@ -439,13 +439,13 @@
           <IonRow class="advanceRowsBorder">
             <IonCol class="pushColToLeft">
               <IonItem class="checkBoxInputFields">
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with personal FaceBook Link[17]
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox8">Members with personal FaceBook Link[17]
                 </IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">Linked Link[55]</IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Instagram Link[67]</IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Twitter/X Link[67]</IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">YouTube Link[67]</IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Website Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox9">Linked Link[55]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox10">Instagram Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox11">Twitter/X Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox12">YouTube Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox13">Website Link[67]</IonCheckbox>
 
               </IonItem>
             </IonCol>
@@ -466,7 +466,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">"WHO WE
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox14">Members with <span class="bold">"WHO WE
                       ARE, WHAT WE DO£</span>[333]
                   </IonCheckbox>
                 </IonItem>
@@ -476,7 +476,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">"WHAT WE
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox15">Members with <span class="bold">"WHAT WE
                       ARE LOOKING FOR"</span>[333]</IonCheckbox>
                 </IonItem>
               </IonCol>
@@ -485,7 +485,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span class="bold">"WHAT WE
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox16">Members with <span class="bold">"WHAT WE
                       PROVIDE"</span>[333]
                   </IonCheckbox>
                 </IonItem>
@@ -561,7 +561,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox17">Members with <span
                       class="bold">Company/Business
                       LandLine</span>[333]</IonCheckbox>
                 </IonItem>
@@ -571,7 +571,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox18">Members with <span
                       class="bold">Company/Business
                       Mobile</span>[333]</IonCheckbox>
                 </IonItem>
@@ -581,7 +581,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft">
                 <IonItem class="checkBoxInputFields">
-                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with <span
+                  <IonCheckbox slot="start" v-model="checkboxStates.checkbox19">Members with <span
                       class="bold">Company/Business
                       Profile Image</span>[333]</IonCheckbox>
                 </IonItem>
@@ -594,13 +594,13 @@
           <IonRow class="advanceRowsBorder">
             <IonCol class="pushColToLeft">
               <IonItem class="checkBoxInputFields">
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Members with company/business FaceBook
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox20">Members with company/business FaceBook
                   Link[17]
                 </IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">Linked Link[55]</IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Instagram Link[67]</IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Twitter/X Link[67]</IonCheckbox>
-                <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">YouTube Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox21">Linked Link[55]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox22">Instagram Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox23">Twitter/X Link[67]</IonCheckbox>
+                <IonCheckbox slot="start" v-model="checkboxStates.checkbox24">YouTube Link[67]</IonCheckbox>
                 <IonCheckbox slot="start" v-model="checkboxStates.checkbox25">Website Link[67]</IonCheckbox>
 
               </IonItem>
@@ -673,89 +673,7 @@ export default defineComponent({
       checkbox23: false,
       checkbox24: false,
       checkbox25: false,
-      checkbox26: false,
-      checkbox27: false,
-      checkbox28: false,
-      checkbox29: false,
-      checkbox30: false,
-      checkbox31: false,
-      checkbox32: false,
-      checkbox33: false,
-      checkbox34: false,
-      checkbox35: false,
-      checkbox36: false,
-      checkbox37: false,
-      checkbox38: false,
-      checkbox39: false,
-      checkbox40: false,
-      checkbox41: false,
-      checkbox42: false,
-      checkbox43: false,
-      checkbox44: false,
-      checkbox45: false,
-      checkbox46: false,
-      checkbox47: false,
-      checkbox48: false,
-      checkbox49: false,
-      checkbox50: false,
-      checkbox51: false,
-      checkbox52: false,
-      checkbox53: false,
-      checkbox54: false,
-      checkbox55: false,
-      checkbox56: false,
-      checkbox57: false,
-      checkbox58: false,
-      checkbox59: false,
-      checkbox60: false,
-      checkbox61: false,
-      checkbox62: false,
-      checkbox63: false,
-      checkbox64: false,
-      checkbox65: false,
-      checkbox66: false,
-      checkbox67: false,
-      checkbox68: false,
-      checkbox69: false,
-      checkbox70: false,
-      checkbox71: false,
-      checkbox72: false,
-      checkbox73: false,
-      checkbox74: false,
-      checkbox75: false,
-      checkbox76: false,
-      checkbox77: false,
-      checkbox78: false,
-      checkbox79: false,
-      checkbox80: false,
-      checkbox81: false,
-      checkbox82: false,
-      checkbox83: false,
-      checkbox84: false,
-      checkbox85: false,
-      checkbox86: false,
-      checkbox87: false,
-      checkbox88: false,
-      checkbox89: false,
-      checkbox90: false,
-      checkbox91: false,
-      checkbox92: false,
-      checkbox93: false,
-      checkbox94: false,
-      checkbox95: false,
-      checkbox96: false,
-      checkbox97: false,
-      checkbox98: false,
-      checkbox99: false,
-      checkbox100: false,
-      checkbox101: false,
-      checkbox102: false,
-      checkbox103: false,
-      checkbox104: false,
-      checkbox105: false,
-      checkbox106: false,
-      checkbox107: false,
-      checkbox108: false,
+      
 
     });
 
@@ -770,6 +688,8 @@ export default defineComponent({
     const sectionVisibility = ref<{ [key: string]: boolean }>({
       section1: false,
       section2: false,
+      section3: false,
+      section4: false,
     });
 
     // Method to toggle section visibility

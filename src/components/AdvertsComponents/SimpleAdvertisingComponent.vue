@@ -7,7 +7,8 @@
 
         <IonRow class="CenterPositions titleRow">
           <h2 class="CenterPositions bold">Advertise in 4 ways:</h2>
-          <h6 class="CenterPositions titleRow">1. Advertise in 'Left' or 'Right' of each page 2. Pin your 'Offers' 3. Pin your 'Needs' 4. Pin your 'Mini Profiles'</h6>
+          <h6 class="CenterPositions titleRow">1. Advertise in 'Left' or 'Right' of each page 2. Pin your 'Offers' 3.
+            Pin your 'Needs' 4. Pin your 'Mini Profiles'</h6>
         </IonRow>
 
 
@@ -16,20 +17,23 @@
           <IonCol class="adImages leftRightImage">
             <img src="/src/views/WebAssets/leftRightAdverts.png" height="400px" alt="leftRight Advert Image">
             <h6>Advertise in 'Left' or 'Right' of pages.</h6>
-            <h7>You choose any of the 8 locations for your advert and this is where your 'Adverts' will be shown to people.</h7>
-            <IonButton expand="block">Choose</IonButton>
+            <h7>You choose any of the 8 locations for your advert and this is where your 'Adverts' will be shown to
+              people.</h7>
+            <IonButton expand="block" @click="toggleSection('section1')">Choose</IonButton>
           </IonCol>
-          <IonCol class="adImages OfferNeedPinImage">
+          <IonCol class=" adImages OfferNeedPinImage">
             <img src="/src/views/WebAssets/offreNeedPin.png" height="400px" alt="leftRight Advert Image">
             <h6>Pin your 'Offers' or 'Needs'</h6>
-            <h7>You choose any of the 2 locations for your 'Offers' or 'Needs' and this is where your 'Adverts' will be shown to people.</h7>
-            <IonButton expand="block">Choose</IonButton>
+            <h7>You choose any of the 2 locations for your 'Offers' or 'Needs' and this is where your 'Adverts' will
+              be shown to people.</h7>
+            <IonButton expand="block" @click="toggleSection('section2')">Choose</IonButton>
           </IonCol>
           <IonCol class="adImages miniProfileImage">
             <img src="/src/views/WebAssets/miniProfilePin.png" height="400px" alt="leftRight Advert Image">
             <h6>Pin your 'Mini-Profiles'</h6>
-            <h9>You choose any of the 4 locations for your 'Mini-profiles' and this is where your 'Adverts' will be shown to people.</h9>
-            <IonButton expand="block">Choose</IonButton>
+            <h9>You choose any of the 4 locations for your 'Mini-profiles' and this is where your 'Adverts' will be
+              shown to people.</h9>
+            <IonButton expand="block" @click="toggleSection('section3')">Choose</IonButton>
           </IonCol>
         </IonRow>
 
@@ -54,74 +58,90 @@
           </IonRow>
 
 
-
+          <!-- ////////////////////////// Left & Right Advertising /////////////////////// -->
           <IonRow class="simpleLeftRightAdRow">
-            <IonCol class="simpleLeftRightAdRowTitle">
-
+            <IonCol class="simpleLeftRightAdRowTitle" @click="toggleSection('section1')">
               Simple Left & Right Advertising
               <!-- <IonButton class="addCircleOutline" fill="outline" title="BackToLeft">  -->
               <!-- </IonButton>    -->
-              <IonIcon :icon="addCircleOutline" ></IonIcon>   
-              <ion-icon :icon="closeCircleOutline" ></ion-icon>
+              <IonIcon :icon="addCircleOutline"></IonIcon>
+              <ion-icon :icon="closeCircleOutline"></ion-icon>
             </IonCol>
 
-            <IonRow class="simpleLeftRightAdFields">
-              <IonCol>
-                <IonSelect label="Choose the page you want to advertise on:" fill="outline">
-                  <IonSelectOption value="category1">Category 1</IonSelectOption>
-                  <IonSelectOption value="category2">Category 2</IonSelectOption>
-                  <IonSelectOption value="category3">Category 3</IonSelectOption>
-                </IonSelect>
+            <IonRow class="simpleLeftRightAdFields" v-if="isSectionVisible('section1')">
+              <IonCol class="threeColDivision">
+                <IonCol>
+                  <IonSelect label="Choose the page you want to advertise on:" fill="outline">
+                    <IonSelectOption value="category1">Category 1</IonSelectOption>
+                    <IonSelectOption value="category2">Category 2</IonSelectOption>
+                    <IonSelectOption value="category3">Category 3</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+                <IonCol>
+                  <IonSelect label="Choose the location you want to advertise on:" fill="outline">
+                    <IonSelectOption value="category1">Category 1</IonSelectOption>
+                    <IonSelectOption value="category2">Category 2</IonSelectOption>
+                    <IonSelectOption value="category3">Category 3</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
+                <IonCol>
+                  <IonSelect label="Choose the Time & Payment Amount:" fill="outline">
+                    <IonSelectOption value="category1">Category 1</IonSelectOption>
+                    <IonSelectOption value="category2">Category 2</IonSelectOption>
+                    <IonSelectOption value="category3">Category 3</IonSelectOption>
+                  </IonSelect>
+                </IonCol>
               </IonCol>
-              <IonCol>
-                <IonSelect label="Choose the location you want to advertise on:" fill="outline">
-                  <IonSelectOption value="category1">Category 1</IonSelectOption>
-                  <IonSelectOption value="category2">Category 2</IonSelectOption>
-                  <IonSelectOption value="category3">Category 3</IonSelectOption>
-                </IonSelect>
+
+              <IonCol class="threeColDivision">
+                <IonCol>
+                  <IonInput fill="outline" class="inputFields" v-model="website" :value="sanitizedWebsite" type="url"
+                    label="Enter Redirecting Link:" label-placement="floating" :counter="true" :maxlength="50"
+                    @ionBlur="validateWebsite"></IonInput>
+                  <p v-if="!isWebsiteValid" class="error-text">Please enter a valid URL.</p>
+                </IonCol>
+                <IonCol class="border">
+                  <IonLabel>Upload Image</IonLabel>
+                  <input type="file" name="image" />
+                </IonCol>
+                
               </IonCol>
-              <IonCol>
-                <IonSelect label="Choose the Time & Payment Amount:" fill="outline">
-                  <IonSelectOption value="category1">Category 1</IonSelectOption>
-                  <IonSelectOption value="category2">Category 2</IonSelectOption>
-                  <IonSelectOption value="category3">Category 3</IonSelectOption>
-                </IonSelect>
+              
+
+              <IonCol class="threeColDivision">
+                <IonCol>
+                  <IonInput fill="outline" class="inputFields" v-model="website" :value="sanitizedWebsite" type="url"
+                    label="Enter Your Words Or Link:" label-placement="floating" :counter="true" :maxlength="50"
+                    @ionBlur="validateWebsite"></IonInput>
+                  <p v-if="!isWebsiteValid" class="error-text">Please enter a valid URL.</p>
+                </IonCol>
+                <IonCol class="border">
+                  <IonLabel>Choose Starting Date/Time:</IonLabel>
+                  <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
+                  <IonModal :keep-contents-mounted="true">
+                    <IonDatetime id="datetime4"></IonDatetime>
+                  </IonModal>
+                </IonCol>
               </IonCol>
-              <IonCol>
-                <IonInput fill="outline" class="inputFields" v-model="website" :value="sanitizedWebsite" type="url" label="Enter Redirecting Link:" label-placement="floating" :counter="true" :maxlength="50" @ionBlur="validateWebsite"></IonInput>
-                <p v-if="!isWebsiteValid" class="error-text">Please enter a valid URL.</p>
-              </IonCol>
-              <IonCol>
-                <IonInput fill="outline" class="inputFields" v-model="website" :value="sanitizedWebsite" type="url" label="Enter Your Words Or Link:" label-placement="floating" :counter="true" :maxlength="50" @ionBlur="validateWebsite"></IonInput>
-                <p v-if="!isWebsiteValid" class="error-text">Please enter a valid URL.</p>              
-              </IonCol>
-              <IonCol class="border">
-                <IonLabel>Upload Image</IonLabel>
-                <input type="file" name="image" />
-              </IonCol>
-              <IonCol class="border">
-                <IonLabel>Choose Starting Date/Time:</IonLabel>
-                <IonDatetimeButton  datetime="datetime4"></IonDatetimeButton>
-                <IonModal :keep-contents-mounted="true">
-                  <IonDatetime id="datetime4"></IonDatetime>
-                </IonModal>
-              </IonCol>
+
             </IonRow>
-            
 
           </IonRow>
 
+
+
+          <!-- ////////////////////////// Pinning Offers & Needs /////////////////////// -->
           <IonRow class="simpleLeftRightAdRow">
-            <IonCol class="simpleLeftRightAdRowTitle">
+            <IonCol class="simpleLeftRightAdRowTitle" @click="toggleSection('section2')">
               Simple Pinning Offers & Needs
               <!-- <IonButton class="addCircleOutline" fill="outline" title="BackToLeft">  -->
               <!-- </IonButton>    -->
-              <IonIcon :icon="addCircleOutline" ></IonIcon> 
-              <ion-icon :icon="closeCircleOutline" ></ion-icon>
+              <IonIcon :icon="addCircleOutline"></IonIcon>
+              <ion-icon :icon="closeCircleOutline"></ion-icon>
 
             </IonCol>
 
-            <IonRow class="simpleLeftRightAdFields">
+            <IonRow class="simpleLeftRightAdFields" v-if="isSectionVisible('section2')">
               <IonCol>
                 <IonSelect label="Choose Your Offer to Pin:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
@@ -151,28 +171,31 @@
               </IonCol>
               <IonCol class="border">
                 <IonLabel>Choose Starting Date/Time:</IonLabel>
-                <IonDatetimeButton  datetime="datetime4"></IonDatetimeButton>
+                <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
                 <IonModal :keep-contents-mounted="true">
                   <IonDatetime id="datetime4"></IonDatetime>
                 </IonModal>
               </IonCol>
             </IonRow>
-            
 
           </IonRow>
 
+
+
+
+          <!-- ////////////////////////// Pinning Mini Profile /////////////////////// -->
           <IonRow class="simpleLeftRightAdRow">
-            <IonCol class="simpleLeftRightAdRowTitle">
+            <IonCol class="simpleLeftRightAdRowTitle" @click="toggleSection('section3')">
               Simple Pinning Mini Profile
               <!-- <IonButton class="addCircleOutline" fill="outline" title="BackToLeft">  -->
               <!-- </IonButton>    -->
-              <IonIcon :icon="addCircleOutline" ></IonIcon>   
-              <ion-icon :icon="closeCircleOutline" ></ion-icon>
+              <IonIcon :icon="addCircleOutline"></IonIcon>
+              <ion-icon :icon="closeCircleOutline"></ion-icon>
             </IonCol>
 
-            <IonRow class="simpleLeftRightAdFields">
+            <IonRow class="simpleLeftRightAdFields" v-if="isSectionVisible('section3')">
 
-              <IonCol>
+              <IonCol class="simleAdWidth">
                 <IonSelect label="Choose the Location To Pin:" fill="outline">
                   <IonSelectOption value="category1">First Location</IonSelectOption>
                   <IonSelectOption value="category2">Second Location</IonSelectOption>
@@ -189,17 +212,19 @@
               </IonCol>
               <IonCol class="border">
                 <IonLabel>Choose Starting Date/Time:</IonLabel>
-                <IonDatetimeButton  datetime="datetime4"></IonDatetimeButton>
+                <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
                 <IonModal :keep-contents-mounted="true">
                   <IonDatetime id="datetime4"></IonDatetime>
                 </IonModal>
               </IonCol>
             </IonRow>
-          
+
 
           </IonRow>
 
-          <IonButton class="expandAdvanceAdvertisingBTN" expand="block" color="warning"  title="expandAdvanceAdvertisingBTN" @click="toggleAdvanceAdvertising"> Or Choose Advance Targeted Advertising</IonButton>
+          <IonButton class="expandAdvanceAdvertisingBTN" expand="block" color="warning"
+            title="expandAdvanceAdvertisingBTN" @click="toggleAdvanceAdvertising"> Or Choose Advance Targeted
+            Advertising</IonButton>
           <!-- Conditionally render the AdvanceAdvertisingComponent -->
           <AdvanceAdvertisingComponent v-if="showAdvanceAdvertising" />
 
@@ -207,12 +232,12 @@
           <h4>Total Payment is: £</h4>
           <IonRow class="termBTN">
             <p class="terms">
-              By clicking on Pay, you agree to London Entrepreneurs Network's 
-              <a href="/TermsConditionsPage" class="terms-link">TERMS & CONDITIONS</a> and 
+              By clicking on Pay, you agree to London Entrepreneurs Network's
+              <a href="/TermsConditionsPage" class="terms-link">TERMS & CONDITIONS</a> and
               <a href="/PrivacyPolicyPage" class="terms-link">PRIVACY POLICY</a>.
             </p>
             <img src="/src/views/WebAssets/paypal.png" class="payPalImg">
-            <IonButton class="PayBTN" expand="block"  title="PayBTN" @click="submitContent">Pay</IonButton>
+            <IonButton class="PayBTN" expand="block" title="PayBTN" @click="submitContent">Pay</IonButton>
             <!-- expand="block" -->
           </IonRow>
         </IonCol>
@@ -222,7 +247,7 @@
 
 
       <!-- Section to display all stat & costings on advert section -->
-       <IonCol class="statCostCol" >
+      <IonCol class="statCostCol">
         <IonRow @click="toggleMenu" class="Sidebar bold"> ☰ Stat & Costs </IonRow>
         <IonRow :class="{'sidebar-menu': true,'sidebar-menu-hidden': !isMenuOpen,}">
           <IonRow> Audience size: </IonRow>
@@ -232,9 +257,9 @@
 
 
     </IonRow>
-      
 
-      </IonGrid>
+
+  </IonGrid>
 
 </template>
 
@@ -309,6 +334,25 @@ export default defineComponent({
       isWebsiteValid.value = urlPattern.test(sanitizedWebsite.value);
     };
 
+    ///////////////// toggle hide/visibility section  ////////////////////////////////
+    // State to manage visibility of sections
+    const sectionVisibility = ref<{ [key: string]: boolean }>({
+      section1: false,
+      section2: false,
+      section3: false,
+      section4: false,
+    });
+
+    // Method to toggle section visibility
+    const toggleSection = (section: string) => {
+      sectionVisibility.value[section] = !sectionVisibility.value[section];
+    };
+
+    // Method to check if a section is visible
+    const isSectionVisible = (section: string) => {
+      return sectionVisibility.value[section];
+    };
+    ///////////////// toggle hide/visibility section  ////////////////////////////////
     
     const submitContent = () => {
     const sanitizedData = {
@@ -321,10 +365,7 @@ export default defineComponent({
 
     return {
       website,
-      isWebsiteValid,
       selectedTab,
-      isMenuOpen,
-      toggleMenu,
       sanitizedWebsite,
       validateWebsite,
       customerDataBase,
@@ -332,6 +373,14 @@ export default defineComponent({
       addCircleOutline,
       closeCircleOutline,
       submitContent,
+      isWebsiteValid,
+      // toggle visibility/hide section
+      toggleSection,
+      isSectionVisible,
+      // toggle visibility/hide section
+
+      isMenuOpen,
+      toggleMenu,
       showAdvanceAdvertising, // Return to be used in the template
       toggleAdvanceAdvertising, // Return to be used in the template
     };
@@ -389,7 +438,14 @@ export default defineComponent({
     .border {
       border: 1px solid lightgray;
       border-radius: 4px;
+      /* min-height: fit-content; */
+      /* display: flex; */
     }
+        .simleAdWidth {
+      display: flex; 
+      min-width: 100%;
+
+        }
     .simpleLeftRightAdRow {
       border: solid rgb(160, 168, 243) 2px;
       margin: 15px 0;
