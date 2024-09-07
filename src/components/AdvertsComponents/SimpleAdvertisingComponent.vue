@@ -7,8 +7,8 @@
 
         <IonRow class="CenterPositions titleRow">
           <h2 class="CenterPositions bold">Advertise in 4 ways:</h2>
-          <h6 class="CenterPositions titleRow">1. Advertise in 'Left' or 'Right' of each page 2. Pin your 'Offers' 3.
-            Pin your 'Needs' 4. Pin your 'Mini Profiles'</h6>
+          <h6 class="CenterPositions titleRow">1- Advertise in 'Left' or 'Right' of each page | 2- Pin your 'Offers' 3.
+            Pin your 'Needs' | 4- Pin your 'Mini Profiles'</h6>
         </IonRow>
 
 
@@ -247,14 +247,57 @@
       </IonCol>
 
 
+
+      <!-- ##################################    Stat & Budgeting sidebar    ################################# -->
+      <!-- ##################################    Stat & Budgeting sidebar    ################################# -->
+      <!-- ##################################    Stat & Budgeting sidebar    ################################# -->
+      <!-- ##################################    Stat & Budgeting sidebar    ################################# -->
+      <!-- ##################################    Stat & Budgeting sidebar    ################################# -->
+
+
+
       <!-- Section to display all stat & costings on advert section -->
-      <IonCol class="statCostCol">
-        <IonRow @click="toggleMenu" class="Sidebar bold"> ☰ Stat & Costs </IonRow>
+      <IonCol class="statBudgetingCol">
+        <IonRow @click="toggleMenu" class="statBudgetingRow Sidebar bold"> ☰ Stat & Budgeting </IonRow>
         <IonRow :class="{'sidebar-menu': true,'sidebar-menu-hidden': !isMenuOpen,}">
-          <IonRow> Audience size: </IonRow>
-          <IonRow> Potential reach: 43,000,000 people</IonRow>
-        </IonRow>
-      </IonCol>
+          <IonRow class="audienceSizeSection" id="click-trigger">Audience size/Potential reach:
+            <span style="font-family:arial; font-weight:bold"> 43,000,000 </span>people
+
+            <!-- Info Icon for Tooltip -->
+            <ion-icon :icon="informationCircleOutline"></ion-icon>
+            <IonPopover trigger="click-trigger" trigger-action="click">
+              <IonContent class="tooltipContent">
+                <h6><b>How this number is estimated</b></h6>
+                <p>This is an estimate of the size of the audience that's eligible to see your ad. it's based on your
+                  targeting criteria, ad placements and how many people</p>
+                <h6><b>Have visited LEN website in past 30 days.</b></h6>
+                <p>This is not an estimate of how many people will actually see your ad, and the number may change over
+                  time. it isn't designed to match population or census estimates.</p>
+
+              </IonContent>
+            </IonPopover>
+            <!-- Info Icon for Tooltip -->
+
+          </IonRow>
+          <IonRow class="dailyResultSection">
+            <IonCol><b>Estimated daily results</b></IonCol>
+            <IonCol>
+              <p id="click-trigger1">Reach/View:
+                <ion-icon :icon="informationCircleOutline"></ion-icon>
+              </p>
+              <IonPopover trigger="click-trigger1" trigger-action="click">
+                <IonContent class="tooltipContent">
+                  <p>This is the number of people that we estimate you'll reach in your audience each day. This has to
+                    do with factors such as your bid and budget. Your actual reach may be higher or lower than this estimate.
+                  </p>
+                </IonContent>
+              </IonPopover>
+            </IonCol>
+            <IonCol class="reachViewBar"> </IonCol>
+          </IonRow>
+
+      </IonRow>
+    </IonCol>
 
 
     </IonRow>
@@ -266,8 +309,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
-import { IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton, IonButton, IonInput, IonSelect, IonSelectOption, IonDatetime, IonDatetimeButton, IonModal, IonLabel, IonItem, IonIcon } from '@ionic/vue';
-import {addCircleOutline, closeCircleOutline } from 'ionicons/icons';
+import { IonPopover, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton, IonButton, IonInput, IonSelect, IonSelectOption, IonDatetime, IonDatetimeButton, IonModal, IonLabel, IonItem, IonIcon } from '@ionic/vue';
+import { addCircleOutline, closeCircleOutline, informationCircleOutline } from 'ionicons/icons';
 import AdvanceAdvertisingComponent from '@/components/AdvertsComponents/AdvanceAdvertisingComponent.vue';
 
 // Utility functions for sanitization and URL validation
@@ -292,6 +335,7 @@ const urlPattern = new RegExp(
 export default defineComponent({
   name: 'SimpleAdvertisingComponent',
   components: {
+    IonPopover,
     IonGrid,
     IonRow,
     IonCol,
@@ -373,6 +417,7 @@ export default defineComponent({
       sanitizedCustomerDataBase,
       addCircleOutline,
       closeCircleOutline,
+      informationCircleOutline,
       submitContent,
       isWebsiteValid,
       // toggle visibility/hide section
@@ -428,8 +473,11 @@ export default defineComponent({
     text-align: center;
     flex-direction: column;
   }
-  .statCostCol {
+  .statBudgetingCol {
     max-width: 20%;
+    border: solid rgb(193, 15, 190) 2px;
+    border-radius: 10px;
+    margin-left: 2px;  
   }
   .overallWebsiteStat {
     font-size: 13px;
@@ -471,8 +519,34 @@ export default defineComponent({
   .expandAdvanceAdvertisingBTN {
     color: black;
   }
-  /* This makes the sidebar floating beautifully */
-
+  /* ################ Stat & Budgeting */
+  .audienceSizeSection {
+    margin-top: 10px;
+    padding: 10px;
+    border: solid rgb(160, 168, 243) 2px;
+    border-radius: 4px;
+  }
+  .tooltipContent h6, p {
+    margin: 15px;
+  }
+  .statBudgetingRow {
+    padding: 5px;
+  }
+  .dailyResultSection{
+    /* display: flex; */
+    flex-direction: column;
+    padding: 5px;
+    border: solid rgb(160, 168, 243) 2px;
+    border-radius: 4px;
+    min-height:100%;
+  }
+  .reachViewBar {
+    background: skyblue;
+    min-width: 100%;
+    height: 10px;
+    border: gray solid 1px;
+    border-radius: 4px;
+  }
 
   @media (max-width: 600px) {
     .fullMobWidth {
