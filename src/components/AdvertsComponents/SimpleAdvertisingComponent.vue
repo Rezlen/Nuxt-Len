@@ -39,18 +39,18 @@
 
         <IonCol class="simpleAdvertisingCol">
           <h4 class="CenterPositions bold">Simple Advertising</h4>
-          <IonRow class="overallWebsiteStat border">
-            <IonCol class="border">
+          <IonRow class="overallWebsiteStat">
+            <IonCol class="border fullMobWidth">
               <IonRow>Current Members: 100, 245</IonRow>
               <IonRow>Total Member's Revenue: £1,245,777,777</IonRow>
               <IonRow>Monthly Website's Traffic: 1,000,777</IonRow>
             </IonCol>
-            <IonCol class="border">
+            <IonCol class="border fullMobWidth">
               <IonRow>Monthly Website's Unique Visitors: 198,999</IonRow>
               <IonRow>Monthly Average Each-Page Visitors: 78,999</IonRow>
               <IonRow>Daily Website's Traffic: 193,999</IonRow>
             </IonCol>
-            <IonCol class="border">
+            <IonCol class="border fullMobWidth">
               <IonRow>Daily Website's Unique Visitors: 37,999</IonRow>
               <IonRow>Daily Average Each-Page Visitors: 32,999</IonRow>
               <IonRow>Daily Average Each-Page Visitors: 32,999</IonRow>
@@ -70,58 +70,58 @@
 
             <IonRow class="simpleLeftRightAdFields" v-if="isSectionVisible('section1')">
               <IonCol class="threeColDivision">
-                <IonCol>
+                <IonRow>
                   <IonSelect label="Choose the page you want to advertise on:" fill="outline">
                     <IonSelectOption value="category1">Category 1</IonSelectOption>
                     <IonSelectOption value="category2">Category 2</IonSelectOption>
                     <IonSelectOption value="category3">Category 3</IonSelectOption>
                   </IonSelect>
-                </IonCol>
-                <IonCol>
+                </IonRow>
+                <IonRow>
                   <IonSelect label="Choose the location you want to advertise on:" fill="outline">
                     <IonSelectOption value="category1">Category 1</IonSelectOption>
                     <IonSelectOption value="category2">Category 2</IonSelectOption>
                     <IonSelectOption value="category3">Category 3</IonSelectOption>
                   </IonSelect>
-                </IonCol>
-                <IonCol>
+                </IonRow>
+                <IonRow>
                   <IonSelect label="Choose the Time & Payment Amount:" fill="outline">
                     <IonSelectOption value="category1">Category 1</IonSelectOption>
                     <IonSelectOption value="category2">Category 2</IonSelectOption>
                     <IonSelectOption value="category3">Category 3</IonSelectOption>
                   </IonSelect>
-                </IonCol>
+                </IonRow>
               </IonCol>
 
               <IonCol class="threeColDivision">
-                <IonCol>
+                <IonRow>
                   <IonInput fill="outline" class="inputFields" v-model="website" :value="sanitizedWebsite" type="url"
                     label="Enter Redirecting Link:" label-placement="floating" :counter="true" :maxlength="50"
                     @ionBlur="validateWebsite"></IonInput>
                   <p v-if="!isWebsiteValid" class="error-text">Please enter a valid URL.</p>
-                </IonCol>
-                <IonCol class="border">
+                </IonRow>
+                <IonRow class="border">
                   <IonLabel>Upload Image</IonLabel>
                   <input type="file" name="image" />
-                </IonCol>
-                
+                </IonRow>
+
               </IonCol>
-              
+
 
               <IonCol class="threeColDivision">
-                <IonCol>
+                <IonRow>
                   <IonInput fill="outline" class="inputFields" v-model="website" :value="sanitizedWebsite" type="url"
                     label="Enter Your Words Or Link:" label-placement="floating" :counter="true" :maxlength="50"
                     @ionBlur="validateWebsite"></IonInput>
                   <p v-if="!isWebsiteValid" class="error-text">Please enter a valid URL.</p>
-                </IonCol>
-                <IonCol class="border">
+                </IonRow>
+                <IonRow class="border">
                   <IonLabel>Choose Starting Date/Time:</IonLabel>
                   <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
                   <IonModal :keep-contents-mounted="true">
                     <IonDatetime id="datetime4"></IonDatetime>
                   </IonModal>
-                </IonCol>
+                </IonRow>
               </IonCol>
 
             </IonRow>
@@ -195,7 +195,7 @@
 
             <IonRow class="simpleLeftRightAdFields" v-if="isSectionVisible('section3')">
 
-              <IonCol class="simleAdWidth">
+              <IonCol>
                 <IonSelect label="Choose the Location To Pin:" fill="outline">
                   <IonSelectOption value="category1">First Location</IonSelectOption>
                   <IonSelectOption value="category2">Second Location</IonSelectOption>
@@ -203,6 +203,7 @@
                   <IonSelectOption value="category2">Forth Location</IonSelectOption>
                 </IonSelect>
               </IonCol>
+
               <IonCol>
                 <IonSelect label="Choose the Time & Payment Amount:" fill="outline">
                   <IonSelectOption value="category1">Category 1</IonSelectOption>
@@ -390,97 +391,93 @@ export default defineComponent({
 
 
 <style scoped>
-  /* * {
-    border: 1px solid pink;
-  } */
-    /* Updated for new tab names and mobile responsiveness */
-    ion-grid {
-      width: 100%;
-    }
-    .allContentCol {
-      border: solid rgb(193, 15, 190) 2px;
-      border-radius: 10px;
-    }
-    .titleRow  {
-      color: white;
-      background-color: rgb(108, 112, 230);
-    }
-    .titleRow h2,
-    .bold {
-      font-weight:  bold;
-    }
 
-    .adImages {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      /* align-content: center; */
-      text-align: center;
-    }
-    .adImages h6 {
-      font-weight: bold;
-    }
-    .CenterPositions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      /* align-content: center; */
-      text-align: center;
-      flex-direction: column;
-    }
-    .statCostCol {
-      max-width: 20%;
-    }
-    .overallWebsiteStat {
-      font-size: 13px;
-    }
-    .border {
-      border: 1px solid lightgray;
-      border-radius: 4px;
-      /* min-height: fit-content; */
-      /* display: flex; */
-    }
-        .simleAdWidth {
-      display: flex; 
-      min-width: 100%;
+  /* Updated for new tab names and mobile responsiveness */
+  ion-grid {
+    width: 100%;
+  }
+  .allContentCol {
+    border: solid rgb(193, 15, 190) 2px;
+    border-radius: 10px;
+  }
+  .titleRow  {
+    color: white;
+    background-color: rgb(108, 112, 230);
+  }
+  .titleRow h2,
+  .bold {
+    font-weight:  bold;
+  }
 
-        }
-    .simpleLeftRightAdRow {
-      border: solid rgb(160, 168, 243) 2px;
-      margin: 15px 0;
-      border-radius: 4px;
-      background-color: rgb(225, 240, 225);
-      
-    }
-    .simpleLeftRightAdRowTitle {
-      /* color: white; */
-      Background-color: rgb(217, 217, 247);
-      font-weight: bold;
-      text-align: center;
-      /* justify-content: center;
-      align-items: center;
-      align-content: center; */
-      min-width: 100%;
-    }
-    .terms {
-      font-size: 11px;
-    }
-    .PayBTN {
-      width: 100%;
-    }
-    .termBTN {
-      justify-content: center;
-      align-items: center;
-    }
+  .adImages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
+    text-align: center;
+  }
+  .adImages h6 {
+    font-weight: bold;
+  }
+  .CenterPositions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* align-content: center; */
+    text-align: center;
+    flex-direction: column;
+  }
+  .statCostCol {
+    max-width: 20%;
+  }
+  .overallWebsiteStat {
+    font-size: 13px;
+  }
+  .border {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    /* min-height: fit-content; */
+    /* display: flex; */
+  }
+  .simpleLeftRightAdRow {
+    border: solid rgb(160, 168, 243) 2px;
+    margin: 15px 0;
+    border-radius: 4px;
+    background-color: rgb(225, 240, 225);
+    
+  }
+  .simpleLeftRightAdRowTitle {
+    cursor: pointer; /* Show cursor pointer on hover */
+    Background-color: rgb(217, 217, 247);
+    font-weight: bold;
+    text-align: center;
+    /* justify-content: center;
+    align-items: center;
+    align-content: center; */
+    min-width: 100%;
+  }
+  .terms {
+    font-size: 11px;
+  }
+  .PayBTN {
+    width: 100%;
+  }
+  .termBTN {
+    justify-content: center;
+    align-items: center;
+  }
 
-    .expandAdvanceAdvertisingBTN {
-      color: black;
-    }
+  .expandAdvanceAdvertisingBTN {
+    color: black;
+  }
   /* This makes the sidebar floating beautifully */
 
 
   @media (max-width: 600px) {
+    .fullMobWidth {
+      min-width: 100%;
+    }
     .allContentCol {
       min-width: 100%;
     }

@@ -213,9 +213,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                  <IonInput v-model="formFields.exhibitedMoreThan" type="text" :counter="true" :maxlength="2"
                     placeholder="Exhibited[17] more than:"></IonInput>&/or
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                  <IonInput v-model="formFields.visitedMoreThan" type="text" :counter="true" :maxlength="2"
                     placeholder="Visited[17] more than:"></IonInput>
                 </IonItem>
               </IonCol>
@@ -224,15 +224,15 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" class="custom" :counter="true"
-                    :maxlength="5" label-placement="floating" label="EXHIBITORS[23] who paid more than £"></IonInput>
+                  <IonInput v-model="formFields.paidMoreThan" type="text" class="custom" :counter="true" :maxlength="5"
+                    label-placement="floating" label="EXHIBITORS[23] who paid more than £"></IonInput>
                 </IonItem>
               </IonCol>
             </IonRow>
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                  <IonInput v-model="formFields.purchasedMoreThan" type="text" :counter="true" :maxlength="5"
                     label-placement="floating" label="PURCHASED on LEN website[343] more than £"></IonInput>
                 </IonItem>
               </IonCol>
@@ -245,7 +245,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                  <IonInput v-model="formFields.profilesVisitedMoreThan" type="text" :counter="true" :maxlength="5"
                     label-placement="floating" label="PROFILEs visited[33] more than"></IonInput>
                 </IonItem>
               </IonCol>
@@ -254,7 +254,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                  <IonInput v-model="formFields.profilesCompletionAbove" type="text" :counter="true" :maxlength="5"
                     label-placement="floating" label="PROFILEs [44k] % completion is above %"></IonInput>
                 </IonItem>
               </IonCol>
@@ -263,7 +263,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                  <IonInput v-model="formFields.membersConnectionsMoreThan" type="text" :counter="true" :maxlength="5"
                     label-placement="floating" label="Members [333k] with CONNECTION more than"></IonInput>
                 </IonItem>
               </IonCol>
@@ -272,7 +272,7 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                  <IonInput v-model="formFields.loggedIntoProfileMoreThan" type="text" :counter="true" :maxlength="5"
                     label-placement="floating" label="Logged into [333k] their profile more than"></IonInput>
                 </IonItem>
               </IonCol>
@@ -335,9 +335,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                  <IonInput v-model="formFields.malesAgeFrom" type="text" :counter="true" :maxlength="2"
                     placeholder="Males[17] Age from:"></IonInput>to
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2">
+                  <IonInput v-model="formFields.malesAgeTo" type="text" :counter="true" :maxlength="2">
                   </IonInput>
                 </IonItem>
               </IonCol>
@@ -346,9 +346,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                  <IonInput v-model="formFields.femalesAgeFrom" type="text" :counter="true" :maxlength="2"
                     placeholder="Females[19] Age from:"></IonInput>to
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2">
+                  <IonInput v-model="formFields.femalesAgeTo" type="text" :counter="true" :maxlength="2">
                   </IonInput>
                 </IonItem>
               </IonCol>
@@ -357,9 +357,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5"
+                  <IonInput v-model="formFields.salaryFrom" type="text" :counter="true" :maxlength="5"
                     placeholder="Salary[17] from:"></IonInput>to
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="5">
+                  <IonInput v-model="formFields.salaryTo" type="text" :counter="true" :maxlength="5">
                   </IonInput>
                 </IonItem>
               </IonCol>
@@ -502,9 +502,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                  <IonInput v-model="formFields.noOfEmployeesFrom" type="text" :counter="true" :maxlength="2"
                     placeholder="No. of Employee[17] from:"></IonInput>to
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2">
+                  <IonInput v-model="formFields.noOfEmployeesTo" type="text" :counter="true" :maxlength="2">
                   </IonInput>
                 </IonItem>
               </IonCol>
@@ -513,9 +513,9 @@
             <IonRow class="advanceRowsBorder">
               <IonCol class="pushColToLeft ">
                 <IonItem class="checkBoxInputFields">
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2"
+                  <IonInput v-model="formFields.revenueFrom" type="text" :counter="true" :maxlength="2"
                     placeholder="Revenue[19] from:"></IonInput>to
-                  <IonInput v-model="website" :value="sanitizedWebsite" type="text" :counter="true" :maxlength="2">
+                  <IonInput v-model="formFields.revenueTo" type="text" :counter="true" :maxlength="2">
                   </IonInput>
                 </IonItem>
               </IonCol>
@@ -631,6 +631,27 @@ const sanitizeInput = (input: string): string => {
     .replace(/[<>\/\\'";]/g, '');             // Remove potentially harmful characters
 };
 
+// Define the interface for the form fields
+interface FormFields {
+  exhibitedMoreThan: string;
+  visitedMoreThan: string;
+  paidMoreThan: string;
+  purchasedMoreThan: string;
+  profilesVisitedMoreThan: string;
+  profilesCompletionAbove: string;
+  membersConnectionsMoreThan: string;
+  loggedIntoProfileMoreThan: string;
+  malesAgeFrom: string;
+  malesAgeTo: string;
+  femalesAgeFrom: string;
+  femalesAgeTo: string;
+  salaryFrom: string;
+  salaryTo: string;
+  noOfEmployeesFrom: string;
+  noOfEmployeesTo: string;
+  revenueFrom: string;
+  revenueTo: string;
+}
 
 export default defineComponent({
   name: 'AdvanceAdvertisingComponent',
@@ -676,12 +697,38 @@ export default defineComponent({
       
 
     });
+    const formFields = ref<FormFields>({
+      exhibitedMoreThan: '',
+      visitedMoreThan: '',
+      paidMoreThan: '',
+      purchasedMoreThan: '',
+      profilesVisitedMoreThan: '',
+      profilesCompletionAbove: '',
+      membersConnectionsMoreThan: '',
+      loggedIntoProfileMoreThan: '',
+      malesAgeFrom: '',
+      malesAgeTo: '',
+      femalesAgeFrom: '',
+      femalesAgeTo: '',
+      salaryFrom: '',
+      salaryTo: '',
+      noOfEmployeesFrom: '',
+      noOfEmployeesTo: '',
+      revenueFrom: '',
+      revenueTo: '',
+    });
 
     const selectedCountry = ref<string | null>(null);
     const selectedCity = ref<string | null>(null);
-    const website = ref<string>('');
-    const sanitizedWebsite = computed<string>(() => {
-      return sanitizeInput(website.value);
+
+    const sanitizedFields = computed<FormFields>(() => {
+      const sanitized: FormFields = { ...formFields.value }; // Copy the form fields object
+      for (const key in sanitized) {
+        if (sanitized.hasOwnProperty(key)) {
+          sanitized[key as keyof FormFields] = sanitizeInput(formFields.value[key as keyof FormFields]);
+        }
+      }
+      return sanitized;
     });
 
     // State to manage visibility of sections
@@ -714,8 +761,8 @@ export default defineComponent({
       submitContent,
       selectedCountry,
       selectedCity,
-      sanitizedWebsite,
-      website,
+      formFields,
+      sanitizedFields,
     };
   },
 });
