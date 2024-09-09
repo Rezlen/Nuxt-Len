@@ -167,10 +167,11 @@ import MyPitchingsActivityTableComponent from '@/components/MyPitchingsComponent
 // Adverts 
 import SimpleAdvertisingComponent from '@/components/AdvertsComponents/SimpleAdvertisingComponent.vue';
 import AdvanceAdvertisingComponent from '@/components/AdvertsComponents/AdvanceAdvertisingComponent.vue';
+import AdvertStatBudgetingSideBarComponent from '@/components/AdvertsComponents/AdvertStatBudgetingSideBarComponent.vue';
 
 
 
-// MemberMembershipOrderComponent
+// MemberMembershipOrderComponent  AdvertStatBudgetingComponent
 const routes: Array<RouteRecordRaw> = [  
   // Pages start here FormTheEventComponent
   {
@@ -777,8 +778,13 @@ const routes: Array<RouteRecordRaw> = [
     name: 'AdvanceAdvertisingComponent',
     component: AdvanceAdvertisingComponent
   },
+  {
+    path: '/advertStatBudgetingSideBarComponent',
+    name: 'AdvertStatBudgetingSideBarComponent',
+    component: AdvertStatBudgetingSideBarComponent
+  },
   
-
+// AdvertStatBudgetingComponent
 // Left & Right Adverts starts here  MemberInvestmentApplicationComponent
 {
   path: '/LeftAd1',

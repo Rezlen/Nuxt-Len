@@ -260,41 +260,7 @@
       <IonCol class="statBudgetingCol">
         <IonRow @click="toggleMenu" class="statBudgetingRow Sidebar bold"> ☰ Stat & Budgeting </IonRow>
         <IonRow :class="{'sidebar-menu': true,'sidebar-menu-hidden': !isMenuOpen,}">
-          <IonRow class="audienceSizeSection" id="click-trigger">Audience size/Potential reach:
-            <span style="font-family:arial; font-weight:bold"> 43,000,000 </span>people
-
-            <!-- Info Icon for Tooltip -->
-            <ion-icon :icon="informationCircleOutline"></ion-icon>
-            <IonPopover trigger="click-trigger" trigger-action="click">
-              <IonContent class="tooltipContent">
-                <h6><b>How this number is estimated</b></h6>
-                <p>This is an estimate of the size of the audience that's eligible to see your ad. it's based on your
-                  targeting criteria, ad placements and how many people</p>
-                <h6><b>Have visited LEN website in past 30 days.</b></h6>
-                <p>This is not an estimate of how many people will actually see your ad, and the number may change over
-                  time. it isn't designed to match population or census estimates.</p>
-
-              </IonContent>
-            </IonPopover>
-            <!-- Info Icon for Tooltip -->
-
-          </IonRow>
-          <IonRow class="dailyResultSection">
-            <IonCol><b>Estimated daily results</b></IonCol>
-            <IonCol>
-              <p id="click-trigger1">Reach/View:
-                <ion-icon :icon="informationCircleOutline"></ion-icon>
-              </p>
-              <IonPopover trigger="click-trigger1" trigger-action="click">
-                <IonContent class="tooltipContent">
-                  <p>This is the number of people that we estimate you'll reach in your audience each day. This has to
-                    do with factors such as your bid and budget. Your actual reach may be higher or lower than this estimate.
-                  </p>
-                </IonContent>
-              </IonPopover>
-            </IonCol>
-            <IonCol class="reachViewBar"> </IonCol>
-          </IonRow>
+          <AdvertStatBudgetingSideBarComponent/>
 
       </IonRow>
     </IonCol>
@@ -312,6 +278,7 @@ import { defineComponent, ref, computed } from 'vue';
 import { IonPopover, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton, IonButton, IonInput, IonSelect, IonSelectOption, IonDatetime, IonDatetimeButton, IonModal, IonLabel, IonItem, IonIcon } from '@ionic/vue';
 import { addCircleOutline, closeCircleOutline, informationCircleOutline } from 'ionicons/icons';
 import AdvanceAdvertisingComponent from '@/components/AdvertsComponents/AdvanceAdvertisingComponent.vue';
+import AdvertStatBudgetingSideBarComponent from '@/components/AdvertsComponents/AdvertStatBudgetingSideBarComponent.vue';
 
 // Utility functions for sanitization and URL validation
 const sanitizeInput = (input: string): string => {
@@ -353,6 +320,7 @@ export default defineComponent({
     IonItem,
     IonIcon,
     AdvanceAdvertisingComponent,
+    AdvertStatBudgetingSideBarComponent,
   },
   setup() {
     const selectedTab = ref<string>('Marketing'); // Initialize with the default tab
@@ -520,12 +488,7 @@ export default defineComponent({
     color: black;
   }
   /* ################ Stat & Budgeting */
-  .audienceSizeSection {
-    margin-top: 10px;
-    padding: 10px;
-    border: solid rgb(160, 168, 243) 2px;
-    border-radius: 4px;
-  }
+
   .tooltipContent h6, p {
     margin: 15px;
   }
@@ -581,7 +544,7 @@ export default defineComponent({
       flex-direction: column;
       padding: 10px;
       overflow-y: auto; /* Ensure the content is scrollable */
-      width: 250px; /* Make width fit-content */
+      width: 85%; /* Make width fit-content */
       height: fit-content; /* Make height fit-content */
       position: fixed;
       z-index: 1099; /* Ensure it stays below the hamburger menu */

@@ -2,7 +2,7 @@
   <IonPage>
     <IonContent>
       <IonGrid>
-        <!-- Menu Section -->  
+        <!-- Menu Section -->
         <IonRow class="#">
           <MenuComponent />
         </IonRow>
@@ -10,17 +10,22 @@
         <IonRow class="#">
           <SocialMediaBarComponent />
         </IonRow>
-      
+
 
 
         <!-- First row; 1-LENSection 2-Investors(Angels)Section -->
         <IonRow class=" # LENSection ">
-          <p class="WorldLine" > Worlds Best Businesses, Entrepreneurs, Investors and Investees are Here in London! </p>
-          <IonCol class=" LENMidSection" >
-            <p class="FREEline" > Wanna Join for <a href="/src/views/SignInSignUpPage.vue" class="FREE-link"> FREE</a> ? </p>
-            <p><a href="/src/views/SignInSignUpPage.vue" class="FREE-button" >Click Here </a> </p>
+          <p class="WorldLine"> Worlds Best Businesses, Entrepreneurs, Investors and Investees are Here in London! </p>
+          <IonCol class=" LENMidSection">
+            <p class="FREEline"> Wanna Join for <a href="/src/views/SignInSignUpPage.vue" class="FREE-link"> FREE</a> ?
+            </p>
+            <p><a href="/src/views/SignInSignUpPage.vue" class="FREE-button">Click Here </a> </p>
           </IonCol>
-          <iframe width="400" height="200" src="https://www.youtube.com/embed/dNjQ_wZBA28" title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="400" height="200" src="https://www.youtube.com/embed/dNjQ_wZBA28"
+            title="🔥Business Advice London - Advice For Entrepreneurs - Mentoring, Coaching  | London Entrepreneurs 🚀"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </IonRow>
 
 
@@ -37,41 +42,41 @@
 
           <!--  2-MembersNumberSection -->
           <IonCol class=" bordered-section MembersNumberSection ">
-              <IonCol class="MembersTotalIncome">
-                <div class="section-title">Members Total Income</div>
-                <div class="section-title">Number Component Must be here</div>
-              </IonCol>
-              <IonCol class="VisitorIncome">
-                <div class="section-title">Visitor Income</div>
-                <div class="section-title">Number Component Must be here</div>
-              </IonCol>
-              <IonCol class="ExhibitorRevenue">
-                <div class="section-title">Exhibitor Revenue</div>
-                <div class="section-title">Number Component Must be here</div>
-              </IonCol>
-              <IonCol class="Exhibitors">
-                <div class="section-title">Exhibitors</div>
-                <div class="section-title">Number Component Must be here</div>
-              </IonCol>
-              <IonCol class="Visitors">
-                <div class="section-title">Visitors</div>
-                <div class="section-title">Number Component Must be here</div>
-              </IonCol>
-              <IonCol class="Countries">
-                <div class="section-title">Countries</div>
-                <div class="section-title">Number Component Must be here</div>
-              </IonCol>
+            <IonCol class="MembersTotalIncome">
+              <div class="section-title">Members Total Income</div>
+              <div class="section-title">Number Component Must be here</div>
+            </IonCol>
+            <IonCol class="VisitorIncome">
+              <div class="section-title">Visitor Income</div>
+              <div class="section-title">Number Component Must be here</div>
+            </IonCol>
+            <IonCol class="ExhibitorRevenue">
+              <div class="section-title">Exhibitor Revenue</div>
+              <div class="section-title">Number Component Must be here</div>
+            </IonCol>
+            <IonCol class="Exhibitors">
+              <div class="section-title">Exhibitors</div>
+              <div class="section-title">Number Component Must be here</div>
+            </IonCol>
+            <IonCol class="Visitors">
+              <div class="section-title">Visitors</div>
+              <div class="section-title">Number Component Must be here</div>
+            </IonCol>
+            <IonCol class="Countries">
+              <div class="section-title">Countries</div>
+              <div class="section-title">Number Component Must be here</div>
+            </IonCol>
           </IonCol>
 
           <!-- 3-EventsButtonSection -->
           <IonCol class=" # EventsButtonSection ">
-            <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button" >Exhibiting </a> </p>
-            <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button" >FREE Visiting </a> </p>
-            <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button" >More Events </a> </p>
+            <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button">Exhibiting </a> </p>
+            <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button">FREE Visiting </a> </p>
+            <p><a href="/src/views/SignInSignUpPage.vue" class="Events-button">More Events </a> </p>
           </IonCol>
-          
+
         </IonRow>
-        
+
 
         <!-- Middle Content Section with Left/Right Adverts and Middle Content -->
         <IonRow class=" ">
@@ -89,112 +94,159 @@
             <!-- 1-MiniProfilesRow- 2-Offers- 3-Investors section -->
             <IonRow class=" bordered-section ProfilesSection ">
               <IonRow>
-                <p><a href="/menu" class="Events-button" >MenuComp </a> </p>
-                <p><a href="/socialMediaBar" class="Events-button" >socialMediaBarComp </a> </p>
-                <p><a href="/footer" class="Events-button" >footerComp </a> </p>
-                <p><a href="/signInSignUpComponent" class="Events-button" >signInSignUpComponent </a> </p>
-                <p><a href="/LeftAd1" class="Events-button" >LeftAd1Comp </a> </p>
-                <p><a href="/TemplatePage" class="Events-button" >TemplatePage </a> </p>
-                <p><a href="/profilePage" class="Events-button" >ProfilePage </a> </p>
-                <p><a href="/MiniProfileCardComponent" class="Events-button" >MiniProfileCardComponent </a> </p>
-                <p><a href="/ProfilePublicSectionComponent" class="Events-button" >ProfilePublicSectionComponent </a> </p>
-                <p><a href="/OfferComponent" class="Events-button" >OfferComponent </a> </p>
-                <p><a href="/BizOfferNeedPage" class="Events-button" >BizOfferNeedPage </a> </p>
-                <p><a href="/BestofferTABSComponent" class="Events-button" >BestofferTABSComponent </a> </p>
-                <p><a href="/PostOfferNeedBestOfferComponent" class="Events-button" >PostOfferNeedBestOfferComponent </a> </p>
-                <p><a href="/PostOfferComponent" class="Events-button" >PostOfferComponent </a> </p>
-                <p><a href="/EventsShowsPage" class="Events-button" >EventsShowsPage </a> </p>
-                <p><a href="/TheEventShowPage" class="Events-button" >TheEventShowPage </a> </p>
-                <p><a href="/TicketEventComponent" class="Events-button" >TicketEventComponente </a> </p>
-                <p><a href="/TheEventComponent" class="Events-button" >TheEventComponent </a> </p>
-                <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
-                <p><a href="/FreePitchingsPage" class="Events-button" >FreePitchingsPage </a> </p>
-                <p><a href="/MiniEventComponent" class="Events-button" >MiniEventComponent </a> </p>
-                <p><a href="/PitchingComponent" class="Events-button" >PitchingComponent </a> </p>
-                <p><a href="/TicketTABsPitchingUpSellingComponent" class="Events-button" >TicketTABsPitchingUpSellingComponent </a> </p>
-                <p><a href="/FormPitchingWorkshopPresentationComponent" class="Events-button" >FormPitchingWorkshopPresentationComponent </a> </p>
-                <p><a href="/FormUpSellingComponent" class="Events-button" >FormUpSellingComponent </a> </p>
+                <p><a href="/menu" class="Events-button">MenuComp </a> </p>
+                <p><a href="/socialMediaBar" class="Events-button">socialMediaBarComp </a> </p>
+                <p><a href="/footer" class="Events-button">footerComp </a> </p>
+                <p><a href="/signInSignUpComponent" class="Events-button">signInSignUpComponent </a> </p>
+                <p><a href="/LeftAd1" class="Events-button">LeftAd1Comp </a> </p>
+                <p><a href="/TemplatePage" class="Events-button">TemplatePage </a> </p>
+                <p><a href="/profilePage" class="Events-button">ProfilePage </a> </p>
+                <p><a href="/MiniProfileCardComponent" class="Events-button">MiniProfileCardComponent </a> </p>
+                <p><a href="/ProfilePublicSectionComponent" class="Events-button">ProfilePublicSectionComponent </a>
+                </p>
+                <p><a href="/OfferComponent" class="Events-button">OfferComponent </a> </p>
+                <p><a href="/BizOfferNeedPage" class="Events-button">BizOfferNeedPage </a> </p>
+                <p><a href="/BestofferTABSComponent" class="Events-button">BestofferTABSComponent </a> </p>
+                <p><a href="/PostOfferNeedBestOfferComponent" class="Events-button">PostOfferNeedBestOfferComponent </a>
+                </p>
+                <p><a href="/PostOfferComponent" class="Events-button">PostOfferComponent </a> </p>
+                <p><a href="/EventsShowsPage" class="Events-button">EventsShowsPage </a> </p>
+                <p><a href="/TheEventShowPage" class="Events-button">TheEventShowPage </a> </p>
+                <p><a href="/TicketEventComponent" class="Events-button">TicketEventComponente </a> </p>
+                <p><a href="/TheEventComponent" class="Events-button">TheEventComponent </a> </p>
+                <p><a href="/MiniEventComponent" class="Events-button">MiniEventComponent </a> </p>
+                <p><a href="/FreePitchingsPage" class="Events-button">FreePitchingsPage </a> </p>
+                <p><a href="/MiniEventComponent" class="Events-button">MiniEventComponent </a> </p>
+                <p><a href="/PitchingComponent" class="Events-button">PitchingComponent </a> </p>
+                <p><a href="/TicketTABsPitchingUpSellingComponent"
+                    class="Events-button">TicketTABsPitchingUpSellingComponent </a> </p>
+                <p><a href="/FormPitchingWorkshopPresentationComponent"
+                    class="Events-button">FormPitchingWorkshopPresentationComponent </a> </p>
+                <p><a href="/FormUpSellingComponent" class="Events-button">FormUpSellingComponent </a> </p>
 
-                <p><a href="/FormExhibitingWorkshopPresentComponent" class="Events-button" >FormExhibitingWorkshopPresentComponent </a> </p>
-                <p><a href="/AboutUsPage" class="Events-button" >AboutUsPage </a> </p>
-                <p><a href="/ProfileLeftSideBarComponent" class="Events-button" >ProfileLeftSideBarComponent </a> </p>
-                <p><a href="/FilterByComponent" class="Events-button" >FilterByComponent </a> </p>
-                <p><a href="/AdminPage" class="Events-button" >AdminPage </a> </p>
-                <p><a href="/AdminCreateEventTABsComponent" class="Events-button" >AdminCreateEventTABsComponent</a> </p>
-                <p><a href="/AdminCreateEventComponent" class="Events-button" >AdminCreateEventComponent</a> </p>
-                <p><a href="/AdminEventsBookingsComponent" class="Events-button" >AdminEventsBookingsComponent </a> </p>
-                <p><a href="/AdminEventsListComponent" class="Events-button" >AdminEventsListComponent </a> </p>
-                <p><a href="/AdminLeftSideBarComponent" class="Events-button" >AdminLeftSideBarComponent </a> </p>
-                <p><a href="/FormProfilePublicSectionComponent " class="Events-button" >FormProfilePublicSectionComponent  </a> </p>
-                <p><a href="/PrivacyPolicyPage" class="Events-button" >PrivacyPolicyPage  </a> </p>
-                <p><a href="/TermsConditionsPage" class="Events-button" >TermsConditionsPage  </a> </p>
-                <p><a href="/InvestorsInvesteesPage" class="Events-button" >InvestorsInvesteesPage  </a> </p>
-                <p><a href="/FormApplyForInvestmentComponent" class="Events-button" >FormApplyForInvestmentComponent  </a> </p>
-                <p><a href="/FormProvideForInvestmentComponent" class="Events-button" >FormProvideForInvestmentComponent  </a> </p>
-                <p><a href="/MiniInvestorsProfileComponent" class="Events-button" >MiniInvestorsProfileComponent  </a> </p>
-                <p><a href="/MiniInvesteesProfileComponent" class="Events-button" >MiniInvesteesProfileComponent  </a> </p>
-                <p><a href="/MembersProfileDetailAdminComponent" class="Events-button" >MembersProfileDetailAdminComponent  </a> </p>
-                <p><a href="/MembersProfileDetailTABsAdminComponent" class="Events-button" >MembersProfileDetailTABsAdminComponent  </a> </p>
-                <p><a href="/MembersPitchingProfileDetailAdminComponent" class="Events-button" >MembersPitchingProfileDetailAdminComponent  </a> </p>
-                <p><a href="/InvestorsProfileDetailAdminComponent" class="Events-button" >InvestorsProfileDetailAdminComponent   </a> </p>
-                <p><a href="/MembersOfferDetailProfileDetailAdminComponent" class="Events-button" >MembersOfferDetailProfileDetailAdminComponent   </a> </p>
-                <p><a href="/MembersNeedDetailProfileDetailAdminComponent" class="Events-button" >MembersNeedDetailProfileDetailAdminComponent   </a> </p>
-                <p><a href="/MembersBestOfferDetailProfileDetailAdminComponent" class="Events-button" >MembersBestOfferDetailProfileDetailAdminComponent   </a> </p>
-                <p><a href="/InvestmentApplicationMembersProfileDetailAdminComponent " class="Events-button" >InvestmentApplicationMembersProfileDetailAdminComponent    </a> </p>
-                <p><a href="/AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent " class="Events-button" >AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent </a> </p>
-                <p><a href="/EmailWebsiteNotificationComponent" class="Events-button" >EmailWebsiteNotificationComponent </a> </p>
-                <p><a href="/MessagingComponent" class="Events-button" >MessagingComponent </a> </p>
-                <p><a href="/MembersMyOrderTABsComponent" class="Events-button" >MembersMyOrderTABsComponent </a> </p>
-                <p><a href="/MemberTicketsComponent" class="Events-button" >MemberTicketsComponent </a> </p>
-                <p><a href="/MemberMessagingEmailingOrderComponent" class="Events-button" >MemberMessagingEmailingOrderComponent </a> </p>
-                <p><a href="/MemberMembershipOrderComponent" class="Events-button" >MemberMembershipOrderComponent </a> </p>
-                <p><a href="/MemberInvestmentApplicationComponent" class="Events-button" >MemberInvestmentApplicationComponent </a> </p>
-                <p><a href="/SponsorsPartnershipPage" class="Events-button" >SponsorsPartnershipPage </a> </p>
-                <p><a href="/SponsorshipPartnershipForm" class="Events-button" >SponsorshipPartnershipForm </a> </p>
-                <p><a href="/SponsorshipPartnershipAdComponent" class="Events-button" >SponsorshipPartnershipAdComponent </a> </p>
-                <p><a href="/MyConnectionComponent" class="Events-button" >MyConnectionComponent </a> </p>
-                <p><a href="/EmailImportsTableComponent" class="Events-button" >EmailImportsTableComponent</a> </p>
-                <p><a href="/SponsorshipPartnershipTableComponent" class="Events-button" >SponsorshipPartnershipTableComponent</a> </p>
-                <p><a href="/CEOBusinessAdvicePage" class="Events-button" >CEOBusinessAdvicePage</a> </p>
-                <p><a href="/FAQPage" class="Events-button" >FAQPage</a> </p>
-                <p><a href="/FAQTableComponent" class="Events-button" >FAQTableComponent</a> </p>
-                <p><a href="/SharesTableComponent" class="Events-button" >SharesTableComponent</a> </p>
-                <p><a href="/SharesPage" class="Events-button" >SharesPage</a> </p>
-                <p><a href="/ContactUsFormComponent" class="Events-button" >ContactUsFormComponent</a> </p>
-                <p><a href="/ContactUsPage" class="Events-button" >ContactUsPage</a> </p>
-                <p><a href="/contactUsTABsAdminComponent" class="Events-button" >contactUsTABsAdminComponent</a> </p>
-                <p><a href="/membersContactUsMessagesTableAdminComponent" class="Events-button" >membersContactUsMessagesTableAdminComponent</a> </p>
-                <p><a href="/RewardDiscountPage" class="Events-button" >RewardDiscountPage</a> </p>
-                <p><a href="/MyRewardsDiscountsUsedTableComponent" class="Events-button" >MyRewardsDiscountsUsedTableComponent</a> </p>
-                <p><a href="/MyRewardsDiscountsEarnedTableComponent" class="Events-button" >MyRewardsDiscountsEarnedTableComponent</a> </p>
-                <p><a href="/MyRewardsDiscountsComponent" class="Events-button" >MyRewardsDiscountsComponent</a> </p>
-                <p><a href="/MySharesTableComponent" class="Events-button" >MySharesTableComponent</a> </p>
-                <p><a href="/MyOffersActivityTableComponent" class="Events-button" >MyOffersActivityTableComponent</a> </p>
-                <p><a href="/MyBestOffersActivityTableComponent" class="Events-button" >MyBestOffersActivityTableComponent</a> </p>
-                <p><a href="/MyNeedsActivityTableComponent" class="Events-button" >MyNeedsActivityTableComponent</a> </p>
-                <p><a href="/MyInvestmentAdsComponent" class="Events-button" > MyInvestmentAdsComponent </a> </p>
-                <p><a href="/MyPitchingsActivityTableComponent" class="Events-button" > MyPitchingsActivityTableComponent </a> </p>
-                <p><a href="/MembersSponsorshipPartnershipProfileDetailAdminComponent" class="Events-button" > MembersSponsorshipPartnershipProfileDetailAdminComponent </a> </p>
-                <p><a href="/MembersMembershipsProfileDetailAdminComponent" class="Events-button" > MembersMembershipsProfileDetailAdminComponent </a> </p>
-                <p><a href="/MembersSharePurchaseProfileDetailAdminComponent" class="Events-button" > MembersSharePurchaseProfileDetailAdminComponent </a> </p>
-                <p><a href="/MembersMessagingTableAdminComponent" class="Events-button" > membersMessagingTableAdminComponent </a> </p>
-                <p><a href="/MembersRewardDiscountTableAdminComponent" class="Events-button" > MembersRewardDiscountTableAdminComponent </a> </p>
-                <p><a href="/MembersCEOBusinessAdviceProfileDetailAdminComponent" class="Events-button" > MembersCEOBusinessAdviceProfileDetailAdminComponent </a> </p>
-                <p><a href="/MembersBusinessAdviceProfileDetailAdminComponent" class="Events-button" > MembersBusinessAdviceProfileDetailAdminComponent </a> </p>
-                <p><a href="/BusinessAdviceTABsComponent" class="Events-button" > BusinessAdviceTABsComponent </a> </p>
-                <p><a href="/MenteesBusinessAdviceTableComponent " class="Events-button" > MenteesBusinessAdviceTableComponent  </a> </p>
-                <p><a href="/BusinessAdviceBestOffers7CategoriesFormComponents" class="Events-button" > BusinessAdviceBestOffers7CategoriesFormComponents </a> </p>
-                <p><a href="/AccountingBestOffers7CategoriesFormComponent" class="Events-button" > AccountingBestOffers7CategoriesFormComponent </a> </p>
-                <p><a href="/OfficeSpaceBestOffers7CategoriesFormComponent" class="Events-button" > OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
-                <p><a href="/MyBestOfferOfficeSpaceActivityTableComponent" class="Events-button" > OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
-                <p><a href="/MyBestOfferAccountingActivityTableComponent" class="Events-button" >MyBestOfferAccountingActivityTableComponent </a> </p>
-                <p><a href="/MembersOfficeSpaceProfileDetailAdminComponent" class="Events-button" >MembersOfficeSpaceProfileDetailAdminComponent </a> </p>
-                <p><a href="/SimpleAdvertisingComponent" class="Events-button" >SimpleAdvertisingComponent </a> </p>
-                <p><a href="/AdvanceAdvertisingComponent" class="Events-button" >AdvanceAdvertisingComponent </a> </p>
+                <p><a href="/FormExhibitingWorkshopPresentComponent"
+                    class="Events-button">FormExhibitingWorkshopPresentComponent </a> </p>
+                <p><a href="/AboutUsPage" class="Events-button">AboutUsPage </a> </p>
+                <p><a href="/ProfileLeftSideBarComponent" class="Events-button">ProfileLeftSideBarComponent </a> </p>
+                <p><a href="/FilterByComponent" class="Events-button">FilterByComponent </a> </p>
+                <p><a href="/AdminPage" class="Events-button">AdminPage </a> </p>
+                <p><a href="/AdminCreateEventTABsComponent" class="Events-button">AdminCreateEventTABsComponent</a> </p>
+                <p><a href="/AdminCreateEventComponent" class="Events-button">AdminCreateEventComponent</a> </p>
+                <p><a href="/AdminEventsBookingsComponent" class="Events-button">AdminEventsBookingsComponent </a> </p>
+                <p><a href="/AdminEventsListComponent" class="Events-button">AdminEventsListComponent </a> </p>
+                <p><a href="/AdminLeftSideBarComponent" class="Events-button">AdminLeftSideBarComponent </a> </p>
+                <p><a href="/FormProfilePublicSectionComponent " class="Events-button">FormProfilePublicSectionComponent
+                  </a> </p>
+                <p><a href="/PrivacyPolicyPage" class="Events-button">PrivacyPolicyPage </a> </p>
+                <p><a href="/TermsConditionsPage" class="Events-button">TermsConditionsPage </a> </p>
+                <p><a href="/InvestorsInvesteesPage" class="Events-button">InvestorsInvesteesPage </a> </p>
+                <p><a href="/FormApplyForInvestmentComponent" class="Events-button">FormApplyForInvestmentComponent </a>
+                </p>
+                <p><a href="/FormProvideForInvestmentComponent" class="Events-button">FormProvideForInvestmentComponent
+                  </a> </p>
+                <p><a href="/MiniInvestorsProfileComponent" class="Events-button">MiniInvestorsProfileComponent </a>
+                </p>
+                <p><a href="/MiniInvesteesProfileComponent" class="Events-button">MiniInvesteesProfileComponent </a>
+                </p>
+                <p><a href="/MembersProfileDetailAdminComponent"
+                    class="Events-button">MembersProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersProfileDetailTABsAdminComponent"
+                    class="Events-button">MembersProfileDetailTABsAdminComponent </a> </p>
+                <p><a href="/MembersPitchingProfileDetailAdminComponent"
+                    class="Events-button">MembersPitchingProfileDetailAdminComponent </a> </p>
+                <p><a href="/InvestorsProfileDetailAdminComponent"
+                    class="Events-button">InvestorsProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersOfferDetailProfileDetailAdminComponent"
+                    class="Events-button">MembersOfferDetailProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersNeedDetailProfileDetailAdminComponent"
+                    class="Events-button">MembersNeedDetailProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersBestOfferDetailProfileDetailAdminComponent"
+                    class="Events-button">MembersBestOfferDetailProfileDetailAdminComponent </a> </p>
+                <p><a href="/InvestmentApplicationMembersProfileDetailAdminComponent "
+                    class="Events-button">InvestmentApplicationMembersProfileDetailAdminComponent </a> </p>
+                <p><a href="/AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent "
+                    class="Events-button">AdminEventSpecificInvestmentApplicationMembersProfileDetailAdminComponent </a>
+                </p>
+                <p><a href="/EmailWebsiteNotificationComponent" class="Events-button">EmailWebsiteNotificationComponent
+                  </a> </p>
+                <p><a href="/MessagingComponent" class="Events-button">MessagingComponent </a> </p>
+                <p><a href="/MembersMyOrderTABsComponent" class="Events-button">MembersMyOrderTABsComponent </a> </p>
+                <p><a href="/MemberTicketsComponent" class="Events-button">MemberTicketsComponent </a> </p>
+                <p><a href="/MemberMessagingEmailingOrderComponent"
+                    class="Events-button">MemberMessagingEmailingOrderComponent </a> </p>
+                <p><a href="/MemberMembershipOrderComponent" class="Events-button">MemberMembershipOrderComponent </a>
+                </p>
+                <p><a href="/MemberInvestmentApplicationComponent"
+                    class="Events-button">MemberInvestmentApplicationComponent </a> </p>
+                <p><a href="/SponsorsPartnershipPage" class="Events-button">SponsorsPartnershipPage </a> </p>
+                <p><a href="/SponsorshipPartnershipForm" class="Events-button">SponsorshipPartnershipForm </a> </p>
+                <p><a href="/SponsorshipPartnershipAdComponent" class="Events-button">SponsorshipPartnershipAdComponent
+                  </a> </p>
+                <p><a href="/MyConnectionComponent" class="Events-button">MyConnectionComponent </a> </p>
+                <p><a href="/EmailImportsTableComponent" class="Events-button">EmailImportsTableComponent</a> </p>
+                <p><a href="/SponsorshipPartnershipTableComponent"
+                    class="Events-button">SponsorshipPartnershipTableComponent</a> </p>
+                <p><a href="/CEOBusinessAdvicePage" class="Events-button">CEOBusinessAdvicePage</a> </p>
+                <p><a href="/FAQPage" class="Events-button">FAQPage</a> </p>
+                <p><a href="/FAQTableComponent" class="Events-button">FAQTableComponent</a> </p>
+                <p><a href="/SharesTableComponent" class="Events-button">SharesTableComponent</a> </p>
+                <p><a href="/SharesPage" class="Events-button">SharesPage</a> </p>
+                <p><a href="/ContactUsFormComponent" class="Events-button">ContactUsFormComponent</a> </p>
+                <p><a href="/ContactUsPage" class="Events-button">ContactUsPage</a> </p>
+                <p><a href="/contactUsTABsAdminComponent" class="Events-button">contactUsTABsAdminComponent</a> </p>
+                <p><a href="/membersContactUsMessagesTableAdminComponent"
+                    class="Events-button">membersContactUsMessagesTableAdminComponent</a> </p>
+                <p><a href="/RewardDiscountPage" class="Events-button">RewardDiscountPage</a> </p>
+                <p><a href="/MyRewardsDiscountsUsedTableComponent"
+                    class="Events-button">MyRewardsDiscountsUsedTableComponent</a> </p>
+                <p><a href="/MyRewardsDiscountsEarnedTableComponent"
+                    class="Events-button">MyRewardsDiscountsEarnedTableComponent</a> </p>
+                <p><a href="/MyRewardsDiscountsComponent" class="Events-button">MyRewardsDiscountsComponent</a> </p>
+                <p><a href="/MySharesTableComponent" class="Events-button">MySharesTableComponent</a> </p>
+                <p><a href="/MyOffersActivityTableComponent" class="Events-button">MyOffersActivityTableComponent</a>
+                </p>
+                <p><a href="/MyBestOffersActivityTableComponent"
+                    class="Events-button">MyBestOffersActivityTableComponent</a> </p>
+                <p><a href="/MyNeedsActivityTableComponent" class="Events-button">MyNeedsActivityTableComponent</a> </p>
+                <p><a href="/MyInvestmentAdsComponent" class="Events-button"> MyInvestmentAdsComponent </a> </p>
+                <p><a href="/MyPitchingsActivityTableComponent" class="Events-button"> MyPitchingsActivityTableComponent
+                  </a> </p>
+                <p><a href="/MembersSponsorshipPartnershipProfileDetailAdminComponent" class="Events-button">
+                    MembersSponsorshipPartnershipProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersMembershipsProfileDetailAdminComponent" class="Events-button">
+                    MembersMembershipsProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersSharePurchaseProfileDetailAdminComponent" class="Events-button">
+                    MembersSharePurchaseProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersMessagingTableAdminComponent" class="Events-button">
+                    membersMessagingTableAdminComponent </a> </p>
+                <p><a href="/MembersRewardDiscountTableAdminComponent" class="Events-button">
+                    MembersRewardDiscountTableAdminComponent </a> </p>
+                <p><a href="/MembersCEOBusinessAdviceProfileDetailAdminComponent" class="Events-button">
+                    MembersCEOBusinessAdviceProfileDetailAdminComponent </a> </p>
+                <p><a href="/MembersBusinessAdviceProfileDetailAdminComponent" class="Events-button">
+                    MembersBusinessAdviceProfileDetailAdminComponent </a> </p>
+                <p><a href="/BusinessAdviceTABsComponent" class="Events-button"> BusinessAdviceTABsComponent </a> </p>
+                <p><a href="/MenteesBusinessAdviceTableComponent " class="Events-button">
+                    MenteesBusinessAdviceTableComponent </a> </p>
+                <p><a href="/BusinessAdviceBestOffers7CategoriesFormComponents" class="Events-button">
+                    BusinessAdviceBestOffers7CategoriesFormComponents </a> </p>
+                <p><a href="/AccountingBestOffers7CategoriesFormComponent" class="Events-button">
+                    AccountingBestOffers7CategoriesFormComponent </a> </p>
+                <p><a href="/OfficeSpaceBestOffers7CategoriesFormComponent" class="Events-button">
+                    OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
+                <p><a href="/MyBestOfferOfficeSpaceActivityTableComponent" class="Events-button">
+                    OfficeSpaceBestOffers7CategoriesFormComponent </a> </p>
+                <p><a href="/MyBestOfferAccountingActivityTableComponent"
+                    class="Events-button">MyBestOfferAccountingActivityTableComponent </a> </p>
+                <p><a href="/MembersOfficeSpaceProfileDetailAdminComponent"
+                    class="Events-button">MembersOfficeSpaceProfileDetailAdminComponent </a> </p>
+                <p><a href="/SimpleAdvertisingComponent" class="Events-button">SimpleAdvertisingComponent </a> </p>
+                <p><a href="/AdvanceAdvertisingComponent" class="Events-button">AdvanceAdvertisingComponent </a> </p>
+                <p><a href="/AdvertStatBudgetingSideBarComponent" class="Events-button">AdvertStatBudgetingSideBarComponent </a> </p>
 
-              
+
               </IonRow>
-              
+
               <!-- MiniProfilesRow #####     membersMessagingTableAdminComponent -->
               <IonCol class="MiniProfilesRow">
                 <IonRow class="Tabs4AllBusinessesAllExhibitorsAllVisitorsAdvertiseForFree">
@@ -263,7 +315,7 @@
 
 
 
-              <!-- 4Tabs 1- All Investors 2- All Investees 3- Apply For Investment 4- Provide Investment ##############################-->
+            <!-- 4Tabs 1- All Investors 2- All Investees 3- Apply For Investment 4- Provide Investment ##############################-->
             <IonRow class=" bordered-section ">
               <IonCol>
                 <IonRow class=" Tabs4InvestorsInvesteesApplyForInvestment">
@@ -278,16 +330,36 @@
                   <IonCol v-show="selectedTab === 'Investors'" class="Investors">
                     <!-- Component for Investees #########" -->
                     <IonRow>
-                    <!-- Putting in Column then in Row attaches two mini profile together #########" -->
-                      <IonCol ><IonRow class="TwoMiniProfile"><MiniInvestorsProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
-                      <IonCol ><IonRow class="TwoMiniProfile"><MiniInvestorsProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                      <!-- Putting in Column then in Row attaches two mini profile together #########" -->
+                      <IonCol>
+                        <IonRow class="TwoMiniProfile">
+                          <MiniInvestorsProfileComponent />
+                          <MiniProfileCardComponent />
+                        </IonRow>
+                      </IonCol>
+                      <IonCol>
+                        <IonRow class="TwoMiniProfile">
+                          <MiniInvestorsProfileComponent />
+                          <MiniProfileCardComponent />
+                        </IonRow>
+                      </IonCol>
                     </IonRow>
                   </IonCol>
                   <IonCol v-show="selectedTab === 'Investees'" class="Investees">
                     <!-- Component for Investees #########" -->
                     <IonRow>
-                      <IonCol ><IonRow class="TwoMiniProfile"><MiniInvesteesProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
-                      <IonCol ><IonRow class="TwoMiniProfile"><MiniInvesteesProfileComponent /><MiniProfileCardComponent /></IonRow></IonCol>
+                      <IonCol>
+                        <IonRow class="TwoMiniProfile">
+                          <MiniInvesteesProfileComponent />
+                          <MiniProfileCardComponent />
+                        </IonRow>
+                      </IonCol>
+                      <IonCol>
+                        <IonRow class="TwoMiniProfile">
+                          <MiniInvesteesProfileComponent />
+                          <MiniProfileCardComponent />
+                        </IonRow>
+                      </IonCol>
                     </IonRow>
                   </IonCol>
                   <IonCol v-show="selectedTab === 'ApplyForInvestment'" class="ApplyForInvestment">
