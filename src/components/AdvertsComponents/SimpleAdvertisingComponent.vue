@@ -224,8 +224,8 @@
           </IonRow>
 
           <IonButton class="expandAdvanceAdvertisingBTN" expand="block" color="warning"
-            title="expandAdvanceAdvertisingBTN" @click="toggleAdvanceAdvertising"> Or Choose Advance Targeted
-            Advertising</IonButton>
+            title="expandAdvanceAdvertisingBTN" @click="toggleAdvanceAdvertisingANDsetBidCapFields"> Or Choose
+            Advance Targeted Advertising</IonButton>
           <!-- Conditionally render the AdvanceAdvertisingComponent -->
           <AdvanceAdvertisingComponent v-if="showAdvanceAdvertising" />
 
@@ -260,10 +260,10 @@
       <IonCol class="statBudgetingCol">
         <IonRow @click="toggleMenu" class="statBudgetingRow Sidebar bold"> ☰ Stat & Budgeting </IonRow>
         <IonRow :class="{'sidebar-menu': true,'sidebar-menu-hidden': !isMenuOpen,}">
-          <AdvertStatBudgetingSideBarComponent/>
-
-      </IonRow>
-    </IonCol>
+          <AdvertStatBudgetingSideBarComponent :isBidCapViewANDClickVisibleProp="isBidCapViewANDClickVisible" />
+          <!-- :isBidCapViewANDClickVisibleProp="isBidCapViewANDClickVisible" connects to <AdvertStatBudgetingSideBarComponent/> to isBidCapViewANDClickVisibleProp -->
+        </IonRow>
+      </IonCol>
 
 
     </IonRow>
@@ -274,132 +274,144 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
-import { IonPopover, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton, IonButton, IonInput, IonSelect, IonSelectOption, IonDatetime, IonDatetimeButton, IonModal, IonLabel, IonItem, IonIcon } from '@ionic/vue';
-import { addCircleOutline, closeCircleOutline, informationCircleOutline } from 'ionicons/icons';
-import AdvanceAdvertisingComponent from '@/components/AdvertsComponents/AdvanceAdvertisingComponent.vue';
-import AdvertStatBudgetingSideBarComponent from '@/components/AdvertsComponents/AdvertStatBudgetingSideBarComponent.vue';
+  import { defineComponent, ref, computed } from 'vue';
+  import { IonPopover, IonGrid, IonRow, IonCol, IonContent, IonSegment, IonSegmentButton, IonButton, IonInput, IonSelect, IonSelectOption, IonDatetime, IonDatetimeButton, IonModal, IonLabel, IonItem, IonIcon } from '@ionic/vue';
+  import { addCircleOutline, closeCircleOutline, informationCircleOutline } from 'ionicons/icons';
+  import AdvanceAdvertisingComponent from '@/components/AdvertsComponents/AdvanceAdvertisingComponent.vue';
+  import AdvertStatBudgetingSideBarComponent from '@/components/AdvertsComponents/AdvertStatBudgetingSideBarComponent.vue';
 
-// Utility functions for sanitization and URL validation
-const sanitizeInput = (input: string): string => {
-  return input
-    .replace(/<script.*?>.*?<\/script>/gi, '') // Remove script tags
-    .replace(/<[\/\!]*?[^<>]*?>/gi, '')       // Remove HTML tags
-    .replace(/&(?:lt|gt|amp|quot|#39);/g, '') // Remove HTML entities
-    .replace(/[<>\/\\'";]/g, '');             // Remove potentially harmful characters
-};
+  // Utility functions for sanitization and URL validation
+  const sanitizeInput = (input: string): string => {
+    return input
+      .replace(/<script.*?>.*?<\/script>/gi, '') // Remove script tags
+      .replace(/<[\/\!]*?[^<>]*?>/gi, '')       // Remove HTML tags
+      .replace(/&(?:lt|gt|amp|quot|#39);/g, '') // Remove HTML entities
+      .replace(/[<>\/\\'";]/g, '');             // Remove potentially harmful characters
+  };
 
-// RegEx pattern for validating URLs
-const urlPattern = new RegExp(
-  '^(https?:\\/\\/)?' + // Protocol
-  '((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.)+[a-zA-Z]{2,}|' + // Domain name
-  '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
-  '(\\:\\d+)?(\\/[-a-zA-Z\\d%_.~+]*)*' + // Port and path
-  '(\\?[;&a-zA-Z\\d%_.~+=-]*)?' + // Query string
-  '(\\#[-a-zA-Z\\d_]*)?$' // Fragment locator
-);
+  // RegEx pattern for validating URLs
+  const urlPattern = new RegExp(
+    '^(https?:\\/\\/)?' + // Protocol
+    '((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.)+[a-zA-Z]{2,}|' + // Domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR IP (v4) address
+    '(\\:\\d+)?(\\/[-a-zA-Z\\d%_.~+]*)*' + // Port and path
+    '(\\?[;&a-zA-Z\\d%_.~+=-]*)?' + // Query string
+    '(\\#[-a-zA-Z\\d_]*)?$' // Fragment locator
+  );
 
-export default defineComponent({
-  name: 'SimpleAdvertisingComponent',
-  components: {
-    IonPopover,
-    IonGrid,
-    IonRow,
-    IonCol,
-    IonContent,
-    IonSegment,
-    IonSegmentButton,
-    IonButton,
-    IonInput,
-    IonSelect,
-    IonSelectOption,
-    IonDatetime,
-    IonDatetimeButton,
-    IonModal,
-    IonLabel,
-    IonItem,
-    IonIcon,
-    AdvanceAdvertisingComponent,
-    AdvertStatBudgetingSideBarComponent,
-  },
-  setup() {
-    const selectedTab = ref<string>('Marketing'); // Initialize with the default tab
-    const isMenuOpen = ref(false);
-    const customerDataBase = ref<number | null>(null);
-    const website = ref<string>('');
-    const isWebsiteValid = ref<boolean>(true);
-    const showAdvanceAdvertising = ref<boolean>(false); // Track visibility of AdvanceAdvertisingComponent
-    const toggleMenu = () => {
-      isMenuOpen.value = !isMenuOpen.value;
-    };
-    const toggleAdvanceAdvertising = () => {
-      showAdvanceAdvertising.value = !showAdvanceAdvertising.value;
-    };
-    const sanitizedWebsite = computed<string>(() => {
-      return sanitizeInput(website.value);
-    });
-    const sanitizedCustomerDataBase = computed<string | number | undefined>(() => {
-      return customerDataBase.value !== null ? customerDataBase.value : undefined;
-    });
+  export default defineComponent({
+    name: 'SimpleAdvertisingComponent',
+    components: {
+      IonPopover,
+      IonGrid,
+      IonRow,
+      IonCol,
+      IonContent,
+      IonSegment,
+      IonSegmentButton,
+      IonButton,
+      IonInput,
+      IonSelect,
+      IonSelectOption,
+      IonDatetime,
+      IonDatetimeButton,
+      IonModal,
+      IonLabel,
+      IonItem,
+      IonIcon,
+      AdvanceAdvertisingComponent,
+      AdvertStatBudgetingSideBarComponent,
+    },
+    setup() {
+      const selectedTab = ref<string>('Marketing'); // Initialize with the default tab
+      const isMenuOpen = ref(false);
+      const customerDataBase = ref<number | null>(null);
+      const website = ref<string>('');
+      const isWebsiteValid = ref<boolean>(true);
+      const showAdvanceAdvertising = ref<boolean>(false); // Track visibility of AdvanceAdvertisingComponent
+      const toggleMenu = () => {
+        isMenuOpen.value = !isMenuOpen.value;
+      };
 
-    // Function to validate the website URL
-    const validateWebsite = () => {
-      isWebsiteValid.value = urlPattern.test(sanitizedWebsite.value);
-    };
+      // ##############################
+      // Track visibility of BidView row [class="clickViewBid"] in <AdvertStatBudgetingSideBarComponent/>
+      const isBidCapViewANDClickVisible = ref(false); 
 
-    ///////////////// toggle hide/visibility section  ////////////////////////////////
-    // State to manage visibility of sections
-    const sectionVisibility = ref<{ [key: string]: boolean }>({
-      section1: false,
-      section2: false,
-      section3: false,
-      section4: false,
-    });
+      // This Toggle function display both <AdvanceAdvertisingComponent/> and row [class="clickViewBid"] in <AdvertStatBudgetingSideBarComponent/>
+      const toggleAdvanceAdvertisingANDsetBidCapFields = () => {
+        showAdvanceAdvertising.value = !showAdvanceAdvertising.value;
+        isBidCapViewANDClickVisible.value = !isBidCapViewANDClickVisible.value;
+      };
+      // ##############################
 
-    // Method to toggle section visibility
-    const toggleSection = (section: string) => {
-      sectionVisibility.value[section] = !sectionVisibility.value[section];
-    };
+      const sanitizedWebsite = computed<string>(() => {
+        return sanitizeInput(website.value);
+      });
+      const sanitizedCustomerDataBase = computed<string | number | undefined>(() => {
+        return customerDataBase.value !== null ? customerDataBase.value : undefined;
+      });
 
-    // Method to check if a section is visible
-    const isSectionVisible = (section: string) => {
-      return sectionVisibility.value[section];
-    };
-    ///////////////// toggle hide/visibility section  ////////////////////////////////
-    
-    const submitContent = () => {
-    const sanitizedData = {
-      customerDataBase: sanitizedCustomerDataBase.value,
-    };
+      // Function to validate the website URL
+      const validateWebsite = () => {
+        isWebsiteValid.value = urlPattern.test(sanitizedWebsite.value);
+      };
 
-    console.log('Sanitized Data:', sanitizedData);
-    // Here you should send sanitizedData to your API endpoint
-    };
+      ///////////////// toggle hide/visibility section  ////////////////////////////////
+      // State to manage visibility of sections
+      const sectionVisibility = ref<{ [key: string]: boolean }>({
+        section1: false,
+        section2: false,
+        section3: false,
+        section4: false,
+      });
 
-    return {
-      website,
-      selectedTab,
-      sanitizedWebsite,
-      validateWebsite,
-      customerDataBase,
-      sanitizedCustomerDataBase,
-      addCircleOutline,
-      closeCircleOutline,
-      informationCircleOutline,
-      submitContent,
-      isWebsiteValid,
-      // toggle visibility/hide section
-      toggleSection,
-      isSectionVisible,
-      // toggle visibility/hide section
+      // Method to toggle section visibility
+      const toggleSection = (section: string) => {
+        sectionVisibility.value[section] = !sectionVisibility.value[section];
+      };
 
-      isMenuOpen,
-      toggleMenu,
-      showAdvanceAdvertising, // Return to be used in the template
-      toggleAdvanceAdvertising, // Return to be used in the template
-    };
-  },
-});
+      // Method to check if a section is visible
+      const isSectionVisible = (section: string) => {
+        return sectionVisibility.value[section];
+      };
+      ///////////////// toggle hide/visibility section  ////////////////////////////////
+      
+      const submitContent = () => {
+      const sanitizedData = {
+        customerDataBase: sanitizedCustomerDataBase.value,
+      };
+
+      console.log('Sanitized Data:', sanitizedData);
+      // Here you should send sanitizedData to your API endpoint
+      };
+
+      return {
+        website,
+        selectedTab,
+        sanitizedWebsite,
+        validateWebsite,
+        customerDataBase,
+        sanitizedCustomerDataBase,
+        addCircleOutline,
+        closeCircleOutline,
+        informationCircleOutline,
+        submitContent,
+        isWebsiteValid,
+        // toggle visibility/hide section
+        toggleSection,
+        isSectionVisible,
+        // toggle visibility/hide section
+        isBidCapViewANDClickVisible,
+        toggleAdvanceAdvertisingANDsetBidCapFields,
+
+        isMenuOpen,
+        toggleMenu,
+        showAdvanceAdvertising, // Return to be used in the template
+        // toggleAdvanceAdvertising,
+        // Return to be used in the template
+      };
+    },
+  });
 </script>
 
 

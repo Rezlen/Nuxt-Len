@@ -1,6 +1,7 @@
 <template>
   <IonGrid>
     <!-- Header text -->
+     <p class="Header"><b>Advance Targeted Advertising</b></p>
     <p class="Header">You can choose to show your advert to people or businesses with one or many specification listed
       below:</p>
 
