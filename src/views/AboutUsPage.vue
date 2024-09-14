@@ -37,7 +37,7 @@
             </IonTitle>
             <P>
             LEN aims to be the premier platform connecting entrepreneurs, businesses, and investors in the UK and globally. 
-            Our goal is to establish the largest monthly platform and exhibition where people and businesses can start, expand, buy, sell, promote, and invest or receive investment.
+            Our goal is to establish the largest monthly platform and exhibition where people and businesses can start, expand, buy, sell, promote, invest or receive investment.
             </P>
             <IonTitle>
               About LEN
@@ -58,7 +58,7 @@
               development, marketing, finance and law – to give our members access to a wide range of
               training and support to help them to succeed. We work with leading keynote speakers and
               coaches to make our events interesting and practical. And, each year, we collaborate with
-              The Business Show and Business Startup Show organisers on ever larger and more popular
+              The Business Show and Business Startup Show organizers on ever larger and more popular
               stands, from which we run live versions of The Angels Investment Show®.
               Training, mentoring, dinner and business lunch events, exhibitions and our regular
               networking evenings – LEN is a dynamic, growing, ever-evolving, FREE resource for small

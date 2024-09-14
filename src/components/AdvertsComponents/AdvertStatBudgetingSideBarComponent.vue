@@ -57,7 +57,8 @@
           <!-- ################### Click View & Bid section Displayed only after: Advance targeted Advertising Clicked in <SimpleAdvertisingComponent/> ############################# -->
           <IonRow v-if="isBidCapViewANDClickVisibleProp" class="clickViewBid">
             <IonInput class="clickViewBidInputFields" v-model="formFields.bidCapPerReachView" type="text"
-              label="Set Bid Cap per Reach/View:" placeholder="Enter Here" :maxlength="5"> </IonInput> <IonCol class="or" >OR</IonCol>
+              label="Set Bid Cap per Reach/View:" placeholder="Enter Here" :maxlength="5"> </IonInput>
+            <IonCol class="or">OR</IonCol>
             <IonInput class="clickViewBidInputFields" v-model="formFields.bidCapPerLinkClick" type="text"
               label="Set Bid Cap per Link Click:" placeholder="Enter Here" :maxlength="5"></IonInput>
             We won't bid more than this amount for any individual link click. You may have trouble with spending your
@@ -76,8 +77,8 @@
           <p id="click-trigger3"><b>Total Budget/Amount:</b>
             <ion-icon :icon="informationCircleOutline"></ion-icon>
           </p>
-          <IonInput fill="outline" v-model="formFields.purchasedMoreThan" type="text" label="Daily Budget:" placeholder="Enter Here"
-            :maxlength="5"> </IonInput>
+          <IonInput fill="outline" v-model="formFields.purchasedMoreThan" type="text" label="Daily Budget:"
+            placeholder="Enter Here" :maxlength="5"> </IonInput>
           <IonInput fill="outline" v-model="formFields.profilesVisitedMoreThan" type="text" label="LifeTime Budget:"
             placeholder="Enter Here" :maxlength="5"></IonInput>
 
@@ -100,21 +101,22 @@
         </IonCol>
 
         <!-- ############   Date Section ################## -->
-
-        <IonCol class="date">ChooseDate, From:</IonCol>
-        <IonRow>
-          <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
-          <IonModal :keep-contents-mounted="true">
-            <IonDatetime id="datetime4"></IonDatetime>
-          </IonModal>
-        </IonRow>
-        <IonCol class="date">To:</IonCol>
-        <IonRow>
-          <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
-          <IonModal :keep-contents-mounted="true">
-            <IonDatetime id="datetime4"></IonDatetime>
-          </IonModal>
-        </IonRow>
+        <IonCol>
+          <IonRow class="date">ChooseDate, From:</IonRow>
+          <IonRow>
+            <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
+            <IonModal :keep-contents-mounted="true">
+              <IonDatetime id="datetime4"></IonDatetime>
+            </IonModal>
+          </IonRow>
+          <IonRow class="or">To:</IonRow>
+          <IonRow>
+            <IonDatetimeButton datetime="datetime4"></IonDatetimeButton>
+            <IonModal :keep-contents-mounted="true">
+              <IonDatetime id="datetime4"></IonDatetime>
+            </IonModal>
+          </IonRow>
+        </IonCol>
       </IonRow>
 
 
@@ -364,6 +366,9 @@ export default defineComponent({
   }
   .or{
     text-align: center;
+    /* justify-content: center;
+    align-items: center;
+    align-content: center; */
   }
 
   /* ion-input {
