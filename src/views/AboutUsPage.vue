@@ -46,7 +46,6 @@
               London Entrepreneurs Network®
             </IonTitle>
             <p>
-              About LEN
               London Entrepreneurs Network® (LEN) was established in 2008 and has grown to be one of
               the UK’s largest and most active networking groups for entrepreneurs, start-ups and SMEs.
               We currently have 16,000 members, a figure that is expanding at a rate of 500 or more new
@@ -55,7 +54,7 @@
               over a hundred members and guests. We collaborate with mentoring groups, to get our
               members face to face with some of the most successful business development minds in the
               country, and have partnerships with other experienced professionals – in the fields of web
-              development, marketing, finance and law – to give our members access to a wide range of
+              development, business mentoring & advice, marketing, finance and law – to give our members access to a wide range of
               training and support to help them to succeed. We work with leading keynote speakers and
               coaches to make our events interesting and practical. And, each year, we collaborate with
               The Business Show and Business Startup Show organizers on ever larger and more popular
