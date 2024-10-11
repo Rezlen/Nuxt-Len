@@ -4,6 +4,7 @@
     <IonRow class="MainRow">
       <!-- Section For All Middle Content of the page -->
       <IonCol class="allContentCol">
+        
 
         <IonRow class="CenterPositions titleRow">
           <h2 class="CenterPositions bold">Advertise in 4 ways:</h2>
